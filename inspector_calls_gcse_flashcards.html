@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>An Inspector Calls — GCSE Flashcards</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f0;
+    --color-text-primary: #1a1a18;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --font-sans: system-ui, -apple-system, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-text-primary: #f0ece4;
+      --color-text-secondary: #a8a59e;
+      --color-text-tertiary: #6e6d69;
+      --color-border-tertiary: rgba(255,255,255,0.10);
+      --color-border-secondary: rgba(255,255,255,0.20);
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-secondary); color: var(--color-text-primary); padding: 2rem 1rem; min-height: 100vh; }
+  h1 { font-size: 20px; font-weight: 500; margin-bottom: 0.25rem; }
+  .subtitle { font-size: 14px; color: var(--color-text-secondary); margin-bottom: 1.5rem; }
+  .controls { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1.25rem; }
+  .filter-btn { font-size: 12px; padding: 5px 12px; border-radius: 20px; border: 0.5px solid var(--color-border-secondary); background: var(--color-background-primary); color: var(--color-text-secondary); cursor: pointer; transition: all 0.15s; }
+  .filter-btn.active { border-color: transparent; color: #fff; }
+  .filter-btn[data-char="All"].active { background: #444441; }
+  .filter-btn[data-char="Inspector"].active { background: #185FA5; }
+  .filter-btn[data-char="Mr Birling"].active { background: #993C1D; }
+  .filter-btn[data-char="Mrs Birling"].active { background: #993556; }
+  .filter-btn[data-char="Sheila"].active { background: #3B6D11; }
+  .filter-btn[data-char="Eric"].active { background: #854F0B; }
+  .filter-btn[data-char="Gerald"].active { background: #534AB7; }
+  .counter { font-size: 13px; color: var(--color-text-secondary); margin-bottom: 1rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+  .card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; cursor: pointer; user-select: none; min-height: 220px; display: flex; flex-direction: column; gap: 8px; transition: border-color 0.15s; }
+  .card:hover { border-color: var(--color-border-secondary); }
+  .char-badge { font-size: 11px; font-weight: 500; padding: 3px 8px; border-radius: 12px; display: inline-block; width: fit-content; }
+  .Inspector .char-badge { background: #E6F1FB; color: #185FA5; }
+  .MrBirling .char-badge { background: #FAECE7; color: #993C1D; }
+  .MrsBirling .char-badge { background: #FBEAF0; color: #993556; }
+  .Sheila .char-badge { background: #EAF3DE; color: #3B6D11; }
+  .Eric .char-badge { background: #FAEEDA; color: #854F0B; }
+  .Gerald .char-badge { background: #EEEDFE; color: #534AB7; }
+  .mnemonic { font-size: 13px; font-weight: 500; color: var(--color-text-secondary); letter-spacing: 0.02em; border-left: 2px solid var(--color-border-secondary); padding-left: 8px; }
+  .Inspector .mnemonic { border-color: #185FA5; }
+  .MrBirling .mnemonic { border-color: #993C1D; }
+  .MrsBirling .mnemonic { border-color: #993556; }
+  .Sheila .mnemonic { border-color: #3B6D11; }
+  .Eric .mnemonic { border-color: #854F0B; }
+  .Gerald .mnemonic { border-color: #534AB7; }
+  .quote { font-size: 14px; font-style: italic; color: var(--color-text-primary); line-height: 1.5; flex-grow: 1; }
+  .insight { display: none; font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; border-top: 0.5px solid var(--color-border-tertiary); padding-top: 8px; margin-top: 4px; }
+  .card.flipped .insight { display: block; }
+  .card.flipped .quote { color: var(--color-text-secondary); font-size: 13px; }
+  .tap-hint { font-size: 11px; color: var(--color-text-tertiary); text-align: right; margin-top: auto; }
+  .act-tag { font-size: 11px; color: var(--color-text-tertiary); }
+</style>
+</head>
+<body>
+<h1>An Inspector Calls</h1>
+<p class="subtitle">GCSE Flashcards — tap a card to reveal the analytical insight</p>
+
+<div class="controls" id="filters"></div>
+<div class="counter" id="counter"></div>
+<div class="grid" id="grid"></div>
+
+<script>
+const quotes = [
+  { char:"Inspector", q:"We don't live alone. We are members of one body. We are responsible for each other.", mnemonic:"BODY", act:"Act 3", insight:"Central thesis of the play; Priestley's socialist manifesto distilled. Directly opposes Birling's individualism. 'Body' implies organic unity — harm to one harms all." },
+  { char:"Inspector", q:"Each of you helped to kill her.", mnemonic:"CHAIN", act:"Act 3", insight:"Collective guilt, not individual — Priestley's point that society as a whole destroys Eva. 'Helped' distributes moral responsibility equally across class and gender." },
+  { char:"Inspector", q:"There are millions and millions of Eva Smiths and John Smiths still left with us.", mnemonic:"MILLIONS", act:"Act 3", insight:"Eva is not an individual case but a symbol of systemic exploitation. Repetition of 'millions' mirrors the scale of injustice Priestley condemns." },
+  { char:"Inspector", q:"If men will not learn that lesson, then they will be taught it in fire and blood and anguish.", mnemonic:"FIRE", act:"Act 3", insight:"Prophetic warning evoking WWI and WWII — Priestley writing in 1945 gives this retrospective irony. Goole may be supernatural; the lesson was ignored." },
+  { char:"Inspector", q:"It's better to ask for the Earth than to take it.", mnemonic:"EARTH", act:"Act 2", insight:"Moral reproach to Gerald's exploitation of Eva. 'Take' implies entitlement; Priestley critiques how the wealthy treat the poor as property to be used." },
+  { char:"Inspector", q:"Two hours ago a young woman died in the Infirmary. She'd been taken there this afternoon because she'd swallowed a lot of strong disinfectant.", mnemonic:"DISINFECTANT", act:"Act 1", insight:"Brutal opening — Priestley uses clinical detail deliberately. The harshness cuts through the comfort of the celebration, shocking audience and Birlings alike." },
+  { char:"Inspector", q:"Sometimes there isn't as much difference as you think.", mnemonic:"DIFFERENCE", act:"Act 2", insight:"Response to Gerald's claim they are 'respectable, not criminals.' Collapses the class boundary the Birlings rely on. Goole as moral leveller." },
+  { char:"Mr Birling", q:"A man has to make his own way — has to look after himself — and his family too, of course — community and all that nonsense.", mnemonic:"NONSENSE", act:"Act 1", insight:"Priestley exposes capitalist individualism as morally bankrupt. 'Nonsense' is ironic — the play proves community is everything. Birling becomes the fool Priestley needs him to be." },
+  { char:"Mr Birling", q:"The Titanic — she sails next week — forty-six thousand eight hundred tons — and every luxury — and unsinkable, absolutely unsinkable.", mnemonic:"TITANIC", act:"Act 1", insight:"Dramatic irony at its peak — audience know the Titanic sank. Priestley systematically destroys Birling's credibility before the Inspector even arrives." },
+  { char:"Mr Birling", q:"I speak as a hard-headed, practical man of business.", mnemonic:"HARDHEAD", act:"Act 1", insight:"Self-image as a rational businessman is Priestley's target. 'Hard-headed' connotes lack of feeling — exactly the problem. He mistakes economics for morality." },
+  { char:"Mr Birling", q:"It's my duty to keep labour costs down.", mnemonic:"DUTY", act:"Act 1", insight:"He frames exploitation as moral obligation — the inversion Priestley satirises. 'Duty' is the vocabulary of social responsibility turned against workers." },
+  { char:"Mr Birling", q:"I can't accept any responsibility.", mnemonic:"CANT", act:"Act 1", insight:"Delivered as the Inspector arrives — perfect dramatic placement. The word 'can't' rather than 'won't' suggests he genuinely cannot conceive of it. Moral blindness, not defiance." },
+  { char:"Mr Birling", q:"I've got to cover this up as soon as I can.", mnemonic:"COVER", act:"Act 3", insight:"Reputation over justice. After the Inspector leaves, Birling reverts instantly — proving he learned nothing. Contrast with Sheila's transformation." },
+  { char:"Mrs Birling", q:"I accept no blame for it at all.", mnemonic:"NOBLAIM", act:"Act 2", insight:"Parallel to Mr Birling — the older generation united in denial. The dramatic irony is that she has just unknowingly condemned her own son Eric." },
+  { char:"Mrs Birling", q:"Girls of that class.", mnemonic:"CLASS", act:"Act 2", insight:"Exposes class prejudice in three words. 'That' implies disgust and distance. Priestley shows how language itself enacts snobbery and dehumanisation." },
+  { char:"Mrs Birling", q:"I think Miss Birling ought to be excused any more of this questioning.", mnemonic:"EXCUSED", act:"Act 2", insight:"Attempted class-based privilege — she expects to control the Inspector. His refusal is a direct challenge to the social hierarchy she embodies." },
+  { char:"Mrs Birling", q:"I did nothing I'm ashamed of.", mnemonic:"ASHAMED", act:"Act 2", insight:"Dramatic irony — the audience know she turned away Eva despite her pregnancy. Priestley uses her certainty to expose moral failure as a product of class arrogance." },
+  { char:"Sheila", q:"These girls aren't cheap labour. They're people.", mnemonic:"PEOPLE", act:"Act 1", insight:"Sheila articulates the Inspector's moral. She develops faster than any other Birling. 'People' reasserts humanity the family's language strips away." },
+  { char:"Sheila", q:"You and I aren't the same people who sat down to dinner here.", mnemonic:"DINNER", act:"Act 2", insight:"Marks her transformation as complete and irreversible. Priestley uses her as the vehicle for hope — the younger generation can change." },
+  { char:"Sheila", q:"I'll never, never do it again to anybody.", mnemonic:"NEVER", act:"Act 1", insight:"Repetition of 'never' signals genuine remorse and moral growth. Contrast with her parents' refusal to acknowledge fault. She earns the Inspector's respect." },
+  { char:"Sheila", q:"You're beginning to pretend all over again that nothing much has happened.", mnemonic:"PRETEND", act:"Act 3", insight:"She sees clearly what her parents are doing. 'Pretend' frames them as morally childish. The generational divide crystallises here." },
+  { char:"Sheila", q:"I rather respect you more than I've ever done before.", mnemonic:"RESPECT", act:"Act 2", insight:"Said to Gerald after his confession — Sheila's values have shifted from social performance to honesty. She has genuinely internalised the Inspector's lesson." },
+  { char:"Eric", q:"You're not the kind of father a chap could go to when he's in trouble.", mnemonic:"TROUBLE", act:"Act 3", insight:"Most devastating attack on Birling in the play — from within the family. Exposes the emotional cost of his father's capitalism: a son with nowhere to turn." },
+  { char:"Eric", q:"My child — your own grandchild — you killed them both — damn you, damn you.", mnemonic:"GRANDCHILD", act:"Act 3", insight:"Explosive accusation at Mrs Birling — the play's emotional peak. Her refusal to help Eva killed her son's unborn child. Class snobbery as murder by proxy." },
+  { char:"Eric", q:"I intended to pay it back.", mnemonic:"PAYBACK", act:"Act 3", insight:"Self-justification that mirrors his father's moral evasions — yet Eric shows genuine shame unlike Birling. Stealing from Birling's firm is also a symbolic inversion." },
+  { char:"Eric", q:"We did her in all right.", mnemonic:"WEDIN", act:"Act 3", insight:"Colloquial phrasing makes it visceral. 'We' — collective guilt again, Eric joining the Inspector's framework rather than defending himself." },
+  { char:"Gerald", q:"She was very pretty — soft brown hair and big dark eyes.", mnemonic:"PRETTY", act:"Act 2", insight:"Reveals Gerald noticed Eva as an object of beauty first. Priestley shows how even the most sympathetic male character initially views women through appearance." },
+  { char:"Gerald", q:"I didn't feel about her as she felt about me.", mnemonic:"FELT", act:"Act 2", insight:"Honest but damning — he used Eva for comfort while she fell in love. The power imbalance of class and gender shown with simple clarity." },
+  { char:"Gerald", q:"Everything's all right now, Sheila.", mnemonic:"ALLRIGHT", act:"Act 3", insight:"Said when they believe the Inspector was fake. Reveals Gerald's moral lesson was never absorbed. He reverts to managing Sheila, not understanding her change." },
+  { char:"Gerald", q:"We're respectable citizens and not dangerous criminals.", mnemonic:"RESPECTABLE", act:"Act 2", insight:"The class defence the Inspector dismantles. 'Respectable' is the word the Birling world runs on — the Inspector shows respectability is not morality." },
+];
+
+const charClass = c => c.replace(/\s/g,'').replace("'","");
+const chars = ["All","Inspector","Mr Birling","Mrs Birling","Sheila","Eric","Gerald"];
+const filterEl = document.getElementById('filters');
+const gridEl = document.getElementById('grid');
+const counterEl = document.getElementById('counter');
+let active = "All";
+
+chars.forEach(c => {
+  const b = document.createElement('button');
+  b.className = 'filter-btn' + (c === 'All' ? ' active' : '');
+  b.textContent = c;
+  b.dataset.char = c;
+  b.onclick = () => {
+    active = c;
+    render();
+    filterEl.querySelectorAll('.filter-btn').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+  };
+  filterEl.appendChild(b);
+});
+
+function render() {
+  gridEl.innerHTML = '';
+  const filtered = active === 'All' ? quotes : quotes.filter(q => q.char === active);
+  counterEl.textContent = filtered.length + ' quote' + (filtered.length !== 1 ? 's' : '');
+  filtered.forEach(q => {
+    const cc = charClass(q.char);
+    const card = document.createElement('div');
+    card.className = 'card ' + cc;
+    card.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span class="char-badge">${q.char}</span>
+        <span class="act-tag">${q.act}</span>
+      </div>
+      <div class="mnemonic">&#9670; ${q.mnemonic}</div>
+      <div class="quote">"${q.q}"</div>
+      <div class="insight">${q.insight}</div>
+      <div class="tap-hint">tap to reveal insight</div>
+    `;
+    card.onclick = () => {
+      card.classList.toggle('flipped');
+      card.querySelector('.tap-hint').textContent = card.classList.contains('flipped') ? 'tap to hide' : 'tap to reveal insight';
+    };
+    gridEl.appendChild(card);
+  });
+}
+render();
+</script>
+</body>
+</html>
