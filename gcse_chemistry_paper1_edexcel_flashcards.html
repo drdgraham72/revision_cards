@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GCSE Chemistry Paper 1 — Edexcel Flashcards</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{
+    --bg1:#ffffff;--bg2:#f4f5f7;--bg3:#e8edf5;--bg4:#fef9ec;
+    --t1:#1a1a18;--t2:#5a5a57;--t3:#888780;
+    --bl:rgba(0,0,0,0.10);--bm:rgba(0,0,0,0.19);
+    --r:8px;--rl:12px;--font:system-ui,-apple-system,sans-serif;
+  }
+  @media(prefers-color-scheme:dark){
+    :root{
+      --bg1:#1e1e1c;--bg2:#252528;--bg3:#1a2030;--bg4:#2a2510;
+      --t1:#f0ece4;--t2:#a8a59e;--t3:#6a6966;
+      --bl:rgba(255,255,255,0.09);--bm:rgba(255,255,255,0.18);
+    }
+  }
+  body{font-family:var(--font);background:var(--bg2);color:var(--t1);padding:1.75rem 1rem;min-height:100vh;}
+  h1{font-size:20px;font-weight:500;margin-bottom:.2rem;}
+  .sub{font-size:14px;color:var(--t2);margin-bottom:1.4rem;}
+
+  .frow{margin-bottom:.8rem;}
+  .flabel{font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px;}
+  .btns{display:flex;gap:5px;flex-wrap:wrap;}
+  .fb{font-size:12px;padding:4px 11px;border-radius:20px;border:.5px solid var(--bm);background:var(--bg1);color:var(--t2);cursor:pointer;transition:all .13s;white-space:nowrap;}
+  .fb.on{border-color:transparent;color:#fff;}
+  .fb[data-f="All"].on{background:#444441;}
+  .fb[data-f="C1"].on{background:#185FA5;}
+  .fb[data-f="C2"].on{background:#534AB7;}
+  .fb[data-f="C3"].on{background:#993C1D;}
+  .fb[data-f="C4"].on{background:#3B6D11;}
+  .fb[data-t="All"].on{background:#444441;}
+  .fb[data-t="concept"].on{background:#185FA5;}
+  .fb[data-t="calculation"].on{background:#0F6E56;}
+  .fb[data-t="practical"].on{background:#993C1D;}
+  .fb[data-t="process"].on{background:#534AB7;}
+  .fb[data-t="bonding"].on{background:#854F0B;}
+
+  .counter{font-size:13px;color:var(--t2);margin:.8rem 0 1rem;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(288px,1fr));gap:11px;}
+
+  .card{background:var(--bg1);border:.5px solid var(--bl);border-radius:var(--rl);padding:.95rem 1.15rem;cursor:pointer;user-select:none;min-height:200px;display:flex;flex-direction:column;gap:6px;transition:border-color .13s;}
+  .card:hover{border-color:var(--bm);}
+
+  .ctop{display:flex;justify-content:space-between;align-items:flex-start;gap:6px;}
+  .badges{display:flex;gap:4px;flex-wrap:wrap;}
+  .badge{font-size:10px;font-weight:500;padding:2px 7px;border-radius:10px;white-space:nowrap;}
+  .bC1{background:#E6F1FB;color:#185FA5;}
+  .bC2{background:#EEEDFE;color:#534AB7;}
+  .bC3{background:#FAECE7;color:#993C1D;}
+  .bC4{background:#EAF3DE;color:#3B6D11;}
+  .bprac{background:#FAEEDA;color:#854F0B;}
+  .bcalc{background:#E1F5EE;color:#0F6E56;}
+  .bht{background:#FCEBEB;color:#A32D2D;}
+
+  .cterm{font-size:14px;font-weight:500;color:var(--t1);line-height:1.35;}
+  .cmnem{font-size:12px;color:var(--t2);border-left:2px solid var(--bm);padding-left:8px;}
+  .cdef{font-size:13px;color:var(--t2);line-height:1.55;flex-grow:1;}
+
+  .back{display:none;flex-direction:column;gap:7px;}
+  .card.flipped .back{display:flex;}
+  .card.flipped .cdef{font-size:12px;color:var(--t3);}
+
+  .detail{font-size:13px;color:var(--t2);line-height:1.6;border-top:.5px solid var(--bl);padding-top:7px;}
+  .calc-box{background:var(--bg3);border-radius:var(--r);padding:7px 10px;font-size:12px;color:var(--t2);line-height:1.6;font-family:var(--font);}
+  .calc-label{font-size:10px;font-weight:500;color:#0F6E56;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px;}
+  .prac-box{background:var(--bg4);border-radius:var(--r);padding:7px 10px;font-size:12px;color:var(--t2);line-height:1.5;}
+  .prac-label{font-size:10px;font-weight:500;color:#854F0B;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px;}
+  .exam-box{background:var(--bg2);border-radius:var(--r);padding:7px 10px;font-size:12px;color:var(--t2);line-height:1.5;}
+  .exam-label{font-size:10px;font-weight:500;color:#185FA5;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px;}
+
+  .hint{font-size:11px;color:var(--t3);text-align:right;margin-top:auto;}
+</style>
+</head>
+<body>
+<h1>GCSE Chemistry — Paper 1</h1>
+<p class="sub">Edexcel C1–C4 · tap a card to reveal full detail, worked examples &amp; exam angle</p>
+
+<div class="frow"><div class="flabel">Topic</div><div class="btns" id="tf"></div></div>
+<div class="frow"><div class="flabel">Type</div><div class="btns" id="tt"></div></div>
+<div class="counter" id="ctr"></div>
+<div class="grid" id="grid"></div>
+
+<script>
+const TOPICS=["All","C1","C2","C3","C4"];
+const TYPES=["All","concept","bonding","calculation","practical","process"];
+
+const C=[
+
+/* ════════════════════════════════
+   C1 — KEY CONCEPTS
+════════════════════════════════ */
+{top:"C1",type:"concept",ht:false,
+ term:"History of the Atom",
+ mnem:"DRTBC — Dalton (solid sphere) → Thomson (plum pudding) → Rutherford (nuclear) → Bohr (electron shells) → Chadwick (neutron)",
+ def:"The model of the atom has been revised as new experimental evidence emerged. Each scientist built on the last.",
+ detail:"Dalton (1803): indivisible solid spheres. Thomson (1897): discovered electrons — plum pudding model (electrons embedded in positive 'dough'). Rutherford (1909): gold foil experiment — most alpha particles passed through, some deflected back → nucleus is small, dense, positive. Bohr (1913): electrons orbit nucleus in fixed shells (energy levels). Chadwick (1932): discovered neutrons in nucleus.",
+ calc:null,
+ prac:"No core practical. Exam questions often give unfamiliar scattering data — apply Rutherford's logic: deflection = hit dense nucleus; most pass through = mostly empty space.",
+ exam:"Exam: 'Explain what the results of the gold foil experiment show about atomic structure' — three-point answer: (1) most alpha particles passed through → atom is mostly empty space; (2) small number deflected at large angles → small dense nucleus; (3) nucleus is positively charged → repels alpha particles. All three needed for full marks."
+},
+{top:"C1",type:"concept",ht:false,
+ term:"Atomic Structure & Isotopes",
+ mnem:"PNEM — Protons = atomic number; Neutrons = mass number minus atomic number; Electrons = protons (neutral atom); Isotopes = same protons, different neutrons",
+ def:"Atom: proton (charge +1, mass 1), neutron (charge 0, mass 1), electron (charge −1, negligible mass). Atomic number = number of protons. Mass number = protons + neutrons. Isotopes: atoms of the same element with the same number of protons but different numbers of neutrons.",
+ detail:"Electrons occupy shells: 2, 8, 8... (up to period 3). Isotopes have identical chemical properties (same electron configuration) but different physical properties (different mass). Radioactive isotopes: unstable nuclei that emit radiation. Examples: carbon-12 and carbon-14 (both have 6 protons; C-14 has 8 neutrons; C-12 has 6).",
+ calc:"Neutrons = mass number − atomic number. Example: Chlorine-35 has atomic number 17 → neutrons = 35 − 17 = 18. Electron config of Cl (17 electrons): 2, 8, 7.",
+ prac:null,
+ exam:"Exam: 'State what is meant by isotopes' — must include: same element (same number of protons / same atomic number) AND different number of neutrons / different mass numbers. Both points required. Do not say 'same number of electrons' — that is a consequence, not the definition."
+},
+{top:"C1",type:"calculation",ht:false,
+ term:"Relative Atomic Mass (Aᵣ)",
+ mnem:"RAM — weighted average of all isotopes, accounting for their abundance",
+ def:"Relative atomic mass (Aᵣ) is the weighted mean mass of an atom of an element relative to 1/12 of the mass of a carbon-12 atom. It takes into account the abundance of each isotope.",
+ detail:"Not always a whole number because most elements are a mixture of isotopes. The periodic table value of Aᵣ reflects natural isotopic abundances. Example: chlorine is ~75% Cl-35 and ~25% Cl-37 → Aᵣ ≈ 35.5.",
+ calc:"Formula: Aᵣ = Σ(isotope mass × % abundance) ÷ 100. Example: Cl has 75% Cl-35 and 25% Cl-37. Aᵣ = (35×75 + 37×25) ÷ 100 = (2625 + 925) ÷ 100 = 35.5. Higher tier: may give fractional abundances (e.g. 0.75 and 0.25) — multiply directly without ÷100.",
+ prac:null,
+ exam:"Exam: Show working clearly. Common error — forgetting to divide by 100 when abundances given as percentages. Check: answer should be between the two isotope masses. If your answer is outside that range, you've made an error."
+},
+{top:"C1",type:"concept",ht:false,
+ term:"The Periodic Table & Electron Configuration",
+ mnem:"PGME — Period = number of electron shells; Group = number of outer electrons; Metals left, non-metals right; Elements ordered by atomic number",
+ def:"Elements arranged by increasing atomic number. Period = row (number of electron shells). Group = column (number of outer shell electrons). Group 1: 1 outer electron. Group 7: 7 outer electrons. Group 0 (noble gases): full outer shell.",
+ detail:"Electron configuration determines reactivity. Group 1 metals: very reactive — lose 1 electron easily. Group 7 halogens: very reactive — gain 1 electron to complete outer shell. Group 0: unreactive — full outer shell, no tendency to gain/lose electrons. Transition metals: between groups 2 and 3 — form coloured compounds, multiple oxidation states, good catalysts.",
+ calc:"Write electron configs by filling shells in order: 2 then 8 then 8. Na (atomic number 11): 2, 8, 1. Ca (20): 2, 8, 8, 2. Fe (26): 2, 8, 14, 2 (transition metals fill 3d shell).",
+ prac:null,
+ exam:"Exam: Electron configuration questions — always fill shells in order 2, 8, 8. The number of outer electrons = group number (for main group elements). Period 3 elements: 8 electrons in shell 2, then vary in shell 3."
+},
+{top:"C1",type:"bonding",ht:false,
+ term:"Ionic Bonding & Properties",
+ mnem:"METAL + NON-METAL = transfer electrons; form ions; giant ionic lattice; high mp; conducts when dissolved/molten",
+ def:"Ionic bonding: electrostatic attraction between oppositely charged ions. Metal atoms lose electrons (form +ve cations); non-metal atoms gain electrons (form −ve anions). Ions arranged in a giant ionic lattice.",
+ detail:"Example: NaCl — Na loses 1e⁻ → Na⁺; Cl gains 1e⁻ → Cl⁻. Giant lattice: each ion surrounded by 6 opposite ions (in NaCl). Properties: high melting/boiling points (strong electrostatic forces in all directions require lots of energy to break); conduct electricity when dissolved in water or molten (ions free to move and carry charge); brittle (strike causes layers to shift — same charges align and repel); soluble in water (water molecules surround and disperse ions).",
+ calc:null,
+ prac:null,
+ exam:"Exam: 'Explain why ionic compounds have high melting points' — must mention: strong electrostatic forces of attraction between oppositely charged ions in a giant lattice; requires a lot of energy to break. Do NOT say 'strong bonds' without specifying what the bond is between."
+},
+{top:"C1",type:"bonding",ht:false,
+ term:"Covalent Bonding & Properties",
+ mnem:"NON-METAL + NON-METAL = share electrons; simple molecular (low mp) OR giant covalent (very high mp)",
+ def:"Covalent bonding: shared pairs of electrons between non-metal atoms. Each atom provides one electron to the shared pair. Can form simple molecular structures or giant covalent structures.",
+ detail:"Simple molecular (e.g. H₂O, CO₂, CH₄): strong covalent bonds within molecules, weak intermolecular forces between molecules → low melting/boiling points; do not conduct electricity (no charged particles). Giant covalent (e.g. diamond, graphite, silicon dioxide): every atom bonded covalently throughout → extremely high melting points. Diamond: each C bonded to 4 others in tetrahedra → very hard, no free electrons → doesn't conduct. Graphite: layers of hexagonal rings, one delocalised electron per C → conducts electricity, layers slide (lubricant). Graphene: single layer of graphite → excellent conductor, very strong.",
+ calc:null,
+ prac:null,
+ exam:"Exam: 'Explain why graphite conducts electricity but diamond does not' — graphite: each carbon forms 3 covalent bonds, leaving one delocalised electron per atom free to carry charge. Diamond: each carbon forms 4 covalent bonds, no free/delocalised electrons. Specific mechanism required."
+},
+{top:"C1",type:"bonding",ht:false,
+ term:"Metallic Bonding & Properties",
+ mnem:"SEA OF ELECTRONS — positive metal ions in a lattice; surrounded by delocalised electrons; explains all metal properties",
+ def:"Metallic bonding: positive metal ions arranged in a giant lattice, surrounded by a 'sea' of delocalised electrons (electrons that have left their parent atoms and are free to move through the whole structure).",
+ detail:"Properties explained by the model: conducts electricity (delocalised electrons carry charge); conducts heat (electrons transfer kinetic energy); malleable/ductile (layers of ions slide over each other, electron sea maintains bonding); high melting/boiling points (strong attraction between positive ions and electron sea). Alloys: mixing metals disrupts regular lattice → layers can't slide as easily → harder than pure metals (e.g. steel harder than iron).",
+ calc:null,
+ prac:null,
+ exam:"Exam: 'Explain why metals conduct electricity' — must say: delocalised electrons are free to move through the metal lattice / carry charge from one end to the other. 'Delocalised' is a key word examiners look for. 'Free electrons' alone gets partial credit."
+},
+{top:"C1",type:"calculation",ht:false,
+ term:"Relative Formula Mass (Mᵣ) & Empirical Formula",
+ mnem:"Mᵣ = sum of all Aᵣ values in formula. Empirical = simplest whole-number ratio of atoms.",
+ def:"Relative formula mass (Mᵣ): sum of the relative atomic masses of all atoms in the formula. Empirical formula: simplest whole-number ratio of atoms of each element in a compound.",
+ detail:"Mᵣ examples: H₂O = (2×1) + 16 = 18. CaCO₃ = 40 + 12 + (3×16) = 100. Na₂SO₄ = (2×23) + 32 + (4×16) = 142. Empirical formula from masses: (1) divide each mass by its Aᵣ to get moles; (2) divide each by smallest mole value; (3) round to whole numbers (if 1.5 → multiply all by 2).",
+ calc:"Empirical formula example: 2.4g C and 0.8g H. Moles C = 2.4/12 = 0.2; moles H = 0.8/1 = 0.8. Ratio C:H = 0.2:0.8 = 1:4. Empirical formula = CH₄. From percentage composition: treat % as grams, then apply same method.",
+ prac:null,
+ exam:"Exam: Show every step of empirical formula working. If ratio gives 1.5 → multiply all by 2 to get whole numbers. Common error: rounding 1.33 to 1 instead of recognising it as 4/3 (multiply by 3). If told 'molecular formula = 2 × empirical' — double subscripts."
+},
+{top:"C1",type:"calculation",ht:false,
+ term:"Conservation of Mass & Reacting Masses",
+ mnem:"MASS IN = MASS OUT — atoms rearranged not created/destroyed; use molar ratios from balanced equation",
+ def:"Law of conservation of mass: mass is conserved in a chemical reaction — the total mass of reactants equals the total mass of products. Atoms are rearranged, not created or destroyed.",
+ detail:"Apparent mass changes: (1) gas escapes (e.g. CaCO₃ → CaO + CO₂ in open container — mass decreases as CO₂ escapes); (2) gas is absorbed from air (e.g. Mg burns in oxygen — mass increases). If reaction vessel is sealed, mass is always conserved. Balanced equations: ratios of moles. To find mass: use moles = mass ÷ Mᵣ, scale using ratio, convert back to mass.",
+ calc:"Example: How much MgO forms when 24g Mg burns? 2Mg + O₂ → 2MgO. Moles Mg = 24/24 = 1 mol. Ratio Mg:MgO = 2:2 = 1:1. Moles MgO = 1 mol. Mass MgO = 1 × (24+16) = 40g. Three-step method: (1) moles of known; (2) ratio; (3) mass of unknown.",
+ prac:null,
+ exam:"Exam: Always balance equation first. Common error: using Mᵣ without the ratio. Must use the stoichiometric ratio from the balanced equation. Show moles step even if the ratio is 1:1 — examiners award method marks."
+},
+{top:"C1",type:"calculation",ht:true,
+ term:"Moles (Higher Tier)",
+ mnem:"MOLAR TRINITY — moles = mass÷Mᵣ; moles = concentration×volume; moles = volume(gas)÷24 (at room temp)",
+ def:"A mole is 6.02×10²³ particles (Avogadro's number). Molar mass = mass in grams of one mole = numerically equal to Mᵣ.",
+ detail:"Three mole equations: (1) moles = mass (g) ÷ Mᵣ. (2) moles = concentration (mol/dm³) × volume (dm³) — for solutions. (3) moles = volume (dm³) ÷ 24 — for gases at RTP (room temperature and pressure). Avogadro's number = 6.02×10²³ particles per mole. Concentration = moles ÷ volume (dm³). Convert cm³ to dm³: divide by 1000.",
+ calc:"Example: 50 cm³ of 0.1 mol/dm³ HCl. Moles = 0.1 × (50/1000) = 0.1 × 0.05 = 0.005 mol. Volume to dm³ FIRST — common error. Gas: 0.5 mol CO₂ at RTP = 0.5 × 24 = 12 dm³. Mass: 2 moles of CaCO₃ = 2 × 100 = 200g.",
+ prac:"Core Practical (Titration): accurate moles calculation from titration — pipette 25.0 cm³ of alkali into conical flask, fill burette with acid, add indicator, titrate to endpoint, record titre. Calculate moles from known concentration, use ratio, find unknown.",
+ exam:"Exam: Moles questions always require units. cm³ → dm³ divide by 1000. If given concentration in g/dm³, convert to mol/dm³ by dividing by Mᵣ first. Show all three steps even for simple calculations — method marks available."
+},
+
+/* ════════════════════════════════
+   C2 — STATES OF MATTER
+════════════════════════════════ */
+{top:"C2",type:"concept",ht:false,
+ term:"States of Matter & Changing State",
+ mnem:"SLG — Solid (fixed shape/volume), Liquid (fixed volume, flows), Gas (fills container). Melting, boiling = energy added; freezing, condensing = energy removed",
+ def:"The three states of matter differ in particle arrangement, movement, and forces. State changes occur at fixed temperatures (melting point, boiling point) when energy is supplied or removed.",
+ detail:"Solid: particles close together, regular arrangement, vibrate in fixed positions. Liquid: particles close but disordered, can flow, move past each other. Gas: particles far apart, move rapidly in random directions. Melting (solid → liquid): energy breaks forces holding particles in fixed positions. Boiling (liquid → gas): energy overcomes intermolecular attractions. Temperature stays constant during state change (energy used to break bonds, not increase kinetic energy). Pure substances have sharp melting/boiling points; mixtures melt/boil over a range.",
+ calc:null,
+ prac:null,
+ exam:"Exam: 'Explain why temperature remains constant during melting' — energy input is used to break the intermolecular forces/bonds holding particles in fixed positions, not to increase the kinetic energy of the particles. Both parts of the explanation needed."
+},
+{top:"C2",type:"concept",ht:false,
+ term:"Purity & Melting Point Testing",
+ mnem:"PURE = sharp melting point; IMPURE = lower and broader melting point range",
+ def:"A pure substance has a single fixed melting point. Impurities lower the melting point and broaden the melting range. This can be used to test purity.",
+ detail:"Pure water melts at exactly 0°C. Salt water melts below 0°C and over a range. Impurities disrupt the regular lattice of the pure substance, reducing the energy needed to break it apart. The broader the melting range, the more impure the sample. Also applies to boiling points: impurities raise boiling point (boiling point elevation).",
+ calc:null,
+ prac:"Core Practical: Determine purity by measuring melting point using a melting point apparatus or capillary tube in a heated oil bath. Compare to data book value. Observe: pure = sharp/narrow range; impure = starts melting earlier and over a wider range.",
+ exam:"Exam: 'How could you use melting point to test purity?' — heat sample slowly, record temperature at which melting begins and ends. Pure: narrow range at 0°C (for water). Impure: wider range, starts below expected melting point."
+},
+{top:"C2",type:"practical",ht:false,
+ term:"Separation Techniques",
+ mnem:"FDCC — Filtration (insoluble solid from liquid), Distillation (liquids by boiling point), Crystallisation (soluble solid from solution), Chromatography (mixture of dissolved substances)",
+ def:"Different separation techniques exploit different physical properties to separate mixtures.",
+ detail:"Filtration: separates insoluble solid from liquid. Filter paper retains solid (residue), filtrate passes through. Evaporation/crystallisation: heat solution → solvent evaporates → solute crystallises. Cool slowly for larger crystals. Simple distillation: separate solvent from solution (one liquid + dissolved solid) — heat, vapour collected and condensed. Fractional distillation: separate liquids with different boiling points — fractionating column creates temperature gradient. Chromatography: separates dissolved substances by how far they travel up paper with a solvent. Rf value = distance moved by substance ÷ distance moved by solvent front.",
+ calc:"Rf = distance moved by spot ÷ distance moved by solvent. Pure substance = one spot with consistent Rf. Different substances have different Rf values in the same solvent.",
+ prac:"Core Practical: Paper chromatography of food dyes or inks. Draw pencil baseline (not pen — pen would dissolve), add spots of sample, place in small depth of solvent (below baseline), cover to prevent evaporation. Identify substances by Rf or comparison to reference spots. Use pencil for baseline: ink would dissolve in solvent and travel, adding extra spots.",
+ exam:"Exam: Rf value question — always show working. 'Explain why pencil is used for the baseline' = pencil marks are graphite, which is insoluble in the solvent, so it doesn't move / wouldn't contaminate results. Rf is always between 0 and 1."
+},
+{top:"C2",type:"practical",ht:false,
+ term:"Distillation (Simple & Fractional)",
+ mnem:"BOIL-CONDENSE-COLLECT — heat mixture; lowest boiling point liquid vaporises first; condenser cools vapour; collect pure liquid",
+ def:"Simple distillation separates a solvent from a dissolved solid. Fractional distillation separates a mixture of liquids with different boiling points.",
+ detail:"Simple distillation apparatus: round-bottomed flask (heating), thermometer (in neck, measures vapour temperature), Liebig condenser (cold water flowing through), collecting flask. Fractional distillation: fractionating column packed with glass beads — creates temperature gradient, higher fractions (lower bp) escape first. Used for: separating ethanol from water (bp 78°C vs 100°C), crude oil refining. Pure liquid comes over when thermometer reading is stable.",
+ calc:null,
+ prac:"Core Practical: Set up distillation of aqueous copper sulfate (or ink). Record temperature during distillation — first fraction is water (bp ~100°C). Show: thermometer bulb in side arm of flask not in liquid. Anti-bumping granules prevent superheating. Condenser: cold water enters at bottom, exits at top (counter-current for efficiency).",
+ exam:"Exam: 'Describe how to separate ethanol from water by distillation' — heat mixture; ethanol (lower boiling point, 78°C) vaporises first; vapour passes into condenser; condenser cools vapour → liquid ethanol collected; water remains in flask. Temperature of thermometer indicates which fraction is distilling."
+},
+{top:"C2",type:"concept",ht:false,
+ term:"Water Treatment",
+ mnem:"SCDF — Sedimentation (particles settle), Coagulation (clumping), Deep-bed filtration (fine particles), Final chlorination (bacteria)",
+ def:"Potable water (safe to drink) is produced by treating water from reservoirs, rivers, or groundwater. Not the same as pure water — still contains dissolved minerals.",
+ detail:"Steps: (1) Screening — removes large objects. (2) Sedimentation — large particles settle (may add aluminium sulfate to coagulate/clump small particles). (3) Filtration through sand/gravel beds — removes smaller particles. (4) Chlorination — kills bacteria and pathogens. UV light alternative for small supplies. Fluoridation: added in some areas for dental health (controversial). Desalination: removes salt from seawater — distillation or reverse osmosis — expensive, high energy cost.",
+ calc:null,
+ prac:null,
+ exam:"Exam: 'Give the order of steps in water treatment' — screening → sedimentation → filtration → chlorination. 'Explain why potable water is not pure water' = still contains dissolved minerals/salts. 'Pure' in chemistry means a single substance only."
+},
+
+/* ════════════════════════════════
+   C3 — CHEMICAL CHANGES
+════════════════════════════════ */
+{top:"C3",type:"concept",ht:false,
+ term:"Acids, pH Scale & Indicators",
+ mnem:"pH 0–6 acid; pH 7 neutral; pH 8–14 alkali. Strong acid = fully ionised. Weak acid = partially ionised.",
+ def:"Acids produce H⁺ ions in solution. Alkalis produce OH⁻ ions. pH scale 0–14 measures hydrogen ion concentration. Strong acids fully dissociate; weak acids partially dissociate.",
+ detail:"Strong acids: HCl, H₂SO₄, HNO₃ — fully ionise in water (HCl → H⁺ + Cl⁻ — essentially complete). Weak acids: ethanoic acid (vinegar), citric acid, carbonic acid — exist in equilibrium (CH₃COOH ⇌ CH₃COO⁻ + H⁺). Same concentration of strong vs weak acid: strong has lower pH (more H⁺ ions). Indicators: litmus (red in acid, blue in alkali), universal indicator (full range), phenolphthalein (colourless in acid, pink in alkali), methyl orange (red in acid, yellow in alkali). pH meter gives most accurate reading.",
+ calc:"pH and H⁺: pH = −log[H⁺] (Higher tier). Each unit decrease in pH = 10× increase in H⁺ concentration. pH 1 has 10× more H⁺ than pH 2.",
+ prac:"Core Practical: Investigate the change in pH when a strong acid is added to a strong alkali (neutralisation). Use pH meter or universal indicator. Plot pH vs volume of acid added — get characteristic S-curve (for strong acid + strong alkali). Endpoint: sharp change in pH at equivalence point.",
+ exam:"Exam: 'Explain why a weak acid has a higher pH than a strong acid of the same concentration' — weak acid only partially ionises/dissociates, so fewer H⁺ ions in solution, so higher pH (less acidic). Concentration and ionisation are different things — must distinguish."
+},
+{top:"C3",type:"process",ht:false,
+ term:"Neutralisation & Salt Formation",
+ mnem:"ASHCAN — Acid + base → Salt + water. Acid + carbonate → Salt + water + CO₂. Acid + metal → Salt + hydrogen",
+ def:"Neutralisation: acid reacts with a base to form a salt and water. The H⁺ ions from the acid react with the OH⁻ ions from the alkali: H⁺(aq) + OH⁻(aq) → H₂O(l).",
+ detail:"Acid + metal oxide → salt + water. Acid + metal hydroxide → salt + water. Acid + metal carbonate → salt + water + carbon dioxide. Acid + metal → salt + hydrogen. Salt naming: first word = metal or ammonium (from base); second word = from acid (HCl → chloride, H₂SO₄ → sulfate, HNO₃ → nitrate, H₃PO₄ → phosphate). Tests: hydrogen → squeaky pop with lit splint. Carbon dioxide → turns limewater milky. Oxygen → relights glowing splint.",
+ calc:null,
+ prac:null,
+ exam:"Exam: 'Name the salt formed when copper oxide reacts with hydrochloric acid' — copper chloride. Always: (1) name the metal/cation; (2) name the anion from the acid. 'Write the equation for neutralisation' — the ionic equation is always: H⁺(aq) + OH⁻(aq) → H₂O(l)."
+},
+{top:"C3",type:"practical",ht:false,
+ term:"Making a Soluble Salt",
+ mnem:"EXCESS-FILTER-EVAPORATE — excess solid base neutralises all acid; filter off excess; evaporate to crystallise",
+ def:"To make a pure soluble salt: react an acid with an excess of an insoluble base (metal oxide or carbonate). The excess solid ensures all acid is used up. Filter off excess solid, then evaporate/crystallise the filtrate.",
+ detail:"Example: copper sulfate from copper oxide + sulfuric acid. Method: (1) heat dilute H₂SO₄ in evaporating basin; (2) add excess CuO powder (turns solution blue and CuO remains — shows acid used up); (3) filter off excess CuO; (4) heat filtrate to evaporate some water; (5) leave to cool → blue copper sulfate crystals form; (6) pat dry with filter paper. Cannot use titration method (endpoint unclear without indicator which would contaminate crystals).",
+ calc:null,
+ prac:"Core Practical: Making copper sulfate crystals. Variables: temperature of evaporation affects crystal size (slower cooling = larger crystals). Safety: dilute acid — eye protection. Hot liquids — heat-resistant mat. Evaluate: why excess copper oxide used? To ensure all acid is neutralised. How to test crystals are pure? Measure melting point.",
+ exam:"Exam: 'Why is an excess of copper oxide used?' = to ensure all the sulfuric acid is neutralised / used up. 'How do you know the acid has been used up?' = solid copper oxide remains in solution (no more dissolves). Describe/evaluate steps in full method order."
+},
+{top:"C3",type:"practical",ht:false,
+ term:"Making an Insoluble Salt (Precipitation)",
+ mnem:"MIX TWO SOLUTIONS — both ions present; insoluble product precipitates out; filter and wash",
+ def:"Insoluble salts are made by mixing two solutions that each contain one of the required ions. The insoluble salt precipitates out of solution.",
+ detail:"Example: lead iodide (PbI₂). Mix lead nitrate solution [Pb²⁺] with potassium iodide solution [I⁻]. Yellow precipitate of lead iodide forms immediately. Filter, wash with distilled water (removes soluble impurities), dry. Solubility rules: all nitrates soluble; most sulfates soluble (except BaSO₄, PbSO₄, CaSO₄); most chlorides soluble (except AgCl, PbCl₂); all sodium, potassium, ammonium salts soluble. Ionic equation: Pb²⁺(aq) + 2I⁻(aq) → PbI₂(s).",
+ calc:null,
+ prac:"Core Practical: Prepare a sample of lead iodide. Mix 25 cm³ of 0.5 mol/dm³ lead nitrate with 25 cm³ of 1.0 mol/dm³ potassium iodide. Filter using filter paper and funnel. Wash precipitate with distilled water. Dry in oven at low temperature.",
+ exam:"Exam: 'Write an ionic equation for the formation of barium sulfate from barium chloride and sodium sulfate' — Ba²⁺(aq) + SO₄²⁻(aq) → BaSO₄(s). State symbols required. The spectator ions (Na⁺ and Cl⁻) are NOT included in the ionic equation."
+},
+{top:"C3",type:"practical",ht:false,
+ term:"Titration (Neutralisation)",
+ mnem:"PIPETTE-BURETTE-INDICATOR-TITRE — precise volumes, endpoint = colour change, mean titre = best estimate",
+ def:"Acid-base titration: used to find the exact volume of acid needed to neutralise a known volume of alkali (or vice versa), enabling concentration calculations.",
+ detail:"Apparatus: pipette (accurate fixed volume — e.g. 25.0 cm³ of alkali into conical flask), burette (reads acid volume to ±0.05 cm³), stand and clamp. Indicator choice: phenolphthalein for strong acid/strong alkali endpoint (pink → colourless); methyl orange for strong acid/weak alkali (yellow → orange). Rough titration first, then accurate repeats. Concordant results: titres within 0.10 cm³ of each other — use mean of these only (not the rough titre).",
+ calc:"Moles of acid = concentration × volume (in dm³). Use mole ratio from equation. Moles of alkali = moles of acid (for 1:1 ratio). Concentration of alkali = moles ÷ volume. Example: 25 cm³ of NaOH neutralised by 22.5 cm³ of 0.1 mol/dm³ HCl. Moles HCl = 0.1 × 0.0225 = 0.00225. Ratio 1:1. Moles NaOH = 0.00225. Concentration NaOH = 0.00225 ÷ 0.025 = 0.09 mol/dm³.",
+ prac:"Core Practical: Titrate HCl against NaOH with phenolphthalein. Record initial and final burette readings (to 2 decimal places). Calculate titre = final − initial. Identify concordant results. Calculate mean titre. Use to find concentration. Safety: rinse burette with acid before filling. Read burette from bottom of meniscus.",
+ exam:"Exam: 'Why should the rough titre be excluded from the mean?' = rough titre is less accurate (goes past endpoint), so including it would make the mean inaccurate. 'Why is the burette rinsed with the acid before use?' = to prevent dilution of the acid by residual water."
+},
+
+/* ════════════════════════════════
+   C4 — EXTRACTING METALS
+════════════════════════════════ */
+{top:"C4",type:"concept",ht:false,
+ term:"Reactivity Series",
+ mnem:"Please Stop Calling Me A Zebra Instead For Copper Silver Gold Platinum — K, Na, Ca, Mg, Al, Zn, Fe, Ni, Sn, Pb, H, Cu, Ag, Au, Pt",
+ def:"The reactivity series ranks metals in order of their reactivity (how readily they lose electrons to form positive ions). More reactive metals displace less reactive ones from their compounds.",
+ detail:"Potassium > Sodium > Calcium > Magnesium > Aluminium > Zinc > Iron > Nickel > Tin > Lead > Hydrogen > Copper > Silver > Gold > Platinum. Uses: predicts displacement reactions; determines extraction method. Metals above carbon in reactivity series: extracted by electrolysis (too reactive for carbon reduction — K, Na, Ca, Mg, Al). Metals below carbon: extracted by reduction with carbon/carbon monoxide (Zn, Fe, Pb, Cu). Metals at bottom (Au, Pt): found native (as pure metal).",
+ calc:null,
+ prac:"Core Practical: Displacement reactions — add metal to metal salt solution. Observe colour change (e.g. iron nail in copper sulfate → blue solution fades, copper deposits on iron). Record results systematically in a table.",
+ exam:"Exam: 'Explain why aluminium cannot be extracted by reduction with carbon' = aluminium is more reactive than carbon, so carbon cannot displace aluminium from its ore. Always compare relative positions in the reactivity series."
+},
+{top:"C4",type:"process",ht:false,
+ term:"Redox Reactions (OIL RIG)",
+ mnem:"OIL RIG — Oxidation Is Loss of electrons; Reduction Is Gain of electrons. Oxidising agent = gains electrons (is reduced). Reducing agent = loses electrons (is oxidised).",
+ def:"Redox reactions involve simultaneous oxidation and reduction. One species loses electrons (is oxidised) and another gains electrons (is reduced). Can also be defined in terms of oxygen: oxidation = gain of oxygen; reduction = loss of oxygen.",
+ detail:"Displacement reactions are redox: Fe + CuSO₄ → FeSO₄ + Cu. Fe loses 2 electrons (Fe → Fe²⁺) = oxidised. Cu²⁺ gains 2 electrons (Cu²⁺ → Cu) = reduced. Oxidising agent = CuSO₄ (contains Cu²⁺, which accepts electrons). Reducing agent = Fe. Half equations: Fe → Fe²⁺ + 2e⁻ (oxidation). Cu²⁺ + 2e⁻ → Cu (reduction). Extraction of iron: iron oxide reduced by CO → Fe. CO is the reducing agent (it gets oxidised to CO₂).",
+ calc:null,
+ prac:null,
+ exam:"Exam: Half-equation questions — balance atoms first, then balance electrons. For Fe → Fe²⁺ + 2e⁻: must show electrons on the product side (it's losing them). 'Identify the reducing agent in this reaction' = the substance that is itself oxidised (loses electrons). Don't confuse the agent with what happens to it."
+},
+{top:"C4",type:"process",ht:false,
+ term:"Electrolysis",
+ mnem:"PANIC — Positive Anode attracts Negative Ions (anions = oxidised); Cathode attracts Cations (reduced). OIL RIG applies.",
+ def:"Electrolysis: decomposition of an ionic compound using electricity. Ions must be free to move (molten or dissolved in water). Cations (+ve) move to cathode (−ve electrode) and are reduced. Anions (−ve) move to anode (+ve electrode) and are oxidised.",
+ detail:"Electrolysis of molten ionic compounds: simple — metal deposited at cathode, non-metal at anode. Example: molten NaCl → Na at cathode (Na⁺ + e⁻ → Na), Cl₂ at anode (2Cl⁻ → Cl₂ + 2e⁻). Electrolysis of solutions: water also present — products depend on relative positions in reactivity series. Copper sulfate solution (copper electrodes): copper deposited at cathode, copper dissolves at anode (copper refining). Aluminium extraction: Hall–Héroult process — aluminium oxide dissolved in molten cryolite; Al deposited at cathode; O₂ at anode oxidises carbon electrodes → CO₂ → electrodes must be regularly replaced.",
+ calc:null,
+ prac:"Core Practical: Electrolysis of copper sulfate solution. Set up with carbon electrodes. Observe blue colour fading (Cu²⁺ ions being removed). Cathode gains mass (Cu deposited); anode loses mass (carbon oxidised or Cu dissolves if copper anode). Weigh electrodes before and after.",
+ exam:"Exam: Half-equation at cathode: Cu²⁺ + 2e⁻ → Cu. Half-equation at anode: 2H₂O → O₂ + 4H⁺ + 4e⁻ (if not copper electrode). 'Why must aluminium oxide be dissolved in cryolite?' = to lower the melting point (Al₂O₃ melts at ~2050°C — too high to heat economically; cryolite reduces to ~950°C), saving energy and cost."
+},
+{top:"C4",type:"concept",ht:false,
+ term:"Ores & Metal Extraction Methods",
+ mnem:"NATIVE-CARBON-ELECTRO — unreactive = found native; medium reactivity = carbon reduction; very reactive = electrolysis",
+ def:"An ore is a rock containing enough metal compound to make extraction economically worthwhile. The extraction method depends on where the metal sits in the reactivity series.",
+ detail:"Native metals (gold, silver, platinum): found uncombined in Earth's crust — no extraction needed, just physical separation. Carbon reduction (iron, zinc, tin, lead): heated with carbon or carbon monoxide in a blast furnace. Carbon/CO is the reducing agent. Iron ore (haematite, Fe₂O₃) reduced: Fe₂O₃ + 3CO → 2Fe + 3CO₂. Electrolysis (aluminium, sodium, calcium, magnesium): compounds molten or dissolved. Bioleaching: bacteria extract metals from low-grade ores (acidic conditions, slow process). Phytomining: plants absorb metal ions from soil, harvested and burned, metal extracted from ash.",
+ calc:null,
+ prac:null,
+ exam:"Exam: 'Explain why aluminium is more expensive to produce than iron' — aluminium extracted by electrolysis (requires large amounts of electrical energy); iron extracted by reduction with carbon (cheaper energy source). Relative reactivity is the root explanation."
+},
+{top:"C4",type:"concept",ht:false,
+ term:"Life Cycle Assessment (LCA)",
+ mnem:"RUSE — Raw material extraction, Use (energy and resources during use), Manufacture, End of life (disposal/recycling)",
+ def:"A life cycle assessment (LCA) evaluates the environmental impact of a product at every stage of its life — from raw material extraction through manufacture, use, and disposal.",
+ detail:"Four stages: (1) Extracting and processing raw materials (mining, smelting — energy, habitat destruction, pollution). (2) Manufacturing (energy use, water use, chemical waste). (3) Use (energy consumption, emissions). (4) End of life (landfill, incineration, recycling). Recycling reduces need for extraction and saves energy. Aluminium recycling uses ~5% of the energy needed for extraction from ore. LCA limitations: some impacts are hard to quantify (e.g. biodiversity loss); different assumptions give different results; can be used selectively (greenwashing).",
+ calc:null,
+ prac:null,
+ exam:"Exam: 'Evaluate the LCA of an aluminium drinks can' — must cover all four stages with environmental impacts, then weigh up recycling benefits against extraction costs. 'Give one limitation of LCA' = difficult to assign numerical values to all environmental impacts / results can be manipulated. Always name the stage you are discussing."
+},
+{top:"C4",type:"concept",ht:false,
+ term:"Displacement Reactions",
+ mnem:"MORE REACTIVE DISPLACES LESS REACTIVE — if metal A is above metal B in the reactivity series, A displaces B from B's salt solution",
+ def:"A more reactive metal will displace a less reactive metal from a solution of its salt. The more reactive metal loses electrons (is oxidised); the less reactive metal ion gains electrons (is reduced).",
+ detail:"Examples: zinc + copper sulfate → zinc sulfate + copper (Zn more reactive than Cu). Iron + silver nitrate → iron nitrate + silver. No reaction: copper + zinc sulfate (copper less reactive than zinc). Colour observations: copper sulfate solution blue — fades if copper displaced by more reactive metal. Iron becomes copper-coated. Thermite reaction: aluminium + iron oxide → aluminium oxide + iron (Al more reactive than Fe — highly exothermic, used in welding rails).",
+ calc:null,
+ prac:"Core Practical: Test metal reactivity by observing displacement reactions. Add small pieces of different metals (Mg, Zn, Fe, Cu) to solutions of different metal salts. Record observations in a results table. Deduce reactivity order from which metals displace which.",
+ exam:"Exam: 'Predict whether a reaction will occur between X and Y solution' = compare reactivity series positions. If X is higher than Y in the series → reaction occurs; write symbol equation with products. If X is lower → no reaction. Must state this explicitly."
+},
+
+]; /* end data */
+
+/* ── render ── */
+const tfEl=document.getElementById('tf');
+const ttEl=document.getElementById('tt');
+const gridEl=document.getElementById('grid');
+const ctrEl=document.getElementById('ctr');
+let aTop="All", aType="All";
+
+TOPICS.forEach(t=>{
+  const b=document.createElement('button');
+  b.className='fb'+(t==='All'?' on':'');
+  b.textContent=t; b.dataset.f=t;
+  b.onclick=()=>{aTop=t;tfEl.querySelectorAll('.fb').forEach(x=>x.classList.remove('on'));b.classList.add('on');render();};
+  tfEl.appendChild(b);
+});
+TYPES.forEach(t=>{
+  const b=document.createElement('button');
+  b.className='fb'+(t==='All'?' on':'');
+  b.textContent=t; b.dataset.t=t;
+  b.onclick=()=>{aType=t;ttEl.querySelectorAll('.fb').forEach(x=>x.classList.remove('on'));b.classList.add('on');render();};
+  ttEl.appendChild(b);
+});
+
+function render(){
+  gridEl.innerHTML='';
+  let f=C;
+  if(aTop!=='All') f=f.filter(c=>c.top===aTop);
+  if(aType!=='All') f=f.filter(c=>c.type===aType);
+  ctrEl.textContent=f.length+' card'+(f.length!==1?'s':'');
+  f.forEach(c=>{
+    const el=document.createElement('div');
+    el.className='card';
+    const hasPrac=c.prac&&!c.prac.startsWith('No core practical');
+    const hasCalc=!!c.calc;
+    el.innerHTML=`
+      <div class="ctop">
+        <div class="badges">
+          <span class="badge b${c.top}">${c.top}</span>
+          <span class="badge" style="background:var(--bg2);color:var(--t3)">${c.type}</span>
+          ${hasPrac?'<span class="badge bprac">★ practical</span>':''}
+          ${hasCalc?'<span class="badge bcalc">∑ calc</span>':''}
+          ${c.ht?'<span class="badge bht">HT</span>':''}
+        </div>
+      </div>
+      <div class="cterm">${c.term}</div>
+      <div class="cmnem">◆ ${c.mnem}</div>
+      <div class="cdef">${c.def}</div>
+      <div class="back">
+        <div class="detail">${c.detail}</div>
+        ${hasCalc?`<div class="calc-box"><div class="calc-label">Worked example</div>${c.calc}</div>`:''}
+        ${hasPrac?`<div class="prac-box"><div class="prac-label">Core practical</div>${c.prac}</div>`:''}
+        <div class="exam-box"><div class="exam-label">Exam angle</div>${c.exam}</div>
+      </div>
+      <div class="hint">tap to reveal</div>
+    `;
+    el.onclick=()=>{el.classList.toggle('flipped');el.querySelector('.hint').textContent=el.classList.contains('flipped')?'tap to hide':'tap to reveal';};
+    gridEl.appendChild(el);
+  });
+}
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GCSE Biology Paper 1 — Edexcel Flashcards</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg1: #ffffff; --bg2: #f4f6f2; --bg3: #eaf3de;
+    --t1: #1a1a18; --t2: #5f5e5a; --t3: #888780;
+    --bl: rgba(0,0,0,0.11); --bm: rgba(0,0,0,0.20);
+    --r: 8px; --rl: 12px;
+    --font: system-ui,-apple-system,sans-serif;
+  }
+  @media(prefers-color-scheme:dark){
+    :root{
+      --bg1:#1e1e1c;--bg2:#252723;--bg3:#1a2a14;
+      --t1:#f0ece4;--t2:#a8a59e;--t3:#6e6d69;
+      --bl:rgba(255,255,255,0.09);--bm:rgba(255,255,255,0.18);
+    }
+  }
+  body{font-family:var(--font);background:var(--bg2);color:var(--t1);padding:1.75rem 1rem;min-height:100vh;}
+  h1{font-size:20px;font-weight:500;margin-bottom:.2rem;}
+  .sub{font-size:14px;color:var(--t2);margin-bottom:1.4rem;}
+
+  /* filters */
+  .frow{margin-bottom:.85rem;}
+  .flabel{font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px;}
+  .btns{display:flex;gap:5px;flex-wrap:wrap;}
+  .fb{font-size:12px;padding:4px 11px;border-radius:20px;border:.5px solid var(--bm);background:var(--bg1);color:var(--t2);cursor:pointer;transition:all .13s;white-space:nowrap;}
+  .fb.on{border-color:transparent;color:#fff;}
+  /* topic colours */
+  .fb[data-f="All"].on{background:#444441;}
+  .fb[data-f="B1"].on{background:#185FA5;}
+  .fb[data-f="B2"].on{background:#534AB7;}
+  .fb[data-f="B3"].on{background:#3B6D11;}
+  .fb[data-f="B4"].on{background:#854F0B;}
+  /* type colours */
+  .fb[data-t="All"].on{background:#444441;}
+  .fb[data-t="concept"].on{background:#185FA5;}
+  .fb[data-t="process"].on{background:#534AB7;}
+  .fb[data-t="practical"].on{background:#993C1D;}
+  .fb[data-t="calculation"].on{background:#0F6E56;}
+  .fb[data-t="structure"].on{background:#854F0B;}
+
+  .counter{font-size:13px;color:var(--t2);margin:.85rem 0 1rem;}
+
+  /* grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(288px,1fr));gap:11px;}
+
+  /* card */
+  .card{background:var(--bg1);border:.5px solid var(--bl);border-radius:var(--rl);padding:.95rem 1.15rem;cursor:pointer;user-select:none;min-height:200px;display:flex;flex-direction:column;gap:6px;transition:border-color .13s;}
+  .card:hover{border-color:var(--bm);}
+
+  .ctop{display:flex;justify-content:space-between;align-items:flex-start;gap:6px;}
+  .badges{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end;}
+  .badge{font-size:10px;font-weight:500;padding:2px 7px;border-radius:10px;white-space:nowrap;}
+  .bB1{background:#E6F1FB;color:#185FA5;} .bB2{background:#EEEDFE;color:#534AB7;}
+  .bB3{background:#EAF3DE;color:#3B6D11;} .bB4{background:#FAEEDA;color:#854F0B;}
+  .bprac{background:#FAECE7;color:#993C1D;}
+
+  .cterm{font-size:14px;font-weight:500;color:var(--t1);line-height:1.35;}
+  .cmnem{font-size:12px;color:var(--t2);border-left:2px solid var(--bm);padding-left:8px;letter-spacing:.02em;}
+  .cdef{font-size:13px;color:var(--t2);line-height:1.55;flex-grow:1;}
+
+  /* back */
+  .back{display:none;flex-direction:column;gap:7px;}
+  .card.flipped .back{display:flex;}
+  .card.flipped .cdef{font-size:12px;color:var(--t3);}
+
+  .detail{font-size:13px;color:var(--t2);line-height:1.6;border-top:.5px solid var(--bl);padding-top:7px;}
+  .prac-box{background:var(--bg3);border-radius:var(--r);padding:7px 10px;font-size:12px;color:var(--t2);line-height:1.5;}
+  .prac-label{font-size:10px;font-weight:500;color:#3B6D11;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px;}
+  .exam-box{background:var(--bg2);border-radius:var(--r);padding:7px 10px;font-size:12px;color:var(--t2);line-height:1.5;}
+  .exam-label{font-size:10px;font-weight:500;color:#185FA5;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px;}
+
+  .hint{font-size:11px;color:var(--t3);text-align:right;margin-top:auto;}
+</style>
+</head>
+<body>
+<h1>GCSE Biology — Paper 1</h1>
+<p class="sub">Edexcel B1–B4 · tap a card to reveal full detail, practical notes &amp; exam angle</p>
+
+<div class="frow"><div class="flabel">Topic</div><div class="btns" id="tf"></div></div>
+<div class="frow"><div class="flabel">Type</div><div class="btns" id="tt"></div></div>
+<div class="counter" id="ctr"></div>
+<div class="grid" id="grid"></div>
+
+<script>
+const TOPICS=["All","B1","B2","B3","B4"];
+const TYPES=["All","concept","process","structure","practical","calculation"];
+
+const C=[
+/* ══════════════ B1 ══════════════ */
+{top:"B1",type:"structure",
+ term:"Animal Cell vs Plant Cell",
+ mnem:"MCNW — both have Membrane, Cytoplasm, Nucleus; plant also has Wall, Vacuole, Chloroplasts",
+ def:"Animal cells: cell membrane, cytoplasm, nucleus, mitochondria, ribosomes. Plant cells add: cell wall (cellulose), large permanent vacuole, chloroplasts (in green parts).",
+ detail:"Mitochondria = site of aerobic respiration (ATP). Ribosomes = site of protein synthesis. Chloroplasts contain chlorophyll for photosynthesis. Vacuole maintains cell turgor. Cell wall gives structural support — cellulose only (unlike bacterial peptidoglycan).",
+ prac:"Practical: Use a light microscope to view onion cells (plant) and cheek cells (animal). Stain with iodine (starch/plant) or methylene blue (animal). Calculate magnification: total mag = eyepiece × objective lens.",
+ exam:"Exam: 'Compare' questions require you to state a similarity AND a difference. 'Describe' = state what you see. Always name the specific organelle AND its function."
+},
+{top:"B1",type:"structure",
+ term:"Prokaryotic Cells (Bacteria)",
+ mnem:"NO NUCLEAR MEMBRANE — DNA floats free; smaller than eukaryotes; has plasmids and flagellum",
+ def:"Prokaryotic cells lack a membrane-bound nucleus. DNA is a single circular chromosome free in the cytoplasm. Also contains: plasmid DNA (small circular), cell wall, cell membrane, ribosomes, flagellum (for movement).",
+ detail:"Size: ~1–10 μm (eukaryotes 10–100 μm). No mitochondria — respiration across the cell membrane. Cell wall contains peptidoglycan (not cellulose). Plasmids used in genetic engineering. Flagellum rotates for locomotion.",
+ prac:"Practical: Bacterial cultures must use aseptic technique — flame loop, sterilise agar, invert plates. Know why: prevent contamination with unwanted microorganisms.",
+ exam:"Exam: 'State one difference between prokaryotic and eukaryotic cells' = no membrane-bound nucleus (1 mark). Never say 'no nucleus' — bacteria have DNA, just not enclosed. Precision matters."
+},
+{top:"B1",type:"structure",
+ term:"Specialised Cells",
+ mnem:"SAME — Sperm (acrosome, tail, mitochondria), Egg (nutrients, membrane hardens), Ciliated (cilia), Red blood cell (no nucleus, biconcave)",
+ def:"Cells differentiate to perform specific functions. Each adaptation directly relates to its role.",
+ detail:"Sperm: acrosome (digestive enzymes to penetrate egg), haploid nucleus, many mitochondria (energy for tail), tail for swimming. Egg: nutrient-rich cytoplasm (feeds embryo), haploid nucleus, membrane hardens after fertilisation (blocks more sperm). Ciliated epithelial: cilia beat to move mucus/particles. Red blood cell: no nucleus (more space for haemoglobin), biconcave shape (large surface area for gas exchange), flexible.",
+ prac:"Practical: Draw and label specialised cells under microscope. Include adaptations in labels — examiners want function alongside structure.",
+ exam:"Exam: 'Explain how X cell is adapted' requires STRUCTURE → FUNCTION chain for each point. E.g. 'has many mitochondria [structure] to release energy for tail movement [function].' Each adaptation = 1 mark pair."
+},
+{top:"B1",type:"concept",
+ term:"Microscopes: Light vs Electron",
+ mnem:"LEMON — Light: Easy to use, Magnifies ×1500, Only living specimens possible, No resolution for organelles. Electron: 1930s, Much higher resolution",
+ def:"Light microscopes (invented 1590s): use light, max magnification ~×1500, max resolution ~200 nm. Electron microscopes (invented 1930s): use electron beams, magnification up to ×2,000,000, resolution ~0.2 nm.",
+ detail:"Resolution = ability to distinguish two separate points. Electron microscopes revealed ribosomes, endoplasmic reticulum, mitochondria inner structure. Limitation: specimens must be dead (vacuum required), expensive, images in black and white. Transmission EM = thin sections. Scanning EM = 3D surface images.",
+ prac:"Core Practical: Prepare and observe a slide. Steps: add drop of water to slide, place specimen, add stain (iodine for starch/plant cells), add coverslip at angle (avoid bubbles), focus with lowest objective first, increase magnification. Draw with pencil, single lines, no shading, label lines don't cross.",
+ exam:"Exam: Magnification calculation = image size ÷ actual size. Always check units — convert to same unit (μm or mm) first. 'Give one advantage of an electron microscope' = higher resolution / reveals ultrastructure."
+},
+{top:"B1",type:"calculation",
+ term:"Magnification Calculations",
+ mnem:"MAI — Magnification = Image size ÷ Actual size. Rearrange: A = I÷M, I = A×M",
+ def:"Magnification formula: M = I / A. Image size (I) = what you measure on paper/screen. Actual size (A) = real size of specimen. Units must match.",
+ detail:"Scale bars: if scale bar = 10 μm and measures 20 mm on image → 1 μm = 2 mm on image → use this ratio. Standard form: 1 μm = 1×10⁻⁶ m. 1 nm = 1×10⁻⁹ m. 1 mm = 1×10⁻³ m. Typical cell sizes: animal cell ~20 μm, bacterium ~2 μm, virus ~100 nm, chloroplast ~5 μm.",
+ prac:"Practical: Given a drawing of a cell, measure it with a ruler, divide by stated magnification to get actual size. Always show working and include units in your answer.",
+ exam:"Exam: Show full working. Common error = forgetting to convert units before dividing. If asked for answer in μm and image is measured in mm — convert mm to μm (×1000) first."
+},
+{top:"B1",type:"concept",
+ term:"Enzymes",
+ mnem:"LOCK AND KEY — Enzyme has active site; substrate fits; product released; enzyme unchanged",
+ def:"Enzymes are biological catalysts — proteins that speed up metabolic reactions without being used up. Each enzyme is specific to one substrate (lock and key model).",
+ detail:"Active site has a specific 3D shape complementary to the substrate. Enzyme-substrate complex forms → reaction occurs → products released → enzyme available again. Induced fit model: active site slightly changes shape to fit substrate better. Denaturation: high temperature or extreme pH breaks bonds holding the 3D shape → active site changes → substrate no longer fits → enzyme permanently inactivated.",
+ prac:"Core Practical: Investigate effect of pH on enzyme activity (amylase + starch + iodine). Place iodine in dimple tile wells. Mix amylase + starch at different pH buffers. Test every 30 seconds — iodine turns blue-black if starch present, stays orange-brown when starch digested. Plot results on a graph.",
+ exam:"Exam: 'Explain why enzyme activity decreases above optimum temperature' = high temp breaks hydrogen bonds holding active site shape → active site changes shape → substrate no longer fits → enzyme denatured. Do NOT say 'enzyme is killed' — enzymes are not alive."
+},
+{top:"B1",type:"concept",
+ term:"Enzyme Activity: Temperature & pH",
+ mnem:"OPTIMUM — Rate rises to optimum then falls; temperature denatures above optimum; pH alters active site charge",
+ def:"Enzyme activity peaks at the optimum temperature and optimum pH. Above optimum temperature: denaturation. Below optimum: fewer collisions (lower kinetic energy). Wrong pH: alters ionic bonds in active site → shape changes.",
+ detail:"Q10 rule: for every 10°C rise in temperature, reaction rate approximately doubles (up to optimum). Human enzymes: optimum ~37°C, pH ~7. Stomach pepsin: optimum pH ~2. Salivary amylase: optimum pH ~7. Substrate concentration: increasing [S] increases rate until all active sites saturated — rate plateaus (limiting factor shifts).",
+ prac:"Core Practical: Control variables = enzyme concentration, substrate concentration, volume, time. Independent variable = pH (or temperature). Dependent variable = time for starch to be digested (end-point when iodine no longer turns blue-black). Plot rate = 1/time.",
+ exam:"Exam: 'Describe and explain' the effect of increasing temperature on rate. Describe = state what happens to rate. Explain = give the mechanism (collision frequency, denaturation). Both required for full marks."
+},
+{top:"B1",type:"practical",
+ term:"Food Tests",
+ mnem:"BIBLES — Benedict's (sugars), Iodine (starch), Biuret (protein), Ethanol-emulsion (Lipids), Sudan III (Lipids alt)",
+ def:"Four food tests to identify biological molecules in food samples.",
+ detail:"Starch: iodine solution → blue-black if positive, orange-brown if negative. Reducing sugars (glucose): Benedict's reagent, heat in water bath → brick-red/orange precipitate if positive, stays blue if negative. Protein: Biuret reagent (NaOH + copper sulfate) → purple/lilac if positive, stays blue if negative. Lipids: ethanol emulsion test → cloudy white emulsion in water if positive, stays clear if negative. OR Sudan III stain → red/orange if lipid present.",
+ prac:"Core Practical: Use positive and negative controls. Positive control = known solution of the molecule. Negative control = distilled water. This validates your results. Semi-quantitative: compare colour intensity for Benedict's (blue < green < yellow < orange < brick red) = more sugar.",
+ exam:"Exam: Always state the COLOUR CHANGE — not just 'positive' or 'negative'. E.g. 'Benedict's reagent changes from blue to brick red.' Name the reagent, state initial colour, state final colour. Three-part answer."
+},
+{top:"B1",type:"concept",
+ term:"Diffusion, Osmosis & Active Transport",
+ mnem:"DOA — Diffusion (passive, concentration gradient, any molecule), Osmosis (passive, water only, semi-permeable), Active (ATP needed, against gradient)",
+ def:"Diffusion: net movement of particles from high to low concentration — passive, no energy. Osmosis: movement of water molecules from high water potential (dilute) to low water potential (concentrated) through a partially permeable membrane. Active transport: movement against concentration gradient using energy (ATP) from respiration.",
+ detail:"Osmosis in cells: if external solution more concentrated than cytoplasm (hypertonic) → water leaves → cell shrinks (animal) or plasmolysis (plant). If external solution less concentrated (hypotonic) → water enters → cell swells and may lyse (animal) or becomes turgid (plant). Surface area to volume ratio affects rate of diffusion — smaller organisms have higher ratio → faster exchange.",
+ prac:"Core Practical: Osmosis in potato cylinders. Cut potato cylinders of equal length and mass. Place in different concentrations of sucrose solution. After set time: reweigh. Calculate % change in mass. Plot % change vs concentration. Isotonic point = concentration where no change in mass.",
+ exam:"Exam: Always use 'water potential' not just 'concentration' for osmosis. 'Water moves from high to low water potential.' Never say water moves from 'dilute to concentrated' in a higher-tier paper — use the correct terminology."
+},
+
+/* ══════════════ B2 ══════════════ */
+{top:"B2",type:"process",
+ term:"Mitosis",
+ mnem:"PMAT — Prophase, Metaphase, Anaphase, Telophase; produces 2 genetically identical diploid daughter cells",
+ def:"Mitosis: cell division producing two genetically identical daughter cells with the same chromosome number as the parent (diploid). Used for growth, repair, and asexual reproduction.",
+ detail:"Interphase (not mitosis but precedes it): DNA replication, cell grows. Prophase: chromosomes condense, nuclear envelope breaks down, spindle forms. Metaphase: chromosomes line up at cell equator. Anaphase: sister chromatids pulled to opposite poles. Telophase: nuclear envelopes reform, cytoplasm divides (cytokinesis). Result: 2 identical diploid cells.",
+ prac:"Practical: Observe mitosis in root tip squash (onion or garlic). Stain with aceto-orcein (stains chromosomes purple). Count cells in each stage to estimate relative duration of each phase (most cells in interphase = longest stage).",
+ exam:"Exam: 'Explain why mitosis produces genetically identical cells' = DNA replicates before division so each daughter cell receives exact copy of all chromosomes. Do not confuse with meiosis — mitosis = 2 identical diploid cells; meiosis = 4 non-identical haploid cells."
+},
+{top:"B2",type:"concept",
+ term:"Growth: Animals vs Plants",
+ mnem:"ANIMAL = whole body growth until adulthood, then repair only. PLANT = grows at meristems (tips) throughout life",
+ def:"Animal growth: cell division occurs throughout body during development; most cells differentiated and specialised. Growth mostly complete by adulthood. Plant growth: occurs at meristems (root tips and shoot tips) — regions of unspecialised dividing cells — throughout the plant's life.",
+ detail:"Cell cycle: interphase (G1 growth, S DNA synthesis, G2 growth) → mitosis → cytokinesis. Cancer: uncontrolled cell division due to mutations in genes controlling cell cycle. Tumours = benign (contained) or malignant (invades tissues, metastasis). Plants continue growing via apical meristems (tips) and lateral meristems (width).",
+ prac:"Practical: Growth curves — measure length of seedling roots over time. Plot against time. Calculate mean growth rate. Describe pattern: growth rate increases then plateaus.",
+ exam:"Exam: 'Describe how cancer cells differ from normal cells' = divide uncontrollably / do not respond to growth-regulating signals / may invade other tissues. 'Explain' requires mechanism = mutations in cell-cycle control genes."
+},
+{top:"B2",type:"concept",
+ term:"Stem Cells",
+ mnem:"STEM = Source of unspecialised cells; can differentiate; Embryonic (any cell) vs Adult (limited types)",
+ def:"Stem cells are unspecialised cells that can divide by mitosis and differentiate into specialised cells. Embryonic stem cells: can become any cell type (totipotent/pluripotent). Adult stem cells: found in bone marrow, can only form limited cell types.",
+ detail:"Therapeutic cloning: patient's nucleus inserted into enucleated egg cell → stimulated to divide → embryo produces stem cells genetically identical to patient → no rejection. Uses: treating leukaemia (bone marrow transplant), potential for Parkinson's, diabetes, spinal injury. Ethical issues: embryo destruction, 'playing God', slippery slope, potential for exploitation.",
+ prac:"No core practical but exam questions use data on stem cell therapies. Know: bone marrow transplant = established treatment; embryonic therapies = still experimental.",
+ exam:"Exam: 'Evaluate the use of stem cells' requires balanced answer — give benefits (treat disease, reduce suffering) AND ethical concerns (embryo destruction, religious objections). Conclude. 6-mark questions require this structure."
+},
+{top:"B2",type:"structure",
+ term:"The Nervous System",
+ mnem:"SIC — Stimulus → receptor → Sensory neurone → Coordinator (CNS) → Motor neurone → effector → response",
+ def:"The nervous system coordinates responses to stimuli. CNS = brain + spinal cord. Peripheral nervous system = all other nerves. Three types of neurone: sensory (receptor → CNS), relay (within CNS), motor (CNS → effector).",
+ detail:"Reflex arc (fast, involuntary): receptor → sensory neurone → relay neurone (spinal cord) → motor neurone → effector. Bypasses brain for speed. Synapses: junction between neurones. Electrical impulse → neurotransmitter released → diffuses across gap → binds receptor on next neurone → new impulse. Inhibitory neurotransmitters can prevent impulse. Speed of nerve impulse: 70–120 m/s in myelinated neurones.",
+ prac:"Practical: Measure reaction time using ruler-drop test. Drop ruler, catch it, measure distance fallen. Calculate reaction time using t = √(2d/g). Identify variables. Repeat to reduce random error. Caffeine/fatigue affect reaction time.",
+ exam:"Exam: 'Describe the pathway of a reflex arc' = use correct sequence and name all five components. 'Explain why reflexes are faster than voluntary responses' = reflex bypasses brain / fewer synapses / shorter pathway."
+},
+{top:"B2",type:"structure",
+ term:"The Brain",
+ mnem:"CHMC — Cerebrum (thought/language/memory), Hypothalamus (temperature), Medulla (heartbeat/breathing), Cerebellum (coordination/balance)",
+ def:"The brain controls all conscious and unconscious functions. Key regions: cerebral cortex (complex thought, language, memory, personality), cerebellum (balance, coordination, fine movement), medulla oblongata (breathing rate, heart rate — autonomic), hypothalamus (body temperature regulation).",
+ detail:"Studying the brain: MRI (non-invasive imaging), PET scanning (radioactive tracer shows active areas), EEG (electrical activity). Brain surgery limitations: risk of damage to nearby areas, individual variation in brain mapping, some areas cannot be operated on. CT scanning: X-ray cross-sections. Case studies (e.g. Phineas Gage) revealed brain function areas.",
+ prac:"No core practical. Know the named regions and their functions. Know limitations of brain research methods — invasive vs non-invasive, resolution, what each shows.",
+ exam:"Exam: Name the region AND its function — not just one. 'State the function of the cerebellum' = coordinates movement and balance. Do not say 'controls the body' — too vague for marks."
+},
+{top:"B2",type:"structure",
+ term:"The Eye",
+ mnem:"CLIPS — Cornea (refracts light), Lens (focuses), Iris (pupil size), Pupil (aperture), Sclera (white of eye), Retina (detects light), Optic nerve (carries impulses)",
+ def:"The eye is the receptor organ for light. Light refracts through cornea → through pupil → lens focuses image on retina → rod/cone cells generate nerve impulses → optic nerve → brain.",
+ detail:"Accommodation: ciliary muscles and suspensory ligaments change lens shape. Near object: ciliary muscles contract → suspensory ligaments slacken → lens bulges (more convex) → greater refraction. Far object: ciliary muscles relax → ligaments taut → lens pulled flat → less refraction. Cones: colour vision, work in bright light, concentrated in fovea. Rods: black/white, sensitive in dim light, around periphery. Cataracts: cloudy lens — treated by lens replacement. Long/short sight corrected by concave/convex lenses or laser surgery.",
+ prac:"Practical: Pupil reflex investigation — shine light in eye, observe pupil constriction. Demonstrate iris muscle action. Know: bright light → circular muscles contract → pupil constricts.",
+ exam:"Exam: Accommodation questions are high frequency. Draw a diagram if asked — label clearly. 'Explain how the eye focuses on a near object' = step-by-step mechanism through ciliary muscles → ligaments → lens shape → refraction. Each step = marks."
+},
+{top:"B2",type:"concept",
+ term:"Synapses & Neurotransmitters",
+ mnem:"DRAB — Diffuse across gap, Receptor on next neurone binds transmitter, Allows (or blocks) new impulse, Broken down/reabsorbed after",
+ def:"A synapse is the junction between two neurones. Electrical impulse cannot cross the gap — a chemical neurotransmitter carries the signal across.",
+ detail:"Process: electrical impulse arrives at presynaptic membrane → vesicles release neurotransmitter → diffuses across synaptic cleft → binds to receptors on postsynaptic membrane → new impulse generated. Neurotransmitter then broken down by enzymes or reabsorbed. Drugs: MDMA blocks serotonin reabsorption (more serotonin in synapse). Nerve agents (e.g. VX) inhibit acetylcholinesterase → acetylcholine accumulates → continuous nerve stimulation. Inhibitory neurotransmitters reduce likelihood of new impulse.",
+ prac:"No core practical for synapses. Exam uses unfamiliar drug/poison data — apply mechanism knowledge to new contexts.",
+ exam:"Exam: 'Explain how a drug that prevents neurotransmitter reabsorption affects signalling' = more neurotransmitter remains in synapse / continues to bind receptors / prolongs or intensifies nerve signal. Apply the mechanism, don't just describe the drug."
+},
+
+/* ══════════════ B3 ══════════════ */
+{top:"B3",type:"process",
+ term:"Meiosis",
+ mnem:"MEIOSIS = Makes Eggs and sperm, Involves 2 divisions, Only in reproductive organs, Produces 4 Haploid cells, Involves Independent assortment and crossing over = Variation",
+ def:"Meiosis: cell division producing four genetically different haploid daughter cells (gametes). Occurs in gonads (testes, ovaries). Produces genetic variation.",
+ detail:"Division 1: homologous chromosome pairs line up, crossing over occurs (exchange of genetic material between non-sister chromatids), homologues separate. Division 2: sister chromatids separate (like mitosis). Result: 4 haploid cells, each with one of each chromosome type. Sources of variation: independent assortment (random alignment of homologues) + crossing over (new combinations). Human gametes: 23 chromosomes (haploid); fertilisation restores 46.",
+ prac:"No core practical but must distinguish from mitosis: meiosis = 4 haploid non-identical cells; mitosis = 2 diploid identical cells. Exam questions often ask you to compare the two.",
+ exam:"Exam: 'Explain why meiosis produces genetic variation' = crossing over creates new allele combinations + random/independent assortment means different combinations of chromosomes in each gamete. Both points needed for full marks."
+},
+{top:"B3",type:"concept",
+ term:"DNA Structure & Protein Synthesis",
+ mnem:"DACT — Double helix, Adenine-Thymine, Cytosine-Guanine, Triplet codons code for amino acids",
+ def:"DNA = double helix of two nucleotide chains. Each nucleotide: sugar (deoxyribose), phosphate, base (A, T, C, G). Base pairing: A-T, C-G (complementary). Gene = section of DNA coding for a sequence of amino acids → protein.",
+ detail:"Transcription (nucleus): DNA → mRNA. One strand used as template. RNA polymerase reads template strand, builds complementary mRNA (U replaces T in RNA). mRNA leaves nucleus through nuclear pore. Translation (ribosome): mRNA read in triplets (codons). Each codon = one amino acid. tRNA brings amino acids. Sequence of amino acids folds into protein. One gene → one protein (generally). Non-coding DNA = does not code for proteins but may regulate gene expression.",
+ prac:"No core practical. Exam provides codon tables — practice reading them. Given a DNA sequence → work out mRNA → work out amino acid sequence.",
+ exam:"Exam: Given a DNA base sequence, you must: (1) write complementary mRNA (A→U, T→A, G→C, C→G), (2) use codon table to identify amino acids. 'Describe protein synthesis' requires both transcription AND translation stages."
+},
+{top:"B3",type:"concept",
+ term:"Genetic Terminology",
+ mnem:"GHADP — Gene, Homologous chromosomes, Allele, Dominant/recessive, Phenotype/Genotype",
+ def:"Gene: a section of DNA on a chromosome coding for a protein. Allele: a variant form of a gene. Genotype: the alleles an organism has. Phenotype: the observable characteristics. Dominant: allele expressed when one copy present (capital letter). Recessive: only expressed when two copies present (lower case).",
+ detail:"Homozygous: two identical alleles (AA or aa). Heterozygous: two different alleles (Aa). Carrier: heterozygous for a recessive disorder — shows no symptoms but can pass on the allele. Locus: position of a gene on a chromosome. Diploid organisms have two copies of each gene (one on each homologous chromosome).",
+ prac:"Punnett squares: draw 2×2 grid, place parent alleles on top and side, fill in offspring genotypes, calculate ratios. Practice with monohybrid crosses — must show working.",
+ exam:"Exam: Always show the Punnett square. 'Calculate the probability of X' = count boxes with that genotype ÷ total boxes. Express as fraction, ratio, or percentage. 'Define phenotype' = the observable/physical characteristics of an organism."
+},
+{top:"B3",type:"process",
+ term:"Monohybrid Inheritance & Mendel",
+ mnem:"MENDEL — Monastery, Experiments with peas, No dominance understood yet, Determined ratios, Each trait = discrete unit (gene), Laws of segregation",
+ def:"Mendel's laws: each characteristic controlled by 'units' (genes); two copies per organism; only one passed to offspring (segregation); dominant masks recessive. Classic monohybrid cross: Aa × Aa → 3 dominant : 1 recessive phenotype ratio; 1 AA : 2 Aa : 1 aa genotype ratio.",
+ detail:"Mendel worked with peas (1860s). Did not know about DNA or chromosomes. Results only made sense decades later when chromosomes were discovered. True-breeding (homozygous) parents → F1 all show dominant trait → F2 shows 3:1 ratio. Back cross: cross F1 with homozygous recessive → reveals hidden recessive alleles.",
+ prac:"Practice Punnett squares for all cross types: AA×aa, Aa×Aa, Aa×aa. Calculate expected ratios. Apply to specific diseases: cystic fibrosis (cc), sickle cell (HbS HbS).",
+ exam:"Exam: 'Explain Mendel's findings' — refer to alleles separating during gamete formation, random fertilisation, and probability ratios. Examiner mark schemes look for 'allele' not 'gene' for full marks in inheritance questions."
+},
+{top:"B3",type:"concept",
+ term:"Multiple & Missing Alleles / Codominance",
+ mnem:"ABO — three alleles (Iᴬ, Iᴮ, i); Iᴬ and Iᴮ codominant; i recessive; gives four blood groups",
+ def:"Multiple alleles: more than two allele variants exist in a population (e.g. ABO blood groups have three alleles). Codominance: both alleles expressed equally in heterozygote — neither dominant nor recessive.",
+ detail:"ABO blood groups: alleles Iᴬ (produces antigen A), Iᴮ (produces antigen B), i (no antigen). Iᴬ and Iᴮ are codominant, i is recessive. Genotypes: IᴬIᴬ or Iᴬi = blood group A; IᴮIᴮ or Iᴮi = blood group B; IᴬIᴮ = blood group AB (codominant); ii = blood group O. Sex-linked inheritance: alleles carried on X chromosome (e.g. colour blindness, haemophilia). Males (XY) only need one recessive allele to show the condition.",
+ prac:"Practice ABO cross Punnett squares. Practice sex-linked crosses using Xᴴ notation. Carrier females = XᴴX; affected males = XᵸY.",
+ exam:"Exam: For codominance, both alleles must be shown as capital letters with superscripts (e.g. Iᴬ Iᴮ). 'Explain why males are more likely to show sex-linked recessive conditions' = males have only one X chromosome, so one recessive allele is sufficient."
+},
+{top:"B3",type:"concept",
+ term:"Gene Mutations & Variation",
+ mnem:"CHANGE — Change in base sequence; can alter amino acid; can be neutral, harmful or beneficial; caused by radiation or chemicals",
+ def:"A gene mutation is a change in the base sequence of DNA. Can alter the amino acid sequence of a protein, changing its shape and function. Can be neutral (no effect), harmful (disease) or beneficial (better adapted).",
+ detail:"Point mutation: one base substituted → may change one amino acid (or be silent due to degenerate code). Insertion/deletion: shifts reading frame → alters all downstream codons (frameshift) → more disruptive. Causes: ionising radiation, UV light, some chemicals (mutagens). Random spontaneous mutations occur at low rate. Variation = continuous (e.g. height — many genes + environment) or discontinuous (e.g. blood group — one gene, fixed categories).",
+ prac:"Exam uses unfamiliar mutation data — apply the mechanism: which codon changes → which amino acid changes → how does protein function change.",
+ exam:"Exam: 'Explain the effect of a deletion mutation' = removes a base → reading frame shifts → all subsequent codons altered → different amino acids → protein has different shape → may not function. Each step = mark."
+},
+
+/* ══════════════ B4 ══════════════ */
+{top:"B4",type:"concept",
+ term:"Darwin's Theory of Natural Selection",
+ mnem:"VARIATES — Variation exists, Any advantageous trait gives better survival, Reproduce more, Inherit the trait, Allele frequency increases, Through generations, Evolution occurs, Selected by environment",
+ def:"Natural selection: organisms with favourable variations survive and reproduce more, passing on the favourable alleles. Over generations, allele frequencies change — the population evolves.",
+ detail:"Key conditions: overproduction of offspring (more born than can survive); variation (differences in phenotype due to genetic variation); competition (for resources); differential survival/reproduction (survival of the fittest = best adapted); inheritance (traits passed to offspring). Evidence: fossil record, comparative anatomy, antibiotic resistance, observed speciation. Darwin's contribution (1859): combined all evidence into a coherent mechanism. Lamarck's discredited alternative: acquired characteristics are inherited (wrong).",
+ prac:"No core practical. Exam questions provide data on selection — apply the mechanism to any unfamiliar organism.",
+ exam:"Exam: 'Explain how natural selection could lead to increased antibiotic resistance' = random mutation produces resistant allele → that bacterium survives antibiotic treatment → reproduces → resistant allele passes to daughter cells → frequency of resistance allele increases. Full mark answer needs all steps."
+},
+{top:"B4",type:"concept",
+ term:"Evidence for Evolution",
+ mnem:"FACE — Fossils, Antibiotic resistance (observed evolution), Comparative anatomy/DNA, Embryo similarities",
+ def:"Evidence supporting evolution by natural selection: fossil record (sequence of change over time), molecular biology (DNA/protein similarities across species), comparative anatomy (homologous structures), observed evolution (antibiotic/pesticide resistance), embryology.",
+ detail:"Fossil record limitations: most organisms don't fossilise; gaps exist; hard parts preserve better. Pentadactyl limb: same bone structure (humerus, radius, ulna, carpals, phalanges) in human arm, bat wing, whale flipper, horse leg → common ancestor. DNA comparison: more similar DNA → more recently diverged. Human evolution evidence: changes in skull shape, brow ridge, brain size, jaw, bipedalism in fossil record (e.g. Australopithecus → Homo erectus → Homo sapiens).",
+ prac:"No core practical. Exam may show fossil data or DNA similarity tables — interpret and draw conclusions.",
+ exam:"Exam: 'Give one limitation of the fossil record as evidence for evolution' = not all organisms fossilise / fossils only show hard parts / gaps in record. 'Explain what homologous structures suggest' = descent from a common ancestor with the structure modified for different functions."
+},
+{top:"B4",type:"concept",
+ term:"Classification",
+ mnem:"KPCOFGS — Kingdom, Phylum, Class, Order, Family, Genus, Species (King Philip Came Over For Good Soup)",
+ def:"Binomial nomenclature: every organism has a two-part Latin name — Genus species (e.g. Homo sapiens). Linnaeus developed the system. Modern classification uses DNA evidence and evolutionary relationships (phylogeny) as well as morphology.",
+ detail:"The five kingdoms (traditional): Animals (multicellular, no cell wall, heterotrophic), Plants (cell wall/chloroplasts, autotrophic), Fungi (cell wall not cellulose, saprotrophic), Protists (mostly unicellular eukaryotes), Prokaryotes (bacteria — no membrane-bound nucleus). Three-domain system (Woese): Archaea, Bacteria, Eukarya — based on ribosomal RNA. Species = organisms that can interbreed to produce fertile offspring.",
+ prac:"No core practical. Know the Linnaean hierarchy and binomial naming rules (Genus capitalised, species lower case, both italicised or underlined).",
+ exam:"Exam: 'Define a species' = a group of organisms that can interbreed to produce fertile offspring. Do not say 'similar organisms' — that is insufficient. Binomial name questions: always capitalise genus, lower case species."
+},
+{top:"B4",type:"concept",
+ term:"Selective Breeding (Breeds & Varieties)",
+ mnem:"SELECT — Select parents with desired traits, Each generation breed selected individuals, Long process, Eliminates variation, Causes inbreeding problems, Traits fixed over generations",
+ def:"Selective breeding (artificial selection): humans choose which organisms breed based on desired characteristics. Used for thousands of years for crops and livestock.",
+ detail:"Process: identify individuals with desired trait → breed them → select offspring with strongest expression of trait → repeat over many generations. Examples: high-yield wheat, disease-resistant crops, large-udder dairy cows, faster racehorses, calm temperament in dogs. Problems: reduced gene pool → inbreeding → recessive disorders expressed more → reduced disease resistance. Tissue culture: plants grown from small tissue samples in sterile nutrient medium → rapid cloning of elite varieties.",
+ prac:"No core practical. Tissue culture method: explant taken from plant meristem → placed on agar with hormones → callus forms → shoots/roots develop → transferred to soil.",
+ exam:"Exam: 'Evaluate selective breeding' = benefits (improved yield, disease resistance, desired traits) vs drawbacks (reduced genetic diversity, inbreeding depression, welfare concerns in animals). Must include both sides for full marks."
+},
+{top:"B4",type:"concept",
+ term:"Genetic Modification (GM)",
+ mnem:"RICE — Restriction enzyme cuts gene, Insert into vector (plasmid), Carrier introduces gene to host, Expression in new organism",
+ def:"Genetic modification (genetic engineering): transfer of a gene from one organism to another using a vector (usually a plasmid or virus). The recipient organism then expresses the new protein.",
+ detail:"Process: (1) Identify gene of interest. (2) Cut out with restriction enzymes (leave sticky ends). (3) Cut plasmid vector with same restriction enzyme (matching sticky ends). (4) Insert gene into plasmid using DNA ligase. (5) Transform plasmid into host bacterium. (6) Host expresses the new gene. Examples: GM insulin (E.coli produces human insulin), GM golden rice (produces beta-carotene/vitamin A), Bt crops (produce insecticide protein), herbicide-resistant crops.",
+ prac:"No core practical. Know the role of each enzyme: restriction enzyme = cuts DNA at specific sequences; DNA ligase = joins DNA strands.",
+ exam:"Exam: 'Describe how a human gene can be inserted into a bacterium' = restriction enzyme cuts human DNA at target site → same restriction enzyme cuts plasmid → sticky ends complementary → DNA ligase joins strands → recombinant plasmid inserted into bacterium. Each step = mark."
+},
+{top:"B4",type:"concept",
+ term:"Fertilisers & Biological Control",
+ mnem:"FERTBIO — Fertilisers replace minerals; can cause eutrophication; Biological control uses predators/pathogens; no chemical residue but may disrupt ecosystem",
+ def:"Fertilisers: chemical compounds added to soil to replace minerals (nitrogen, phosphorus, potassium) removed by crops. Biological control: using living organisms (predators, parasites, pathogens) to control pest populations instead of pesticides.",
+ detail:"Eutrophication: excess nitrate/phosphate runs off into water → algae bloom → blocks light → plants die → aerobic bacteria decompose dead plants → use up oxygen → fish/invertebrates die. Biological control examples: ladybirds eat aphids; Bacillus thuringiensis (Bt) toxin kills caterpillars; sterile male mosquito release; myxomatosis for rabbits. Advantages of biocontrol: species-specific, no chemical residue, self-sustaining. Disadvantages: may become invasive; slower acting; unpredictable ecological effects.",
+ prac:"No core practical. Exam may give unfamiliar biocontrol scenario — apply the advantages/disadvantages framework.",
+ exam:"Exam: 'Explain the process of eutrophication' requires the full chain: fertiliser leaches into water → nitrates increase → algae grow rapidly → algal bloom forms → light blocked from plants below → plants die → decomposers (bacteria) increase → decomposers respire aerobically → oxygen in water decreases → fish die. Each step = mark — don't skip."
+},
+{top:"B4",type:"concept",
+ term:"GM in Agriculture & Medicine",
+ mnem:"GIMM — Golden rice (vitamin A), Insulin (human gene in bacteria), Mosquito sterile male release, Medicine proteins produced cheaply",
+ def:"Genetic modification is used in agriculture to improve crop yield, pest resistance, and nutritional content; and in medicine to produce human proteins (insulin, clotting factors, vaccines).",
+ detail:"Golden rice: rice engineered with genes from daffodil and bacterium to produce beta-carotene (provitamin A) → addresses vitamin A deficiency in developing countries. GM insulin: human insulin gene in E.coli → produces human insulin for diabetics (replaced pig/cow insulin). Concerns: antibiotic resistance markers in GM crops, gene transfer to wild plants (superweeds), reduced biodiversity, unknown long-term effects, 'playing God', corporate control of food supply. Arguments for: increased yield, reduced pesticide use, drought tolerance, addressing malnutrition.",
+ prac:"No core practical. For evaluation questions structure: scientific benefits → risks → ethical concerns → overall judgement.",
+ exam:"Exam: 'Evaluate the use of GM crops' — 6-mark question structure: benefit 1 + explanation, benefit 2 + explanation, risk 1 + explanation, risk 2 + explanation, conclusion. Do not just list — explain each point."
+},
+];
+
+/* ── init ── */
+const tfEl=document.getElementById('tf');
+const ttEl=document.getElementById('tt');
+const gridEl=document.getElementById('grid');
+const ctrEl=document.getElementById('ctr');
+let aTop="All", aType="All";
+
+TOPICS.forEach(t=>{
+  const b=document.createElement('button');
+  b.className='fb'+(t==='All'?' on':'');
+  b.textContent=t; b.dataset.f=t;
+  b.onclick=()=>{aTop=t;tfEl.querySelectorAll('.fb').forEach(x=>x.classList.remove('on'));b.classList.add('on');render();};
+  tfEl.appendChild(b);
+});
+TYPES.forEach(t=>{
+  const b=document.createElement('button');
+  b.className='fb'+(t==='All'?' on':'');
+  b.textContent=t; b.dataset.t=t;
+  b.onclick=()=>{aType=t;ttEl.querySelectorAll('.fb').forEach(x=>x.classList.remove('on'));b.classList.add('on');render();};
+  ttEl.appendChild(b);
+});
+
+function render(){
+  gridEl.innerHTML='';
+  let f=C;
+  if(aTop!=='All') f=f.filter(c=>c.top===aTop);
+  if(aType!=='All') f=f.filter(c=>c.type===aType);
+  ctrEl.textContent=f.length+' card'+(f.length!==1?'s':'');
+  f.forEach(c=>{
+    const el=document.createElement('div');
+    el.className='card';
+    const hasPrac = c.prac && !c.prac.startsWith('No core practical');
+    el.innerHTML=`
+      <div class="ctop">
+        <div class="badges">
+          <span class="badge b${c.top}">${c.top}</span>
+          <span class="badge" style="background:var(--bg2);color:var(--t3)">${c.type}</span>
+          ${hasPrac?'<span class="badge bprac">★ practical</span>':''}
+        </div>
+      </div>
+      <div class="cterm">${c.term}</div>
+      <div class="cmnem">◆ ${c.mnem}</div>
+      <div class="cdef">${c.def}</div>
+      <div class="back">
+        <div class="detail">${c.detail}</div>
+        ${c.prac?`<div class="prac-box"><div class="prac-label">Core practical</div>${c.prac}</div>`:''}
+        <div class="exam-box"><div class="exam-label">Exam angle</div>${c.exam}</div>
+      </div>
+      <div class="hint">tap to reveal</div>
+    `;
+    el.onclick=()=>{el.classList.toggle('flipped');el.querySelector('.hint').textContent=el.classList.contains('flipped')?'tap to hide':'tap to reveal';};
+    gridEl.appendChild(el);
+  });
+}
+render();
+</script>
+</body>
+</html>

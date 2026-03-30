@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GCSE PE — Chapter 1 Flashcards</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{
+    --bg1:#ffffff;--bg2:#f5f4f0;--bg3:#eef6ee;--bg4:#f8f0e8;--bg5:#eef2f8;
+    --t1:#1a1a18;--t2:#575754;--t3:#888780;
+    --bl:rgba(0,0,0,0.10);--bm:rgba(0,0,0,0.19);
+    --r:8px;--rl:12px;--font:system-ui,-apple-system,sans-serif;
+  }
+  @media(prefers-color-scheme:dark){
+    :root{
+      --bg1:#1e1e1c;--bg2:#242422;--bg3:#182318;--bg4:#261e10;--bg5:#161a26;
+      --t1:#f0ece4;--t2:#a8a59e;--t3:#6a6966;
+      --bl:rgba(255,255,255,0.09);--bm:rgba(255,255,255,0.18);
+    }
+  }
+  body{font-family:var(--font);background:var(--bg2);color:var(--t1);padding:1.75rem 1rem;min-height:100vh;}
+  h1{font-size:20px;font-weight:500;margin-bottom:.2rem;}
+  .sub{font-size:14px;color:var(--t2);margin-bottom:1.4rem;}
+
+  .frow{margin-bottom:.8rem;}
+  .flabel{font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px;}
+  .btns{display:flex;gap:5px;flex-wrap:wrap;}
+  .fb{font-size:12px;padding:4px 11px;border-radius:20px;border:.5px solid var(--bm);background:var(--bg1);color:var(--t2);cursor:pointer;transition:all .13s;white-space:nowrap;}
+  .fb.on{border-color:transparent;color:#fff;}
+  .fb[data-f="All"].on{background:#444441;}
+  .fb[data-f="Skeletal"].on{background:#185FA5;}
+  .fb[data-f="Joints"].on{background:#534AB7;}
+  .fb[data-f="Cardiovascular"].on{background:#A32D2D;}
+  .fb[data-f="Respiratory"].on{background:#3B6D11;}
+  .fb[data-f="Energy & Recovery"].on{background:#854F0B;}
+  .fb[data-f="Effects of Exercise"].on{background:#0F6E56;}
+  .fb[data-t="All"].on{background:#444441;}
+  .fb[data-t="structure"].on{background:#185FA5;}
+  .fb[data-t:"process"].on{background:#534AB7;}
+  .fb[data-t="definition"].on{background:#3B6D11;}
+  .fb[data-t="calculation"].on{background:#0F6E56;}
+  .fb[data-t="process"].on{background:#854F0B;}
+
+  .counter{font-size:13px;color:var(--t2);margin:.8rem 0 1rem;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:11px;}
+
+  .card{background:var(--bg1);border:.5px solid var(--bl);border-radius:var(--rl);padding:.95rem 1.15rem;cursor:pointer;user-select:none;min-height:210px;display:flex;flex-direction:column;gap:6px;transition:border-color .13s;}
+  .card:hover{border-color:var(--bm);}
+
+  .ctop{display:flex;justify-content:space-between;align-items:flex-start;gap:6px;}
+  .badges{display:flex;gap:4px;flex-wrap:wrap;}
+  .badge{font-size:10px;font-weight:500;padding:2px 7px;border-radius:10px;white-space:nowrap;}
+  .bSkeletal{background:#E6F1FB;color:#185FA5;}
+  .bJoints{background:#EEEDFE;color:#534AB7;}
+  .bCardiovascular{background:#FCEBEB;color:#A32D2D;}
+  .bRespiratory{background:#EAF3DE;color:#3B6D11;}
+  .bEnergyRecovery{background:#FAEEDA;color:#854F0B;}
+  .bEffectsofExercise{background:#E1F5EE;color:#0F6E56;}
+
+  .cterm{font-size:14px;font-weight:500;color:var(--t1);line-height:1.35;}
+  .cmnem{font-size:12px;color:var(--t2);border-left:2px solid var(--bm);padding-left:8px;}
+  .cdef{font-size:13px;color:var(--t2);line-height:1.55;flex-grow:1;}
+
+  .back{display:none;flex-direction:column;gap:7px;}
+  .card.flipped .back{display:flex;}
+  .card.flipped .cdef{font-size:12px;color:var(--t3);}
+
+  .detail{font-size:13px;color:var(--t2);line-height:1.6;border-top:.5px solid var(--bl);padding-top:7px;}
+  .sport-box{background:var(--bg3);border-radius:var(--r);padding:7px 10px;font-size:12px;color:var(--t2);line-height:1.5;}
+  .sport-label{font-size:10px;font-weight:500;color:#3B6D11;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px;}
+  .calc-box{background:var(--bg5);border-radius:var(--r);padding:7px 10px;font-size:12px;color:var(--t2);line-height:1.6;font-family:'Courier New',monospace;}
+  .calc-label{font-family:var(--font);font-size:10px;font-weight:500;color:#185FA5;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px;}
+  .exam-box{background:var(--bg4);border-radius:var(--r);padding:7px 10px;font-size:12px;color:var(--t2);line-height:1.5;}
+  .exam-label{font-size:10px;font-weight:500;color:#854F0B;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px;}
+
+  .hint{font-size:11px;color:var(--t3);text-align:right;margin-top:auto;}
+</style>
+</head>
+<body>
+<h1>GCSE PE — Chapter 1</h1>
+<p class="sub">AQA · Anatomy &amp; Physiology · tap to reveal mechanism, sporting example &amp; exam angle</p>
+
+<div class="frow"><div class="flabel">System</div><div class="btns" id="tf"></div></div>
+<div class="frow"><div class="flabel">Type</div><div class="btns" id="tt"></div></div>
+<div class="counter" id="ctr"></div>
+<div class="grid" id="grid"></div>
+
+<script>
+const TOPICS=["All","Skeletal","Joints","Cardiovascular","Respiratory","Energy & Recovery","Effects of Exercise"];
+const TYPES=["All","structure","definition","process","calculation"];
+
+const C=[
+
+/* ══════════════════════════════
+   SKELETAL SYSTEM
+══════════════════════════════ */
+{top:"Skeletal",type:"structure",
+ term:"Functions of the Skeleton",
+ mnem:"SPMMAS — Support, Protection, Movement, Mineral storage, Attachment of muscles, Shape, blood cell production",
+ def:"The skeleton has six key functions: support (holds body upright), protection (flat bones protect organs), movement (bones act as levers), mineral storage (calcium/phosphorus in bones), muscle attachment (tendons connect muscle to bone), blood cell production (red bone marrow produces RBCs).",
+ detail:"Support: maintains posture against gravity. Protection: skull protects brain; ribcage protects heart and lungs; pelvis protects reproductive organs. Movement: bones act as levers — muscles pull on bones via tendons to create movement at joints. Mineral storage: calcium strengthens bones and is released when blood calcium drops. Blood cell production (haematopoiesis): occurs in red bone marrow of flat and short bones (sternum, pelvis).",
+ sport:"Support — a gymnast's skeleton supports their weight during a handstand. Protection — a rugby player's ribcage protects the heart and lungs during a tackle. Attachment — the quadriceps attach to the femur via tendons to extend the knee when kicking a ball.",
+ calc:null,
+ exam:"Exam: 'State two functions of the skeleton' — choose two from the list and link to a physical activity example. 6-mark extended question may ask you to explain how the skeleton enables movement — address levers, joints, muscle attachment and the specific sport."
+},
+{top:"Skeletal",type:"structure",
+ term:"Types of Bone",
+ mnem:"LFSI — Long (levers/movement), Flat (protection/attachment), Short (fine movement/stability), Irregular (protection — spine/skull base)",
+ def:"Four types of bone, each adapted to a specific function: long bones (levers for movement), flat bones (protection and muscle attachment), short bones (fine movement and weight bearing), irregular bones (unique shapes for protection and complex function).",
+ detail:"Long bones: femur, humerus, tibia, fibula, radius, ulna — hollow shaft (medullary cavity) filled with yellow marrow (fat), ends (epiphyses) contain red marrow. Act as levers. Flat bones: skull, sternum, scapula, pelvis — broad surfaces for muscle attachment, protect vital organs, contain red marrow. Short bones: carpals, tarsals — weight bearing and fine motor control. Irregular: vertebrae, sacrum — complex shapes for specific roles (spinal protection, support).",
+ sport:"Long bones — femur acts as the lever arm during a sprint. Short bones — carpals allow fine wrist movement in a tennis serve. Flat bones — scapula provides attachment for rotator cuff muscles used in a swimming stroke.",
+ calc:null,
+ exam:"Exam: 'Give one example of a flat bone and state one function' — skull / sternum / scapula / pelvis → protects vital organs OR provides surface for muscle attachment. Must give both the name AND the function for 2 marks."
+},
+{top:"Skeletal",type:"structure",
+ term:"The Axial & Appendicular Skeleton",
+ mnem:"AXIAL = central core (skull, ribcage, vertebral column). APPENDICULAR = limbs and girdles attached to axial.",
+ def:"The skeleton is divided into two parts: the axial skeleton (central axis — skull, vertebral column, ribcage, sternum) and the appendicular skeleton (limbs and their girdles — pectoral and pelvic girdles, arms and legs).",
+ detail:"Axial skeleton: 80 bones forming the central support structure. Protects the brain and spinal cord, supports the head, and provides attachment for the appendicular skeleton. Appendicular skeleton: 126 bones. Pectoral girdle (clavicle + scapula) connects arms to axial. Pelvic girdle (hip bones + sacrum) connects legs to axial. Enables all locomotion — running, throwing, kicking, swimming.",
+ sport:"Axial: vertebral column transmits force from legs to upper body in a rowing stroke. Appendicular: pectoral girdle allows arm swing and overhead throwing actions in cricket/basketball.",
+ calc:null,
+ exam:"Exam: 'Identify which part of the skeleton the femur belongs to' = appendicular skeleton. Less commonly tested but may appear as multiple choice. Know: skull, sternum, ribs, vertebrae = axial. Everything else = appendicular."
+},
+
+/* ══════════════════════════════
+   JOINTS
+══════════════════════════════ */
+{top:"Joints",type:"structure",
+ term:"Types of Joint",
+ mnem:"HINGE = one plane (elbow, knee, ankle). BALL AND SOCKET = multi-directional (hip, shoulder). PIVOT = rotation (atlas/axis in neck). CONDYLOID = two planes (wrist, knuckles).",
+ def:"Synovial joints are classified by the shape of the articulating surfaces and the range of movement they allow. The four main types are hinge, ball and socket, pivot, and condyloid joints.",
+ detail:"Hinge joint: permits flexion and extension only — uniaxial. Examples: elbow, knee, ankle, interphalangeal joints. Ball and socket: rounded head fits into cup-shaped socket — multiaxial, allows flexion/extension, abduction/adduction, rotation, circumduction. Examples: hip (femur into acetabulum), shoulder (humerus into glenoid fossa). Pivot joint: one bone rotates around another — only rotation. Examples: atlas/axis (head rotation), radioulnar joint (pronation/supination). Condyloid: oval head in elliptical cavity — biaxial. Examples: wrist (radius/ulna and carpals), metacarpophalangeal joints.",
+ sport:"Hinge — the knee extends during a football kick (femur/tibia). Ball and socket — the shoulder allows circumduction when bowling in cricket. Pivot — the radioulnar joint allows forearm rotation in a tennis backhand.",
+ calc:null,
+ exam:"Exam: 'Identify the type of joint at the hip' = ball and socket. 'State two movements possible at a ball and socket joint' = any two from: flexion, extension, abduction, adduction, rotation, circumduction. Hinge = flexion and extension ONLY — common exam trap."
+},
+{top:"Joints",type:"structure",
+ term:"Synovial Joint Structure",
+ mnem:"SLABCJ — Synovial membrane, Ligaments, Articular cartilage, Bursa, Capsule, Joint cavity (filled with synovial fluid)",
+ def:"A synovial joint contains several structures that enable smooth movement while maintaining stability: synovial membrane, synovial fluid, articular cartilage, joint capsule, ligaments, and bursae.",
+ detail:"Synovial membrane: lines the joint capsule, produces synovial fluid. Synovial fluid: lubricates the joint, reduces friction, nourishes cartilage. Articular (hyaline) cartilage: covers the ends of bones, absorbs shock, reduces friction, smooth surface for movement. Joint capsule: fibrous sleeve enclosing the joint, maintains stability. Ligaments: fibrous connective tissue joining bone to bone, prevents excessive movement, stabilises joint. Bursae: fluid-filled sacs between tendons/bones, cushion and reduce friction. Tendons: join muscle to bone (not technically inside joint but essential for movement).",
+ sport:"Articular cartilage absorbs impact in the knee joint during a basketball jump landing. Ligaments stabilise the ankle joint when a sprinter plants their foot. Synovial fluid lubricates the shoulder during a cricket bowling action.",
+ calc:null,
+ exam:"Exam: 'State the function of articular cartilage' = reduces friction between bones / absorbs shock / provides smooth surface for movement. 'State the function of a ligament' = joins bone to bone / stabilises the joint / prevents excessive movement. Do not confuse ligament (bone–bone) with tendon (muscle–bone)."
+},
+{top:"Joints",type:"process",
+ term:"Joint Actions / Types of Movement",
+ mnem:"FREED CAP — Flexion, Extension, Rotation, Extension, Elevation/Depression, Dorsi/Plantar flexion, Circumduction, Abduction, adduction, Pronation/supination",
+ def:"Joints allow specific types of movement depending on their structure. Key movements: flexion (decrease in angle), extension (increase in angle), abduction (away from midline), adduction (towards midline), rotation, circumduction, plantar flexion (pointing toes), dorsiflexion (pulling toes up).",
+ detail:"Flexion: bending — decreasing angle at joint. Extension: straightening — increasing angle. Hyperextension: beyond normal anatomical position (e.g. neck tilt). Abduction: limb moves away from body midline (raising arm sideways). Adduction: limb moves towards body midline. Rotation: bone turns about its long axis. Circumduction: combination of flex/extend/abduct/adduct — circular motion (shoulder/hip). Plantar flexion: foot extends (standing on tiptoe). Dorsiflexion: foot flexes (pulling toes up). Pronation: palm turns down. Supination: palm turns up.",
+ sport:"Flexion at the knee during the recovery phase of a sprint. Extension at the elbow when releasing a shot put. Plantar flexion at the ankle when a gymnast points their toes. Abduction at the shoulder during a breaststroke arm action.",
+ calc:null,
+ exam:"Exam: 'State the joint action occurring at the knee during the upward phase of a squat' = extension. 'What joint action occurs at the ankle when a sprinter pushes off the blocks?' = plantar flexion. Always name the joint AND the movement AND the direction (e.g. from flexion to extension)."
+},
+{top:"Joints",type:"process",
+ term:"Antagonistic Muscle Pairs",
+ mnem:"AGONIST CONTRACTS, ANTAGONIST RELAXES — muscles can only pull (contract), never push. Pairs work in opposition to move joints in both directions.",
+ def:"Muscles work in antagonistic pairs — when one contracts (agonist), the other relaxes (antagonist). Muscles can only generate force by shortening; they cannot push. Therefore two muscles are needed to move a joint in opposite directions.",
+ detail:"Agonist (prime mover): the muscle primarily responsible for a joint action — it contracts concentrically to produce movement. Antagonist: the muscle that opposes the agonist — relaxes and lengthens as the agonist contracts. Fixator: stabilises nearby joints so energy is directed to the intended movement. Key pairs: elbow — biceps/triceps; knee — quadriceps/hamstrings; ankle — gastrocnemius/tibialis anterior; shoulder — deltoid/latissimus dorsi. In eccentric contraction: muscle produces force while lengthening (controlling movement against gravity).",
+ sport:"Biceps curl: biceps = agonist (concentric contraction) → elbow flexion; triceps = antagonist (relaxes). On the way down: triceps = agonist (eccentric) controls lowering. Kicking a ball: quadriceps = agonist for knee extension; hamstrings = antagonist.",
+ calc:null,
+ exam:"Exam: 'State the agonist during knee extension in a football kick' = quadriceps. 'State the antagonist during the same movement' = hamstrings. 'Explain the role of antagonistic muscle pairs' — agonist contracts (shortens), antagonist relaxes (lengthens), allowing movement at the joint in one direction; roles reverse for opposite movement."
+},
+
+/* ══════════════════════════════
+   CARDIOVASCULAR SYSTEM
+══════════════════════════════ */
+{top:"Cardiovascular",type:"process",
+ term:"The Cardiac Cycle",
+ mnem:"DADS — Diastole (Atria fill), Atrial systole (Atria contract), Diastole (Ventricles fill), Systole (Ventricles contract and blood ejected)",
+ def:"The cardiac cycle is the sequence of events in one complete heartbeat. It involves alternating relaxation (diastole) and contraction (systole) of the atria and ventricles.",
+ detail:"1. Atrial diastole + ventricular diastole: both chambers relax — blood flows from vena cava (right) and pulmonary veins (left) into atria, then through AV valves into relaxed ventricles. 2. Atrial systole: atria contract, pushing remaining blood into ventricles. AV valves open. 3. Ventricular systole: ventricles contract — pressure closes AV valves (prevents backflow), opens semilunar valves. Blood ejected: right ventricle → pulmonary artery → lungs; left ventricle → aorta → body. 4. Diastole: ventricles relax, semilunar valves close. Cycle repeats. Electrical: SA node (pacemaker) initiates impulse → AV node → Bundle of His → Purkinje fibres.",
+ sport:"During a 400m sprint, heart rate increases from ~70 bpm to ~180+ bpm. Stroke volume also increases (more blood fills ventricles due to increased venous return from working muscles) → cardiac output rises dramatically to deliver oxygen.",
+ calc:"Cardiac output (Q) = Stroke Volume (SV) × Heart Rate (HR)\nQ = SV × HR\nUnits: litres per minute (L/min)\n\nExample: SV = 70ml, HR = 70bpm\nQ = 70 × 70 = 4900ml/min = ~5 L/min at rest\n\nDuring exercise: SV=120ml, HR=180bpm\nQ = 120 × 180 = 21,600ml/min = 21.6 L/min",
+ exam:"Exam: 'Calculate cardiac output given SV and HR' — multiply. Watch units: SV in ml → Q in ml/min. Convert to L/min by dividing by 1000. 'State the correct order of the cardiac cycle' — diastole → atrial systole → ventricular systole → diastole. Know blood pathway: vena cava → right atrium → right ventricle → pulmonary artery → lungs → pulmonary vein → left atrium → left ventricle → aorta."
+},
+{top:"Cardiovascular",type:"structure",
+ term:"Blood Vessels: Arteries, Veins, Capillaries",
+ mnem:"ARTERIES Away from heart (thick walls, elastic, high pressure). VEINS to heart (thin walls, valves, low pressure). CAPILLARIES = exchange vessels (one cell thick).",
+ def:"Three types of blood vessel each adapted to their function: arteries carry blood away from the heart at high pressure; veins carry blood back to the heart at low pressure; capillaries are the site of exchange between blood and tissues.",
+ detail:"Arteries: thick muscular and elastic walls (withstand high pressure from ventricular contraction), small lumen, no valves. Carry oxygenated blood (except pulmonary artery). Veins: thinner walls (blood at low pressure), large lumen, valves (prevent backflow — blood relies on muscle contractions and breathing to return). Carry deoxygenated blood (except pulmonary vein). Capillaries: one cell thick (short diffusion pathway), large total surface area, allow exchange of O₂, CO₂, glucose, waste. Named vessels: aorta (left ventricle → body), pulmonary artery (right ventricle → lungs), vena cava (body → right atrium), pulmonary vein (lungs → left atrium).",
+ sport:"During exercise, capillaries in working muscles dilate (vasodilation) → more blood delivered → more O₂ for aerobic respiration. Capillary network in muscles is extensive — crucial for sustained performance in endurance events like marathon running.",
+ calc:null,
+ exam:"Exam: 'State one structural difference between an artery and a vein' = artery has thicker, more muscular/elastic walls / smaller lumen / no valves. 'Explain why veins have valves' = blood travels at low pressure; valves prevent backflow, ensuring blood flows one-way towards the heart."
+},
+{top:"Cardiovascular",type:"process",
+ term:"Blood Redistribution During Exercise",
+ mnem:"VASO — Vasodilation to working muscles and skin; Vasoconstriction of digestive organs, kidneys, liver; pre-capillary sphincters control flow",
+ def:"During exercise, blood is redistributed away from organs not essential to exercise (gut, liver, kidneys) and towards working muscles, the heart, and the skin. This is achieved by vasoconstriction and vasodilation controlled by the vasomotor centre in the medulla.",
+ detail:"At rest: ~15–20% of cardiac output to muscles. During maximal exercise: ~80–85% to muscles. Mechanisms: (1) Chemoreceptors detect increased CO₂, decreased O₂, decreased pH in blood → signal vasomotor centre. (2) Vasomotor centre sends sympathetic nerve impulses. (3) Pre-capillary sphincters and smooth muscle in vessel walls respond: working muscle arterioles → vasodilate (wider, more blood); gut/liver/kidney arterioles → vasoconstrict (narrower, less blood). (4) Skin vasodilates for thermoregulation (heat removal). (5) Brain maintains constant blood flow at all intensities (priority).",
+ sport:"A footballer sprinting needs blood redirected to leg muscles. Blood is shunted away from the digestive system — this is why eating a large meal before sport causes discomfort (blood needed for digestion is diverted away).",
+ calc:null,
+ exam:"Exam: 'Explain how blood is redistributed during exercise' — must include: vasodilation of arterioles supplying working muscles; vasoconstriction of arterioles supplying non-essential organs (gut/kidneys); pre-capillary sphincters control; vasomotor centre in medulla. Name the process, give the direction, name the organs affected."
+},
+
+/* ══════════════════════════════
+   RESPIRATORY SYSTEM
+══════════════════════════════ */
+{top:"Respiratory",type:"structure",
+ term:"Pathway of Air & Mechanics of Breathing",
+ mnem:"MOUTH → TRACHEA → BRONCHI → BRONCHIOLES → ALVEOLI. Inhalation: diaphragm contracts DOWN, intercostals contract → ribs UP and OUT → volume increases → pressure drops → air flows in.",
+ def:"Air enters through mouth/nose, travels to the alveoli via the trachea, bronchi, and bronchioles. Breathing involves changes in thoracic volume and pressure controlled by the diaphragm and intercostal muscles.",
+ detail:"Inhalation (active): external intercostal muscles contract → ribs move up and out; diaphragm contracts → flattens downward; thoracic volume increases → air pressure decreases below atmospheric pressure → air flows into lungs. Exhalation (passive at rest): internal intercostals and diaphragm relax; elastic recoil of lungs; thoracic volume decreases → pressure increases above atmospheric → air expelled. During exercise: forced exhalation uses internal intercostals and abdominals (active). Rate and depth increase to meet O₂ demand. Alveoli: ~600 million in human lungs, massive surface area (~70m²).",
+ sport:"During a 1500m race, breathing rate increases from ~15 breaths/min at rest to ~40–50 breaths/min. Tidal volume increases. Both mechanisms increase minute ventilation to deliver more O₂ to working muscles.",
+ calc:"Minute ventilation = Tidal volume × Breathing rate\nMV = TV × BR\n\nExample: TV = 0.5L, BR = 15/min → MV = 7.5 L/min at rest\nExercise: TV = 2.5L, BR = 40/min → MV = 100 L/min",
+ exam:"Exam: 'Explain what happens to the diaphragm during inhalation' = diaphragm contracts and moves downward / flattens → increases volume of thoracic cavity → decreases air pressure → air flows in. Always chain the mechanism: muscle action → volume change → pressure change → air movement."
+},
+{top:"Respiratory",type:"process",
+ term:"Gaseous Exchange",
+ mnem:"HAEMOGLOBIN + O₂ → OXYhaemoglobin (at alveoli). At muscles: O₂ released, CO₂ picked up. Both exchanges by DIFFUSION — high to low concentration.",
+ def:"Gaseous exchange is the movement of oxygen from the alveoli into the blood and carbon dioxide from the blood into the alveoli, by diffusion. A second exchange occurs at the muscle tissues.",
+ detail:"At alveoli: O₂ concentration in alveoli > O₂ in capillary blood → O₂ diffuses into blood → binds to haemoglobin to form oxyhaemoglobin. CO₂ concentration in blood > CO₂ in alveoli → CO₂ diffuses out. Features facilitating exchange: (1) thin walls (one cell thick) — short diffusion pathway; (2) moist surface — gases dissolve; (3) large surface area — millions of alveoli; (4) rich capillary network — maintains concentration gradient; (5) constant ventilation and blood flow — maintains gradient. At muscles: oxyhaemoglobin releases O₂ to cells (high CO₂ in cells). CO₂ diffuses from cells into blood.",
+ sport:"During a marathon, efficient gaseous exchange at the alveoli is vital — trained athletes have more alveoli capillaries and greater lung surface area, enabling faster O₂ uptake to sustain aerobic energy production.",
+ calc:null,
+ exam:"Exam: 'State two features of alveoli that make them efficient for gaseous exchange' — any two from: thin walls (one cell thick) / large surface area / moist surface / rich capillary supply / maintained concentration gradient. 'Explain the role of haemoglobin' = carries oxygen in red blood cells / binds to O₂ at lungs to form oxyhaemoglobin / releases O₂ at muscle tissues."
+},
+{top:"Respiratory",type:"structure",
+ term:"Lung Volumes & Spirometer Trace",
+ mnem:"TIERI — Tidal Volume (normal breathing), Inspiratory Reserve Volume (extra in), Expiratory Reserve Volume (extra out), Residual Volume (always remains), plus Total Lung Capacity",
+ def:"A spirometer trace shows lung volumes during breathing. Four key volumes: Tidal Volume (TV), Inspiratory Reserve Volume (IRV), Expiratory Reserve Volume (ERV), Residual Volume (RV).",
+ detail:"Tidal Volume (TV): volume of air breathed in or out in one normal breath at rest (~0.5L). Increases during exercise as breathing deepens. Inspiratory Reserve Volume (IRV): additional air that can be forcibly inhaled above normal tidal volume (~2.5L). Used during vigorous exercise. Expiratory Reserve Volume (ERV): additional air that can be forcibly exhaled after normal exhalation (~1.5L). Used in forced expiration during exercise. Residual Volume (RV): air that always remains in lungs after maximal exhalation (~1.2L) — prevents alveolar collapse. Vital Capacity = TV + IRV + ERV (maximum air that can be moved). Total Lung Capacity = VC + RV. On trace: reading increases = inhaling; decreases = exhaling; amplitude of peaks = tidal volume.",
+ sport:"During a 400m run, tidal volume increases from 0.5L to ~2.5L as the athlete breathes more deeply. Breathing rate also increases — both increase minute ventilation to supply muscles with more O₂.",
+ calc:"Vital Capacity = TV + IRV + ERV\n\nExample: TV=0.5L, IRV=2.5L, ERV=1.5L\nVC = 0.5 + 2.5 + 1.5 = 4.5L\n\nMinute ventilation = TV × Breathing rate\nAt exercise: TV=2L, BR=30 → MV = 60 L/min",
+ exam:"Exam: Reading a spirometer trace — peaks and troughs represent breathing cycles. Distance between baseline and peak = tidal volume. Can you measure tidal volume from a trace? Use the scale on the y-axis. 'Explain how lung volumes change during exercise' — TV increases (deeper breathing); breathing rate increases; IRV decreases (using reserve to increase TV); RV stays the same (cannot be voluntarily changed)."
+},
+
+/* ══════════════════════════════
+   ENERGY & RECOVERY
+══════════════════════════════ */
+{top:"Energy & Recovery",type:"definition",
+ term:"Aerobic & Anaerobic Respiration",
+ mnem:"AEROBIC = Air (oxygen present) → CO₂ + H₂O + LOTS of ATP — sustainable. ANAEROBIC = No Air → lactic acid + less ATP — unsustainable, used for high intensity.",
+ def:"Aerobic respiration: releases energy from glucose using oxygen. Produces carbon dioxide, water, and large amounts of ATP. Anaerobic respiration: releases energy from glucose without oxygen. Produces lactic acid and small amounts of ATP.",
+ detail:"Aerobic: glucose + oxygen → carbon dioxide + water + energy (ATP). Efficient — produces ~36 ATP per glucose molecule. Used for: low to moderate intensity, long duration activities. Limited by oxygen delivery. Examples: marathon, cycling, long-distance swimming. Anaerobic: glucose → lactic acid + energy (ATP). Only ~2 ATP per glucose molecule. Used for: high intensity, short duration. Limited by lactic acid accumulation (lowers pH → inhibits enzymes → fatigue). Examples: 100m sprint, 400m run, power lifting. The body uses both systems simultaneously — intensity determines which dominates.",
+ sport:"Aerobic: a distance cyclist uses aerobic respiration for the majority of a 40km time trial — sustainable energy over a long period. Anaerobic: a 100m sprinter relies primarily on anaerobic respiration — maximum intensity for ~10 seconds; oxygen cannot be delivered fast enough.",
+ calc:null,
+ exam:"Exam: 'Write the equation for aerobic respiration' = glucose + oxygen → carbon dioxide + water (+ energy). 'Write the equation for anaerobic respiration' = glucose → lactic acid (+ energy). 'Why does an athlete use anaerobic respiration during a sprint?' = intensity too high for aerobic system to supply enough O₂ fast enough; muscles respire without oxygen."
+},
+{top:"Energy & Recovery",type:"process",
+ term:"EPOC (Excess Post-Exercise Oxygen Consumption)",
+ mnem:"OXYGEN DEBT — after exercise, elevated breathing continues to repay the O₂ deficit created during anaerobic activity; removes lactic acid and restores oxygen stores.",
+ def:"EPOC (oxygen debt) is the elevated oxygen consumption that occurs after exercise, above resting levels. It represents the extra oxygen required to restore the body to its pre-exercise state after anaerobic activity has produced lactic acid.",
+ detail:"During intense exercise: anaerobic respiration produces lactic acid → accumulates in muscles → causes fatigue and burning sensation. After exercise: EPOC requires increased breathing rate to supply O₂ that: (1) converts lactic acid back to glucose (in liver — Cori cycle) or oxidises it to CO₂ + H₂O; (2) replenishes phosphocreatine (ATP-PC) stores; (3) restores oxygen to myoglobin in muscles; (4) restores oxygen to haemoglobin in blood; (5) fuels elevated body temperature and heart rate. EPOC size: depends on intensity and duration of anaerobic work — harder workout = more lactic acid = larger EPOC.",
+ sport:"After a 400m race, an athlete continues to breathe heavily for several minutes — this is EPOC. The body is removing ~10mmol of lactic acid accumulated during the race, requiring O₂ to metabolise it. Cool-down activities (light jogging) accelerate EPOC recovery by maintaining blood flow to muscles.",
+ calc:null,
+ exam:"Exam: 'Define EPOC' = the excess oxygen consumed above resting levels after exercise to restore the body to its pre-exercise state / repay the oxygen debt. 'Explain why breathing rate remains elevated after a sprint' = lactic acid accumulated during anaerobic respiration; oxygen needed to remove lactic acid / convert it to CO₂ and water; body takes time to restore pre-exercise state."
+},
+{top:"Energy & Recovery",type:"process",
+ term:"Cool Down & Recovery",
+ mnem:"COOL = Clears lactic acid, Oxygen repaid (EPOC), Oxygen to myoglobin restored, Lowers heart rate gradually",
+ def:"A cool down is a period of light exercise following intense activity that accelerates recovery. It helps remove lactic acid, gradually reduces heart rate and body temperature, and reduces the risk of DOMS.",
+ detail:"Benefits: (1) Maintains elevated blood flow to muscles → flushes out lactic acid and metabolic waste faster than rest. (2) Gradually reduces heart rate and body temperature (reduces risk of blood pooling in limbs). (3) Oxygen repayment — maintains EPOC process. (4) Reduces DOMS (delayed onset muscle soreness — see below). Typical cool down: 5–10 minutes light jogging → static stretching. Stretching maintains/improves flexibility and reduces muscle stiffness. Contrast: simply stopping exercise causes blood to pool in limbs (muscle pump stops) → dizziness/fainting risk.",
+ sport:"After a 1500m race, the athlete jogs for 5 minutes then stretches. This keeps blood circulating, removes lactic acid from fatigued leg muscles, and prevents the sharp drop in blood pressure that can cause fainting.",
+ calc:null,
+ exam:"Exam: 'Explain the benefits of a cool down' — (1) maintains blood flow to muscles to flush out lactic acid; (2) gradual reduction in heart rate reduces risk of blood pooling; (3) maintains EPOC process to repay oxygen debt; (4) reduces risk of DOMS. Always give specific physiological reasons, not just 'helps recovery'."
+},
+{top:"Energy & Recovery",type:"definition",
+ term:"DOMS (Delayed Onset Muscle Soreness)",
+ mnem:"DOMS = Damage, Occurs 24-72 hours after, Micro-tears in muscle fibres, Soreness, inflammation, stiffness",
+ def:"DOMS (Delayed Onset Muscle Soreness) is muscle pain and stiffness that develops 24–72 hours after unfamiliar or intense exercise. It results from microscopic tears (micro-tears) in muscle fibres, particularly following eccentric contractions.",
+ detail:"Cause: unaccustomed exercise or increased intensity causes micro-tears in muscle fibres → inflammation response → soreness, stiffness, swelling. Eccentric contractions (muscle lengthens under load — downhill running, lowering weights) cause more DOMS than concentric. Not caused by lactic acid (this clears within 30–60 minutes post-exercise). Symptoms peak 24–72 hours post-exercise. Recovery: rest, gentle movement, massage, ice/heat. Prevention: gradual progression (progressive overload), proper warm-up/cool down.",
+ sport:"A footballer who returns from injury and trains intensively will experience DOMS 24–48 hours later — microscopic tears in muscles from the unaccustomed load cause inflammation and pain when the muscle is used again.",
+ calc:null,
+ exam:"Exam: 'Define DOMS' = delayed onset muscle soreness — pain/stiffness felt 24–72 hours after exercise due to microscopic tears in muscle fibres. 'Explain why DOMS is NOT caused by lactic acid' = lactic acid is cleared from muscles within 30–60 minutes of stopping exercise; DOMS peaks 24–72 hours later — so lactic acid cannot be the cause."
+},
+
+/* ══════════════════════════════
+   EFFECTS OF EXERCISE
+══════════════════════════════ */
+{top:"Effects of Exercise",type:"process",
+ term:"Immediate & Short-Term Effects of Exercise",
+ mnem:"HASHES — Heart rate up, Accelerated breathing, Sweat increases, Heart stroke volume up, Energy stores depleted, Skin flushes (vasodilation)",
+ def:"Immediate effects occur within seconds of starting exercise. Short-term effects last up to 36 hours after exercise. Both are temporary adaptations to meet the increased demands of physical activity.",
+ detail:"Immediate (within seconds): increased heart rate, increased breathing rate, increased tidal volume, increased cardiac output, vasodilation of arterioles to working muscles, vasoconstriction of gut/kidney vessels, increased body temperature. Short-term (during exercise and up to 36 hours after): DOMS (24–72h), muscle fatigue (lactic acid), temporary muscle soreness and stiffness, depletion of glycogen stores, micro-tears in muscle fibres, elevated EPOC for hours post-exercise. Also: anticipatory rise in heart rate before exercise begins (adrenaline response from brain preparing for activity).",
+ sport:"A footballer shows immediate effects within the first minute of a match: heart rate rises from 70 to 140+ bpm, breathing rate doubles, skin flushes as blood is directed to working leg muscles, sweat production increases.",
+ calc:null,
+ exam:"Exam: Distinguish 'immediate' (within seconds) from 'short-term' (hours) from 'long-term' (months/years). The exam frequently asks for one from each category. 'Identify one immediate effect of exercise on the cardiovascular system' = heart rate / cardiac output / stroke volume increases. Immediate = cardiovascular and respiratory responses."
+},
+{top:"Effects of Exercise",type:"process",
+ term:"Long-Term Effects of Exercise",
+ mnem:"CHAMP — Cardiac hypertrophy, Haemoglobin increases, Athletic heart (lower resting HR), More capillaries (capillarisation), Pulmonary function improves",
+ def:"Long-term effects are chronic adaptations that occur after months or years of regular training. They represent the body's permanent structural and functional changes to repeated exercise stress.",
+ detail:"Cardiovascular: cardiac hypertrophy (heart muscle thickens → stronger contractions → greater stroke volume → lower resting HR — 'athlete's heart'). Increased stroke volume at rest (~70ml → 90ml+ in trained athletes). Bradycardia: resting heart rate <60bpm. Increased blood volume. Capillarisation: more capillaries in muscles → greater O₂ delivery. Respiratory: increased lung capacity, increased tidal volume, more efficient gaseous exchange, stronger respiratory muscles. Muscular: muscle hypertrophy, increased myoglobin stores, more mitochondria, increased glycogen storage, stronger tendons and ligaments. Skeletal: increased bone density (reduces osteoporosis risk).",
+ sport:"An elite marathon runner has: resting HR of 40bpm (vs 70bpm sedentary), stroke volume of 120ml+ at rest, VO₂ max double that of a sedentary person. These long-term cardiac adaptations mean more O₂ is delivered per beat, enabling sustained aerobic effort.",
+ calc:null,
+ exam:"Exam: 'Explain how regular aerobic training affects the heart' — cardiac hypertrophy: heart wall thickens → increased stroke volume → same cardiac output achieved at lower heart rate → bradycardia (lower resting HR). Chain of reasoning: training → adaptation → consequence → performance benefit. All four links needed for full marks on a 4-mark question."
+},
+
+]; /* end data */
+
+const tfEl=document.getElementById('tf');
+const ttEl=document.getElementById('tt');
+const gridEl=document.getElementById('grid');
+const ctrEl=document.getElementById('ctr');
+let aTop="All", aType="All";
+
+TOPICS.forEach(t=>{
+  const b=document.createElement('button');
+  b.className='fb'+(t==='All'?' on':'');
+  b.textContent=t; b.dataset.f=t;
+  b.onclick=()=>{aTop=t;tfEl.querySelectorAll('.fb').forEach(x=>x.classList.remove('on'));b.classList.add('on');render();};
+  tfEl.appendChild(b);
+});
+TYPES.forEach(t=>{
+  const b=document.createElement('button');
+  b.className='fb'+(t==='All'?' on':'');
+  b.textContent=t; b.dataset.t=t;
+  b.onclick=()=>{aType=t;ttEl.querySelectorAll('.fb').forEach(x=>x.classList.remove('on'));b.classList.add('on');render();};
+  ttEl.appendChild(b);
+});
+
+function badgeClass(top){
+  return 'b'+top.replace(/[^a-zA-Z]/g,'');
+}
+
+function render(){
+  gridEl.innerHTML='';
+  let f=C;
+  if(aTop!=='All') f=f.filter(c=>c.top===aTop);
+  if(aType!=='All') f=f.filter(c=>c.type===aType);
+  ctrEl.textContent=f.length+' card'+(f.length!==1?'s':'');
+  f.forEach(c=>{
+    const el=document.createElement('div');
+    el.className='card';
+    const hasCalc=!!c.calc;
+    const bc=badgeClass(c.top);
+    el.innerHTML=`
+      <div class="ctop">
+        <div class="badges">
+          <span class="badge ${bc}">${c.top}</span>
+          <span class="badge" style="background:var(--bg2);color:var(--t3)">${c.type}</span>
+          ${hasCalc?'<span class="badge" style="background:#E1F5EE;color:#0F6E56">∑ calc</span>':''}
+        </div>
+      </div>
+      <div class="cterm">${c.term}</div>
+      <div class="cmnem">◆ ${c.mnem}</div>
+      <div class="cdef">${c.def}</div>
+      <div class="back">
+        <div class="detail">${c.detail}</div>
+        <div class="sport-box"><div class="sport-label">Sporting example</div>${c.sport}</div>
+        ${hasCalc?`<div class="calc-box"><div class="calc-label">Calculation</div>${c.calc.replace(/\n/g,'<br>')}</div>`:''}
+        <div class="exam-box"><div class="exam-label">Exam angle</div>${c.exam}</div>
+      </div>
+      <div class="hint">tap to reveal</div>
+    `;
+    el.onclick=()=>{el.classList.toggle('flipped');el.querySelector('.hint').textContent=el.classList.contains('flipped')?'tap to hide':'tap to reveal';};
+    gridEl.appendChild(el);
+  });
+}
+render();
+</script>
+</body>
+</html>

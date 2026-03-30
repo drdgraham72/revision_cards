@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GCSE Physics Paper 1 — Edexcel Flashcards</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{
+    --bg1:#ffffff;--bg2:#f4f4f6;--bg3:#eef2f8;--bg4:#f0f8ee;--bg5:#fdf5e8;
+    --t1:#1a1a18;--t2:#56565a;--t3:#888780;
+    --bl:rgba(0,0,0,0.10);--bm:rgba(0,0,0,0.19);
+    --r:8px;--rl:12px;--font:system-ui,-apple-system,sans-serif;
+    --mono:'Courier New',monospace;
+  }
+  @media(prefers-color-scheme:dark){
+    :root{
+      --bg1:#1e1e1c;--bg2:#252526;--bg3:#1a2030;--bg4:#192318;--bg5:#2a2512;
+      --t1:#f0ece4;--t2:#a8a59e;--t3:#6a6966;
+      --bl:rgba(255,255,255,0.09);--bm:rgba(255,255,255,0.18);
+    }
+  }
+  body{font-family:var(--font);background:var(--bg2);color:var(--t1);padding:1.75rem 1rem;min-height:100vh;}
+  h1{font-size:20px;font-weight:500;margin-bottom:.2rem;}
+  .sub{font-size:14px;color:var(--t2);margin-bottom:1.4rem;}
+
+  .frow{margin-bottom:.8rem;}
+  .flabel{font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px;}
+  .btns{display:flex;gap:5px;flex-wrap:wrap;}
+  .fb{font-size:12px;padding:4px 11px;border-radius:20px;border:.5px solid var(--bm);background:var(--bg1);color:var(--t2);cursor:pointer;transition:all .13s;white-space:nowrap;}
+  .fb.on{border-color:transparent;color:#fff;}
+  .fb[data-f="All"].on{background:#444441;}
+  .fb[data-f="P1"].on{background:#185FA5;}
+  .fb[data-f="P2"].on{background:#A32D2D;}
+  .fb[data-f="P3"].on{background:#3B6D11;}
+  .fb[data-f="P4"].on{background:#534AB7;}
+  .fb[data-f="P5"].on{background:#854F0B;}
+  .fb[data-t="All"].on{background:#444441;}
+  .fb[data-t="concept"].on{background:#185FA5;}
+  .fb[data-t="equation"].on{background:#0F6E56;}
+  .fb[data-t="practical"].on{background:#993C1D;}
+  .fb[data-t="graph"].on{background:#534AB7;}
+  .fb[data-t="process"].on{background:#854F0B;}
+
+  .counter{font-size:13px;color:var(--t2);margin:.8rem 0 1rem;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:11px;}
+
+  .card{background:var(--bg1);border:.5px solid var(--bl);border-radius:var(--rl);padding:.95rem 1.15rem;cursor:pointer;user-select:none;min-height:205px;display:flex;flex-direction:column;gap:6px;transition:border-color .13s;}
+  .card:hover{border-color:var(--bm);}
+
+  .ctop{display:flex;justify-content:space-between;align-items:flex-start;gap:6px;}
+  .badges{display:flex;gap:4px;flex-wrap:wrap;}
+  .badge{font-size:10px;font-weight:500;padding:2px 7px;border-radius:10px;white-space:nowrap;}
+  .bP1{background:#E6F1FB;color:#185FA5;}
+  .bP2{background:#FCEBEB;color:#A32D2D;}
+  .bP3{background:#EAF3DE;color:#3B6D11;}
+  .bP4{background:#EEEDFE;color:#534AB7;}
+  .bP5{background:#FAEEDA;color:#854F0B;}
+  .bprac{background:#FAECE7;color:#993C1D;}
+  .beq{background:#E1F5EE;color:#0F6E56;}
+  .bht{background:#D3D1C7;color:#2C2C2A;}
+
+  .cterm{font-size:14px;font-weight:500;color:var(--t1);line-height:1.35;}
+  .cmnem{font-size:12px;color:var(--t2);border-left:2px solid var(--bm);padding-left:8px;}
+  .cdef{font-size:13px;color:var(--t2);line-height:1.55;flex-grow:1;}
+
+  .back{display:none;flex-direction:column;gap:7px;}
+  .card.flipped .back{display:flex;}
+  .card.flipped .cdef{font-size:12px;color:var(--t3);}
+
+  .detail{font-size:13px;color:var(--t2);line-height:1.6;border-top:.5px solid var(--bl);padding-top:7px;}
+  .eq-box{background:var(--bg3);border-radius:var(--r);padding:8px 11px;font-family:var(--mono);font-size:12px;color:var(--t1);line-height:1.8;}
+  .eq-label{font-family:var(--font);font-size:10px;font-weight:500;color:#0F6E56;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px;}
+  .prac-box{background:var(--bg4);border-radius:var(--r);padding:7px 10px;font-size:12px;color:var(--t2);line-height:1.5;}
+  .prac-label{font-size:10px;font-weight:500;color:#3B6D11;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px;}
+  .exam-box{background:var(--bg5);border-radius:var(--r);padding:7px 10px;font-size:12px;color:var(--t2);line-height:1.5;}
+  .exam-label{font-size:10px;font-weight:500;color:#854F0B;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px;}
+
+  .hint{font-size:11px;color:var(--t3);text-align:right;margin-top:auto;}
+</style>
+</head>
+<body>
+<h1>GCSE Physics — Paper 1</h1>
+<p class="sub">Edexcel P1–P5 · tap to reveal equations, worked examples, practical notes &amp; exam angle · ∑ = equation card · ★ = core practical</p>
+
+<div class="frow"><div class="flabel">Topic</div><div class="btns" id="tf"></div></div>
+<div class="frow"><div class="flabel">Type</div><div class="btns" id="tt"></div></div>
+<div class="counter" id="ctr"></div>
+<div class="grid" id="grid"></div>
+
+<script>
+const TOPICS=["All","P1","P2","P3","P4","P5"];
+const TYPES=["All","concept","equation","graph","practical","process"];
+
+const C=[
+
+/* ══════════════════════════════
+   P1  MOTION
+══════════════════════════════ */
+{top:"P1",type:"concept",ht:false,
+ term:"Vectors vs Scalars",
+ mnem:"VECTOR has direction; SCALAR does not. Speed scalar, velocity vector. Distance scalar, displacement vector. Force and acceleration = vectors.",
+ def:"Scalar quantities have magnitude only. Vector quantities have both magnitude and direction.",
+ detail:"Scalars: speed, distance, mass, energy, temperature, time, power. Vectors: velocity, displacement, force, acceleration, momentum, weight. Adding vectors: if in same direction → add. If opposite → subtract. At angles → use scale diagram or Pythagoras. Resultant velocity = combined effect of two velocity vectors.",
+ eq:null,
+ prac:null,
+ exam:"Exam: 'Give one example of a vector quantity' — must give a vector (not scalar). Most common error: confusing speed (scalar) and velocity (vector). 'State the difference between distance and displacement' — distance is total path length (scalar); displacement is straight-line distance from start to finish in a specific direction (vector)."
+},
+{top:"P1",type:"graph",ht:false,
+ term:"Distance–Time Graphs",
+ mnem:"FLAT = stationary; SLOPE UP = moving away; SLOPE DOWN = returning; STEEPER = faster; CURVE = acceleration",
+ def:"A distance–time (d–t) graph shows how the distance from a reference point changes over time. The gradient equals the speed.",
+ detail:"Horizontal line: object stationary (distance not changing). Straight line with positive gradient: constant speed away from reference point. Straight line with negative gradient: constant speed back towards reference point. Curved line (gradient increasing): accelerating. Curved line (gradient decreasing): decelerating. Speed = gradient = Δd/Δt. For a curve: draw tangent at that point, calculate gradient of tangent = instantaneous speed.",
+ eq:"speed = distance / time\ns = d / t\nunits: m/s, km/h\n\nGradient of d–t graph = speed\nGradient of tangent = instantaneous speed",
+ prac:null,
+ exam:"Exam: 'Calculate the speed between t=2s and t=5s' — read off distance values from graph, calculate Δd, divide by Δt. Show working. 'Describe the motion' — use: stationary / constant speed / accelerating / decelerating. Always refer to the gradient to justify your description."
+},
+{top:"P1",type:"graph",ht:false,
+ term:"Velocity–Time Graphs & Acceleration",
+ mnem:"GRADIENT = acceleration; AREA UNDER = distance travelled; FLAT = constant velocity; SLOPE UP = acceleration; SLOPE DOWN = deceleration",
+ def:"A velocity–time (v–t) graph shows how velocity changes over time. Gradient = acceleration. Area under the graph = distance (or displacement) travelled.",
+ detail:"Horizontal line: constant velocity (zero acceleration). Line sloping upward: constant acceleration. Line sloping downward: deceleration (negative acceleration). Curved line: non-uniform acceleration. Area under graph: count squares or use area of triangle/rectangle/trapezium. For non-uniform motion: split into geometric shapes or count grid squares. Negative velocity: moving in opposite direction.",
+ eq:"acceleration = change in velocity / time\na = Δv / t = (v − u) / t\nunits: m/s²\n\nArea under v–t graph = distance\nTriangle area = ½ × base × height\nRectangle area = base × height",
+ prac:"Core Practical: Investigate the effect of force on acceleration (trolley + pulley + masses on runway). Attach ticker tape to trolley. Measure length of successive 5-dot intervals to find velocity at different times. Plot v–t graph. Gradient = acceleration. Repeat with different hanging masses (= different forces). Plot acceleration vs force → straight line through origin (a ∝ F).",
+ exam:"Exam: To find distance from v–t graph — calculate area under the line, including correct units (m). For a triangle: ½ × time × velocity. Common error: reading speed instead of velocity — if below time axis, displacement is negative. 'Describe the motion' from a v–t graph — always address: velocity, whether it changes, direction of acceleration."
+},
+{top:"P1",type:"equation",ht:true,
+ term:"Acceleration Equations (Higher Tier)",
+ mnem:"SUVAT — s=displacement, u=initial velocity, v=final velocity, a=acceleration, t=time",
+ def:"Two kinematic equations link the five variables of motion. The equation v² = u² + 2as does not require time.",
+ detail:"Used when motion is uniformly accelerated (constant acceleration). Choose equation based on which variable you want to find and which variables you are given. Always identify the five SUVAT variables first, then select the appropriate equation.",
+ eq:"v = u + at             (no s)\ns = ut + ½at²          (no v)\nv² = u² + 2as          (no t)  ← HT only\n\nExample: u=0, a=3 m/s², t=4s\nv = 0 + 3×4 = 12 m/s\ns = 0×4 + ½×3×16 = 24 m",
+ prac:null,
+ exam:"Exam (HT): Always list u, v, a, s, t before choosing equation. Write unknown as '?' State which equation you are using. Show substitution. Common error: forgetting to convert units (km/h → m/s: divide by 3.6). If object starts from rest: u = 0. If object stops: v = 0."
+},
+
+/* ══════════════════════════════
+   P2  MOTION AND FORCES
+══════════════════════════════ */
+{top:"P2",type:"concept",ht:false,
+ term:"Resultant Forces & Free Body Diagrams",
+ mnem:"ARROWS IN BALANCE = equilibrium; UNBALANCED = acceleration in direction of larger force",
+ def:"The resultant force is the single force that has the same effect as all the forces acting on an object combined. Free body diagrams show all forces acting on an object as arrows.",
+ detail:"Forces are vectors — size (length of arrow) and direction both matter. If resultant = 0: object is in equilibrium (stationary or constant velocity). If resultant ≠ 0: object accelerates in the direction of the resultant. Forces to include: weight (down), normal reaction (perpendicular to surface), friction (opposing motion), air resistance (opposing motion), applied force, tension, thrust. Balanced forces: upward = downward; forward = backward.",
+ eq:"Resultant force = vector sum of all forces\nIf forces are in line: add or subtract\nIf at right angles: use Pythagoras\nR = √(F₁² + F₂²)",
+ prac:null,
+ exam:"Exam: Draw free body diagram — arrow from centre of object, length proportional to magnitude, labelled with force name and magnitude/unit. 'Explain why the object moves at constant velocity' — resultant force is zero / forces are balanced. Never say 'no forces acting' — there are forces, they are balanced."
+},
+{top:"P2",type:"concept",ht:false,
+ term:"Newton's First Law",
+ mnem:"NO FORCE = NO CHANGE — object at rest stays at rest; object moving stays at same velocity; only a resultant force changes motion",
+ def:"An object will remain at rest or continue moving at constant velocity unless acted on by a resultant (unbalanced) force.",
+ detail:"Inertia: the tendency of an object to resist changes in its state of motion. Greater mass = greater inertia. Terminal velocity: when drag force = driving force → resultant = 0 → constant velocity. Skydiver: initially accelerates (weight > drag); as speed increases drag increases; eventually drag = weight → terminal velocity; parachute opens → drag increases greatly → decelerates to new, lower terminal velocity.",
+ eq:null,
+ prac:null,
+ exam:"Exam: 'A car travels at constant speed. Explain why no resultant force is needed' — driving force equals friction/air resistance, so resultant force is zero, so no acceleration (Newton's 1st law). Always name the law. 'Why does a skydiver reach terminal velocity?' — as speed increases, air resistance increases until it equals weight → resultant = 0 → no acceleration."
+},
+{top:"P2",type:"equation",ht:false,
+ term:"Newton's Second Law (F = ma)",
+ mnem:"FORCE = MASS × ACCELERATION — double the force, double the acceleration; double the mass, halve the acceleration",
+ def:"The acceleration of an object is directly proportional to the resultant force acting on it and inversely proportional to its mass.",
+ detail:"F = ma only uses the RESULTANT force — not just one force. Units: F in Newtons (N), m in kg, a in m/s². Weight is the force due to gravity: W = mg (g = 9.8 N/kg on Earth, often approximated as 10 N/kg). Must use resultant force: if multiple forces act, find resultant first, then apply F = ma.",
+ eq:"F = ma\nResultant force (N) = mass (kg) × acceleration (m/s²)\n\nWeight: W = mg\nW = mass (kg) × gravitational field strength (N/kg)\ng = 9.8 N/kg (or 10 N/kg in approximation)\n\nExample: F=500N, m=50kg → a = 500/50 = 10 m/s²",
+ prac:"Core Practical: F = ma investigation. Trolley on runway, pulley, hanging masses. Keep total mass constant, vary force (number of hanging masses); measure acceleration from ticker tape or light gate. Plot a vs F → straight line through origin: a ∝ F. Then keep F constant, vary mass (add weights to trolley); plot a vs 1/m → straight line: a ∝ 1/m.",
+ exam:"Exam: Always use resultant force, not applied force. If there is friction, subtract it first: F_net = F_applied − F_friction = ma. Common error: using weight when mass is given — convert W = mg to get weight in Newtons. Show equation, substitution, answer with units."
+},
+{top:"P2",type:"concept",ht:false,
+ term:"Newton's Third Law",
+ mnem:"EQUAL AND OPPOSITE — every action force has a reaction force of equal magnitude but opposite direction, acting on a DIFFERENT object",
+ def:"When object A exerts a force on object B, object B exerts an equal and opposite force on object A. Newton's 3rd law pairs always act on different objects.",
+ detail:"Pairs must be: equal in magnitude, opposite in direction, same type of force, acting on different objects. Examples: foot pushes back on Earth → Earth pushes foot forward (walking). Book on table: book's weight pushes down on table → table's normal reaction pushes up on book. Rocket: exhaust gases pushed downward → gases push rocket upward. Common misconception: balanced forces on one object are NOT Newton's 3rd law pairs — they act on the same object.",
+ eq:null,
+ prac:null,
+ exam:"Exam: 'Identify the Newton's 3rd law pair to the weight of a book on a table' — the gravitational force the book exerts on the Earth (pulling Earth upward). NOT the normal reaction from the table — that acts on the same object (the book) and is a different type of force (contact, not gravity)."
+},
+{top:"P2",type:"equation",ht:false,
+ term:"Momentum",
+ mnem:"p = mv — momentum is conserved in collisions (no external forces); impulse = change in momentum = F×t",
+ def:"Momentum (p) = mass × velocity. It is a vector quantity. The law of conservation of momentum states that in a closed system (no external forces), the total momentum before a collision equals the total momentum after.",
+ detail:"Conservation of momentum: m₁u₁ + m₂u₂ = m₁v₁ + m₂v₂. Applies to collisions and explosions. Elastic collision: momentum AND kinetic energy conserved. Inelastic collision: momentum conserved but some KE transferred to heat/sound. Impulse = force × time = change in momentum (F×t = Δp = mv − mu). Crash safety: air bags and crumple zones increase the time of impact → reduce force for same change in momentum.",
+ eq:"p = mv\nmomentum (kg m/s) = mass (kg) × velocity (m/s)\n\nConservation: Σp_before = Σp_after\n\nImpulse = F × t = Δp = mv − mu\nForce (N) = change in momentum / time",
+ prac:null,
+ exam:"Exam: Conservation of momentum — always define positive direction. Take care with signs: if object moves in opposite direction after collision, its velocity is negative. 'Explain how crumple zones reduce injury' — crumple zone increases collision time (Δt) → for same Δp, F = Δp/Δt is smaller → reduced force on occupants."
+},
+{top:"P2",type:"concept",ht:false,
+ term:"Stopping Distances",
+ mnem:"THINKING + BRAKING = STOPPING. Thinking distance = reaction time × speed. Braking distance = depends on speed², road conditions, tyre/brake quality.",
+ def:"Total stopping distance = thinking distance + braking distance. Thinking distance depends on reaction time and speed. Braking distance depends on speed, road/tyre conditions, vehicle mass, and braking force.",
+ detail:"Reaction time (typical 0.2–0.9 s): affected by tiredness, alcohol, drugs, distractions, age. Thinking distance = speed × reaction time (linear relationship with speed). Braking distance: increases with the square of speed (if speed doubles → braking distance quadruples) because KE = ½mv² and work done by brakes must equal KE. Factors increasing braking distance: wet/icy road (less friction), worn tyres, worn brakes, heavier vehicle. Large braking forces cause tyres to skid — ABS prevents this.",
+ eq:"Thinking distance = speed × reaction time\nBraking distance ∝ v²\n(from KE = ½mv² = F×d → d = mv²/2F)\n\nTotal stopping distance = thinking + braking",
+ prac:"Core Practical: Measure reaction time using ruler drop test. Drop ruler without warning; catch it as fast as possible; measure distance fallen. Calculate reaction time: t = √(2d/g). Repeat × 5 and take mean. Investigate effect of distraction (e.g. talking on phone) on reaction time.",
+ exam:"Exam: 'Why does doubling speed more than double stopping distance?' — thinking distance doubles (linear), BUT braking distance quadruples (∝ v²), so overall stopping distance more than doubles. Two-part explanation required for full marks."
+},
+
+/* ══════════════════════════════
+   P3  CONSERVATION OF ENERGY
+══════════════════════════════ */
+{top:"P3",type:"concept",ht:false,
+ term:"Energy Stores & Transfers",
+ mnem:"KEGCM stores — Kinetic, Elastic potential, Gravitational potential, Chemical, Magnetic, Thermal, Nuclear. Transfers: mechanically, electrically, by heating, by radiation",
+ def:"Energy is stored in different ways (energy stores) and can be transferred from one store to another through four pathways: mechanical work, electrical work, heating, and radiation (waves).",
+ detail:"Energy stores: kinetic (moving objects), gravitational potential (height), elastic potential (stretched/compressed), chemical (food/fuel/batteries), thermal (hot objects), nuclear (atomic nuclei), electrostatic, magnetic. Transfer mechanisms: (1) mechanical — force moving through a distance; (2) electrical — current through a component; (3) heating — conduction, convection, radiation; (4) radiation — waves (light, sound, etc). Law of conservation of energy: energy cannot be created or destroyed, only transferred between stores. Total energy always remains constant.",
+ eq:null,
+ prac:null,
+ exam:"Exam: 'Describe the energy transfers when a ball is thrown upwards' — chemical (muscles) → kinetic → gravitational potential (at peak) → kinetic + thermal (on return, due to air resistance). Always include 'wasted' thermal energy due to friction/air resistance in real systems. Name the store AND the transfer mechanism."
+},
+{top:"P3",type:"equation",ht:false,
+ term:"Kinetic & Gravitational Potential Energy",
+ mnem:"KE = ½mv² — depends on speed squared! GPE = mgh — depends on height linearly.",
+ def:"Kinetic energy (KE): energy stored in a moving object. Gravitational potential energy (GPE): energy stored in an object due to its height above a reference point.",
+ detail:"KE increases with the square of speed: doubling speed quadruples KE. This is why braking distance increases with v². GPE: g = 9.8 N/kg (or 10 N/kg). 'h' = vertical height change — not the length of a slope. Conservation: in absence of friction, KE gained = GPE lost (e.g. roller coaster, pendulum). If friction present: some energy transferred to thermal store → KE gained < GPE lost.",
+ eq:"KE = ½ × m × v²\nKinetic energy (J) = ½ × mass (kg) × speed² (m/s)²\n\nGPE = m × g × h\nGravitational PE (J) = mass (kg) × g (N/kg) × height (m)\ng = 9.8 N/kg\n\nExample: m=2kg, v=3m/s → KE = ½×2×9 = 9J\nExample: m=2kg, h=5m → GPE = 2×9.8×5 = 98J",
+ prac:"Core Practical: Investigate conservation of energy using a ramp and trolley. Measure height h of ramp. Measure velocity v at bottom using light gate. Compare GPE (mgh) at top to KE (½mv²) at bottom. Any difference = energy transferred to thermal store by friction. Repeat for different heights.",
+ exam:"Exam: Never confuse KE = ½mv² with GPE = mgh. For energy conservation questions: set KE = GPE and solve for v or h. 'A 2kg ball falls 5m — what is its speed at the bottom (ignoring air resistance)?' → mgh = ½mv² → gh = ½v² → v = √(2gh) = √(2×10×5) = 10 m/s. Show working."
+},
+{top:"P3",type:"concept",ht:false,
+ term:"Energy Efficiency",
+ mnem:"EFFICIENCY = useful out / total in × 100%. Can never be 100% — some always wasted as heat/sound.",
+ def:"Efficiency is the fraction of the total energy input that is transferred to a useful energy output. No real device is 100% efficient — some energy is always dissipated as heat or sound.",
+ detail:"Wasted energy: friction → thermal store of surroundings. Reducing energy waste: lubrication (reduces friction), insulation (reduces thermal transfer), streamlining (reduces air resistance). Sankey diagrams: arrow widths proportional to energy. Input arrow on left, splits into useful output (usually forward) and wasted output (usually downward). All widths must sum correctly. Energy efficiency in buildings: cavity wall insulation (trapped air = poor conductor), loft insulation, double glazing (trapped air between panes), draught proofing.",
+ eq:"Efficiency = useful energy output / total energy input\nEfficiency = useful power output / total power input\n(multiply by 100 for percentage)\n\nUseful energy output = total input − wasted energy",
+ prac:null,
+ exam:"Exam: Efficiency is always between 0 and 1 (or 0% and 100%). If you get an answer >1 you've inverted the fraction. Sankey diagram: total width of output arrows must equal width of input arrow. 'Suggest how to improve efficiency' — always link specific energy loss to specific solution (e.g. friction → lubrication; heat loss through walls → insulation)."
+},
+{top:"P3",type:"concept",ht:false,
+ term:"Renewable & Non-Renewable Energy",
+ mnem:"RENEW = wind, solar, hydro, tidal, geothermal, biomass — will not run out. NON-RENEW = coal, oil, gas, nuclear — finite resources.",
+ def:"Non-renewable energy resources will eventually run out. Renewable resources will not run out in a human timescale. Both have advantages and disadvantages.",
+ detail:"Non-renewable (fossil fuels): reliable, high energy density, established infrastructure. Disadvantages: CO₂ emissions (climate change), SO₂ (acid rain), finite supply, environmental damage from extraction. Nuclear: no CO₂ during operation, very high energy density. Disadvantages: radioactive waste, risk of accidents, high decommissioning cost. Renewables: wind (reliable in UK, variable, visual/noise impact, large land area), solar (free, no emissions, variable, expensive panels), hydroelectric (reliable, landscape flooding), tidal (predictable, expensive to build), geothermal (reliable but limited locations), biomass (carbon neutral if managed, competes with food crops).",
+ eq:null,
+ prac:null,
+ exam:"Exam: 'Evaluate the use of wind turbines' — advantages (renewable, no CO₂, low running cost) + disadvantages (unreliable/intermittent, visual impact, noisy, requires large land area) + conclusion. Both sides required for 'evaluate'. Link each disadvantage to its specific impact."
+},
+
+/* ══════════════════════════════
+   P4  WAVES
+══════════════════════════════ */
+{top:"P4",type:"concept",ht:false,
+ term:"Wave Properties: Transverse vs Longitudinal",
+ mnem:"TRANSVERSE = T for traverse — vibration perpendicular to direction of travel (EM waves, water waves). LONGITUDINAL = vibration parallel to direction of travel (sound, P-waves).",
+ def:"Waves transfer energy without transferring matter. Transverse waves: oscillation is perpendicular to the direction of energy transfer. Longitudinal waves: oscillation is parallel to the direction of energy transfer (compressions and rarefactions).",
+ detail:"Transverse: all electromagnetic waves, water surface waves, S-waves (seismic). Longitudinal: sound, ultrasound, P-waves (seismic). Key terms: amplitude (A) = maximum displacement from rest position (m). Wavelength (λ) = distance between two successive identical points in phase (m). Frequency (f) = number of complete waves per second (Hz). Period (T) = time for one complete wave (s). T = 1/f. Wave speed (v) = how fast energy is transferred (m/s).",
+ eq:"Period T = 1 / f\nTime period (s) = 1 / frequency (Hz)\n\nAmplitude — does NOT affect wave speed",
+ prac:null,
+ exam:"Exam: 'Describe the difference between transverse and longitudinal waves' — must state direction of vibration relative to direction of energy transfer for BOTH types. Give one example of each. Amplitude affects loudness (sound) and brightness (light) but NOT wave speed or frequency."
+},
+{top:"P4",type:"equation",ht:false,
+ term:"Wave Speed Equation",
+ mnem:"v = fλ — wave speed = frequency × wavelength. Also v = d/t for any wave.",
+ def:"The wave equation links the wave speed, frequency, and wavelength. Valid for all wave types.",
+ detail:"Wave speed depends on the medium, not the frequency (in most cases). In different media: speed changes → if frequency unchanged, wavelength changes proportionally. Sound in air ≈ 340 m/s. Light in vacuum = 3×10⁸ m/s. Speed of light slows in denser media. Frequency stays the same when a wave passes from one medium to another (the source doesn't change). Wavelength changes when speed changes at a boundary.",
+ eq:"v = f × λ\nwave speed (m/s) = frequency (Hz) × wavelength (m)\n\nAlso: v = d / t\n\nExample: f=500Hz, λ=0.68m\nv = 500 × 0.68 = 340 m/s\n\nExample: v=3×10⁸ m/s, f=6×10¹⁴ Hz\nλ = v/f = 3×10⁸ / 6×10¹⁴ = 5×10⁻⁷ m (500nm, green light)",
+ prac:"Core Practical: Measure the speed of sound in air. Two methods: (1) Echo method — bang two blocks near a wall, count echoes, measure distance to wall, calculate time. v = 2d/t. (2) Microphone method — two microphones connected to oscilloscope, use distance and time delay between signals. Core practical: ripple tank — measure wavelength (ruler to ripple photograph), measure frequency (stroboscope or count), calculate v = fλ.",
+ exam:"Exam: Standard form required for light calculations — 3×10⁸ m/s. Convert nm to m (×10⁻⁹) before using in equation. 'Explain why wavelength changes when sound enters a different medium but frequency does not' — frequency determined by source (doesn't change); speed changes in new medium; since v = fλ, if v changes and f constant → λ must change proportionally."
+},
+{top:"P4",type:"concept",ht:false,
+ term:"Refraction",
+ mnem:"SLOW DOWN = BEND TOWARDS NORMAL; SPEED UP = BEND AWAY FROM NORMAL. At normal incidence = no bending.",
+ def:"Refraction occurs when a wave crosses a boundary between two media and its speed changes. The wave changes direction (unless it hits the boundary at 90°).",
+ detail:"Normal: line perpendicular to boundary at point of incidence. Angle of incidence (i) = angle between incoming ray and normal. Angle of refraction (r) = angle between refracted ray and normal. Dense medium (e.g. glass): wave slows down → bends towards normal (r < i). Less dense medium (e.g. air): wave speeds up → bends away from normal (r > i). Total internal reflection: when angle of incidence exceeds critical angle — ray reflects internally. Used in optical fibres. Coloured light: different wavelengths refract by different amounts → prism disperses white light into spectrum.",
+ eq:"Snell's Law (HT): n = sin i / sin r\nrefractive index = sin(angle of incidence) / sin(angle of refraction)",
+ prac:"Core Practical: Investigate refraction in a glass block. Shine ray of light at known angle of incidence into glass block. Measure angle of refraction. Repeat for multiple angles. Plot sin i vs sin r → straight line → gradient = refractive index. Use protractor to measure angles accurately from the normal (not the surface).",
+ exam:"Exam: Always measure angles FROM THE NORMAL, not from the surface. Draw diagram: incident ray → normal → refracted ray, showing both angles correctly. 'Explain why light bends when entering glass' — it slows down in glass (denser medium) → bends towards normal."
+},
+{top:"P4",type:"concept",ht:false,
+ term:"Sound, Ultrasound & Infrasound",
+ mnem:"HUMAN HEARING: 20 Hz – 20,000 Hz. ULTRASOUND > 20kHz. INFRASOUND < 20Hz.",
+ def:"Sound is a longitudinal mechanical wave. The human ear detects frequencies between 20 Hz and 20,000 Hz (20 kHz). Ultrasound is above this range; infrasound is below.",
+ detail:"Sound cannot travel through a vacuum (needs a medium — particles to vibrate). Speed of sound: in air ≈ 340 m/s; faster in solids and liquids (particles closer together). Ultrasound uses: medical imaging (prenatal scans — safe, no ionising radiation), sonar/echolocation (bats, ships, submarines), quality control (detecting cracks in metal). Calculation: distance = speed × time. Echo: d = v × t / 2 (wave travels there and back). Infrasound uses: detecting earthquakes, communication in elephants/whales, monitoring volcanic activity.",
+ eq:"distance = speed × time\nd = v × t\n\nFor echo/pulse: d = v × t / 2\n(divide by 2: wave travels to object AND back)",
+ prac:null,
+ exam:"Exam: Ultrasound distance calculation — always divide by 2 (time for return journey). 'Why is ultrasound used instead of X-rays for prenatal imaging?' = ultrasound is non-ionising (does not damage cells/DNA); safe for unborn baby. X-rays are ionising radiation — harmful to developing tissue."
+},
+{top:"P4",type:"concept",ht:false,
+ term:"Seismic Waves",
+ mnem:"P-WAVES = Primary, Pressure, faster, travel through solids AND liquids. S-WAVES = Secondary, Shear, slower, only through solids. Surface waves = Love and Rayleigh waves.",
+ def:"Earthquakes produce seismic waves that travel through the Earth. P-waves (longitudinal) and S-waves (transverse) provide evidence about the Earth's internal structure.",
+ detail:"P-waves: longitudinal, travel through solids and liquids (including liquid outer core), faster (~6–13 km/s). S-waves: transverse, only travel through solids, cannot pass through liquid outer core (~3.5–7.5 km/s). Shadow zones: P-wave shadow zone at 105°–140° from epicentre (refraction by core); S-wave shadow zone at >105° (blocked by liquid outer core). This evidence proved the outer core is liquid. Wave speed increases with depth (denser rock) → waves refract, curving paths through the Earth.",
+ eq:null,
+ prac:null,
+ exam:"Exam: 'What does the S-wave shadow zone tell us about the Earth's structure?' = S-waves cannot travel through liquid → the existence of the shadow zone proves the outer core is liquid. P-waves do reach some of the shadow zone (they refract/bend as they pass through the core) → outer core is liquid but inner core is solid."
+},
+
+/* ══════════════════════════════
+   P5  ELECTROMAGNETIC SPECTRUM
+══════════════════════════════ */
+{top:"P5",type:"concept",ht:false,
+ term:"The Electromagnetic Spectrum",
+ mnem:"RIMGUV-X-G — Radio, Infrared, Microwave, Gamma, UV, Visible, X-ray, Gamma. Actually in order: Radio → Micro → IR → Visible → UV → X-ray → Gamma. Increasing frequency / decreasing wavelength →",
+ def:"The electromagnetic spectrum is a family of transverse waves that all travel at 3×10⁸ m/s in a vacuum. They differ in wavelength and frequency.",
+ detail:"Order (longest λ to shortest λ; lowest f to highest f): Radio waves → Microwaves → Infrared → Visible light (ROYGBIV) → Ultraviolet → X-rays → Gamma rays. All EM waves: transverse, travel at c=3×10⁸ m/s in vacuum, can travel through vacuum (no medium needed), transfer energy. Wavelength range: radio (km–mm) → gamma (<10⁻¹² m). Higher frequency = higher energy photon = more dangerous ionising radiation.",
+ eq:"c = f × λ\nspeed of light (m/s) = frequency (Hz) × wavelength (m)\nc = 3 × 10⁸ m/s (in vacuum)\n\nAll EM waves travel at c in vacuum",
+ prac:null,
+ exam:"Exam: Learn the order. Most common error: putting microwaves and infrared in wrong order (micro = LOWER frequency than IR). 'State one property common to all EM waves' = all transverse; all travel at 3×10⁸ m/s in vacuum; all can travel through vacuum. Any one of these is correct."
+},
+{top:"P5",type:"process",ht:false,
+ term:"Uses & Hazards of EM Waves",
+ mnem:"RAVING MX-G — Radio (broadcasting), Microwave (mobile phones, cooking), IR (remote controls, thermal imaging), Visible (sight, photography), UV (fluorescence, sterilisation), X-ray (medical imaging), Gamma (cancer treatment, sterilisation)",
+ def:"Each region of the EM spectrum has specific uses and hazards based on its energy level.",
+ detail:"Radio: long-range communication, broadcasting (FM/AM/DAB), no ionising risk. Microwaves: cooking (water molecules absorb microwaves, heat food), mobile phones, satellite TV. IR: remote controls, thermal imaging cameras, optical fibres, night vision, radiant heaters. Visible: photography, human vision. UV: tanning, vitamin D synthesis, fluorescent lamps, sterilising water, detecting forged bank notes. Hazards: UV → skin cancer, eye damage. X-rays: medical imaging (bones absorb more), airport security. Gamma: cancer radiotherapy, sterilising medical equipment, food irradiation. Hazards: X-rays and gamma → ionising radiation → cell damage, mutations, cancer. Lead shields, limited exposure time.",
+ eq:null,
+ prac:null,
+ exam:"Exam: 'Explain why UV radiation is dangerous but visible light is not' = UV has higher frequency → higher energy photons → can ionise atoms in cells → damages DNA → may cause mutations/cancer. Visible light lower energy — insufficient to ionise. Must use 'ionising' and explain the biological mechanism."
+},
+{top:"P5",type:"concept",ht:false,
+ term:"Reflection, Absorption & Transmission at Boundaries",
+ mnem:"RAT — at any boundary a wave can be Reflected, Absorbed, or Transmitted (refracted). Which occurs depends on material and wavelength.",
+ def:"When an EM wave hits a boundary between materials, it can be reflected (bounces back), absorbed (energy transferred to material), or transmitted (passes through, possibly refracted).",
+ detail:"Colour of objects: object appears red if it reflects red light and absorbs all other wavelengths. White object: reflects all visible wavelengths. Black object: absorbs all visible wavelengths (best emitter and absorber of thermal radiation). Opaque materials: absorb or reflect all incoming wavelengths — cannot transmit. Transparent: transmit visible light. Translucent: scatter transmitted light. Infrared: dark, matt surfaces are better emitters AND absorbers of IR than light, shiny surfaces. Colour filters: only transmit one colour, absorb the rest.",
+ eq:null,
+ prac:"Core Practical: Investigate how the amount of infrared radiation emitted depends on surface colour/texture. Leslie cube (metal cube with different surface finishes: black matt, white, silver, black shiny). Fill with hot water. Use IR detector/thermometer at fixed distance from each face. Record readings. Conclusion: black matt surface emits most IR; silver shiny emits least.",
+ exam:"Exam: 'Why does a black car warm up faster in sunlight than a white car?' = black surface absorbs a greater proportion of the incident radiation (all visible wavelengths absorbed); white surface reflects most radiation. Also: black surface emits more IR, so cools faster at night. Both sides of the argument for a full answer."
+},
+{top:"P5",type:"concept",ht:false,
+ term:"Lenses & Colour",
+ mnem:"CONVERGING lens = convex = focuses parallel rays to focal point. DIVERGING lens = concave = spreads rays. WHITE LIGHT through prism = spectrum (dispersion).",
+ def:"Converging (convex) lenses bring parallel rays to a focus. Diverging (concave) lenses spread rays. White light is dispersed into a spectrum by a prism because different wavelengths refract by different amounts.",
+ detail:"Converging lens: parallel rays meet at focal point (F), focal length = distance from lens to F. Real image formed if object beyond F. Virtual, magnified image if object within F (magnifying glass). Diverging lens: always forms virtual, diminished, upright image. Dispersion: violet light refracts most (shortest wavelength, highest frequency), red least → spectrum (ROYGBIV). Recombining with second prism: white light restored. Eye defects: long sight (convex lens corrects — converges light more); short sight (concave lens corrects — diverges light before it enters eye).",
+ eq:"Magnification = image height / object height\nMagnification = image distance / object distance",
+ prac:null,
+ exam:"Exam: Ray diagram rules for converging lens: (1) ray parallel to axis → refracts through F on far side; (2) ray through optical centre → passes straight through undeviated; (3) ray through F on near side → refracts parallel to axis. Where two rays cross = position of image. Always use a ruler. Include arrowheads on rays."
+},
+
+]; /* end data */
+
+const tfEl=document.getElementById('tf');
+const ttEl=document.getElementById('tt');
+const gridEl=document.getElementById('grid');
+const ctrEl=document.getElementById('ctr');
+let aTop="All", aType="All";
+
+TOPICS.forEach(t=>{
+  const b=document.createElement('button');
+  b.className='fb'+(t==='All'?' on':'');
+  b.textContent=t; b.dataset.f=t;
+  b.onclick=()=>{aTop=t;tfEl.querySelectorAll('.fb').forEach(x=>x.classList.remove('on'));b.classList.add('on');render();};
+  tfEl.appendChild(b);
+});
+TYPES.forEach(t=>{
+  const b=document.createElement('button');
+  b.className='fb'+(t==='All'?' on':'');
+  b.textContent=t; b.dataset.t=t;
+  b.onclick=()=>{aType=t;ttEl.querySelectorAll('.fb').forEach(x=>x.classList.remove('on'));b.classList.add('on');render();};
+  ttEl.appendChild(b);
+});
+
+function render(){
+  gridEl.innerHTML='';
+  let f=C;
+  if(aTop!=='All') f=f.filter(c=>c.top===aTop);
+  if(aType!=='All') f=f.filter(c=>c.type===aType);
+  ctrEl.textContent=f.length+' card'+(f.length!==1?'s':'');
+  f.forEach(c=>{
+    const el=document.createElement('div');
+    el.className='card';
+    const hasPrac=c.prac&&c.prac.length>5;
+    const hasEq=!!c.eq;
+    el.innerHTML=`
+      <div class="ctop">
+        <div class="badges">
+          <span class="badge b${c.top}">${c.top}</span>
+          <span class="badge" style="background:var(--bg2);color:var(--t3)">${c.type}</span>
+          ${hasPrac?'<span class="badge bprac">★ practical</span>':''}
+          ${hasEq?'<span class="badge beq">∑ eq</span>':''}
+          ${c.ht?'<span class="badge bht">HT</span>':''}
+        </div>
+      </div>
+      <div class="cterm">${c.term}</div>
+      <div class="cmnem">◆ ${c.mnem}</div>
+      <div class="cdef">${c.def}</div>
+      <div class="back">
+        <div class="detail">${c.detail}</div>
+        ${hasEq?`<div class="eq-box"><div class="eq-label">Equations &amp; worked example</div>${c.eq.replace(/\n/g,'<br>')}</div>`:''}
+        ${hasPrac?`<div class="prac-box"><div class="prac-label">Core practical</div>${c.prac}</div>`:''}
+        <div class="exam-box"><div class="exam-label">Exam angle</div>${c.exam}</div>
+      </div>
+      <div class="hint">tap to reveal</div>
+    `;
+    el.onclick=()=>{el.classList.toggle('flipped');el.querySelector('.hint').textContent=el.classList.contains('flipped')?'tap to hide':'tap to reveal';};
+    gridEl.appendChild(el);
+  });
+}
+render();
+</script>
+</body>
+</html>

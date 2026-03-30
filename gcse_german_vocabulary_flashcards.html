@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GCSE German — Vocabulary Flashcards</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{
+    --bg1:#ffffff;--bg2:#f5f4f1;--bg3:#fdf9f0;--bg4:#eef4f0;--bg5:#f0eef8;
+    --t1:#1a1a18;--t2:#575754;--t3:#888780;
+    --bl:rgba(0,0,0,0.10);--bm:rgba(0,0,0,0.19);
+    --r:8px;--rl:12px;--font:system-ui,-apple-system,sans-serif;
+    --de:#185FA5;--de-l:#E6F1FB;
+    --gold:#854F0B;--gold-l:#FAEEDA;
+  }
+  @media(prefers-color-scheme:dark){
+    :root{
+      --bg1:#1e1e1c;--bg2:#242422;--bg3:#26220e;--bg4:#162218;--bg5:#1a1826;
+      --t1:#f0ece4;--t2:#a8a59e;--t3:#6a6966;
+      --bl:rgba(255,255,255,0.09);--bm:rgba(255,255,255,0.18);
+    }
+  }
+  body{font-family:var(--font);background:var(--bg2);color:var(--t1);padding:1.75rem 1rem;min-height:100vh;}
+  h1{font-size:20px;font-weight:500;margin-bottom:.15rem;}
+  .sub{font-size:14px;color:var(--t2);margin-bottom:1.4rem;}
+
+  /* mode toggle */
+  .mode-bar{display:flex;gap:8px;margin-bottom:1.2rem;flex-wrap:wrap;align-items:center;}
+  .mode-label{font-size:12px;color:var(--t3);margin-right:4px;}
+  .mbtn{font-size:12px;padding:5px 14px;border-radius:20px;border:.5px solid var(--bm);background:var(--bg1);color:var(--t2);cursor:pointer;transition:all .13s;}
+  .mbtn.on{background:#444441;border-color:transparent;color:#fff;}
+
+  .frow{margin-bottom:.8rem;}
+  .flabel{font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px;}
+  .btns{display:flex;gap:5px;flex-wrap:wrap;}
+  .fb{font-size:12px;padding:4px 11px;border-radius:20px;border:.5px solid var(--bm);background:var(--bg1);color:var(--t2);cursor:pointer;transition:all .13s;white-space:nowrap;}
+  .fb.on{border-color:transparent;color:#fff;}
+  /* topic colours */
+  .fb[data-f="All"].on,.fb[data-t="All"].on{background:#444441;}
+  .fb[data-f="Medien & Technologie"].on{background:#185FA5;}
+  .fb[data-f="Freizeit"].on{background:#534AB7;}
+  .fb[data-f="Bräuche & Feste"].on{background:#3B6D11;}
+  .fb[data-f="Prominenz"].on{background:#993C1D;}
+  .fb[data-f="Umwelt & Wohnort"].on{background:#854F0B;}
+  .fb[data-f="Familie & Beziehungen"].on{background:#A32D2D;}
+  .fb[data-f="Gesundes Leben"].on{background:#0F6E56;}
+  .fb[data-f="Grammatik"].on{background:#2C2C2A;}
+  /* type colours */
+  .fb[data-t="Nomen"].on{background:#185FA5;}
+  .fb[data-t="Verb"].on{background:#534AB7;}
+  .fb[data-t="Adjektiv"].on{background:#3B6D11;}
+  .fb[data-t="Phrase"].on{background:#993C1D;}
+  .fb[data-t="Grammatik"].on{background:#2C2C2A;}
+
+  .counter{font-size:13px;color:var(--t2);margin:.8rem 0 1rem;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:10px;}
+
+  /* ── CARD ── */
+  .card{background:var(--bg1);border:.5px solid var(--bl);border-radius:var(--rl);padding:1rem 1.15rem;cursor:pointer;user-select:none;min-height:190px;display:flex;flex-direction:column;gap:7px;transition:border-color .13s;position:relative;}
+  .card:hover{border-color:var(--bm);}
+  .card.known{border-color:#3B6D11;opacity:.6;}
+  .card.unknown{border-color:#A32D2D;}
+
+  .ctop{display:flex;justify-content:space-between;align-items:center;gap:6px;}
+  .badges{display:flex;gap:4px;flex-wrap:wrap;}
+  .badge{font-size:10px;font-weight:500;padding:2px 7px;border-radius:10px;white-space:nowrap;}
+  /* topic badge colours */
+  .t-med{background:#E6F1FB;color:#185FA5;}
+  .t-frei{background:#EEEDFE;color:#534AB7;}
+  .t-brau{background:#EAF3DE;color:#3B6D11;}
+  .t-prom{background:#FAECE7;color:#993C1D;}
+  .t-umw{background:#FAEEDA;color:#854F0B;}
+  .t-fam{background:#FCEBEB;color:#A32D2D;}
+  .t-ges{background:#E1F5EE;color:#0F6E56;}
+  .t-gram{background:#D3D1C7;color:#2C2C2A;}
+  /* type badge */
+  .typ-n{background:#E6F1FB;color:#185FA5;}
+  .typ-v{background:#EEEDFE;color:#534AB7;}
+  .typ-a{background:#EAF3DE;color:#3B6D11;}
+  .typ-p{background:#FAEEDA;color:#854F0B;}
+  .typ-g{background:#D3D1C7;color:#2C2C2A;}
+
+  /* German (front) */
+  .german{font-size:18px;font-weight:500;color:var(--t1);line-height:1.3;flex-grow:1;}
+  .genus{font-size:11px;color:var(--t3);font-weight:400;}
+  .hint-text{font-size:11px;color:var(--t3);margin-top:auto;text-align:right;}
+
+  /* Back (hidden until flipped) */
+  .back{display:none;flex-direction:column;gap:7px;margin-top:4px;}
+  .card.flipped .back{display:flex;}
+  .card.flipped .german{font-size:15px;color:var(--t2);}
+
+  .english{font-size:16px;font-weight:500;color:var(--t1);border-top:.5px solid var(--bl);padding-top:8px;}
+  .grammar-note{font-size:12px;color:var(--t2);background:var(--bg3);border-radius:var(--r);padding:6px 9px;line-height:1.5;}
+  .grammar-label{font-size:10px;font-weight:500;color:var(--gold);text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px;}
+  .example{font-size:12px;color:var(--t2);background:var(--bg4);border-radius:var(--r);padding:6px 9px;line-height:1.55;font-style:italic;}
+  .example-label{font-size:10px;font-weight:500;color:#3B6D11;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px;font-style:normal;}
+
+  /* self-test buttons */
+  .test-btns{display:none;gap:8px;margin-top:6px;}
+  .card.flipped .test-btns{display:flex;}
+  body.test-mode .test-btns{display:flex;}
+  .tbtn{flex:1;font-size:12px;padding:5px 0;border-radius:var(--r);border:.5px solid var(--bm);background:var(--bg1);color:var(--t2);cursor:pointer;text-align:center;transition:all .13s;}
+  .tbtn.yes{border-color:#3B6D11;color:#3B6D11;}
+  .tbtn.yes:hover{background:#EAF3DE;}
+  .tbtn.no{border-color:#A32D2D;color:#A32D2D;}
+  .tbtn.no:hover{background:#FCEBEB;}
+
+  /* score bar */
+  .score-bar{display:none;background:var(--bg1);border:.5px solid var(--bl);border-radius:var(--rl);padding:.75rem 1rem;margin-bottom:1rem;font-size:13px;color:var(--t2);}
+  body.test-mode .score-bar{display:flex;gap:16px;align-items:center;}
+  .score-k{color:#3B6D11;font-weight:500;}
+  .score-u{color:#A32D2D;font-weight:500;}
+</style>
+</head>
+<body>
+<h1>GCSE German</h1>
+<p class="sub">AQA · Vokabeln &amp; Phrasen · tap card to reveal · use test mode to mark yourself ✓ / ✗</p>
+
+<div class="mode-bar">
+  <span class="mode-label">Mode:</span>
+  <button class="mbtn on" id="browseBtn" onclick="setMode('browse')">Browse</button>
+  <button class="mbtn" id="testBtn" onclick="setMode('test')">Self-test</button>
+  <button class="mbtn" id="resetBtn" onclick="resetScores()" style="margin-left:auto">Reset scores</button>
+</div>
+
+<div class="score-bar" id="scorebar">
+  <span>Score: </span>
+  <span class="score-k" id="sc-k">0 ✓</span>
+  <span class="score-u" id="sc-u">0 ✗</span>
+  <span id="sc-pct" style="color:var(--t3)"></span>
+</div>
+
+<div class="frow"><div class="flabel">Thema</div><div class="btns" id="tf"></div></div>
+<div class="frow"><div class="flabel">Wortart</div><div class="btns" id="tt"></div></div>
+<div class="counter" id="ctr"></div>
+<div class="grid" id="grid"></div>
+
+<script>
+const TOPICS=["All","Medien & Technologie","Freizeit","Bräuche & Feste","Prominenz","Umwelt & Wohnort","Familie & Beziehungen","Gesundes Leben","Grammatik"];
+const TYPES=["All","Nomen","Verb","Adjektiv","Phrase","Grammatik"];
+
+// type → badge class
+const TC={Nomen:"typ-n",Verb:"typ-v",Adjektiv:"typ-a",Phrase:"typ-p",Grammatik:"typ-g"};
+// topic → badge class
+const TOP_C={"Medien & Technologie":"t-med","Freizeit":"t-frei","Bräuche & Feste":"t-brau","Prominenz":"t-prom","Umwelt & Wohnort":"t-umw","Familie & Beziehungen":"t-fam","Gesundes Leben":"t-ges","Grammatik":"t-gram"};
+
+const V=[
+/* ══ MEDIEN & TECHNOLOGIE ══ */
+{top:"Medien & Technologie",typ:"Nomen",de:"das Handy, -s",en:"mobile phone",genus:"n (das)",gram:"Plural: die Handys. 'Handy' is a false friend — looks English but means mobile phone, not 'handy/useful'.",ex:"Ich benutze mein Handy jeden Tag, um Nachrichten zu schicken.\n(I use my mobile every day to send messages.)"},
+{top:"Medien & Technologie",typ:"Nomen",de:"die soziale Medien (pl)",en:"social media",genus:"pl",gram:"Always plural in German. 'die sozialen Medien' when used with adjective.",ex:"Die sozialen Medien können gefährlich sein.\n(Social media can be dangerous.)"},
+{top:"Medien & Technologie",typ:"Verb",de:"hochladen / herunterladen",en:"to upload / to download",genus:null,gram:"Separable verbs — prefix splits off in main clause: 'Ich lade Musik herunter.' Infinitive stays together after modal: 'Ich möchte Musik herunterladen.'",ex:"Ich lade täglich Fotos hoch. (I upload photos daily.)\nMan kann Filme herunterladen. (You can download films.)"},
+{top:"Medien & Technologie",typ:"Phrase",de:"Ich verbringe zu viel Zeit im Internet.",en:"I spend too much time on the internet.",genus:null,gram:"'verbringen' = to spend (time) — irregular. Perfect: 'Ich habe zu viel Zeit verbracht.'",ex:"Viele Jugendliche verbringen zu viel Zeit im Internet, was schädlich sein kann.\n(Many young people spend too much time online, which can be harmful.)"},
+{top:"Medien & Technologie",typ:"Phrase",de:"Einerseits… andererseits…",en:"On the one hand… on the other hand…",genus:null,gram:"Essential connective for balanced opinion. Both clauses use normal word order after these adverbs. High-scoring writing/speaking phrase.",ex:"Einerseits ist Technologie sehr nützlich, andererseits kann sie süchtig machen.\n(On one hand technology is very useful, on the other it can be addictive.)"},
+{top:"Medien & Technologie",typ:"Adjektiv",de:"nützlich / schädlich",en:"useful / harmful",genus:null,gram:"Nützlich and schädlich are common opinion adjectives. Add '-er/-e/-es' endings when used before a noun: 'ein nützliches Gerät' (a useful device).",ex:"Das Internet ist nützlich für Hausaufgaben, aber zu viel Bildschirmzeit ist schädlich.\n(The internet is useful for homework, but too much screen time is harmful.)"},
+{top:"Medien & Technologie",typ:"Nomen",de:"die App, -s",en:"app",genus:"f (die)",gram:"Plural: die Apps. Borrowed word — same in German. 'eine App herunterladen' = to download an app.",ex:"Es gibt viele kostenlose Apps, die man auf dem Handy nutzen kann.\n(There are many free apps that one can use on a mobile phone.)"},
+{top:"Medien & Technologie",typ:"Phrase",de:"Meiner Meinung nach ist Technologie unverzichtbar.",en:"In my opinion, technology is indispensable.",genus:null,gram:"'Meiner Meinung nach' = in my opinion — triggers verb inversion (verb comes before subject). Excellent for writing.",ex:"Meiner Meinung nach ist Technologie heutzutage unverzichtbar, weil wir ohne sie nicht kommunizieren können."},
+{top:"Medien & Technologie",typ:"Nomen",de:"die Datenschutz (f)",en:"data protection / privacy",genus:"f (die)",gram:"No plural form used. A high-value word for extended writing about tech risks.",ex:"Datenschutz ist ein wichtiges Thema, wenn man soziale Medien benutzt.\n(Data protection is an important topic when using social media.)"},
+
+/* ══ FREIZEIT ══ */
+{top:"Freizeit",typ:"Verb",de:"sich entspannen",en:"to relax / to unwind",genus:null,gram:"Reflexive verb — needs reflexive pronoun: ich entspanne mich, du entspannst dich, er/sie entspannt sich.",ex:"Am Wochenende entspanne ich mich, indem ich Musik höre.\n(At the weekend I relax by listening to music.)"},
+{top:"Freizeit",typ:"Nomen",de:"die Sendung, -en",en:"TV programme / broadcast",genus:"f (die)",gram:"Plural: die Sendungen. Differentiate from 'der Film' (film) and 'die Serie' (series). 'eine Sendung sehen' = to watch a programme.",ex:"Meine Lieblingssendung ist eine Krimiserie, die jeden Dienstag läuft.\n(My favourite programme is a crime series which runs every Tuesday.)"},
+{top:"Freizeit",typ:"Phrase",de:"Ich treibe gern Sport.",en:"I like doing sport. / I enjoy sport.",genus:null,gram:"'Sport treiben' = to do sport (NOT 'machen' — common error). 'gern' = gladly/like to — placed after verb.",ex:"Ich treibe dreimal pro Woche Sport, weil es gut für die Gesundheit ist.\n(I do sport three times a week because it is good for health.)"},
+{top:"Freizeit",typ:"Phrase",de:"Es macht mir (keinen) Spaß.",en:"It is (not) fun for me. / I (don't) enjoy it.",genus:null,gram:"Dative construction — 'mir' is dative. 'macht Spaß' literally = 'makes fun'. Negative: 'keinen Spaß' (accusative, masculine noun).",ex:"Fußball macht mir großen Spaß, weil ich mit Freunden spielen kann.\n(Football is great fun for me because I can play with friends.)"},
+{top:"Freizeit",typ:"Adjektiv",de:"spannend / langweilig",en:"exciting / boring",genus:null,gram:"Key opinion adjectives for films/TV/sport. As predicate (after sein): no ending — 'Der Film ist spannend.' Before noun: 'ein spannender Film' (masc. nominative).",ex:"Der Film war spannend, aber die Serie finde ich langweilig.\n(The film was exciting, but I find the series boring.)"},
+{top:"Freizeit",typ:"Nomen",de:"das Konzert, -e / der Auftritt, -e",en:"concert / performance/appearance",genus:"n/m",gram:"'ins Konzert gehen' = to go to a concert. 'der Auftritt' = stage appearance — useful for celebrity/music topic.",ex:"Ich war letztes Jahr auf einem Konzert und der Auftritt war unvergesslich.\n(Last year I went to a concert and the performance was unforgettable.)"},
+{top:"Freizeit",typ:"Phrase",de:"Wenn ich Zeit habe, gehe ich ins Kino.",en:"When I have time, I go to the cinema.",genus:null,gram:"'wenn' = when (with verb at end of clause) — triggers inverted word order in main clause (verb before subject). Key subordinating conjunction.",ex:"Wenn das Wetter schlecht ist, bleibe ich zu Hause und schaue Filme.\n(When the weather is bad, I stay at home and watch films.)"},
+{top:"Freizeit",typ:"Nomen",de:"die Mannschaft, -en",en:"team",genus:"f (die)",gram:"Plural: die Mannschaften. Essential sport vocabulary. 'in einer Mannschaft spielen' = to play in a team.",ex:"Ich spiele in einer Fußballmannschaft und trainieren wir zweimal pro Woche.\n(I play in a football team and we train twice a week.)"},
+{top:"Freizeit",typ:"Phrase",de:"Ich esse gern… in einem Restaurant.",en:"I like eating… in a restaurant.",genus:null,gram:"Food and eating out — use 'gern' after verb for 'to like doing'. 'am liebsten' = like most of all.",ex:"Ich esse am liebsten Pizza in einem italienischen Restaurant, weil es lecker ist.\n(I most like eating pizza in an Italian restaurant, because it's delicious.)"},
+
+/* ══ BRÄUCHE & FESTE ══ */
+{top:"Bräuche & Feste",typ:"Nomen",de:"das Weihnachten / das Fest, -e",en:"Christmas / celebration/festival",genus:"n (das)",gram:"Weihnachten = singular despite -en ending. 'zu Weihnachten' = at Christmas (no article). 'das Fest' → plural: die Feste.",ex:"Zu Weihnachten verbringt meine Familie viel Zeit zusammen und wir tauschen Geschenke aus.\n(At Christmas my family spends a lot of time together and we exchange presents.)"},
+{top:"Bräuche & Feste",typ:"Phrase",de:"Es ist Tradition bei uns, dass…",en:"It is a tradition for us that…",genus:null,gram:"'bei uns' = in our family/culture. 'dass' = that — subordinating conjunction, verb goes to end.",ex:"Es ist Tradition bei uns, dass wir an Heiligabend zusammen essen.\n(It is a tradition for us that we eat together on Christmas Eve.)"},
+{top:"Bräuche & Feste",typ:"Nomen",de:"der Karneval / der Fasching",en:"carnival (before Lent)",genus:"m (der)",gram:"Both words mean the same: the pre-Lent carnival. Karneval = used in Rhineland (Köln, Düsseldorf). Fasching = used in Bavaria. Relevant to German cultural knowledge.",ex:"Der Karneval in Köln ist sehr berühmt — die Menschen verkleiden sich und tanzen auf den Straßen.\n(Carnival in Cologne is very famous — people dress up and dance in the streets.)"},
+{top:"Bräuche & Feste",typ:"Verb",de:"feiern / sich verkleiden",en:"to celebrate / to dress up (in costume)",genus:null,gram:"'feiern' = regular verb. 'sich verkleiden' = reflexive — ich verklei­de mich. Both essential for Bräuche topic.",ex:"Zu Karneval feiern wir und verkleiden uns als verschiedene Figuren.\n(At carnival we celebrate and dress up as different characters.)"},
+{top:"Bräuche & Feste",typ:"Phrase",de:"Im Vergleich zu England feiert man in Deutschland…",en:"Compared to England, in Germany one celebrates…",genus:null,gram:"'im Vergleich zu' + dative. 'man' = impersonal 'one/you'. Excellent for making cultural comparisons in writing.",ex:"Im Vergleich zu England feiert man in Deutschland Weihnachten am 24. Dezember.\n(Compared to England, in Germany one celebrates Christmas on the 24th of December.)"},
+
+/* ══ PROMINENZ ══ */
+{top:"Prominenz",typ:"Nomen",de:"der/die Prominente, -n",en:"celebrity / famous person",genus:"m/f (der/die)",gram:"Adjectival noun — takes adjective endings. 'ein Prominenter' (masc. indef.) / 'eine Prominente' (fem.). Plural: 'die Prominenten'.",ex:"Viele Prominente nutzen soziale Medien, um ihre Fans zu erreichen.\n(Many celebrities use social media to reach their fans.)"},
+{top:"Prominenz",typ:"Phrase",de:"Sie/Er ist für… bekannt.",en:"She/He is known for…",genus:null,gram:"'bekannt für' + accusative. Standard phrase for describing a celebrity. Can combine: 'weltbekannt' = world-famous.",ex:"Sie ist für ihre Musik weltweit bekannt und hat viele Preise gewonnen.\n(She is known worldwide for her music and has won many awards.)"},
+{top:"Prominenz",typ:"Adjektiv",de:"berühmt / erfolgreich / talentiert",en:"famous / successful / talented",genus:null,gram:"Three key celebrity adjectives. All take standard adjective endings before nouns: 'ein erfolgreicher Sänger' (a successful singer — masc. nom.).",ex:"Meiner Meinung nach muss man nicht berühmt sein, um erfolgreich zu sein.\n(In my opinion you don't have to be famous to be successful.)"},
+{top:"Prominenz",typ:"Phrase",de:"Ich bewundere… weil… (+ Verb am Ende)",en:"I admire… because… (verb at end)",genus:null,gram:"'bewundern' = to admire. 'weil' = because — subordinating conjunction → verb to end. Essential for extended opinion.",ex:"Ich bewundere diesen Sportler, weil er trotz vieler Schwierigkeiten erfolgreich geworden ist.\n(I admire this sportsperson because he became successful despite many difficulties.)"},
+
+/* ══ UMWELT & WOHNORT ══ */
+{top:"Umwelt & Wohnort",typ:"Nomen",de:"die Umwelt / die Umweltverschmutzung",en:"environment / environmental pollution",genus:"f (die)",gram:"'Umwelt' = environment (lit. 'surrounding world'). 'Umweltverschmutzung' = compound noun — pollution. All nouns in compounds take gender of the last element.",ex:"Die Umweltverschmutzung ist ein globales Problem, das sofortige Maßnahmen erfordert.\n(Environmental pollution is a global problem that requires immediate action.)"},
+{top:"Umwelt & Wohnort",typ:"Verb",de:"recyceln / schützen / verschwenden",en:"to recycle / to protect / to waste",genus:null,gram:"'recyceln' = borrowed verb, regular. 'schützen' = to protect — 'wir müssen die Umwelt schützen'. 'verschwenden' = to waste (resources).",ex:"Wir sollten mehr recyceln und weniger Energie verschwenden, um die Umwelt zu schützen.\n(We should recycle more and waste less energy in order to protect the environment.)"},
+{top:"Umwelt & Wohnort",typ:"Phrase",de:"Man sollte… um… zu + Infinitiv",en:"One should… in order to…",genus:null,gram:"'um…zu' construction = in order to. Verb goes to end of the 'um…zu' clause. Infinitive used (not conjugated). Very high-scoring grammatical structure.",ex:"Man sollte öffentliche Verkehrsmittel benutzen, um die Luftverschmutzung zu reduzieren.\n(One should use public transport in order to reduce air pollution.)"},
+{top:"Umwelt & Wohnort",typ:"Nomen",de:"die Stadtmitte / das Stadtzentrum",en:"town/city centre",genus:"f/n",gram:"Both used. 'in der Stadtmitte' / 'im Stadtzentrum' = in the town centre (dative after 'in' for location).",ex:"Ich wohne in der Stadtmitte, was praktisch ist, weil alles in der Nähe liegt.\n(I live in the town centre, which is practical because everything is nearby.)"},
+{top:"Umwelt & Wohnort",typ:"Phrase",de:"Es gibt zu viel Lärm / Verkehr / Abfall.",en:"There is too much noise / traffic / rubbish.",genus:null,gram:"'es gibt' + accusative. 'zu viel' = too much (uncountable). 'zu viele' = too many (countable plural). Excellent for describing urban/environmental problems.",ex:"In meiner Stadt gibt es zu viel Verkehr und Lärm, was das Leben manchmal stressig macht.\n(In my town there is too much traffic and noise, which makes life sometimes stressful.)"},
+{top:"Umwelt & Wohnort",typ:"Adjektiv",de:"umweltfreundlich / nachhaltig",en:"environmentally friendly / sustainable",genus:null,gram:"High-value eco-vocabulary. 'umweltfreundlich' = compound: Umwelt + freundlich. 'nachhaltig' = sustainable — essential for environment topic.",ex:"Es ist wichtig, nachhaltige Entscheidungen zu treffen, um die Erde zu schützen.\n(It is important to make sustainable decisions in order to protect the Earth.)"},
+
+/* ══ FAMILIE & BEZIEHUNGEN (Listening/Reading) ══ */
+{top:"Familie & Beziehungen",typ:"Nomen",de:"die Beziehung, -en / das Verhältnis, -se",en:"relationship / relationship/ratio",genus:"f/n",gram:"'Beziehung' = relationship between people. 'Verhältnis' = more formal or proportional relationship. 'in einer guten Beziehung sein' = to be in a good relationship.",ex:"Ich habe ein gutes Verhältnis zu meinen Eltern, obwohl wir manchmal streiten.\n(I have a good relationship with my parents, although we sometimes argue.)"},
+{top:"Familie & Beziehungen",typ:"Verb",de:"sich (mit jemandem) verstehen / streiten",en:"to get on (with someone) / to argue",genus:null,gram:"'sich verstehen' = reflexive, separable in perfect: 'Wir haben uns gut verstanden.' 'streiten' = irregular, strong verb.",ex:"Normalerweise verstehe ich mich gut mit meiner Schwester, aber manchmal streiten wir uns.\n(Normally I get on well with my sister, but sometimes we argue.)"},
+{top:"Familie & Beziehungen",typ:"Phrase",de:"Meine Familie bedeutet mir sehr viel.",en:"My family means a great deal to me.",genus:null,gram:"'bedeuten' + dative ('mir'). 'sehr viel' = a great deal. Heartfelt, personal response. Useful in listening comprehension — listen for 'bedeuten' as a sign of emotional importance.",ex:"Obwohl meine Familie manchmal nervig ist, bedeutet sie mir sehr viel.\n(Although my family is sometimes annoying, it means a great deal to me.)"},
+{top:"Familie & Beziehungen",typ:"Adjektiv",de:"verständnisvoll / unterstützend / streng",en:"understanding / supportive / strict",genus:null,gram:"Three key adjectives for describing family members. 'verständnisvoll' = compound (Verständnis + voll). Look for these in reading/listening texts when describing relationships.",ex:"Mein Vater ist sehr verständnisvoll und unterstützend, aber meine Mutter kann manchmal streng sein."},
+{top:"Familie & Beziehungen",typ:"Phrase",de:"Als ich jünger war, …(Imperfekt/Plusquamperfekt)",en:"When I was younger… (use imperfect/pluperfect)",genus:null,gram:"'Als' = when (past, single event/period) — triggers verb to end. Follow with imperfect tense for states: 'war', 'hatte', 'spielte'. Differentiates from 'wenn' (repeated past/future).",ex:"Als ich jünger war, spielte ich oft mit meiner Schwester draußen.\n(When I was younger, I often played outside with my sister.)"},
+
+/* ══ GESUNDES LEBEN (Listening/Reading) ══ */
+{top:"Gesundes Leben",typ:"Nomen",de:"die Gesundheit / das Wohlbefinden",en:"health / wellbeing",genus:"f/n",gram:"'Gesundheit!' = Bless you! (after sneezing). 'die Gesundheit' = health as a concept. 'das Wohlbefinden' = wellbeing/wellness — compound noun.",ex:"Die Gesundheit ist das Wichtigste im Leben, deshalb sollte man auf seine Ernährung achten.\n(Health is the most important thing in life, therefore one should pay attention to their diet.)"},
+{top:"Gesundes Leben",typ:"Verb",de:"sich ernähren / schlafen / treiben (Sport)",en:"to eat / to nourish oneself / to sleep / to do sport",genus:null,gram:"'sich ernähren' = reflexive — to eat/nourish oneself. 'sich gesund ernähren' = to eat healthily. 'schlafen' = strong verb (schläft). 'Sport treiben' NOT 'Sport machen'.",ex:"Um gesund zu bleiben, ernähre ich mich ausgewogen und treibe regelmäßig Sport.\n(To stay healthy, I eat a balanced diet and exercise regularly.)"},
+{top:"Gesundes Leben",typ:"Phrase",de:"Es ist wichtig, … zu + Infinitiv.",en:"It is important to…",genus:null,gram:"'Es ist wichtig + zu + Infinitiv' construction. Infinitive goes to end. Can extend: 'Es ist wichtig, dass man…' + verb at end.",ex:"Es ist wichtig, ausreichend Wasser zu trinken und genug zu schlafen.\n(It is important to drink enough water and to sleep enough.)"},
+{top:"Gesundes Leben",typ:"Adjektiv",de:"gesund / ungesund / ausgewogen",en:"healthy / unhealthy / balanced",genus:null,gram:"Key trio for healthy lifestyle topic. 'ausgewogen' = balanced (diet). 'eine ausgewogene Ernährung' = a balanced diet.",ex:"Eine ausgewogene Ernährung mit viel Obst und Gemüse ist gesünder als Fast Food.\n(A balanced diet with lots of fruit and vegetables is healthier than fast food.)"},
+{top:"Gesundes Leben",typ:"Nomen",de:"der Stress / die Schlaflosigkeit",en:"stress / insomnia",genus:"m/f",gram:"'der Stress' = borrowed word. 'Stress haben' = to be stressed. 'die Schlaflosigkeit' = insomnia — compound (Schlaf + losigkeit). Useful for extended writing on health.",ex:"Zu viel Stress und Schlaflosigkeit können langfristig die Gesundheit schädigen.\n(Too much stress and insomnia can damage health in the long term.)"},
+
+/* ══ GRAMMATIK ══ */
+{top:"Grammatik",typ:"Grammatik",de:"Konjunktiv II: würde + Infinitiv",en:"Conditional: would + verb",genus:null,gram:"'würde + Infinitiv' = conditional tense. Also: hätte (would have), wäre (would be), könnte (could). Place würde as conjugated verb, infinitive at end. Essential for higher grades.",ex:"Wenn ich mehr Zeit hätte, würde ich mehr Sport treiben.\n(If I had more time, I would do more sport.)\nIch würde gerne in Deutschland wohnen. (I would like to live in Germany.)"},
+{top:"Grammatik",typ:"Grammatik",de:"Perfekt: haben/sein + Partizip II",en:"Perfect tense: have/be + past participle",genus:null,gram:"Most verbs use 'haben'. Motion/change of state verbs use 'sein': fahren→bin gefahren, gehen→bin gegangen, werden→bin geworden. Partizip II: regular = ge-+stem+-t; irregular = ge-+stem+-en.",ex:"Ich habe gestern Fußball gespielt. (I played football yesterday.)\nIch bin ins Kino gegangen. (I went to the cinema.)"},
+{top:"Grammatik",typ:"Grammatik",de:"Nebensatz: weil / dass / obwohl / wenn",en:"Subordinate clauses: because / that / although / when/if",genus:null,gram:"All subordinating conjunctions → verb to END of clause. Main clause after subordinate clause → inverted (verb before subject): 'Weil es kalt ist, bleibe ich zu Hause.' 'Obwohl' = although — concedes a point (high-value for balanced writing).",ex:"Ich mag Sport, weil es gesund ist. (I like sport because it is healthy.)\nObwohl ich müde bin, lerne ich weiter. (Although I am tired, I keep studying.)"},
+{top:"Grammatik",typ:"Grammatik",de:"Modalverben: müssen / können / dürfen / sollen / wollen / möchten",en:"Modal verbs: must / can / may / should / want / would like",genus:null,gram:"Modal + infinitive at end: 'Ich muss mehr lernen.' Present tense: ich muss, du musst, er muss, wir müssen. 'möchten' = would like (polite). 'dürfen' = to be allowed to. 'sollen' = to be supposed to.",ex:"Man muss die Umwelt schützen. (One must protect the environment.)\nIch möchte Arzt werden. (I would like to become a doctor.)"},
+{top:"Grammatik",typ:"Grammatik",de:"Adjektivendungen nach dem bestimmten Artikel",en:"Adjective endings after the definite article (der/die/das)",genus:null,gram:"After der/die/das: Nom m→-e, f→-e, n→-e, pl→-en. Akk m→-en, f→-e, n→-e. Dat all→-en. The -en ending dominates in most positions — learn the exceptions (nom/acc neuter+fem = -e).",ex:"Der alte Mann. Die neue Schule. Das interessante Buch. Den alten Mann (acc).\nDie schönen Blumen (pl)."},
+{top:"Grammatik",typ:"Grammatik",de:"Zukunft: werden + Infinitiv / Präsens + Zeitangabe",en:"Future tense: will + verb / present tense + time phrase",genus:null,gram:"'werden + Infinitiv' = formal future. Can also use present tense + future time phrase (morgen, nächste Woche, etc.) — very common in spoken/informal German. 'werden' conjugates: ich werde, du wirst, er wird, wir werden.",ex:"Ich werde nächstes Jahr in Deutschland reisen. (I will travel to Germany next year.)\nMorgen gehe ich ins Kino. (Tomorrow I am going to the cinema.)"},
+{top:"Grammatik",typ:"Grammatik",de:"Kausale Konnektoren: deshalb / daher / deswegen",en:"Causal connectors: therefore / hence / for that reason",genus:null,gram:"These cause inversion in the clause they start: 'Es regnet, deshalb bleibe ich zu Hause.' (It's raining, therefore I'm staying at home.) — verb immediately after 'deshalb'. These are coordinating adverbs, not conjunctions.",ex:"Ich mag Technologie, deshalb studiere ich Informatik.\n(I like technology, therefore I am studying computer science.)"},
+{top:"Grammatik",typ:"Grammatik",de:"Steigerung: gut → besser → am besten",en:"Comparatives & superlatives: good → better → best",genus:null,gram:"Comparative: adjective + -er (schnell→schneller). Irregular: gut→besser, viel→mehr, groß→größer. Superlative: am +-sten (am schnellsten) or before noun with -ste/-sten endings.",ex:"Radfahren ist gut für die Gesundheit, aber Schwimmen ist besser. Laufen ist am besten.\n(Cycling is good for health, but swimming is better. Running is best.)"},
+];
+
+let scores={};
+let aTop="All", aType="All";
+let mode="browse";
+
+const tfEl=document.getElementById('tf');
+const ttEl=document.getElementById('tt');
+const gridEl=document.getElementById('grid');
+const ctrEl=document.getElementById('ctr');
+
+TOPICS.forEach(t=>{
+  const b=document.createElement('button');
+  b.className='fb'+(t==='All'?' on':'');
+  b.textContent=t; b.dataset.f=t;
+  b.onclick=()=>{aTop=t;tfEl.querySelectorAll('.fb').forEach(x=>x.classList.remove('on'));b.classList.add('on');render();};
+  tfEl.appendChild(b);
+});
+TYPES.forEach(t=>{
+  const b=document.createElement('button');
+  b.className='fb'+(t==='All'?' on':'');
+  b.textContent=t; b.dataset.t=t;
+  b.onclick=()=>{aType=t;ttEl.querySelectorAll('.fb').forEach(x=>x.classList.remove('on'));b.classList.add('on');render();};
+  ttEl.appendChild(b);
+});
+
+function setMode(m){
+  mode=m;
+  document.getElementById('browseBtn').classList.toggle('on',m==='browse');
+  document.getElementById('testBtn').classList.toggle('on',m==='test');
+  document.body.classList.toggle('test-mode',m==='test');
+  render();
+}
+
+function resetScores(){
+  scores={};
+  render();
+  updateScorebar();
+}
+
+function updateScorebar(){
+  const k=Object.values(scores).filter(v=>v==='known').length;
+  const u=Object.values(scores).filter(v=>v==='unknown').length;
+  const tot=k+u;
+  document.getElementById('sc-k').textContent=k+' ✓';
+  document.getElementById('sc-u').textContent=u+' ✗';
+  document.getElementById('sc-pct').textContent=tot>0?Math.round(k/tot*100)+'% correct':'';
+}
+
+function render(){
+  gridEl.innerHTML='';
+  let f=V;
+  if(aTop!=='All') f=f.filter(c=>c.top===aTop);
+  if(aType!=='All') f=f.filter(c=>c.typ===aType);
+  ctrEl.textContent=f.length+' Karte'+(f.length!==1?'n':'');
+  f.forEach((c,i)=>{
+    const id=c.top+'|'+c.de;
+    const sc=scores[id];
+    const el=document.createElement('div');
+    el.className='card'+(sc==='known'?' known':sc==='unknown'?' unknown':'');
+    const topBC=TOP_C[c.top]||'t-gram';
+    const typBC=TC[c.typ]||'typ-g';
+    const exHTML=c.ex?`<div class="example"><div class="example-label">Beispiel</div>${c.ex.replace(/\n/g,'<br>')}</div>`:'';
+    const gramHTML=c.gram?`<div class="grammar-note"><div class="grammar-label">Grammatik</div>${c.gram}</div>`:'';
+    const genusHTML=c.genus?`<span class="genus">${c.genus}</span>`:'';
+    el.innerHTML=`
+      <div class="ctop">
+        <div class="badges">
+          <span class="badge ${topBC}">${c.top}</span>
+          <span class="badge ${typBC}">${c.typ}</span>
+        </div>
+        ${sc==='known'?'<span style="color:#3B6D11;font-size:14px">✓</span>':sc==='unknown'?'<span style="color:#A32D2D;font-size:14px">✗</span>':''}
+      </div>
+      <div class="german">${c.de} ${genusHTML}</div>
+      <div class="hint-text">${mode==='test'?'Tipp: Überlege auf Englisch, dann aufdecken':'Tippen zum Aufdecken'}</div>
+      <div class="back">
+        <div class="english">${c.en}</div>
+        ${gramHTML}
+        ${exHTML}
+        <div class="test-btns">
+          <button class="tbtn yes" onclick="markCard(event,'${id.replace(/'/g,"\\'")}','known')">✓ Gewusst</button>
+          <button class="tbtn no" onclick="markCard(event,'${id.replace(/'/g,"\\'")}','unknown')">✗ Nicht gewusst</button>
+        </div>
+      </div>
+    `;
+    el.onclick=(e)=>{
+      if(e.target.classList.contains('tbtn')) return;
+      el.classList.toggle('flipped');
+      el.querySelector('.hint-text').textContent=el.classList.contains('flipped')?'Tippen zum Schließen':mode==='test'?'Tipp: Überlege auf Englisch, dann aufdecken':'Tippen zum Aufdecken';
+    };
+    gridEl.appendChild(el);
+  });
+  updateScorebar();
+}
+
+function markCard(e,id,result){
+  e.stopPropagation();
+  scores[id]=result;
+  render();
+}
+
+render();
+</script>
+</body>
+</html>
