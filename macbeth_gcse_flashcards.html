@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Macbeth — GCSE Flashcards</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f0;
+    --color-text-primary: #1a1a18;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --font-sans: system-ui, -apple-system, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-text-primary: #f0ece4;
+      --color-text-secondary: #a8a59e;
+      --color-text-tertiary: #6e6d69;
+      --color-border-tertiary: rgba(255,255,255,0.10);
+      --color-border-secondary: rgba(255,255,255,0.20);
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-secondary); color: var(--color-text-primary); padding: 2rem 1rem; min-height: 100vh; }
+  h1 { font-size: 20px; font-weight: 500; margin-bottom: 0.25rem; }
+  .subtitle { font-size: 14px; color: var(--color-text-secondary); margin-bottom: 1.5rem; }
+  .controls { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1.25rem; }
+  .filter-btn { font-size: 12px; padding: 5px 12px; border-radius: 20px; border: 0.5px solid var(--color-border-secondary); background: var(--color-background-primary); color: var(--color-text-secondary); cursor: pointer; transition: all 0.15s; }
+  .filter-btn.active { border-color: transparent; color: #fff; }
+  .filter-btn[data-char="All"].active { background: #444441; }
+  .filter-btn[data-char="Macbeth"].active { background: #A32D2D; }
+  .filter-btn[data-char="Lady Macbeth"].active { background: #534AB7; }
+  .filter-btn[data-char="The Witches"].active { background: #2C2C2A; }
+  .filter-btn[data-char="Banquo"].active { background: #185FA5; }
+  .filter-btn[data-char="Macduff"].active { background: #3B6D11; }
+  .filter-btn[data-char="Malcolm"].active { background: #854F0B; }
+  .counter { font-size: 13px; color: var(--color-text-secondary); margin-bottom: 1rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+  .card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; cursor: pointer; user-select: none; min-height: 220px; display: flex; flex-direction: column; gap: 8px; transition: border-color 0.15s; }
+  .card:hover { border-color: var(--color-border-secondary); }
+  .char-badge { font-size: 11px; font-weight: 500; padding: 3px 8px; border-radius: 12px; display: inline-block; width: fit-content; }
+  .Macbeth .char-badge { background: #FCEBEB; color: #A32D2D; }
+  .LadyMacbeth .char-badge { background: #EEEDFE; color: #534AB7; }
+  .TheWitches .char-badge { background: #D3D1C7; color: #2C2C2A; }
+  .Banquo .char-badge { background: #E6F1FB; color: #185FA5; }
+  .Macduff .char-badge { background: #EAF3DE; color: #3B6D11; }
+  .Malcolm .char-badge { background: #FAEEDA; color: #854F0B; }
+  .mnemonic { font-size: 13px; font-weight: 500; color: var(--color-text-secondary); letter-spacing: 0.02em; border-left: 2px solid var(--color-border-secondary); padding-left: 8px; }
+  .Macbeth .mnemonic { border-color: #A32D2D; }
+  .LadyMacbeth .mnemonic { border-color: #534AB7; }
+  .TheWitches .mnemonic { border-color: #444441; }
+  .Banquo .mnemonic { border-color: #185FA5; }
+  .Macduff .mnemonic { border-color: #3B6D11; }
+  .Malcolm .mnemonic { border-color: #854F0B; }
+  .quote { font-size: 14px; font-style: italic; color: var(--color-text-primary); line-height: 1.5; flex-grow: 1; }
+  .insight { display: none; font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; border-top: 0.5px solid var(--color-border-tertiary); padding-top: 8px; margin-top: 4px; }
+  .card.flipped .insight { display: block; }
+  .card.flipped .quote { color: var(--color-text-secondary); font-size: 13px; }
+  .tap-hint { font-size: 11px; color: var(--color-text-tertiary); text-align: right; margin-top: auto; }
+  .act-tag { font-size: 11px; color: var(--color-text-tertiary); }
+</style>
+</head>
+<body>
+<h1>Macbeth</h1>
+<p class="subtitle">GCSE Flashcards — tap a card to reveal the analytical insight</p>
+<div class="controls" id="filters"></div>
+<div class="counter" id="counter"></div>
+<div class="grid" id="grid"></div>
+<script>
+const quotes = [
+  { char:"Macbeth", q:"Stars, hide your fires; let not light see my black and deep desires.", mnemonic:"STARS", act:"Act 1.4", insight:"Macbeth knows his desires are evil — he asks darkness to conceal them from himself as much as from others. Shakespeare establishes ambition as already corrupting before a single crime is committed." },
+  { char:"Macbeth", q:"Is this a dagger which I see before me, the handle toward my hand?", mnemonic:"DAGGER", act:"Act 2.1", insight:"Macbeth's hallucination signals the collapse of the boundary between reality and guilt. 'Handle toward my hand' — the instrument is drawn to him, implicating his own agency. He is tempting himself." },
+  { char:"Macbeth", q:"Will all great Neptune's ocean wash this blood clean from my hand?", mnemonic:"NEPTUNE", act:"Act 2.2", insight:"Hyperbole expresses the scale of his guilt immediately after Duncan's murder. The ocean cannot clean him — this is the psychological inverse of Lady Macbeth's 'little water' dismissal. Blood becomes the play's dominant guilt symbol." },
+  { char:"Macbeth", q:"I am in blood stepped in so far that, should I wade no more, returning were as tedious as go o'er.", mnemonic:"WADE", act:"Act 3.4", insight:"The turn from guilt to fatalism — Macbeth accepts his path of violence. 'Tedious' is chilling: murder has become routine. The river metaphor shows he sees no moral option, only a logistical one." },
+  { char:"Macbeth", q:"It will have blood, they say; blood will have blood.", mnemonic:"BLOOD", act:"Act 3.4", insight:"Rhyming couplet gives the line an oracular, inevitable quality. Macbeth now speaks in the register of the Witches. Shakespeare shows violence is self-perpetuating — each murder necessitates another." },
+  { char:"Macbeth", q:"To-morrow, and to-morrow, and to-morrow, creeps in this petty pace from day to day.", mnemonic:"TOMORROW", act:"Act 5.5", insight:"After Lady Macbeth's death, Macbeth reaches nihilism. Triple repetition of 'to-morrow' makes time feel both endless and meaningless. 'Petty pace' reduces existence to insignificance — ambition has left nothing." },
+  { char:"Macbeth", q:"Out, out, brief candle! Life's but a walking shadow.", mnemonic:"CANDLE", act:"Act 5.5", insight:"Life is both insubstantial (shadow) and easily extinguished (candle). 'Brief' registers his own mortality. Shakespeare makes Macbeth's nihilism the logical endpoint of murderous ambition: power purchased at the cost of meaning." },
+  { char:"Macbeth", q:"Vaulting ambition, which o'erleaps itself, and falls on the other side.", mnemonic:"VAULT", act:"Act 1.7", insight:"Macbeth diagnoses his own fatal flaw in soliloquy. 'Vaulting' — a horse that jumps too high and throws its rider — is precise: ambition is the very mechanism of his undoing. He sees this and proceeds anyway." },
+  { char:"Macbeth", q:"I have done the deed. Didst thou not hear a noise?", mnemonic:"DEED", act:"Act 2.2", insight:"The flatness of 'I have done the deed' is more chilling than any dramatic declaration. Shakespeare shows Macbeth's shock as numbness. Immediately he fears discovery — guilt and paranoia arrive simultaneously." },
+  { char:"Lady Macbeth", q:"Come, you spirits that tend on mortal thoughts, unsex me here.", mnemonic:"UNSEX", act:"Act 1.5", insight:"Lady Macbeth invokes evil spirits to strip her femininity, which she equates with weakness. Shakespeare presents a woman who understands gendered power so well she tries to transcend it — and is ultimately destroyed by her own humanity." },
+  { char:"Lady Macbeth", q:"Look like the innocent flower, but be the serpent under't.", mnemonic:"SERPENT", act:"Act 1.5", insight:"She coaches Macbeth in duplicity — the central moral corruption of the play. The serpent echoes the Garden of Eden: Lady Macbeth as Eve, tempting toward a fall. Appearance and reality is the play's dominant theme." },
+  { char:"Lady Macbeth", q:"A little water clears us of this deed.", mnemonic:"WATER", act:"Act 2.2", insight:"Her confidence that guilt can be washed away contrasts entirely with Macbeth's Neptune speech. The dramatic irony is total — she will later compulsively wash blood that isn't there. Shakespeare engineers her collapse from this very line." },
+  { char:"Lady Macbeth", q:"Out, damned spot! Out, I say!", mnemonic:"SPOT", act:"Act 5.1", insight:"Somnambulism literalises guilt — her sleeping mind re-enacts what her waking mind suppressed. 'Damned' is both literal (she is damned) and emotional. The woman who dismissed blood now cannot escape it." },
+  { char:"Lady Macbeth", q:"Here's the smell of the blood still. All the perfumes of Arabia will not sweeten this little hand.", mnemonic:"ARABIA", act:"Act 5.1", insight:"The irony of 'little' — she is both physically diminished and diminishing the act, yet she cannot escape it. All the wealth and luxury of Arabia (the hyperbole of empire) cannot undo a single moral act." },
+  { char:"Lady Macbeth", q:"Nought's had, all's spent, where our desire is got without content.", mnemonic:"NOUGHT", act:"Act 3.2", insight:"Lady Macbeth reaches her private disillusionment before Macbeth. Shakespeare shows that achieving the crown brought nothing — desire outran satisfaction. This is the moral centre of the play, spoken by its most driven character." },
+  { char:"The Witches", q:"Fair is foul, and foul is fair.", mnemonic:"FAIR", act:"Act 1.1", insight:"The play's governing paradox, spoken before Macbeth appears. Shakespeare establishes that appearances will always deceive. The rhyme makes it incantatory — a spell cast on the audience as much as the world of the play." },
+  { char:"The Witches", q:"All hail, Macbeth, that shalt be king hereafter!", mnemonic:"HEREAFTER", act:"Act 1.3", insight:"'Hereafter' implies inevitability — but it is deliberately ambiguous about agency. Do the Witches cause Macbeth's kingship or merely predict it? This ambiguity drives the entire play's question of fate vs free will." },
+  { char:"The Witches", q:"Double, double toil and trouble; fire burn and cauldron bubble.", mnemonic:"DOUBLE", act:"Act 4.1", insight:"The incantation's rhyme and rhythm mirror the Witches' function: to enchant and entrap. 'Double' signals their duplicity — everything they say has two meanings. The audience knows Macbeth is being deceived; he does not." },
+  { char:"The Witches", q:"None of woman born shall harm Macbeth.", mnemonic:"WOMANBORN", act:"Act 4.1", insight:"Technically true but mortally misleading — Macduff was delivered by Caesarean. Shakespeare shows equivocation (saying true things to deceive) as a diabolical art. King James I's era was obsessed with Jesuit equivocation." },
+  { char:"The Witches", q:"By the pricking of my thumbs, something wicked this way comes.", mnemonic:"PRICKING", act:"Act 4.1", insight:"Macbeth has become the 'wicked thing' arriving — the Witches no longer need to find him, he seeks them. Shakespeare marks his moral nadir: he is now categorised with the forces of evil." },
+  { char:"Banquo", q:"What, can the devil speak true?", mnemonic:"DEVIL", act:"Act 1.3", insight:"Banquo's scepticism contrasts directly with Macbeth's rapt belief. Shakespeare presents him as the foil — he hears the same prophecies but does not act on them. Caution vs ambition; virtue vs corruption." },
+  { char:"Banquo", q:"Thou hast it now: King, Cawdor, Glamis, all, as the weird women promised, and I fear thou didst play most foully for't.", mnemonic:"FOULLY", act:"Act 3.1", insight:"Banquo suspects the truth but does nothing. 'Fear' rather than 'know' — he is implicated by his silence. Shakespeare raises the uncomfortable question: is Banquo's inaction also a moral failure?" },
+  { char:"Banquo", q:"There's husbandry in heaven; their candles are all out.", mnemonic:"CANDLES", act:"Act 2.1", insight:"The night of Duncan's murder: even the stars are extinguished. 'Husbandry' (frugality) personifies heaven as unwilling to witness what is about to happen. Nature itself withdraws its light." },
+  { char:"Macduff", q:"He has no children.", mnemonic:"CHILDREN", act:"Act 4.3", insight:"Macduff's response to Malcolm's suggestion he seek revenge. The most devastating compression in the play — only a father could understand this loss. Shakespeare makes grief inarticulate, which is more powerful than any speech." },
+  { char:"Macduff", q:"O horror, horror, horror! Tongue nor heart cannot conceive nor name thee!", mnemonic:"HORROR", act:"Act 2.3", insight:"Macduff discovers Duncan's murder. Triplication of 'horror' and the collapse of language — even the power of naming fails before regicide. Shakespeare makes Duncan's death unspeakable to mark its exceptional evil." },
+  { char:"Macduff", q:"Despair thy charm; and let the angel whom thou still hast served tell thee, Macduff was from his mother's womb untimely ripped.", mnemonic:"UNTIMELY", act:"Act 5.8", insight:"'Untimely ripped' — Caesarean birth means Macduff technically fulfils the Witches' prophecy. 'Despair' replaces Macbeth's false confidence. Shakespeare shows equivocation is always punished by the letter of its own truth." },
+  { char:"Malcolm", q:"This dead butcher and his fiend-like queen.", mnemonic:"BUTCHER", act:"Act 5.9", insight:"The play's final moral verdict. 'Butcher' reduces Macbeth to an animal killer; 'fiend-like' aligns Lady Macbeth with the supernatural evil she invoked. Malcolm's restoration of order requires this reduction to restore moral clarity." },
+];
+
+const charClass = c => c.replace(/\s/g,'').replace(/'/g,'');
+const chars = ["All","Macbeth","Lady Macbeth","The Witches","Banquo","Macduff","Malcolm"];
+const filterEl = document.getElementById('filters');
+const gridEl = document.getElementById('grid');
+const counterEl = document.getElementById('counter');
+let active = "All";
+
+chars.forEach(c => {
+  const b = document.createElement('button');
+  b.className = 'filter-btn' + (c === 'All' ? ' active' : '');
+  b.textContent = c;
+  b.dataset.char = c;
+  b.onclick = () => { active = c; render(); filterEl.querySelectorAll('.filter-btn').forEach(x => x.classList.remove('active')); b.classList.add('active'); };
+  filterEl.appendChild(b);
+});
+
+function render() {
+  gridEl.innerHTML = '';
+  const filtered = active === 'All' ? quotes : quotes.filter(q => q.char === active);
+  counterEl.textContent = filtered.length + ' quote' + (filtered.length !== 1 ? 's' : '');
+  filtered.forEach(q => {
+    const cc = charClass(q.char);
+    const card = document.createElement('div');
+    card.className = 'card ' + cc;
+    card.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span class="char-badge">${q.char}</span>
+        <span class="act-tag">${q.act}</span>
+      </div>
+      <div class="mnemonic">&#9670; ${q.mnemonic}</div>
+      <div class="quote">"${q.q}"</div>
+      <div class="insight">${q.insight}</div>
+      <div class="tap-hint">tap to reveal insight</div>
+    `;
+    card.onclick = () => { card.classList.toggle('flipped'); card.querySelector('.tap-hint').textContent = card.classList.contains('flipped') ? 'tap to hide' : 'tap to reveal insight'; };
+    gridEl.appendChild(card);
+  });
+}
+render();
+</script>
+</body>
+</html>

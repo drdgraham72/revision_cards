@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Christmas Carol — GCSE Flashcards</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f0;
+    --color-text-primary: #1a1a18;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --font-sans: system-ui, -apple-system, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-text-primary: #f0ece4;
+      --color-text-secondary: #a8a59e;
+      --color-text-tertiary: #6e6d69;
+      --color-border-tertiary: rgba(255,255,255,0.10);
+      --color-border-secondary: rgba(255,255,255,0.20);
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-secondary); color: var(--color-text-primary); padding: 2rem 1rem; min-height: 100vh; }
+  h1 { font-size: 20px; font-weight: 500; margin-bottom: 0.25rem; }
+  .subtitle { font-size: 14px; color: var(--color-text-secondary); margin-bottom: 1.5rem; }
+  .controls { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1.25rem; }
+  .filter-btn { font-size: 12px; padding: 5px 12px; border-radius: 20px; border: 0.5px solid var(--color-border-secondary); background: var(--color-background-primary); color: var(--color-text-secondary); cursor: pointer; transition: all 0.15s; }
+  .filter-btn.active { border-color: transparent; color: #fff; }
+  .filter-btn[data-char="All"].active { background: #444441; }
+  .filter-btn[data-char="Scrooge"].active { background: #185FA5; }
+  .filter-btn[data-char="Marley"].active { background: #534AB7; }
+  .filter-btn[data-char="Ghost of Christmas Past"].active { background: #854F0B; }
+  .filter-btn[data-char="Ghost of Christmas Present"].active { background: #3B6D11; }
+  .filter-btn[data-char="Ghost of Christmas Yet to Come"].active { background: #2C2C2A; }
+  .filter-btn[data-char="Bob Cratchit"].active { background: #993C1D; }
+  .filter-btn[data-char="Fred"].active { background: #993556; }
+  .filter-btn[data-char="Narrator"].active { background: #0F6E56; }
+  .counter { font-size: 13px; color: var(--color-text-secondary); margin-bottom: 1rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+  .card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; cursor: pointer; user-select: none; min-height: 220px; display: flex; flex-direction: column; gap: 8px; transition: border-color 0.15s; }
+  .card:hover { border-color: var(--color-border-secondary); }
+  .char-badge { font-size: 11px; font-weight: 500; padding: 3px 8px; border-radius: 12px; display: inline-block; width: fit-content; }
+  .Scrooge .char-badge { background: #E6F1FB; color: #185FA5; }
+  .Marley .char-badge { background: #EEEDFE; color: #534AB7; }
+  .GhostofChristmasPast .char-badge { background: #FAEEDA; color: #854F0B; }
+  .GhostofChristmasPresent .char-badge { background: #EAF3DE; color: #3B6D11; }
+  .GhostofChristmasYettoCome .char-badge { background: #D3D1C7; color: #2C2C2A; }
+  .BobCratchit .char-badge { background: #FAECE7; color: #993C1D; }
+  .Fred .char-badge { background: #FBEAF0; color: #993556; }
+  .Narrator .char-badge { background: #E1F5EE; color: #0F6E56; }
+  .mnemonic { font-size: 13px; font-weight: 500; color: var(--color-text-secondary); letter-spacing: 0.02em; border-left: 2px solid var(--color-border-secondary); padding-left: 8px; }
+  .Scrooge .mnemonic { border-color: #185FA5; }
+  .Marley .mnemonic { border-color: #534AB7; }
+  .GhostofChristmasPast .mnemonic { border-color: #854F0B; }
+  .GhostofChristmasPresent .mnemonic { border-color: #3B6D11; }
+  .GhostofChristmasYettoCome .mnemonic { border-color: #444441; }
+  .BobCratchit .mnemonic { border-color: #993C1D; }
+  .Fred .mnemonic { border-color: #993556; }
+  .Narrator .mnemonic { border-color: #0F6E56; }
+  .quote { font-size: 14px; font-style: italic; color: var(--color-text-primary); line-height: 1.5; flex-grow: 1; }
+  .insight { display: none; font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; border-top: 0.5px solid var(--color-border-tertiary); padding-top: 8px; margin-top: 4px; }
+  .card.flipped .insight { display: block; }
+  .card.flipped .quote { color: var(--color-text-secondary); font-size: 13px; }
+  .tap-hint { font-size: 11px; color: var(--color-text-tertiary); text-align: right; margin-top: auto; }
+  .stave-tag { font-size: 11px; color: var(--color-text-tertiary); }
+</style>
+</head>
+<body>
+<h1>A Christmas Carol</h1>
+<p class="subtitle">GCSE Flashcards — tap a card to reveal the analytical insight</p>
+<div class="controls" id="filters"></div>
+<div class="counter" id="counter"></div>
+<div class="grid" id="grid"></div>
+<script>
+const quotes = [
+  { char:"Scrooge", q:"Bah! Humbug!", mnemonic:"HUMBUG", stave:"Stave 1", insight:"Dickens' most iconic characterisation shorthand. 'Humbug' means deception — Scrooge dismisses Christmas joy as fraud. His contempt is total, yet the word is so absurd it signals he is a comic villain ripe for transformation." },
+  { char:"Scrooge", q:"Are there no prisons? And the Union workhouses?", mnemonic:"PRISONS", stave:"Stave 1", insight:"Scrooge echoes the language of Malthusian social policy. Dickens uses him as a mouthpiece for views he despises — the poor are criminals to be contained, not people to be helped. His own words are later turned on him by the Ghost of Christmas Present." },
+  { char:"Scrooge", q:"If they would rather die, they had better do it, and decrease the surplus population.", mnemonic:"SURPLUS", stave:"Stave 1", insight:"'Surplus population' is Malthus's term — Dickens puts Victorian economic ideology in Scrooge's mouth to expose its cruelty. The Ghost later repeats this phrase back, making Scrooge confront what his ideology actually means." },
+  { char:"Scrooge", q:"No more. I don't wish to see it. Show me no more!", mnemonic:"NOMORE", stave:"Stave 2", insight:"First crack in Scrooge's armour — the past causes him genuine pain. 'Wish' signals emotional agency returning. Dickens shows guilt, not just greed, underpins Scrooge's coldness." },
+  { char:"Scrooge", q:"I will honour Christmas in my heart, and try to keep it all the year.", mnemonic:"HONOUR", stave:"Stave 4", insight:"The pivot of his redemption. 'Try' is honest rather than triumphant — Dickens avoids sentimentality. 'All the year' extends the moral beyond seasonal charity into sustained social responsibility." },
+  { char:"Scrooge", q:"I am as light as a feather, I am as happy as an angel, I am as merry as a schoolboy.", mnemonic:"FEATHER", stave:"Stave 5", insight:"Tricolon of similes — the linguistic contrast with Stave 1 is total. The childlike images (schoolboy, angel) suggest Scrooge has been reborn. Dickens presents redemption as a return to innocent humanity." },
+  { char:"Scrooge", q:"I don't know anything. I'm quite a baby.", mnemonic:"BABY", stave:"Stave 5", insight:"Explicit rebirth metaphor. Having been rebuilt by the three ghosts, Scrooge acknowledges starting from nothing. Dickens suggests moral regeneration is always possible, regardless of age or past." },
+  { char:"Scrooge", q:"I should like to be able to say a word or two to my clerk just now.", mnemonic:"CLERK", stave:"Stave 2", insight:"Watching Fezziwig's party, Scrooge regrets his treatment of Bob Cratchit. Dickens shows empathy reawakening — the Ghost of Christmas Past is succeeding without even speaking." },
+  { char:"Marley", q:"I wear the chain I forged in life. I made it link by link, and yard by yard.", mnemonic:"CHAIN", stave:"Stave 1", insight:"Extended metaphor for moral consequence — every selfish act adds a link. Dickens makes the spiritual punishment perfectly mirror the crime: a miser is weighed down by the material wealth he hoarded." },
+  { char:"Marley", q:"I am here to-night to warn you, that you have yet a chance and hope of escaping my fate.", mnemonic:"WARN", stave:"Stave 1", insight:"Marley is Scrooge's shadow-self — what he will become without intervention. 'Chance and hope' are Dickens' key words: redemption is available but not guaranteed. The supernatural serves a moral function." },
+  { char:"Marley", q:"Mankind was my business. The common welfare was my business.", mnemonic:"MANKIND", stave:"Stave 1", insight:"The central social message delivered through a ghost for maximum impact. Dickens argues that commerce without conscience is a spiritual crime. Marley's regret is the lesson Scrooge must learn." },
+  { char:"Ghost of Christmas Past", q:"A solitary child, neglected by his friends, is left there still.", mnemonic:"SOLITARY", stave:"Stave 2", insight:"Scrooge as a boy — alone at school while others go home for Christmas. Dickens builds sympathy: Scrooge's coldness has a root cause in abandonment. The Ghost engineers empathy, not just guilt." },
+  { char:"Ghost of Christmas Past", q:"These are but shadows of the things that have been. They have no consciousness of us.", mnemonic:"SHADOWS", stave:"Stave 2", insight:"Key to Dickens' structure — the past cannot be changed, only understood. 'Shadows' echoes Scrooge's own existence: he has been a ghost-like presence, cut off from the living world." },
+  { char:"Ghost of Christmas Present", q:"This boy is Ignorance. This girl is Want. Beware them both, and all of their degree, but most of all beware this boy.", mnemonic:"IGNORANCE", stave:"Stave 3", insight:"Dickens' most explicit political allegory. Want (poverty) is terrible, but Ignorance (of poverty's existence) is more dangerous — it enables the indifference of men like Scrooge. A direct address to his Victorian readership." },
+  { char:"Ghost of Christmas Present", q:"Are there no prisons? Are there no workhouses?", mnemonic:"MIRROR", stave:"Stave 3", insight:"The Ghost turns Scrooge's own Stave 1 words back on him — devastating dramatic irony. Dickens shows that callous policy, spoken aloud, sounds monstrous. Structure here is the argument." },
+  { char:"Ghost of Christmas Present", q:"There is never enough time to do all the nothing you want.", mnemonic:"TORCH", stave:"Stave 3", insight:"The Ghost sprinkles generosity from his torch — even a little kindness transforms those it touches. Dickens shows moral action as contagious and transformative at every social level." },
+  { char:"Ghost of Christmas Yet to Come", q:"[Points to Scrooge's neglected grave, overrun by grass and weeds]", mnemonic:"GRAVE", stave:"Stave 4", insight:"The Ghost never speaks — its silence is its power. Dickens makes the future a visual argument: this is what Scrooge's life amounts to without change. The grave is his mirror." },
+  { char:"Bob Cratchit", q:"I'll give you Mr Scrooge, the Founder of the Feast!", mnemonic:"FOUNDER", stave:"Stave 3", insight:"Painful dramatic irony — Bob toasts the man who exploits him. Dickens uses his loyalty to indict Scrooge all the more sharply. The Cratchits' dignity in poverty is the moral standard against which Scrooge is measured." },
+  { char:"Bob Cratchit", q:"God bless us, every one!", mnemonic:"BLESS", stave:"Stave 3", insight:"Tiny Tim's blessing, reported by Bob. 'Every one' is deliberately universal — the Cratchits include even Scrooge in their goodwill. Dickens presents generosity of spirit as independent of material wealth." },
+  { char:"Bob Cratchit", q:"My little, little child! My little child!", mnemonic:"LITTLE", stave:"Stave 4", insight:"Bob's grief at Tiny Tim's death in the possible future. Repetition of 'little' emphasises vulnerability. Dickens makes the emotional cost of Scrooge's inaction concrete and specific — not abstract poverty but a child's death." },
+  { char:"Fred", q:"I am sorry for him; I couldn't be angry with him if I tried.", mnemonic:"SORRY", stave:"Stave 1", insight:"Fred's pity, not anger, for Scrooge. Dickens presents forgiveness as the more powerful moral position — Fred refuses to mirror his uncle's coldness. He is the embodiment of Christmas spirit that Scrooge must learn." },
+  { char:"Fred", q:"His wealth is of no use to him. He don't do any good with it.", mnemonic:"USELESS", stave:"Stave 1", insight:"A precise economic argument against Scrooge: wealth hoarded is wealth wasted. Dickens via Fred makes the capitalist case for charity — money in circulation benefits society, money locked away does not." },
+  { char:"Narrator", q:"Scrooge was his sole executor, his sole administrator, his sole assign, his sole residuary legatee, his sole friend, and sole mourner.", mnemonic:"SOLE", stave:"Stave 1", insight:"Repetition of 'sole' is devastating — Scrooge's only human connection is a dead man. Dickens uses legal language (executor, legatee) to show that Scrooge has reduced all relationships to transactions." },
+  { char:"Narrator", q:"A squeezing, wrenching, grasping, scraping, clutching, covetous old sinner!", mnemonic:"SQUEEZE", stave:"Stave 1", insight:"Six consecutive present participles — the accumulation overwhelms like Scrooge himself. Each word is a physical action of taking; Dickens makes greed viscerally bodily. The rhythm drives the disgust." },
+  { char:"Narrator", q:"He became as good a friend, as good a master, and as good a man, as the good old city knew.", mnemonic:"GOOD", stave:"Stave 5", insight:"Fourfold repetition of 'good' — Dickens is emphatic that transformation is total. The word 'became' frames redemption as a process, not an event. The city itself is the witness; Scrooge has re-entered society." },
+  { char:"Narrator", q:"Scrooge was better than his word. He did it all, and infinitely more.", mnemonic:"BETTER", stave:"Stave 5", insight:"'Infinitely more' exceeds what was promised — Scrooge's generosity is without limit. Dickens ends by making the reformed Scrooge surplus to his own promises, a pleasing moral inversion of a man once defined by deficit." },
+];
+
+const charClass = c => c.replace(/\s/g,'').replace(/'/g,'').replace(/\./g,'');
+const chars = ["All","Scrooge","Marley","Ghost of Christmas Past","Ghost of Christmas Present","Ghost of Christmas Yet to Come","Bob Cratchit","Fred","Narrator"];
+const filterEl = document.getElementById('filters');
+const gridEl = document.getElementById('grid');
+const counterEl = document.getElementById('counter');
+let active = "All";
+
+chars.forEach(c => {
+  const b = document.createElement('button');
+  b.className = 'filter-btn' + (c === 'All' ? ' active' : '');
+  b.textContent = c;
+  b.dataset.char = c;
+  b.onclick = () => { active = c; render(); filterEl.querySelectorAll('.filter-btn').forEach(x => x.classList.remove('active')); b.classList.add('active'); };
+  filterEl.appendChild(b);
+});
+
+function render() {
+  gridEl.innerHTML = '';
+  const filtered = active === 'All' ? quotes : quotes.filter(q => q.char === active);
+  counterEl.textContent = filtered.length + ' quote' + (filtered.length !== 1 ? 's' : '');
+  filtered.forEach(q => {
+    const cc = charClass(q.char);
+    const card = document.createElement('div');
+    card.className = 'card ' + cc;
+    card.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span class="char-badge">${q.char}</span>
+        <span class="stave-tag">${q.stave}</span>
+      </div>
+      <div class="mnemonic">&#9670; ${q.mnemonic}</div>
+      <div class="quote">"${q.q}"</div>
+      <div class="insight">${q.insight}</div>
+      <div class="tap-hint">tap to reveal insight</div>
+    `;
+    card.onclick = () => { card.classList.toggle('flipped'); card.querySelector('.tap-hint').textContent = card.classList.contains('flipped') ? 'tap to hide' : 'tap to reveal insight'; };
+    gridEl.appendChild(card);
+  });
+}
+render();
+</script>
+</body>
+</html>
