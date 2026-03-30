@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GCSE History — WWI &amp; Weimar Germany Flashcards</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f0;
+    --text-primary: #1a1a18;
+    --text-secondary: #5f5e5a;
+    --text-tertiary: #888780;
+    --border-light: rgba(0,0,0,0.12);
+    --border-mid: rgba(0,0,0,0.22);
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --font: system-ui, -apple-system, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-primary: #1e1e1c;
+      --bg-secondary: #2a2a28;
+      --text-primary: #f0ece4;
+      --text-secondary: #a8a59e;
+      --text-tertiary: #6e6d69;
+      --border-light: rgba(255,255,255,0.10);
+      --border-mid: rgba(255,255,255,0.20);
+    }
+  }
+  body { font-family: var(--font); background: var(--bg-secondary); color: var(--text-primary); padding: 2rem 1rem; min-height: 100vh; }
+  h1 { font-size: 20px; font-weight: 500; margin-bottom: 0.2rem; }
+  .subtitle { font-size: 14px; color: var(--text-secondary); margin-bottom: 1.5rem; }
+
+  /* ── Filter bar ── */
+  .filter-row { margin-bottom: 0.9rem; }
+  .filter-label { font-size: 11px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 5px; }
+  .btn-row { display: flex; gap: 6px; flex-wrap: wrap; }
+  .fbtn { font-size: 12px; padding: 4px 11px; border-radius: 20px; border: 0.5px solid var(--border-mid); background: var(--bg-primary); color: var(--text-secondary); cursor: pointer; transition: all 0.15s; white-space: nowrap; }
+  .fbtn.active { border-color: transparent; color: #fff; }
+  /* topic colours */
+  .fbtn[data-topic="All"].active          { background: #444441; }
+  .fbtn[data-topic="Causes of WWI"].active { background: #185FA5; }
+  .fbtn[data-topic="Stalemate"].active     { background: #993C1D; }
+  .fbtn[data-topic="End of WWI"].active    { background: #3B6D11; }
+  .fbtn[data-topic="Weimar & Nazi Germany"].active { background: #A32D2D; }
+  /* type colours */
+  .fbtn[data-type="All"].active   { background: #444441; }
+  .fbtn[data-type="event"].active { background: #185FA5; }
+  .fbtn[data-type="person"].active { background: #534AB7; }
+  .fbtn[data-type="term"].active  { background: #3B6D11; }
+  .fbtn[data-type="battle"].active { background: #993C1D; }
+  .fbtn[data-type="crisis"].active { background: #854F0B; }
+
+  .counter { font-size: 13px; color: var(--text-secondary); margin: 0.9rem 0 1rem; }
+
+  /* ── Grid ── */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 12px; }
+
+  /* ── Card ── */
+  .card { background: var(--bg-primary); border: 0.5px solid var(--border-light); border-radius: var(--radius-lg); padding: 1rem 1.2rem; cursor: pointer; user-select: none; min-height: 210px; display: flex; flex-direction: column; gap: 7px; transition: border-color 0.15s; }
+  .card:hover { border-color: var(--border-mid); }
+
+  .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+  .topic-badge { font-size: 10px; font-weight: 500; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+  .badge-Causes  { background: #E6F1FB; color: #185FA5; }
+  .badge-Stalemate { background: #FAECE7; color: #993C1D; }
+  .badge-End     { background: #EAF3DE; color: #3B6D11; }
+  .badge-Weimar  { background: #FCEBEB; color: #A32D2D; }
+
+  .type-tag { font-size: 10px; color: var(--text-tertiary); }
+  .date-tag { font-size: 11px; color: var(--text-tertiary); font-weight: 500; }
+
+  .term { font-size: 14px; font-weight: 500; color: var(--text-primary); line-height: 1.35; }
+  .mnemonic { font-size: 12px; color: var(--text-secondary); border-left: 2px solid var(--border-mid); padding-left: 8px; letter-spacing: 0.02em; }
+
+  /* front summary */
+  .summary { font-size: 13px; color: var(--text-secondary); line-height: 1.55; flex-grow: 1; }
+
+  /* back */
+  .back { display: none; flex-direction: column; gap: 8px; margin-top: 2px; }
+  .card.flipped .back { display: flex; }
+  .card.flipped .summary { font-size: 12px; color: var(--text-tertiary); }
+
+  .detail { font-size: 13px; color: var(--text-secondary); line-height: 1.6; border-top: 0.5px solid var(--border-light); padding-top: 8px; }
+  .exam-box { background: var(--bg-secondary); border-radius: var(--radius-md); padding: 7px 10px; font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
+  .exam-label { font-size: 10px; font-weight: 500; color: #185FA5; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 3px; }
+
+  .tap-hint { font-size: 11px; color: var(--text-tertiary); text-align: right; margin-top: auto; }
+</style>
+</head>
+<body>
+
+<h1>GCSE History</h1>
+<p class="subtitle">WWI Origins &amp; Weimar Germany — tap a card to reveal full detail + exam angle</p>
+
+<div class="filter-row">
+  <div class="filter-label">Topic</div>
+  <div class="btn-row" id="topic-filters"></div>
+</div>
+<div class="filter-row">
+  <div class="filter-label">Type</div>
+  <div class="btn-row" id="type-filters"></div>
+</div>
+
+<div class="counter" id="counter"></div>
+<div class="grid" id="grid"></div>
+
+<script>
+const TOPICS = ["All","Causes of WWI","Stalemate","End of WWI","Weimar & Nazi Germany"];
+const TYPES  = ["All","event","person","term","battle","crisis"];
+
+const cards = [
+
+/* ═══════════════════════════════════════════
+   CAUSES OF WWI
+═══════════════════════════════════════════ */
+{ topic:"Causes of WWI", type:"term", date:"1882 / 1894",
+  term:"The Alliance System",
+  mnemonic:"TRAP — Two sides, Rigid commitments, Armed and waiting, Pulled in by obligation",
+  summary:"Europe divided into two armed camps: Triple Alliance (Germany, Austria-Hungary, Italy) and Triple Entente (France, Russia, Britain). Alliances turned a regional dispute into a world war.",
+  detail:"Triple Alliance formed 1882. Franco-Russian Alliance 1894. Britain's Entente Cordiale with France 1904, then Anglo-Russian Entente 1907. The system meant any conflict between two powers would automatically drag in all others. Italy switched sides in 1915.",
+  exam:"Exam angle: The alliance system is a LONG-TERM cause. Always contrast with the short-term trigger (assassination). Examiners reward answers that explain HOW alliances turned a local crisis into a general war — not just that they existed."
+},
+{ topic:"Causes of WWI", type:"term", date:"1880s–1914",
+  term:"Weltpolitik (World Policy)",
+  mnemonic:"WORLD — Wilhelm's ambition to rival Britain's global empire",
+  summary:"Kaiser Wilhelm II's aggressive foreign policy seeking to make Germany a world power with colonies, a large navy, and international prestige. Alarmed Britain and France.",
+  detail:"Wilhelm dismissed Bismarck in 1890, ending careful balance-of-power diplomacy. Weltpolitik drove the naval race with Britain (Navy Laws 1898, 1900), intervention in Morocco (1905, 1911), and support for Austria-Hungary in the Balkans. Created the encirclement Germany feared.",
+  exam:"Exam angle: Weltpolitik explains WHY the alliance system became so hostile — Germany was actively threatening the status quo. Link to Anglo-German naval race and Morocco Crises to show the pattern of provocation."
+},
+{ topic:"Causes of WWI", type:"crisis", date:"1905 & 1911",
+  term:"Morocco Crises",
+  mnemonic:"MOROCCO — Morocco tested alliances; both times Germany backed down; both times Britain moved closer to France",
+  summary:"1905: Wilhelm visited Tangier, challenging French control of Morocco to test the Entente Cordiale. 1911: Germany sent the gunboat Panther to Agadir. Both crises ended in German diplomatic defeat.",
+  detail:"1905 Algeciras Conference humiliated Germany — Britain backed France. 1911 crisis: Lloyd George's Mansion House speech warned Germany directly. Germany gained small Congo territory but lost prestige. Both crises strengthened Anglo-French military cooperation (secret staff talks began after 1905).",
+  exam:"Exam angle: Morocco Crises show the Alliance System hardening into hostile blocs. Examiners like analysis of how FAILED German aggression accelerated the very encirclement Germany feared. Use as evidence for long-term tension."
+},
+{ topic:"Causes of WWI", type:"crisis", date:"1908–1909",
+  term:"Bosnian Crisis",
+  mnemonic:"BOSNIA — Austria annexes Bosnia; Russia humiliated; Serbia furious; tensions explode in 1914",
+  summary:"Austria-Hungary annexed Bosnia-Herzegovina in 1908. Russia, as protector of Slavs, was furious but too weak to act after defeat by Japan (1905). Serbia was outraged — Bosnia had a large Serb population.",
+  detail:"Austria acted with German support ('blank cheque' equivalent). Russia backed down — a major humiliation that made them determined not to repeat it in 1914. Serbia vowed revenge. The crisis hardened all sides: Austria more aggressive, Russia more determined, Serbia more nationalistic.",
+  exam:"Exam angle: The Bosnian Crisis is a direct precursor to 1914. Russia's humiliation here explains why they mobilised so firmly in July 1914. Examiners reward cause-and-effect chains — Bosnian Crisis → Russian determination → rapid escalation 1914."
+},
+{ topic:"Causes of WWI", type:"term", date:"1898 / 1900",
+  term:"Anglo-German Naval Race",
+  mnemonic:"DREADNOUGHT — Britain builds one; Germany matches it; Britain feels threatened; race accelerates",
+  summary:"Germany's Navy Laws (1898, 1900) under Admiral Tirpitz aimed to build a fleet challenging British naval supremacy. Britain responded with the HMS Dreadnought (1906) and accelerated building. Created deep mutual suspicion.",
+  detail:"By 1914 Britain had 29 dreadnoughts to Germany's 17 — Britain 'won' the race but at enormous cost. The race ended Splendid Isolation: Britain had to choose sides. Joined France against Germany's naval ambitions. German naval bases in Kiel and Wilhelmshaven pointed directly at Britain.",
+  exam:"Exam angle: The naval race is key evidence for Anglo-German rivalry as a CAUSE of WWI. Show how it pushed Britain from 'Splendid Isolation' into the Entente. The race created hostility before any shot was fired."
+},
+{ topic:"Causes of WWI", type:"event", date:"28 June 1914",
+  term:"Assassination of Franz Ferdinand",
+  mnemonic:"SARAJEVO — Short-term spark; Serbia blamed; Austria demands; crisis escalates",
+  summary:"Archduke Franz Ferdinand, heir to the Austro-Hungarian throne, was shot in Sarajevo by Gavrilo Princip, a Bosnian Serb nationalist linked to the Black Hand. The immediate trigger for WWI.",
+  detail:"Princip was member of Young Bosnia, connected to the Black Hand — a Serbian nationalist secret society. Austria-Hungary blamed Serbia directly. Issued an ultimatum on 23 July 1914 designed to be rejected. Serbia accepted most terms but Austria declared war anyway on 28 July.",
+  exam:"Exam angle: The assassination is the SHORT-TERM trigger — not the cause. Examiners heavily reward students who distinguish between trigger (assassination) and causes (alliance system, Weltpolitik, nationalism, arms race). The spark that lit a pre-built bonfire."
+},
+{ topic:"Causes of WWI", type:"event", date:"July 1914",
+  term:"The July Crisis",
+  mnemonic:"CASCADE — each mobilisation forced the next; no power could back down without humiliation",
+  summary:"The five-week chain reaction from Ferdinand's assassination to world war. Austria's ultimatum to Serbia; Russia mobilises; Germany declares war on Russia; France enters; Germany invades Belgium; Britain declares war on Germany.",
+  detail:"Key moments: Austrian ultimatum 23 July. Serbian partial acceptance. Austrian declaration of war 28 July. Russian mobilisation. Germany's 'blank cheque' to Austria. German declaration of war on Russia 1 Aug, France 3 Aug. Britain declares war on Germany 4 Aug after Belgium invaded.",
+  exam:"Exam angle: The July Crisis shows how the Alliance System and Schlieffen Plan made de-escalation almost impossible. Use the cascade of mobilisations to explain why a local Balkan dispute became a world war within six weeks."
+},
+{ topic:"Causes of WWI", type:"term", date:"1905 plan",
+  term:"The Schlieffen Plan",
+  mnemonic:"PARIS FIRST — knock out France in 6 weeks through Belgium; then turn east to Russia",
+  summary:"Germany's plan to fight a two-front war: attack France rapidly through Belgium (avoiding the Franco-German border fortifications), defeat France in 6 weeks, then transfer troops east to defeat Russia before it could fully mobilise.",
+  detail:"Devised by Field Marshal von Schlieffen 1905. Modified by Moltke who weakened the right 'scythe' wing. Assumed France would fall quickly and Russia would mobilise slowly. Both assumptions failed. The plan required invading neutral Belgium — guaranteeing British entry into the war.",
+  exam:"Exam angle: The Schlieffen Plan is both a cause (Belgium → Britain enters) AND an explanation for stalemate (it failed, trapping both sides). Always address both. 'The Schlieffen Plan caused the stalemate it was designed to prevent.'"
+},
+{ topic:"Causes of WWI", type:"term", date:"1880s–1914",
+  term:"Slav Nationalism",
+  mnemonic:"PAN-SLAV — Serbia wanted to unite all South Slavs; Austria-Hungary saw this as an existential threat",
+  summary:"Rising nationalism among Slavic peoples (Serbs, Czechs, Slovaks, Poles) within the Austro-Hungarian Empire. Serbia wanted to be the 'Piedmont of the Balkans' — uniting South Slavs as Italy had been unified.",
+  detail:"Austria-Hungary was a multi-ethnic empire terrified of nationalist fragmentation. Serbia's victory in Balkan Wars (1912–13) increased its prestige and ambition. Austria saw Serbia as a direct threat to its survival. This existential fear explains Austria's determination to crush Serbia in 1914 despite the risk of war.",
+  exam:"Exam angle: Slav nationalism explains WHY Austria-Hungary was so aggressive in July 1914 — it was fighting for its existence as an empire. This makes the assassination more than a trigger: it was a test Austria could not afford to fail."
+},
+
+/* ═══════════════════════════════════════════
+   STALEMATE ON THE WESTERN FRONT
+═══════════════════════════════════════════ */
+{ topic:"Stalemate", type:"event", date:"Sept 1914",
+  term:"Battle of the Marne",
+  mnemonic:"MARNE — Miracle of the Marne; Germany stopped; 'Race to the Sea' begins; trenches dug",
+  summary:"French and British forces halted the German advance at the River Marne, September 1914. Destroyed the Schlieffen Plan. Both sides then attempted to outflank each other northwards — the 'Race to the Sea' — ending with a continuous trench line from Switzerland to the English Channel.",
+  detail:"German commander Moltke had a nervous breakdown. The gap created between German 1st and 2nd Armies was exploited by French and British forces. After Marne, both sides dug in. By November 1914 the Western Front was established — 700km of trenches.",
+  exam:"Exam angle: The Marne is the direct explanation for stalemate. Examiners want you to connect: Schlieffen Plan fails → Marne → 'Race to the Sea' → trenches → stalemate. One causation chain that explains everything."
+},
+{ topic:"Stalemate", type:"term", date:"1914–1918",
+  term:"Trench Warfare",
+  mnemonic:"MUD — Machine guns, Underground living, Defensive advantage, barbed wire",
+  summary:"System of defensive fortifications that defined the Western Front. Both sides built elaborate trench networks making direct assault catastrophically costly. Defensive technology (machine guns, barbed wire, artillery) massively outpaced offensive capability.",
+  detail:"Front-line, support, and reserve trenches connected by communication trenches. 'No man's land' between opposing lines often 50–250 metres wide. Conditions: mud, rats, lice, trench foot, shell shock. Attacks required men to advance across open ground into machine-gun fire.",
+  exam:"Exam angle: Trench warfare is WHY stalemate persisted — not just what it looked like. Examiners reward analysis of why defence was stronger than offence in 1914–17: machine guns, barbed wire, artillery = technology favoured defender."
+},
+{ topic:"Stalemate", type:"battle", date:"Feb–Dec 1916",
+  term:"Battle of Verdun",
+  mnemonic:"ATTRITION — Germany planned to 'bleed France white'; became mutual slaughter; 700,000 casualties",
+  summary:"German plan to destroy the French army by attacking a site (Verdun) France could not abandon. Became a battle of pure attrition. France held but both sides suffered catastrophically — approx. 300,000 dead each.",
+  detail:"German commander Falkenhayn's strategy: force France to defend Verdun at all costs, destroying its army in the process. France's General Pétain organised supply via the 'Sacred Way' road. Neither side could claim victory. Verdun became a symbol of French national suffering.",
+  exam:"Exam angle: Verdun demonstrates the war of attrition — neither side could break through so both tried to destroy the other's manpower. Use to explain why the Somme was launched (to relieve Verdun pressure on France). Show the connections between battles."
+},
+{ topic:"Stalemate", type:"battle", date:"1 July – 18 Nov 1916",
+  term:"Battle of the Somme",
+  mnemonic:"SOMME — 57,000 British casualties on day one; Haig's tactics questioned; tanks introduced; minimal gain",
+  summary:"British offensive designed to relieve Verdun and break the German line. Largest British military operation in history. 57,470 casualties on 1 July 1916 alone — the bloodiest day in British military history. Haig's tactics heavily criticised.",
+  detail:"Haig planned a week of artillery bombardment to destroy German defences, then infantry advance. Bombardment largely failed — German dugouts survived. Infantry walked into machine-gun fire. By November, gains of 10km at cost of 420,000 British casualties. First use of tanks (Sept 1916) — too few to be decisive.",
+  exam:"Exam angle: The Somme is used to assess Haig's generalship. Balanced answer: Haig made tactical errors on 1 July BUT the Somme did relieve Verdun, wore down German reserves, and introduced new tactics (tanks, creeping barrage). Don't just condemn Haig."
+},
+{ topic:"Stalemate", type:"battle", date:"July–Nov 1917",
+  term:"Battle of Passchendaele (Third Ypres)",
+  mnemonic:"MUD — Passchendaele is the symbol of pointless suffering; mud swallowed men and progress",
+  summary:"Haig's offensive in Flanders aimed to break through to the Belgian coast and destroy German submarine bases. Became notorious for appalling mud conditions. Gained 8km at cost of approx. 300,000 British casualties.",
+  detail:"Artillery destroyed the drainage system, creating a swamp. Men drowned in shell craters. November: Canadian troops finally captured the village of Passchendaele. Haig was warned about conditions but pressed on. Seen as the worst example of attrition strategy — maximum cost, minimal gain.",
+  exam:"Exam angle: Passchendaele is the strongest evidence for criticising Haig's inflexibility. But examiners reward nuance — Haig was under pressure from the French (mutinies in French army after Nivelle Offensive) and needed to keep Germany occupied. Context matters."
+},
+{ topic:"Stalemate", type:"event", date:"1915",
+  term:"Gallipoli Campaign",
+  mnemonic:"DARDANELLES — Open a new front; knock out Turkey; resupply Russia; failed utterly",
+  summary:"Allied attempt to open the Dardanelles strait, knock Ottoman Turkey out of the war, and open a supply route to Russia. Total failure: 250,000 Allied casualties. Forced evacuation by January 1916.",
+  detail:"Churchill's plan. Naval attack failed (mines). Land assault at Gallipoli peninsula April 1915. ANZAC and British troops pinned on beaches by Turkish defences on high ground. Heat, disease, and determined Turkish resistance. Mustafa Kemal (later Atatürk) led Turkish defence. Evacuation was the only successful part.",
+  exam:"Exam angle: Gallipoli shows the war extended beyond the Western Front AND the difficulty of breaking stalemate by opening new fronts. It also explains Churchill's fall from government in 1915. Use as evidence that stalemate was not only a Western Front problem."
+},
+{ topic:"Stalemate", type:"event", date:"May–June 1916",
+  term:"Battle of Jutland",
+  mnemonic:"JUTLAND — Largest naval battle of WWI; both sides claimed victory; German fleet never challenged Britain again",
+  summary:"Only major naval battle of WWI between British Grand Fleet and German High Seas Fleet. Strategically inconclusive. Germany sank more tonnage; Britain lost more ships. But Germany never put its fleet to sea again.",
+  detail:"British Admiral Jellicoe — 'the only man who could lose the war in an afternoon.' German Admiral Scheer. Germany lost 11 ships, Britain 14. Both sides claimed victory. Real result: German navy stayed in port for the rest of the war, confirming British naval supremacy. Germany turned to unrestricted U-boat warfare instead.",
+  exam:"Exam angle: Jutland's strategic significance is that it CONFIRMED British naval dominance even though tactically inconclusive. This forced Germany to use U-boats — leading to the US entering the war. Always follow the consequence chain."
+},
+{ topic:"Stalemate", type:"event", date:"1917",
+  term:"U-Boat Campaign & Convoy System",
+  mnemonic:"CONVOY — U-boats nearly won; convoys defeated them; this kept Britain in the war",
+  summary:"Germany's unrestricted submarine warfare (from Feb 1917) sank one in four ships heading to Britain. By April 1917 Britain had only 6 weeks of food supplies. Introduction of the convoy system (merchant ships sailing in protected groups) dramatically reduced losses.",
+  detail:"By 1917 U-boats sinking 600,000 tons/month. Lloyd George forced Admiralty to adopt convoys against naval resistance. Convoys reduced sinkings by 75%. Unrestricted U-boat warfare (targeting US ships) was the PRIMARY reason the USA entered the war April 1917.",
+  exam:"Exam angle: The U-boat campaign links to TWO crucial outcomes — the threat to British survival AND the reason the USA entered the war. Examiners reward this double significance. The convoy system is an example of Allied adaptation that eventually broke stalemate."
+},
+
+/* ═══════════════════════════════════════════
+   END OF WWI
+═══════════════════════════════════════════ */
+{ topic:"End of WWI", type:"event", date:"April 1917",
+  term:"USA Enters the War",
+  mnemonic:"FRESH — Fresh troops, fresh money, fresh morale; Germany could never replace these",
+  summary:"USA declared war on Germany April 1917. Reasons: unrestricted U-boat warfare (Lusitania 1915, US ships sunk 1917), Zimmermann Telegram (Germany offered Mexico US territory to attack USA), pro-Allied public opinion.",
+  detail:"By 1918, 2 million US troops ('Doughboys') in France. US had been supplying Allies since 1914 — entering the war made British/French victory inevitable. US industrial output dwarfed Germany's. German morale collapsed knowing fresh, well-supplied troops were arriving indefinitely.",
+  exam:"Exam angle: US entry is a turning point — it made German defeat a matter of time, not probability. Examiners want you to explain WHY the US entered (U-boats + Zimmermann Telegram) AND the significance (manpower, morale, supplies). Both halves required for top marks."
+},
+{ topic:"End of WWI", type:"event", date:"1917",
+  term:"Russia Leaves the War",
+  mnemonic:"BOLSHEVIK — Revolution removes Russia; frees 1 million German troops; but too late",
+  summary:"Bolshevik Revolution October 1917 led to Russia signing the Treaty of Brest-Litovsk (March 1918), withdrawing from the war. Germany transferred 44 divisions from Eastern to Western Front.",
+  detail:"Treaty of Brest-Litovsk gave Germany massive territorial gains in Eastern Europe. Ludendorff used freed-up divisions to plan the Spring Offensive. BUT: the timing was too late — US troops arriving faster than Germany could exploit the advantage.",
+  exam:"Exam angle: Russia's withdrawal is a short-term German advantage that ultimately failed because the US entry cancelled it out. Use this as evidence of Germany's strategic dilemma in 1918 — racing against time."
+},
+{ topic:"End of WWI", type:"event", date:"March–July 1918",
+  term:"German Spring Offensive (Operation Michael)",
+  mnemonic:"STORMTROOPERS — New tactics; initial breakthrough; outran supplies; exhausted and failed",
+  summary:"Ludendorff's last gamble: use Stormtrooper infiltration tactics to break through Allied lines before US troops arrived in force. Initial massive gains — deepest advance since 1914. But Germany couldn't sustain it.",
+  detail:"New tactics: Stormtroopers bypassed strong points, infiltrated weak spots, created chaos in rear. Advanced 65km in some areas. BUT: supply lines couldn't keep up; troops looted Allied food stores (showing German food shortages); no strategic objective achieved. Germany's best troops expended.",
+  exam:"Exam angle: The Spring Offensive is paradoxical — Germany's greatest tactical success AND the beginning of its defeat. It used up Germany's best troops and reserves for no lasting gain, leaving Germany weaker than before when the Allied counter-offensive came."
+},
+{ topic:"End of WWI", type:"event", date:"Aug–Nov 1918",
+  term:"The Hundred Days / Allied Advance",
+  mnemonic:"HUNDRED — Combined arms breakthrough; tanks, planes, infantry working together; Germany collapses",
+  summary:"Allied counter-offensive beginning 8 August 1918 ('Black Day of the German Army'). Used combined arms tactics — tanks, aircraft, artillery, and infantry together. Pushed Germany back continuously until the Armistice.",
+  detail:"Battle of Amiens opened with 456 tanks. By September, Germany losing 10,000 prisoners a day. New Allied tactics: creeping barrage, tanks, infiltration. Haig's command redeemed — the Hundred Days is his greatest achievement. German army retreating, German home front collapsing.",
+  exam:"Exam angle: The Hundred Days directly answers 'why did Germany surrender?' — combined with home front collapse, naval blockade, and loss of allies. Also rehabilitates Haig — examiners reward nuanced assessment that acknowledges his earlier failures AND his successful adaptation."
+},
+{ topic:"End of WWI", type:"event", date:"11 Nov 1918",
+  term:"German Surrender / Armistice",
+  mnemonic:"STAB — German right-wing later claimed army was 'stabbed in the back' by home front; this myth fuelled Nazism",
+  summary:"Germany signed the Armistice 11 November 1918. Preceded by Kaiser's abdication 9 November, naval mutinies at Kiel, and the collapse of allies (Bulgaria, Turkey, Austria surrendered first). Not fought on German soil — giving rise to the 'stab in the back' myth.",
+  detail:"German navy mutinied at Kiel October 1918. Workers' and soldiers' councils formed across Germany. Kaiser Wilhelm II abdicated 9 November. Germany signed armistice in a railway carriage at Compiègne. The 'stab in the back' myth — that the army was undefeated and betrayed by socialists/Jews — became Hitler's key propaganda tool.",
+  exam:"Exam angle: The armistice's circumstances are as important as the event itself. The 'stab in the back' myth directly caused the downfall of Weimar democracy. This is the bridge between WWI and the Germany 1919–1945 topic — essential to make this connection."
+},
+{ topic:"End of WWI", type:"person", date:"1916–1918",
+  term:"Haig and Foch",
+  mnemonic:"HAIG — Controversial; blamed for Somme; vindicated by Hundred Days. FOCH — Supreme Allied Commander; co-ordinated final offensive",
+  summary:"Field Marshal Haig commanded British forces 1915–18. Controversial for Somme and Passchendaele. General Ferdinand Foch became Supreme Allied Commander March 1918, co-ordinating the unified Allied response that defeated Germany.",
+  detail:"Haig: 'Butcher Haig' reputation vs. architect of final victory. Modern historians (Sheffield, Prior) defend Haig — learning curve argument. Foch: appointed after German Spring Offensive broke Allied unity. His unified command prevented Germany from exploiting gaps between national armies.",
+  exam:"Exam angle: 'How far was Haig responsible for Allied victory?' — requires balanced answer. Haig made serious errors (Somme Day 1, Passchendaele) BUT adapted tactics by 1918 and won. Foch's contribution = co-ordination was essential. Both matter."
+},
+
+/* ═══════════════════════════════════════════
+   WEIMAR & NAZI GERMANY
+═══════════════════════════════════════════ */
+{ topic:"Weimar & Nazi Germany", type:"term", date:"1890–1914",
+  term:"Kaiser Wilhelm II's Germany",
+  mnemonic:"Prussia — Military tradition; autocratic rule; Reichstag weak; industrialising fast; socialism rising",
+  summary:"Germany under Wilhelm II was a constitutional monarchy where the Kaiser held real power. The Reichstag (parliament) existed but had limited authority. Prussian military tradition dominated. Rapid industrialisation created a growing working class attracted to socialism (SPD).",
+  detail:"Kaiser appointed/dismissed chancellors. The SPD became the largest party in the Reichstag by 1912 — threatening the conservative establishment. Navy Laws 1898/1900 under Tirpitz built the fleet that alarmed Britain. Wilhelm's dismissal of Bismarck ended careful diplomacy, leading to WWI.",
+  exam:"Exam angle: This provides the backstory for why the Weimar Republic was so unstable — Germany had no tradition of democratic rule. Examiners reward context: Weimar was built on weak foundations because of the imperial period."
+},
+{ topic:"Weimar & Nazi Germany", type:"event", date:"1918–1919",
+  term:"End of the Monarchy / November Revolution",
+  mnemonic:"NOVEMBER — Naval mutiny; Kaiser flees; Weimar Republic proclaimed; republic born from defeat",
+  summary:"October/November 1918: sailors mutinied at Kiel; workers' and soldiers' councils spread across Germany. Kaiser abdicated 9 November. SPD leader Scheidemann proclaimed a republic to prevent a communist revolution. Armistice signed 11 November.",
+  detail:"The republic was proclaimed almost accidentally — to prevent a Bolshevik-style revolution. The SPD (moderate socialists) formed the government but inherited: military defeat, revolution threat, collapsed economy, and the peace treaty. Germany's new democracy was blamed for defeat even though it inherited the war from the Kaiser.",
+  exam:"Exam angle: The circumstances of Weimar's birth explain its weakness. Born in defeat, associated with the Armistice ('November criminals') — conservative right never accepted it as legitimate. This is the origin of the Dolchstoss (stab-in-the-back) myth."
+},
+{ topic:"Weimar & Nazi Germany", type:"event", date:"1919",
+  term:"Treaty of Versailles",
+  mnemonic:"BRAT — Blame (War Guilt Clause 231); Reparations (£6.6 billion); Army limited; Territory lost",
+  summary:"Peace settlement imposed on Germany June 1919. War Guilt Clause (Article 231) blamed Germany for the war. Reparations of £6.6 billion. Army limited to 100,000 men. Lost 13% of territory and 10% of population. Rhineland demilitarised.",
+  detail:"Germany lost: Alsace-Lorraine to France, West Prussia and Posen to Poland (Polish Corridor), Eupen and Malmedy to Belgium. Lost all colonies. Forbidden Anschluss with Austria. Navy restricted. No air force. Germans called it the 'Diktat' (dictated peace) — they had no say in negotiations.",
+  exam:"Exam angle: Versailles is the root cause of Weimar's problems AND Hitler's rise. Examiners reward answers that connect Versailles → economic problems → political instability → Nazi appeal. The 'November criminals' who signed it were forever tainted in nationalist eyes."
+},
+{ topic:"Weimar & Nazi Germany", type:"event", date:"1919",
+  term:"Spartacist Uprising",
+  mnemonic:"SPARTACUS — Communist revolution attempt; January 1919; crushed by Freikorps; leaders murdered",
+  summary:"Communist uprising in Berlin January 1919 led by Rosa Luxemburg and Karl Liebknecht (Spartacist League). Aimed to create a Soviet-style revolution. Crushed by the Freikorps (right-wing irregular troops) hired by the SPD government.",
+  detail:"SPD used Freikorps (demobilised soldiers) rather than the regular army — establishing a dangerous precedent. Luxemburg and Liebknecht captured and murdered by Freikorps officers. The left never forgave the SPD for this. Created lasting division on the left that would later prevent united opposition to Hitler.",
+  exam:"Exam angle: The Spartacist Uprising shows Weimar's double vulnerability — threatened by left AND right. The SPD's use of Freikorps split the working-class movement permanently. In 1933, SPD and Communists refused to cooperate against Hitler — partly because of 1919."
+},
+{ topic:"Weimar & Nazi Germany", type:"event", date:"1920",
+  term:"Kapp Putsch",
+  mnemonic:"KAPP — Right-wing coup; army won't suppress it; workers' general strike saves the republic; but fragility exposed",
+  summary:"Right-wing nationalist Wolfgang Kapp and Freikorps troops seized Berlin March 1920, demanding restoration of the Kaiser. The army refused to fire on fellow soldiers. A general strike by Berlin workers collapsed the putsch in four days.",
+  detail:"Government fled Berlin — showing weakness. The army's refusal to act ('Reichswehr does not fire on Reichswehr') revealed it was not loyal to Weimar. The republic was saved by workers, not its own military. Kapp and accomplices received lenient sentences — showing judiciary was also right-wing biased.",
+  exam:"Exam angle: Kapp Putsch shows the republic's structural weakness — it could not rely on its own army or judiciary. Only the workers (who had reason to hate the republic after Spartacists) saved it. Use as evidence that Weimar was 'a republic without republicans.'"
+},
+{ topic:"Weimar & Nazi Germany", type:"event", date:"1923",
+  term:"Hyperinflation",
+  mnemonic:"WHEELBARROW — By November 1923 a loaf of bread cost 200 billion marks; savings worthless overnight",
+  summary:"January 1923: France and Belgium occupied the Ruhr (Germany's industrial heartland) when Germany defaulted on reparations. German government ordered 'passive resistance' and printed money to pay strikers. Result: catastrophic hyperinflation.",
+  detail:"By November 1923: 1 US dollar = 4.2 trillion marks. Middle-class savings wiped out. Pensioners destitute. BUT: those with debts (including the government) benefited — mortgages effectively cancelled. Ended when Stresemann called off passive resistance and introduced the Rentenmark.",
+  exam:"Exam angle: Hyperinflation hit the MIDDLE CLASS hardest — this is why they later turned to Hitler. The workers had trade unions; the rich had assets. Middle-class savers had nothing. Always connect: Hyperinflation → middle-class resentment → Nazi votes."
+},
+{ topic:"Weimar & Nazi Germany", type:"event", date:"1923",
+  term:"Munich (Beer Hall) Putsch",
+  mnemonic:"PUTSCH — Hitler copies Mussolini; fails; imprisoned; uses trial as platform; writes Mein Kampf",
+  summary:"8–9 November 1923: Hitler attempted to seize power in Munich, intending to march on Berlin like Mussolini's March on Rome. Police fired on the marchers — 16 Nazis killed. Hitler arrested and tried for treason.",
+  detail:"The trial gave Hitler a national platform. His 24-day speech was reported nationwide. Sentenced to 5 years (served 9 months). In Landsberg Prison wrote Mein Kampf. Conclusion: the putsch taught Hitler to seek power through legal means — the ballot box.",
+  exam:"Exam angle: The Putsch's failure is as important as the event. It taught Hitler the 'legal path to power' — his subsequent strategy. Also shows 1923 was a year of crisis for Weimar, but the republic survived — important context for explaining why Weimar recovered under Stresemann."
+},
+{ topic:"Weimar & Nazi Germany", type:"person", date:"1923–1929",
+  term:"Stresemann Era",
+  mnemonic:"GOLDEN — Rentenmark; Dawes Plan; Locarno; League of Nations; arts flourish; but foundations fragile",
+  summary:"Gustav Stresemann as Chancellor (1923) then Foreign Minister (1923–29) stabilised Germany. New currency (Rentenmark), Dawes Plan (1924) restructured reparations with US loans, Young Plan (1929) reduced payments. Germany joined League of Nations 1926.",
+  detail:"Dawes Plan: US banks lent Germany money → Germany paid reparations → France/Britain paid war debts to USA. 'Circular flow.' Locarno Treaties 1925 normalised relations with France. BUT: prosperity was built on US loans — vulnerable to any Wall Street crisis. Political extremists remained.",
+  exam:"Exam angle: Stresemann's recovery was REAL but FRAGILE. Examiners reward answers that explain the dependency on US loans — when Wall Street crashed in 1929, the Dawes Plan collapsed, US loans were recalled, and German unemployment soared. The recovery was built on sand."
+},
+{ topic:"Weimar & Nazi Germany", type:"event", date:"1929–1932",
+  term:"Impact of the Great Depression",
+  mnemonic:"UNEMPLOYMENT — 6 million unemployed by 1932; Weimar had no answer; extremists offered solutions",
+  summary:"Wall Street Crash October 1929 → US banks recalled loans → German businesses collapsed → unemployment rose from 1.3 million (1929) to 6 million (1932). Weimar coalition governments unable to agree on solutions. Extremist parties benefited massively.",
+  detail:"Nazi vote: 2.6% (1928) → 18.3% (1930) → 37.4% (July 1932). Communist vote also rose. Brüning's government cut spending — worsened unemployment. Reichstag became ungovernable. Hindenburg ruled by emergency decree. Hitler promised work, bread, and national revival.",
+  exam:"Exam angle: The Depression is the MOST IMPORTANT short-term cause of Hitler's rise. Without 6 million unemployed, the Nazis would have remained a fringe party. Always connect: Depression → unemployment → Nazi votes. Also explain WHY Weimar couldn't respond — coalition paralysis."
+},
+{ topic:"Weimar & Nazi Germany", type:"term", date:"1930–1933",
+  term:"Hitler's Appeal",
+  mnemonic:"SCAPEGOAT — Simple explanations; blame Jews/Marxists/Versailles; promise of national greatness; personal charisma",
+  summary:"Hitler offered simple, emotionally powerful answers to Germany's problems: Versailles was a betrayal; Jews and Marxists were responsible; national strength would be restored. Combined with personal charisma, the SA's street power, and Goebbels' propaganda.",
+  detail:"Different groups heard different messages: middle class = anti-communism; workers = jobs and bread; nationalists = revenge for Versailles; conservatives = anti-Weimar. Nazi Party was the only party that appealed across class divisions. Mass rallies at Nuremberg created a sense of power and belonging.",
+  exam:"Exam angle: Hitler's appeal question requires you to address MULTIPLE groups. Examiners dislike single-cause answers. Structure around: economic despair + political vacuum + propaganda + personal appeal + fear of communism. Weigh which factors mattered most."
+},
+{ topic:"Weimar & Nazi Germany", type:"event", date:"1932–1933",
+  term:"Failure of Weimar / Hitler Appointed Chancellor",
+  mnemonic:"PAPEN — Von Papen and Hindenburg thought they could control Hitler; they were wrong",
+  summary:"January 1933: President Hindenburg appointed Hitler as Chancellor, with Von Papen as Vice-Chancellor. Hindenburg and Papen believed they could control Hitler and use the Nazis' popular support while limiting their power. They were catastrophically wrong.",
+  detail:"Nazi votes actually FELL in November 1932 (37.4% → 33.1%). Hitler's path to power was through backroom deals, not electoral triumph. Papen convinced Hindenburg that Hitler in government could be managed — only 3 Nazis in cabinet. Hitler given chancellorship on 30 January 1933.",
+  exam:"Exam angle: This is crucial — Hitler was APPOINTED, not elected to power. Examiners reward the distinction. The Depression lost him votes by late 1932; it was elite miscalculation that gave him the chancellorship. Then he used legal powers to destroy democracy from within."
+},
+{ topic:"Weimar & Nazi Germany", type:"event", date:"Feb–Aug 1933",
+  term:"Establishment of Dictatorship",
+  mnemonic:"FIRE-ENABLE-BAN — Reichstag Fire; Enabling Act; ban parties; Night of Long Knives; Führer",
+  summary:"Feb 1933: Reichstag Fire blamed on communists → emergency powers. March: Enabling Act gave Hitler power to rule by decree for 4 years. May: trade unions banned. July: all parties banned. June 1934: Night of Long Knives eliminated SA. August: Hitler became Führer on Hindenburg's death.",
+  detail:"Reichstag Fire (27 Feb): Dutch communist Marinus van der Lubbe arrested. Hitler used it to arrest Communist MPs, pass Decree for the Protection of People and State. Enabling Act passed with Centre Party support (threat + promises). SA leader Ernst Röhm killed in Night of Long Knives to appease the army.",
+  exam:"Exam angle: Hitler's consolidation of power used LEGAL mechanisms — the Enabling Act was voted through the Reichstag. Examiners reward the point that democracy dismantled itself legally. Also: the Night of Long Knives shows Hitler would eliminate anyone — including his own allies — who threatened his power."
+},
+{ topic:"Weimar & Nazi Germany", type:"event", date:"30 June 1934",
+  term:"Night of the Long Knives",
+  mnemonic:"RÖHM — SA leader wanted a 'second revolution'; army demanded his removal; Hitler chose the army; Röhm murdered",
+  summary:"Hitler ordered the murder of SA leader Ernst Röhm and approximately 85 others. Röhm wanted the SA to replace the army; the army demanded his removal as the price of their support. Hitler chose the army's backing over the SA.",
+  detail:"Röhm's SA had 3 million members — a threat to Hitler's control and to the professional army. Hitler accused Röhm of treasonous conspiracy. SS (under Himmler) and Gestapo carried out murders over 48 hours. Army swore personal oath of loyalty to Hitler in return. Public accepted it — told it was necessary.",
+  exam:"Exam angle: The Long Knives shows Hitler's willingness to use extreme violence against his own allies AND his political pragmatism — he chose the army's professional power over the SA's mass movement. The army's personal oath to Hitler (not Germany) later prevented resistance to Nazi crimes."
+},
+
+]; /* end cards */
+
+// ── render
+const topicFilterEl = document.getElementById('topic-filters');
+const typeFilterEl  = document.getElementById('type-filters');
+const gridEl        = document.getElementById('grid');
+const counterEl     = document.getElementById('counter');
+let activeTopic = "All";
+let activeType  = "All";
+
+const topicBadgeClass = {
+  "Causes of WWI":"badge-Causes",
+  "Stalemate":"badge-Stalemate",
+  "End of WWI":"badge-End",
+  "Weimar & Nazi Germany":"badge-Weimar"
+};
+
+TOPICS.forEach(t => {
+  const b = document.createElement('button');
+  b.className = 'fbtn' + (t === 'All' ? ' active' : '');
+  b.textContent = t;
+  b.dataset.topic = t;
+  b.onclick = () => { activeTopic = t; topicFilterEl.querySelectorAll('.fbtn').forEach(x=>x.classList.remove('active')); b.classList.add('active'); render(); };
+  topicFilterEl.appendChild(b);
+});
+TYPES.forEach(t => {
+  const b = document.createElement('button');
+  b.className = 'fbtn' + (t === 'All' ? ' active' : '');
+  b.textContent = t;
+  b.dataset.type = t;
+  b.onclick = () => { activeType = t; typeFilterEl.querySelectorAll('.fbtn').forEach(x=>x.classList.remove('active')); b.classList.add('active'); render(); };
+  typeFilterEl.appendChild(b);
+});
+
+function render() {
+  gridEl.innerHTML = '';
+  let filtered = cards;
+  if (activeTopic !== 'All') filtered = filtered.filter(c => c.topic === activeTopic);
+  if (activeType  !== 'All') filtered = filtered.filter(c => c.type  === activeType);
+  counterEl.textContent = filtered.length + ' card' + (filtered.length !== 1 ? 's' : '');
+  filtered.forEach(c => {
+    const badgeClass = topicBadgeClass[c.topic] || '';
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <div class="card-top">
+        <div>
+          <span class="topic-badge ${badgeClass}">${c.topic}</span>
+        </div>
+        <div style="text-align:right">
+          <div class="type-tag">${c.type}</div>
+          <div class="date-tag">${c.date}</div>
+        </div>
+      </div>
+      <div class="term">${c.term}</div>
+      <div class="mnemonic">&#9670; ${c.mnemonic}</div>
+      <div class="summary">${c.summary}</div>
+      <div class="back">
+        <div class="detail">${c.detail}</div>
+        <div class="exam-box">
+          <div class="exam-label">Exam angle</div>
+          ${c.exam}
+        </div>
+      </div>
+      <div class="tap-hint">tap to reveal detail + exam angle</div>
+    `;
+    card.onclick = () => { card.classList.toggle('flipped'); card.querySelector('.tap-hint').textContent = card.classList.contains('flipped') ? 'tap to hide' : 'tap to reveal detail + exam angle'; };
+    gridEl.appendChild(card);
+  });
+}
+render();
+</script>
+</body>
+</html>
