@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Power &amp; Conflict Poetry — GCSE Flashcards</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f0;
+    --color-text-primary: #1a1a18;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --font-sans: system-ui, -apple-system, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-text-primary: #f0ece4;
+      --color-text-secondary: #a8a59e;
+      --color-text-tertiary: #6e6d69;
+      --color-border-tertiary: rgba(255,255,255,0.10);
+      --color-border-secondary: rgba(255,255,255,0.20);
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-secondary); color: var(--color-text-primary); padding: 2rem 1rem; min-height: 100vh; }
+  h1 { font-size: 20px; font-weight: 500; margin-bottom: 0.25rem; }
+  .subtitle { font-size: 14px; color: var(--color-text-secondary); margin-bottom: 1.25rem; }
+  .filter-section { margin-bottom: 1rem; }
+  .filter-label { font-size: 11px; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+  .controls { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+  .filter-btn { font-size: 12px; padding: 4px 11px; border-radius: 20px; border: 0.5px solid var(--color-border-secondary); background: var(--color-background-primary); color: var(--color-text-secondary); cursor: pointer; transition: all 0.15s; }
+  .filter-btn.active { border-color: transparent; color: #fff; }
+  .filter-btn.poem-btn.active { background: #185FA5; }
+  .filter-btn.theme-btn.active { background: #534AB7; }
+  .counter { font-size: 13px; color: var(--color-text-secondary); margin-bottom: 1rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+
+  .card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; cursor: pointer; user-select: none; min-height: 230px; display: flex; flex-direction: column; gap: 7px; transition: border-color 0.15s; }
+  .card:hover { border-color: var(--color-border-secondary); }
+
+  .card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+  .poem-title { font-size: 13px; font-weight: 500; color: var(--color-text-primary); }
+  .poet-name { font-size: 11px; color: var(--color-text-tertiary); margin-top: 1px; }
+  .theme-pills { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
+  .theme-pill { font-size: 10px; padding: 2px 7px; border-radius: 10px; background: #EEEDFE; color: #534AB7; white-space: nowrap; }
+  .theme-pill.war { background: #FCEBEB; color: #A32D2D; }
+  .theme-pill.power { background: #E6F1FB; color: #185FA5; }
+  .theme-pill.nature { background: #EAF3DE; color: #3B6D11; }
+  .theme-pill.identity { background: #FAEEDA; color: #854F0B; }
+  .theme-pill.memory { background: #FBEAF0; color: #993556; }
+  .theme-pill.loss { background: #EEEDFE; color: #534AB7; }
+
+  .mnemonic { font-size: 12px; font-weight: 500; color: var(--color-text-secondary); letter-spacing: 0.02em; border-left: 2px solid #185FA5; padding-left: 8px; }
+  .quote { font-size: 13px; font-style: italic; color: var(--color-text-primary); line-height: 1.55; flex-grow: 1; }
+
+  .back { display: none; flex-direction: column; gap: 8px; }
+  .card.flipped .back { display: flex; }
+  .card.flipped .quote { color: var(--color-text-secondary); font-size: 12px; }
+  .card.flipped .mnemonic { display: none; }
+
+  .insight { font-size: 12px; color: var(--color-text-secondary); line-height: 1.6; border-top: 0.5px solid var(--color-border-tertiary); padding-top: 8px; }
+  .compare-box { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 8px 10px; font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; }
+  .compare-label { font-size: 10px; font-weight: 500; color: #534AB7; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 3px; }
+
+  .tap-hint { font-size: 11px; color: var(--color-text-tertiary); text-align: right; margin-top: auto; }
+</style>
+</head>
+<body>
+<h1>Power &amp; Conflict Poetry</h1>
+<p class="subtitle">AQA GCSE — tap a card to reveal analysis + comparison pointer</p>
+
+<div class="filter-section">
+  <div class="filter-label">Filter by poem</div>
+  <div class="controls" id="poem-filters"></div>
+</div>
+<div class="filter-section">
+  <div class="filter-label">Filter by theme</div>
+  <div class="controls" id="theme-filters"></div>
+</div>
+<div class="counter" id="counter"></div>
+<div class="grid" id="grid"></div>
+
+<script>
+const POEMS = [
+  "All poems",
+  "Ozymandias",
+  "London",
+  "The Prelude",
+  "My Last Duchess",
+  "Charge of the Light Brigade",
+  "Exposure",
+  "Storm on the Island",
+  "Bayonet Charge",
+  "Remains",
+  "Poppies",
+  "War Photographer",
+  "Tissue",
+  "The Emigree",
+  "Checking Out Me History",
+  "Kamikaze"
+];
+
+const THEMES = ["All themes","war","power","nature","identity","memory","loss"];
+
+const cards = [
+  {
+    poem:"Ozymandias", poet:"Percy Bysshe Shelley",
+    themes:["power","loss"],
+    quote:"My name is Ozymandias, King of Kings; Look on my Works, ye Mighty, and despair!",
+    mnemonic:"DESPAIR",
+    insight:"Ozymandias' inscription is preserved — but the works it boasts of are gone. Shelley uses dramatic irony: the words of supremacy survive only to mock the ruin around them. Political power is inherently temporary.",
+    compare:"Compare with My Last Duchess — both speakers reveal their obsession with power and control, both are undone by it. Or London — Blake also shows how human power structures oppress and ultimately hollow out."
+  },
+  {
+    poem:"Ozymandias", poet:"Percy Bysshe Shelley",
+    themes:["power","nature"],
+    quote:"Nothing beside remains. Round the decay of that colossal wreck, boundless and bare, the lone and level sands stretch far away.",
+    mnemonic:"BOUNDLESS",
+    insight:"'Boundless' applies to nature, not the king — the sands outlast the empire. The sibilance of 'lone and level sands' creates a quiet, sweeping sound that enacts the emptiness. Nature is the true power.",
+    compare:"Compare with The Prelude — Wordsworth also shows nature asserting dominance over human presumption. Both use the landscape as the final moral authority."
+  },
+  {
+    poem:"London", poet:"William Blake",
+    themes:["power","loss"],
+    quote:"I wander through each chartered street, near where the chartered Thames does flow.",
+    mnemonic:"CHARTERED",
+    insight:"'Chartered' (mapped, owned, commodified) appears twice — even the river is property. Blake critiques capitalism's colonisation of every space, including nature. The speaker 'wanders' — purposeless, unowned himself.",
+    compare:"Compare with Checking Out Me History — both poems protest against systems that control and suppress. Blake resists through observation; Agard through reclaiming identity."
+  },
+  {
+    poem:"London", poet:"William Blake",
+    themes:["power","war"],
+    quote:"And the hapless soldier's sigh runs in blood down palace walls.",
+    mnemonic:"PALACE",
+    insight:"The sigh becomes blood — the human cost of war is literalised as staining the institutions that caused it. 'Hapless' (without luck, powerless) — the soldier is a victim of the same power that exploits the chimney sweep and prostitute.",
+    compare:"Compare with Charge of the Light Brigade — both explore soldiers as victims of power structures. Tennyson glorifies obedience; Blake condemns the system that demands it."
+  },
+  {
+    poem:"The Prelude", poet:"William Wordsworth",
+    themes:["nature","power"],
+    quote:"a huge peak, black and huge, as if with voluntary power instinct, upreared its head.",
+    mnemonic:"VOLUNTARY",
+    insight:"'Voluntary' gives the mountain agency and will — nature is not a backdrop but a moral force. 'Black' signals something beyond the beautiful sublime: this is a threatening, punitive power. The boy is being educated by the landscape.",
+    compare:"Compare with Storm on the Island or Exposure — all three present nature as an overwhelming, hostile force that diminishes human confidence."
+  },
+  {
+    poem:"The Prelude", poet:"William Wordsworth",
+    themes:["nature","memory"],
+    quote:"Huge and mighty forms that do not live like living men moved slowly through the mind by day and were a trouble to my dreams.",
+    mnemonic:"TROUBLE",
+    insight:"The psychological aftermath — the mountain haunts Wordsworth. 'Trouble' is understated for profound trauma. The incident leaves a permanent impression on his moral formation: nature as a formative, disturbing teacher.",
+    compare:"Compare with Remains — both poems explore how a single experience lodges permanently in the mind and reshapes the speaker's sense of self."
+  },
+  {
+    poem:"My Last Duchess", poet:"Robert Browning",
+    themes:["power","identity"],
+    quote:"That's my last Duchess painted on the wall, looking as if she were alive.",
+    mnemonic:"LOOKING",
+    insight:"'My' — possessive, proprietorial. She is now a painting: owned, controlled, permanently silent. 'As if she were alive' is chilling — he prefers her as art to a living woman with her own will. Browning exposes patriarchal control through dramatic monologue.",
+    compare:"Compare with Ozymandias — both speakers are consumed by the need to control how they are perceived and to dominate others. Both are shown to be ridiculous by the poem's structure."
+  },
+  {
+    poem:"My Last Duchess", poet:"Robert Browning",
+    themes:["power","loss"],
+    quote:"I gave commands; then all smiles stopped together.",
+    mnemonic:"STOPPED",
+    insight:"The Duke never admits to murder — 'commands' is euphemism, 'stopped' is passive. Browning makes him incriminate himself through evasion. The horror is in what is not said.",
+    compare:"Compare with Poppies — both poems deal with a woman's experience of losing someone to male decisions about power and conflict. Different tones: one brutal, one elegiac."
+  },
+  {
+    poem:"Charge of the Light Brigade", poet:"Alfred Tennyson",
+    themes:["war","power"],
+    quote:"Theirs not to reason why, theirs but to do and die.",
+    mnemonic:"REASON",
+    insight:"Anaphora ('theirs') and brutal simplicity — soldiers are instruments of command, not moral agents. Tennyson is ambivalent: he honours their obedience while the repetition reveals its absurdity. A poem that simultaneously glorifies and mourns.",
+    compare:"Compare with Bayonet Charge — Hughes strips away all glory to show the soldier's terror and meaninglessness. The contrast between Tennyson's reverence and Hughes's horror is a Grade 9 comparison."
+  },
+  {
+    poem:"Charge of the Light Brigade", poet:"Alfred Tennyson",
+    themes:["war","loss"],
+    quote:"Into the valley of Death rode the six hundred.",
+    mnemonic:"VALLEY",
+    insight:"Biblical echo of the 23rd Psalm ('valley of the shadow of death') — the soldiers become martyrs. Repetition of 'the six hundred' throughout becomes an elegy: a number honoured precisely because it is reduced. Form enacts the charge itself.",
+    compare:"Compare with Exposure — Owen's soldiers also face death passively, but the cause is meaningless cold rather than a misguided order. Both present soldiers as victims."
+  },
+  {
+    poem:"Exposure", poet:"Wilfred Owen",
+    themes:["war","nature"],
+    quote:"Our brains ache, in the merciless iced east winds that knive us.",
+    mnemonic:"KNIVE",
+    insight:"'Knive' — Owen verbs a noun to make the cold as actively lethal as enemy weapons. 'Merciless' gives nature moral agency — it is an enemy as real as the Germans. The real enemy in this war is indifference and cold.",
+    compare:"Compare with Storm on the Island — Heaney also presents nature as a violent, attacking force. Both poets use violent verbs to give nature agency and menace."
+  },
+  {
+    poem:"Exposure", poet:"Wilfred Owen",
+    themes:["war","loss"],
+    quote:"What are we doing here? ... But nothing happens.",
+    mnemonic:"NOTHING",
+    insight:"The repeated refrain 'but nothing happens' enacts the stasis of trench warfare — waiting is the condition, not battle. The question 'what are we doing here?' is Owen's central anti-war argument: purposelessness is the true horror.",
+    compare:"Compare with Remains — both explore soldiers trapped in a kind of living death. Armitage's soldier is destroyed by memory; Owen's by the waiting itself."
+  },
+  {
+    poem:"Storm on the Island", poet:"Seamus Heaney",
+    themes:["nature","power"],
+    quote:"We are bombarded by the empty air. Strange, it is a huge nothing that we fear.",
+    mnemonic:"NOTHING",
+    insight:"Military language ('bombarded') applied to weather — Heaney blurs the boundary between natural and political violence. Northern Ireland context: the 'nothing' may be the invisible threat of sectarian conflict as much as the storm.",
+    compare:"Compare with Exposure — both use military vocabulary for natural forces, both end in the terror of emptiness rather than visible enemy."
+  },
+  {
+    poem:"Storm on the Island", poet:"Seamus Heaney",
+    themes:["nature","power"],
+    quote:"The wizened earth had never troubled us with hay.",
+    mnemonic:"WIZENED",
+    insight:"The island community is self-sufficient — or believes it is. 'Wizened' (shrunken, dry) shows the earth gives little; the community has prepared for hardship. Their confidence is ironised by the storm's power.",
+    compare:"Compare with The Prelude — both describe communities/individuals who believe themselves prepared for nature, and are proved wrong."
+  },
+  {
+    poem:"Bayonet Charge", poet:"Ted Hughes",
+    themes:["war","identity"],
+    quote:"In what cold clockwork of the stars and the nations was he the hand pointing that second?",
+    mnemonic:"CLOCKWORK",
+    insight:"The soldier becomes a cog — 'clockwork' strips him of agency and humanity. Hughes asks: what cosmic or political machinery reduces a man to this? The question has no answer, which is the point.",
+    compare:"Compare with Charge of the Light Brigade — Hughes asks the question Tennyson refuses to: why are these men dying? The contrast of form (fragmented panic vs ordered gallop) is analytically rich."
+  },
+  {
+    poem:"Bayonet Charge", poet:"Ted Hughes",
+    themes:["war","identity"],
+    quote:"His terror's touchy dynamite.",
+    mnemonic:"DYNAMITE",
+    insight:"The soldier is indistinguishable from a weapon — he is explosive, unstable. Hughes collapses the distinction between man and instrument of war. The alliterative 't' sounds create tension. All abstract patriotism has dissolved into pure fear.",
+    compare:"Compare with Remains — both Armitage and Hughes show soldiers stripped of identity by the experience of combat. Both use visceral imagery to make the psychological damage physical."
+  },
+  {
+    poem:"Remains", poet:"Simon Armitage",
+    themes:["war","memory"],
+    quote:"his blood-shadow stays on the street... the drink and the drugs won't flush him out.",
+    mnemonic:"SHADOW",
+    insight:"'Blood-shadow' — the dead man becomes a permanent stain on the soldier's consciousness. The failed attempts to escape through substance abuse show PTSD without naming it. Armitage makes the abstract clinical term concrete and human.",
+    compare:"Compare with War Photographer — both explore how civilians fail to process the moral weight of conflict. Both use imagery of blood/images that cannot be unseen."
+  },
+  {
+    poem:"Remains", poet:"Simon Armitage",
+    themes:["war","memory"],
+    quote:"somebody else's body in a bag, but somebody else's doing, as well. I try that. But I can't.",
+    mnemonic:"CANT",
+    insight:"The soldier tries to displace responsibility — 'somebody else's' — but the sentence fails him mid-attempt. 'I can't' is the most honest moment: guilt cannot be outsourced. Colloquial register throughout makes the trauma feel unprocessed, raw.",
+    compare:"Compare with The Prelude — both speakers are haunted by a single act that reshapes their moral identity. Both use first-person present tense to make the past feel inescapable."
+  },
+  {
+    poem:"Poppies", poet:"Jane Weir",
+    themes:["war","memory","loss"],
+    quote:"I resisted the impulse to run my fingers through the gelled, spike-black hair.",
+    mnemonic:"IMPULSE",
+    insight:"The restrained touch — a mother cannot hold her son before he leaves. 'Resisted' is heartbreaking: she suppresses her own grief to let him go. Weir shows war's domestic cost through what is not done.",
+    compare:"Compare with Kamikaze — both poems are told from the perspective of those left behind, and both explore the cost of duty to family. The mother's silence vs the daughter's narrative voice."
+  },
+  {
+    poem:"Poppies", poet:"Jane Weir",
+    themes:["war","loss","memory"],
+    quote:"I was hoping the wind might take the direction of the boy's voice.",
+    mnemonic:"WIND",
+    insight:"The poem ends in waiting — the mother strains for any trace of her son. 'Hoping' is a fragile word. The wind, indifferent, may or may not carry what she needs. Weir ends on uncertainty rather than resolution: grief without closure.",
+    compare:"Compare with Exposure — Owen's soldiers also wait for something that may not come. Both poems end in hope deferred."
+  },
+  {
+    poem:"War Photographer", poet:"Carol Ann Duffy",
+    themes:["war","identity","memory"],
+    quote:"All flesh is grass... he has a job to do.",
+    mnemonic:"GRASS",
+    insight:"Biblical allusion ('all flesh is grass', Isaiah) signals transience and mortality. 'He has a job to do' immediately deflates the spiritual register — Duffy explores how professionals process atrocity by reducing it to task. The tension is never resolved.",
+    compare:"Compare with Remains — both explore the psychological burden of witnessing and participating in conflict. Armitage's soldier cannot separate himself; Duffy's photographer must."
+  },
+  {
+    poem:"War Photographer", poet:"Carol Ann Duffy",
+    themes:["war","identity"],
+    quote:"The reader's eyeballs prick with tears between the bath and pre-lunch beers.",
+    mnemonic:"BEERS",
+    insight:"Duffy indicts the comfortable British public — tears between bath and beer signals superficial engagement. The bathos of 'beers' is deliberate. We are implicated as the audience that consumes suffering as entertainment.",
+    compare:"Compare with London — Blake also implicates the reader in systemic indifference to suffering. Both poets are morally angry rather than merely sad."
+  },
+  {
+    poem:"Tissue", poet:"Imtiaz Dharker",
+    themes:["power","identity"],
+    quote:"If buildings were paper, I might feel their drift, see how easily they fall away.",
+    mnemonic:"DRIFT",
+    insight:"Paper as metaphor for the fragility of human power structures — laws, borders, records. 'Drift' and 'fall away' suggest these structures are inherently temporary. Dharker argues that what seems permanent (cities, nations) is tissue-thin.",
+    compare:"Compare with Ozymandias — both argue that human power is temporary. Shelley uses the desert; Dharker uses paper. Both reach the same conclusion through opposite imagery (stone vs tissue)."
+  },
+  {
+    poem:"Tissue", poet:"Imtiaz Dharker",
+    themes:["power","identity","nature"],
+    quote:"light that falls as if by chance on every living thing.",
+    mnemonic:"CHANCE",
+    insight:"The poem ends with light — democratic, unchosen, uncontrolled. 'By chance' removes human agency: nature distributes its grace without hierarchy or borders. Dharker proposes an alternative to power structures: natural equality.",
+    compare:"Compare with The Emigree — both poems find a kind of resistant beauty against oppressive systems. Both use light as a symbol of freedom and identity persisting despite external threats."
+  },
+  {
+    poem:"The Emigree", poet:"Carol Rumens",
+    themes:["identity","memory","loss"],
+    quote:"There once was a country... I left it as a child but my memory of it is sunlight.",
+    mnemonic:"SUNLIGHT",
+    insight:"'Once' signals fairy-tale distance — the country may be destroyed, inaccessible, or imagined. 'Sunlight' is the dominant sensory memory: warmth, clarity, belonging. Rumens shows identity surviving displacement through idealised memory.",
+    compare:"Compare with Checking Out Me History — both poets reclaim an identity that external forces have attempted to erase. Agard through reclaiming history; Rumens through preserving memory."
+  },
+  {
+    poem:"The Emigree", poet:"Carol Rumens",
+    themes:["identity","power"],
+    quote:"They say I may not go there now... my city hides behind me. I carry it on my tongue.",
+    mnemonic:"TONGUE",
+    insight:"Language as portable homeland — the city survives in speech even when the physical place is denied. 'Carries' implies weight but also active preservation. The oppressive 'they' cannot reach inside the speaker's language.",
+    compare:"Compare with Kamikaze — both explore identities defined against what others decree they should be. Both speakers quietly resist the labels external power imposes."
+  },
+  {
+    poem:"Checking Out Me History", poet:"John Agard",
+    themes:["identity","power"],
+    quote:"Dem tell me wha dem want to tell me... but now I checking out me own history.",
+    mnemonic:"CHECKING",
+    insight:"The dialect spelling is formal resistance — Agard refuses to standardise his voice. 'Dem' vs 'me' sets up the political binary. The present continuous 'checking out' is ongoing, active — identity reclamation as a continuing process, not a single act.",
+    compare:"Compare with The Emigree — both poets resist external definitions of identity. Or London — Blake shows the same system that controls Agard's education controlling London's streets."
+  },
+  {
+    poem:"Checking Out Me History", poet:"John Agard",
+    themes:["identity","power"],
+    quote:"Toussaint de thorn to de French crown. Toussaint de beacon of de Haitian Revolution.",
+    mnemonic:"BEACON",
+    insight:"Toussaint L'Ouverture — the Haitian revolutionary leader omitted from British colonial curriculum. 'Beacon' is light imagery for Black liberation. Agard structures the poem so Caribbean heroes are written in vivid, distinct stanzas against the dull nursery-rhyme British history.",
+    compare:"Compare with Ozymandias — Shelley also challenges empires' claims to permanence. Agard shows the empire wrote the history; Shelley shows time erases it regardless."
+  },
+  {
+    poem:"Kamikaze", poet:"Beatrice Garland",
+    themes:["identity","power","loss"],
+    quote:"he must have looked far out to sea, remembered... the shoals of fish like a flag.",
+    mnemonic:"SHOALS",
+    insight:"The pilot turns back because of beauty — the natural world reclaims his humanity from the ideology demanding his death. 'Like a flag' is ironic: the flag of nature vs the flag of empire. The natural world wins this internal conflict.",
+    compare:"Compare with Poppies — both explore what a man owes to family vs what the state demands of him. Both use sensory detail to anchor the human against the abstract."
+  },
+  {
+    poem:"Kamikaze", poet:"Beatrice Garland",
+    themes:["identity","loss","memory"],
+    quote:"We [his daughters] never spoke of it. In time, we too learned to be silent.",
+    mnemonic:"SILENT",
+    insight:"The family enact the state's punishment — social death through silence. 'In time' shows this was a process of learning, not instinct. Garland makes the children complicit in their father's erasure, showing how ideological pressure infiltrates family itself.",
+    compare:"Compare with War Photographer — Duffy's photographer and Garland's daughters both develop silence as a coping mechanism for impossible moral weight."
+  },
+];
+
+const poemFilterEl = document.getElementById('poem-filters');
+const themeFilterEl = document.getElementById('theme-filters');
+const gridEl = document.getElementById('grid');
+const counterEl = document.getElementById('counter');
+let activePoem = "All poems";
+let activeTheme = "All themes";
+
+POEMS.forEach(p => {
+  const b = document.createElement('button');
+  b.className = 'filter-btn poem-btn' + (p === 'All poems' ? ' active' : '');
+  b.textContent = p;
+  b.onclick = () => {
+    activePoem = p;
+    poemFilterEl.querySelectorAll('.poem-btn').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    render();
+  };
+  poemFilterEl.appendChild(b);
+});
+
+THEMES.forEach(t => {
+  const b = document.createElement('button');
+  b.className = 'filter-btn theme-btn' + (t === 'All themes' ? ' active' : '');
+  b.textContent = t;
+  b.onclick = () => {
+    activeTheme = t;
+    themeFilterEl.querySelectorAll('.theme-btn').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    render();
+  };
+  themeFilterEl.appendChild(b);
+});
+
+function render() {
+  gridEl.innerHTML = '';
+  let filtered = cards;
+  if (activePoem !== 'All poems') filtered = filtered.filter(c => c.poem === activePoem);
+  if (activeTheme !== 'All themes') filtered = filtered.filter(c => c.themes.includes(activeTheme));
+  counterEl.textContent = filtered.length + ' card' + (filtered.length !== 1 ? 's' : '');
+  filtered.forEach(c => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    const pillsHTML = c.themes.map(t => `<span class="theme-pill ${t}">${t}</span>`).join('');
+    card.innerHTML = `
+      <div class="card-header">
+        <div>
+          <div class="poem-title">${c.poem}</div>
+          <div class="poet-name">${c.poet}</div>
+        </div>
+        <div class="theme-pills">${pillsHTML}</div>
+      </div>
+      <div class="mnemonic">&#9670; ${c.mnemonic}</div>
+      <div class="quote">"${c.quote}"</div>
+      <div class="back">
+        <div class="insight">${c.insight}</div>
+        <div class="compare-box">
+          <div class="compare-label">&#8644; Compare with</div>
+          ${c.compare}
+        </div>
+      </div>
+      <div class="tap-hint">tap to reveal analysis</div>
+    `;
+    card.onclick = () => {
+      card.classList.toggle('flipped');
+      card.querySelector('.tap-hint').textContent = card.classList.contains('flipped') ? 'tap to hide' : 'tap to reveal analysis';
+    };
+    gridEl.appendChild(card);
+  });
+}
+render();
+</script>
+</body>
+</html>
