@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCSE Chemistry — Worked Examples</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=DM+Mono:wght@400;500&family=Barlow+Condensed:wght@400;500;600;700&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #f5f5f0;
+            --paper: #fffef9;
+            --ink: #1a1a2e;
+            --ink-light: #4a4a5e;
+            --line: #c8d8e8;
+            --margin: #e8a0a0;
+            --highlight: #fff3cd;
+            --explain-bg: #1a1a2e;
+            --explain-text: #f0ece4;
+            --green: #3b6d11;
+            --blue: #185fa5;
+            --red: #a32d2d;
+            --purple: #534ab7;
+            --font: 'Barlow Condensed', sans-serif;
+            --mono: 'DM Mono', monospace;
+            --hand: 'Caveat', cursive;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1e;
+                --paper: #252528;
+                --ink: #e8e4dc;
+                --ink-light: #a8a49c;
+                --line: #3a3a44;
+                --margin: #6e3030;
+                --highlight: #3a3520;
+                --explain-bg: #f0ece4;
+                --explain-text: #1a1a2e;
+            }
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--ink);
+            min-height: 100vh;
+            padding: 1rem;
+        }
+
+        .container { max-width: 800px; margin: 0 auto; }
+
+        .question-nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .question-nav label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--ink-light);
+            margin-right: 4px;
+        }
+
+        .q-btn {
+            padding: 5px 10px;
+            border: 1.5px solid var(--line);
+            border-radius: 4px;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: var(--mono);
+            font-size: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .q-btn:hover { border-color: var(--blue); color: var(--blue); }
+        .q-btn.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+
+        .question-box {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .question-box .marks {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            font-family: var(--mono);
+            font-size: 11px;
+            font-weight: 600;
+            color: #fff;
+            background: var(--blue);
+            padding: 3px 10px;
+            border-radius: 3px;
+        }
+
+        .question-box .source {
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--ink-light);
+            margin-bottom: 8px;
+            letter-spacing: 0.04em;
+        }
+
+        .question-box .q-text {
+            font-size: 15px;
+            line-height: 1.5;
+            padding-right: 60px;
+        }
+
+        .question-box .q-text em {
+            font-style: italic;
+            color: var(--ink-light);
+            font-size: 13px;
+        }
+
+        .workspace {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 0;
+            margin-bottom: 1rem;
+            min-height: 300px;
+            overflow: hidden;
+        }
+
+        .paper-lines {
+            padding: 16px 24px 16px 60px;
+            position: relative;
+            min-height: 300px;
+        }
+
+        .paper-lines::before {
+            content: '';
+            position: absolute;
+            left: 50px;
+            top: 0;
+            bottom: 0;
+            width: 1.5px;
+            background: var(--margin);
+        }
+
+        .answer-line {
+            font-family: var(--hand);
+            font-size: 22px;
+            line-height: 36px;
+            color: var(--ink);
+            padding: 2px 0;
+            border-bottom: 1px solid var(--line);
+            min-height: 36px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(4px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .answer-line.visible { opacity: 1; transform: translateY(0); }
+        .answer-line.formula { color: var(--blue); font-weight: 600; }
+        .answer-line.substitution { color: var(--ink); }
+        .answer-line.result { color: var(--green); font-weight: 700; }
+        .answer-line.annotation { color: var(--ink-light); font-size: 16px; font-style: italic; }
+        .answer-line.underline-answer {
+            color: var(--green);
+            font-weight: 700;
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 4px;
+        }
+
+        .mark-tick {
+            position: absolute;
+            left: -36px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: var(--green);
+            font-weight: 700;
+            opacity: 0;
+            transition: opacity 0.3s ease 0.3s;
+        }
+
+        .answer-line.visible .mark-tick { opacity: 1; }
+
+        .explain-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .explain-overlay.show { display: flex; }
+
+        .explain-bubble {
+            background: var(--explain-bg);
+            color: var(--explain-text);
+            max-width: 500px;
+            width: 100%;
+            border-radius: 12px;
+            padding: 24px 28px;
+            box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+        }
+
+        .explain-step-num {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            opacity: 0.6;
+            margin-bottom: 6px;
+        }
+
+        .explain-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+
+        .explain-body { font-size: 13px; line-height: 1.6; opacity: 0.9; }
+        .explain-body strong { color: #7fb3e8; }
+        @media (prefers-color-scheme: dark) { .explain-body strong { color: #3b6d11; } }
+
+        .explain-why {
+            margin-top: 12px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            font-size: 12px;
+            font-style: italic;
+            opacity: 0.7;
+        }
+
+        @media (prefers-color-scheme: dark) { .explain-why { border-top-color: rgba(0,0,0,0.15); } }
+
+        .explain-action { display: flex; justify-content: flex-end; margin-top: 16px; }
+
+        .btn-write {
+            padding: 8px 20px;
+            border: none;
+            border-radius: 6px;
+            background: var(--blue);
+            color: #fff;
+            font-family: var(--font);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-write:hover { background: #1270c4; }
+
+        .controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .step-info { font-family: var(--mono); font-size: 11px; color: var(--ink-light); }
+
+        .controls-right { display: flex; gap: 8px; }
+
+        .btn {
+            padding: 10px 20px;
+            border: 1.5px solid var(--line);
+            border-radius: 6px;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: var(--font);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn:hover { border-color: var(--blue); color: var(--blue); }
+        .btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+        .btn.primary { background: var(--green); color: #fff; border-color: var(--green); }
+        .btn.primary:hover { background: #4a8015; }
+        .btn.primary:disabled { background: var(--ink-light); border-color: var(--ink-light); }
+
+        .score-bar {
+            display: none;
+            align-items: center;
+            gap: 12px;
+            margin-top: 12px;
+            padding: 12px 16px;
+            background: var(--highlight);
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        .score-bar.show { display: flex; }
+
+        .score-bar .score {
+            font-family: var(--mono);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--green);
+        }
+
+        .topic-label {
+            font-family: var(--mono);
+            font-size: 9px;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 3px;
+            background: var(--purple);
+            color: #fff;
+            margin-left: 6px;
+            letter-spacing: 0.04em;
+        }
+
+        @media (max-width: 600px) {
+            .paper-lines { padding-left: 48px; }
+            .paper-lines::before { left: 38px; }
+            .answer-line { font-size: 18px; line-height: 32px; min-height: 32px; }
+            .mark-tick { left: -28px; font-size: 14px; }
+            .question-box .q-text { font-size: 14px; padding-right: 50px; }
+            .q-btn { font-size: 9px; padding: 4px 8px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="question-nav">
+        <label>Question:</label>
+        <div id="qButtons"></div>
+    </div>
+
+    <div class="question-box" id="questionBox">
+        <div class="marks" id="marksLabel"></div>
+        <div class="source" id="sourceLabel"></div>
+        <div class="q-text" id="questionText"></div>
+    </div>
+
+    <div class="workspace">
+        <div class="paper-lines" id="paperLines"></div>
+    </div>
+
+    <div class="score-bar" id="scoreBar">
+        <span class="score" id="scoreText"></span>
+        <span>All marks secured. This is what a full-marks answer looks like.</span>
+    </div>
+
+    <div class="controls">
+        <div class="step-info" id="stepInfo"></div>
+        <div class="controls-right">
+            <button class="btn" id="btnReset" onclick="resetQuestion()">Reset</button>
+            <button class="btn primary" id="btnNext" onclick="showNextStep()">Next Step</button>
+        </div>
+    </div>
+</div>
+
+<div class="explain-overlay" id="explainOverlay">
+    <div class="explain-bubble">
+        <div class="explain-step-num" id="explainStepNum"></div>
+        <div class="explain-title" id="explainTitle"></div>
+        <div class="explain-body" id="explainBody"></div>
+        <div class="explain-why" id="explainWhy"></div>
+        <div class="explain-action">
+            <button class="btn-write" onclick="writeStep()">Write it &rarr;</button>
+        </div>
+    </div>
+</div>
+
+<script>
+var questions = [
+
+    /* ===== TOPIC 1: KEY CONCEPTS ===== */
+
+    {
+        id: "ram",
+        label: "Relative Atomic Mass",
+        source: "Topic 1 \u2014 Key Concepts \u00b7 Isotopes & RAM",
+        marks: 3,
+        text: "Chlorine exists as two isotopes: \u00b3\u2075Cl (75.5%) and \u00b3\u2077Cl (24.5%).<br>Calculate the relative atomic mass of chlorine.<br><em>Give your answer to 1 decimal place.</em>",
+        steps: [
+            {
+                title: "Write the RAM formula",
+                body: "Relative atomic mass is the <strong>weighted average</strong> of the isotope masses. Write the formula: sum of (mass \u00d7 abundance) \u00f7 total abundance.",
+                why: "Starting with the formula shows the examiner you know the method, not just the answer. This earns a method mark even if arithmetic goes wrong.",
+                lines: [{ text: "RAM = \u03a3(mass \u00d7 abundance) \u00f7 100", type: "formula", tick: true }],
+                marks: 1
+            },
+            {
+                title: "Substitute the values",
+                body: "Plug in both isotopes: <strong>(35 \u00d7 75.5) + (37 \u00d7 24.5)</strong>. Keep the calculation on one line so the examiner can follow it.",
+                why: "Substitution mark \u2014 even if you make an arithmetic slip, this line shows you used the right values.",
+                lines: [
+                    { text: "RAM = (35 \u00d7 75.5) + (37 \u00d7 24.5)", type: "substitution", tick: true },
+                    { text: "         100", type: "annotation" }
+                ],
+                marks: 1
+            },
+            {
+                title: "Calculate and round",
+                body: "35 \u00d7 75.5 = 2642.5 and 37 \u00d7 24.5 = 906.5. Total = 3549. Divide by 100 = <strong>35.5</strong>.",
+                why: "The answer 35.5 matches the periodic table value for Cl \u2014 a good sanity check. Always verify your RAM answer looks reasonable compared to the mass numbers.",
+                lines: [
+                    { text: "= (2642.5 + 906.5) \u00f7 100", type: "substitution" },
+                    { text: "= 3549 \u00f7 100", type: "substitution" },
+                    { text: "RAM = 35.5", type: "underline-answer", tick: true }
+                ],
+                marks: 1
+            }
+        ]
+    },
+
+    {
+        id: "electron-config",
+        label: "Electron Config & Ions",
+        source: "Topic 1 \u2014 Key Concepts \u00b7 Electron Configuration & Ionic Bonding",
+        marks: 4,
+        text: "Sodium has atomic number 11.<br>(a) Write the electron configuration of a sodium atom. (1 mark)<br>(b) Explain, in terms of electron transfer, how sodium and chlorine form an ionic compound. (3 marks)",
+        steps: [
+            {
+                title: "Part (a): Write the electron configuration",
+                body: "Sodium has 11 electrons. Fill the shells: <strong>2, 8, 1</strong>. The shells hold 2, 8, 8, ... electrons. Write it clearly.",
+                why: "One mark for the correct configuration. The key pattern: 2 in the first shell, up to 8 in the second and third.",
+                lines: [{ text: "(a)  Na: 2, 8, 1", type: "underline-answer", tick: true }],
+                marks: 1
+            },
+            {
+                title: "Part (b): State what sodium does",
+                body: "Sodium <strong>loses</strong> its one outer electron. Say this explicitly: \"Sodium loses one electron from its outer shell.\" This gives it a full outer shell (2, 8) and a <strong>positive charge: Na\u207a</strong>.",
+                why: "The examiner needs three things for 3 marks: what each atom does, why it does it, and what the resulting charges are. Start with sodium.",
+                lines: [
+                    { text: "(b) Sodium loses 1 electron from its outer shell", type: "formula", tick: true },
+                    { text: "    forming a Na\u207a ion (electron config: 2, 8)", type: "substitution" }
+                ],
+                marks: 1
+            },
+            {
+                title: "State what chlorine does",
+                body: "Chlorine <strong>gains</strong> one electron into its outer shell. This gives it a full outer shell (2, 8, 8) and a <strong>negative charge: Cl\u207b</strong>.",
+                why: "Symmetry: you've said what Na does, now say what Cl does. The electron sodium lost is the one chlorine gains.",
+                lines: [
+                    { text: "Chlorine gains 1 electron into its outer shell", type: "formula", tick: true },
+                    { text: "    forming a Cl\u207b ion (electron config: 2, 8, 8)", type: "substitution" }
+                ],
+                marks: 1
+            },
+            {
+                title: "Explain the bond",
+                body: "The oppositely charged ions (<strong>Na\u207a and Cl\u207b</strong>) are held together by <strong>strong electrostatic attraction</strong>. This is ionic bonding. Both ions now have full outer shells (stable noble gas configuration).",
+                why: "The phrase 'electrostatic attraction between oppositely charged ions' is the textbook definition. Examiners look for these exact keywords.",
+                lines: [
+                    { text: "Na\u207a and Cl\u207b attract by strong electrostatic forces", type: "result", tick: true },
+                    { text: "Both ions have full outer shells (stable)", type: "result" }
+                ],
+                marks: 1
+            }
+        ]
+    },
+
+    {
+        id: "empirical",
+        label: "Empirical Formula",
+        source: "Topic 1 \u2014 Key Concepts \u00b7 Empirical Formulae",
+        marks: 3,
+        text: "A compound contains 40.0% carbon, 6.7% hydrogen, and 53.3% oxygen by mass.<br>Determine the empirical formula of the compound.<br><em>(A\u1d63: C = 12, H = 1, O = 16)</em>",
+        steps: [
+            {
+                title: "Divide each percentage by the atomic mass",
+                body: "Convert percentages to moles by dividing each by its A\u1d63: <strong>C: 40.0 \u00f7 12</strong>, <strong>H: 6.7 \u00f7 1</strong>, <strong>O: 53.3 \u00f7 16</strong>. This gives you the molar ratio.",
+                why: "This is THE method for empirical formula. Percentages tell you mass ratio, but you need mole ratio. Dividing by Ar converts mass to moles.",
+                lines: [
+                    { text: "C:  40.0 \u00f7 12 = 3.33", type: "substitution", tick: true },
+                    { text: "H:  6.7 \u00f7 1 = 6.7", type: "substitution" },
+                    { text: "O:  53.3 \u00f7 16 = 3.33", type: "substitution" }
+                ],
+                marks: 1
+            },
+            {
+                title: "Divide by the smallest number",
+                body: "The smallest value is 3.33. Divide all values by 3.33 to get the <strong>simplest whole number ratio</strong>.",
+                why: "This step reduces to the simplest ratio. If you get values like 1.5, multiply everything by 2. If 1.33, multiply by 3.",
+                lines: [
+                    { text: "C:  3.33 \u00f7 3.33 = 1", type: "substitution", tick: true },
+                    { text: "H:  6.7 \u00f7 3.33 = 2", type: "substitution" },
+                    { text: "O:  3.33 \u00f7 3.33 = 1", type: "substitution" }
+                ],
+                marks: 1
+            },
+            {
+                title: "Write the empirical formula",
+                body: "The ratio is C:H:O = <strong>1:2:1</strong>, so the empirical formula is <strong>CH\u2082O</strong>.",
+                why: "Always write the formula clearly and underline it. CH\u2082O is the simplest ratio \u2014 the molecular formula could be a multiple of this (e.g. C\u2082H\u2084O\u2082 = glucose).",
+                lines: [
+                    { text: "Ratio  C : H : O  =  1 : 2 : 1", type: "result" },
+                    { text: "Empirical formula = CH\u2082O", type: "underline-answer", tick: true }
+                ],
+                marks: 1
+            }
+        ]
+    },
+
+    {
+        id: "reacting-mass",
+        label: "Reacting Masses",
+        source: "Topic 1 \u2014 Key Concepts \u00b7 Calculations Involving Masses",
+        marks: 4,
+        text: "Magnesium reacts with hydrochloric acid:<br><br>Mg + 2HCl \u2192 MgCl\u2082 + H\u2082<br><br>Calculate the mass of magnesium chloride produced when 4.8 g of magnesium reacts completely.<br><em>(A\u1d63: Mg = 24, Cl = 35.5)</em>",
+        steps: [
+            {
+                title: "Calculate M\u1d63 of the substances you need",
+                body: "You need M\u1d63 of Mg (reactant) and MgCl\u2082 (product). <strong>Mg = 24</strong>. <strong>MgCl\u2082 = 24 + (2 \u00d7 35.5) = 95</strong>.",
+                why: "Always start by calculating the Mr values you'll need. Write them clearly \u2014 this is a method mark.",
+                lines: [
+                    { text: "M\u1d63(Mg) = 24", type: "formula" },
+                    { text: "M\u1d63(MgCl\u2082) = 24 + (2 \u00d7 35.5) = 95", type: "formula", tick: true }
+                ],
+                marks: 1
+            },
+            {
+                title: "Calculate moles of magnesium",
+                body: "Use <strong>moles = mass \u00f7 M\u1d63</strong>. Moles of Mg = 4.8 \u00f7 24 = <strong>0.2 mol</strong>.",
+                why: "Converting to moles is the bridge between mass and the equation ratio. This is the key step in any reacting mass calculation.",
+                lines: [
+                    { text: "moles = mass \u00f7 M\u1d63", type: "formula" },
+                    { text: "moles of Mg = 4.8 \u00f7 24 = 0.2 mol", type: "substitution", tick: true }
+                ],
+                marks: 1
+            },
+            {
+                title: "Use the equation ratio",
+                body: "From the equation: <strong>1 Mg \u2192 1 MgCl\u2082</strong> (1:1 ratio). So 0.2 mol Mg produces <strong>0.2 mol MgCl\u2082</strong>.",
+                why: "The balanced equation tells you the mole ratio. Always check the coefficients \u2014 here it's 1:1, but it won't always be.",
+                lines: [
+                    { text: "ratio Mg : MgCl\u2082 = 1 : 1", type: "annotation" },
+                    { text: "so moles of MgCl\u2082 = 0.2 mol", type: "result", tick: true }
+                ],
+                marks: 1
+            },
+            {
+                title: "Convert back to mass",
+                body: "Use <strong>mass = moles \u00d7 M\u1d63</strong>. Mass of MgCl\u2082 = 0.2 \u00d7 95 = <strong>19 g</strong>.",
+                why: "The last step converts moles back to grams. Check: 19 g product from 4.8 g reactant makes sense \u2014 the product is heavier because it includes the chlorine atoms.",
+                lines: [
+                    { text: "mass = moles \u00d7 M\u1d63", type: "formula" },
+                    { text: "mass of MgCl\u2082 = 0.2 \u00d7 95", type: "substitution" },
+                    { text: "= 19 g", type: "underline-answer", tick: true }
+                ],
+                marks: 1
+            }
+        ]
+    },
+
+    {
+        id: "bonding-properties",
+        label: "Bonding & Properties",
+        source: "Topic 1 \u2014 Key Concepts \u00b7 Covalent & Metallic Bonding",
+        marks: 6,
+        text: "Diamond and copper are both solids with high melting points.<br>Explain, in terms of structure and bonding, why:<br>(a) diamond does not conduct electricity but copper does (3 marks)<br>(b) both substances have high melting points (3 marks)",
+        steps: [
+            {
+                title: "Part (a): Describe diamond's structure",
+                body: "Diamond is a <strong>giant covalent structure</strong>. Each carbon atom is bonded to four others by <strong>strong covalent bonds</strong>. There are <strong>no free electrons or ions</strong> to carry charge.",
+                why: "The key phrase is 'no free electrons' or 'no delocalised electrons'. This directly answers WHY it can't conduct. Structure first, then link to the property.",
+                lines: [
+                    { text: "(a) Diamond: giant covalent structure", type: "formula", tick: true },
+                    { text: "All outer electrons used in covalent bonds", type: "substitution" },
+                    { text: "No free/delocalised electrons \u2192 cannot conduct", type: "result", tick: true }
+                ],
+                marks: 2
+            },
+            {
+                title: "Part (a): Explain copper's conductivity",
+                body: "Copper has <strong>metallic bonding</strong>: positive metal ions in a regular lattice surrounded by a <strong>sea of delocalised electrons</strong>. These electrons are free to move and <strong>carry charge</strong>.",
+                why: "'Delocalised electrons that are free to move' is the mark-winning phrase. Link it explicitly to carrying charge/current.",
+                lines: [
+                    { text: "Copper: metallic bonding \u2014 lattice of Cu\u207a ions", type: "formula" },
+                    { text: "Sea of delocalised electrons, free to move", type: "result", tick: true },
+                    { text: "These carry electrical charge \u2192 conducts", type: "result" }
+                ],
+                marks: 1
+            },
+            {
+                title: "Part (b): Why diamond has a high melting point",
+                body: "Diamond has <strong>many strong covalent bonds</strong> throughout the giant structure. It takes a <strong>large amount of energy</strong> to break these bonds, so the melting point is high.",
+                why: "Two things needed: identify the bonds as strong + say lots of energy needed to break them. Don't just say 'strong bonds' \u2014 say 'lots of strong bonds that need a lot of energy to break'.",
+                lines: [
+                    { text: "(b) Diamond: many strong covalent bonds", type: "formula", tick: true },
+                    { text: "throughout the structure", type: "substitution" },
+                    { text: "Large energy needed to overcome them \u2192 high m.p.", type: "result" }
+                ],
+                marks: 1
+            },
+            {
+                title: "Part (b): Why copper has a high melting point",
+                body: "In copper, there is <strong>strong electrostatic attraction</strong> between the positive metal ions and the delocalised electrons. A lot of energy is needed to overcome these forces.",
+                why: "Same structure as the diamond answer: name the type of attraction, then link to energy needed. The phrase 'strong electrostatic attraction between metal ions and delocalised electrons' hits all the mark scheme points.",
+                lines: [
+                    { text: "Copper: strong electrostatic attraction between", type: "formula", tick: true },
+                    { text: "positive ions and delocalised electrons", type: "substitution" },
+                    { text: "Large energy needed to overcome \u2192 high m.p.", type: "result", tick: true }
+                ],
+                marks: 2
+            }
+        ]
+    },
+
+    /* ===== TOPIC 2: STATES OF MATTER ===== */
+
+    {
+        id: "chromatography",
+        label: "Chromatography & Rf",
+        source: "Topic 2 \u2014 States of Matter \u00b7 Chromatography",
+        marks: 4,
+        text: "A student used paper chromatography to analyse a food colouring. The solvent front moved 9.0 cm from the baseline. One of the spots in the food colouring moved 5.4 cm.<br>(a) Calculate the R\u1da0 value of this spot. (2 marks)<br>(b) The student found that a known yellow dye has an R\u1da0 value of 0.60. What can the student conclude? (2 marks)",
+        steps: [
+            {
+                title: "Part (a): Write the Rf formula",
+                body: "R\u1da0 = <strong>distance moved by spot \u00f7 distance moved by solvent front</strong>. Always write the formula first.",
+                why: "The formula is one mark. Even if your division is wrong, this line secures credit.",
+                lines: [{ text: "(a) R\u1da0 = distance moved by spot \u00f7 distance moved by solvent", type: "formula", tick: true }],
+                marks: 1
+            },
+            {
+                title: "Part (a): Calculate",
+                body: "R\u1da0 = 5.4 \u00f7 9.0 = <strong>0.60</strong>. R\u1da0 values have no units and are always between 0 and 1.",
+                why: "No units needed for Rf. If you get a value greater than 1, something's wrong \u2014 you've probably divided the wrong way round.",
+                lines: [
+                    { text: "R\u1da0 = 5.4 \u00f7 9.0", type: "substitution" },
+                    { text: "R\u1da0 = 0.60", type: "underline-answer", tick: true }
+                ],
+                marks: 1
+            },
+            {
+                title: "Part (b): Compare the Rf values",
+                body: "The calculated R\u1da0 (0.60) <strong>matches</strong> the known yellow dye R\u1da0 (0.60).",
+                why: "State the comparison explicitly. Don't just say 'they're the same' \u2014 state both values and that they match.",
+                lines: [
+                    { text: "(b) The R\u1da0 of the spot (0.60) matches the", type: "substitution", tick: true },
+                    { text: "known yellow dye (0.60)", type: "substitution" }
+                ],
+                marks: 1
+            },
+            {
+                title: "Part (b): State the conclusion",
+                body: "Therefore the food colouring <strong>contains the yellow dye</strong>. Add a caveat for top marks: this is only valid if the <strong>same solvent and conditions</strong> were used.",
+                why: "The conclusion must be specific: 'the food colouring contains the yellow dye.' Saying 'they are the same' is too vague.",
+                lines: [
+                    { text: "So the food colouring contains the yellow dye", type: "result", tick: true },
+                    { text: "(valid only if same solvent & conditions used)", type: "annotation" }
+                ],
+                marks: 1
+            }
+        ]
+    },
+
+    {
+        id: "purity",
+        label: "Purity & Melting Points",
+        source: "Topic 2 \u2014 States of Matter \u00b7 Purity",
+        marks: 3,
+        text: "A student heats a sample of a white solid and records that it melts between 113\u00b0C and 118\u00b0C.<br>The data book states that the expected melting point of the pure substance is 121\u00b0C.<br>What conclusions can the student draw about the purity of the sample? Explain your answer.",
+        steps: [
+            {
+                title: "Identify the melting range",
+                body: "The sample melts over a <strong>range of temperatures</strong> (113\u2013118\u00b0C), not at a single sharp point. State this observation clearly.",
+                why: "Pure substances melt at a single, sharp temperature. A range immediately signals impurity. State the observation before the conclusion.",
+                lines: [
+                    { text: "The sample melts over a range (113\u2013118\u00b0C)", type: "formula", tick: true },
+                    { text: "not at a single sharp temperature", type: "substitution" }
+                ],
+                marks: 1
+            },
+            {
+                title: "Compare with the expected value",
+                body: "The melting point is <strong>lower than expected</strong> (121\u00b0C). Impurities lower the melting point and broaden the range.",
+                why: "Two pieces of evidence: the range (not sharp) AND the value is lower than the pure substance. Both point to the same conclusion.",
+                lines: [
+                    { text: "Melting point is lower than the expected 121\u00b0C", type: "substitution", tick: true }
+                ],
+                marks: 1
+            },
+            {
+                title: "State the conclusion",
+                body: "The sample is <strong>impure</strong>. It contains impurities which lower the melting point and cause it to melt over a range rather than at a fixed temperature.",
+                why: "Link cause to effect: impurities \u2192 lower + broader melting point. This is the textbook explanation that examiners look for.",
+                lines: [
+                    { text: "The sample is impure \u2014 impurities lower the", type: "result" },
+                    { text: "melting point and broaden the range", type: "underline-answer", tick: true }
+                ],
+                marks: 1
+            }
+        ]
+    },
+
+    /* ===== TOPIC 3: CHEMICAL CHANGES ===== */
+
+    {
+        id: "acid-reaction",
+        label: "Acid Reactions & Equations",
+        source: "Topic 3 \u2014 Chemical Changes \u00b7 Acids, Neutralisation & Salts",
+        marks: 5,
+        text: "A student adds dilute sulfuric acid to copper oxide powder.<br>(a) Write a balanced symbol equation for this reaction. (2 marks)<br>(b) Name the salt produced. (1 mark)<br>(c) Describe the observations the student would see. (2 marks)",
+        steps: [
+            {
+                title: "Part (a): Write the word equation first",
+                body: "Acid + metal oxide \u2192 salt + water. Here: <strong>sulfuric acid + copper oxide \u2192 copper sulfate + water</strong>. Writing the word equation helps you get the symbol equation right.",
+                why: "The pattern is always: acid + base \u2192 salt + water. The salt name comes from the metal + the acid: sulfuric acid \u2192 sulfate.",
+                lines: [
+                    { text: "(a) sulfuric acid + copper oxide \u2192 copper sulfate + water", type: "annotation" }
+                ],
+                marks: 0
+            },
+            {
+                title: "Part (a): Write and balance the symbol equation",
+                body: "H\u2082SO\u2084 + CuO \u2192 CuSO\u2084 + H\u2082O. Check: <strong>H: 2=2, S: 1=1, O: 4+1=4+1, Cu: 1=1</strong>. Already balanced!",
+                why: "Always check each element. This equation happens to balance without coefficients, but show you checked. Two marks: one for correct formulae, one for balancing.",
+                lines: [
+                    { text: "H\u2082SO\u2084 + CuO \u2192 CuSO\u2084 + H\u2082O", type: "formula", tick: true },
+                    { text: "Check: H:2=2, S:1=1, Cu:1=1, O:5=5 \u2714", type: "annotation", tick: true }
+                ],
+                marks: 2
+            },
+            {
+                title: "Part (b): Name the salt",
+                body: "The metal is <strong>copper</strong>, the acid is <strong>sulfuric</strong> acid, so the salt is <strong>copper sulfate</strong>.",
+                why: "Naming pattern: metal + acid root. Sulfuric \u2192 sulfate, hydrochloric \u2192 chloride, nitric \u2192 nitrate. Learn these three!",
+                lines: [{ text: "(b) Copper sulfate", type: "underline-answer", tick: true }],
+                marks: 1
+            },
+            {
+                title: "Part (c): Describe the observations",
+                body: "The black copper oxide powder <strong>dissolves</strong> (disappears) in the acid. The solution turns <strong>blue</strong> (copper sulfate solution is blue).",
+                why: "Two observations for two marks: the solid disappearing AND the colour change. Be specific about colours \u2014 'blue solution' not just 'changes colour'.",
+                lines: [
+                    { text: "(c) The black powder dissolves/disappears", type: "result", tick: true },
+                    { text: "The solution turns blue", type: "underline-answer", tick: true }
+                ],
+                marks: 2
+            }
+        ]
+    },
+
+    {
+        id: "making-salt",
+        label: "Making a Soluble Salt",
+        source: "Topic 3 \u2014 Chemical Changes \u00b7 Making a Soluble Salt",
+        marks: 6,
+        text: "Describe how you would make a pure, dry sample of copper sulfate crystals starting from copper oxide and dilute sulfuric acid.<br><em>(6 mark extended answer)</em>",
+        steps: [
+            {
+                title: "Start with excess base",
+                body: "Add dilute sulfuric acid to a beaker and <strong>warm it gently</strong>. Then add <strong>copper oxide powder</strong> a spatula at a time, stirring after each addition.",
+                why: "Warming speeds up the reaction. Adding the base (copper oxide) gradually is important \u2014 you need to add EXCESS to ensure all the acid reacts.",
+                lines: [
+                    { text: "1. Warm dilute sulfuric acid in a beaker", type: "formula", tick: true },
+                    { text: "2. Add copper oxide, a spatula at a time, stirring", type: "formula", tick: true }
+                ],
+                marks: 2
+            },
+            {
+                title: "How do you know when to stop?",
+                body: "Keep adding copper oxide until it is <strong>in excess</strong> \u2014 you'll see unreacted black powder sitting at the bottom that won't dissolve. This means all the acid has been neutralised.",
+                why: "The excess solid is your indicator that neutralisation is complete. Without this step, you'd have leftover acid contaminating your salt.",
+                lines: [
+                    { text: "3. Keep adding until excess CuO remains", type: "formula", tick: true },
+                    { text: "   (unreacted black solid visible at bottom)", type: "annotation" }
+                ],
+                marks: 1
+            },
+            {
+                title: "Remove the excess",
+                body: "<strong>Filter</strong> the mixture to remove the excess copper oxide. The <strong>filtrate</strong> (liquid that passes through) is copper sulfate solution. The residue (excess CuO) is discarded.",
+                why: "Key vocabulary: filtrate = the liquid, residue = the solid left on the filter paper. Examiners love these terms.",
+                lines: [
+                    { text: "4. Filter to remove excess copper oxide", type: "formula", tick: true },
+                    { text: "   Filtrate = copper sulfate solution", type: "annotation" }
+                ],
+                marks: 1
+            },
+            {
+                title: "Crystallise",
+                body: "Pour the filtrate into an <strong>evaporating basin</strong>. Heat gently until about <strong>half the water has evaporated</strong> (crystals start to form at the edges). Then <strong>leave to cool and crystallise</strong> slowly.",
+                why: "Don't boil to dryness \u2014 you'll get powder, not crystals. Slow cooling = larger, better-formed crystals. This is a common required practical.",
+                lines: [
+                    { text: "5. Pour filtrate into evaporating basin", type: "formula" },
+                    { text: "6. Heat gently until half the water evaporates", type: "formula", tick: true }
+                ],
+                marks: 1
+            },
+            {
+                title: "Dry the crystals",
+                body: "Once crystals have formed, <strong>filter them off</strong> and <strong>pat dry with filter paper</strong>. Or leave in a warm place to dry. The result: pure, dry copper sulfate crystals (blue).",
+                why: "The final step earns the last mark. 'Pat dry' or 'leave to dry in a warm oven/desiccator' are both acceptable. Don't use high heat \u2014 copper sulfate decomposes.",
+                lines: [
+                    { text: "7. Leave to cool \u2014 crystals form slowly", type: "formula" },
+                    { text: "8. Filter off crystals, pat dry with filter paper", type: "formula", tick: true },
+                    { text: "Result: pure dry blue copper sulfate crystals", type: "underline-answer" }
+                ],
+                marks: 1
+            }
+        ]
+    },
+
+    /* ===== TOPIC 4: EXTRACTING METALS ===== */
+
+    {
+        id: "reactivity-displacement",
+        label: "Reactivity & Displacement",
+        source: "Topic 4 \u2014 Extracting Metals \u00b7 Reactivity, Displacement & Redox",
+        marks: 5,
+        text: "A student places a piece of zinc metal into a solution of copper sulfate.<br>(a) Describe what the student would observe. (2 marks)<br>(b) Write a balanced symbol equation for this reaction. (1 mark)<br>(c) Identify which substance is oxidised and which is reduced. Explain your answer. (2 marks)",
+        steps: [
+            {
+                title: "Part (a): Predict the observations",
+                body: "Zinc is <strong>more reactive</strong> than copper, so it displaces copper from the solution. You'd see: the blue solution <strong>fades/becomes colourless</strong>, and a <strong>brown/orange solid</strong> (copper) appears on the zinc.",
+                why: "Two observations = two marks. Colour of solution changing AND solid forming. Be specific: 'blue fades to colourless' not just 'colour changes'.",
+                lines: [
+                    { text: "(a) Blue colour of solution fades/goes colourless", type: "result", tick: true },
+                    { text: "Brown/orange solid (copper) forms on the zinc", type: "result", tick: true }
+                ],
+                marks: 2
+            },
+            {
+                title: "Part (b): Write the balanced equation",
+                body: "Zinc + copper sulfate \u2192 zinc sulfate + copper. In symbols: <strong>Zn + CuSO\u2084 \u2192 ZnSO\u2084 + Cu</strong>. Check it's balanced.",
+                why: "Displacement reactions: the more reactive metal takes the place of the less reactive one in the compound.",
+                lines: [
+                    { text: "(b) Zn + CuSO\u2084 \u2192 ZnSO\u2084 + Cu", type: "formula", tick: true }
+                ],
+                marks: 1
+            },
+            {
+                title: "Part (c): Identify oxidation",
+                body: "Zinc is <strong>oxidised</strong> \u2014 it <strong>loses electrons</strong>: Zn \u2192 Zn\u00b2\u207a + 2e\u207b. Remember <strong>OIL RIG</strong>: Oxidation Is Loss.",
+                why: "You must say WHAT happens (loses electrons) not just name it. The half equation is the clearest way to show this and earns full credit.",
+                lines: [
+                    { text: "(c) Zinc is oxidised \u2014 it loses electrons", type: "formula", tick: true },
+                    { text: "    Zn \u2192 Zn\u00b2\u207a + 2e\u207b", type: "substitution" }
+                ],
+                marks: 1
+            },
+            {
+                title: "Part (c): Identify reduction",
+                body: "Copper ions are <strong>reduced</strong> \u2014 they <strong>gain electrons</strong>: Cu\u00b2\u207a + 2e\u207b \u2192 Cu. <strong>RIG</strong>: Reduction Is Gain.",
+                why: "OIL RIG is your best friend in redox questions. Both half-equations should balance: the electrons lost by zinc are gained by copper.",
+                lines: [
+                    { text: "Copper is reduced \u2014 it gains electrons", type: "formula", tick: true },
+                    { text: "    Cu\u00b2\u207a + 2e\u207b \u2192 Cu", type: "substitution" }
+                ],
+                marks: 1
+            }
+        ]
+    }
+];
+
+var currentQ = 0;
+var currentStep = -1;
+var pendingStep = null;
+
+function init() {
+    var btns = document.getElementById('qButtons');
+    btns.innerHTML = '';
+    for (var i = 0; i < questions.length; i++) {
+        var b = document.createElement('button');
+        b.className = 'q-btn' + (i === 0 ? ' active' : '');
+        b.textContent = (i + 1) + '. ' + questions[i].label;
+        b.setAttribute('data-idx', i);
+        b.onclick = function() { selectQuestion(parseInt(this.getAttribute('data-idx'))); };
+        btns.appendChild(b);
+    }
+    selectQuestion(0);
+}
+
+function selectQuestion(idx) {
+    currentQ = idx;
+    currentStep = -1;
+    pendingStep = null;
+
+    var q = questions[idx];
+
+    var btns = document.querySelectorAll('.q-btn');
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].className = 'q-btn' + (i === idx ? ' active' : '');
+    }
+
+    document.getElementById('marksLabel').textContent = q.marks + ' marks';
+    document.getElementById('sourceLabel').textContent = q.source;
+    document.getElementById('questionText').innerHTML = q.text;
+
+    var paper = document.getElementById('paperLines');
+    paper.innerHTML = '';
+
+    var lineIdx = 0;
+    for (var s = 0; s < q.steps.length; s++) {
+        for (var l = 0; l < q.steps[s].lines.length; l++) {
+            var div = document.createElement('div');
+            div.className = 'answer-line ' + q.steps[s].lines[l].type;
+            div.id = 'line-' + lineIdx;
+
+            if (q.steps[s].lines[l].tick) {
+                var tick = document.createElement('span');
+                tick.className = 'mark-tick';
+                tick.textContent = '\u2713';
+                div.appendChild(tick);
+            }
+
+            var textNode = document.createTextNode(q.steps[s].lines[l].text);
+            div.appendChild(textNode);
+            paper.appendChild(div);
+            lineIdx++;
+        }
+    }
+
+    document.getElementById('scoreBar').className = 'score-bar';
+    updateControls();
+}
+
+function showNextStep() {
+    var q = questions[currentQ];
+    var nextIdx = currentStep + 1;
+    if (nextIdx >= q.steps.length) return;
+
+    pendingStep = nextIdx;
+    var step = q.steps[nextIdx];
+
+    document.getElementById('explainStepNum').textContent = 'Step ' + (nextIdx + 1) + ' of ' + q.steps.length;
+    document.getElementById('explainTitle').textContent = step.title;
+    document.getElementById('explainBody').innerHTML = step.body;
+    document.getElementById('explainWhy').textContent = step.why;
+    document.getElementById('explainOverlay').className = 'explain-overlay show';
+}
+
+function writeStep() {
+    document.getElementById('explainOverlay').className = 'explain-overlay';
+
+    if (pendingStep === null) return;
+
+    currentStep = pendingStep;
+    pendingStep = null;
+
+    var q = questions[currentQ];
+    var lineIdx = 0;
+    for (var s = 0; s <= currentStep; s++) {
+        for (var l = 0; l < q.steps[s].lines.length; l++) {
+            if (s === currentStep) {
+                var el = document.getElementById('line-' + lineIdx);
+                if (el) {
+                    (function(element, delay) {
+                        setTimeout(function() {
+                            element.classList.add('visible');
+                        }, delay);
+                    })(el, l * 200);
+                }
+            }
+            lineIdx++;
+        }
+    }
+
+    setTimeout(function() {
+        var lastLine = document.getElementById('line-' + (lineIdx - 1));
+        if (lastLine) {
+            lastLine.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    }, 300);
+
+    updateControls();
+}
+
+function resetQuestion() {
+    selectQuestion(currentQ);
+}
+
+function updateControls() {
+    var q = questions[currentQ];
+    var totalSteps = q.steps.length;
+    var completed = currentStep + 1;
+
+    var earnedMarks = 0;
+    for (var s = 0; s <= currentStep; s++) {
+        if (s < q.steps.length) earnedMarks += q.steps[s].marks;
+    }
+
+    if (currentStep < 0) {
+        document.getElementById('stepInfo').textContent = 'Ready \u2014 click Next Step to begin';
+    } else {
+        document.getElementById('stepInfo').textContent =
+            'Step ' + completed + '/' + totalSteps + '  \u00b7  ' + earnedMarks + '/' + q.marks + ' marks';
+    }
+
+    document.getElementById('btnNext').disabled = (completed >= totalSteps);
+    document.getElementById('btnReset').disabled = (currentStep < 0);
+
+    if (completed >= totalSteps) {
+        document.getElementById('scoreBar').className = 'score-bar show';
+        document.getElementById('scoreText').textContent = q.marks + '/' + q.marks;
+    }
+}
+
+document.getElementById('explainOverlay').addEventListener('click', function(e) {
+    if (e.target === this) {
+        this.className = 'explain-overlay';
+        pendingStep = null;
+    }
+});
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+        var overlay = document.getElementById('explainOverlay');
+        if (overlay.classList.contains('show')) {
+            e.preventDefault();
+            writeStep();
+        } else {
+            var q = questions[currentQ];
+            if (currentStep + 1 < q.steps.length) {
+                e.preventDefault();
+                showNextStep();
+            }
+        }
+    }
+    if (e.key === 'Escape') {
+        document.getElementById('explainOverlay').className = 'explain-overlay';
+        pendingStep = null;
+    }
+});
+
+init();
+</script>
+
+</body>
+</html>
