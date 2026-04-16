@@ -109,20 +109,78 @@
         }
         
         /* Category specific colors */
+        .card.english { border-left: 4px solid #a32d2d; }
+        .card.english:hover { background: #fcebeb; }
+        
         .card.lit { border-left: 4px solid #854f0b; }
         .card.lit:hover { background: #faeeda; }
+        
+        .card.maths { border-left: 4px solid #3b6d11; }
+        .card.maths:hover { background: #eaf3de; }
+        
+        .card.science { border-left: 4px solid #185fa5; }
+        .card.science:hover { background: #e6f1fb; }
         
         .card.history { border-left: 4px solid #0f6e56; }
         .card.history:hover { background: #e1f5ee; }
         
-        .card.science { border-left: 4px solid #185fa5; }
-        .card.science:hover { background: #e6f1fb; }
+        .card.geo { border-left: 4px solid #993c1d; }
+        .card.geo:hover { background: #faece7; }
         
         .card.modern { border-left: 4px solid #534ab7; }
         .card.modern:hover { background: #eeedfe; }
         
         .card.pe { border-left: 4px solid #993556; }
         .card.pe:hover { background: #fbeaf0; }
+        
+        /* Exam board selector */
+        .header-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255,255,255,0.7);
+            border-radius: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .exam-selector {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        
+        .exam-selector label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #666;
+        }
+        
+        .exam-selector select {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'DM Mono', monospace;
+            font-size: 12px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .exam-selector select:hover {
+            border-color: #1a1a2e;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .exam-selector select:focus {
+            outline: none;
+            border-color: #185fa5;
+            box-shadow: 0 0 0 3px rgba(24, 95, 165, 0.1);
+        }
         
         .footer {
             text-align: center;
@@ -150,9 +208,35 @@
         <div class="header">
             <h1>GCSE Revision Cards</h1>
             <p>Interactive study aids for GCSE examinations</p>
+            
+            <div class="header-controls">
+                <div class="exam-selector">
+                    <label for="board">Exam Board:</label>
+                    <select id="board" disabled title="Exam board filtering coming soon">
+                        <option>All Exam Boards</option>
+                        <option>Edexcel</option>
+                        <option>AQA</option>
+                        <option>OCR</option>
+                        <option>WJEC</option>
+                    </select>
+                </div>
+            </div>
         </div>
         
         <div class="grid">
+            <!-- English Language -->
+            <div class="category">
+                <div class="category-title">📖 English Language</div>
+                <a href="gcse_english_language_crib_sheet.html" class="card english">
+                    <div class="card-title"><span class="icon">📝</span>English Language Crib Sheet</div>
+                    <div class="card-desc">Reading, analysis, writing — cross-board essential techniques</div>
+                </a>
+                <div class="card english" style="opacity: 0.5; cursor: not-allowed;">
+                    <div class="card-title"><span class="icon">📋</span>English Language — Student Examples</div>
+                    <div class="card-desc">Worked model answers for reading &amp; writing tasks — coming soon</div>
+                </div>
+            </div>
+            
             <!-- Literature -->
             <div class="category">
                 <div class="category-title">📚 Literature</div>
@@ -170,7 +254,13 @@
                 </a>
                 <a href="power_and_conflict_poetry_gcse_flashcards.html" class="card lit">
                     <div class="card-title"><span class="icon">✍️</span>Power and Conflict Poetry</div>
-                    <div class="card-desc">Anthology poems — conflict, power, and human relationships</div>
+                 Mathematics -->
+            <div class="category">
+                <div class="category-title">🔢 Mathematics</div>
+                <div class="card maths" style="opacity: 0.5; cursor: not-allowed;">
+                    <div cla
+            
+            <!--    <div class="card-desc">Anthology poems — conflict, power, and human relationships</div>
                 </a>
             </div>
             
@@ -217,11 +307,19 @@
                 </a>
             </div>
             
-            <!-- PE -->
-            <div class="category">
-                <div class="category-title">🏃 Physical Education</div>
-                <a href="gcse_pe_chapter1_aqa_flashcards.html" class="card pe">
-                    <div class="card-title"><span class="icon">💪</span>PE — Chapter 1</div>
+            <!-- PE -->� Modern Languages</div>
+                <a href="gcse_german_vocabulary_flashcards.html" class="card modern">
+                    <div class="card-title"><span class="icon">🇩🇪</span>German Vocabulary</div>
+                    <div class="card-desc">Essential vocabulary and phrases for GCSE German</div>
+                </a>
+                <div class="card modern" style="opacity: 0.5; cursor: not-allowed;">
+                    <div class="card-title"><span class="icon">🇫🇷</span>French Vocabulary</div>
+                    <div class="card-desc">Essential vocabulary and phrases for GCSE French — coming soon</div>
+                </div>
+                <div class="card modern" style="opacity: 0.5; cursor: not-allowed;">
+                    <div class="card-title"><span class="icon">🇪🇸</span>Spanish Vocabulary</div>
+                    <div class="card-desc">Essential vocabulary and phrases for GCSE Spanish — coming soon</div>
+                </div <div class="card-title"><span class="icon">💪</span>PE — Chapter 1</div>
                     <div class="card-desc">AQA — anatomy, physiology, and fitness fundamentals</div>
                 </a>
             </div>

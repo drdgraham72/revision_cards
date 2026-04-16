@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCSE English Language — Crib Sheet</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+          --bg1: #ffffff; --bg2: #f4f6f2; --bg3: #eaf3de;
+          --t1: #1a1a18; --t2: #5f5e5a; --t3: #888780;
+          --bl: rgba(0,0,0,0.11); --bm: rgba(0,0,0,0.20);
+          --r: 8px; --rl: 12px;
+          --font: system-ui,-apple-system,sans-serif; --mono: 'Courier New', monospace;
+        }
+        @media(prefers-color-scheme:dark){
+          :root{
+            --bg1:#1e1e1c;--bg2:#252723;--bg3:#1a2a14;
+            --t1:#f0ece4;--t2:#a8a59e;--t3:#6e6d69;
+            --bl:rgba(255,255,255,0.09);--bm:rgba(255,255,255,0.18);
+          }
+        }
+        body{font-family:var(--font);background:var(--bg2);color:var(--t1);padding:1.75rem 1rem;min-height:100vh;}
+        .page { width: 100%; max-width: 1000px; margin: 0 auto; font-size: 12px; line-height: 1.4; }
+        h1 { font-size: 18px; font-weight: 600; margin-bottom: 0.25rem; }
+        .header { background: var(--bl); backdrop-filter: blur(8px); padding: 1rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-radius: var(--r); border: 0.5px solid var(--bm); }
+        .header h1 { font-size: 18px; font-weight: 600; margin: 0; }
+        .header span { font-size: 11px; color: var(--t2); font-family: var(--mono); letter-spacing: 0.05em; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .col { display: flex; flex-direction: column; gap: 8px; }
+        @media (max-width:768px) {
+          .grid { grid-template-columns: 1fr; }
+          .page { padding: 0; }
+        }
+        .box { background: var(--bg1); border: 0.5px solid var(--bl); border-radius: var(--r); overflow: hidden; }
+        .box-head { padding: 10px 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; background: var(--bl); }
+        .box-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; }
+        .row { display: grid; grid-template-columns: 30% 70%; gap: 8px; padding-bottom: 6px; border-bottom: 0.5px solid var(--bl); }
+        .row:last-child { border-bottom: none; }
+        .kw { font-weight: 650; color: var(--t2); font-size: 11px; font-family: var(--mono); }
+        .val { font-size: 11.5px; color: var(--t1); line-height: 1.35; }
+        .ex { font-size: 11px; color: var(--t1); line-height: 1.35; font-style: italic; margin: 2px 0 0 0; }
+        .tag { display: inline-block; padding: 2px 6px; border-radius: 3px; font-size: 10px; font-weight: 600; margin-right: 3px; margin-bottom: 1px; }
+        .t-good { background: #eaf3de; color: #3b6d11; }
+        .t-bad { background: #fcebeb; color: #a32d2d; }
+        .t-tip { background: #eeedfe; color: #534ab7; }
+        .t-warn { background: #faeeda; color: #854f0b; }
+        .marks { font-family: var(--mono); font-size: 10px; color: var(--t2); background: var(--bg3); padding: 2px 5px; border-radius: 2px; }
+        .ex-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; border-left: 2px solid var(--t2); }
+        .ex-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--t2); display: block; margin-bottom: 2px; }
+        .good-ex { background: #eaf3de; border-left-color: #3b6d11; }
+        .bad-ex { background: #fcebeb; border-left-color: #a32d2d; }
+        .technique { font-weight: 650; color: var(--t2); font-size: 11px; }
+        .sep { border-left: 2px solid var(--t2); padding-left: 8px; margin: 3px 0; }
+        .warn { background: #faeeda; border-left: 2px solid #ef9f27; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #633806; margin: 4px 0; }
+        .tip { background: #eeedfe; border-left: 2px solid #7f77dd; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #3c3489; margin: 4px 0; }
+        .good { background: #eaf3de; border-left: 2px solid #639922; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #173404; margin: 4px 0; }
+        .s1 { background: #a32d2d; color: #fcebeb; }
+        .s2 { background: #854f0b; color: #faeeda; }
+        .s3 { background: #3b6d11; color: #eaf3de; }
+        .s4 { background: #534ab7; color: #eeedfe; }
+        .s5 { background: #185fa5; color: #e6f1fb; }
+        .s6 { background: #0f6e56; color: #e1f5ee; }
+    </style>
+</head>
+<body>
+<div class="page">
+<div class="header">
+  <h1>GCSE English Language — Cross-Board Crib Sheet</h1>
+  <span>Core skills · what examiners reward · ambitious language</span>
+</div>
+
+<div class="grid">
+<div class="col">
+
+<div class="box">
+<div class="box-head s1">Paper 1: Reading & Analysing Texts <span class="marks">24 marks total</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Q1 (4 marks)</div><div class="val">Retrieve explicit information — isolated facts from the text; answers are in the text, word-for-word or paraphrased</div></div>
+<div class="row"><div class="kw">Q2 (8 marks)</div><div class="val">Infer meaning — read between the lines; evidence from text + what it suggests (not literally stated)</div></div>
+<div class="row"><div class="kw">Q3 (8 marks)</div><div class="val">Language analysis — HOW does the writer achieve an effect? Use PEDAL: <span class="technique">P</span>=point, <span class="technique">E</span>=evidence, <span class="technique">D</span>=device/technique, <span class="technique">A</span>=analysis, <span class="technique">L</span>=link to effect</div></div>
+<div class="row"><div class="kw">Q4 (4 marks)</div><div class="val">Summarise two sources — compress key ideas from passages A &amp; B into ~50 words each</div></div>
+<div class="tip">Inference ≠ guessing. Find clues in: word choice, tone, structure, what's omitted, what's emphasized</div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s2">Language Devices: Recognition &amp; Analysis <span class="marks">Q3 essential</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Metaphor</div><div class="val">States one thing IS another. <div class="ex-box good-ex"><span class="ex-label">✓ Ambitious</span>"The city's a sleeping giant" — compares the quiet city to a dormant power</div></div><div class="ex-box bad-ex"><span class="ex-label">✗ Weak</span>"He was angry like a bear" (simile, not metaphor; also cliché)</div></div></div>
+<div class="row"><div class="kw">Simile</div><div class="val">Uses 'like' or 'as'. <div class="ex-box good-ex"><span class="ex-label">✓ Ambitious</span>"Rain hammered down like machine-gun fire" — suggests relentless violence</div></div><div class="ex-box bad-ex"><span class="ex-label">✗ Weak</span>"Like a fish out of water" (so cliché it's invisible)</div></div></div>
+<div class="row"><div class="kw">Personification</div><div class="val">Gives human qualities to objects/ideas. <div class="ex-box good-ex"><span class="ex-label">✓ Ambitious</span>"The wind whispered secrets" — creates intimacy &amp; mystery</div></div><div class="ex-box bad-ex"><span class="ex-label">✗ Weak</span>"The trees danced" (weak because overdone; effect is vague)</div></div></div>
+<div class="row"><div class="kw">Alliteration</div><div class="val">Repeated initial consonant sounds. <div class="ex-box good-ex"><span class="ex-label">✓ Ambitious</span>"Bitter, brittle, broken bonds" — creates rhythm, emphasises fragmentation</div></div><div class="ex-box bad-ex"><span class="ex-label">✗ Weak</span>"Repeatedly reaching" (if no clear purpose; just phonetic filler)</div></div></div>
+<div class="row"><div class="kw">Hyperbole</div><div class="val">Extreme exaggeration. <div class="ex-box good-ex"><span class="ex-label">✓ Ambitious</span>"I've told you a billion times" — comic exaggeration conveys exasperation</div></div><div class="ex-box bad-ex"><span class="ex-label">✗ Weak</span>"It was very, very hot" (not hyperbole; just repetition)</div></div></div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s3">Structural Techniques <span class="marks">also Q3</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Positioning</div><div class="val">Where information appears — opening hooks attention; ending leaves lasting impression</div></div>
+<div class="row"><div class="kw">Juxtaposition</div><div class="val">Place contrasts side-by-side for effect. <span class="ex">Eg: "The luxury penthouse overlooked the sprawling slums"</span></div></div>
+<div class="row"><div class="kw">Fragmentation</div><div class="val">Short. Sharp. Sentences. Creates impact &amp; pace. Analysis: "conveys urgency" or "emphasises key ideas"</div></div>
+<div class="row"><div class="kw">Lists</div><div class="val">Accumulation of items builds effect. <span class="ex">Eg: "Poverty, disease, illiteracy, despair"</span> — rhythm overwhelms; shows scale</div></div>
+<div class="row"><div class="kw">Repetition</div><div class="val">Repeats phrase/word. <span class="ex">Eg: "Never again. Never again will this happen."</span> — creates emphasis &amp; determination</div></div>
+<div class="row"><div class="kw">Rhetorical Q</div><div class="val">Asks without expecting answer. <span class="ex">Eg: "Who really benefits?"</span> — makes reader think; prompts agreement</div></div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s4">Analysing Language: The PEDAL Framework <span class="marks">top mark quality</span></div>
+<div class="box-body">
+<div class="good">✓ STRONG ANALYSIS: "The metaphor 'drowning in paperwork' personalises bureaucracy as a life-threatening force, suggesting the protagonist's sense of helplessness and being overwhelmed by the system."</div>
+<div class="warn" style="margin-top: 4px;">✗ WEAK ANALYSIS: "The word 'drowning' is a metaphor. It's comparing drowning to paperwork. It's effective."</div>
+<div class="tip" style="margin-top: 6px;">Key: Don't just NAME the technique. Explain WHAT effect it creates + HOW it makes the reader feel/think</div>
+<div class="tip">Use modal verbs: suggests, implies, conveys, emphasises, reinforces, highlights, creates, evokes</div>
+</div>
+</div>
+
+</div>
+
+<div class="col">
+
+<div class="box">
+<div class="box-head s1">Paper 2: Writing — Accuracy &amp; Expression <span class="marks">24 marks total</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Q5 (40 mins, 24 marks)</div><div class="val">Persuasive/explanatory/descriptive writing. Marks: 8 for composition+structure, 8 for language+technique, 8 for punctuation+spelling+grammar</div></div>
+<div class="row"><div class="kw">Task focus</div><div class="val">Must match purpose: persuasive = convince; explanatory = inform clearly; descriptive = create atmosphere</div></div>
+<div class="row"><div class="kw">Audience</div><div class="val">Adapt tone, register, formality. For teenagers = conversational confidence; for governors = formal authority</div></div>
+<div class="row"><div class="kw">SPAG (8 marks)</div><div class="val">Spelling (1–2), Punctuation (2–3), Grammar (2–3), Verb forms. ONLY lose marks for errors that obscure meaning or confuse</div></div>
+<div class="tip">Ambitious vocabulary + complex sentence structures + zero errors = marks awarded for expression</div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s2">Ambitious Language Techniques <span class="marks">WRITING GOLD</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Pacing</div><div class="val"><div class="ex-box good-ex"><span class="ex-label">✓ Ambitious</span>"The silence stretched. Seconds became minutes. Unbearable. Suffocating."</div></div><div class="ex-box bad-ex"><span class="ex-label">✗ Weak</span>"It was very quiet for a long time."</div></div></div>
+<div class="row"><div class="kw">Sensory detail</div><div class="val"><div class="ex-box good-ex"><span class="ex-label">✓ Ambitious</span>"The coffee's bitterness coated their tongues as rain drummed against the windows."</div></div><div class="ex-box bad-ex"><span class="ex-label">✗ Weak</span>"They drank coffee while it rained outside."</div></div></div>
+<div class="row"><div class="kw">Precise verbs</div><div class="val"><div class="ex-box good-ex"><span class="ex-label">✓ Ambitious</span>"She scrutinised every detail." / "Rain lashed the windows."</div></div><div class="ex-box bad-ex"><span class="ex-label">✗ Weak</span>"She looked at things." / "Rain hit the windows."</div></div></div>
+<div class="row"><div class="kw">Varied vocabulary</div><div class="val"><div class="ex-box good-ex"><span class="ex-label">✓ Ambitious</span>"The politician's rhetoric manipulated, distorted, and ultimately deceived millions."</div></div><div class="ex-box bad-ex"><span class="ex-label">✗ Weak</span>"The politician said bad things that were not true."</div></div></div>
+<div class="row"><div class="kw">Complex sentences</div><div class="val"><div class="ex-box good-ex"><span class="ex-label">✓ Ambitious</span>"While storms ravaged the coast, locals huddled indoors, knowing the worst was yet to come."</div></div><div class="ex-box bad-ex"><span class="ex-label">✗ Weak</span>"There was a storm. People were inside. It was going to get worse."</div></div></div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s3">Persuasive Techniques ≠ Literary Devices <span class="marks">DIFFERENT skill</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Rhetorical questions</div><div class="val">"Shouldn't every child have access to education?" — triggers agreement</div></div>
+<div class="row"><div class="kw">Direct address</div><div class="val">"You know the truth" or "Imagine if..." — creates intimacy; involves reader</div></div>
+<div class="row"><div class="kw">Statistics/facts</div><div class="val">"1 in 5 children..." — lends credibility &amp; weight</div></div>
+<div class="row"><div class="kw">Emotive language</div><div class="val">"Cruel," "desperate," "heartbreaking" — appeals to emotion not logic</div></div>
+<div class="row"><div class="kw">Tripling</div><div class="val">"It's unfair, unjust, and un-British" — creates rhythm &amp; emphatic effect</div></div>
+<div class="row"><div class="kw">Connectives</div><div class="val">Use: Moreover, Furthermore, Crucially — formal persuasive register</div></div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s5">Common Examiner Traps <span class="marks">avoid these</span></div>
+<div class="box-body">
+<div class="warn">Don't confuse inference with retrieval. Q1 = what IS said. Q2 = what it SUGGESTS.</div>
+<div class="warn">Don't analyse techniques without linking to effect. "It's a metaphor" ≠ analysis. "It's a metaphor that conveys..." = analysis</div>
+<div class="warn">Don't use clichéd comparisons (brave as a lion, cold as ice, worked like a dog). Shows imagination exhaustion.</div>
+<div class="warn">Don't forget formality match. Casual slang in a formal persuasive letter = tone error; some marks lost.</div>
+<div class="good" style="margin-top: 4px;">DO use subjects from the writing prompt in your opening. DO vary sentence lengths. DO proofread.</div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s6">The Mark-Winning Formula <span class="marks">all papers</span></div>
+<div class="box-body">
+<div class="good">✓ READING: Find evidence → Name technique → Explain effect → Link to writer's purpose</div>
+<div class="good">✓ WRITING: Strong opening hook → Clear organisation (cohesion) → Ambitious vocabulary → Correct SPAG → Punchy ending</div>
+<div class="good">✓ LANGUAGE: Show range (don't repeat "good" — use excellent, superb, outstanding, exceptional; don't repeat "said" — use asserted, proclaimed, articulated)</div>
+<div class="tip">Examiners reward: ambitious language choices, tight analysis, structural clarity, zero errors, adaptation to audience/purpose</div>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</body>
+</html>
