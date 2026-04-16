@@ -1,40 +1,61 @@
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Barlow+Condensed:wght@400;500;600;700&display=swap');
-*{box-sizing:border-box;margin:0;padding:0;}
-body{background:transparent;}
-.page{width:100%;max-width:900px;margin:0 auto;font-family:'Barlow Condensed',sans-serif;font-size:11.5px;line-height:1.35;color:var(--color-text-primary);}
-.header{background:#1a1a2e;color:#e8e4d0;padding:6px 12px;display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;border-radius:4px;}
-.header h1{font-size:15px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;}
-.header span{font-size:10px;opacity:0.7;font-family:'DM Mono',monospace;}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;}
-.col{display:flex;flex-direction:column;gap:5px;}
-@media (max-width:768px){
-  .grid{grid-template-columns:1fr;}
-  .header{flex-direction:column;align-items:flex-start;gap:4px;}
-  .header span{font-size:9px;}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg1: #ffffff; --bg2: #f4f6f2; --bg3: #eaf3de;
+  --t1: #1a1a18; --t2: #5f5e5a; --t3: #888780;
+  --bl: rgba(0,0,0,0.11); --bm: rgba(0,0,0,0.20);
+  --r: 8px; --rl: 12px;
+  --font: system-ui,-apple-system,sans-serif; --mono: 'Courier New', monospace;
 }
-.box{border:0.5px solid var(--color-border-secondary);border-radius:3px;overflow:hidden;}
-.box-head{padding:3px 7px;font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;}
-.box-body{padding:4px 7px;}
-.row{display:grid;grid-template-columns:38% 62%;border-bottom:0.5px solid var(--color-border-tertiary);}
-.row:last-child{border-bottom:none;}
-.kw{padding:2px 4px 2px 0;font-weight:600;color:var(--color-text-secondary);font-size:10.5px;font-family:'DM Mono',monospace;}
-.val{padding:2px 0;font-size:11px;color:var(--color-text-primary);}
-.tag{display:inline-block;padding:1px 5px;border-radius:2px;font-size:9.5px;font-weight:600;margin-right:2px;margin-bottom:1px;}
-.t-r{background:#fcebeb;color:#a32d2d;}
-.t-b{background:#e6f1fb;color:#185fa5;}
-.t-g{background:#eaf3de;color:#3b6d11;}
-.t-a{background:#faeeda;color:#854f0b;}
-.t-p{background:#eeedfe;color:#534ab7;}
-.t-k{background:#1a1a2e;color:#e8e4d0;}
-.marks{font-family:'DM Mono',monospace;font-size:9px;color:#888;background:var(--color-background-secondary);padding:1px 4px;border-radius:2px;}
-.formula{font-family:'DM Mono',monospace;font-size:10.5px;background:var(--color-background-secondary);padding:2px 6px;border-radius:2px;display:inline-block;margin:1px 0;}
-.sep{border-left:2px solid #1a1a2e;padding-left:6px;margin:3px 0;}
-.warn{background:#faeeda;border-radius:2px;padding:2px 5px;font-size:10px;color:#854f0b;margin:2px 0;}
-.tip{background:#eeedfe;border-radius:2px;padding:2px 5px;font-size:10px;color:#534ab7;margin:2px 0;}
-.good{background:#eaf3de;border-radius:2px;padding:2px 5px;font-size:10px;color:#3b6d11;margin:2px 0;}
-hr.div{border:none;border-top:0.5px solid var(--color-border-tertiary);margin:3px 0;}
+@media(prefers-color-scheme:dark){
+  :root{
+    --bg1:#1e1e1c;--bg2:#252723;--bg3:#1a2a14;
+    --t1:#f0ece4;--t2:#a8a59e;--t3:#6e6d69;
+    --bl:rgba(255,255,255,0.09);--bm:rgba(255,255,255,0.18);
+  }
+}
+body{font-family:var(--font);background:var(--bg2);color:var(--t1);padding:1.75rem 1rem;min-height:100vh;}
+.page { width: 100%; max-width: 1000px; margin: 0 auto; font-size: 12px; line-height: 1.4; }
+h1 { font-size: 18px; font-weight: 600; margin-bottom: 0.25rem; }
+.header { background: var(--bl); backdrop-filter: blur(8px); padding: 1rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-radius: var(--r); border: 0.5px solid var(--bm); }
+.header h1 { font-size: 18px; font-weight: 600; margin: 0; }
+.header span { font-size: 11px; color: var(--t2); font-family: var(--mono); letter-spacing: 0.05em; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.col { display: flex; flex-direction: column; gap: 8px; }
+@media (max-width:768px) {
+  .grid { grid-template-columns: 1fr; }
+  .page { padding: 0; }
+}
+.box { background: var(--bg1); border: 0.5px solid var(--bl); border-radius: var(--r); overflow: hidden; }
+.box-head { padding: 10px 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; background: var(--bl); }
+.box-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; }
+.row { display: grid; grid-template-columns: 35% 65%; gap: 8px; padding-bottom: 6px; border-bottom: 0.5px solid var(--bl); }
+.row:last-child { border-bottom: none; }
+.kw { font-weight: 650; color: var(--t2); font-size: 11px; font-family: var(--mono); }
+.val { font-size: 11.5px; color: var(--t1); line-height: 1.35; }
+.tag { display: inline-block; padding: 2px 6px; border-radius: 3px; font-size: 10px; font-weight: 600; margin-right: 3px; margin-bottom: 1px; }
+.t-r { background: #fcebeb; color: #a32d2d; }
+.t-b { background: #e6f1fb; color: #185fa5; }
+.t-g { background: #eaf3de; color: #3b6d11; }
+.t-a { background: #faeeda; color: #854f0b; }
+.t-p { background: #eeedfe; color: #534ab7; }
+.t-k { background: var(--bl); color: var(--t1); }
+.marks { font-family: var(--mono); font-size: 10px; color: var(--t2); background: var(--bg3); padding: 2px 5px; border-radius: 2px; }
+.formula { font-family: var(--mono); font-size: 11px; background: var(--bg3); padding: 3px 6px; border-radius: 2px; display: inline-block; margin: 2px 0; }
+.sep { border-left: 2px solid var(--t2); padding-left: 8px; margin: 3px 0; }
+.warn { background: #faeeda; border-left: 2px solid #ef9f27; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #633806; margin: 4px 0; }
+.tip { background: #eeedfe; border-left: 2px solid #7f77dd; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #3c3489; margin: 4px 0; }
+.good { background: #eaf3de; border-left: 2px solid #639922; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #173404; margin: 4px 0; }
+hr.div { border: none; border-top: 0.5px solid var(--bl); margin: 4px 0; }
+.s1 { background: #185fa5; color: #e6f1fb; }
+.s2 { background: #3b6d11; color: #eaf3de; }
+.s3 { background: #854f0b; color: #faeeda; }
+.s4 { background: #534ab7; color: #eeedfe; }
+.s5 { background: #993556; color: #fbeaf0; }
+.s6 { background: #0f6e56; color: #e1f5ee; }
+.s7 { background: #993c1d; color: #faece7; }
+.s8 { background: #444441; color: #f1efe8; }
 </style>
 
 <div class="page">
@@ -47,7 +68,7 @@ hr.div{border:none;border-top:0.5px solid var(--color-border-tertiary);margin:3p
 <div class="col">
 
 <div class="box">
-<div class="box-head" style="background:#1a1a2e;color:#e8e4d0;">Atoms, Isotopes &amp; Subatomic Particles <span class="marks">Q1 · 2 marks</span></div>
+<div class="box-head s8">Atoms, Isotopes &amp; Subatomic Particles <span class="marks">Q1 · 2 marks</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Protons</div><div class="val">= atomic number (never changes)</div></div>
 <div class="row"><div class="kw">Electrons</div><div class="val">= protons (neutral atom)</div></div>
@@ -59,7 +80,7 @@ hr.div{border:none;border-top:0.5px solid var(--color-border-tertiary);margin:3p
 </div>
 
 <div class="box">
-<div class="box-head" style="background:#185fa5;color:#e6f1fb;">Acids, Alkalis &amp; pH <span class="marks">Q2 · 9 marks</span></div>
+<div class="box-head s1">Acids, Alkalis &amp; pH <span class="marks">Q2 · 9 marks</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Neutralisation</div><div class="val">acid + base → salt + water</div></div>
 <div class="row"><div class="kw">Ca(OH)₂ + HCl</div><div class="val">→ calcium chloride + water</div></div>
@@ -72,7 +93,7 @@ hr.div{border:none;border-top:0.5px solid var(--color-border-tertiary);margin:3p
 </div>
 
 <div class="box">
-<div class="box-head" style="background:#3b6d11;color:#eaf3de;">Reactivity Series &amp; Metals <span class="marks">Q3 · 9 marks</span></div>
+<div class="box-head s2">Reactivity Series &amp; Metals <span class="marks">Q3 · 9 marks</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Order (↑react)</div><div class="val">Au · Ag · Cu · Fe · Zn · Al · Mg · Ca · K · Na</div></div>
 <div class="row"><div class="kw">Cold water</div><div class="val">Only Ca, K, Na react; Ca most common exam answer</div></div>
@@ -87,7 +108,7 @@ hr.div{border:none;border-top:0.5px solid var(--color-border-tertiary);margin:3p
 </div>
 
 <div class="box">
-<div class="box-head" style="background:#854f0b;color:#faeeda;">Calculations: Yield &amp; Atom Economy <span class="marks">Q4 · 11 marks</span></div>
+<div class="box-head s3">Calculations: Yield &amp; Atom Economy <span class="marks">Q4 · 11 marks</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Atom economy</div><div class="val"><span class="formula">= (Mr desired ÷ ΣMr all products) × 100</span></div></div>
 <div class="row"><div class="kw">eg Cu₂S+O₂</div><div class="val">SO₂ = 64; total = 2×63.5×2+64 = 318; AE = 64/318 × 100 = <b>20%</b></div></div>
@@ -100,7 +121,7 @@ hr.div{border:none;border-top:0.5px solid var(--color-border-tertiary);margin:3p
 </div>
 
 <div class="box">
-<div class="box-head" style="background:#534ab7;color:#eeedfe;">Haber Process &amp; Equilibrium <span class="marks">Q5 · 10 marks</span></div>
+<div class="box-head s4">Haber Process &amp; Equilibrium <span class="marks">Q5 · 10 marks</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Equation</div><div class="val"><span class="formula">N₂ + 3H₂ ⇌ 2NH₃</span> (exothermic)</div></div>
 <div class="row"><div class="kw">Conditions</div><div class="val">450°C, 200 atm, Fe catalyst — compromise (not max yield)</div></div>
@@ -117,7 +138,7 @@ hr.div{border:none;border-top:0.5px solid var(--color-border-tertiary);margin:3p
 <div class="col">
 
 <div class="box">
-<div class="box-head" style="background:#993c1d;color:#faece7;">Electrolysis <span class="marks">Q6 · 9 marks</span></div>
+<div class="box-head s7">Electrolysis <span class="marks">Q6 · 9 marks</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Cathode (−)</div><div class="val">Reduction · cations discharged · Cu²⁺ + 2e⁻ → Cu (solid deposited)</div></div>
 <div class="row"><div class="kw">Anode (+)</div><div class="val">Oxidation · anions discharged · Cl⁻ / O₂ gas released</div></div>
@@ -130,7 +151,7 @@ hr.div{border:none;border-top:0.5px solid var(--color-border-tertiary);margin:3p
 </div>
 
 <div class="box">
-<div class="box-head" style="background:#0f6e56;color:#e1f5ee;">Titration &amp; Salts <span class="marks">Q7 · 11 marks</span></div>
+<div class="box-head s6">Titration &amp; Salts <span class="marks">Q7 · 11 marks</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">NH₄NO₃ reactants</div><div class="val">Nitric acid + ammonia solution</div></div>
 <div class="row"><div class="kw">(NH₄)₃PO₄ elements</div><div class="val">H, N, O, P — answer D</div></div>
@@ -143,7 +164,7 @@ hr.div{border:none;border-top:0.5px solid var(--color-border-tertiary);margin:3p
 </div>
 
 <div class="box">
-<div class="box-head" style="background:#993556;color:#fbeaf0;">Salts &amp; Crystallisation <span class="marks">Q8 · 11 marks</span></div>
+<div class="box-head s5">Salts &amp; Crystallisation <span class="marks">Q8 · 11 marks</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">CuO + H₂SO₄</div><div class="val">→ CuSO₄ + H₂O (other product = water)</div></div>
 <div class="row"><div class="kw">Stop adding CuO</div><div class="val">When black powder no longer dissolves (acid used up); filter off excess</div></div>
@@ -155,7 +176,7 @@ hr.div{border:none;border-top:0.5px solid var(--color-border-tertiary);margin:3p
 </div>
 
 <div class="box">
-<div class="box-head" style="background:#5f5e5a;color:#f1efe8;">Purity, Chromatography &amp; Separation <span class="marks">Q9 · 12 marks</span></div>
+<div class="box-head">Purity, Chromatography &amp; Separation <span class="marks">Q9 · 12 marks</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Pure substance</div><div class="val">Sharp single melting point; range indicates impure</div></div>
 <div class="row"><div class="kw">Sample A 160–164</div><div class="val">Range = IMPURE; melting point depressed and widened by impurities</div></div>
@@ -169,7 +190,7 @@ hr.div{border:none;border-top:0.5px solid var(--color-border-tertiary);margin:3p
 </div>
 
 <div class="box">
-<div class="box-head" style="background:#1a1a2e;color:#e8e4d0;">Moles, Gas Volume &amp; Alloys <span class="marks">Q10 · 12 marks</span></div>
+<div class="box-head s8">Moles, Gas Volume &amp; Alloys <span class="marks">Q10 · 12 marks</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Corrosion</div><div class="val">Reaction of metal surface with O₂/H₂O → metal compound (oxide/hydroxide)</div></div>
 <div class="row"><div class="kw">Gas volume calc</div><div class="val"><span class="formula">mol NaN₃ = 110/65 = 1.692 mol → mol N₂ = 1.5× = 2.538 mol → vol = 2.538×24000 = 60 923 cm³</span></div></div>
