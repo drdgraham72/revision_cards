@@ -1,0 +1,219 @@
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg1: #ffffff; --bg2: #f4f6f2; --bg3: #eaf3de;
+  --t1: #1a1a18; --t2: #5f5e5a; --t3: #888780;
+  --bl: rgba(0,0,0,0.11); --bm: rgba(0,0,0,0.20);
+  --r: 8px; --rl: 12px;
+  --font: system-ui,-apple-system,sans-serif; --mono: 'Courier New', monospace;
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --bg1:#1e1e1c;--bg2:#252723;--bg3:#1a2a14;
+    --t1:#f0ece4;--t2:#a8a59e;--t3:#6e6d69;
+    --bl:rgba(255,255,255,0.09);--bm:rgba(255,255,255,0.18);
+  }
+}
+body{font-family:var(--font);background:var(--bg2);color:var(--t1);padding:1.75rem 1rem;min-height:100vh;}
+.page{width:100%;max-width:1000px;margin:0 auto;font-size:12px;line-height:1.4;}
+.header { background: var(--bl); backdrop-filter: blur(8px); padding: 1rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-radius: var(--r); border: 0.5px solid var(--bm); }
+.header h1 { font-size: 18px; font-weight: 600; margin: 0; }
+.header span { font-size: 11px; color: var(--t2); font-family: var(--mono); letter-spacing: 0.05em; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.col { display: flex; flex-direction: column; gap: 10px; }
+@media (max-width:768px) {
+  .grid { grid-template-columns: 1fr; }
+}
+.box { background: var(--bg1); border: 0.5px solid var(--bl); border-radius: var(--r); overflow: hidden; }
+.box-head { padding: 10px 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; }
+.marks { font-family: var(--mono); font-size: 10px; padding: 2px 6px; border-radius: 2px; background: var(--bl); color: var(--t1); }
+.box-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 6px; }
+.qtype { font-size: 10px; font-family: var(--mono); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--t2); border-bottom: 0.5px solid var(--bl); padding-bottom: 4px; margin-bottom: 4px; }
+.trigger { font-size: 12px; font-weight: 600; font-style: italic; color: var(--t1); margin-bottom: 4px; }
+.chain { display: flex; flex-direction: column; gap: 4px; }
+.step { display: grid; grid-template-columns: 20px 1fr; gap: 6px; align-items: start; }
+.stepnum { width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+.steptext { font-size: 12px; line-height: 1.4; }
+.trap { background: #fcebeb; border-left: 2px solid #e24b4a; padding: 6px 8px; font-size: 11px; color: #7a1f1f; border-radius: 0 2px 2px 0; margin: 4px 0; }
+.gold { background: #faeeda; border-left: 2px solid #ef9f27; padding: 6px 8px; font-size: 11px; color: #633806; border-radius: 0 2px 2px 0; margin: 4px 0; }
+.tip { background: #eeedfe; border-left: 2px solid #7f77dd; padding: 6px 8px; font-size: 11px; color: #3c3489; border-radius: 0 2px 2px 0; margin: 4px 0; }
+.eg { background: var(--bg3); border-radius: 2px; padding: 6px 8px; font-size: 11px; }
+.eg-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--t2); display: block; margin-bottom: 2px; }
+.formula { font-family: var(--mono); font-size: 11px; background: var(--bg3); padding: 3px 6px; border-radius: 2px; display: inline-block; }
+.keyword { font-weight: 700; text-decoration: underline; text-decoration-style: dotted; }
+.divider { border: none; border-top: 0.5px solid var(--bl); margin: 4px 0; }
+.s1 { background: #185fa5; color: #e6f1fb; }
+.s2 { background: #3b6d11; color: #eaf3de; }
+.s3 { background: #854f0b; color: #faeeda; }
+.s4 { background: #534ab7; color: #eeedfe; }
+.s5 { background: #993556; color: #fbeaf0; }
+.s6 { background: #0f6e56; color: #e1f5ee; }
+.s7 { background: #993c1d; color: #faece7; }
+.s8 { background: #444441; color: #f1efe8; }
+.band { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 2px; }
+.pill { font-size: 10px; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
+</style>
+
+<div class="page">
+<div class="header">
+  <h1>Exam Technique — Higher Mark Questions</h1>
+  <span>Edexcel GCSE Physics Paper 1 · 4–6 mark extended answers</span>
+</div>
+
+<div class="grid">
+<div class="col">
+
+<div class="box">
+<div class="box-head s1">6-mark Extended Writing: Forces & Motion → Resultant Force <span class="marks">Q8c · *asterisk = QWC</span></div>
+<div class="box-body">
+<div class="qtype">trigger words: "explain… in terms of forces… how this causes…"</div>
+<div class="trigger">"Explain how the forces acting on a skydiver change during their fall and how this affects their motion."</div>
+<div class="chain">
+<div class="step"><div class="stepnum s1">1</div><div class="steptext"><span class="keyword">Initial forces</span> — weight (down) and air resistance (up, small initially) → resultant force down → accelerates</div></div>
+<div class="step"><div class="stepnum s1">2</div><div class="steptext"><span class="keyword">Increasing speed</span> — air resistance increases with speed (drag force ∝ speed²) → resultant force decreases</div></div>
+<div class="step"><div class="stepnum s1">3</div><div class="steptext"><span class="keyword">Terminal velocity</span> — when air resistance = weight → resultant force = 0 → constant velocity (no acceleration)</div></div>
+<div class="step"><div class="stepnum s1">4</div><div class="steptext"><span class="keyword">Opens parachute</span> — increases air resistance dramatically → resultant force up → decelerates</div></div>
+<div class="step"><div class="stepnum s1">5</div><div class="steptext"><span class="keyword">New terminal velocity</span> — slower speed where air resistance = weight again → safe landing speed</div></div>
+<div class="step"><div class="stepnum s1">6</div><div class="steptext"><span class="keyword">Motion change</span> — from acceleration to constant velocity to deceleration → controlled descent</div></div>
+</div>
+<div class="trap">Don't say "gravity increases" — weight is constant. Air resistance changes with speed, not gravity.</div>
+<div class="gold">Asterisk (*) = Quality of Written Communication marked. Write in full sentences. Logic must flow: forces → resultant → motion → effect.</div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s2">6-mark Compare & Contrast: Energy Transfers <span class="marks">Q12b · *asterisk</span></div>
+<div class="box-body">
+<div class="qtype">trigger words: "compare and contrast… include explanations of…"</div>
+<div class="trigger">"Compare the energy transfers in a hydroelectric power station and a coal-fired power station."</div>
+<div class="chain">
+<div class="step"><div class="stepnum s2">1</div><div class="steptext"><span class="keyword">Hydroelectric input</span> — gravitational potential energy of water stored in reservoir</div></div>
+<div class="step"><div class="stepnum s2">2</div><div class="steptext"><span class="keyword">Hydroelectric transfer</span> — GPE → kinetic energy as water falls → mechanical energy turns turbine → electrical energy in generator</div></div>
+<div class="step"><div class="stepnum s2">3</div><div class="steptext"><span class="keyword">Coal-fired input</span> — chemical energy stored in coal</div></div>
+<div class="step"><div class="stepnum s2">4</div><div class="steptext"><span class="keyword">Coal-fired transfer</span> — chemical energy → thermal energy (burning) → kinetic energy (steam) → mechanical energy (turbine) → electrical energy</div></div>
+<div class="step"><div class="stepnum s2">5</div><div class="steptext"><span class="keyword">Efficiency similarity</span> — both convert primary energy to electrical energy via mechanical intermediate</div></div>
+<div class="step"><div class="stepnum s2">6</div><div class="steptext"><span class="keyword">Renewable difference</span> — hydroelectric renewable (water cycle); coal non-renewable (finite fossil fuel) + produces CO₂</div></div>
+</div>
+<div class="tip">Must address BOTH systems and BOTH similarities AND differences to access all 6 marks. Examiners mark against a "ladder" — each level needs previous level covered.</div>
+<div class="trap">Never say energy is "lost" — it's dissipated (wasted) as heat/sound. Energy conservation: input energy = useful output + wasted energy.</div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s3">4-mark Calculation with Explanation: SUVAT Equations <span class="marks">Q5b · Higher Tier</span></div>
+<div class="box-body">
+<div class="qtype">trigger words: "calculate… and explain how you used the equation…"</div>
+<div class="trigger">"A car accelerates from rest at 2.5 m/s² for 8 seconds. Calculate the distance travelled and explain your working."</div>
+<div class="chain">
+<div class="step"><div class="stepnum s3">1</div><div class="steptext"><span class="keyword">Identify variables</span> — u = 0 m/s (from rest), a = 2.5 m/s², t = 8 s, s = ?</div></div>
+<div class="step"><div class="stepnum s3">2</div><div class="steptext"><span class="keyword">Choose equation</span> — s = ut + ½at² (has s, u, a, t; no v needed)</div></div>
+<div class="step"><div class="stepnum s3">3</div><div class="steptext"><span class="keyword">Substitute values</span> — s = (0 × 8) + ½ × 2.5 × (8)² = 0 + 0.5 × 2.5 × 64</div></div>
+<div class="step"><div class="stepnum s3">4</div><div class="steptext"><span class="keyword">Calculate</span> — s = 0.5 × 2.5 × 64 = 1.25 × 64 = 80 m</div></div>
+</div>
+<div class="eg">
+<div class="eg-label">Alternative: v² = u² + 2as</div>
+v = u + at = 0 + 2.5 × 8 = 20 m/s<br>
+s = (v² - u²)/(2a) = (400 - 0)/(2 × 2.5) = 400/5 = 80 m
+</div>
+<div class="gold">Always state the equation before substituting. Show units throughout. For HT: explain why you chose that equation.</div>
+<div class="trap">Don't mix up s (displacement) and d (distance) — if motion is in straight line, they're the same.</div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s4">6-mark Extended Writing: Waves → Seismic Waves <span class="marks">Q15c · *asterisk</span></div>
+<div class="box-body">
+<div class="qtype">trigger words: "explain… using ideas about waves…"</div>
+<div class="trigger">"Explain how P-waves and S-waves travel through the Earth and how this helps locate earthquakes."</div>
+<div class="chain">
+<div class="step"><div class="stepnum s4">1</div><div class="steptext"><span class="keyword">P-wave nature</span> — longitudinal waves; particles oscillate parallel to direction of travel (compression/rarefaction)</div></div>
+<div class="step"><div class="stepnum s4">2</div><div class="steptext"><span class="keyword">P-wave speed</span> — faster than S-waves; travel through solids, liquids, and gases</div></div>
+<div class="step"><div class="stepnum s4">3</div><div class="steptext"><span class="keyword">S-wave nature</span> — transverse waves; particles oscillate perpendicular to direction of travel</div></div>
+<div class="step"><div class="stepnum s4">4</div><div class="steptext"><span class="keyword">S-wave limitation</span> — only travel through solids (shear waves need rigidity)</div></div>
+<div class="step"><div class="stepnum s4">5</div><div class="steptext"><span class="keyword">Earthquake detection</span> — P-waves arrive first at seismograph, then S-waves (time difference indicates distance)</div></div>
+<div class="step"><div class="stepnum s4">6</div><div class="steptext"><span class="keyword">Epicentre location</span> — use time difference from multiple stations → triangulate position</div></div>
+</div>
+<div class="tip">P-waves = Primary (fast, longitudinal); S-waves = Secondary (slower, transverse). Both body waves from focus.</div>
+<div class="trap">Don't confuse with surface waves (Love/Rayleigh) — these are separate and cause most damage.</div>
+</div>
+</div>
+
+</div>
+<div class="col">
+
+<div class="box">
+<div class="box-head s5">6-mark Extended Writing: Electromagnetic Spectrum → Communication <span class="marks">Q18b · *asterisk</span></div>
+<div class="box-body">
+<div class="qtype">trigger words: "explain why… is used for… in terms of properties of waves"</div>
+<div class="trigger">"Explain why microwaves are used for satellite communication but gamma rays are not."</div>
+<div class="chain">
+<div class="step"><div class="stepnum s5">1</div><div class="steptext"><span class="keyword">Microwave properties</span> — long wavelength (cm range), low frequency, low energy photons</div></div>
+<div class="step"><div class="stepnum s5">2</div><div class="steptext"><span class="keyword">Microwave advantages</span> — penetrate atmosphere well, reflect off satellite dishes, carry information via modulation</div></div>
+<div class="step"><div class="stepnum s5">3</div><div class="steptext"><span class="keyword">Microwave safety</span> — low energy means not harmful to living tissue (unlike higher frequency waves)</div></div>
+<div class="step"><div class="stepnum s5">4</div><div class="steptext"><span class="keyword">Gamma ray properties</span> — very short wavelength (picometres), high frequency, very high energy photons</div></div>
+<div class="step"><div class="stepnum s5">5</div><div class="steptext"><span class="keyword">Gamma ray problems</span> — absorbed/scattered by atmosphere, too penetrating (dangerous), hard to modulate for data</div></div>
+<div class="step"><div class="stepnum s5">6</div><div class="steptext"><span class="keyword">Gamma ray safety</span> — ionising radiation damages cells/DNA → cancer/mutations; unsuitable for communication</div></div>
+</div>
+<div class="tip">Spectrum order: radio → microwave → infrared → visible → ultraviolet → X-ray → gamma. Energy/frequency increases left to right.</div>
+<div class="trap">Don't say microwaves "don't penetrate atmosphere" — they do penetrate better than higher frequency waves.</div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s6">4-mark Graph Interpretation: Velocity-Time <span class="marks">Q6c</span></div>
+<div class="box-body">
+<div class="qtype">trigger words: "use the graph to calculate… and describe the motion"</div>
+<div class="trigger">"Use the velocity-time graph to calculate the total distance travelled and describe the motion of the object."</div>
+<div class="chain">
+<div class="step"><div class="stepnum s6">1</div><div class="steptext"><span class="keyword">Identify sections</span> — 0-2s: constant acceleration (gradient = +4 m/s²); 2-4s: constant velocity (0 m/s²); 4-6s: constant deceleration (-2 m/s²)</div></div>
+<div class="step"><div class="stepnum s6">2</div><div class="steptext"><span class="keyword">Calculate areas</span> — Triangle 0-2s: ½ × 2 × 8 = 8 m; Rectangle 2-4s: 2 × 8 = 16 m; Triangle 4-6s: ½ × 2 × 8 = 8 m</div></div>
+<div class="step"><div class="stepnum s6">3</div><div class="steptext"><span class="keyword">Total distance</span> — 8 + 16 + 8 = 32 m (all areas positive as distance is scalar)</div></div>
+<div class="step"><div class="stepnum s6">4</div><div class="steptext"><span class="keyword">Motion description</span> — accelerates from rest, reaches 8 m/s, maintains speed, then decelerates to stop</div></div>
+</div>
+<div class="gold">Distance = total area under v-t graph (always positive). Displacement = algebraic sum of areas (negative areas subtract).</div>
+<div class="trap">Don't calculate speed from area — area gives distance/displacement, not speed. Speed from gradient.</div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s7">6-mark Extended Writing: Energy & Efficiency <span class="marks">Q11c · *asterisk</span></div>
+<div class="box-body">
+<div class="qtype">trigger words: "explain how… affects the efficiency… in terms of energy transfers"</div>
+<div class="trigger">"Explain how friction affects the efficiency of a car engine and suggest ways to improve efficiency."</div>
+<div class="chain">
+<div class="step"><div class="stepnum s7">1</div><div class="steptext"><span class="keyword">Energy input</span> — chemical energy in fuel converted to kinetic energy of car</div></div>
+<div class="step"><div class="stepnum s7">2</div><div class="steptext"><span class="keyword">Friction losses</span> — mechanical friction in engine, tyres on road, air resistance → dissipated as thermal energy (heat)</div></div>
+<div class="step"><div class="stepnum s7">3</div><div class="steptext"><span class="keyword">Efficiency definition</span> — useful output energy / total input energy × 100%</div></div>
+<div class="step"><div class="stepnum s7">4</div><div class="steptext"><span class="keyword">Efficiency reduction</span> — friction converts useful KE to wasted heat → less energy available for motion → lower efficiency</div></div>
+<div class="step"><div class="stepnum s7">5</div><div class="steptext"><span class="keyword">Improvement methods</span> — reduce friction: oil lubrication, smooth surfaces, aerodynamic design, electric motors (no moving parts)</div></div>
+<div class="step"><div class="stepnum s7">6</div><div class="steptext"><span class="keyword">Alternative systems</span> — regenerative braking recaptures KE; hybrid systems more efficient than petrol alone</div></div>
+</div>
+<div class="tip">Efficiency = (useful power output / total power input) × 100%. Never greater than 100% due to conservation of energy.</div>
+<div class="trap">Don't say "energy is lost" — it's transferred to thermal energy (dissipated). Total energy is conserved.</div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s8">4-mark Calculation: Wave Equation <span class="marks">Q14b</span></div>
+<div class="box-body">
+<div class="qtype">trigger words: "calculate… using the wave equation…"</div>
+<div class="trigger">"A wave has frequency 50 Hz and wavelength 4 m. Calculate the speed of the wave."</div>
+<div class="chain">
+<div class="step"><div class="stepnum s8">1</div><div class="steptext"><span class="keyword">Recall equation</span> — wave speed = frequency × wavelength (v = f × λ)</div></div>
+<div class="step"><div class="stepnum s8">2</div><div class="steptext"><span class="keyword">Identify values</span> — f = 50 Hz, λ = 4 m</div></div>
+<div class="step"><div class="stepnum s8">3</div><div class="steptext"><span class="keyword">Substitute</span> — v = 50 × 4 = 200 m/s</div></div>
+<div class="step"><div class="stepnum s8">4</div><div class="steptext"><span class="keyword">Units check</span> — Hz × m = (1/s) × m = m/s ✓</div></div>
+</div>
+<div class="eg">
+<div class="eg-label">Rearranged: f = v/λ or λ = v/f</div>
+If speed = 340 m/s, frequency = 256 Hz, then λ = 340/256 ≈ 1.33 m
+</div>
+<div class="gold">Always show the equation, substitution, and units. Frequency in Hz, wavelength in m, speed in m/s.</div>
+<div class="trap">Don't confuse with sound speed (330-340 m/s in air) or light speed (3×10⁸ m/s).</div>
+</div>
+</div>
+
+</div>
+</div>
+</div></content>
+<parameter name="filePath">/workspaces/revision_cards/gcse_physics_exam_technique_crib.html
