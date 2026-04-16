@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCSE Maths — Paper 6H OCR Crib Sheet</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+          --bg1: #ffffff; --bg2: #f4f6f2; --bg3: #eaf3de;
+          --t1: #1a1a18; --t2: #5f5e5a; --t3: #888780;
+          --bl: rgba(0,0,0,0.11); --bm: rgba(0,0,0,0.20);
+          --r: 8px; --rl: 12px;
+          --font: system-ui,-apple-system,sans-serif; --mono: 'Courier New', monospace;
+        }
+        @media(prefers-color-scheme:dark){
+          :root{
+            --bg1:#1e1e1c;--bg2:#252723;--bg3:#1a2a14;
+            --t1:#f0ece4;--t2:#a8a59e;--t3:#6e6d69;
+            --bl:rgba(255,255,255,0.09);--bm:rgba(255,255,255,0.18);
+          }
+        }
+        body{font-family:var(--font);background:var(--bg2);color:var(--t1);padding:1.75rem 1rem;min-height:100vh;}
+        .page { width: 100%; max-width: 1000px; margin: 0 auto; font-size: 12px; line-height: 1.4; }
+        h1 { font-size: 18px; font-weight: 600; margin-bottom: 0.25rem; }
+        .header { background: var(--bl); backdrop-filter: blur(8px); padding: 1rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-radius: var(--r); border: 0.5px solid var(--bm); }
+        .header h1 { font-size: 18px; font-weight: 600; margin: 0; }
+        .header span { font-size: 11px; color: var(--t2); font-family: var(--mono); letter-spacing: 0.05em; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .col { display: flex; flex-direction: column; gap: 8px; }
+        @media (max-width:768px) {
+          .grid { grid-template-columns: 1fr; }
+          .page { padding: 0; }
+        }
+        .box { background: var(--bg1); border: 0.5px solid var(--bl); border-radius: var(--r); overflow: hidden; }
+        .box-head { padding: 10px 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; background: var(--bl); }
+        .box-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; }
+        .row { display: grid; grid-template-columns: 28% 72%; gap: 8px; padding-bottom: 6px; border-bottom: 0.5px solid var(--bl); }
+        .row:last-child { border-bottom: none; }
+        .kw { font-weight: 650; color: var(--t2); font-size: 11px; font-family: var(--mono); }
+        .val { font-size: 11.5px; color: var(--t1); line-height: 1.35; }
+        .clip { font-family: var(--mono); font-size: 9px; color: var(--t3); background: var(--bg3); padding: 1px 5px; border-radius: 2px; margin-left: 4px; }
+        .formula-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; font-family: var(--mono); font-size: 10.5px; border-left: 2px solid #3b6d11; }
+        .ex-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; border-left: 2px solid var(--t2); }
+        .ex-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--t2); display: block; margin-bottom: 2px; }
+        .warn { background: #faeeda; border-left: 2px solid #ef9f27; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #633806; margin: 4px 0; }
+        .tip { background: #eeedfe; border-left: 2px solid #7f77dd; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #3c3489; margin: 4px 0; }
+        .good { background: #eaf3de; border-left: 2px solid #639922; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #173404; margin: 4px 0; }
+        .s1 { background: #3b6d11; color: #eaf3de; }
+        .s2 { background: #185fa5; color: #e6f1fb; }
+        .s3 { background: #534ab7; color: #eeedfe; }
+        .s4 { background: #854f0b; color: #faeeda; }
+        .s5 { background: #a32d2d; color: #fcebeb; }
+        .s6 { background: #0f6e56; color: #e1f5ee; }
+    </style>
+</head>
+<body>
+<div class="page">
+<div class="header">
+  <h1>OCR GCSE Maths — Paper 6 Higher (Calculator)</h1>
+  <span>J560/06 · Calculator · Higher Tier</span>
+</div>
+
+<div class="grid">
+<div class="col">
+
+<!-- ALGEBRA & PROOF -->
+<div class="box">
+<div class="box-head s1">Algebra &amp; Proof</div>
+<div class="box-body">
+
+<div class="row"><div class="kw">Algebraic Fractions</div><div class="val">
+Add/subtract fractions by factorising denominators into two brackets, then finding a common denominator.
+<div class="formula-box">To add a/(x+2)(x+3) + b/(x+3)(x+1):<br>Common denom = (x+2)(x+3)(x+1)<br>Multiply each numerator by the missing bracket</div>
+<strong>Steps:</strong> 1) Factorise each denominator fully. 2) Find LCD. 3) Multiply numerators accordingly. 4) Expand &amp; simplify the numerator. 5) Factorise result if possible.
+<div class="warn">Always factorise denominators FIRST — never cross-multiply without checking for common factors.</div>
+<div class="tip">If the question says "simplify", your final answer should be factorised. Check if the numerator cancels with any denominator bracket.</div>
+<span class="clip">Clip 210</span>
+</div></div>
+
+<div class="row"><div class="kw">Index Laws</div><div class="val">
+Simplify expressions using the laws of indices, including fractional and negative indices.
+<div class="formula-box">a^m × a^n = a^(m+n)<br>a^m ÷ a^n = a^(m−n)<br>(a^m)^n = a^(mn)<br>a^(1/n) = ⁿ√a<br>a^(−n) = 1/a^n<br>a^0 = 1</div>
+<div class="ex-box"><span class="ex-label">Example</span>Simplify 2x³ × 4x⁻² = 8x¹ = 8x<br>Evaluate 27^(1/3) = ³√27 = 3</div>
+<div class="warn">a^(1/2) means square root, NOT "divide by 2". The denominator of the fraction is the root.</div>
+<span class="clip">Clips 154, 188</span>
+</div></div>
+
+<div class="row"><div class="kw">Algebraic Proofs</div><div class="val">
+Use algebra to prove general statements about integers, odd/even numbers, or divisibility.
+<div class="formula-box">Even number: 2n<br>Odd number: 2n + 1<br>Consecutive integers: n, n+1, n+2<br>Consecutive evens: 2n, 2n+2, 2n+4</div>
+<strong>Structure:</strong> 1) Define variables. 2) Write the expression algebraically. 3) Manipulate to show the required property. 4) Conclude with a statement linking to the claim.
+<div class="ex-box"><span class="ex-label">Example</span>Prove the sum of 3 consecutive integers is divisible by 3:<br>n + (n+1) + (n+2) = 3n + 3 = 3(n+1) — a multiple of 3. ∎</div>
+<div class="good">"Hence" or "therefore" must appear in your conclusion — the examiner needs to see you've finished the proof.</div>
+<span class="clip">Clip 193</span>
+</div></div>
+
+<div class="row"><div class="kw">Linear Inequalities (Graphical)</div><div class="val">
+Draw and shade regions satisfying linear inequalities on a coordinate grid.
+<div class="formula-box">y &lt; mx + c → dashed line, shade below<br>y ≤ mx + c → solid line, shade below<br>y &gt; mx + c → dashed line, shade above</div>
+<strong>Steps:</strong> 1) Draw the boundary line (solid for ≤/≥, dashed for &lt;/&gt;). 2) Test a point (usually the origin) to decide which side to shade. 3) Label the required region clearly.
+<div class="warn">OCR often says "shade the unwanted region" — read the instruction carefully so you don't shade the wrong side.</div>
+<span class="clip">Clips 138, 198</span>
+</div></div>
+
+</div></div>
+
+<!-- GEOMETRY & TRIGONOMETRY -->
+<div class="box">
+<div class="box-head s2">Geometry &amp; Trigonometry</div>
+<div class="box-body">
+
+<div class="row"><div class="kw">Pythagoras' Theorem (2D)</div><div class="val">
+Find the hypotenuse or a shorter side in a right-angled triangle.
+<div class="formula-box">a² + b² = c²<br>Hypotenuse: c = √(a² + b²)<br>Shorter side: a = √(c² − b²)</div>
+<div class="tip">Calculator paper — leave intermediate values unrounded. Only round the final answer to the required degree of accuracy.</div>
+<div class="warn">Check which side is the hypotenuse (longest side, opposite the right angle). If finding a shorter side, you SUBTRACT under the root.</div>
+<span class="clip">Clip 150</span>
+</div></div>
+
+<div class="row"><div class="kw">Sine &amp; Cosine Rules</div><div class="val">
+For non-right-angled triangles. Label sides a, b, c opposite angles A, B, C.
+<div class="formula-box">Sine rule: a/sinA = b/sinB = c/sinC<br>(use when you have a matching pair: side + opposite angle)<br><br>Cosine rule (find side):<br>a² = b² + c² − 2bc·cosA<br><br>Cosine rule (find angle):<br>cosA = (b² + c² − a²) / 2bc</div>
+<strong>When to use which:</strong> Sine rule → 2 angles &amp; 1 side, or 2 sides &amp; non-included angle. Cosine rule → 3 sides (find angle), or 2 sides &amp; included angle (find side).
+<div class="warn">In the cosine rule, "a" is always the side OPPOSITE the angle you're finding. Get the labelling right first.</div>
+<div class="tip">Check: if the cosine value is negative, the angle is obtuse (between 90° and 180°). This is valid — don't panic.</div>
+<span class="clip">Clip 202</span>
+</div></div>
+
+<div class="row"><div class="kw">Angles &amp; Right-Angled Triangles</div><div class="val">
+SOH-CAH-TOA for right-angled triangles. Angles around a point sum to 360°.
+<div class="formula-box">sinθ = Opposite / Hypotenuse<br>cosθ = Adjacent / Hypotenuse<br>tanθ = Opposite / Adjacent</div>
+Label the triangle relative to the angle you're working with. Use inverse functions (sin⁻¹, cos⁻¹, tan⁻¹) to find angles.
+<div class="good">Always check your calculator is in DEGREE mode, not radians.</div>
+<span class="clip">Clips 45, 150</span>
+</div></div>
+
+<div class="row"><div class="kw">Area of Sectors</div><div class="val">
+A sector is a "pizza slice" of a circle, defined by an angle θ at the centre.
+<div class="formula-box">Area of sector = (θ/360) × πr²<br>Arc length = (θ/360) × 2πr</div>
+<div class="ex-box"><span class="ex-label">Example</span>Sector with r = 5cm, θ = 72°:<br>Area = (72/360) × π × 5² = (1/5) × 25π = 5π ≈ 15.7 cm²</div>
+<div class="warn">If the question gives arc length and asks for area, find the angle first, then use it for area.</div>
+<span class="clip">Clip 149</span>
+</div></div>
+
+<div class="row"><div class="kw">Volume of Pyramids</div><div class="val">
+<div class="formula-box">V = ⅓ × base area × perpendicular height</div>
+Works for all pyramids and cones (a cone is a circular-based pyramid).
+<div class="ex-box"><span class="ex-label">Example</span>Square-based pyramid, base 6cm, height 10cm:<br>V = ⅓ × 36 × 10 = 120 cm³</div>
+<div class="tip">If they give the slant height, you'll need Pythagoras to find the perpendicular height first.</div>
+<span class="clip">Clip 170</span>
+</div></div>
+
+<div class="row"><div class="kw">Area of Compound Shapes &amp; Parallelograms</div><div class="val">
+<div class="formula-box">Parallelogram: A = base × perpendicular height<br>Compound shapes: split into rectangles, triangles, semicircles etc.</div>
+<div class="warn">The perpendicular height of a parallelogram is NOT the slant side — it's the vertical distance between the parallel sides.</div>
+<span class="clip">Clips 55, 85</span>
+</div></div>
+
+<div class="row"><div class="kw">Equations of Circles &amp; Tangents</div><div class="val">
+<div class="formula-box">Circle centred at origin: x² + y² = r²<br>Radius to point (a,b) has gradient: b/a<br>Tangent at (a,b) is perpendicular: gradient = −a/b</div>
+<strong>Steps for tangent equation:</strong> 1) Find the gradient of the radius to the given point. 2) Take the negative reciprocal for the tangent gradient. 3) Use y − b = m(x − a).
+<div class="good">The tangent is always perpendicular to the radius at the point of contact — this is the key fact.</div>
+<span class="clip">Clip 197</span>
+</div></div>
+
+<div class="row"><div class="kw">Scale Diagrams &amp; Speed</div><div class="val">
+<div class="formula-box">Scale factor = diagram length / real length<br>Speed = distance / time<br>Distance = speed × time<br>Time = distance / speed</div>
+Read the scale carefully (e.g. 1:25000 means 1cm = 250m). Convert units as needed.
+<div class="tip">For speed-time problems on a calculator paper, keep values exact where possible, then round at the end.</div>
+<span class="clip">Clip 142</span>
+</div></div>
+
+</div></div>
+
+</div>
+<div class="col">
+
+<!-- NUMBER & RATIO -->
+<div class="box">
+<div class="box-head s4">Number &amp; Ratio</div>
+<div class="box-body">
+
+<div class="row"><div class="kw">HCF &amp; LCM via Prime Factors</div><div class="val">
+Write each number as a product of prime factors using a factor tree or repeated division.
+<div class="formula-box">HCF = product of shared primes (lowest powers)<br>LCM = product of all primes (highest powers)</div>
+<div class="ex-box"><span class="ex-label">Example</span>60 = 2² × 3 × 5, 90 = 2 × 3² × 5<br>HCF = 2 × 3 × 5 = 30<br>LCM = 2² × 3² × 5 = 180</div>
+<div class="good">Write your final prime factorisation using index notation — examiners expect it.</div>
+<span class="clip">Clips 78–80</span>
+</div></div>
+
+<div class="row"><div class="kw">Recurring Decimals → Fractions</div><div class="val">
+<div class="formula-box">Let x = 0.̇3̇6̇ (repeating "36")<br>100x = 36.363636...<br>100x − x = 36<br>99x = 36 → x = 36/99 = 4/11</div>
+<strong>Method:</strong> Multiply x by 10^n where n = number of repeating digits. Subtract to eliminate the recurring part. Simplify the fraction.
+<div class="warn">If digits before the repeat aren't recurring (e.g. 0.1̇6̇), you need TWO equations: multiply by 10 and by 1000, then subtract.</div>
+<span class="clip">Clip 177</span>
+</div></div>
+
+<div class="row"><div class="kw">Percentages &amp; Converting</div><div class="val">
+Writing one number as a percentage of another, and converting between ratios, fractions, and percentages.
+<div class="formula-box">A as % of B = (A/B) × 100<br>Ratio a:b → fractions: a/(a+b) and b/(a+b)<br>Fraction → percentage: multiply by 100</div>
+<div class="ex-box"><span class="ex-label">Example</span>Ratio 3:5 → fractions 3/8 and 5/8 → 37.5% and 62.5%</div>
+<span class="clip">Clip 85</span>
+</div></div>
+
+<div class="row"><div class="kw">Changing Ratios</div><div class="val">
+When one part of a ratio changes and you need to find the new amounts.
+<div class="ex-box"><span class="ex-label">Example</span>Red:Blue = 3:5 total 40. 4 blues repainted red.<br>Original: Red = 15, Blue = 25 → New: Red = 19, Blue = 21<br>New ratio = 19:21</div>
+<div class="tip">Work with actual amounts, not ratio parts. Find the real quantities first, apply the change, then simplify if asked.</div>
+<span class="clip">Clip 165</span>
+</div></div>
+
+<div class="row"><div class="kw">Inverse Proportion</div><div class="val">
+Construct equations where one variable is inversely proportional to another (or its square, cube, root).
+<div class="formula-box">y ∝ 1/x → y = k/x<br>y ∝ 1/x² → y = k/x²<br>Find k by substituting known values</div>
+<div class="ex-box"><span class="ex-label">Example</span>y ∝ 1/x², when x=2, y=5:<br>5 = k/4 → k = 20 → y = 20/x²</div>
+<div class="warn">Inverse proportion means as x increases, y decreases. If both increase together, it's direct proportion — re-read the question.</div>
+<span class="clip">Clip 199</span>
+</div></div>
+
+</div></div>
+
+<!-- GRAPHS & FUNCTIONS -->
+<div class="box">
+<div class="box-head s3">Graphs &amp; Functions</div>
+<div class="box-body">
+
+<div class="row"><div class="kw">Cubic Function Graphs</div><div class="val">
+y = ax³ + bx² + cx + d. General shape: S-curve (positive a: bottom-left to top-right; negative a: top-left to bottom-right).
+<div class="formula-box">y = x³ → passes through origin, point of inflection at (0,0)<br>y = x³ + 2 → shifted up 2 units<br>y = (x−1)³ → shifted right 1 unit</div>
+Plot by substituting x values into the equation. Join points with a smooth curve — never use straight line segments.
+<div class="warn">Don't confuse cubic graphs with quadratic parabolas. Cubics have a twist/inflection point; quadratics are symmetric U or ∩ shapes.</div>
+<span class="clip">Clip 161</span>
+</div></div>
+
+<div class="row"><div class="kw">Reciprocal Function Graphs</div><div class="val">
+<div class="formula-box">y = k/x (or y = k/x²)<br>Two separate curves in opposite quadrants<br>Never crosses either axis (asymptotes at x=0 and y=0)</div>
+For y = 1/x: curves in quadrants 1 and 3 (positive k) or 2 and 4 (negative k).
+<div class="tip">The graph gets closer to the axes but never touches them — draw the curves approaching the axes smoothly.</div>
+<span class="clip">Clip 161</span>
+</div></div>
+
+<div class="row"><div class="kw">Linear Real-Life Graphs</div><div class="val">
+Interpret gradient as a rate (e.g. cost per item, speed) and y-intercept as a starting value (e.g. fixed charge, initial distance).
+<div class="formula-box">Gradient = change in y / change in x<br>= rate of change (e.g. £/hour, km/h)</div>
+<div class="ex-box"><span class="ex-label">Example</span>Phone tariff: y = 0.05x + 10 → 5p per minute + £10 monthly charge</div>
+<div class="good">Always include units when interpreting gradient and intercept in context.</div>
+<span class="clip">Clip 161</span>
+</div></div>
+
+<div class="row"><div class="kw">Drawing Line Graphs</div><div class="val">
+Plot data points accurately and join with straight line segments (for discrete data) or a line of best fit (for trends).
+<strong>Checklist:</strong> 1) Choose sensible scales. 2) Label both axes with quantities and units. 3) Plot points precisely. 4) Give the graph a title.
+<div class="warn">Don't force a line of best fit through the origin unless the data supports it — read the question.</div>
+<span class="clip">Clip 64</span>
+</div></div>
+
+</div></div>
+
+<!-- STATISTICS & PROBABILITY -->
+<div class="box">
+<div class="box-head s5">Statistics &amp; Probability</div>
+<div class="box-body">
+
+<div class="row"><div class="kw">Histograms (Unequal Widths)</div><div class="val">
+In a histogram, the y-axis is frequency DENSITY, not frequency.
+<div class="formula-box">Frequency density = frequency / class width<br>Frequency = frequency density × class width</div>
+<strong>To draw:</strong> Calculate frequency density for each class. Bars have no gaps; width = class width, height = frequency density.
+<strong>To interpret:</strong> Find frequency from a bar by calculating area (width × height).
+<div class="warn">The most common error: using frequency on the y-axis. The y-axis MUST be frequency density when class widths are unequal.</div>
+<div class="tip">To estimate the median from a histogram, find the total frequency, halve it, then count across bars from the left until you reach that cumulative frequency.</div>
+<span class="clip">Clip 205</span>
+</div></div>
+
+<div class="row"><div class="kw">Frequency Trees</div><div class="val">
+Branch diagrams showing how a group is split into categories, then further split.
+<div class="ex-box"><span class="ex-label">Example</span>60 students → 35 boys, 25 girls<br>Boys: 20 pass, 15 fail | Girls: 18 pass, 7 fail</div>
+<strong>Key skill:</strong> Each branch pair must sum to the total entering that node. Fill in missing values by subtraction.
+<div class="good">Check your work: all the "leaf" values must add up to the original total.</div>
+<span class="clip">Clip 57</span>
+</div></div>
+
+<div class="row"><div class="kw">Experimental Probability</div><div class="val">
+<div class="formula-box">P(event) = number of times event occurred / total number of trials</div>
+More trials → experimental probability gets closer to theoretical probability (the Law of Large Numbers).
+<div class="ex-box"><span class="ex-label">Example</span>A coin is flipped 200 times, heads appears 112 times.<br>P(heads) = 112/200 = 0.56 (expected: 0.5)</div>
+<span class="clip">Clips 57, 125</span>
+</div></div>
+
+<div class="row"><div class="kw">Expected Results</div><div class="val">
+<div class="formula-box">Expected number = P(event) × number of trials</div>
+<div class="ex-box"><span class="ex-label">Example</span>P(win) = 0.3, play 150 games:<br>Expected wins = 0.3 × 150 = 45</div>
+<div class="warn">Expected results are theoretical averages — you won't always get exactly this number. If asked "is this fair?", compare expected vs actual.</div>
+<span class="clip">Clip 125</span>
+</div></div>
+
+<div class="row"><div class="kw">Probabilities as Fractions</div><div class="val">
+Express probabilities as simplified fractions. Remember:
+<div class="formula-box">0 ≤ P(event) ≤ 1<br>P(not A) = 1 − P(A)<br>All probabilities in a sample space sum to 1</div>
+<div class="tip">If a question gives probabilities as decimals or percentages and asks for a fraction, convert carefully and simplify fully.</div>
+<span class="clip">Clip 125</span>
+</div></div>
+
+</div></div>
+
+</div>
+</div>
+</div>
+</body>
+</html>

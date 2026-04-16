@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCSE Maths — Exam Technique & Key Formulae</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg1: #ffffff; --bg2: #f4f6f2; --bg3: #eaf3de;
+  --t1: #1a1a18; --t2: #5f5e5a; --t3: #888780;
+  --bl: rgba(0,0,0,0.11); --bm: rgba(0,0,0,0.20);
+  --r: 8px; --rl: 12px;
+  --font: system-ui,-apple-system,sans-serif; --mono: 'Courier New', monospace;
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --bg1:#1e1e1c;--bg2:#252723;--bg3:#1a2a14;
+    --t1:#f0ece4;--t2:#a8a59e;--t3:#6e6d69;
+    --bl:rgba(255,255,255,0.09);--bm:rgba(255,255,255,0.18);
+  }
+}
+body{font-family:var(--font);background:var(--bg2);color:var(--t1);padding:1.75rem 1rem;min-height:100vh;font-size:16px;}
+.page{width:100%;max-width:1000px;margin:0 auto;font-size:0.75rem;line-height:1.4;}
+.header { background: var(--bl); backdrop-filter: blur(8px); padding: 1rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-radius: var(--r); border: 0.5px solid var(--bm); }
+.header h1 { font-size: 1.125rem; font-weight: 600; margin: 0; }
+.header span { font-size: 0.688rem; color: var(--t2); font-family: var(--mono); letter-spacing: 0.05em; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.col { display: flex; flex-direction: column; gap: 10px; }
+@media (max-width:768px) {
+  .grid { grid-template-columns: 1fr; }
+  body { font-size: 18px; }
+  .page { font-size: 0.8rem; padding: 1rem 0.5rem; }
+}
+@media (max-width:480px) {
+  body { font-size: 20px; }
+  .page { font-size: 0.85rem; }
+}
+.box { background: var(--bg1); border: 0.5px solid var(--bl); border-radius: var(--r); overflow: hidden; }
+.box-head { padding: 10px 12px; font-size: 0.688rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; }
+.marks { font-family: var(--mono); font-size: 0.625rem; padding: 2px 6px; border-radius: 2px; background: var(--bl); color: var(--t1); }
+.box-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 6px; }
+.qtype { font-size: 0.625rem; font-family: var(--mono); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--t2); border-bottom: 0.5px solid var(--bl); padding-bottom: 4px; margin-bottom: 4px; }
+.trigger { font-size: 0.75rem; font-weight: 600; font-style: italic; color: var(--t1); margin-bottom: 4px; }
+.chain { display: flex; flex-direction: column; gap: 4px; }
+.step { display: grid; grid-template-columns: 20px 1fr; gap: 6px; align-items: start; }
+.stepnum { width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.625rem; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+.steptext { font-size: 0.75rem; line-height: 1.4; }
+.trap { background: #fcebeb; border-left: 2px solid #e24b4a; padding: 6px 8px; font-size: 0.688rem; color: #7a1f1f; border-radius: 0 2px 2px 0; margin: 4px 0; }
+.gold { background: #faeeda; border-left: 2px solid #ef9f27; padding: 6px 8px; font-size: 0.688rem; color: #633806; border-radius: 0 2px 2px 0; margin: 4px 0; }
+.tip { background: #eeedfe; border-left: 2px solid #7f77dd; padding: 6px 8px; font-size: 0.688rem; color: #3c3489; border-radius: 0 2px 2px 0; margin: 4px 0; }
+.warn { background: #fcebeb; border-left: 2px solid #e24b4a; border-radius: 0 2px 2px 0; padding: 6px 8px; font-size: 0.688rem; color: #7a1f1f; margin: 4px 0; }
+.good { background: #eaf3de; border-left: 2px solid #639922; border-radius: 0 2px 2px 0; padding: 6px 8px; font-size: 0.688rem; color: #173404; margin: 4px 0; }
+.formula-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; font-family: var(--mono); font-size: 0.688rem; border-left: 2px solid #3b6d11; }
+.eg { background: var(--bg3); border-radius: 2px; padding: 6px 8px; font-size: 0.688rem; }
+.eg-label { font-size: 0.563rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--t2); display: block; margin-bottom: 2px; }
+.formula { font-family: var(--mono); font-size: 0.688rem; background: var(--bg3); padding: 3px 6px; border-radius: 2px; display: inline-block; }
+.keyword { font-weight: 700; text-decoration: underline; text-decoration-style: dotted; }
+.divider { border: none; border-top: 0.5px solid var(--bl); margin: 4px 0; }
+.s1 { background: #185fa5; color: #e6f1fb; }
+.s2 { background: #3b6d11; color: #eaf3de; }
+.s3 { background: #854f0b; color: #faeeda; }
+.s4 { background: #534ab7; color: #eeedfe; }
+.s5 { background: #993556; color: #fbeaf0; }
+.s6 { background: #0f6e56; color: #e1f5ee; }
+.s7 { background: #993c1d; color: #faece7; }
+.s8 { background: #444441; color: #f1efe8; }
+.band { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 2px; }
+.pill { font-size: 10px; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="page">
+<div class="header">
+  <h1>GCSE Maths — Exam Technique &amp; Key Formulae</h1>
+  <span>OCR J560 · Higher Tier · What to memorise &amp; how to maximise marks</span>
+</div>
+
+<div class="grid">
+<div class="col">
+
+<!-- SECTION 1: Command Words -->
+<div class="box">
+<div class="box-head s1">Section 1: Command Words &amp; What They Mean</div>
+<div class="box-body">
+<div class="qtype">Know exactly what each command word demands — marks depend on it</div>
+<div class="chain">
+<div class="step"><div class="stepnum s1">→</div><div class="steptext"><span class="keyword">"Show that"</span> — the answer is given; you must prove it step-by-step. Every line of working must be visible. If you skip a step, you lose marks even though the answer is right.</div></div>
+<div class="step"><div class="stepnum s1">→</div><div class="steptext"><span class="keyword">"Prove"</span> — formal logical argument. Start from known facts, work to the required result. No gaps in reasoning. State any theorems or rules you use.</div></div>
+<div class="step"><div class="stepnum s1">→</div><div class="steptext"><span class="keyword">"Hence"</span> — you MUST use your previous answer. Using a different method = 0 marks, even if your answer is correct.</div></div>
+<div class="step"><div class="stepnum s1">→</div><div class="steptext"><span class="keyword">"Hence or otherwise"</span> — they'd prefer you use the previous answer (quicker), but any valid method is accepted.</div></div>
+<div class="step"><div class="stepnum s1">→</div><div class="steptext"><span class="keyword">"State"</span> — just write the answer. No working needed. One line. Don't waste time explaining.</div></div>
+<div class="step"><div class="stepnum s1">→</div><div class="steptext"><span class="keyword">"Explain"</span> — give mathematical reasoning in words and/or symbols. "Because" must appear. Link cause to effect.</div></div>
+<div class="step"><div class="stepnum s1">→</div><div class="steptext"><span class="keyword">"Work out"</span> — show your method and calculation. The working IS the marks — the final answer alone may only score 1 mark.</div></div>
+<div class="step"><div class="stepnum s1">→</div><div class="steptext"><span class="keyword">"Estimate"</span> — round every number to 1 significant figure FIRST, then calculate. Using exact numbers = 0 marks.</div></div>
+<div class="step"><div class="stepnum s1">→</div><div class="steptext"><span class="keyword">"Give your answer to..."</span> — work with full precision throughout, then round only at the very end. State the rounded answer clearly.</div></div>
+</div>
+<div class="warn">The most common lost marks in GCSE maths come from not reading the command word. "Show that" with a missing step = 0. "Estimate" without rounding = 0.</div>
+<div class="tip">"Hence" is a gift — it tells you exactly what to use. If you're stuck on a "hence" question, look at your previous answer and think "how does this help?"</div>
+</div>
+</div>
+
+<!-- SECTION 2: Multi-Mark Structure -->
+<div class="box">
+<div class="box-head s2">Section 2: How to Structure Multi-Mark Questions</div>
+<div class="box-body">
+<div class="qtype">The number of marks tells you how many distinct steps the examiner expects</div>
+
+<div class="trigger">2-mark questions</div>
+<div class="chain">
+<div class="step"><div class="stepnum s2">1</div><div class="steptext">Write the equation or formula you're using</div></div>
+<div class="step"><div class="stepnum s2">2</div><div class="steptext">Substitute values and give the answer — OR give two distinct observations/reasons</div></div>
+</div>
+
+<hr class="divider">
+
+<div class="trigger">3-mark questions</div>
+<div class="chain">
+<div class="step"><div class="stepnum s2">1</div><div class="steptext">Write the formula or set up the equation</div></div>
+<div class="step"><div class="stepnum s2">2</div><div class="steptext">Substitute and show intermediate working</div></div>
+<div class="step"><div class="stepnum s2">3</div><div class="steptext">Final answer with correct units</div></div>
+</div>
+
+<hr class="divider">
+
+<div class="trigger">4–5 mark questions</div>
+<div class="chain">
+<div class="step"><div class="stepnum s2">1</div><div class="steptext"><span class="keyword">Set up:</span> identify what you need, write the formula or draw a diagram</div></div>
+<div class="step"><div class="stepnum s2">2</div><div class="steptext"><span class="keyword">Method:</span> show substitution and algebraic manipulation</div></div>
+<div class="step"><div class="stepnum s2">3</div><div class="steptext"><span class="keyword">Intermediate answer:</span> any mid-point result (this often carries its own mark)</div></div>
+<div class="step"><div class="stepnum s2">4</div><div class="steptext"><span class="keyword">Final answer:</span> clearly stated, with units, to the precision requested</div></div>
+</div>
+
+<hr class="divider">
+
+<div class="trigger">"Quality of Written Communication" (QWC / asterisk *) questions</div>
+<div class="chain">
+<div class="step"><div class="stepnum s2">→</div><div class="steptext">Write in full sentences, not bullet points</div></div>
+<div class="step"><div class="stepnum s2">→</div><div class="steptext">Use correct mathematical vocabulary (not "the number on top" — say "numerator")</div></div>
+<div class="step"><div class="stepnum s2">→</div><div class="steptext">Your logic must flow: statement → reasoning → conclusion</div></div>
+</div>
+
+<hr class="divider">
+
+<div class="trigger">Proof / "Show that" questions</div>
+<div class="chain">
+<div class="step"><div class="stepnum s2">→</div><div class="steptext">Start from the LEFT side of what you're proving (or from given information)</div></div>
+<div class="step"><div class="stepnum s2">→</div><div class="steptext">Show every algebraic step — no jumps. The examiner needs to see the chain of reasoning.</div></div>
+<div class="step"><div class="stepnum s2">→</div><div class="steptext">End by writing the statement you were asked to prove, with "as required" or "QED"</div></div>
+</div>
+<div class="good">In proof questions, you must NOT start from the answer and work backwards. Start from what you know, arrive at what you need to show.</div>
+<div class="tip">Count the marks, count your steps. If you have a 4-mark question and only 2 lines of working, you're missing something.</div>
+</div>
+</div>
+
+<!-- SECTION 3: Formulae to Memorise -->
+<div class="box">
+<div class="box-head s3">Section 3: Formulae You MUST Memorise (Not on OCR Formula Sheet)</div>
+<div class="box-body">
+<div class="qtype">OCR does NOT give these — you must know them cold</div>
+
+<div class="trigger">Geometry — Lengths &amp; Areas</div>
+<div class="formula-box">Pythagoras: a² + b² = c²</div>
+<div class="formula-box">Trigonometry: SOH CAH TOA
+  sin θ = opp/hyp · cos θ = adj/hyp · tan θ = opp/adj</div>
+<div class="formula-box">Area of rectangle = l × w</div>
+<div class="formula-box">Area of triangle = ½ × b × h</div>
+<div class="formula-box">Area of parallelogram = b × h</div>
+<div class="formula-box">Area of trapezium = ½(a + b) × h</div>
+<div class="formula-box">Area of circle = πr²</div>
+<div class="formula-box">Circumference = 2πr = πd</div>
+
+<hr class="divider">
+
+<div class="trigger">Geometry — Volumes</div>
+<div class="formula-box">Volume of cuboid = l × w × h</div>
+<div class="formula-box">Volume of prism = area of cross-section × length</div>
+<div class="formula-box">Volume of cylinder = πr²h</div>
+
+<hr class="divider">
+
+<div class="trigger">Compound Measures</div>
+<div class="formula-box">Speed = distance ÷ time</div>
+<div class="formula-box">Density = mass ÷ volume</div>
+<div class="formula-box">Pressure = force ÷ area</div>
+<div class="tip">Remember these with triangles: cover what you want, the other two show the operation. D/S×T, M/D×V, F/P×A.</div>
+
+<hr class="divider">
+
+<div class="trigger">Percentages &amp; Growth</div>
+<div class="formula-box">Percentage change = (change ÷ original) × 100</div>
+<div class="formula-box">Compound interest: N = N₀ × (1 + r/100)ⁿ</div>
+<div class="good">For compound interest: r is the percentage rate, n is the number of time periods. For decay, use (1 − r/100)ⁿ instead.</div>
+
+<hr class="divider">
+
+<div class="trigger">Probability</div>
+<div class="formula-box">P(A or B) = P(A) + P(B) — for mutually exclusive events</div>
+<div class="formula-box">P(A and B) = P(A) × P(B) — for independent events</div>
+
+<hr class="divider">
+
+<div class="trigger">Algebra &amp; Graphs</div>
+<div class="formula-box">nth term of arithmetic sequence: a + (n − 1)d</div>
+<div class="formula-box">Gradient = (y₂ − y₁) ÷ (x₂ − x₁)</div>
+<div class="formula-box">Equation of a straight line: y = mx + c</div>
+<div class="tip">For the gradient formula, always label your points (x₁, y₁) and (x₂, y₁) clearly. Subtract in the same order top and bottom — consistency prevents sign errors.</div>
+</div>
+</div>
+
+<!-- SECTION 5: Common Mistakes -->
+<div class="box">
+<div class="box-head s5">Section 5: Common Mistakes That Lose Marks</div>
+<div class="box-body">
+<div class="qtype">Every one of these costs thousands of students marks every year</div>
+<div class="chain">
+<div class="step"><div class="stepnum s5">1</div><div class="steptext"><span class="keyword">Not showing working</span> — even on calculator papers. If your final answer is wrong but your method is right, working earns you method marks. No working = no method marks = 0.</div></div>
+<div class="step"><div class="stepnum s5">2</div><div class="steptext"><span class="keyword">Wrong units or no units</span> — units are often worth a dedicated mark. cm² for area, cm³ for volume, m/s for speed. Check what the question asks for.</div></div>
+<div class="step"><div class="stepnum s5">3</div><div class="steptext"><span class="keyword">Premature rounding</span> — use the full calculator display for ALL intermediate steps. Only round at the very end to the precision requested.</div></div>
+<div class="step"><div class="stepnum s5">4</div><div class="steptext"><span class="keyword">Ignoring "give your answer to 2 d.p."</span> — if they say 2 decimal places, give exactly 2 decimal places. 3.5 must be written as 3.50.</div></div>
+<div class="step"><div class="stepnum s5">5</div><div class="steptext"><span class="keyword">Forgetting ± in quadratic formula</span> — the quadratic formula gives TWO solutions. Write both. If you only give one, you lose a mark.</div></div>
+<div class="step"><div class="stepnum s5">6</div><div class="steptext"><span class="keyword">Writing x = −3, 2 instead of x = −3 or x = 2</span> — use "or" not a comma. A comma implies the pair (−3, 2) which is a coordinate, not two separate solutions.</div></div>
+<div class="step"><div class="stepnum s5">7</div><div class="steptext"><span class="keyword">Confusing area and perimeter</span> — area is the space inside (square units). Perimeter is the distance around (linear units). Read the question twice.</div></div>
+<div class="step"><div class="stepnum s5">8</div><div class="steptext"><span class="keyword">Forgetting to square the radius</span> — πr² means π × r × r, not π × r. This error appears in circle area, cylinder volume, and sphere calculations.</div></div>
+</div>
+<div class="warn">The single biggest mark-loser across all GCSE maths papers: not showing working. Even if you can do it in your head, WRITE IT DOWN. Method marks exist precisely for this.</div>
+</div>
+</div>
+
+</div>
+
+<div class="col">
+
+<!-- SECTION 4: Formulae Given -->
+<div class="box">
+<div class="box-head s4">Section 4: Formulae GIVEN on the OCR Formula Sheet</div>
+<div class="box-body">
+<div class="qtype">You do NOT need to memorise these — they are printed on the front of your exam paper</div>
+
+<div class="trigger">Quadratic Formula</div>
+<div class="formula-box">x = (−b ± √(b² − 4ac)) ÷ 2a</div>
+<div class="good">Given on sheet. But you must practise USING it — knowing the formula exists is useless if you can't substitute correctly under pressure.</div>
+
+<hr class="divider">
+
+<div class="trigger">Trigonometry (Non-Right-Angled Triangles)</div>
+<div class="formula-box">Sine rule: a/sinA = b/sinB = c/sinC</div>
+<div class="formula-box">Cosine rule: a² = b² + c² − 2bc cosA</div>
+<div class="formula-box">Area of triangle = ½ab sinC</div>
+
+<hr class="divider">
+
+<div class="trigger">3D Shapes</div>
+<div class="formula-box">Volume of cone = ⅓πr²h</div>
+<div class="formula-box">Surface area of cone = πrl + πr²</div>
+<div class="formula-box">Volume of sphere = ⁴⁄₃πr³</div>
+<div class="formula-box">Surface area of sphere = 4πr²</div>
+
+<hr class="divider">
+
+<div class="trigger">Exact Trigonometric Values</div>
+<div class="eg"><span class="eg-label">Given as a table on the formula sheet</span>
+sin 0° = 0 · cos 0° = 1 · tan 0° = 0<br>
+sin 30° = ½ · cos 30° = √3/2 · tan 30° = 1/√3<br>
+sin 45° = √2/2 · cos 45° = √2/2 · tan 45° = 1<br>
+sin 60° = √3/2 · cos 60° = ½ · tan 60° = √3<br>
+sin 90° = 1 · cos 90° = 0 · tan 90° = undefined</div>
+<div class="tip">Even though these are given, you should still be familiar with them — you'll work faster if you recognise them without having to look them up every time.</div>
+</div>
+</div>
+
+<!-- SECTION 6: Calculator Tips -->
+<div class="box">
+<div class="box-head s6">Section 6: Calculator Tips (Papers 4H &amp; 6H)</div>
+<div class="box-body">
+<div class="qtype">Your calculator is a powerful tool — learn to use it properly before the exam</div>
+
+<div class="trigger">Fractions</div>
+<div class="chain">
+<div class="step"><div class="stepnum s6">→</div><div class="steptext">Use the <span class="formula">a b/c</span> or <span class="formula">□/□</span> button to enter fractions directly. The display shows proper fractions — no need to convert to decimals.</div></div>
+<div class="step"><div class="stepnum s6">→</div><div class="steptext">Press <span class="formula">S⇔D</span> to toggle between fraction and decimal form. Use this to check your fraction-to-decimal conversions.</div></div>
+</div>
+
+<hr class="divider">
+
+<div class="trigger">Using ANS for Multi-Step Problems</div>
+<div class="chain">
+<div class="step"><div class="stepnum s6">→</div><div class="steptext">After any calculation, press <span class="formula">ANS</span> to recall the full-precision result. This avoids rounding errors between steps.</div></div>
+<div class="step"><div class="stepnum s6">→</div><div class="steptext">Chain calculations: do step 1, press =, then start step 2 using ANS for the previous result. Full precision preserved throughout.</div></div>
+</div>
+
+<hr class="divider">
+
+<div class="trigger">Estimation &amp; Checking</div>
+<div class="chain">
+<div class="step"><div class="stepnum s6">→</div><div class="steptext">After any long calculation, estimate the answer by rounding to 1 s.f. If your calculator answer is wildly different from your estimate, you've made an input error.</div></div>
+<div class="step"><div class="stepnum s6">→</div><div class="steptext">For equations: substitute your answer back into the original equation to verify it works.</div></div>
+</div>
+
+<hr class="divider">
+
+<div class="trigger">Table Mode for Graphs</div>
+<div class="chain">
+<div class="step"><div class="stepnum s6">→</div><div class="steptext">Use <span class="formula">MODE → TABLE</span> to generate y-values for a function. Enter the equation, set start/end/step values, and the calculator produces a complete table of values.</div></div>
+<div class="step"><div class="stepnum s6">→</div><div class="steptext">This is faster and more accurate than substituting x-values one at a time. Use it for plotting quadratics, cubics, and reciprocal graphs.</div></div>
+</div>
+<div class="good">Practise these calculator skills BEFORE the exam. Fumbling with buttons under time pressure wastes minutes you cannot afford.</div>
+</div>
+</div>
+
+<!-- SECTION 7: Non-Calculator Strategies -->
+<div class="box">
+<div class="box-head s3">Section 7: Non-Calculator Strategies (Paper 5H)</div>
+<div class="box-body">
+<div class="qtype">Paper 5H has no calculator — these mental and written methods are essential</div>
+
+<div class="trigger">HCF &amp; LCM via Factor Trees</div>
+<div class="chain">
+<div class="step"><div class="stepnum s3">1</div><div class="steptext">Draw a factor tree for each number, breaking down to prime factors</div></div>
+<div class="step"><div class="stepnum s3">2</div><div class="steptext"><span class="keyword">HCF:</span> multiply the primes that appear in BOTH trees (take the lowest power of each)</div></div>
+<div class="step"><div class="stepnum s3">3</div><div class="steptext"><span class="keyword">LCM:</span> multiply the highest power of every prime that appears in EITHER tree</div></div>
+</div>
+
+<hr class="divider">
+
+<div class="trigger">Multiplication Methods</div>
+<div class="chain">
+<div class="step"><div class="stepnum s3">→</div><div class="steptext"><span class="keyword">Grid method:</span> split numbers into tens and units, multiply each pair, add results. E.g. 34 × 27: (30×20) + (30×7) + (4×20) + (4×7) = 600 + 210 + 80 + 28 = 918</div></div>
+<div class="step"><div class="stepnum s3">→</div><div class="steptext"><span class="keyword">Column multiplication:</span> traditional long multiplication. Line up carefully — one digit shift per row. Add columns at the end.</div></div>
+</div>
+
+<hr class="divider">
+
+<div class="trigger">Division: Bus Stop Method</div>
+<div class="chain">
+<div class="step"><div class="stepnum s3">→</div><div class="steptext">Set up as short/long division. Work left to right: how many times does the divisor go into each group of digits? Carry remainders to the next column.</div></div>
+<div class="step"><div class="stepnum s3">→</div><div class="steptext">For decimals: add trailing zeros and keep dividing past the decimal point until you get a terminating answer or the required precision.</div></div>
+</div>
+
+<hr class="divider">
+
+<div class="trigger">Fractions ↔ Decimals ↔ Percentages</div>
+<div class="formula-box">Fraction → Decimal: divide numerator by denominator</div>
+<div class="formula-box">Decimal → Percentage: multiply by 100</div>
+<div class="formula-box">Percentage → Fraction: put over 100, then simplify</div>
+<div class="eg"><span class="eg-label">Key equivalents to memorise</span>
+½ = 0.5 = 50% · ¼ = 0.25 = 25% · ¾ = 0.75 = 75%<br>
+⅓ = 0.333... = 33.3̄% · ⅕ = 0.2 = 20% · ⅛ = 0.125 = 12.5%<br>
+1/10 = 0.1 = 10% · 1/100 = 0.01 = 1%</div>
+
+<hr class="divider">
+
+<div class="trigger">Exact Trig Values (Must Know for Paper 5H)</div>
+<div class="eg"><span class="eg-label">No calculator — you must recall these instantly</span>
+sin 0° = 0 · sin 30° = ½ · sin 45° = √2/2 · sin 60° = √3/2 · sin 90° = 1<br>
+cos 0° = 1 · cos 30° = √3/2 · cos 45° = √2/2 · cos 60° = ½ · cos 90° = 0<br>
+tan 0° = 0 · tan 30° = 1/√3 · tan 45° = 1 · tan 60° = √3 · tan 90° = undefined</div>
+<div class="tip">Notice the pattern: sin values go 0, ½, √2/2, √3/2, 1 as the angle increases. Cos values are the reverse. Learn one row and you know both.</div>
+<div class="warn">Even though these are on the formula sheet for calculator papers, you MUST know them by heart for Paper 5H. No formula sheet will save you there.</div>
+</div>
+</div>
+
+<!-- Bonus: Exam Day Checklist -->
+<div class="box">
+<div class="box-head s1">Exam Day: Final Reminders</div>
+<div class="box-body">
+<div class="chain">
+<div class="step"><div class="stepnum s1">→</div><div class="steptext"><span class="keyword">Read the question twice.</span> Underline key information: numbers, units, what's being asked for, number of marks.</div></div>
+<div class="step"><div class="stepnum s1">→</div><div class="steptext"><span class="keyword">Show ALL working.</span> Even trivial steps. Method marks can rescue a wrong final answer.</div></div>
+<div class="step"><div class="stepnum s1">→</div><div class="steptext"><span class="keyword">Check units.</span> If the question asks for cm² and you calculated in m², convert. Units mismatch = lost mark.</div></div>
+<div class="step"><div class="stepnum s1">→</div><div class="steptext"><span class="keyword">Use all the time.</span> If you finish early, go back and check. Re-read each question and verify your answer makes sense in context.</div></div>
+<div class="step"><div class="stepnum s1">→</div><div class="steptext"><span class="keyword">Don't leave blanks.</span> Write something for every question. Even a diagram or a formula can earn a mark. A blank answer is always 0.</div></div>
+<div class="step"><div class="stepnum s1">→</div><div class="steptext"><span class="keyword">Diagrams aren't decoration.</span> If a geometry question has a diagram, annotate it: mark angles, label sides, add construction lines. This helps you think and earns marks.</div></div>
+</div>
+<div class="good">Three papers: Paper 4H (calculator, 1h30), Paper 5H (non-calculator, 1h30), Paper 6H (calculator, 1h30). Total: 300 marks. Every mark matters.</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</body>
+</html>

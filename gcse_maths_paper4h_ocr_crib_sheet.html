@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCSE Maths — Paper 4H OCR Crib Sheet</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+          --bg1: #ffffff; --bg2: #f4f6f2; --bg3: #eaf3de;
+          --t1: #1a1a18; --t2: #5f5e5a; --t3: #888780;
+          --bl: rgba(0,0,0,0.11); --bm: rgba(0,0,0,0.20);
+          --r: 8px; --rl: 12px;
+          --font: system-ui,-apple-system,sans-serif; --mono: 'Courier New', monospace;
+        }
+        @media(prefers-color-scheme:dark){
+          :root{
+            --bg1:#1e1e1c;--bg2:#252723;--bg3:#1a2a14;
+            --t1:#f0ece4;--t2:#a8a59e;--t3:#6e6d69;
+            --bl:rgba(255,255,255,0.09);--bm:rgba(255,255,255,0.18);
+          }
+        }
+        body{font-family:var(--font);background:var(--bg2);color:var(--t1);padding:1.75rem 1rem;min-height:100vh;}
+        .page { width: 100%; max-width: 1000px; margin: 0 auto; font-size: 12px; line-height: 1.4; }
+        h1 { font-size: 18px; font-weight: 600; margin-bottom: 0.25rem; }
+        .header { background: var(--bl); backdrop-filter: blur(8px); padding: 1rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-radius: var(--r); border: 0.5px solid var(--bm); }
+        .header h1 { font-size: 18px; font-weight: 600; margin: 0; }
+        .header span { font-size: 11px; color: var(--t2); font-family: var(--mono); letter-spacing: 0.05em; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .col { display: flex; flex-direction: column; gap: 8px; }
+        @media (max-width:768px) {
+          .grid { grid-template-columns: 1fr; }
+          .page { padding: 0; }
+        }
+        .box { background: var(--bg1); border: 0.5px solid var(--bl); border-radius: var(--r); overflow: hidden; }
+        .box-head { padding: 10px 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; background: var(--bl); }
+        .box-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; }
+        .row { display: grid; grid-template-columns: 28% 72%; gap: 8px; padding-bottom: 6px; border-bottom: 0.5px solid var(--bl); }
+        .row:last-child { border-bottom: none; }
+        .kw { font-weight: 650; color: var(--t2); font-size: 11px; font-family: var(--mono); }
+        .val { font-size: 11.5px; color: var(--t1); line-height: 1.35; }
+        .clip { font-family: var(--mono); font-size: 9px; color: var(--t3); background: var(--bg3); padding: 1px 5px; border-radius: 2px; margin-left: 4px; }
+        .formula-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; font-family: var(--mono); font-size: 10.5px; border-left: 2px solid #3b6d11; }
+        .ex-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; border-left: 2px solid var(--t2); }
+        .ex-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--t2); display: block; margin-bottom: 2px; }
+        .warn { background: #faeeda; border-left: 2px solid #ef9f27; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #633806; margin: 4px 0; }
+        .tip { background: #eeedfe; border-left: 2px solid #7f77dd; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #3c3489; margin: 4px 0; }
+        .good { background: #eaf3de; border-left: 2px solid #639922; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #173404; margin: 4px 0; }
+        .s1 { background: #3b6d11; color: #eaf3de; }
+        .s2 { background: #185fa5; color: #e6f1fb; }
+        .s3 { background: #534ab7; color: #eeedfe; }
+        .s4 { background: #854f0b; color: #faeeda; }
+        .s5 { background: #a32d2d; color: #fcebeb; }
+        .s6 { background: #0f6e56; color: #e1f5ee; }
+    </style>
+</head>
+<body>
+<div class="page">
+<div class="header">
+  <h1>OCR GCSE Maths — Paper 4 Higher (Calculator)</h1>
+  <span>J560/04 · Calculator · Higher Tier</span>
+</div>
+
+<div class="grid">
+<div class="col">
+
+<!-- GEOMETRY & TRIGONOMETRY -->
+<div class="box">
+<div class="box-head s1">Geometry &amp; Trigonometry</div>
+<div class="box-body">
+
+<div class="row"><div class="kw">Angles on parallel lines &amp; in triangles</div><div class="val">
+Alternate angles (Z-shape) are equal. Corresponding angles (F-shape) are equal. Co-interior angles (C/U-shape) sum to 180°. Angles in a triangle sum to 180°.
+<div class="formula-box">Exterior angle of triangle = sum of two opposite interior angles</div>
+<div class="tip">Always mark angles on the diagram. State the reason for each step, e.g. "alternate angles are equal".</div>
+<span class="clip">120, 183</span></div></div>
+
+<div class="row"><div class="kw">Angles in polygons</div><div class="val">
+<div class="formula-box">Interior angle sum = (n - 2) x 180°</div>
+<div class="formula-box">Each interior angle (regular) = (n - 2) x 180° / n</div>
+<div class="formula-box">Each exterior angle (regular) = 360° / n</div>
+Interior + exterior = 180° at each vertex. To find n from an exterior angle: n = 360 / exterior angle.
+<div class="ex-box"><span class="ex-label">Example</span>Regular octagon: exterior = 360/8 = 45°, interior = 135°</div>
+<div class="warn">If asked "how many sides?" and given an interior angle, find the exterior first (180 - interior), then divide 360 by it.</div>
+<span class="clip">123</span></div></div>
+
+<div class="row"><div class="kw">Circle theorems</div><div class="val">
+Key theorems: (1) Angle at centre = 2 x angle at circumference. (2) Angle in semicircle = 90°. (3) Angles in same segment are equal. (4) Opposite angles of cyclic quadrilateral sum to 180°. (5) Tangent is perpendicular to radius. (6) Two tangents from external point are equal length. (7) Alternate segment theorem: angle between tangent and chord = angle in alternate segment.
+<div class="warn">You MUST state the theorem name or a clear description of the rule used. Just writing the angle value scores 0.</div>
+<div class="good">Draw in extra lines (radii, diameters) to reveal isosceles triangles inside the circle.</div>
+<span class="clip">183</span></div></div>
+
+<div class="row"><div class="kw">Alternate segment theorem</div><div class="val">
+The angle between a tangent to a circle and a chord drawn from the point of tangency equals the inscribed angle subtended by the chord on the opposite side.
+<div class="ex-box"><span class="ex-label">How to spot it</span>Look for a tangent touching the circle at a point where a chord also starts. The angle between them equals the angle at the far end of the chord in the other segment.</div>
+<span class="clip">120, 183</span></div></div>
+
+<div class="row"><div class="kw">Area of sectors</div><div class="val">
+<div class="formula-box">Sector area = (θ / 360) x π r²</div>
+<div class="formula-box">Arc length = (θ / 360) x 2πr</div>
+Where θ is the angle at the centre in degrees, r is the radius.
+<div class="tip">If given arc length and asked for area, find θ first from the arc formula, then use it in the area formula.</div>
+<span class="clip">149</span></div></div>
+
+<div class="row"><div class="kw">Trigonometry: finding angles</div><div class="val">
+In a right-angled triangle, use SOHCAHTOA to find unknown angles:
+<div class="formula-box">θ = sin⁻¹(O/H) or θ = cos⁻¹(A/H) or θ = tan⁻¹(O/A)</div>
+Label the sides relative to the angle: Opposite, Adjacent, Hypotenuse. Choose the ratio that uses the two known sides.
+<div class="warn">Make sure your calculator is in DEGREES mode, not radians.</div>
+<span class="clip">150</span></div></div>
+
+<div class="row"><div class="kw">Area rule (non-right triangles)</div><div class="val">
+<div class="formula-box">Area = ½ ab sin(C)</div>
+Use when you know two sides and the included angle (the angle between those two sides). This is on the formula sheet but practise using it.
+<div class="ex-box"><span class="ex-label">Example</span>a = 8cm, b = 5cm, C = 30°: Area = ½ x 8 x 5 x sin(30°) = ½ x 8 x 5 x 0.5 = 10 cm²</div>
+<span class="clip">203</span></div></div>
+
+<div class="row"><div class="kw">Area of triangles &amp; trapeziums</div><div class="val">
+<div class="formula-box">Triangle: Area = ½ x base x height</div>
+<div class="formula-box">Trapezium: Area = ½(a + b) x h</div>
+Where a and b are the parallel sides, h is the perpendicular height (not the slant height).
+<div class="warn">The height must be perpendicular to the base. If the triangle is not right-angled, you may need to draw a construction line for the height.</div>
+<span class="clip">54, 56</span></div></div>
+
+</div>
+</div>
+
+<!-- ALGEBRA & FUNCTIONS -->
+<div class="box">
+<div class="box-head s3">Algebra &amp; Functions</div>
+<div class="box-body">
+
+<div class="row"><div class="kw">Completing the square</div><div class="val">
+Rewrite ax² + bx + c in the form a(x + p)² + q.
+<div class="formula-box">x² + bx + c = (x + b/2)² - (b/2)² + c</div>
+<div class="ex-box"><span class="ex-label">Example</span>x² + 6x + 2 = (x + 3)² - 9 + 2 = (x + 3)² - 7</div>
+The turning point is at (-p, q). If coefficient of x² is not 1, factor it out first.
+<div class="warn">Sign trap: (x + 3)² means the turning point x-value is -3, not +3.</div>
+<span class="clip">209</span></div></div>
+
+<div class="row"><div class="kw">Turning point from completed square</div><div class="val">
+Once in the form a(x + p)² + q, the vertex (turning point) is at (-p, q). If a > 0, it is a minimum. If a < 0, it is a maximum.
+<div class="formula-box">y = a(x + p)² + q → minimum/maximum at (-p, q)</div>
+<div class="good">This method is more reliable than using calculus for quadratics at GCSE. The completed square also tells you the line of symmetry: x = -p.</div>
+<span class="clip">209, 160</span></div></div>
+
+<div class="row"><div class="kw">Factorising quadratics (ax² + bx + c = 0)</div><div class="val">
+When a = 1: find two numbers that multiply to c and add to b. When a ≠ 1: multiply a x c, find two numbers that multiply to ac and add to b, then split the middle term and factorise in pairs.
+<div class="formula-box">6x² + x - 2 = 0 → ac = -12, factors: 4 and -3
+6x² + 4x - 3x - 2 = 2x(3x+2) - 1(3x+2) = (2x-1)(3x+2)</div>
+<div class="tip">Always check by expanding your answer back out. If the quadratic doesn't factorise neatly, use the quadratic formula instead.</div>
+<span class="clip">157, 192</span></div></div>
+
+<div class="row"><div class="kw">Constructing &amp; solving equations</div><div class="val">
+Read the problem carefully. Define a variable (let x = ...). Write expressions for each quantity, form an equation, then solve.
+<div class="ex-box"><span class="ex-label">Example</span>"Three consecutive numbers add to 78" → x + (x+1) + (x+2) = 78 → 3x + 3 = 78 → x = 25</div>
+<div class="tip">Check your answer makes sense in context. If asked for a length, it must be positive.</div>
+<span class="clip">135</span></div></div>
+
+<div class="row"><div class="kw">Simultaneous equations</div><div class="val">
+Elimination: make coefficients of one variable equal, then add/subtract. Substitution: rearrange one equation for a variable and substitute into the other.
+<div class="formula-box">2x + 3y = 12 ... (1)
+5x - 3y = 9  ... (2)
+Add: 7x = 21 → x = 3, then y = 2</div>
+<div class="warn">If one equation is linear and one quadratic, you must use substitution. Expect two pairs of answers.</div>
+<span class="clip">162</span></div></div>
+
+<div class="row"><div class="kw">Composite functions</div><div class="val">
+fg(x) means "apply g first, then f to the result". Replace x in f with the whole of g(x).
+<div class="formula-box">If f(x) = 2x + 1, g(x) = x²
+fg(x) = f(g(x)) = 2(x²) + 1 = 2x² + 1
+gf(x) = g(f(x)) = (2x + 1)² = 4x² + 4x + 1</div>
+<div class="warn">fg(x) ≠ gf(x) in general. Order matters. Read carefully which way round it is.</div>
+<span class="clip">215</span></div></div>
+
+<div class="row"><div class="kw">Inverse functions</div><div class="val">
+To find f⁻¹(x): write y = f(x), swap x and y, then rearrange for y.
+<div class="formula-box">f(x) = 3x - 5 → y = 3x - 5
+Swap: x = 3y - 5 → 3y = x + 5 → y = (x + 5)/3
+So f⁻¹(x) = (x + 5)/3</div>
+<div class="good">The graph of f⁻¹(x) is a reflection of f(x) in the line y = x. Also, ff⁻¹(x) = x always.</div>
+<span class="clip">214</span></div></div>
+
+<div class="row"><div class="kw">Index rules (negative indices)</div><div class="val">
+<div class="formula-box">a⁻ⁿ = 1/aⁿ     e.g. 2⁻³ = 1/8
+(a/b)⁻ⁿ = (b/a)ⁿ   e.g. (2/3)⁻² = (3/2)² = 9/4</div>
+Key rules: aᵐ x aⁿ = aᵐ⁺ⁿ, aᵐ / aⁿ = aᵐ⁻ⁿ, (aᵐ)ⁿ = aᵐⁿ, a⁰ = 1.
+<div class="tip">Standard form with negative powers: 3.2 x 10⁻⁴ = 0.00032. The negative power tells you how many places to move the decimal left.</div>
+<span class="clip">154</span></div></div>
+
+</div>
+</div>
+
+<!-- NUMBER & PROPORTION -->
+<div class="box">
+<div class="box-head s4">Number &amp; Proportion</div>
+<div class="box-body">
+
+<div class="row"><div class="kw">Percentage change (calculator)</div><div class="val">
+<div class="formula-box">% change = ((new - original) / original) x 100</div>
+Multiplier method: increase of 15% → x 1.15, decrease of 8% → x 0.92. For compound/repeated change, use powers:
+<div class="formula-box">After n years at r% increase: original x (1 + r/100)ⁿ</div>
+<div class="tip">To find the original after a % change: divide by the multiplier, not subtract the percentage.</div>
+<span class="clip">109</span></div></div>
+
+<div class="row"><div class="kw">Ratio: sharing amounts</div><div class="val">
+Add parts of ratio. Divide total by sum of parts to find one part. Multiply each ratio number by the value of one part.
+<div class="ex-box"><span class="ex-label">Example</span>Share £200 in ratio 3:5 → total parts = 8, one part = £25 → shares are £75 and £125</div>
+<div class="good">Write the units after each calculation to keep track. Check your shares add to the original total.</div>
+<span class="clip">165, 107, 86</span></div></div>
+
+<div class="row"><div class="kw">Fractions of amounts (calculator)</div><div class="val">
+To find a fraction of an amount: multiply the amount by the fraction. Use the fraction button or divide then multiply.
+<div class="formula-box">³⁄₇ of 420 = 420 ÷ 7 x 3 = 180</div>
+<span class="clip">86</span></div></div>
+
+<div class="row"><div class="kw">Direct proportion</div><div class="val">
+If y is directly proportional to x: y = kx. Find k using a known pair, then use the equation.
+<div class="formula-box">y ∝ x → y = kx
+y ∝ x² → y = kx²
+y ∝ √x → y = k√x</div>
+<div class="ex-box"><span class="ex-label">Example</span>y ∝ x², y = 50 when x = 5 → 50 = k(25) → k = 2 → y = 2x²</div>
+<div class="warn">Read carefully whether it's proportional to x, x², x³, or √x. The type of proportion changes the equation.</div>
+<span class="clip">199</span></div></div>
+
+<div class="row"><div class="kw">Unit conversions</div><div class="val">
+Length: 1 km = 1000 m, 1 m = 100 cm, 1 cm = 10 mm. Mass: 1 kg = 1000 g, 1 tonne = 1000 kg. Capacity: 1 litre = 1000 ml, 1 cm³ = 1 ml.
+<div class="formula-box">Area: multiply conversion factor squared (1 m² = 10000 cm²)
+Volume: multiply conversion factor cubed (1 m³ = 1000000 cm³)</div>
+<div class="warn">Don't forget to square or cube the conversion factor for area and volume conversions.</div>
+<span class="clip">199</span></div></div>
+
+<div class="row"><div class="kw">Bounds &amp; error intervals</div><div class="val">
+A measurement rounded to a given degree of accuracy has upper and lower bounds.
+<div class="formula-box">Value rounded to nearest 10: bounds = value ± 5
+e.g. 340 (nearest 10): LB = 335, UB = 345</div>
+For calculations: to maximise a division, use max numerator and min denominator. To maximise a product, use max of both.
+<div class="formula-box">Max of a/b = UB(a) / LB(b)
+Min of a/b = LB(a) / UB(b)</div>
+<div class="warn">Upper bound is never included. Write as inequality: 335 ≤ x < 345, not 335 ≤ x ≤ 345.</div>
+<span class="clip">155, 206</span></div></div>
+
+<div class="row"><div class="kw">Surds &amp; rationalising</div><div class="val">
+<div class="formula-box">√(ab) = √a x √b   e.g. √12 = √4 x √3 = 2√3
+√(a/b) = √a / √b</div>
+To rationalise a denominator with two terms, multiply top and bottom by the conjugate:
+<div class="formula-box">1/(a + √b): multiply by (a - √b)/(a - √b)
+Uses difference of two squares: (a+√b)(a-√b) = a² - b</div>
+<div class="ex-box"><span class="ex-label">Example</span>3/(2+√5) = 3(2-√5)/((2+√5)(2-√5)) = 3(2-√5)/(4-5) = 3(2-√5)/(-1) = -6+3√5</div>
+<span class="clip">207</span></div></div>
+
+<div class="row"><div class="kw">Calculator &amp; sig figs</div><div class="val">
+Use your calculator efficiently: brackets for complex fractions, ANS key for multi-step. Round to significant figures by counting from the first non-zero digit.
+<div class="formula-box">0.004562 to 2 s.f. = 0.0046 (4 and 5 are the first two sig figs)
+34571 to 3 s.f. = 34600</div>
+<div class="tip">Show full calculator display first, then round. Write "= 3.456789... = 3.46 (3 s.f.)" to earn both accuracy and rounding marks.</div>
+<span class="clip">90</span></div></div>
+
+</div>
+</div>
+
+</div>
+
+<div class="col">
+
+<!-- GRAPHS -->
+<div class="box">
+<div class="box-head s2">Graphs</div>
+<div class="box-body">
+
+<div class="row"><div class="kw">Translating graphs</div><div class="val">
+<div class="formula-box">y = f(x) + a → shift UP by a
+y = f(x) - a → shift DOWN by a
+y = f(x + a) → shift LEFT by a
+y = f(x - a) → shift RIGHT by a</div>
+<div class="warn">The horizontal shift is counter-intuitive: f(x + 2) moves LEFT, f(x - 2) moves RIGHT. Think: "what value of x gives the same output as f(0)?"</div>
+<div class="tip">If asked to sketch a transformation, draw the original first, then move key points (intercepts, turning points) by the translation vector.</div>
+<span class="clip">50, 196</span></div></div>
+
+<div class="row"><div class="kw">Estimating gradients of curves</div><div class="val">
+Draw a tangent line to the curve at the given point. Choose two points on the tangent line that are far apart. Calculate gradient = rise/run.
+<div class="formula-box">Gradient of tangent at point P = Δy / Δx
+(using two points on the tangent line)</div>
+<div class="tip">Make your tangent line long and use points where it crosses grid lines for accuracy. The examiner allows a range of acceptable answers.</div>
+<div class="warn">A tangent just touches the curve at the point. A chord cuts through it. Don't confuse the two.</div>
+<span class="clip">216</span></div></div>
+
+<div class="row"><div class="kw">Quadratic graphs &amp; turning points</div><div class="val">
+y = ax² + bx + c forms a parabola. Complete the square to find the turning point without plotting.
+<div class="formula-box">y = (x + p)² + q → turning point at (-p, q)
+y = -(x + p)² + q → inverted, max at (-p, q)</div>
+The line of symmetry passes through the turning point: x = -p. Roots (if any) are where the parabola crosses the x-axis.
+<span class="clip">209, 160</span></div></div>
+
+</div>
+</div>
+
+<!-- SPEED, DISTANCE, TIME -->
+<div class="box">
+<div class="box-head s5">Speed, Distance &amp; Time</div>
+<div class="box-body">
+
+<div class="row"><div class="kw">Calculating with speed</div><div class="val">
+<div class="formula-box">Speed = Distance / Time
+Distance = Speed x Time
+Time = Distance / Speed</div>
+Use consistent units throughout (e.g. km and hours for km/h, m and seconds for m/s).
+<div class="formula-box">km/h to m/s: divide by 3.6 (or x 1000 / 3600)
+m/s to km/h: multiply by 3.6</div>
+<div class="tip">Draw the DST triangle: D on top, S and T on the bottom. Cover what you want to find.</div>
+<span class="clip">142</span></div></div>
+
+<div class="row"><div class="kw">Distance-time graphs</div><div class="val">
+The gradient of a distance-time graph gives speed. A steeper line = faster speed. A horizontal line = stationary. A curved line = changing speed (acceleration/deceleration).
+<div class="formula-box">Speed = gradient = change in distance / change in time</div>
+<div class="warn">Don't confuse distance-time with velocity-time graphs. In distance-time graphs, area under the graph has no useful meaning.</div>
+<span class="clip">143</span></div></div>
+
+<div class="row"><div class="kw">Velocity-time graphs</div><div class="val">
+Gradient = acceleration. Area under graph = distance travelled. For a trapezium-shaped graph:
+<div class="formula-box">Acceleration = change in velocity / time taken
+Distance = area under graph = ½(a + b) x h</div>
+<div class="ex-box"><span class="ex-label">Compound areas</span>Split complex shapes into rectangles and triangles. Calculate each area separately and add them together.</div>
+<div class="good">For curved velocity-time graphs, estimate the area by counting squares or using the trapezium rule.</div>
+<span class="clip">142</span></div></div>
+
+<div class="row"><div class="kw">Bounds with speed</div><div class="val">
+When distance and time are both rounded, use bounds to find max/min speed:
+<div class="formula-box">Max speed = UB(distance) / LB(time)
+Min speed = LB(distance) / UB(time)</div>
+<div class="ex-box"><span class="ex-label">Example</span>Distance = 100m (nearest m), Time = 12s (nearest s): Max speed = 100.5/11.5 = 8.74 m/s, Min speed = 99.5/12.5 = 7.96 m/s</div>
+<span class="clip">155, 206, 142</span></div></div>
+
+</div>
+</div>
+
+<!-- STATISTICS & PROBABILITY -->
+<div class="box">
+<div class="box-head s6">Statistics &amp; Probability</div>
+<div class="box-body">
+
+<div class="row"><div class="kw">Interpreting pie charts</div><div class="val">
+Each sector angle represents a proportion of the whole. To find frequency: (sector angle / 360) x total. To find angle: (frequency / total) x 360.
+<div class="formula-box">Frequency = (angle / 360) x total
+Angle = (frequency / total) x 360</div>
+<div class="tip">Check all your angles add to 360° and all frequencies add to the total. Use a protractor carefully when drawing.</div>
+<span class="clip">128, 65</span></div></div>
+
+<div class="row"><div class="kw">Interpreting bar charts</div><div class="val">
+Read values carefully from the scale. For comparative bar charts, compare heights of corresponding bars. Note whether the y-axis starts at zero (if not, differences can be visually misleading).
+<div class="warn">If the y-axis doesn't start at 0, the visual difference between bars is exaggerated. Always read the actual values.</div>
+<span class="clip">63</span></div></div>
+
+<div class="row"><div class="kw">Drawing pie charts</div><div class="val">
+Step 1: Find the total. Step 2: Calculate angle for each category = (frequency / total) x 360. Step 3: Draw each sector with a protractor. Step 4: Label each sector.
+<div class="ex-box"><span class="ex-label">Example</span>20 people total, 5 chose red: angle = (5/20) x 360 = 90°</div>
+<span class="clip">65</span></div></div>
+
+<div class="row"><div class="kw">Box plots</div><div class="val">
+A box plot shows: minimum, lower quartile (Q1), median (Q2), upper quartile (Q3), maximum. The box spans Q1 to Q3 (the interquartile range).
+<div class="formula-box">IQR = Q3 - Q1 (measures spread of middle 50%)
+Range = max - min</div>
+To compare two box plots: compare medians (average), compare IQR (consistency). Higher median = higher average. Smaller IQR = more consistent.
+<div class="tip">Use the specific values from the box plots in your comparison. "Group A has a higher median (52) than Group B (45)" scores better than just "Group A is higher".</div>
+<span class="clip">187</span></div></div>
+
+<div class="row"><div class="kw">Tree diagrams (independent events)</div><div class="val">
+Each branch shows a possible outcome and its probability. Branches from the same point must sum to 1. For independent events, probabilities stay the same on each trial.
+<div class="formula-box">P(A and B) = P(A) x P(B) — multiply along branches
+P(A or B) = add the results of different paths</div>
+<div class="ex-box"><span class="ex-label">Example</span>P(win) = 0.3 each game. P(win both) = 0.3 x 0.3 = 0.09. P(win exactly one) = 0.3 x 0.7 + 0.7 x 0.3 = 0.42</div>
+<div class="warn">For "at least one" questions, it's often easier: P(at least 1) = 1 - P(none).</div>
+<span class="clip">151</span></div></div>
+
+<div class="row"><div class="kw">Conditional probability</div><div class="val">
+When the outcome of one event affects the next (e.g. picking without replacement), probabilities change on the second pick.
+<div class="formula-box">P(A then B without replacement):
+e.g. 5 red, 3 blue → P(red then blue) = 5/8 x 3/7 = 15/56</div>
+The denominator decreases by 1 each pick. If the first pick matched, the numerator for that colour also decreases by 1.
+<div class="warn">Without replacement ≠ independent. The second set of branches has different probabilities from the first.</div>
+<span class="clip">175, 204</span></div></div>
+
+<div class="row"><div class="kw">Ratio &amp; proportion in data</div><div class="val">
+When sharing amounts in a given ratio appears in a data context, apply the standard ratio method: find total parts, find value of one part, multiply.
+<div class="formula-box">Ratio a:b:c → total parts = a+b+c
+One part = total amount / (a+b+c)</div>
+<span class="clip">165</span></div></div>
+
+</div>
+</div>
+
+<!-- EXAM TECHNIQUE BOX -->
+<div class="box">
+<div class="box-head s4">Exam Technique — Paper 4H</div>
+<div class="box-body">
+<div class="tip">This is a calculator paper. Use your calculator for every calculation, even simple ones, to avoid arithmetic errors. Show your method so you earn method marks even if you press the wrong button.</div>
+<div class="good">Check: is your answer reasonable? A person can't be 500 years old. A probability can't exceed 1. A length can't be negative.</div>
+<div class="warn">Common errors: forgetting to square/cube in unit conversions; using the wrong bounds for max/min calculations; not stating circle theorem names; writing P(at least 1) = P(1) instead of 1 - P(0).</div>
+<div class="tip">For "show that" questions, you must demonstrate every step clearly. The answer is given — the marks are for the working.</div>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</body>
+</html>

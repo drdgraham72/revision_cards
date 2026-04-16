@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCSE Maths — Paper 5H OCR Crib Sheet</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+          --bg1: #ffffff; --bg2: #f4f6f2; --bg3: #eaf3de;
+          --t1: #1a1a18; --t2: #5f5e5a; --t3: #888780;
+          --bl: rgba(0,0,0,0.11); --bm: rgba(0,0,0,0.20);
+          --r: 8px; --rl: 12px;
+          --font: system-ui,-apple-system,sans-serif; --mono: 'Courier New', monospace;
+        }
+        @media(prefers-color-scheme:dark){
+          :root{
+            --bg1:#1e1e1c;--bg2:#252723;--bg3:#1a2a14;
+            --t1:#f0ece4;--t2:#a8a59e;--t3:#6e6d69;
+            --bl:rgba(255,255,255,0.09);--bm:rgba(255,255,255,0.18);
+          }
+        }
+        body{font-family:var(--font);background:var(--bg2);color:var(--t1);padding:1.75rem 1rem;min-height:100vh;}
+        .page { width: 100%; max-width: 1000px; margin: 0 auto; font-size: 12px; line-height: 1.4; }
+        h1 { font-size: 18px; font-weight: 600; margin-bottom: 0.25rem; }
+        .header { background: var(--bl); backdrop-filter: blur(8px); padding: 1rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-radius: var(--r); border: 0.5px solid var(--bm); }
+        .header h1 { font-size: 18px; font-weight: 600; margin: 0; }
+        .header span { font-size: 11px; color: var(--t2); font-family: var(--mono); letter-spacing: 0.05em; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .col { display: flex; flex-direction: column; gap: 8px; }
+        @media (max-width:768px) {
+          .grid { grid-template-columns: 1fr; }
+          .page { padding: 0; }
+        }
+        .box { background: var(--bg1); border: 0.5px solid var(--bl); border-radius: var(--r); overflow: hidden; }
+        .box-head { padding: 10px 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; background: var(--bl); }
+        .box-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; }
+        .row { display: grid; grid-template-columns: 28% 72%; gap: 8px; padding-bottom: 6px; border-bottom: 0.5px solid var(--bl); }
+        .row:last-child { border-bottom: none; }
+        .kw { font-weight: 650; color: var(--t2); font-size: 11px; font-family: var(--mono); }
+        .val { font-size: 11.5px; color: var(--t1); line-height: 1.35; }
+        .clip { font-family: var(--mono); font-size: 9px; color: var(--t3); background: var(--bg3); padding: 1px 5px; border-radius: 2px; margin-left: 4px; }
+        .formula-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; font-family: var(--mono); font-size: 10.5px; border-left: 2px solid #3b6d11; }
+        .ex-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; border-left: 2px solid var(--t2); }
+        .ex-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--t2); display: block; margin-bottom: 2px; }
+        .warn { background: #faeeda; border-left: 2px solid #ef9f27; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #633806; margin: 4px 0; }
+        .tip { background: #eeedfe; border-left: 2px solid #7f77dd; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #3c3489; margin: 4px 0; }
+        .good { background: #eaf3de; border-left: 2px solid #639922; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #173404; margin: 4px 0; }
+        .s1 { background: #3b6d11; color: #eaf3de; }
+        .s2 { background: #185fa5; color: #e6f1fb; }
+        .s3 { background: #534ab7; color: #eeedfe; }
+        .s4 { background: #854f0b; color: #faeeda; }
+        .s5 { background: #a32d2d; color: #fcebeb; }
+        .s6 { background: #0f6e56; color: #e1f5ee; }
+    </style>
+</head>
+<body>
+<div class="page">
+<div class="header">
+  <h1>OCR GCSE Maths — Paper 5 Higher (Non-Calculator)</h1>
+  <span>J560/05 · Non-Calculator · Higher Tier</span>
+</div>
+
+<div class="grid">
+<div class="col">
+
+<!-- VECTORS & TRANSFORMATIONS -->
+<div class="box">
+<div class="box-head s1">Vectors &amp; Transformations</div>
+<div class="box-body">
+
+<div class="row"><div class="kw">Column Vectors <span class="clip">174, 219</span></div><div class="val">
+A column vector describes movement: top number = horizontal (right +ve), bottom number = vertical (up +ve).
+<div class="formula-box">Vector a = (3, −2) means 3 right, 2 down</div>
+<strong>Adding:</strong> add top numbers together, add bottom numbers together.<br>
+<strong>Subtracting:</strong> subtract each component separately.
+<div class="ex-box"><span class="ex-label">Example</span>(2, 5) + (−1, 3) = (1, 8)<br>(4, 7) − (1, 2) = (3, 5)</div>
+<div class="tip">Write each component calculation separately — show your arithmetic clearly on non-calculator papers.</div>
+</div></div>
+
+<div class="row"><div class="kw">Reflection <span class="clip">48</span></div><div class="val">
+Reflect a shape in a mirror line. Every point must be the same perpendicular distance from the line on the other side.
+<div class="good">Always state the mirror line in your answer: "Reflection in the line y = x" or "Reflection in x = −1".</div>
+<div class="warn">Common error: forgetting to name the mirror line loses marks. Just drawing the shape is not enough.</div>
+</div></div>
+
+<div class="row"><div class="kw">Rotation <span class="clip">49</span></div><div class="val">
+Three things needed: <strong>centre</strong>, <strong>angle</strong>, <strong>direction</strong> (clockwise/anticlockwise).
+<div class="formula-box">Use tracing paper: pin at centre, rotate to new position.</div>
+<div class="warn">Missing any one of centre, angle, or direction = lost marks. State all three every time.</div>
+</div></div>
+
+</div></div>
+
+<!-- ALGEBRA & EQUATIONS -->
+<div class="box">
+<div class="box-head s2">Algebra &amp; Equations</div>
+<div class="box-body">
+
+<div class="row"><div class="kw">Constructing &amp; Solving Equations <span class="clip">135</span></div><div class="val">
+Form an equation from the problem context, then solve step by step.
+<div class="formula-box">1. Define your variable (let x = ...)<br>2. Write the equation from the words<br>3. Solve by isolating x</div>
+<div class="ex-box"><span class="ex-label">Example</span>"A number doubled plus 5 equals 17"<br>2x + 5 = 17 → 2x = 12 → x = 6</div>
+<div class="tip">Non-calc: show every step of rearranging. Write "−5 from both sides" etc. to demonstrate method.</div>
+</div></div>
+
+<div class="row"><div class="kw">Expanding Triple Brackets <span class="clip">178</span></div><div class="val">
+Expand two brackets first, then multiply the result by the third.
+<div class="formula-box">(a+b)(c+d)(e+f):<br>Step 1: expand (a+b)(c+d) = ac+ad+bc+bd<br>Step 2: multiply each term by (e+f)</div>
+<div class="ex-box"><span class="ex-label">Example</span>(x+1)(x+2)(x+3)<br>= (x²+3x+2)(x+3)<br>= x³+3x²+3x²+9x+2x+6<br>= x³+6x²+11x+6</div>
+<div class="warn">Collect like terms carefully — write out every partial product before simplifying. Rushing causes sign errors.</div>
+</div></div>
+
+<div class="row"><div class="kw">Substituting into Formulae <span class="clip">95</span></div><div class="val">
+Replace each letter with its given value and evaluate. No calculator — use written methods.
+<div class="formula-box">Replace variables → apply BIDMAS → simplify</div>
+<div class="tip">Write out the substitution in full before calculating. E.g. if v = u + at, write v = 3 + 2×5 = 13.</div>
+</div></div>
+
+<div class="row"><div class="kw">Simultaneous Equations with Quadratics <span class="clip">211</span></div><div class="val">
+One linear + one quadratic: substitute the linear into the quadratic.
+<div class="formula-box">1. Rearrange linear: y = mx + c<br>2. Substitute into quadratic<br>3. Solve resulting quadratic (factorise)<br>4. Find both x and y values</div>
+<div class="ex-box"><span class="ex-label">Example</span>y = x + 1 and y = x² − 3<br>x + 1 = x² − 3 → x² − x − 4 = 0<br>Solve → find both (x, y) pairs</div>
+<div class="warn">You must find BOTH pairs of solutions. Losing the second pair is a common mistake worth 1–2 marks.</div>
+</div></div>
+
+<div class="row"><div class="kw">Solving Quadratic Inequalities <span class="clip">212</span></div><div class="val">
+Solve as equation first, then determine which region satisfies the inequality.
+<div class="formula-box">1. Solve x² − 5x + 6 &lt; 0 → (x−2)(x−3) = 0<br>2. Roots: x = 2 and x = 3<br>3. Sketch parabola to find where it's below zero<br>4. Answer: 2 &lt; x &lt; 3</div>
+<div class="good">Sketch the parabola — the answer is where the curve is below/above the x-axis depending on the inequality sign.</div>
+<div class="warn">For x² &gt; k: the answer is TWO separate regions (x &lt; −a OR x &gt; a), not a single range.</div>
+</div></div>
+
+<div class="row"><div class="kw">Sequences: Position-to-Term <span class="clip">102–104</span></div><div class="val">
+The nth term of an arithmetic sequence:
+<div class="formula-box">nth term = a + (n−1)d<br>a = first term, d = common difference</div>
+<strong>Finding the rule:</strong> work out the common difference, then adjust for the starting value.
+<div class="ex-box"><span class="ex-label">Example</span>Sequence: 5, 8, 11, 14 ... → d = 3<br>nth term = 3n + 2 (check: 3×1+2=5 ✓)</div>
+</div></div>
+
+</div></div>
+
+<!-- NUMBER & FRACTIONS -->
+<div class="box">
+<div class="box-head s4">Number &amp; Fractions</div>
+<div class="box-body">
+
+<div class="row"><div class="kw">Recurring Decimals to Fractions <span class="clip">177</span></div><div class="val">
+Use algebra to eliminate the recurring part.
+<div class="formula-box">Let x = 0.363636...<br>100x = 36.363636...<br>100x − x = 36<br>99x = 36 → x = 36/99 = 4/11</div>
+<div class="tip">Multiply by 10, 100, or 1000 depending on how many digits recur. Subtract to cancel the repeating part.</div>
+<div class="warn">Always simplify the final fraction. Check by dividing numerator into denominator mentally.</div>
+</div></div>
+
+<div class="row"><div class="kw">Multiplying Mixed Numbers <span class="clip">73</span></div><div class="val">
+Convert to improper fractions first, then multiply numerators and denominators.
+<div class="formula-box">2⅓ × 1½ = 7/3 × 3/2 = 21/6 = 3½</div>
+<div class="tip">Cross-cancel before multiplying to keep numbers small. E.g. 7/3 × 3/2: the 3s cancel → 7/1 × 1/2 = 7/2.</div>
+</div></div>
+
+<div class="row"><div class="kw">Dividing with Fractions <span class="clip">74</span></div><div class="val">
+<strong>KFC:</strong> Keep the first fraction, Flip the second, Change ÷ to ×.
+<div class="formula-box">3/4 ÷ 2/5 = 3/4 × 5/2 = 15/8 = 1⅞</div>
+<div class="good">Always convert mixed numbers to improper fractions before dividing.</div>
+</div></div>
+
+<div class="row"><div class="kw">Written Division with Decimals <span class="clip">67</span></div><div class="val">
+Make the divisor a whole number by multiplying both numbers by 10 or 100.
+<div class="formula-box">3.64 ÷ 0.4 → 36.4 ÷ 4 = 9.1<br>(multiply both by 10)</div>
+<div class="tip">Use bus stop method (short division). Show carries clearly. Line up decimal points in your answer.</div>
+</div></div>
+
+<div class="row"><div class="kw">Estimating Calculations <span class="clip">91</span></div><div class="val">
+Round each number to 1 significant figure, then calculate.
+<div class="formula-box">Estimate: 389 × 21 ÷ 0.52<br>≈ 400 × 20 ÷ 0.5 = 8000 ÷ 0.5 = 16000</div>
+<div class="warn">You must show your rounded values to get the method mark. Don't just write the answer.</div>
+</div></div>
+
+<div class="row"><div class="kw">Factors &amp; Divisibility <span class="clip">28</span></div><div class="val">
+<strong>Divisibility tests (non-calc essential):</strong><br>
+÷2: even last digit. ÷3: digit sum divisible by 3. ÷4: last two digits ÷ 4. ÷5: ends 0 or 5. ÷6: passes ÷2 and ÷3. ÷9: digit sum divisible by 9.
+<div class="good">Use factor pairs systematically: check 1, 2, 3, 4... up to √n to find all factors.</div>
+</div></div>
+
+</div></div>
+
+<!-- STATISTICS & PROBABILITY -->
+<div class="box">
+<div class="box-head s3">Statistics &amp; Probability</div>
+<div class="box-body">
+
+<div class="row"><div class="kw">Sample Space Diagrams <span class="clip">126</span></div><div class="val">
+A grid showing all possible outcomes for two events. Count favourable outcomes ÷ total outcomes.
+<div class="formula-box">P(event) = favourable outcomes / total outcomes</div>
+<div class="ex-box"><span class="ex-label">Example</span>Two dice: 6×6 = 36 outcomes total.<br>P(total = 7) = 6/36 = 1/6</div>
+<div class="tip">Draw the full grid — don't try to count in your head. Systematic listing avoids missed outcomes.</div>
+</div></div>
+
+<div class="row"><div class="kw">Conditional Probability (Venn Diagrams) <span class="clip">204</span></div><div class="val">
+P(A given B) means: restrict to B, then find A within it.
+<div class="formula-box">P(A|B) = P(A ∩ B) / P(B)<br>= number in both / number in B</div>
+<div class="warn">"Given that" means you change the denominator to the condition group, not the total.</div>
+</div></div>
+
+<div class="row"><div class="kw">Tree Diagrams (Dependent Events) <span class="clip">204</span></div><div class="val">
+When items are not replaced, probabilities change on the second branch.
+<div class="formula-box">Multiply along branches (AND)<br>Add between branches (OR)</div>
+<div class="ex-box"><span class="ex-label">Example</span>Bag: 3 red, 5 blue. Pick 2 without replacement.<br>P(RR) = 3/8 × 2/7 = 6/56 = 3/28</div>
+<div class="warn">Denominators decrease by 1 for dependent events. Numerators change too if picking the same colour.</div>
+<div class="tip">Non-calc: leave as fractions and simplify at the end. Finding common denominators to add fractions is key.</div>
+</div></div>
+
+<div class="row"><div class="kw">Scatter Graphs &amp; Lines of Best Fit <span class="clip">129</span></div><div class="val">
+Describe: <strong>correlation</strong> (positive/negative/none), <strong>strength</strong> (strong/weak).
+<div class="formula-box">Line of best fit: roughly equal points above and below. Use it to interpolate (within data range).</div>
+<div class="warn">Extrapolation (predicting beyond data range) is unreliable — say so if asked.</div>
+<div class="good">Describe relationships in context: "As temperature increases, ice cream sales increase" not just "positive correlation".</div>
+</div></div>
+
+</div></div>
+
+</div>
+<div class="col">
+
+<!-- PROPORTION & PERCENTAGES -->
+<div class="box">
+<div class="box-head s5">Proportion &amp; Percentages</div>
+<div class="box-body">
+
+<div class="row"><div class="kw">Direct Proportion Equations <span class="clip">199</span></div><div class="val">
+If y is directly proportional to x: y = kx. Find k using given values.
+<div class="formula-box">y ∝ x → y = kx<br>y ∝ x² → y = kx²<br>Find k: substitute known pair</div>
+<div class="ex-box"><span class="ex-label">Example</span>y ∝ x², y = 50 when x = 5<br>50 = k × 25 → k = 2 → y = 2x²</div>
+</div></div>
+
+<div class="row"><div class="kw">Inverse Proportion Equations <span class="clip">199</span></div><div class="val">
+If y is inversely proportional to x: y = k/x. As one increases, the other decreases.
+<div class="formula-box">y ∝ 1/x → y = k/x<br>y ∝ 1/x² → y = k/x²</div>
+<div class="tip">To identify type: direct — both increase together. Inverse — one up, other down.</div>
+</div></div>
+
+<div class="row"><div class="kw">Percentage Change (Non-Calc) <span class="clip">109, 110</span></div><div class="val">
+Build up percentages from easy chunks you can calculate mentally.
+<div class="formula-box">10% = divide by 10<br>5% = half of 10%<br>1% = divide by 100<br>Build: 17.5% = 10% + 5% + 2.5%</div>
+<div class="ex-box"><span class="ex-label">Example</span>35% of £240:<br>10% = £24, 30% = £72, 5% = £12<br>35% = £72 + £12 = £84</div>
+<div class="good">Show the building blocks — this method gets full marks and avoids decimal multiplication.</div>
+</div></div>
+
+<div class="row"><div class="kw">Fractions &amp; Percentages of Amounts <span class="clip">86, 87</span></div><div class="val">
+<div class="formula-box">Fraction of amount: divide by denominator, multiply by numerator<br>Number as %: (part ÷ whole) × 100</div>
+<div class="ex-box"><span class="ex-label">Example</span>¾ of 360 = 360 ÷ 4 × 3 = 90 × 3 = 270<br>Write 18 as % of 60: 18/60 × 100 = 30%</div>
+<div class="tip">Non-calc: simplify the fraction first. 18/60 = 3/10, and 3/10 × 100 = 30%.</div>
+</div></div>
+
+<div class="row"><div class="kw">Finding Original Values (Reverse %) <span class="clip">110</span></div><div class="val">
+After a percentage change, find the original by dividing by the multiplier.
+<div class="formula-box">After 20% increase, price is £180:<br>120% = £180 → 1% = £1.50 → 100% = £150</div>
+<div class="warn">Do NOT find 20% of £180 and subtract — that gives the wrong answer because the % is of the original, not the new value.</div>
+</div></div>
+
+<div class="row"><div class="kw">Compound Interest <span class="clip">164</span></div><div class="val">
+<div class="formula-box">Amount = P × (1 + r/100)ⁿ<br>P = principal, r = rate, n = years</div>
+Non-calc: multiply year by year.
+<div class="ex-box"><span class="ex-label">Example</span>£500 at 10% for 3 years (non-calc):<br>Yr1: £500 × 1.1 = £550<br>Yr2: £550 × 1.1 = £605<br>Yr3: £605 × 1.1 = £665.50</div>
+<div class="tip">For non-calc compound interest, calculate each year separately. Show each multiplication step.</div>
+</div></div>
+
+<div class="row"><div class="kw">Equivalent Ratios <span class="clip">73, 74</span></div><div class="val">
+Find equivalent ratios by multiplying or dividing both sides by the same number.
+<div class="formula-box">Unitary method: divide to find 1 part, then scale<br>3:5 = 6:10 = 12:20</div>
+<div class="tip">Share in a ratio: add parts, divide total by sum of parts, multiply by each part.</div>
+</div></div>
+
+</div></div>
+
+<!-- GEOMETRY & MEASURES -->
+<div class="box">
+<div class="box-head s6">Geometry &amp; Measures</div>
+<div class="box-body">
+
+<div class="row"><div class="kw">Speed, Distance, Time <span class="clip">142</span></div><div class="val">
+<div class="formula-box">Speed = Distance ÷ Time<br>Distance = Speed × Time<br>Time = Distance ÷ Speed</div>
+<div class="tip">Use the DST triangle: cover what you want to find. Non-calc: convert minutes to fractions of hours (e.g. 45 min = ¾ hr).</div>
+<div class="warn">Units must match! If speed is km/h, distance must be km and time must be hours.</div>
+</div></div>
+
+<div class="row"><div class="kw">Density <span class="clip">142</span></div><div class="val">
+<div class="formula-box">Density = Mass ÷ Volume<br>Mass = Density × Volume<br>Volume = Mass ÷ Density</div>
+<div class="tip">Same triangle approach as speed. Units: g/cm³ or kg/m³. Convert carefully without a calculator.</div>
+</div></div>
+
+<div class="row"><div class="kw">Arc Length &amp; Sectors <span class="clip">167</span></div><div class="val">
+<div class="formula-box">Arc length = (θ/360) × 2πr<br>Sector area = (θ/360) × πr²</div>
+<div class="tip">Non-calc: leave answers in terms of π unless told otherwise. Simplify the fraction θ/360 first.</div>
+<div class="ex-box"><span class="ex-label">Example</span>Arc length, r = 6, θ = 120°:<br>= (120/360) × 2π × 6 = (1/3) × 12π = 4π cm</div>
+</div></div>
+
+<div class="row"><div class="kw">Sine Rule <span class="clip">167</span></div><div class="val">
+<div class="formula-box">a/sin A = b/sin B = c/sin C<br>(or flipped: sin A/a = sin B/b)</div>
+Use when you have a side and its opposite angle, plus one other piece.
+<div class="good">Use the version with the unknown on top to avoid rearranging.</div>
+</div></div>
+
+<div class="row"><div class="kw">Exact Trig Values <span class="clip">167</span></div><div class="val">
+Must be memorised for non-calculator:
+<div class="formula-box">sin 0°=0, sin 30°=½, sin 45°=√2/2, sin 60°=√3/2, sin 90°=1<br>cos 0°=1, cos 30°=√3/2, cos 45°=√2/2, cos 60°=½, cos 90°=0<br>tan 0°=0, tan 30°=√3/3, tan 45°=1, tan 60°=√3, tan 90°=undef</div>
+<div class="warn">These WILL be tested on non-calculator. Learn the pattern: sin and cos are mirrors of each other.</div>
+</div></div>
+
+<div class="row"><div class="kw">Volume of Cones &amp; Spheres <span class="clip">171, 169</span></div><div class="val">
+<div class="formula-box">Cone: V = ⅓πr²h<br>Sphere: V = ⁴⁄₃πr³<br>Hemisphere: V = ⅔πr³</div>
+<div class="tip">Formulae are given on the exam paper, but practice using them without a calculator — leave in terms of π.</div>
+</div></div>
+
+<div class="row"><div class="kw">Similar Shapes: Area &amp; Volume <span class="clip">144</span></div><div class="val">
+If the linear scale factor is k:
+<div class="formula-box">Lengths: × k<br>Areas: × k²<br>Volumes: × k³</div>
+<div class="ex-box"><span class="ex-label">Example</span>Scale factor = 3 → Area factor = 9, Volume factor = 27<br>If small surface area = 20cm², large = 20 × 9 = 180cm²</div>
+<div class="warn">Find the LINEAR scale factor first from corresponding lengths, then square or cube it.</div>
+</div></div>
+
+<div class="row"><div class="kw">Constructing Loci &amp; Bisectors <span class="clip">146</span></div><div class="val">
+<strong>Perpendicular bisector:</strong> compass arcs from each end of line, join intersections.<br>
+<strong>Angle bisector:</strong> arc from vertex, then arcs from where it hits each arm, join to vertex.
+<div class="good">Leave all construction arcs visible — they are worth marks. Use a sharp pencil and don't rub out arcs.</div>
+<div class="tip">Locus of points equidistant from two points = perpendicular bisector. Equidistant from two lines = angle bisector.</div>
+</div></div>
+
+</div></div>
+
+<!-- GRAPHS & FUNCTIONS -->
+<div class="box">
+<div class="box-head s3">Graphs &amp; Functions</div>
+<div class="box-body">
+
+<div class="row"><div class="kw">Exponential Functions <span class="clip">194</span></div><div class="val">
+Graphs of y = aˣ where a &gt; 1: curve rises steeply, always above x-axis, passes through (0, 1).
+<div class="formula-box">y = aˣ → y-intercept is always (0, 1)<br>The x-axis is an asymptote (curve never touches it)</div>
+<div class="tip">To sketch: plot (0,1), (1,a), (2,a²) and note the curve approaches but never reaches y = 0.</div>
+</div></div>
+
+<div class="row"><div class="kw">Growth &amp; Decay <span class="clip">194</span></div><div class="val">
+<div class="formula-box">Growth: y = a × (multiplier)ᵗ where multiplier &gt; 1<br>Decay: y = a × (multiplier)ᵗ where 0 &lt; multiplier &lt; 1</div>
+<div class="ex-box"><span class="ex-label">Example</span>Bacteria doubles every hour, starts at 500:<br>y = 500 × 2ᵗ<br>After 3 hours: 500 × 8 = 4000</div>
+<div class="good">For decay, the multiplier = 1 − (rate as decimal). E.g. 15% decay → multiplier = 0.85.</div>
+</div></div>
+
+<div class="row"><div class="kw">Trigonometric Graphs <span class="clip">195</span></div><div class="val">
+Know the shapes of sin x, cos x, and tan x.
+<div class="formula-box">sin x: starts at 0, period 360°, range −1 to 1<br>cos x: starts at 1, period 360°, range −1 to 1<br>tan x: period 180°, asymptotes at 90°, 270°...</div>
+<div class="tip">cos x is just sin x shifted 90° left. tan x repeats every 180° and has vertical asymptotes.</div>
+<div class="warn">Read the scale on the x-axis carefully — it might be in radians (π, 2π) not degrees.</div>
+</div></div>
+
+</div></div>
+
+<!-- EXAM TECHNIQUE BOX -->
+<div class="box">
+<div class="box-head s5">Non-Calculator Exam Technique</div>
+<div class="box-body">
+
+<div class="row"><div class="kw">Show Working</div><div class="val">
+<div class="good">Every line of working can earn a method mark. Even if your final answer is wrong, clear working can score 3 out of 4 marks on a question.</div>
+<div class="tip">Write one step per line. Don't try to do multiple operations in your head at once.</div>
+</div></div>
+
+<div class="row"><div class="kw">Mental Arithmetic Strategies</div><div class="val">
+<strong>Multiplication:</strong> break into factors. 24 × 15 = 24 × 10 + 24 × 5 = 240 + 120 = 360.<br>
+<strong>Division:</strong> use chunking or short division. Show the bus stop method clearly.<br>
+<strong>Fractions:</strong> find common denominators by listing multiples or using LCM.
+<div class="warn">Don't leave answers as decimals if the question asks for exact values — use fractions or surds.</div>
+</div></div>
+
+<div class="row"><div class="kw">Check Your Answers</div><div class="val">
+<div class="formula-box">Substitute your answer back into the original equation or context to verify.</div>
+<div class="tip">Use estimation to check: if you calculated 47 × 83 = 3901, estimate 50 × 80 = 4000. Close enough — probably right.</div>
+</div></div>
+
+</div></div>
+
+</div>
+</div><!-- /grid -->
+
+</div><!-- /page -->
+</body>
+</html>

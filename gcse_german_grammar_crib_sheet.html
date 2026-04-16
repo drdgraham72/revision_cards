@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCSE German — Grammar &amp; Sentence Builders</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg1: #ffffff; --bg2: #f4f6f2; --bg3: #eaf3de;
+  --t1: #1a1a18; --t2: #5f5e5a; --t3: #888780;
+  --bl: rgba(0,0,0,0.11); --bm: rgba(0,0,0,0.20);
+  --r: 8px; --rl: 12px;
+  --font: system-ui,-apple-system,sans-serif; --mono: 'Courier New', monospace;
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --bg1:#1e1e1c;--bg2:#252723;--bg3:#1a2a14;
+    --t1:#f0ece4;--t2:#a8a59e;--t3:#6e6d69;
+    --bl:rgba(255,255,255,0.09);--bm:rgba(255,255,255,0.18);
+  }
+}
+body{font-family:var(--font);background:var(--bg2);color:var(--t1);padding:1.75rem 1rem;min-height:100vh;font-size:16px;}
+.page { width: 100%; max-width: 1000px; margin: 0 auto; font-size: 0.75rem; line-height: 1.4; }
+h1 { font-size: 1.125rem; font-weight: 600; margin-bottom: 0.25rem; }
+.header { background: var(--bl); backdrop-filter: blur(8px); padding: 1rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-radius: var(--r); border: 0.5px solid var(--bm); }
+.header h1 { font-size: 1.125rem; font-weight: 600; margin: 0; }
+.header span { font-size: 0.688rem; color: var(--t2); font-family: var(--mono); letter-spacing: 0.05em; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.col { display: flex; flex-direction: column; gap: 8px; }
+@media (max-width:768px) {
+  .grid { grid-template-columns: 1fr; }
+  .page { padding: 1rem 0.5rem; }
+  body { font-size: 18px; }
+  .page { font-size: 0.8rem; }
+}
+@media (max-width:480px) {
+  body { font-size: 20px; }
+  .page { font-size: 0.85rem; }
+}
+.box { background: var(--bg1); border: 0.5px solid var(--bl); border-radius: var(--r); overflow: hidden; }
+.box-head { padding: 10px 12px; font-size: 0.688rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; background: var(--bl); }
+.box-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; }
+.row { display: grid; grid-template-columns: 35% 65%; gap: 8px; padding-bottom: 6px; border-bottom: 0.5px solid var(--bl); }
+.row:last-child { border-bottom: none; }
+.kw { font-weight: 650; color: var(--t2); font-size: 0.688rem; font-family: var(--mono); }
+.val { font-size: 0.763rem; color: var(--t1); line-height: 1.35; }
+.tag { display: inline-block; padding: 2px 6px; border-radius: 3px; font-size: 0.625rem; font-weight: 600; margin-right: 3px; margin-bottom: 1px; }
+.t-r { background: #fcebeb; color: #a32d2d; }
+.t-b { background: #e6f1fb; color: #185fa5; }
+.t-g { background: #eaf3de; color: #3b6d11; }
+.t-a { background: #faeeda; color: #854f0b; }
+.t-p { background: #eeedfe; color: #534ab7; }
+.t-k { background: var(--bl); color: var(--t1); }
+.marks { font-family: var(--mono); font-size: 0.625rem; color: var(--t2); background: var(--bg3); padding: 2px 5px; border-radius: 2px; }
+.formula { font-family: var(--mono); font-size: 0.688rem; background: var(--bg3); padding: 3px 6px; border-radius: 2px; display: inline-block; margin: 2px 0; }
+.formula-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; font-family: var(--mono); font-size: 10.5px; border-left: 2px solid #3b6d11; }
+.ex-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; border-left: 2px solid var(--t2); }
+.sep { border-left: 2px solid var(--t2); padding-left: 8px; margin: 3px 0; }
+.warn { background: #faeeda; border-left: 2px solid #ef9f27; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 0.688rem; color: #633806; margin: 4px 0; }
+.tip { background: #eeedfe; border-left: 2px solid #7f77dd; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 0.688rem; color: #3c3489; margin: 4px 0; }
+.good { background: #eaf3de; border-left: 2px solid #639922; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 0.688rem; color: #173404; margin: 4px 0; }
+hr.div { border: none; border-top: 0.5px solid var(--bl); margin: 4px 0; }
+.s1 { background: #185fa5; color: #e6f1fb; }
+.s2 { background: #3b6d11; color: #eaf3de; }
+.s3 { background: #854f0b; color: #faeeda; }
+.s4 { background: #534ab7; color: #eeedfe; }
+.s5 { background: #993556; color: #fbeaf0; }
+.s6 { background: #0f6e56; color: #e1f5ee; }
+.s7 { background: #993c1d; color: #faece7; }
+.s8 { background: #444441; color: #f1efe8; }
+</style>
+</head>
+<body>
+
+<div class="page">
+<div class="header">
+  <h1>GCSE German — Grammar &amp; Sentence Builders</h1>
+  <span>AQA/Edexcel · Writing &amp; Speaking · Core structures for Year 10+</span>
+</div>
+
+<div class="grid">
+<div class="col">
+
+<!-- Section 1: Present Tense -->
+<div class="box">
+<div class="box-head s1">1 · Present Tense — Regular Verbs</div>
+<div class="box-body">
+<div class="formula-box">Regular -en verbs: remove -en, add ending</div>
+<div class="row"><div class="kw">spielen</div><div class="val">(to play) — model regular verb</div></div>
+<div class="row"><div class="kw">ich</div><div class="val">spiel<b>e</b></div></div>
+<div class="row"><div class="kw">du</div><div class="val">spiel<b>st</b></div></div>
+<div class="row"><div class="kw">er/sie/es</div><div class="val">spiel<b>t</b></div></div>
+<div class="row"><div class="kw">wir</div><div class="val">spiel<b>en</b></div></div>
+<div class="row"><div class="kw">ihr</div><div class="val">spiel<b>t</b></div></div>
+<div class="row"><div class="kw">sie/Sie</div><div class="val">spiel<b>en</b></div></div>
+<hr class="div">
+<div class="row"><div class="kw">sein (to be)</div><div class="val">bin, bist, ist, sind, seid, sind</div></div>
+<div class="row"><div class="kw">haben (to have)</div><div class="val">habe, hast, hat, haben, habt, haben</div></div>
+<div class="row"><div class="kw">fahren (to drive)</div><div class="val">fahre, f<b>ä</b>hrst, f<b>ä</b>hrt, fahren, fahrt, fahren</div></div>
+<div class="row"><div class="kw">essen (to eat)</div><div class="val">esse, <b>i</b>sst, <b>i</b>sst, essen, esst, essen</div></div>
+<div class="row"><div class="kw">lesen (to read)</div><div class="val">lese, l<b>ie</b>st, l<b>ie</b>st, lesen, lest, lesen</div></div>
+<div class="row"><div class="kw">sehen (to see)</div><div class="val">sehe, s<b>ie</b>hst, s<b>ie</b>ht, sehen, seht, sehen</div></div>
+<div class="row"><div class="kw">geben (to give)</div><div class="val">gebe, g<b>i</b>bst, g<b>i</b>bt, geben, gebt, geben</div></div>
+<div class="tip">Irregular verbs change their vowel in du &amp; er/sie/es forms only — wir/ihr/sie stay normal</div>
+</div>
+</div>
+
+<!-- Section 2: Perfect Tense -->
+<div class="box">
+<div class="box-head s2">2 · Perfect Tense (Past)</div>
+<div class="box-body">
+<div class="formula-box">Subject + haben/sein (conjugated) + ... + past participle (at END)</div>
+<div class="row"><div class="kw">Regular (weak)</div><div class="val"><b>ge___t</b> — gespielt, gemacht, gekauft, gewohnt, gelernt</div></div>
+<div class="row"><div class="kw">Irregular (strong)</div><div class="val"><b>ge___en</b> — gegessen, getrunken, geschrieben, gelesen, gesehen, genommen, gefunden</div></div>
+<hr class="div">
+<div class="good">Verbs of MOVEMENT or CHANGE OF STATE use <b>sein</b> (not haben):</div>
+<div class="row"><div class="kw">sein verbs</div><div class="val">gegangen (went), gefahren (drove), geflogen (flew), geschwommen (swam), gelaufen (ran), geworden (became), gestorben (died)</div></div>
+<hr class="div">
+<div class="row"><div class="kw">Separable verbs</div><div class="val">ge- goes between prefix &amp; stem: <b>ein</b>ge<b>kauft</b>, <b>auf</b>ge<b>standen</b>, <b>fern</b>ge<b>sehen</b></div></div>
+<div class="row"><div class="kw">Inseparable</div><div class="val">No ge-: besucht, verstanden, empfohlen, erzählt</div></div>
+<div class="ex-box">Ich <b>habe</b> Fußball <b>gespielt</b>. — I played football.</div>
+<div class="ex-box">Wir <b>sind</b> nach Berlin <b>gefahren</b>. — We drove to Berlin.</div>
+<div class="ex-box">Er <b>hat</b> ein Buch <b>gelesen</b>. — He read a book.</div>
+<div class="warn">Common mistake: using haben with movement verbs — "Ich habe gegangen" is WRONG, use "Ich <b>bin</b> gegangen"</div>
+</div>
+</div>
+
+<!-- Section 3: Future Tense -->
+<div class="box">
+<div class="box-head s3">3 · Future Tense</div>
+<div class="box-body">
+<div class="formula-box">Subject + werden (conjugated) + ... + infinitive (at END)</div>
+<div class="row"><div class="kw">ich</div><div class="val">werde</div></div>
+<div class="row"><div class="kw">du</div><div class="val">wirst</div></div>
+<div class="row"><div class="kw">er/sie/es</div><div class="val">wird</div></div>
+<div class="row"><div class="kw">wir</div><div class="val">werden</div></div>
+<div class="row"><div class="kw">ihr</div><div class="val">werdet</div></div>
+<div class="row"><div class="kw">sie/Sie</div><div class="val">werden</div></div>
+<div class="ex-box">Ich <b>werde</b> Fußball <b>spielen</b>. — I will play football.</div>
+<div class="ex-box">Wir <b>werden</b> nach Spanien <b>fliegen</b>. — We will fly to Spain.</div>
+<hr class="div">
+<div class="good">Quick alternative: present tense + time phrase for near future</div>
+<div class="ex-box"><b>Morgen</b> spiele ich Tennis. — Tomorrow I'm playing tennis.</div>
+<div class="ex-box"><b>Nächste Woche</b> fahren wir nach London. — Next week we're going to London.</div>
+<div class="tip">Examiners love seeing <b>werden</b> — it clearly shows you know the future tense</div>
+</div>
+</div>
+
+<!-- Section 4: Modal Verbs -->
+<div class="box">
+<div class="box-head s4">4 · Modal Verbs</div>
+<div class="box-body">
+<div class="formula-box">Subject + modal verb (position 2, conjugated) + ... + infinitive (at END)</div>
+<div class="row"><div class="kw">können</div><div class="val">(can/able to) — kann, kannst, kann, können, könnt, können</div></div>
+<div class="row"><div class="kw">müssen</div><div class="val">(must/have to) — muss, musst, muss, müssen, müsst, müssen</div></div>
+<div class="row"><div class="kw">wollen</div><div class="val">(want to) — will, willst, will, wollen, wollt, wollen</div></div>
+<div class="row"><div class="kw">sollen</div><div class="val">(should) — soll, sollst, soll, sollen, sollt, sollen</div></div>
+<div class="row"><div class="kw">dürfen</div><div class="val">(may/allowed to) — darf, darfst, darf, dürfen, dürft, dürfen</div></div>
+<div class="row"><div class="kw">möchte</div><div class="val">(would like) — möchte, möchtest, möchte, möchten, möchtet, möchten</div></div>
+<div class="ex-box">Ich <b>muss</b> meine Hausaufgaben <b>machen</b>. — I must do my homework.</div>
+<div class="ex-box">Man <b>darf</b> hier nicht <b>rauchen</b>. — You're not allowed to smoke here.</div>
+<div class="ex-box">Ich <b>möchte</b> Arzt <b>werden</b>. — I would like to become a doctor.</div>
+<div class="tip">Use <b>man</b> (one/you) + modal for general statements — great in writing!</div>
+</div>
+</div>
+
+<!-- Section 5: Word Order Rules -->
+<div class="box">
+<div class="box-head s5">5 · Word Order Rules</div>
+<div class="box-body">
+<div class="formula-box">VERB = always position 2 in main clauses (the golden rule)</div>
+<div class="row"><div class="kw">Normal SVO</div><div class="val"><b>Ich</b> spiele Fußball. — Subject first, verb second</div></div>
+<div class="row"><div class="kw">TMP order</div><div class="val"><b>Time–Manner–Place</b>: Ich fahre <b>morgen</b> <b>mit dem Bus</b> <b>in die Stadt</b></div></div>
+<div class="row"><div class="kw">Inversion</div><div class="val">Time/place first → verb stays 2nd, subject flips: <b>Morgen</b> <b>spiele</b> <b>ich</b>...</div></div>
+<hr class="div">
+<div class="good">Subordinating conjunctions — verb goes to the END of the clause:</div>
+<div class="row"><div class="kw">weil</div><div class="val">(because) — Ich lerne Deutsch, weil es interessant <b>ist</b></div></div>
+<div class="row"><div class="kw">dass</div><div class="val">(that) — Ich glaube, dass er nett <b>ist</b></div></div>
+<div class="row"><div class="kw">wenn</div><div class="val">(when/if) — Wenn es regnet, <b>bleibe</b> ich zu Hause</div></div>
+<div class="row"><div class="kw">obwohl</div><div class="val">(although) — Obwohl es kalt <b>ist</b>, gehe ich spazieren</div></div>
+<div class="row"><div class="kw">als</div><div class="val">(when — past) — Als ich jung <b>war</b>, spielte ich gern</div></div>
+<div class="row"><div class="kw">ob</div><div class="val">(whether) — Ich weiß nicht, ob er <b>kommt</b></div></div>
+<hr class="div">
+<div class="row"><div class="kw">No change</div><div class="val"><b>und, aber, oder, denn, sondern</b> — these DON'T send verb to end</div></div>
+<div class="warn">Forgetting verb-to-end in weil/dass clauses is the #1 grammar error in exams</div>
+</div>
+</div>
+
+</div>
+
+<div class="col">
+
+<!-- Section 6: Opinion Phrases -->
+<div class="box">
+<div class="box-head s6">6 · Opinion Phrases (Meinungen)</div>
+<div class="box-body">
+<div class="good">Opinion phrases are GOLD for writing &amp; speaking marks — examiners actively look for these</div>
+<div class="row"><div class="kw">Ich denke, dass...</div><div class="val">I think that... (+ verb to end)</div></div>
+<div class="row"><div class="kw">Ich glaube, dass...</div><div class="val">I believe that...</div></div>
+<div class="row"><div class="kw">Ich finde, dass...</div><div class="val">I find/think that...</div></div>
+<div class="row"><div class="kw">Meiner Meinung nach...</div><div class="val">In my opinion... (+ inversion: verb before subject)</div></div>
+<div class="row"><div class="kw">Es gefällt mir</div><div class="val">I like it (lit. "it pleases me")</div></div>
+<div class="row"><div class="kw">Es gefällt mir nicht</div><div class="val">I don't like it</div></div>
+<div class="row"><div class="kw">Ich bin der Meinung, dass...</div><div class="val">I am of the opinion that...</div></div>
+<div class="row"><div class="kw">Ich stimme zu</div><div class="val">I agree</div></div>
+<div class="row"><div class="kw">Ich stimme nicht zu</div><div class="val">I disagree</div></div>
+<div class="row"><div class="kw">Einerseits...</div><div class="val">On one hand...</div></div>
+<div class="row"><div class="kw">Andererseits...</div><div class="val">On the other hand...</div></div>
+<div class="ex-box">Meiner Meinung nach <b>ist</b> Sport sehr wichtig.</div>
+<div class="ex-box">Ich finde, dass Mathe langweilig <b>ist</b>, aber Deutsch gefällt mir.</div>
+<div class="tip">Always justify opinions with <b>weil</b> — "Ich finde Deutsch toll, weil es nützlich ist"</div>
+</div>
+</div>
+
+<!-- Section 7: Connectives & Time Phrases -->
+<div class="box">
+<div class="box-head s7">7 · Connectives &amp; Time Phrases</div>
+<div class="box-body">
+<div class="row"><div class="kw">Coordinating</div><div class="val">NO word order change: <b>und</b> (and), <b>aber</b> (but), <b>oder</b> (or), <b>denn</b> (because), <b>sondern</b> (but rather)</div></div>
+<div class="row"><div class="kw">Subordinating</div><div class="val">Verb to END: <b>weil</b> (because), <b>dass</b> (that), <b>wenn</b> (when/if), <b>obwohl</b> (although), <b>als</b> (when-past), <b>ob</b> (whether), <b>damit</b> (so that), <b>nachdem</b> (after), <b>bevor</b> (before)</div></div>
+<hr class="div">
+<div class="good">Time phrases — scatter these through your writing for easy marks:</div>
+<div class="row"><div class="kw">Present</div><div class="val">normalerweise (normally), manchmal (sometimes), oft (often), immer (always), nie (never), jeden Tag (every day)</div></div>
+<div class="row"><div class="kw">Past</div><div class="val">letzte Woche (last week), letztes Jahr (last year), gestern (yesterday), als ich jünger war (when I was younger), vor zwei Jahren (two years ago)</div></div>
+<div class="row"><div class="kw">Future</div><div class="val">morgen (tomorrow), nächstes Jahr (next year), in der Zukunft (in the future), eines Tages (one day), bald (soon)</div></div>
+<div class="tip">Starting a sentence with a time phrase triggers inversion — verb before subject</div>
+</div>
+</div>
+
+<!-- Section 8: Cases Quick Reference -->
+<div class="box">
+<div class="box-head s8">8 · Cases Quick Reference</div>
+<div class="box-body">
+<div class="formula-box">Nom = subject · Acc = direct object · Dat = indirect object / after certain prepositions</div>
+<div class="row"><div class="kw">Nominative</div><div class="val"><b>der</b> / <b>die</b> / <b>das</b> / <b>die</b> (pl) — ein / eine / ein</div></div>
+<div class="row"><div class="kw">Accusative</div><div class="val"><b>den</b> / die / das / die — <b>einen</b> / eine / ein</div></div>
+<div class="row"><div class="kw">Dative</div><div class="val"><b>dem</b> / <b>der</b> / <b>dem</b> / <b>den</b>(+n) — <b>einem</b> / <b>einer</b> / <b>einem</b></div></div>
+<hr class="div">
+<div class="row"><div class="kw">Acc prepositions</div><div class="val"><b>für</b> (for), <b>um</b> (around), <b>gegen</b> (against), <b>durch</b> (through), <b>ohne</b> (without)</div></div>
+<div class="row"><div class="kw">Dat prepositions</div><div class="val"><b>mit</b> (with), <b>von</b> (from), <b>zu</b> (to), <b>aus</b> (out of), <b>bei</b> (at/near), <b>nach</b> (after/to), <b>seit</b> (since), <b>gegenüber</b> (opposite)</div></div>
+<div class="row"><div class="kw">Dual (Wechsel)</div><div class="val"><b>in, an, auf, über, unter, vor, hinter, neben, zwischen</b> — accusative (movement) or dative (location)</div></div>
+<div class="ex-box">Ich gehe <b>in die</b> Stadt. (acc — movement INTO)</div>
+<div class="ex-box">Ich bin <b>in der</b> Stadt. (dat — location IN)</div>
+<div class="warn">Only the MASCULINE article changes in accusative (der→den, ein→einen) — die/das stay the same</div>
+<div class="tip">Remember dative prepositions: <b>mit, von, zu, aus, bei, nach, seit</b> — learn them as a list</div>
+</div>
+</div>
+
+<!-- Section 9: Sentence Starters & Upgrade Phrases -->
+<div class="box">
+<div class="box-head s1">9 · Sentence Starters &amp; Upgrade Phrases</div>
+<div class="box-body">
+<div class="good">These phrases instantly push writing into higher mark bands — learn 4–5 by heart</div>
+<div class="row"><div class="kw">Obwohl...</div><div class="val">(Although...) — shows complex clause structure</div></div>
+<div class="row"><div class="kw">Wenn ich... könnte</div><div class="val">(If I could...) — Wenn ich reich wäre, würde ich reisen</div></div>
+<div class="row"><div class="kw">Es wäre besser, wenn...</div><div class="val">(It would be better if...) — conditional mood</div></div>
+<div class="row"><div class="kw">Nicht nur... sondern auch...</div><div class="val">(Not only... but also...) — impressive range</div></div>
+<div class="row"><div class="kw">Je mehr... desto besser</div><div class="val">(The more... the better)</div></div>
+<div class="row"><div class="kw">Trotzdem</div><div class="val">(Nevertheless) — great for contrasting points</div></div>
+<div class="row"><div class="kw">Außerdem</div><div class="val">(Furthermore) — adds to an argument</div></div>
+<div class="row"><div class="kw">Deshalb / Deswegen</div><div class="val">(Therefore) — shows cause and effect</div></div>
+<div class="row"><div class="kw">Zum Beispiel</div><div class="val">(For example) — supports your opinion</div></div>
+<div class="row"><div class="kw">Im Vergleich zu...</div><div class="val">(In comparison to...) — analytical language</div></div>
+<div class="ex-box">Obwohl das Wetter schlecht <b>war</b>, <b>bin</b> ich schwimmen gegangen.</div>
+<div class="ex-box">Nicht nur <b>ist</b> Deutsch nützlich, sondern auch interessant.</div>
+<div class="tip">Use at least ONE "obwohl" or "wenn ich... würde" sentence per writing task — it signals higher-level grammar</div>
+</div>
+</div>
+
+<!-- Section 10: Common Exam Mistakes -->
+<div class="box">
+<div class="box-head s5">10 · Common Exam Mistakes</div>
+<div class="box-body">
+<div class="warn"><b>Verb position in subordinate clauses</b> — after weil/dass/wenn/obwohl, the verb MUST go to the end. "Ich mag Deutsch, weil es ist toll" is WRONG → "weil es toll <b>ist</b>"</div>
+<div class="warn"><b>haben vs sein in perfect tense</b> — movement/change verbs need sein: "Ich <b>bin</b> gegangen" not "Ich habe gegangen"</div>
+<div class="warn"><b>Capital letters on ALL nouns</b> — in German, every noun is capitalised, not just proper nouns: die <b>S</b>chule, das <b>B</b>uch, meine <b>H</b>ausaufgaben</div>
+<div class="warn"><b>der/die/das confusion</b> — always learn nouns WITH their article. No shortcut, just practice.</div>
+<div class="warn"><b>Only using one tense</b> — examiners want to see PAST + PRESENT + FUTURE in every extended writing piece. Mix them deliberately.</div>
+<hr class="div">
+<div class="good"><b>Tense checklist before submitting:</b> Have I used perfect tense (past)? Present tense? Future with werden OR time phrase? At least one opinion with weil/dass? At least one complex starter (obwohl, wenn)?</div>
+<div class="tip"><b>Exam strategy:</b> Plan your tenses before writing. Paragraph 1 = present/opinions. Paragraph 2 = past experience. Paragraph 3 = future plans. This guarantees tense variety.</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</body>
+</html>

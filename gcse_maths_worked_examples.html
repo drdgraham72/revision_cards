@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCSE Maths — Worked Examples</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=DM+Mono:wght@400;500&family=Barlow+Condensed:wght@400;500;600;700&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #f5f5f0;
+            --paper: #fffef9;
+            --ink: #1a1a2e;
+            --ink-light: #4a4a5e;
+            --line: #c8d8e8;
+            --margin: #e8a0a0;
+            --highlight: #fff3cd;
+            --explain-bg: #1a1a2e;
+            --explain-text: #f0ece4;
+            --green: #3b6d11;
+            --blue: #185fa5;
+            --red: #a32d2d;
+            --purple: #534ab7;
+            --font: 'Barlow Condensed', sans-serif;
+            --mono: 'DM Mono', monospace;
+            --hand: 'Caveat', cursive;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1e;
+                --paper: #252528;
+                --ink: #e8e4dc;
+                --ink-light: #a8a49c;
+                --line: #3a3a44;
+                --margin: #6e3030;
+                --highlight: #3a3520;
+                --explain-bg: #f0ece4;
+                --explain-text: #1a1a2e;
+            }
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--ink);
+            min-height: 100vh;
+            padding: 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Question selector */
+        .question-nav {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .question-nav label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--ink-light);
+        }
+
+        .q-btn {
+            padding: 6px 14px;
+            border: 1.5px solid var(--line);
+            border-radius: 4px;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: var(--mono);
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .q-btn:hover { border-color: var(--blue); color: var(--blue); }
+        .q-btn.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+
+        /* Question box */
+        .question-box {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .question-box .marks {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            font-family: var(--mono);
+            font-size: 11px;
+            font-weight: 600;
+            color: #fff;
+            background: var(--blue);
+            padding: 3px 10px;
+            border-radius: 3px;
+        }
+
+        .question-box .source {
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--ink-light);
+            margin-bottom: 8px;
+            letter-spacing: 0.04em;
+        }
+
+        .question-box .q-text {
+            font-size: 15px;
+            line-height: 1.5;
+            padding-right: 60px;
+        }
+
+        .question-box .q-text em {
+            font-style: italic;
+            color: var(--ink-light);
+            font-size: 13px;
+        }
+
+        /* Exam paper workspace */
+        .workspace {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 0;
+            margin-bottom: 1rem;
+            min-height: 300px;
+            overflow: hidden;
+        }
+
+        .paper-lines {
+            padding: 16px 24px 16px 60px;
+            position: relative;
+            min-height: 300px;
+        }
+
+        /* Margin line */
+        .paper-lines::before {
+            content: '';
+            position: absolute;
+            left: 50px;
+            top: 0;
+            bottom: 0;
+            width: 1.5px;
+            background: var(--margin);
+        }
+
+        .answer-line {
+            font-family: var(--hand);
+            font-size: 22px;
+            line-height: 36px;
+            color: var(--ink);
+            padding: 2px 0;
+            border-bottom: 1px solid var(--line);
+            min-height: 36px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(4px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .answer-line.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .answer-line.formula { color: var(--blue); font-weight: 600; }
+        .answer-line.substitution { color: var(--ink); }
+        .answer-line.result { color: var(--green); font-weight: 700; }
+        .answer-line.annotation {
+            color: var(--ink-light);
+            font-size: 16px;
+            font-style: italic;
+        }
+        .answer-line.underline-answer {
+            color: var(--green);
+            font-weight: 700;
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 4px;
+        }
+
+        /* Mark ticks in the margin */
+        .mark-tick {
+            position: absolute;
+            left: -36px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: var(--green);
+            font-weight: 700;
+            opacity: 0;
+            transition: opacity 0.3s ease 0.3s;
+        }
+
+        .answer-line.visible .mark-tick { opacity: 1; }
+
+        /* Explanation popup */
+        .explain-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .explain-overlay.show { display: flex; }
+
+        .explain-bubble {
+            background: var(--explain-bg);
+            color: var(--explain-text);
+            max-width: 500px;
+            width: 100%;
+            border-radius: 12px;
+            padding: 24px 28px;
+            box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .explain-step-num {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            opacity: 0.6;
+            margin-bottom: 6px;
+        }
+
+        .explain-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .explain-body {
+            font-size: 13px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .explain-body strong { color: #7fb3e8; }
+
+        @media (prefers-color-scheme: dark) {
+            .explain-body strong { color: #3b6d11; }
+        }
+
+        .explain-why {
+            margin-top: 12px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            font-size: 12px;
+            font-style: italic;
+            opacity: 0.7;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .explain-why { border-top-color: rgba(0,0,0,0.15); }
+        }
+
+        .explain-action {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 16px;
+        }
+
+        .btn-write {
+            padding: 8px 20px;
+            border: none;
+            border-radius: 6px;
+            background: var(--blue);
+            color: #fff;
+            font-family: var(--font);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-write:hover { background: #1270c4; }
+
+        /* Controls bar */
+        .controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .step-info {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--ink-light);
+        }
+
+        .controls-right {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: 1.5px solid var(--line);
+            border-radius: 6px;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: var(--font);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn:hover { border-color: var(--blue); color: var(--blue); }
+        .btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+        .btn.primary {
+            background: var(--green);
+            color: #fff;
+            border-color: var(--green);
+        }
+
+        .btn.primary:hover { background: #4a8015; }
+        .btn.primary:disabled { background: var(--ink-light); border-color: var(--ink-light); }
+
+        /* Complete state */
+        .score-bar {
+            display: none;
+            align-items: center;
+            gap: 12px;
+            margin-top: 12px;
+            padding: 12px 16px;
+            background: var(--highlight);
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        .score-bar.show { display: flex; }
+
+        .score-bar .score {
+            font-family: var(--mono);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--green);
+        }
+
+        @media (max-width: 600px) {
+            .paper-lines { padding-left: 48px; }
+            .paper-lines::before { left: 38px; }
+            .answer-line { font-size: 18px; line-height: 32px; min-height: 32px; }
+            .mark-tick { left: -28px; font-size: 14px; }
+            .question-box .q-text { font-size: 14px; padding-right: 50px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="question-nav">
+        <label>Example:</label>
+        <div id="qButtons"></div>
+    </div>
+
+    <div class="question-box" id="questionBox">
+        <div class="marks" id="marksLabel"></div>
+        <div class="source" id="sourceLabel"></div>
+        <div class="q-text" id="questionText"></div>
+    </div>
+
+    <div class="workspace">
+        <div class="paper-lines" id="paperLines"></div>
+    </div>
+
+    <div class="score-bar" id="scoreBar">
+        <span class="score" id="scoreText"></span>
+        <span>All marks secured. This is what a full-marks answer looks like.</span>
+    </div>
+
+    <div class="controls">
+        <div class="step-info" id="stepInfo"></div>
+        <div class="controls-right">
+            <button class="btn" id="btnReset" onclick="resetQuestion()">Reset</button>
+            <button class="btn primary" id="btnNext" onclick="showNextStep()">Next Step</button>
+        </div>
+    </div>
+</div>
+
+<div class="explain-overlay" id="explainOverlay">
+    <div class="explain-bubble">
+        <div class="explain-step-num" id="explainStepNum"></div>
+        <div class="explain-title" id="explainTitle"></div>
+        <div class="explain-body" id="explainBody"></div>
+        <div class="explain-why" id="explainWhy"></div>
+        <div class="explain-action">
+            <button class="btn-write" onclick="writeStep()">Write it &rarr;</button>
+        </div>
+    </div>
+</div>
+
+<script>
+var questions = [
+    {
+        id: "density",
+        label: "Density (6 marks)",
+        source: "OCR J560 style — Paper 4H (Calculator)",
+        marks: 6,
+        text: "A solid metal cylinder has radius 3.5 cm and height 12 cm.<br>The density of the metal is 8.9 g/cm&sup3;.<br>Calculate the mass of the cylinder.<br><em>Give your answer to 3 significant figures.</em>",
+        steps: [
+            {
+                title: "Write down what you need to find",
+                body: "The question asks for <strong>mass</strong>. You know density and you can calculate volume. Start by writing the connection between them.",
+                why: "Examiners want to see you identify the right formula. This is your first mark.",
+                lines: [{ text: "density = mass \u00f7 volume", type: "formula" }],
+                marks: 0
+            },
+            {
+                title: "Rearrange for mass",
+                body: "You need mass, not density. Rearrange the formula: <strong>mass = density \u00d7 volume</strong>. Write it down clearly.",
+                why: "Shows the examiner you can manipulate formulae — and sets up the substitution.",
+                lines: [{ text: "so  mass = density \u00d7 volume", type: "formula" }],
+                marks: 0
+            },
+            {
+                title: "Calculate the volume of the cylinder",
+                body: "Write the volume formula first: <strong>V = \u03c0r\u00b2h</strong>. This is a cylinder, so you need the formula for its volume. Write it before substituting — never skip this.",
+                why: "Separate formula mark. Even if your arithmetic is wrong, you get credit for knowing the formula.",
+                lines: [{ text: "V = \u03c0r\u00b2h", type: "formula", tick: true }],
+                marks: 1
+            },
+            {
+                title: "Substitute the values",
+                body: "Plug in r = 3.5 and h = 12. Write: <strong>V = \u03c0 \u00d7 3.5\u00b2 \u00d7 12</strong>. Keep it on one line so the examiner can follow your working.",
+                why: "Substitution mark — the examiner sees you used the right values in the right places.",
+                lines: [
+                    { text: "V = \u03c0 \u00d7 3.5\u00b2 \u00d7 12", type: "substitution", tick: true },
+                    { text: "V = \u03c0 \u00d7 12.25 \u00d7 12", type: "substitution" }
+                ],
+                marks: 1
+            },
+            {
+                title: "Calculate the volume",
+                body: "Use your calculator: \u03c0 \u00d7 12.25 \u00d7 12 = <strong>461.81...</strong> Keep the full calculator display — do NOT round yet.",
+                why: "Premature rounding is one of the most common ways to lose marks. Only round at the very end.",
+                lines: [{ text: "V = 461.8141... cm\u00b3", type: "result", tick: true }],
+                marks: 1
+            },
+            {
+                title: "Substitute into the mass formula",
+                body: "Now use <strong>mass = density \u00d7 volume</strong>. Substitute: mass = 8.9 \u00d7 461.81...",
+                why: "Using the unrounded volume shows the examiner you understand accuracy.",
+                lines: [
+                    { text: "mass = 8.9 \u00d7 461.8141...", type: "substitution", tick: true }
+                ],
+                marks: 1
+            },
+            {
+                title: "Calculate and round to 3 s.f.",
+                body: "Calculator gives 4110.14... The question says <strong>3 significant figures</strong>, so round to 4110. Write the final answer clearly, underlined, with units.",
+                why: "Underline your final answer so the examiner can't miss it. Always include units. '3 s.f.' means three digits that carry meaning: 4, 1, 1.",
+                lines: [
+                    { text: "mass = 4110.14...", type: "substitution" },
+                    { text: "mass = 4110 g", type: "underline-answer", tick: true }
+                ],
+                marks: 2
+            }
+        ]
+    },
+    {
+        id: "show-that",
+        label: "\"Show that\" (4 marks)",
+        source: "OCR J560 style — Paper 5H (Non-Calculator)",
+        marks: 4,
+        text: "Show that (2n + 3)\u00b2 \u2212 (2n + 1)\u00b2 is a multiple of 8 for all positive integer values of n.",
+        steps: [
+            {
+                title: "Expand the first bracket squared",
+                body: "Start by expanding <strong>(2n + 3)\u00b2</strong>. Remember: (a + b)\u00b2 = a\u00b2 + 2ab + b\u00b2. So (2n + 3)\u00b2 = 4n\u00b2 + 12n + 9.",
+                why: "In 'show that' questions, you must show EVERY step. The examiner knows the answer — they're checking your method.",
+                lines: [{ text: "(2n + 3)\u00b2 = 4n\u00b2 + 12n + 9", type: "formula", tick: true }],
+                marks: 1
+            },
+            {
+                title: "Expand the second bracket squared",
+                body: "Now expand <strong>(2n + 1)\u00b2</strong> = 4n\u00b2 + 4n + 1.",
+                why: "Write each expansion on its own line. Clean layout = fewer mistakes = more marks.",
+                lines: [{ text: "(2n + 1)\u00b2 = 4n\u00b2 + 4n + 1", type: "formula", tick: true }],
+                marks: 1
+            },
+            {
+                title: "Subtract and simplify",
+                body: "Now subtract: (4n\u00b2 + 12n + 9) \u2212 (4n\u00b2 + 4n + 1). The 4n\u00b2 terms cancel. 12n \u2212 4n = 8n. 9 \u2212 1 = 8. So you get <strong>8n + 8</strong>.",
+                why: "Show the subtraction step explicitly. Don't jump straight to the answer — the working IS the answer in a 'show that' question.",
+                lines: [
+                    { text: "= (4n\u00b2 + 12n + 9) \u2212 (4n\u00b2 + 4n + 1)", type: "substitution" },
+                    { text: "= 8n + 8", type: "result", tick: true }
+                ],
+                marks: 1
+            },
+            {
+                title: "Factorise and conclude",
+                body: "Factor out 8: <strong>8(n + 1)</strong>. Now write a clear conclusion: \"This is 8 \u00d7 (n + 1), which is always a multiple of 8 for any positive integer n.\"",
+                why: "The conclusion sentence is essential. Without it, you haven't answered the question — you've just done algebra. State WHY your result proves the claim.",
+                lines: [
+                    { text: "= 8(n + 1)", type: "formula" },
+                    { text: "8 \u00d7 (n+1) is always a multiple of 8", type: "underline-answer", tick: true }
+                ],
+                marks: 1
+            }
+        ]
+    },
+    {
+        id: "trig",
+        label: "Trigonometry (5 marks)",
+        source: "OCR J560 style — Paper 6H (Calculator)",
+        marks: 5,
+        text: "In triangle ABC, AB = 9 cm, BC = 11 cm, and angle ABC = 47\u00b0.<br>Calculate the area of triangle ABC.<br><em>Give your answer to 1 decimal place.</em>",
+        steps: [
+            {
+                title: "Identify the right formula",
+                body: "You have <strong>two sides and the included angle</strong> (SAS). That means you use the sine area formula, not \u00bdbh. Write it down.",
+                why: "Choosing the correct formula is often worth a mark on its own. The examiner sees you recognised the SAS pattern.",
+                lines: [{ text: "Area = \u00bd ab sin(C)", type: "formula", tick: true }],
+                marks: 1
+            },
+            {
+                title: "Label your values",
+                body: "Match the formula to what you know: a = 9, b = 11, C = 47\u00b0 (the angle between the two known sides). Write this mapping — it prevents substitution errors.",
+                why: "Labelling avoids the common mistake of using the wrong angle. The angle MUST be between the two sides you're using.",
+                lines: [{ text: "a = 9,  b = 11,  C = 47\u00b0", type: "annotation" }],
+                marks: 0
+            },
+            {
+                title: "Substitute into the formula",
+                body: "Write: Area = \u00bd \u00d7 9 \u00d7 11 \u00d7 sin(47\u00b0). Keep it clean — one line.",
+                why: "Substitution mark. Even if your calculator work goes wrong, this line earns credit.",
+                lines: [{ text: "Area = \u00bd \u00d7 9 \u00d7 11 \u00d7 sin(47\u00b0)", type: "substitution", tick: true }],
+                marks: 1
+            },
+            {
+                title: "Calculate sin(47\u00b0)",
+                body: "Make sure your calculator is in <strong>DEGREES mode</strong> (not radians!). sin(47\u00b0) = 0.7313...",
+                why: "The most common trig mistake: calculator set to radians. Always check the MODE before pressing sin/cos/tan.",
+                lines: [{ text: "sin(47\u00b0) = 0.7313...", type: "substitution" }],
+                marks: 0
+            },
+            {
+                title: "Calculate the area",
+                body: "Area = 0.5 \u00d7 9 \u00d7 11 \u00d7 0.7313... = <strong>36.2...</strong> Use the full calculator display.",
+                why: "Use ANS or the full display — don't re-type a rounded intermediate value.",
+                lines: [{ text: "Area = 0.5 \u00d7 9 \u00d7 11 \u00d7 0.7313...", type: "substitution", tick: true },
+                        { text: "= 36.2046...", type: "result", tick: true }],
+                marks: 2
+            },
+            {
+                title: "Round and state with units",
+                body: "To 1 decimal place: <strong>36.2 cm\u00b2</strong>. Underline it. Units are cm\u00b2 because it's an area.",
+                why: "Final answer must be rounded as requested, underlined, with correct units. Area = squared units.",
+                lines: [{ text: "Area = 36.2 cm\u00b2", type: "underline-answer", tick: true }],
+                marks: 1
+            }
+        ]
+    },
+    {
+        id: "simultaneous",
+        label: "Simultaneous Eq. (5 marks)",
+        source: "OCR J560 style — Paper 4H (Calculator)",
+        marks: 5,
+        text: "Solve the simultaneous equations:<br><br>3x + 2y = 16<br>5x \u2212 2y = 24",
+        steps: [
+            {
+                title: "Label the equations",
+                body: "Write each equation with a label — this keeps your working organised and helps the examiner follow your method.",
+                why: "Labelling equations is a habit that prevents errors and shows clear mathematical communication.",
+                lines: [
+                    { text: "3x + 2y = 16     \u2460", type: "formula" },
+                    { text: "5x \u2212 2y = 24     \u2461", type: "formula" }
+                ],
+                marks: 0
+            },
+            {
+                title: "Decide: add or subtract?",
+                body: "Look at the y terms: <strong>+2y</strong> and <strong>\u22122y</strong>. They're equal and opposite, so <strong>add</strong> the equations to eliminate y. Write: \u2460 + \u2461.",
+                why: "If coefficients are the same sign, subtract. If opposite signs, add. Here: +2y and \u22122y → add.",
+                lines: [
+                    { text: "\u2460 + \u2461:", type: "annotation" },
+                    { text: "8x = 40", type: "result", tick: true }
+                ],
+                marks: 1
+            },
+            {
+                title: "Solve for x",
+                body: "Divide both sides by 8: <strong>x = 5</strong>.",
+                why: "One mark for finding the first variable. Write it clearly.",
+                lines: [{ text: "x = 5", type: "underline-answer", tick: true }],
+                marks: 1
+            },
+            {
+                title: "Substitute back to find y",
+                body: "Put x = 5 into equation \u2460 (the simpler one): 3(5) + 2y = 16 → 15 + 2y = 16 → 2y = 1 → y = 0.5.",
+                why: "Always substitute into the equation with smaller coefficients — less room for arithmetic error.",
+                lines: [
+                    { text: "Sub x = 5 into \u2460:", type: "annotation" },
+                    { text: "3(5) + 2y = 16", type: "substitution" },
+                    { text: "15 + 2y = 16", type: "substitution" },
+                    { text: "2y = 1", type: "substitution" },
+                    { text: "y = 0.5", type: "underline-answer", tick: true }
+                ],
+                marks: 2
+            },
+            {
+                title: "Check your answer",
+                body: "Substitute both values into the OTHER equation (\u2461): 5(5) \u2212 2(0.5) = 25 \u2212 1 = 24 \u2714. It works!",
+                why: "Checking in the equation you DIDN'T use proves both answers are correct. Write the check — some mark schemes give credit for it.",
+                lines: [
+                    { text: "Check in \u2461: 5(5) \u2212 2(0.5) = 25 \u2212 1 = 24 \u2714", type: "result", tick: true }
+                ],
+                marks: 1
+            }
+        ]
+    }
+];
+
+var currentQ = 0;
+var currentStep = -1;
+var pendingStep = null;
+
+function init() {
+    var btns = document.getElementById('qButtons');
+    btns.innerHTML = '';
+    for (var i = 0; i < questions.length; i++) {
+        var b = document.createElement('button');
+        b.className = 'q-btn' + (i === 0 ? ' active' : '');
+        b.textContent = questions[i].label;
+        b.setAttribute('data-idx', i);
+        b.onclick = function() { selectQuestion(parseInt(this.getAttribute('data-idx'))); };
+        btns.appendChild(b);
+    }
+    selectQuestion(0);
+}
+
+function selectQuestion(idx) {
+    currentQ = idx;
+    currentStep = -1;
+    pendingStep = null;
+
+    var q = questions[idx];
+
+    // Update button states
+    var btns = document.querySelectorAll('.q-btn');
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].className = 'q-btn' + (i === idx ? ' active' : '');
+    }
+
+    document.getElementById('marksLabel').textContent = q.marks + ' marks';
+    document.getElementById('sourceLabel').textContent = q.source;
+    document.getElementById('questionText').innerHTML = q.text;
+
+    // Build empty answer lines
+    var paper = document.getElementById('paperLines');
+    paper.innerHTML = '';
+
+    var lineIdx = 0;
+    for (var s = 0; s < q.steps.length; s++) {
+        for (var l = 0; l < q.steps[s].lines.length; l++) {
+            var div = document.createElement('div');
+            div.className = 'answer-line ' + q.steps[s].lines[l].type;
+            div.id = 'line-' + lineIdx;
+
+            if (q.steps[s].lines[l].tick) {
+                var tick = document.createElement('span');
+                tick.className = 'mark-tick';
+                tick.textContent = '\u2713';
+                div.appendChild(tick);
+            }
+
+            var textNode = document.createTextNode(q.steps[s].lines[l].text);
+            div.appendChild(textNode);
+            paper.appendChild(div);
+            lineIdx++;
+        }
+    }
+
+    document.getElementById('scoreBar').className = 'score-bar';
+    updateControls();
+}
+
+function showNextStep() {
+    var q = questions[currentQ];
+    var nextIdx = currentStep + 1;
+    if (nextIdx >= q.steps.length) return;
+
+    pendingStep = nextIdx;
+    var step = q.steps[nextIdx];
+
+    document.getElementById('explainStepNum').textContent = 'Step ' + (nextIdx + 1) + ' of ' + q.steps.length;
+    document.getElementById('explainTitle').textContent = step.title;
+    document.getElementById('explainBody').innerHTML = step.body;
+    document.getElementById('explainWhy').textContent = step.why;
+    document.getElementById('explainOverlay').className = 'explain-overlay show';
+}
+
+function writeStep() {
+    document.getElementById('explainOverlay').className = 'explain-overlay';
+
+    if (pendingStep === null) return;
+
+    currentStep = pendingStep;
+    pendingStep = null;
+
+    // Reveal the lines for this step
+    var q = questions[currentQ];
+    var lineIdx = 0;
+    for (var s = 0; s <= currentStep; s++) {
+        for (var l = 0; l < q.steps[s].lines.length; l++) {
+            if (s === currentStep) {
+                var el = document.getElementById('line-' + lineIdx);
+                if (el) {
+                    // Stagger the reveal of multiple lines in the same step
+                    (function(element, delay) {
+                        setTimeout(function() {
+                            element.classList.add('visible');
+                        }, delay);
+                    })(el, l * 200);
+                }
+            }
+            lineIdx++;
+        }
+    }
+
+    // Scroll the last revealed line into view
+    setTimeout(function() {
+        var lastLine = document.getElementById('line-' + (lineIdx - 1));
+        if (lastLine) {
+            lastLine.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    }, 300);
+
+    updateControls();
+}
+
+function resetQuestion() {
+    selectQuestion(currentQ);
+}
+
+function updateControls() {
+    var q = questions[currentQ];
+    var totalSteps = q.steps.length;
+    var completed = currentStep + 1;
+
+    var earnedMarks = 0;
+    for (var s = 0; s <= currentStep; s++) {
+        if (s < q.steps.length) earnedMarks += q.steps[s].marks;
+    }
+
+    if (currentStep < 0) {
+        document.getElementById('stepInfo').textContent = 'Ready — click Next Step to begin';
+    } else {
+        document.getElementById('stepInfo').textContent =
+            'Step ' + completed + '/' + totalSteps + '  \u00b7  ' + earnedMarks + '/' + q.marks + ' marks';
+    }
+
+    document.getElementById('btnNext').disabled = (completed >= totalSteps);
+    document.getElementById('btnReset').disabled = (currentStep < 0);
+
+    if (completed >= totalSteps) {
+        document.getElementById('scoreBar').className = 'score-bar show';
+        document.getElementById('scoreText').textContent = q.marks + '/' + q.marks;
+    }
+}
+
+// Close overlay on background click
+document.getElementById('explainOverlay').addEventListener('click', function(e) {
+    if (e.target === this) {
+        this.className = 'explain-overlay';
+        pendingStep = null;
+    }
+});
+
+// Keyboard support
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+        var overlay = document.getElementById('explainOverlay');
+        if (overlay.classList.contains('show')) {
+            e.preventDefault();
+            writeStep();
+        } else {
+            var q = questions[currentQ];
+            if (currentStep + 1 < q.steps.length) {
+                e.preventDefault();
+                showNextStep();
+            }
+        }
+    }
+    if (e.key === 'Escape') {
+        document.getElementById('explainOverlay').className = 'explain-overlay';
+        pendingStep = null;
+    }
+});
+
+init();
+</script>
+
+</body>
+</html>
