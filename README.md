@@ -14,6 +14,10 @@
 
 [Chemistry - Paper 1 Edexcel](gcse_chemistry_paper1_edexcel_flashcards.html)
 
+[Chemistry - Exam Technique Crib](gcse_chemistry_exam_technique_crib.html)
+
+[Chemistry - Paper 1 Crib Sheet](gcse_chemistry_paper1_crib_sheet.html)
+
 [Physics - Paper 1 Edexcel](gcse_physics_paper1_edexcel_flashcards.html)
 
 [PE - Chapter 1 AQA](gcse_pe_chapter1_aqa_flashcards.html)

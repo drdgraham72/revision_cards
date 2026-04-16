@@ -1,0 +1,234 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Barlow+Condensed:wght@400;500;600;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+.page{width:100%;max-width:900px;margin:0 auto;font-family:'Barlow Condensed',sans-serif;font-size:11.5px;line-height:1.38;color:var(--color-text-primary);}
+.header{background:#0f2027;color:#e8dfc8;padding:6px 12px;display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;border-radius:4px;}
+.header h1{font-size:15px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;}
+.header span{font-size:10px;opacity:0.7;font-family:'DM Mono',monospace;}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;}
+.col{display:flex;flex-direction:column;gap:5px;}
+.box{border:0.5px solid var(--color-border-secondary);border-radius:3px;overflow:hidden;}
+.box-head{padding:3px 8px;font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;}
+.marks{font-family:'DM Mono',monospace;font-size:9px;padding:1px 5px;border-radius:2px;background:rgba(0,0,0,0.18);color:inherit;}
+.box-body{padding:5px 7px;display:flex;flex-direction:column;gap:4px;}
+.qtype{font-size:9.5px;font-family:'DM Mono',monospace;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;color:var(--color-text-secondary);border-bottom:0.5px solid var(--color-border-tertiary);padding-bottom:2px;margin-bottom:1px;}
+.trigger{font-size:11px;font-weight:600;font-style:italic;color:var(--color-text-primary);margin-bottom:2px;}
+.chain{display:flex;flex-direction:column;gap:2px;}
+.step{display:grid;grid-template-columns:18px 1fr;gap:4px;align-items:start;}
+.stepnum{width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0;margin-top:1px;}
+.steptext{font-size:11px;line-height:1.35;}
+.trap{background:#fcebeb;border-left:2px solid #e24b4a;padding:3px 6px;font-size:10.5px;color:#7a1f1f;border-radius:0 2px 2px 0;}
+.gold{background:#faeeda;border-left:2px solid #ef9f27;padding:3px 6px;font-size:10.5px;color:#633806;border-radius:0 2px 2px 0;}
+.tip{background:#eeedfe;border-left:2px solid #7f77dd;padding:3px 6px;font-size:10.5px;color:#3c3489;border-radius:0 2px 2px 0;}
+.eg{background:var(--color-background-secondary);border-radius:2px;padding:3px 6px;font-size:10.5px;}
+.eg-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--color-text-secondary);display:block;margin-bottom:1px;}
+.formula{font-family:'DM Mono',monospace;font-size:10.5px;background:rgba(0,0,0,0.06);padding:1px 5px;border-radius:2px;display:inline-block;}
+.keyword{font-weight:700;text-decoration:underline;text-decoration-style:dotted;}
+.divider{border:none;border-top:0.5px solid var(--color-border-tertiary);margin:3px 0;}
+.s1{background:#185fa5;color:#e6f1fb;}
+.s2{background:#3b6d11;color:#eaf3de;}
+.s3{background:#854f0b;color:#faeeda;}
+.s4{background:#534ab7;color:#eeedfe;}
+.s5{background:#993556;color:#fbeaf0;}
+.s6{background:#0f6e56;color:#e1f5ee;}
+.s7{background:#993c1d;color:#faece7;}
+.s8{background:#0f2027;color:#e8dfc8;}
+.band{display:flex;gap:4px;flex-wrap:wrap;margin-top:2px;}
+.pill{font-size:9.5px;padding:1px 6px;border-radius:10px;font-weight:600;}
+</style>
+
+<div class="page">
+<div class="header">
+  <h1>Exam Technique — Higher Mark Questions</h1>
+  <span>Edexcel GCSE Chemistry 1CH0/1H · 2–6 mark extended answers</span>
+</div>
+
+<div class="grid">
+<div class="col">
+
+<div class="box">
+<div class="box-head s1">6-mark Extended Writing: Structure &amp; Bonding → Separation <span class="marks">Q9c · *asterisk = QWC</span></div>
+<div class="box-body">
+<div class="qtype">trigger words: "explain… in terms of structure and bonding… how this difference is used to…"</div>
+<div class="trigger">"Explain the difference in boiling points of NaCl and water and how this is used to separate them."</div>
+<div class="chain">
+<div class="step"><div class="stepnum s1">1</div><div class="steptext"><span class="keyword">Structure NaCl</span> — giant ionic lattice; Na⁺ and Cl⁻ ions held by strong electrostatic forces in all directions</div></div>
+<div class="step"><div class="stepnum s1">2</div><div class="steptext"><span class="keyword">Consequence</span> — needs huge energy to overcome these forces → very high boiling point (1465°C)</div></div>
+<div class="step"><div class="stepnum s1">3</div><div class="steptext"><span class="keyword">Structure H₂O</span> — simple molecular; held together by weak intermolecular forces (hydrogen bonds)</div></div>
+<div class="step"><div class="stepnum s1">4</div><div class="steptext"><span class="keyword">Consequence</span> — little energy needed → low boiling point (100°C)</div></div>
+<div class="step"><div class="stepnum s1">5</div><div class="steptext"><span class="keyword">Method: distillation</span> — heat to 100°C; water boils and evaporates; NaCl stays in flask</div></div>
+<div class="step"><div class="stepnum s1">6</div><div class="steptext"><span class="keyword">Collect</span> — cool and condense steam → pure water; pure dry NaCl remains in flask</div></div>
+</div>
+<div class="trap">Don't say "stronger bonds" — say "stronger intermolecular forces" for molecular substances. Ionic = electrostatic attractions between ions, NOT bonds.</div>
+<div class="gold">Asterisk (*) = Quality of Written Communication marked. Write in full sentences. Logic must flow: structure → bonding → property → application.</div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s2">6-mark Compare &amp; Contrast: Pure Metals vs Alloys <span class="marks">Q10b · *asterisk</span></div>
+<div class="box-body">
+<div class="qtype">trigger words: "compare and contrast… include an explanation of similarities and differences…"</div>
+<div class="trigger">"Compare pure Al and Cu with their alloys. Explain similarities and differences in properties and uses."</div>
+<div class="chain">
+<div class="step"><div class="stepnum s2">1</div><div class="steptext"><span class="keyword">Pure metals</span> — regular layers of same-size atoms; layers slide over each other easily → soft and malleable</div></div>
+<div class="step"><div class="stepnum s2">2</div><div class="steptext"><span class="keyword">Alloys</span> — different-sized atoms disrupt regular layers; sliding prevented → harder and stronger</div></div>
+<div class="step"><div class="stepnum s2">3</div><div class="steptext"><span class="keyword">Al similarity</span> — both conduct electricity and heat (delocalised electrons in both)</div></div>
+<div class="step"><div class="stepnum s2">4</div><div class="steptext"><span class="keyword">Al difference</span> — pure Al soft; duralumin (alloy) used for aircraft/bikes where strength needed</div></div>
+<div class="step"><div class="stepnum s2">5</div><div class="steptext"><span class="keyword">Cu similarity</span> — both conduct; metallic bonding retained in alloy</div></div>
+<div class="step"><div class="stepnum s2">6</div><div class="steptext"><span class="keyword">Cu difference</span> — pure Cu best conductor → wiring; brass (alloy) harder → instruments, fittings</div></div>
+</div>
+<div class="tip">Must address BOTH metals and BOTH pure + alloy to access all 6 marks. Examiners mark against a "ladder" — each level needs previous level covered.</div>
+<div class="trap">Never say alloys are "a mixture of metals" without explaining WHY that makes them harder. Mechanism = different atom sizes → disrupts layers. That's the mark.</div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s3">4-mark Mole Calculation: Gas Volume <span class="marks">Q10a(ii)</span></div>
+<div class="box-body">
+<div class="qtype">trigger words: "calculate the maximum volume… of [gas] produced from [mass] of [compound]"</div>
+<div class="trigger">"Calculate the max volume in cm³ of N₂ from 110g of NaN₃. (Mr NaN₃ = 65; 1 mol gas = 24 dm³)"</div>
+<div class="chain">
+<div class="step"><div class="stepnum s3">1</div><div class="steptext"><span class="formula">mol NaN₃ = 110 ÷ 65 = 1.692 mol</span></div></div>
+<div class="step"><div class="stepnum s3">2</div><div class="steptext">Ratio from equation 2NaN₃ → 3N₂: <span class="formula">mol N₂ = 1.692 × (3/2) = 2.538 mol</span></div></div>
+<div class="step"><div class="stepnum s3">3</div><div class="steptext"><span class="formula">vol = 2.538 × 24 = 60.92 dm³</span></div></div>
+<div class="step"><div class="stepnum s3">4</div><div class="steptext"><span class="formula">convert: × 1000 = 60 923 cm³</span></div></div>
+</div>
+<div class="trap">The dm³ → cm³ conversion is a dedicated mark. Forgetting it = 1 mark dropped instantly. Also: check the molar ratio carefully — it's 3/2 here, not 1:1.</div>
+<div class="gold">Even if final answer wrong, method marks awarded for correct steps shown. Write every step. Never skip molar ratio line — that's where 1 mark lives.</div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s4">4-mark Atom Economy Calculation <span class="marks">Q4a</span></div>
+<div class="box-body">
+<div class="qtype">trigger words: "calculate the atom economy for the production of [product] in this reaction"</div>
+<div class="trigger">"Cu₂S + O₂ → 2Cu + SO₂. Calculate atom economy for SO₂. Give to 2 sig figs."</div>
+<div class="chain">
+<div class="step"><div class="stepnum s4">1</div><div class="steptext">Identify desired product: SO₂, <span class="formula">Mr = 64</span></div></div>
+<div class="step"><div class="stepnum s4">2</div><div class="steptext">Sum all products: <span class="formula">2Cu = 2×63.5 = 127; SO₂ = 64; total = 191</span></div></div>
+<div class="step"><div class="stepnum s4">3</div><div class="steptext"><span class="formula">AE = 64/191 × 100 = 33.5% → 34% (2 s.f.)</span></div></div>
+</div>
+<div class="trap">Common error: using sum of REACTANTS as denominator instead of sum of PRODUCTS. The formula is Mr(desired) ÷ ΣMr(all products) × 100.</div>
+<div class="trap">Always apply sig figs at the end as instructed — "2 sig figs" is a separate mark. 33.5 → 34%.</div>
+<div class="eg"><span class="eg-label">also watch for</span>Percentage yield uses actual/theoretical — completely different formula. Don't mix them up under pressure.</div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s5">3-mark Explain Why pH Changes <span class="marks">Q2d(iii)</span></div>
+<div class="box-body">
+<div class="qtype">trigger words: "explain why the pH starts at [low] and ends at [higher value]"</div>
+<div class="trigger">"Explain why pH starts low and ends high when Ca(OH)₂ is added to HCl."</div>
+<div class="chain">
+<div class="step"><div class="stepnum s5">1</div><div class="steptext"><span class="keyword">Start:</span> HCl is a strong acid — fully dissociates → high concentration of H⁺ ions → low pH</div></div>
+<div class="step"><div class="stepnum s5">2</div><div class="steptext"><span class="keyword">During:</span> Ca(OH)₂ provides OH⁻ ions which neutralise H⁺ → H⁺ + OH⁻ → H₂O → pH rises</div></div>
+<div class="step"><div class="stepnum s5">3</div><div class="steptext"><span class="keyword">End:</span> excess Ca(OH)₂ → excess OH⁻ ions → alkaline → pH above 7 (up to ~12)</div></div>
+</div>
+<div class="trap">Must name the ions responsible at each stage. "The acid is neutralised" alone = 0 marks. You need H⁺ and OH⁻ explicitly.</div>
+</div>
+</div>
+
+</div>
+
+<div class="col">
+
+<div class="box">
+<div class="box-head s6">3-mark Equilibrium Experiment Design <span class="marks">Q5b · devised experiment</span></div>
+<div class="box-body">
+<div class="qtype">trigger words: "devise an experiment to show how position of equilibrium is affected by temperature"</div>
+<div class="trigger">"2NO₂ (brown) ⇌ N₂O₄ (colourless). Use the sealed tube, beaker, kettle, ice."</div>
+<div class="chain">
+<div class="step"><div class="stepnum s6">1</div><div class="steptext"><span class="keyword">Cold test:</span> place sealed tube in beaker of ice water → observe colour becomes paler/nearly colourless</div></div>
+<div class="step"><div class="stepnum s6">2</div><div class="steptext"><span class="keyword">Hot test:</span> place same tube in beaker of hot water (from kettle) → observe colour becomes darker brown</div></div>
+<div class="step"><div class="stepnum s6">3</div><div class="steptext"><span class="keyword">Conclusion:</span> cold → equilibrium shifts right (→ N₂O₄) as forward reaction is exothermic; hot → shifts left (← NO₂)</div></div>
+</div>
+<div class="gold">Key structure: apparatus used → observable result → explanation in terms of equilibrium shift. All three parts needed for 3 marks.</div>
+<div class="trap">Must state the colour change observed, not just "the colour changes." Paler = more N₂O₄. Darker = more NO₂. That's the measurable evidence.</div>
+<div class="tip">This question type always requires: control (room temp baseline) + hot + cold. Compare all three observations.</div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s7">3-mark Electrolysis Trend: State &amp; Explain <span class="marks">Q6b(i)</span></div>
+<div class="box-body">
+<div class="qtype">trigger words: "state and explain the trend shown in these results"</div>
+<div class="trigger">"Current increases 0→1A; mass of Cu deposited increases 0→0.196g. Explain."</div>
+<div class="chain">
+<div class="step"><div class="stepnum s7">1</div><div class="steptext"><span class="keyword">State:</span> as current increases, mass of copper deposited increases (proportionally)</div></div>
+<div class="step"><div class="stepnum s7">2</div><div class="steptext"><span class="keyword">Explain mechanism:</span> higher current = greater charge per second flowing through circuit</div></div>
+<div class="step"><div class="stepnum s7">3</div><div class="steptext"><span class="keyword">Consequence:</span> more Cu²⁺ ions are discharged at cathode per second → more Cu atoms deposited</div></div>
+</div>
+<div class="trap">"State AND explain" = 2 separate things. Stating the trend without the mechanism = max 1 mark. Note data isn't perfectly linear at higher currents — you can mention this as an observation.</div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s8">3-mark Copper Oxide: When to Stop Adding <span class="marks">Q8b</span></div>
+<div class="box-body">
+<div class="qtype">trigger words: "explain how the student knows when to stop adding [excess solid]"</div>
+<div class="trigger">"Adding CuO to H₂SO₄ until max CuSO₄ formed. How does the student know to stop?"</div>
+<div class="chain">
+<div class="step"><div class="stepnum s8">1</div><div class="steptext">The student adds CuO until it no longer disappears — black powder remains visible at the bottom</div></div>
+<div class="step"><div class="stepnum s8">2</div><div class="steptext">This means all the acid has been used up (CuO now in excess)</div></div>
+<div class="step"><div class="stepnum s8">3</div><div class="steptext">Filter off the excess CuO to leave a pure copper sulfate solution</div></div>
+</div>
+<div class="gold">The visual cue ("black powder no longer dissolves") + reason ("acid exhausted") + action ("filter") = 3 marks. Each step is its own mark point.</div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head" style="background:#444441;color:#f1efe8;">3-mark Particle Model: Solution → Crystal <span class="marks">Q8d</span></div>
+<div class="box-body">
+<div class="qtype">trigger words: "describe how the arrangement and movement of particles change as crystals form from solution"</div>
+<div class="chain">
+<div class="step"><div class="stepnum" style="background:#444441;color:#f1efe8;">1</div><div class="steptext"><span class="keyword">Movement:</span> in solution, particles move randomly with high kinetic energy; in crystal, particles vibrate about fixed positions only</div></div>
+<div class="step"><div class="stepnum" style="background:#444441;color:#f1efe8;">2</div><div class="steptext"><span class="keyword">Arrangement:</span> solution = random/disordered; crystal = regular, ordered lattice (fixed pattern)</div></div>
+<div class="step"><div class="stepnum" style="background:#444441;color:#f1efe8;">3</div><div class="steptext"><span class="keyword">Distance:</span> particles move closer together as they pack into lattice; intermolecular forces become stronger</div></div>
+</div>
+<div class="trap">Must use the word "arrangement" AND "movement" — the question asks for both. Missing either = max 2 marks regardless of quality.</div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head" style="background:#185fa5;color:#e6f1fb;">Universal Technique: The Mark-Hunting Framework</div>
+<div class="box-body">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;">
+<div>
+<div class="qtype">for every multi-mark question</div>
+<div class="chain" style="margin-top:2px;">
+<div class="step"><div class="stepnum s1">→</div><div class="steptext">Count the marks in brackets. That's how many distinct points you need.</div></div>
+<div class="step"><div class="stepnum s1">→</div><div class="steptext">For "explain": always give cause → mechanism → consequence (3 = 1 mark each)</div></div>
+<div class="step"><div class="stepnum s1">→</div><div class="steptext">For "compare": must address BOTH items explicitly. "A is harder than B" beats "A is hard"</div></div>
+<div class="step"><div class="stepnum s1">→</div><div class="steptext">For calculations: write formula → substitute values → calculate → state units</div></div>
+</div>
+</div>
+<div>
+<div class="qtype">red-flag command words</div>
+<div style="margin-top:3px;display:flex;flex-direction:column;gap:3px;">
+<div class="trap" style="margin:0;"><b>State</b> = one fact, no explanation needed. Adding explanation wastes time.</div>
+<div class="gold" style="margin:0;"><b>Describe</b> = what happens (not why). Include direction of change, observable evidence.</div>
+<div class="tip" style="margin:0;"><b>Explain</b> = what happens + why (mechanism). Name ions/particles responsible.</div>
+<div style="background:#eaf3de;border-left:2px solid #639922;padding:3px 6px;font-size:10.5px;color:#173404;border-radius:0 2px 2px 0;margin:0;"><b>Predict</b> = apply a pattern from data given to a new case. Show your reasoning.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head" style="background:#3b6d11;color:#eaf3de;">2-mark Purity &amp; Melting Point Reasoning <span class="marks">Q9a(ii)</span></div>
+<div class="box-body">
+<div class="qtype">trigger words: "state whether each sample is pure or impure and justify your answers"</div>
+<div class="chain">
+<div class="step"><div class="stepnum s2">A</div><div class="steptext">160–164°C = range of 4° → <span class="keyword">IMPURE</span>. Pure substances melt at one sharp temperature; a range indicates impurities present.</div></div>
+<div class="step"><div class="stepnum s2">B</div><div class="steptext">166°C = single value → <span class="keyword">PURE</span>. Sharp, single melting point.</div></div>
+<div class="step"><div class="stepnum s2">C</div><div class="steptext">163–165°C = range → <span class="keyword">IMPURE</span>. Note: range is narrower than A but still not a single point — still impure.</div></div>
+</div>
+<div class="gold">Justify means link your answer to the data given. "Impure because it has a range" = the full mark. Don't over-explain. Each sample = separate mark.</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>

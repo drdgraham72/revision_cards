@@ -1,0 +1,195 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Barlow+Condensed:wght@400;500;600;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:transparent;}
+.page{width:100%;max-width:900px;margin:0 auto;font-family:'Barlow Condensed',sans-serif;font-size:11.5px;line-height:1.35;color:var(--color-text-primary);}
+.header{background:#1a1a2e;color:#e8e4d0;padding:6px 12px;display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;border-radius:4px;}
+.header h1{font-size:15px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;}
+.header span{font-size:10px;opacity:0.7;font-family:'DM Mono',monospace;}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;}
+.col{display:flex;flex-direction:column;gap:5px;}
+.box{border:0.5px solid var(--color-border-secondary);border-radius:3px;overflow:hidden;}
+.box-head{padding:3px 7px;font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;}
+.box-body{padding:4px 7px;}
+.row{display:grid;grid-template-columns:38% 62%;border-bottom:0.5px solid var(--color-border-tertiary);}
+.row:last-child{border-bottom:none;}
+.kw{padding:2px 4px 2px 0;font-weight:600;color:var(--color-text-secondary);font-size:10.5px;font-family:'DM Mono',monospace;}
+.val{padding:2px 0;font-size:11px;color:var(--color-text-primary);}
+.tag{display:inline-block;padding:1px 5px;border-radius:2px;font-size:9.5px;font-weight:600;margin-right:2px;margin-bottom:1px;}
+.t-r{background:#fcebeb;color:#a32d2d;}
+.t-b{background:#e6f1fb;color:#185fa5;}
+.t-g{background:#eaf3de;color:#3b6d11;}
+.t-a{background:#faeeda;color:#854f0b;}
+.t-p{background:#eeedfe;color:#534ab7;}
+.t-k{background:#1a1a2e;color:#e8e4d0;}
+.marks{font-family:'DM Mono',monospace;font-size:9px;color:#888;background:var(--color-background-secondary);padding:1px 4px;border-radius:2px;}
+.formula{font-family:'DM Mono',monospace;font-size:10.5px;background:var(--color-background-secondary);padding:2px 6px;border-radius:2px;display:inline-block;margin:1px 0;}
+.sep{border-left:2px solid #1a1a2e;padding-left:6px;margin:3px 0;}
+.warn{background:#faeeda;border-radius:2px;padding:2px 5px;font-size:10px;color:#854f0b;margin:2px 0;}
+.tip{background:#eeedfe;border-radius:2px;padding:2px 5px;font-size:10px;color:#534ab7;margin:2px 0;}
+.good{background:#eaf3de;border-radius:2px;padding:2px 5px;font-size:10px;color:#3b6d11;margin:2px 0;}
+hr.div{border:none;border-top:0.5px solid var(--color-border-tertiary);margin:3px 0;}
+</style>
+
+<div class="page">
+<div class="header">
+  <h1>GCSE Chemistry — Paper 1 Higher · Crib Sheet</h1>
+  <span>Edexcel 1CH0/1H · all question types</span>
+</div>
+
+<div class="grid">
+<div class="col">
+
+<div class="box">
+<div class="box-head" style="background:#1a1a2e;color:#e8e4d0;">Atoms, Isotopes &amp; Subatomic Particles <span class="marks">Q1 · 2 marks</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Protons</div><div class="val">= atomic number (never changes)</div></div>
+<div class="row"><div class="kw">Electrons</div><div class="val">= protons (neutral atom)</div></div>
+<div class="row"><div class="kw">Neutrons</div><div class="val">= mass number − atomic number</div></div>
+<div class="row"><div class="kw">Isotopes</div><div class="val">Same Z, different mass no. → same e⁻ config, same chemistry</div></div>
+<div class="row"><div class="kw">Fuel cell</div><div class="val">H₂ + O₂ → H₂O; voltage drops when gas supply depleted</div></div>
+<div class="row"><div class="kw">Na electrode ✗</div><div class="val">Reacts violently with water; S = non-conductor/non-metal</div></div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head" style="background:#185fa5;color:#e6f1fb;">Acids, Alkalis &amp; pH <span class="marks">Q2 · 9 marks</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Neutralisation</div><div class="val">acid + base → salt + water</div></div>
+<div class="row"><div class="kw">Ca(OH)₂ + HCl</div><div class="val">→ calcium chloride + water</div></div>
+<div class="row"><div class="kw">State symbols</div><div class="val">Powdered Ca(OH)₂ = (s) · dilute HCl = (aq)</div></div>
+<div class="row"><div class="kw">pH &lt;7</div><div class="val">Acidic = excess H⁺ ions; starts low (acid)</div></div>
+<div class="row"><div class="kw">pH rise</div><div class="val">Base neutralises H⁺; OH⁻ takes over → pH &gt;7</div></div>
+<div class="row"><div class="kw">Neutral = pH 7</div><div class="val">Equal H⁺ and OH⁻; read from graph where curve crosses 7</div></div>
+<div class="tip">After adding base: STIR to ensure complete reaction before reading pH</div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head" style="background:#3b6d11;color:#eaf3de;">Reactivity Series &amp; Metals <span class="marks">Q3 · 9 marks</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Order (↑react)</div><div class="val">Au · Ag · Cu · Fe · Zn · Al · Mg · Ca · K · Na</div></div>
+<div class="row"><div class="kw">Cold water</div><div class="val">Only Ca, K, Na react; Ca most common exam answer</div></div>
+<div class="row"><div class="kw">Mg + HCl</div><div class="val">Vigorous bubbles, large temp rise (most reactive here)</div></div>
+<div class="row"><div class="kw">Zn + HCl</div><div class="val">Steady bubbles, slight warmth (given in paper)</div></div>
+<div class="row"><div class="kw">Fe + HCl</div><div class="val">Slow bubbles, little warmth (between Zn &amp; Cu)</div></div>
+<div class="row"><div class="kw">Cu + HCl</div><div class="val">No reaction (below H in series)</div></div>
+<div class="row"><div class="kw">H₂ test</div><div class="val">Lit splint → "squeaky pop"</div></div>
+<div class="row"><div class="kw">Balance Mg</div><div class="val"><span class="formula">Mg + 2HCl → MgCl₂ + H₂</span></div></div>
+<div class="row"><div class="kw">pH &amp; H⁺ conc</div><div class="val">pH 1 = 10× more H⁺ than pH 2 → 10× more H₂ produced</div></div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head" style="background:#854f0b;color:#faeeda;">Calculations: Yield &amp; Atom Economy <span class="marks">Q4 · 11 marks</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Atom economy</div><div class="val"><span class="formula">= (Mr desired ÷ ΣMr all products) × 100</span></div></div>
+<div class="row"><div class="kw">eg Cu₂S+O₂</div><div class="val">SO₂ = 64; total = 2×63.5×2+64 = 318; AE = 64/318 × 100 = <b>20%</b></div></div>
+<div class="row"><div class="kw">% yield</div><div class="val"><span class="formula">= (actual ÷ theoretical) × 100</span></div></div>
+<div class="row"><div class="kw">eg 672/700</div><div class="val">= 96%</div></div>
+<div class="row"><div class="kw">Mass calc</div><div class="val">moles = mass/Mr · scale by ratio · × Mr product</div></div>
+<div class="row"><div class="kw">Vanadium</div><div class="val">Transition metal → high mp (~1910°C), coloured compounds (orange V₂O₅)</div></div>
+<div class="row"><div class="kw">Yield &lt;100%</div><div class="val">Reversible reaction / side reactions / losses in transfer</div></div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head" style="background:#534ab7;color:#eeedfe;">Haber Process &amp; Equilibrium <span class="marks">Q5 · 10 marks</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Equation</div><div class="val"><span class="formula">N₂ + 3H₂ ⇌ 2NH₃</span> (exothermic)</div></div>
+<div class="row"><div class="kw">Conditions</div><div class="val">450°C, 200 atm, Fe catalyst — compromise (not max yield)</div></div>
+<div class="row"><div class="kw">Fe purpose</div><div class="val">Catalyst — speeds both fwd &amp; rev equally; not used up</div></div>
+<div class="row"><div class="kw">↓ temperature</div><div class="val">Equilibrium shifts RIGHT (→ NH₃); exothermic reaction favoured</div></div>
+<div class="row"><div class="kw">↑ pressure</div><div class="val">Shifts to fewer moles of gas → RIGHT (4 mol → 2 mol)</div></div>
+<div class="row"><div class="kw">Dynamic equil</div><div class="val">Fwd rate = rev rate; concentrations constant but both reactions occurring</div></div>
+<div class="row"><div class="kw">Colour test</div><div class="val">NO₂ (brown) ⇌ N₂O₄ (colourless): ice → paler; hot water → darker</div></div>
+</div>
+</div>
+
+</div>
+
+<div class="col">
+
+<div class="box">
+<div class="box-head" style="background:#993c1d;color:#faece7;">Electrolysis <span class="marks">Q6 · 9 marks</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Cathode (−)</div><div class="val">Reduction · cations discharged · Cu²⁺ + 2e⁻ → Cu (solid deposited)</div></div>
+<div class="row"><div class="kw">Anode (+)</div><div class="val">Oxidation · anions discharged · Cl⁻ / O₂ gas released</div></div>
+<div class="row"><div class="kw">Inert electrode</div><div class="val">Does not react (platinum/graphite) — electrode mass unchanged at anode</div></div>
+<div class="row"><div class="kw">↑ current</div><div class="val">↑ charge per second → more ions discharged → more Cu deposited</div></div>
+<div class="row"><div class="kw">Measure Cu</div><div class="val">Dry cathode, weigh before &amp; after; mass gained = Cu deposited</div></div>
+<div class="row"><div class="kw">Atom count</div><div class="val"><span class="formula">n = m/Ar → atoms = n × 6.02×10²³</span></div></div>
+<div class="row"><div class="kw">74mg Cu</div><div class="val">0.074/63.5 = 0.001165 mol → 7.01×10²⁰ atoms</div></div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head" style="background:#0f6e56;color:#e1f5ee;">Titration &amp; Salts <span class="marks">Q7 · 11 marks</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">NH₄NO₃ reactants</div><div class="val">Nitric acid + ammonia solution</div></div>
+<div class="row"><div class="kw">(NH₄)₃PO₄ elements</div><div class="val">H, N, O, P — answer D</div></div>
+<div class="row"><div class="kw">Burette reading</div><div class="val">Read bottom of meniscus to 0.05 cm³; start ~1.5, end ~27.6 → 26.1 cm³</div></div>
+<div class="row"><div class="kw">Concordant results</div><div class="val">Within 0.1 cm³ of each other; exclude rough &amp; outliers for mean</div></div>
+<div class="row"><div class="kw">Burette technique</div><div class="val">Rinse with solution used · fill above 0 then run to 0 · white tile below flask</div></div>
+<div class="row"><div class="kw">Litmus + phenolph.</div><div class="val">Alkali: red litmus blue + phenolph. pink → acid: both turn colourless/red</div></div>
+<div class="row"><div class="kw">Wet flask effect</div><div class="val">No effect — moles of acid in flask unchanged by added water</div></div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head" style="background:#993556;color:#fbeaf0;">Salts &amp; Crystallisation <span class="marks">Q8 · 11 marks</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">CuO + H₂SO₄</div><div class="val">→ CuSO₄ + H₂O (other product = water)</div></div>
+<div class="row"><div class="kw">Stop adding CuO</div><div class="val">When black powder no longer dissolves (acid used up); filter off excess</div></div>
+<div class="row"><div class="kw">Get crystals</div><div class="val">Evaporate using water bath (not to dryness) → leave to crystallise</div></div>
+<div class="row"><div class="kw">Solution → crystal</div><div class="val">Particles lose KE · move less · arrangement becomes regular lattice · closer together</div></div>
+<div class="row"><div class="kw">Cu oxidation state</div><div class="val">CuO = Cu²⁺; CuSO₄ = Cu²⁺; oxidation state unchanged → NOT oxidised/reduced</div></div>
+<div class="row"><div class="kw">Concentration calc</div><div class="val"><span class="formula">mass = conc × vol = 39.875 × 0.300 = 11.96 g</span></div></div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head" style="background:#5f5e5a;color:#f1efe8;">Purity, Chromatography &amp; Separation <span class="marks">Q9 · 12 marks</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Pure substance</div><div class="val">Sharp single melting point; range indicates impure</div></div>
+<div class="row"><div class="kw">Sample A 160–164</div><div class="val">Range = IMPURE; melting point depressed and widened by impurities</div></div>
+<div class="row"><div class="kw">Sample B 166</div><div class="val">Single value = PURE (but higher than A/C → different substance?)</div></div>
+<div class="row"><div class="kw">Sample C 163–165</div><div class="val">Range = IMPURE</div></div>
+<div class="row"><div class="kw">Rf formula</div><div class="val"><span class="formula">Rf = dist. spot / dist. solvent front · eg 0.22×2.4 = 0.53 cm</span></div></div>
+<div class="row"><div class="kw">NaCl vs H₂O bp</div><div class="val">NaCl = giant ionic lattice, strong electrostatic forces → huge energy to overcome · water = simple molecular, weak IMFs → low bp</div></div>
+<div class="row"><div class="kw">Separation method</div><div class="val">Distil at 100°C → collect water vapour; NaCl stays in flask (bp 1465°C)</div></div>
+<div class="warn">Empirical formula = simplest whole number ratio — count atoms in diagram then divide by HCF</div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head" style="background:#1a1a2e;color:#e8e4d0;">Moles, Gas Volume &amp; Alloys <span class="marks">Q10 · 12 marks</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Corrosion</div><div class="val">Reaction of metal surface with O₂/H₂O → metal compound (oxide/hydroxide)</div></div>
+<div class="row"><div class="kw">Gas volume calc</div><div class="val"><span class="formula">mol NaN₃ = 110/65 = 1.692 mol → mol N₂ = 1.5× = 2.538 mol → vol = 2.538×24000 = 60 923 cm³</span></div></div>
+<div class="row"><div class="kw">Pure Al</div><div class="val">Soft, low strength, layers slide easily; used where formability needed</div></div>
+<div class="row"><div class="kw">Al alloy</div><div class="val">Mixed atom sizes disrupt layers → harder, stronger; aircraft, bikes</div></div>
+<div class="row"><div class="kw">Pure Cu</div><div class="val">Excellent conductor, malleable; used in wiring</div></div>
+<div class="row"><div class="kw">Cu alloy (brass)</div><div class="val">Harder, less conductive; used in musical instruments, fixtures</div></div>
+<div class="row"><div class="kw">Both metals</div><div class="val">Conduct electricity &amp; heat; malleable; both shiny (metallic bonding retained in alloy)</div></div>
+</div>
+</div>
+
+<div class="box" style="border-color:#1a1a2e;">
+<div class="box-head" style="background:var(--color-background-secondary);">Key Formulas Quick-Fire <span class="marks">always show working</span></div>
+<div class="box-body" style="display:grid;grid-template-columns:1fr 1fr;gap:2px 8px;">
+<div><span class="formula">n = m / Mr</span></div>
+<div><span class="formula">AE = Mr(wanted)/ΣMr × 100</span></div>
+<div><span class="formula">yield = actual/theoretical × 100</span></div>
+<div><span class="formula">vol = n × 24 dm³ (× 1000 = cm³)</span></div>
+<div><span class="formula">mass = conc × vol(dm³)</span></div>
+<div><span class="formula">Rf = d(spot)/d(front)</span></div>
+<div><span class="formula">atoms = n × 6.02×10²³</span></div>
+<div><span class="formula">pH↓1 = ×10 [H⁺]</span></div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
