@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCSE Chemistry — Moles Made Obvious</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&family=Caveat:wght@600;700&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --mass-color: #d4380d;
+            --mass-bg: #fff1f0;
+            --moles-color: #0958d9;
+            --moles-bg: #e6f4ff;
+            --atoms-color: #389e0d;
+            --atoms-bg: #f6ffed;
+            --arrow-color: #1a1a2e;
+            --bg: #fafafa;
+            --card-bg: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #666;
+            --mono: 'DM Mono', monospace;
+            --font: 'Barlow Condensed', sans-serif;
+            --hand: 'Caveat', cursive;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --mass-color: #ff7a45;
+                --mass-bg: #3a1a0d;
+                --moles-color: #69b1ff;
+                --moles-bg: #0d2240;
+                --atoms-color: #73d13d;
+                --atoms-bg: #0d2a0d;
+                --arrow-color: #e8e4dc;
+                --bg: #141416;
+                --card-bg: #1e1e22;
+                --text: #e8e4dc;
+                --text-light: #999;
+            }
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 1.5rem 1rem;
+        }
+
+        .page { max-width: 900px; margin: 0 auto; }
+
+        /* ---- HERO TITLE ---- */
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            line-height: 1.1;
+            margin-bottom: 6px;
+        }
+
+        .hero .subtitle {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--text-light);
+            letter-spacing: 0.03em;
+        }
+
+        /* ---- THE BIG CHAIN ---- */
+        .chain {
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+            margin-bottom: 2rem;
+        }
+
+        .chain-box {
+            flex: 1;
+            padding: 24px 20px;
+            border-radius: 16px;
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 180px;
+        }
+
+        .chain-box.mass { background: var(--mass-bg); border: 3px solid var(--mass-color); }
+        .chain-box.moles { background: var(--moles-bg); border: 3px solid var(--moles-color); }
+        .chain-box.atoms { background: var(--atoms-bg); border: 3px solid var(--atoms-color); }
+
+        .chain-label {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 4px;
+        }
+
+        .chain-label.mass { color: var(--mass-color); }
+        .chain-label.moles { color: var(--moles-color); }
+        .chain-label.atoms { color: var(--atoms-color); }
+
+        .chain-unit {
+            font-size: 48px;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .chain-unit.mass { color: var(--mass-color); }
+        .chain-unit.moles { color: var(--moles-color); }
+        .chain-unit.atoms { color: var(--atoms-color); }
+
+        .chain-desc {
+            font-size: 12px;
+            color: var(--text-light);
+            font-family: var(--mono);
+        }
+
+        /* ---- ARROWS BETWEEN BOXES ---- */
+        .arrow-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            flex-shrink: 0;
+            gap: 6px;
+        }
+
+        .arrow-dir {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .arrow-dir .label {
+            font-family: var(--mono);
+            font-size: 9px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-light);
+        }
+
+        .arrow-dir .op {
+            font-family: var(--mono);
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--arrow-color);
+            background: var(--card-bg);
+            border: 2px solid var(--arrow-color);
+            border-radius: 6px;
+            padding: 4px 10px;
+            white-space: nowrap;
+        }
+
+        .arrow-dir .arrow-glyph {
+            font-size: 22px;
+            color: var(--arrow-color);
+            line-height: 1;
+        }
+
+        /* ---- THE GOLDEN RULES ---- */
+        .rules {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 2rem;
+        }
+
+        .rule-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .rule-card.forward { border-color: var(--moles-color); }
+        .rule-card.backward { border-color: var(--mass-color); }
+        .rule-card.to-atoms { border-color: var(--atoms-color); }
+        .rule-card.from-atoms { border-color: var(--atoms-color); }
+
+        .rule-card .direction {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 10px;
+        }
+
+        .rule-card.forward .direction { color: var(--moles-color); }
+        .rule-card.backward .direction { color: var(--mass-color); }
+        .rule-card.to-atoms .direction { color: var(--atoms-color); }
+        .rule-card.from-atoms .direction { color: var(--atoms-color); }
+
+        .rule-formula {
+            font-size: 28px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        .rule-formula .divide { color: var(--moles-color); }
+        .rule-formula .multiply { color: var(--mass-color); }
+        .rule-formula .atoms-op { color: var(--atoms-color); }
+
+        .rule-english {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.5;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            padding-top: 10px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .rule-english { border-top-color: rgba(255,255,255,0.08); }
+        }
+
+        /* ---- WHAT IS Mr / Avogadro ---- */
+        .key-numbers {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 2rem;
+        }
+
+        .key-num {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px 24px;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .key-num { border-color: rgba(255,255,255,0.08); }
+        }
+
+        .key-num .big {
+            font-size: 36px;
+            font-weight: 900;
+            font-family: var(--mono);
+            margin-bottom: 4px;
+        }
+
+        .key-num .big .sub { font-size: 18px; font-weight: 600; color: var(--text-light); }
+
+        .key-num .name {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 4px;
+        }
+
+        .key-num .explain {
+            font-size: 12px;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        /* ---- WORKED EXAMPLES ---- */
+        .examples { margin-bottom: 2rem; }
+
+        .examples h2 {
+            font-size: 22px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .example {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 12px;
+            border-left: 5px solid;
+        }
+
+        .example.ex-mass-to-moles { border-left-color: var(--moles-color); }
+        .example.ex-moles-to-mass { border-left-color: var(--mass-color); }
+        .example.ex-moles-to-atoms { border-left-color: var(--atoms-color); }
+        .example.ex-full-chain { border-left-color: var(--arrow-color); }
+        .example.ex-mg { border-left-color: var(--mass-color); }
+
+        .example .ex-title {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .step-row {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .step-num {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #fff;
+        }
+
+        .step-num.s-mass { background: var(--mass-color); }
+        .step-num.s-moles { background: var(--moles-color); }
+        .step-num.s-atoms { background: var(--atoms-color); }
+        .step-num.s-dark { background: var(--arrow-color); }
+
+        .step-content {
+            font-size: 14px;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .step-content .calc {
+            font-family: var(--hand);
+            font-size: 24px;
+            font-weight: 700;
+            display: block;
+            margin: 4px 0;
+        }
+
+        .step-content .calc.mass-c { color: var(--mass-color); }
+        .step-content .calc.moles-c { color: var(--moles-color); }
+        .step-content .calc.atoms-c { color: var(--atoms-color); }
+
+        .final-answer {
+            font-family: var(--hand);
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            padding: 12px;
+            margin-top: 8px;
+            border-radius: 8px;
+            border: 2px dashed;
+        }
+
+        .final-answer.mass-c { color: var(--mass-color); border-color: var(--mass-color); background: var(--mass-bg); }
+        .final-answer.moles-c { color: var(--moles-color); border-color: var(--moles-color); background: var(--moles-bg); }
+        .final-answer.atoms-c { color: var(--atoms-color); border-color: var(--atoms-color); background: var(--atoms-bg); }
+
+        /* ---- UNIT CONVERSIONS ---- */
+        .unit-strip {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 2rem;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .unit-strip { border-color: rgba(255,255,255,0.08); }
+        }
+
+        .unit-strip h3 {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        .unit-chain {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .unit-box {
+            font-family: var(--mono);
+            font-size: 16px;
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 8px;
+            background: var(--mass-bg);
+            color: var(--mass-color);
+            border: 2px solid var(--mass-color);
+        }
+
+        .unit-arrow {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .unit-arrow .dir { font-size: 18px; display: block; }
+
+        /* ---- MANTRA ---- */
+        .mantra {
+            text-align: center;
+            padding: 32px 24px;
+            background: var(--arrow-color);
+            color: #fff;
+            border-radius: 16px;
+            margin-bottom: 1rem;
+        }
+
+        .mantra .big-text {
+            font-size: 32px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            line-height: 1.3;
+            margin-bottom: 8px;
+        }
+
+        .mantra .big-text .mass-c { color: var(--mass-color); }
+        .mantra .big-text .moles-c { color: #69b1ff; }
+        .mantra .big-text .atoms-c { color: var(--atoms-color); }
+
+        .mantra .small-text {
+            font-family: var(--mono);
+            font-size: 11px;
+            opacity: 0.6;
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 700px) {
+            .chain { flex-direction: column; align-items: center; }
+            .arrow-col {
+                width: 100%;
+                flex-direction: row;
+                justify-content: center;
+                height: 60px;
+            }
+            .arrow-dir { flex-direction: row; gap: 8px; }
+            .arrow-dir .arrow-glyph { transform: rotate(90deg); }
+            .chain-box { width: 100%; min-height: 120px; }
+            .chain-unit { font-size: 36px; }
+            .rules { grid-template-columns: 1fr; }
+            .key-numbers { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 28px; }
+            .rule-formula { font-size: 22px; }
+            .mantra .big-text { font-size: 22px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <div class="hero">
+        <h1>Mass &rarr; Moles &rarr; Atoms</h1>
+        <div class="subtitle">The only three steps you'll ever need</div>
+    </div>
+
+    <!-- THE BIG CHAIN -->
+    <div class="chain">
+        <div class="chain-box mass">
+            <div class="chain-label mass">MASS</div>
+            <div class="chain-unit mass">g</div>
+            <div class="chain-desc">grams (what you weigh)</div>
+        </div>
+
+        <div class="arrow-col">
+            <div class="arrow-dir">
+                <div class="label">to moles</div>
+                <div class="arrow-glyph">&rarr;</div>
+                <div class="op">&divide; M<sub>r</sub></div>
+            </div>
+            <div class="arrow-dir">
+                <div class="op">&times; M<sub>r</sub></div>
+                <div class="arrow-glyph">&larr;</div>
+                <div class="label">to mass</div>
+            </div>
+        </div>
+
+        <div class="chain-box moles">
+            <div class="chain-label moles">MOLES</div>
+            <div class="chain-unit moles">mol</div>
+            <div class="chain-desc">the bridge (counting unit)</div>
+        </div>
+
+        <div class="arrow-col">
+            <div class="arrow-dir">
+                <div class="label">to atoms</div>
+                <div class="arrow-glyph">&rarr;</div>
+                <div class="op">&times; 6.02&times;10&sup2;&sup3;</div>
+            </div>
+            <div class="arrow-dir">
+                <div class="op">&divide; 6.02&times;10&sup2;&sup3;</div>
+                <div class="arrow-glyph">&larr;</div>
+                <div class="label">to moles</div>
+            </div>
+        </div>
+
+        <div class="chain-box atoms">
+            <div class="chain-label atoms">ATOMS</div>
+            <div class="chain-unit atoms">#</div>
+            <div class="chain-desc">actual particles</div>
+        </div>
+    </div>
+
+    <!-- KEY NUMBERS -->
+    <div class="key-numbers">
+        <div class="key-num">
+            <div class="big">M<sub>r</sub></div>
+            <div class="name">Relative Formula Mass</div>
+            <div class="explain">Add up the atomic masses from the periodic table.<br>e.g. H&sub2;O = (2&times;1) + 16 = 18</div>
+        </div>
+        <div class="key-num">
+            <div class="big">6.02&times;10<sup>23</sup></div>
+            <div class="name">Avogadro's Number</div>
+            <div class="explain">The number of particles in 1 mole.<br>602,000,000,000,000,000,000,000 of them.</div>
+        </div>
+    </div>
+
+    <!-- THE FOUR RULES -->
+    <div class="rules">
+        <div class="rule-card forward">
+            <div class="direction">&rarr; Mass to Moles</div>
+            <div class="rule-formula">moles = mass <span class="divide">&divide; M<sub>r</sub></span></div>
+            <div class="rule-english">"I have grams, I want moles &mdash; <strong>divide by the formula mass</strong>"</div>
+        </div>
+        <div class="rule-card backward">
+            <div class="direction">&larr; Moles to Mass</div>
+            <div class="rule-formula">mass = moles <span class="multiply">&times; M<sub>r</sub></span></div>
+            <div class="rule-english">"I have moles, I want grams &mdash; <strong>multiply by the formula mass</strong>"</div>
+        </div>
+        <div class="rule-card to-atoms">
+            <div class="direction">&rarr; Moles to Atoms</div>
+            <div class="rule-formula">atoms = moles <span class="atoms-op">&times; 6.02&times;10&sup2;&sup3;</span></div>
+            <div class="rule-english">"I have moles, I want particles &mdash; <strong>multiply by Avogadro's number</strong>"</div>
+        </div>
+        <div class="rule-card from-atoms">
+            <div class="direction">&larr; Atoms to Moles</div>
+            <div class="rule-formula">moles = atoms <span class="atoms-op">&divide; 6.02&times;10&sup2;&sup3;</span></div>
+            <div class="rule-english">"I have particles, I want moles &mdash; <strong>divide by Avogadro's number</strong>"</div>
+        </div>
+    </div>
+
+    <!-- UNIT CONVERSIONS -->
+    <div class="unit-strip">
+        <h3>Before you start: get your mass into grams</h3>
+        <div class="unit-chain">
+            <div class="unit-box">mg</div>
+            <div class="unit-arrow">
+                <div class="dir">&rarr;</div>
+                &divide; 1000
+            </div>
+            <div class="unit-box" style="font-size: 20px; padding: 10px 20px;">g</div>
+            <div class="unit-arrow">
+                <div class="dir">&rarr;</div>
+                &times; 1000
+            </div>
+            <div class="unit-box">kg</div>
+        </div>
+    </div>
+
+    <!-- WORKED EXAMPLES -->
+    <div class="examples">
+        <h2>See it in action</h2>
+
+        <!-- Example 1: Mass to Moles -->
+        <div class="example ex-mass-to-moles">
+            <div class="ex-title">Example 1: How many moles in 36 g of water (H&sub2;O)?</div>
+            <div class="step-row">
+                <div class="step-num s-mass">1</div>
+                <div class="step-content">
+                    Find M<sub>r</sub> of H&sub2;O
+                    <span class="calc mass-c">M<sub>r</sub> = (2 &times; 1) + 16 = 18</span>
+                </div>
+            </div>
+            <div class="step-row">
+                <div class="step-num s-moles">2</div>
+                <div class="step-content">
+                    Use the formula: moles = mass &divide; M<sub>r</sub>
+                    <span class="calc moles-c">moles = 36 &divide; 18 = 2 mol</span>
+                </div>
+            </div>
+            <div class="final-answer moles-c">2 moles of water</div>
+        </div>
+
+        <!-- Example 2: Moles to Mass -->
+        <div class="example ex-moles-to-mass">
+            <div class="ex-title">Example 2: What is the mass of 0.5 mol of NaCl?</div>
+            <div class="step-row">
+                <div class="step-num s-mass">1</div>
+                <div class="step-content">
+                    Find M<sub>r</sub> of NaCl
+                    <span class="calc mass-c">M<sub>r</sub> = 23 + 35.5 = 58.5</span>
+                </div>
+            </div>
+            <div class="step-row">
+                <div class="step-num s-mass">2</div>
+                <div class="step-content">
+                    Use the formula: mass = moles &times; M<sub>r</sub>
+                    <span class="calc mass-c">mass = 0.5 &times; 58.5 = 29.25 g</span>
+                </div>
+            </div>
+            <div class="final-answer mass-c">29.25 g of sodium chloride</div>
+        </div>
+
+        <!-- Example 3: Mass to Atoms (full chain) -->
+        <div class="example ex-full-chain">
+            <div class="ex-title">Example 3: How many atoms in 12 g of carbon (C)?</div>
+            <div class="step-row">
+                <div class="step-num s-mass">1</div>
+                <div class="step-content">
+                    M<sub>r</sub> of carbon = 12
+                    <span class="calc mass-c">A<sub>r</sub> = 12</span>
+                </div>
+            </div>
+            <div class="step-row">
+                <div class="step-num s-moles">2</div>
+                <div class="step-content">
+                    Mass &rarr; Moles: divide by M<sub>r</sub>
+                    <span class="calc moles-c">moles = 12 &divide; 12 = 1 mol</span>
+                </div>
+            </div>
+            <div class="step-row">
+                <div class="step-num s-atoms">3</div>
+                <div class="step-content">
+                    Moles &rarr; Atoms: multiply by Avogadro's
+                    <span class="calc atoms-c">atoms = 1 &times; 6.02&times;10&sup2;&sup3; = 6.02&times;10&sup2;&sup3;</span>
+                </div>
+            </div>
+            <div class="final-answer atoms-c">6.02 &times; 10&sup2;&sup3; carbon atoms</div>
+        </div>
+
+        <!-- Example 4: mg to Moles -->
+        <div class="example ex-mg">
+            <div class="ex-title">Example 4: How many moles in 500 mg of CaCO&sub3;?</div>
+            <div class="step-row">
+                <div class="step-num s-dark">1</div>
+                <div class="step-content">
+                    Convert mg to g FIRST
+                    <span class="calc mass-c">500 mg &divide; 1000 = 0.5 g</span>
+                </div>
+            </div>
+            <div class="step-row">
+                <div class="step-num s-mass">2</div>
+                <div class="step-content">
+                    Find M<sub>r</sub> of CaCO&sub3;
+                    <span class="calc mass-c">M<sub>r</sub> = 40 + 12 + (3 &times; 16) = 100</span>
+                </div>
+            </div>
+            <div class="step-row">
+                <div class="step-num s-moles">3</div>
+                <div class="step-content">
+                    moles = mass &divide; M<sub>r</sub>
+                    <span class="calc moles-c">moles = 0.5 &divide; 100 = 0.005 mol</span>
+                </div>
+            </div>
+            <div class="final-answer moles-c">0.005 mol (or 5 &times; 10&supmin;&sup3; mol)</div>
+        </div>
+
+        <!-- Example 5: Atoms to Mass (backwards) -->
+        <div class="example ex-moles-to-atoms">
+            <div class="ex-title">Example 5: What is the mass of 3.01 &times; 10&sup2;&sup3; atoms of iron (Fe)?</div>
+            <div class="step-row">
+                <div class="step-num s-atoms">1</div>
+                <div class="step-content">
+                    Atoms &rarr; Moles: divide by Avogadro's
+                    <span class="calc atoms-c">moles = 3.01&times;10&sup2;&sup3; &divide; 6.02&times;10&sup2;&sup3; = 0.5 mol</span>
+                </div>
+            </div>
+            <div class="step-row">
+                <div class="step-num s-moles">2</div>
+                <div class="step-content">
+                    A<sub>r</sub> of Fe = 56
+                </div>
+            </div>
+            <div class="step-row">
+                <div class="step-num s-mass">3</div>
+                <div class="step-content">
+                    Moles &rarr; Mass: multiply by M<sub>r</sub>
+                    <span class="calc mass-c">mass = 0.5 &times; 56 = 28 g</span>
+                </div>
+            </div>
+            <div class="final-answer mass-c">28 g of iron</div>
+        </div>
+    </div>
+
+    <!-- THE MANTRA -->
+    <div class="mantra">
+        <div class="big-text">
+            <span class="mass-c">grams</span> &xrarr;
+            <span class="moles-c">divide by M<sub>r</sub></span> &xrarr;
+            <span class="atoms-c">moles</span>
+        </div>
+        <div class="big-text" style="font-size: 22px; margin-top: 4px;">
+            <span class="atoms-c">moles</span> &xrarr;
+            <span class="moles-c">&times; 6.02&times;10&sup2;&sup3;</span> &xrarr;
+            atoms
+        </div>
+        <div class="small-text" style="margin-top: 12px;">That's it. That's the whole thing. Go forwards, go backwards. Same steps every time.</div>
+    </div>
+
+</div>
+
+</body>
+</html>
