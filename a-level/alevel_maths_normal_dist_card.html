@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Maths — Normal Distribution — The Complete Method</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&family=Caveat:wght@600;700&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --x-color: #d4380d;
+            --x-bg: #fff1f0;
+            --z-color: #0958d9;
+            --z-bg: #e6f4ff;
+            --prob-color: #389e0d;
+            --prob-bg: #f6ffed;
+            --warn-color: #d48806;
+            --warn-bg: #fffbe6;
+            --arrow-color: #1a1a2e;
+            --bg: #fafafa;
+            --card-bg: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #666;
+            --mono: 'DM Mono', monospace;
+            --font: 'Barlow Condensed', sans-serif;
+            --hand: 'Caveat', cursive;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --x-color: #ff7a45;
+                --x-bg: #3a1a0d;
+                --z-color: #69b1ff;
+                --z-bg: #0d2240;
+                --prob-color: #73d13d;
+                --prob-bg: #0d2a0d;
+                --warn-color: #ffc53d;
+                --warn-bg: #2a2000;
+                --arrow-color: #e8e4dc;
+                --bg: #141416;
+                --card-bg: #1e1e22;
+                --text: #e8e4dc;
+                --text-light: #999;
+            }
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 1.5rem 1rem;
+        }
+
+        .page { max-width: 900px; margin: 0 auto; }
+
+        /* ---- HERO TITLE ---- */
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            line-height: 1.1;
+            margin-bottom: 6px;
+        }
+
+        .hero .subtitle {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--text-light);
+            letter-spacing: 0.03em;
+        }
+
+        /* ---- SECTION HEADERS ---- */
+        .section-header {
+            font-size: 22px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 16px;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .section-header:first-of-type { margin-top: 0; }
+
+        /* ---- BELL CURVE SECTION ---- */
+        .bell-curve-container {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .bell-curve-container { border-color: rgba(255,255,255,0.08); }
+        }
+
+        .bell-curve-container .notation {
+            font-family: var(--mono);
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .bell-curve-container .notation .x-c { color: var(--x-color); }
+
+        .bell-stats {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+
+        .bell-stat {
+            font-family: var(--mono);
+            font-size: 14px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .bell-stat.s1 { background: var(--prob-bg); color: var(--prob-color); border: 2px solid var(--prob-color); }
+        .bell-stat.s2 { background: var(--z-bg); color: var(--z-color); border: 2px solid var(--z-color); }
+        .bell-stat.s3 { background: var(--x-bg); color: var(--x-color); border: 2px solid var(--x-color); }
+
+        /* ---- THE BIG CHAIN ---- */
+        .chain {
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+            margin-bottom: 2rem;
+        }
+
+        .chain-box {
+            flex: 1;
+            padding: 24px 20px;
+            border-radius: 16px;
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 160px;
+        }
+
+        .chain-box.x-val { background: var(--x-bg); border: 3px solid var(--x-color); }
+        .chain-box.z-val { background: var(--z-bg); border: 3px solid var(--z-color); }
+        .chain-box.p-val { background: var(--prob-bg); border: 3px solid var(--prob-color); }
+
+        .chain-label {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 4px;
+        }
+
+        .chain-label.x-c { color: var(--x-color); }
+        .chain-label.z-c { color: var(--z-color); }
+        .chain-label.p-c { color: var(--prob-color); }
+
+        .chain-unit {
+            font-size: 40px;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .chain-unit.x-c { color: var(--x-color); }
+        .chain-unit.z-c { color: var(--z-color); }
+        .chain-unit.p-c { color: var(--prob-color); }
+
+        .chain-desc {
+            font-size: 12px;
+            color: var(--text-light);
+            font-family: var(--mono);
+        }
+
+        .chain-formula {
+            font-family: var(--mono);
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 8px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            background: rgba(0,0,0,0.05);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .chain-formula { background: rgba(255,255,255,0.05); }
+        }
+
+        /* ---- ARROWS BETWEEN BOXES ---- */
+        .arrow-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 120px;
+            flex-shrink: 0;
+            gap: 6px;
+        }
+
+        .arrow-dir {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .arrow-dir .label {
+            font-family: var(--mono);
+            font-size: 9px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-light);
+        }
+
+        .arrow-dir .op {
+            font-family: var(--mono);
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--arrow-color);
+            background: var(--card-bg);
+            border: 2px solid var(--arrow-color);
+            border-radius: 6px;
+            padding: 4px 10px;
+            white-space: nowrap;
+        }
+
+        .arrow-dir .arrow-glyph {
+            font-size: 22px;
+            color: var(--arrow-color);
+            line-height: 1;
+        }
+
+        /* ---- CARDS GRID ---- */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 2rem;
+        }
+
+        .cards-grid.full { grid-template-columns: 1fr; }
+
+        .info-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .info-card.x-border { border-color: var(--x-color); }
+        .info-card.z-border { border-color: var(--z-color); }
+        .info-card.p-border { border-color: var(--prob-color); }
+        .info-card.warn-border { border-color: var(--warn-color); }
+
+        .info-card .card-title {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 12px;
+        }
+
+        .info-card .card-title.x-c { color: var(--x-color); }
+        .info-card .card-title.z-c { color: var(--z-color); }
+        .info-card .card-title.p-c { color: var(--prob-color); }
+        .info-card .card-title.warn-c { color: var(--warn-color); }
+
+        .info-card .formula-line {
+            font-family: var(--mono);
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 2;
+        }
+
+        .info-card .explain {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.5;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            padding-top: 10px;
+            margin-top: 8px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .info-card .explain { border-top-color: rgba(255,255,255,0.08); }
+            .info-card { border-color: transparent; }
+            .info-card.x-border { border-color: var(--x-color); }
+            .info-card.z-border { border-color: var(--z-color); }
+            .info-card.p-border { border-color: var(--prob-color); }
+            .info-card.warn-border { border-color: var(--warn-color); }
+        }
+
+        /* ---- MINI BELL CURVES ---- */
+        .mini-bells {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 2rem;
+        }
+
+        .mini-bell {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .mini-bell { border-color: rgba(255,255,255,0.08); }
+        }
+
+        .mini-bell .case-name {
+            font-family: var(--mono);
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--z-color);
+        }
+
+        .mini-bell .case-formula {
+            font-family: var(--mono);
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        /* ---- WORKED EXAMPLES ---- */
+        .example {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 12px;
+            border-left: 5px solid;
+        }
+
+        .example.ex-z { border-left-color: var(--z-color); }
+        .example.ex-x { border-left-color: var(--x-color); }
+        .example.ex-p { border-left-color: var(--prob-color); }
+        .example.ex-warn { border-left-color: var(--warn-color); }
+
+        .example .ex-title {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .step-row {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .step-num {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #fff;
+        }
+
+        .step-num.s-x { background: var(--x-color); }
+        .step-num.s-z { background: var(--z-color); }
+        .step-num.s-p { background: var(--prob-color); }
+        .step-num.s-dark { background: var(--arrow-color); }
+        .step-num.s-warn { background: var(--warn-color); }
+
+        .step-content {
+            font-size: 14px;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .step-content .calc {
+            font-family: var(--hand);
+            font-size: 24px;
+            font-weight: 700;
+            display: block;
+            margin: 4px 0;
+        }
+
+        .step-content .calc.x-c { color: var(--x-color); }
+        .step-content .calc.z-c { color: var(--z-color); }
+        .step-content .calc.p-c { color: var(--prob-color); }
+
+        .final-answer {
+            font-family: var(--hand);
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            padding: 12px;
+            margin-top: 8px;
+            border-radius: 8px;
+            border: 2px dashed;
+        }
+
+        .final-answer.x-c { color: var(--x-color); border-color: var(--x-color); background: var(--x-bg); }
+        .final-answer.z-c { color: var(--z-color); border-color: var(--z-color); background: var(--z-bg); }
+        .final-answer.p-c { color: var(--prob-color); border-color: var(--prob-color); background: var(--prob-bg); }
+
+        /* ---- CONTINUITY CORRECTION TABLE ---- */
+        .cc-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+            font-family: var(--mono);
+            font-size: 13px;
+        }
+
+        .cc-table th {
+            text-align: left;
+            padding: 10px 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.06em;
+            border-bottom: 2px solid var(--warn-color);
+        }
+
+        .cc-table td {
+            padding: 8px 12px;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .cc-table td { border-bottom-color: rgba(255,255,255,0.06); }
+        }
+
+        .cc-table .discrete { color: var(--x-color); font-weight: 600; }
+        .cc-table .continuous { color: var(--prob-color); font-weight: 600; }
+
+        /* ---- MANTRA / FOOTER ---- */
+        .mantra {
+            text-align: center;
+            padding: 32px 24px;
+            background: var(--arrow-color);
+            color: #fff;
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        .mantra .big-text {
+            font-size: 28px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            line-height: 1.3;
+            margin-bottom: 8px;
+        }
+
+        .mantra .big-text .x-c { color: var(--x-color); }
+        .mantra .big-text .z-c { color: #69b1ff; }
+        .mantra .big-text .p-c { color: var(--prob-color); }
+
+        .mantra .small-text {
+            font-family: var(--mono);
+            font-size: 11px;
+            opacity: 0.6;
+        }
+
+        /* ---- MISTAKES SECTION ---- */
+        .mistakes-list {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 2rem;
+            border: 2px solid var(--warn-color);
+        }
+
+        .mistakes-list .mistake-item {
+            font-size: 14px;
+            line-height: 1.6;
+            padding: 6px 0;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .mistakes-list .mistake-item::before {
+            content: "\2717";
+            position: absolute;
+            left: 0;
+            color: var(--warn-color);
+            font-weight: 900;
+            font-size: 16px;
+        }
+
+        /* ---- SVG STYLING ---- */
+        .bell-svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .bell-svg .curve-line {
+            fill: none;
+            stroke: var(--text);
+            stroke-width: 2.5;
+        }
+
+        .bell-svg .shade-1 { fill: var(--prob-color); opacity: 0.25; }
+        .bell-svg .shade-2 { fill: var(--z-color); opacity: 0.2; }
+        .bell-svg .shade-3 { fill: var(--x-color); opacity: 0.15; }
+
+        .bell-svg .axis-line {
+            stroke: var(--text-light);
+            stroke-width: 1;
+        }
+
+        .bell-svg text {
+            font-family: var(--mono);
+            font-size: 11px;
+            fill: var(--text);
+        }
+
+        .bell-svg text.label-1 { fill: var(--prob-color); font-weight: 700; }
+        .bell-svg text.label-2 { fill: var(--z-color); font-weight: 700; }
+        .bell-svg text.label-3 { fill: var(--x-color); font-weight: 700; }
+
+        /* ---- MINI SVG BELLS ---- */
+        .mini-svg { max-width: 200px; height: auto; margin: 0 auto; display: block; }
+        .mini-svg .curve-line { fill: none; stroke: var(--text); stroke-width: 2; }
+        .mini-svg .shade { fill: var(--z-color); opacity: 0.3; }
+        .mini-svg .axis-line { stroke: var(--text-light); stroke-width: 1; }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 700px) {
+            .chain { flex-direction: column; align-items: center; }
+            .arrow-col {
+                width: 100%;
+                flex-direction: row;
+                justify-content: center;
+                height: 60px;
+            }
+            .arrow-dir { flex-direction: row; gap: 8px; }
+            .arrow-dir .arrow-glyph { transform: rotate(90deg); }
+            .chain-box { width: 100%; min-height: 120px; }
+            .chain-unit { font-size: 32px; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .mini-bells { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 28px; }
+            .mantra .big-text { font-size: 22px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <div class="hero">
+        <h1>Normal Distribution</h1>
+        <div class="subtitle">The complete method &mdash; from X to Z to probability</div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 1. WHAT IT IS -->
+    <!-- ============================================ -->
+    <h2 class="section-header">What It Is</h2>
+
+    <div class="bell-curve-container">
+        <div class="notation"><span class="x-c">X</span> ~ N(&mu;, &sigma;&sup2;) &mdash; mean &mu;, variance &sigma;&sup2;</div>
+
+        <!-- SVG bell curve with shaded regions -->
+        <svg class="bell-svg" viewBox="0 0 500 220" xmlns="http://www.w3.org/2000/svg">
+            <!-- Axis -->
+            <line class="axis-line" x1="30" y1="180" x2="470" y2="180"/>
+
+            <!-- 3-sigma shading (99.7%) -->
+            <path class="shade-3" d="M80,180 Q100,178 130,170 Q160,148 180,110 Q200,60 220,30 Q240,12 250,10 Q260,12 280,30 Q300,60 320,110 Q340,148 370,170 Q400,178 420,180 Z"/>
+
+            <!-- 2-sigma shading (95%) -->
+            <path class="shade-2" d="M115,180 Q140,175 165,155 Q190,115 215,55 Q235,20 250,10 Q265,20 285,55 Q310,115 335,155 Q360,175 385,180 Z"/>
+
+            <!-- 1-sigma shading (68%) -->
+            <path class="shade-1" d="M165,180 Q185,168 205,130 Q220,80 235,40 Q245,18 250,10 Q255,18 265,40 Q280,80 295,130 Q315,168 335,180 Z"/>
+
+            <!-- The bell curve line -->
+            <path class="curve-line" d="M50,180 Q70,179 90,177 Q110,173 130,165 Q150,150 170,125 Q190,90 210,55 Q230,25 250,10 Q270,25 290,55 Q310,90 330,125 Q350,150 370,165 Q390,173 410,177 Q430,179 450,180"/>
+
+            <!-- Centre line -->
+            <line x1="250" y1="8" x2="250" y2="185" stroke-dasharray="4,4" style="stroke: var(--text-light); stroke-width: 1;"/>
+
+            <!-- Tick marks and labels -->
+            <line x1="250" y1="178" x2="250" y2="185" style="stroke: var(--text); stroke-width: 1.5;"/>
+            <text x="250" y="198" text-anchor="middle">&mu;</text>
+
+            <line x1="165" y1="178" x2="165" y2="185" style="stroke: var(--text); stroke-width: 1.5;"/>
+            <text x="165" y="198" text-anchor="middle">&mu;-1&sigma;</text>
+            <line x1="335" y1="178" x2="335" y2="185" style="stroke: var(--text); stroke-width: 1.5;"/>
+            <text x="335" y="198" text-anchor="middle">&mu;+1&sigma;</text>
+
+            <line x1="115" y1="178" x2="115" y2="185" style="stroke: var(--text); stroke-width: 1.5;"/>
+            <text x="115" y="198" text-anchor="middle">&mu;-2&sigma;</text>
+            <line x1="385" y1="178" x2="385" y2="185" style="stroke: var(--text); stroke-width: 1.5;"/>
+            <text x="385" y="198" text-anchor="middle">&mu;+2&sigma;</text>
+
+            <line x1="80" y1="178" x2="80" y2="185" style="stroke: var(--text); stroke-width: 1.5;"/>
+            <text x="80" y="198" text-anchor="middle">&mu;-3&sigma;</text>
+            <line x1="420" y1="178" x2="420" y2="185" style="stroke: var(--text); stroke-width: 1.5;"/>
+            <text x="420" y="198" text-anchor="middle">&mu;+3&sigma;</text>
+
+            <!-- Percentage labels -->
+            <text class="label-1" x="250" y="145" text-anchor="middle" font-size="13">68%</text>
+            <text class="label-2" x="250" y="165" text-anchor="middle" font-size="12">95%</text>
+            <text class="label-3" x="250" y="215" text-anchor="middle" font-size="11">99.7%</text>
+        </svg>
+
+        <div class="bell-stats">
+            <div class="bell-stat s1">68% within &plusmn;1&sigma;</div>
+            <div class="bell-stat s2">95% within &plusmn;2&sigma;</div>
+            <div class="bell-stat s3">99.7% within &plusmn;3&sigma;</div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 2. THE BIG CHAIN -->
+    <!-- ============================================ -->
+    <h2 class="section-header">The Big Chain</h2>
+
+    <div class="chain">
+        <div class="chain-box x-val">
+            <div class="chain-label x-c">X Value</div>
+            <div class="chain-unit x-c">x</div>
+            <div class="chain-desc">your raw data value</div>
+            <div class="chain-formula">X ~ N(&mu;, &sigma;&sup2;)</div>
+        </div>
+
+        <div class="arrow-col">
+            <div class="arrow-dir">
+                <div class="label">standardise</div>
+                <div class="arrow-glyph">&rarr;</div>
+                <div class="op">z = (x - &mu;) / &sigma;</div>
+            </div>
+        </div>
+
+        <div class="chain-box z-val">
+            <div class="chain-label z-c">Z Value</div>
+            <div class="chain-unit z-c">z</div>
+            <div class="chain-desc">standard normal score</div>
+            <div class="chain-formula">Z ~ N(0, 1)</div>
+        </div>
+
+        <div class="arrow-col">
+            <div class="arrow-dir">
+                <div class="label">look up</div>
+                <div class="arrow-glyph">&rarr;</div>
+                <div class="op">use table / calc</div>
+            </div>
+        </div>
+
+        <div class="chain-box p-val">
+            <div class="chain-label p-c">Probability</div>
+            <div class="chain-unit p-c">P</div>
+            <div class="chain-desc">area under curve</div>
+            <div class="chain-formula">0 &le; P &le; 1</div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 3. USING THE TABLE -->
+    <!-- ============================================ -->
+    <h2 class="section-header">Using the Table</h2>
+
+    <div class="mini-bells">
+        <!-- Case 1: P(Z < z) -->
+        <div class="mini-bell">
+            <div class="case-name">P(Z &lt; z)</div>
+            <svg class="mini-svg" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+                <line class="axis-line" x1="10" y1="80" x2="190" y2="80"/>
+                <path class="shade" d="M10,80 Q20,79 35,77 Q50,70 65,55 Q80,30 95,12 Q100,10 105,12 Q115,20 125,35 L125,80 Z"/>
+                <path class="curve-line" d="M10,80 Q30,78 50,70 Q70,50 85,25 Q95,12 100,10 Q105,12 115,25 Q130,50 150,70 Q170,78 190,80"/>
+                <line x1="125" y1="35" x2="125" y2="82" stroke-dasharray="3,3" style="stroke: var(--z-color); stroke-width: 1.5;"/>
+                <text x="125" y="95" text-anchor="middle" style="font-size: 10px; fill: var(--z-color); font-weight: 700;">z</text>
+            </svg>
+            <div class="case-formula">Read directly from the table</div>
+        </div>
+
+        <!-- Case 2: P(Z > z) -->
+        <div class="mini-bell">
+            <div class="case-name">P(Z &gt; z)</div>
+            <svg class="mini-svg" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+                <line class="axis-line" x1="10" y1="80" x2="190" y2="80"/>
+                <path class="shade" d="M125,35 Q130,50 150,70 Q170,78 190,80 L125,80 Z"/>
+                <path class="curve-line" d="M10,80 Q30,78 50,70 Q70,50 85,25 Q95,12 100,10 Q105,12 115,25 Q130,50 150,70 Q170,78 190,80"/>
+                <line x1="125" y1="35" x2="125" y2="82" stroke-dasharray="3,3" style="stroke: var(--z-color); stroke-width: 1.5;"/>
+                <text x="125" y="95" text-anchor="middle" style="font-size: 10px; fill: var(--z-color); font-weight: 700;">z</text>
+            </svg>
+            <div class="case-formula">= 1 &minus; P(Z &lt; z)</div>
+        </div>
+
+        <!-- Case 3: P(Z < -z) -->
+        <div class="mini-bell">
+            <div class="case-name">P(Z &lt; &minus;z)</div>
+            <svg class="mini-svg" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+                <line class="axis-line" x1="10" y1="80" x2="190" y2="80"/>
+                <path class="shade" d="M10,80 Q20,79 35,77 Q50,70 60,58 Q68,48 75,35 L75,80 Z"/>
+                <path class="curve-line" d="M10,80 Q30,78 50,70 Q70,50 85,25 Q95,12 100,10 Q105,12 115,25 Q130,50 150,70 Q170,78 190,80"/>
+                <line x1="75" y1="35" x2="75" y2="82" stroke-dasharray="3,3" style="stroke: var(--z-color); stroke-width: 1.5;"/>
+                <text x="75" y="95" text-anchor="middle" style="font-size: 10px; fill: var(--z-color); font-weight: 700;">-z</text>
+            </svg>
+            <div class="case-formula">= 1 &minus; P(Z &lt; z) &nbsp;(symmetry)</div>
+        </div>
+
+        <!-- Case 4: P(a < Z < b) -->
+        <div class="mini-bell">
+            <div class="case-name">P(a &lt; Z &lt; b)</div>
+            <svg class="mini-svg" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+                <line class="axis-line" x1="10" y1="80" x2="190" y2="80"/>
+                <path class="shade" d="M75,35 Q80,30 85,25 Q95,12 100,10 Q105,12 115,25 Q120,32 125,35 L125,80 L75,80 Z"/>
+                <path class="curve-line" d="M10,80 Q30,78 50,70 Q70,50 85,25 Q95,12 100,10 Q105,12 115,25 Q130,50 150,70 Q170,78 190,80"/>
+                <line x1="75" y1="35" x2="75" y2="82" stroke-dasharray="3,3" style="stroke: var(--z-color); stroke-width: 1.5;"/>
+                <line x1="125" y1="35" x2="125" y2="82" stroke-dasharray="3,3" style="stroke: var(--z-color); stroke-width: 1.5;"/>
+                <text x="75" y="95" text-anchor="middle" style="font-size: 10px; fill: var(--z-color); font-weight: 700;">a</text>
+                <text x="125" y="95" text-anchor="middle" style="font-size: 10px; fill: var(--z-color); font-weight: 700;">b</text>
+            </svg>
+            <div class="case-formula">= P(Z &lt; b) &minus; P(Z &lt; a)</div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 4. INVERSE NORMAL -->
+    <!-- ============================================ -->
+    <h2 class="section-header">Inverse Normal &mdash; Going Backwards</h2>
+
+    <div class="cards-grid full">
+        <div class="info-card p-border">
+            <div class="card-title p-c">Given a probability, find the value</div>
+            <div class="explain" style="border: none; padding-top: 0; margin-top: 0;">
+                If P(X &lt; a) = p, then:
+            </div>
+            <div class="formula-line" style="font-size: 18px; text-align: center; margin: 12px 0;">
+                1. Find z where P(Z &lt; z) = p &nbsp;&nbsp;(from tables, reading backwards)
+            </div>
+            <div class="formula-line" style="font-size: 18px; text-align: center; margin: 12px 0;">
+                2. Then <span style="color: var(--x-color);">a</span> = <span style="color: var(--z-color);">&mu; + z&sigma;</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="example ex-p">
+        <div class="ex-title">Worked Example: X ~ N(50, 16). Find a such that P(X &lt; a) = 0.9</div>
+        <div class="step-row">
+            <div class="step-num s-dark">1</div>
+            <div class="step-content">
+                Identify: &mu; = 50, &sigma;&sup2; = 16, so &sigma; = 4
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-z">2</div>
+            <div class="step-content">
+                Find z where P(Z &lt; z) = 0.9 from tables
+                <span class="calc z-c">z = 1.2816</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-x">3</div>
+            <div class="step-content">
+                Convert back: a = &mu; + z&sigma;
+                <span class="calc x-c">a = 50 + 1.2816 &times; 4 = 55.13 (2 d.p.)</span>
+            </div>
+        </div>
+        <div class="final-answer x-c">a = 55.13</div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 5. FINDING mu AND sigma -->
+    <!-- ============================================ -->
+    <h2 class="section-header">Finding &mu; and &sigma; &mdash; Simultaneous Equations</h2>
+
+    <div class="cards-grid full">
+        <div class="info-card z-border">
+            <div class="card-title z-c">The Method</div>
+            <div class="explain" style="border: none; padding-top: 0; margin-top: 0;">
+                Given two probability statements about X ~ N(&mu;, &sigma;&sup2;):
+            </div>
+            <div class="formula-line" style="text-align: center; margin: 8px 0;">
+                P(X &lt; a) = p<sub>1</sub> &nbsp;&rArr;&nbsp; z<sub>1</sub> from tables &nbsp;&rArr;&nbsp; a = &mu; + z<sub>1</sub>&sigma; &nbsp;&hellip; <strong style="color: var(--x-color);">[1]</strong>
+            </div>
+            <div class="formula-line" style="text-align: center; margin: 8px 0;">
+                P(X &lt; b) = p<sub>2</sub> &nbsp;&rArr;&nbsp; z<sub>2</sub> from tables &nbsp;&rArr;&nbsp; b = &mu; + z<sub>2</sub>&sigma; &nbsp;&hellip; <strong style="color: var(--z-color);">[2]</strong>
+            </div>
+            <div class="explain">
+                Subtract one equation from the other to eliminate &mu; and find &sigma;, then substitute back to find &mu;.
+            </div>
+        </div>
+    </div>
+
+    <div class="example ex-z">
+        <div class="ex-title">Worked Example: P(X &lt; 62) = 0.9 and P(X &lt; 38) = 0.1. Find &mu; and &sigma;.</div>
+        <div class="step-row">
+            <div class="step-num s-z">1</div>
+            <div class="step-content">
+                From tables: P(Z &lt; z) = 0.9 gives z<sub>1</sub> = 1.2816
+                <span class="calc z-c">62 = &mu; + 1.2816&sigma; &hellip; [1]</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-z">2</div>
+            <div class="step-content">
+                P(Z &lt; z) = 0.1 &rArr; by symmetry z<sub>2</sub> = &minus;1.2816
+                <span class="calc z-c">38 = &mu; &minus; 1.2816&sigma; &hellip; [2]</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-x">3</div>
+            <div class="step-content">
+                [1] &minus; [2]: 62 &minus; 38 = 2(1.2816)&sigma;
+                <span class="calc x-c">24 = 2.5632&sigma; &rArr; &sigma; = 9.365 (3 d.p.)</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-x">4</div>
+            <div class="step-content">
+                Substitute into [1]: &mu; = 62 &minus; 1.2816 &times; 9.365
+                <span class="calc x-c">&mu; = 50</span>
+            </div>
+        </div>
+        <div class="final-answer x-c">&mu; = 50, &sigma; = 9.37 (3 s.f.)</div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 6. NORMAL APPROXIMATION TO BINOMIAL -->
+    <!-- ============================================ -->
+    <h2 class="section-header">Normal Approximation to Binomial</h2>
+
+    <div class="cards-grid">
+        <div class="info-card z-border">
+            <div class="card-title z-c">When to use it</div>
+            <div class="formula-line">
+                n is large<br>
+                np &gt; 5<br>
+                n(1 &minus; p) &gt; 5
+            </div>
+        </div>
+        <div class="info-card p-border">
+            <div class="card-title p-c">The approximation</div>
+            <div class="formula-line">
+                X ~ B(n, p)<br>
+                &asymp; Y ~ N(np, np(1&minus;p))
+            </div>
+            <div class="explain">Mean = np, Variance = np(1&minus;p)</div>
+        </div>
+    </div>
+
+    <div class="cards-grid full">
+        <div class="info-card warn-border">
+            <div class="card-title warn-c">Continuity Correction &mdash; This is crucial!</div>
+            <div class="explain" style="border: none; padding-top: 0; margin-top: 0; margin-bottom: 12px;">
+                Binomial is <strong>discrete</strong> (whole numbers), Normal is <strong>continuous</strong>.
+                You must adjust by &plusmn;0.5 to bridge the gap.
+            </div>
+            <table class="cc-table">
+                <thead>
+                    <tr>
+                        <th>Binomial (discrete)</th>
+                        <th>Normal (continuous)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="discrete">P(X &le; n)</td>
+                        <td class="continuous">P(Y &lt; n + 0.5)</td>
+                    </tr>
+                    <tr>
+                        <td class="discrete">P(X &lt; n)</td>
+                        <td class="continuous">P(Y &lt; n &minus; 0.5)</td>
+                    </tr>
+                    <tr>
+                        <td class="discrete">P(X &ge; n)</td>
+                        <td class="continuous">P(Y &gt; n &minus; 0.5)</td>
+                    </tr>
+                    <tr>
+                        <td class="discrete">P(X &gt; n)</td>
+                        <td class="continuous">P(Y &gt; n + 0.5)</td>
+                    </tr>
+                    <tr>
+                        <td class="discrete">P(X = n)</td>
+                        <td class="continuous">P(n &minus; 0.5 &lt; Y &lt; n + 0.5)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 7. COMMON MISTAKES -->
+    <!-- ============================================ -->
+    <h2 class="section-header">Common Mistakes</h2>
+
+    <div class="mistakes-list">
+        <div class="mistake-item">Using &sigma;&sup2; instead of &sigma; (or vice versa) in the standardising formula &mdash; z = (x &minus; &mu;) / <strong>&sigma;</strong>, not &sigma;&sup2;</div>
+        <div class="mistake-item">Forgetting the continuity correction when approximating binomial with normal</div>
+        <div class="mistake-item">Getting the inequality direction wrong after standardising &mdash; always redraw the bell curve</div>
+        <div class="mistake-item">Not drawing a sketch &mdash; always shade the area you want on a bell curve first</div>
+    </div>
+
+    <!-- ---- THE MANTRA ---- -->
+    <div class="mantra">
+        <div class="big-text">
+            <span class="x-c">x value</span> &xrarr;
+            <span class="z-c">standardise</span> &xrarr;
+            <span class="p-c">probability</span>
+        </div>
+        <div class="big-text" style="font-size: 20px; margin-top: 4px;">
+            z = (x &minus; &mu;) / &sigma; &nbsp;&nbsp;&bull;&nbsp;&nbsp; always draw the curve
+        </div>
+        <div class="small-text" style="margin-top: 12px;">Standardise, look up, done. Backwards? Inverse normal. Two unknowns? Simultaneous equations.</div>
+    </div>
+
+</div>
+
+</body>
+</html>

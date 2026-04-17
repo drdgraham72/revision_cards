@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Maths — Differentiation Rules</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&family=Caveat:wght@600;700&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #f5f5f0;
+            --card: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #666;
+            --border: rgba(0,0,0,0.1);
+            --font: 'Barlow Condensed', sans-serif;
+            --mono: 'DM Mono', monospace;
+            --hand: 'Caveat', cursive;
+
+            --power-color: #0f766e;
+            --power-bg: #f0fdfa;
+            --chain-color: #7c3aed;
+            --chain-bg: #f5f3ff;
+            --product-color: #0958d9;
+            --product-bg: #e6f4ff;
+            --quotient-color: #b91c1c;
+            --quotient-bg: #fef2f2;
+            --green-color: #15803d;
+            --green-bg: #f0fdf4;
+            --warn-color: #c2410c;
+            --warn-bg: #fff7ed;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #141416;
+                --card: #1e1e22;
+                --text: #e8e4dc;
+                --text-light: #999;
+                --border: rgba(255,255,255,0.08);
+                --power-bg: #0d2926;
+                --chain-bg: #1e1630;
+                --product-bg: #0d2240;
+                --quotient-bg: #2a0d0d;
+                --green-bg: #0d2a14;
+                --warn-bg: #2a1a0d;
+            }
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 1.5rem 1rem;
+        }
+
+        .page { max-width: 900px; margin: 0 auto; }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            line-height: 1.1;
+            margin-bottom: 6px;
+        }
+
+        .hero .subtitle {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* ---- DECISION TREE ---- */
+        .tree {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            margin-bottom: 2.5rem;
+        }
+
+        .node {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 16px 24px;
+            text-align: center;
+            max-width: 520px;
+            width: 100%;
+            position: relative;
+        }
+
+        .node.question {
+            border-color: var(--text);
+            background: var(--text);
+            color: #fff;
+        }
+
+        .node.question .q {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .branch {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            width: 100%;
+            max-width: 750px;
+        }
+
+        .branch-arm {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            flex: 1;
+        }
+
+        .connector {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 6px 0;
+        }
+
+        .connector .line {
+            width: 2px;
+            height: 16px;
+            background: var(--text-light);
+        }
+
+        .connector .label {
+            font-family: var(--mono);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-light);
+            padding: 2px 10px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: var(--card);
+        }
+
+        .connector .label.yes { color: var(--green-color); border-color: var(--green-color); }
+        .connector .label.no { color: var(--warn-color); border-color: var(--warn-color); }
+
+        .node.answer {
+            font-size: 15px;
+            font-weight: 700;
+            padding: 14px 18px;
+        }
+
+        .node.answer.power { border-color: var(--power-color); background: var(--power-bg); color: var(--power-color); }
+        .node.answer.chain { border-color: var(--chain-color); background: var(--chain-bg); color: var(--chain-color); }
+        .node.answer.product { border-color: var(--product-color); background: var(--product-bg); color: var(--product-color); }
+        .node.answer.quotient { border-color: var(--quotient-color); background: var(--quotient-bg); color: var(--quotient-color); }
+
+        .node .example {
+            font-family: var(--hand);
+            font-size: 18px;
+            margin-top: 6px;
+            opacity: 0.85;
+        }
+
+        /* ---- INTERACTIVE FLOWCHART ---- */
+        .flowchart {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 32px 28px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .flowchart h2 {
+            font-size: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 8px;
+        }
+
+        .flowchart .intro {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .fc-question {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.3;
+        }
+
+        .fc-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .fc-btn {
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-family: var(--font);
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 2px solid;
+        }
+
+        .fc-btn.yes {
+            background: var(--green-bg);
+            color: var(--green-color);
+            border-color: var(--green-color);
+        }
+
+        .fc-btn.yes:hover { background: var(--green-color); color: #fff; }
+
+        .fc-btn.no {
+            background: var(--warn-bg);
+            color: var(--warn-color);
+            border-color: var(--warn-color);
+        }
+
+        .fc-btn.no:hover { background: var(--warn-color); color: #fff; }
+
+        .fc-result {
+            display: none;
+            padding: 24px;
+            border-radius: 12px;
+            margin-top: 12px;
+        }
+
+        .fc-result.show { display: block; }
+
+        .fc-result .technique-name {
+            font-size: 32px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 8px;
+        }
+
+        .fc-result .technique-desc {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .fc-result .technique-example {
+            font-family: var(--hand);
+            font-size: 20px;
+            font-weight: 600;
+            opacity: 0.8;
+        }
+
+        .fc-reset {
+            display: none;
+            margin-top: 16px;
+            padding: 8px 20px;
+            border: 1.5px solid var(--border);
+            border-radius: 6px;
+            background: var(--card);
+            color: var(--text);
+            font-family: var(--font);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .fc-reset.show { display: inline-block; }
+        .fc-reset:hover { border-color: var(--text); }
+
+        /* ---- RULE CARDS ---- */
+        .rules {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px;
+            margin-bottom: 2rem;
+        }
+
+        .rule-card {
+            border-radius: 12px;
+            padding: 24px;
+            border-left: 6px solid;
+        }
+
+        .rule-card.chain { background: var(--chain-bg); border-left-color: var(--chain-color); }
+        .rule-card.product { background: var(--product-bg); border-left-color: var(--product-color); }
+        .rule-card.quotient { background: var(--quotient-bg); border-left-color: var(--quotient-color); }
+
+        .rule-card .rule-name {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 4px;
+        }
+
+        .rule-card.chain .rule-name { color: var(--chain-color); }
+        .rule-card.product .rule-name { color: var(--product-color); }
+        .rule-card.quotient .rule-name { color: var(--quotient-color); }
+
+        .rule-card .formula {
+            font-family: var(--mono);
+            font-size: 16px;
+            font-weight: 500;
+            margin: 10px 0;
+            padding: 10px 16px;
+            background: rgba(0,0,0,0.04);
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .rule-card .formula { background: rgba(255,255,255,0.06); }
+        }
+
+        .rule-card .memory-aid {
+            font-family: var(--hand);
+            font-size: 22px;
+            font-weight: 700;
+            margin: 8px 0;
+            opacity: 0.85;
+        }
+
+        .rule-card .steps {
+            margin: 12px 0;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .rule-card .steps .step-num {
+            font-family: var(--mono);
+            font-size: 11px;
+            font-weight: 700;
+            display: inline-block;
+            width: 28px;
+            text-align: center;
+            border-radius: 4px;
+            margin-right: 6px;
+        }
+
+        .rule-card.chain .steps .step-num { background: var(--chain-color); color: #fff; }
+        .rule-card.product .steps .step-num { background: var(--product-color); color: #fff; }
+        .rule-card.quotient .steps .step-num { background: var(--quotient-color); color: #fff; }
+
+        .rule-card .worked {
+            margin-top: 14px;
+            padding: 14px;
+            background: rgba(0,0,0,0.03);
+            border-radius: 8px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .rule-card .worked { background: rgba(255,255,255,0.04); }
+        }
+
+        .rule-card .worked h4 {
+            font-family: var(--mono);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        .rule-card .worked .work-line {
+            font-family: var(--hand);
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 1.6;
+        }
+
+        /* ---- STANDARD RESULTS TABLE ---- */
+        .quick-ref {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 2rem;
+        }
+
+        .quick-ref h2 {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .ref-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 15px;
+        }
+
+        .ref-table th {
+            font-family: var(--mono);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-light);
+            padding: 8px 12px;
+            text-align: left;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .ref-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        .ref-table tr:last-child td { border-bottom: none; }
+
+        .ref-table .fx { font-weight: 700; font-family: var(--mono); font-size: 14px; }
+        .ref-table .fpx { font-family: var(--mono); font-size: 14px; color: var(--chain-color); font-weight: 600; }
+
+        /* ---- MISTAKES BOX ---- */
+        .mistakes-box {
+            background: var(--warn-bg);
+            border: 2px solid var(--warn-color);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 1rem;
+        }
+
+        .mistakes-box h2 {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--warn-color);
+            margin-bottom: 12px;
+        }
+
+        .mistakes-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .mistakes-box li {
+            font-size: 14px;
+            line-height: 1.6;
+            padding: 8px 0 8px 28px;
+            position: relative;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .mistakes-box li:last-child { border-bottom: none; }
+
+        .mistakes-box li::before {
+            content: '⚠';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            font-size: 14px;
+        }
+
+        .mistakes-box .wrong {
+            font-family: var(--mono);
+            font-size: 12px;
+            background: rgba(185,28,28,0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            text-decoration: line-through;
+            color: var(--quotient-color);
+        }
+
+        .mistakes-box .right {
+            font-family: var(--mono);
+            font-size: 12px;
+            background: rgba(21,128,61,0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--green-color);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .mistakes-box li { border-bottom-color: rgba(255,255,255,0.06); }
+        }
+
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 26px; }
+            .branch { flex-direction: column; gap: 12px; align-items: center; }
+            .fc-question { font-size: 18px; }
+            .ref-table { font-size: 13px; }
+            .ref-table th, .ref-table td { padding: 6px 8px; }
+            .rule-card .worked .work-line { font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <div class="hero">
+        <h1>Differentiation Rules</h1>
+        <div class="subtitle">Which one to use &amp; how to apply it</div>
+    </div>
+
+    <!-- ---- STATIC DECISION TREE ---- -->
+    <div class="tree">
+        <div class="node question"><span class="q">What does the expression look like?</span></div>
+
+        <div class="branch" style="margin-top: 0;">
+            <div class="branch-arm">
+                <div class="connector">
+                    <div class="line"></div>
+                    <div class="label">one function</div>
+                    <div class="line"></div>
+                </div>
+                <div class="node answer power">
+                    Power Rule<br>nx<sup>n&minus;1</sup>
+                    <div class="example">x&sup3; &rarr; 3x&sup2;</div>
+                </div>
+            </div>
+            <div class="branch-arm">
+                <div class="connector">
+                    <div class="line"></div>
+                    <div class="label">f inside g</div>
+                    <div class="line"></div>
+                </div>
+                <div class="node answer chain">
+                    Chain Rule<br>dy/du &times; du/dx
+                    <div class="example">sin(3x&sup2;)</div>
+                </div>
+            </div>
+            <div class="branch-arm">
+                <div class="connector">
+                    <div class="line"></div>
+                    <div class="label">two &times; together</div>
+                    <div class="line"></div>
+                </div>
+                <div class="node answer product">
+                    Product Rule<br>u dv + v du
+                    <div class="example">x&sup2; &middot; e<sup>x</sup></div>
+                </div>
+            </div>
+            <div class="branch-arm">
+                <div class="connector">
+                    <div class="line"></div>
+                    <div class="label">one &divide; other</div>
+                    <div class="line"></div>
+                </div>
+                <div class="node answer quotient">
+                    Quotient Rule<br>(v du &minus; u dv) / v&sup2;
+                    <div class="example">sin x / x&sup2;</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ---- INTERACTIVE FLOWCHART ---- -->
+    <div class="flowchart">
+        <h2>Which rule do I need? &mdash; Click to find out</h2>
+        <div class="intro">Answer Yes or No. Three questions maximum.</div>
+
+        <div class="fc-question" id="fcQuestion"></div>
+        <div class="fc-buttons" id="fcButtons">
+            <button class="fc-btn yes" onclick="fcAnswer(true)">Yes</button>
+            <button class="fc-btn no" onclick="fcAnswer(false)">No</button>
+        </div>
+        <div class="fc-result" id="fcResult">
+            <div class="technique-name" id="fcTechName"></div>
+            <div class="technique-desc" id="fcTechDesc"></div>
+            <div class="technique-example" id="fcTechExample"></div>
+        </div>
+        <button class="fc-reset" id="fcReset" onclick="fcStart()">Try another expression</button>
+    </div>
+
+    <!-- ---- CHAIN RULE ---- -->
+    <div class="rules">
+        <div class="rule-card chain">
+            <div class="rule-name">The Chain Rule</div>
+            <div class="formula">dy/dx = dy/du &times; du/dx</div>
+            <div class="memory-aid">"Differentiate the outside, keep the inside, multiply by the derivative of the inside"</div>
+            <div class="steps">
+                <div><span class="step-num">1</span> Identify the <strong>inner function</strong> u and the <strong>outer function</strong> y</div>
+                <div><span class="step-num">2</span> Differentiate the outer function (keeping inner as u)</div>
+                <div><span class="step-num">3</span> Differentiate the inner function</div>
+                <div><span class="step-num">4</span> Multiply them together</div>
+            </div>
+            <div class="worked">
+                <h4>Example 1: sin(3x)</h4>
+                <div class="work-line">u = 3x, &nbsp; y = sin(u)</div>
+                <div class="work-line">dy/du = cos(u), &nbsp; du/dx = 3</div>
+                <div class="work-line">dy/dx = cos(3x) &times; 3 = 3cos(3x) &check;</div>
+            </div>
+            <div class="worked">
+                <h4>Example 2: (2x + 1)&sup5;</h4>
+                <div class="work-line">u = 2x + 1, &nbsp; y = u&sup5;</div>
+                <div class="work-line">dy/du = 5u&sup4;, &nbsp; du/dx = 2</div>
+                <div class="work-line">dy/dx = 5(2x+1)&sup4; &times; 2 = 10(2x+1)&sup4; &check;</div>
+            </div>
+            <div class="worked">
+                <h4>Example 3: e^(x&sup2;)</h4>
+                <div class="work-line">u = x&sup2;, &nbsp; y = e<sup>u</sup></div>
+                <div class="work-line">dy/du = e<sup>u</sup>, &nbsp; du/dx = 2x</div>
+                <div class="work-line">dy/dx = e<sup>x&sup2;</sup> &times; 2x = 2x&middot;e<sup>x&sup2;</sup> &check;</div>
+            </div>
+        </div>
+
+        <!-- ---- PRODUCT RULE ---- -->
+        <div class="rule-card product">
+            <div class="rule-name">The Product Rule</div>
+            <div class="formula">d(uv)/dx = u(dv/dx) + v(du/dx)</div>
+            <div class="memory-aid">"first &times; d(second) + second &times; d(first)"</div>
+            <div class="steps">
+                <div><span class="step-num">1</span> Label <strong>u</strong> and <strong>v</strong> (the two parts being multiplied)</div>
+                <div><span class="step-num">2</span> Find du/dx and dv/dx separately</div>
+                <div><span class="step-num">3</span> Apply the formula: u&middot;dv/dx + v&middot;du/dx</div>
+            </div>
+            <div class="worked">
+                <h4>Example 1: x&sup2; &middot; sin(x)</h4>
+                <div class="work-line">u = x&sup2;, &nbsp; v = sin(x)</div>
+                <div class="work-line">du/dx = 2x, &nbsp; dv/dx = cos(x)</div>
+                <div class="work-line">dy/dx = x&sup2;&middot;cos(x) + sin(x)&middot;2x</div>
+                <div class="work-line">= x&sup2;cos(x) + 2x&middot;sin(x) &check;</div>
+            </div>
+            <div class="worked">
+                <h4>Example 2: e<sup>x</sup> &middot; ln(x)</h4>
+                <div class="work-line">u = e<sup>x</sup>, &nbsp; v = ln(x)</div>
+                <div class="work-line">du/dx = e<sup>x</sup>, &nbsp; dv/dx = 1/x</div>
+                <div class="work-line">dy/dx = e<sup>x</sup>&middot;(1/x) + ln(x)&middot;e<sup>x</sup></div>
+                <div class="work-line">= e<sup>x</sup>(1/x + ln(x)) &check;</div>
+            </div>
+        </div>
+
+        <!-- ---- QUOTIENT RULE ---- -->
+        <div class="rule-card quotient">
+            <div class="rule-name">The Quotient Rule</div>
+            <div class="formula">d(u/v)/dx = [v(du/dx) &minus; u(dv/dx)] / v&sup2;</div>
+            <div class="memory-aid">"lo d-hi minus hi d-lo, over lo-lo"</div>
+            <div style="font-size: 13px; color: var(--text-light); margin: 6px 0;">
+                Or rewrite u/v as u&middot;v<sup>&minus;1</sup> and use <strong>product + chain rule</strong> instead.
+            </div>
+            <div class="steps">
+                <div><span class="step-num">1</span> Label <strong>u</strong> (top) and <strong>v</strong> (bottom)</div>
+                <div><span class="step-num">2</span> Find du/dx and dv/dx separately</div>
+                <div><span class="step-num">3</span> Apply: (v&middot;du/dx &minus; u&middot;dv/dx) / v&sup2;</div>
+            </div>
+            <div class="worked">
+                <h4>Example 1: sin(x) / x&sup2;</h4>
+                <div class="work-line">u = sin(x), &nbsp; v = x&sup2;</div>
+                <div class="work-line">du/dx = cos(x), &nbsp; dv/dx = 2x</div>
+                <div class="work-line">dy/dx = [x&sup2;&middot;cos(x) &minus; sin(x)&middot;2x] / x&sup4;</div>
+                <div class="work-line">= [x&middot;cos(x) &minus; 2sin(x)] / x&sup3; &check;</div>
+            </div>
+            <div class="worked">
+                <h4>Example 2: (x+1) / (x&minus;1)</h4>
+                <div class="work-line">u = x+1, &nbsp; v = x&minus;1</div>
+                <div class="work-line">du/dx = 1, &nbsp; dv/dx = 1</div>
+                <div class="work-line">dy/dx = [(x&minus;1)&middot;1 &minus; (x+1)&middot;1] / (x&minus;1)&sup2;</div>
+                <div class="work-line">= [x&minus;1&minus;x&minus;1] / (x&minus;1)&sup2; = &minus;2/(x&minus;1)&sup2; &check;</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ---- STANDARD RESULTS TABLE ---- -->
+    <div class="quick-ref">
+        <h2>Standard Results &mdash; Must Know</h2>
+        <table class="ref-table">
+            <tr>
+                <th>f(x)</th>
+                <th>f&prime;(x)</th>
+            </tr>
+            <tr>
+                <td class="fx">x<sup>n</sup></td>
+                <td class="fpx">nx<sup>n&minus;1</sup></td>
+            </tr>
+            <tr>
+                <td class="fx">e<sup>x</sup></td>
+                <td class="fpx">e<sup>x</sup></td>
+            </tr>
+            <tr>
+                <td class="fx">e<sup>kx</sup></td>
+                <td class="fpx">ke<sup>kx</sup></td>
+            </tr>
+            <tr>
+                <td class="fx">ln(x)</td>
+                <td class="fpx">1/x</td>
+            </tr>
+            <tr>
+                <td class="fx">sin(x)</td>
+                <td class="fpx">cos(x)</td>
+            </tr>
+            <tr>
+                <td class="fx">cos(x)</td>
+                <td class="fpx">&minus;sin(x)</td>
+            </tr>
+            <tr>
+                <td class="fx">tan(x)</td>
+                <td class="fpx">sec&sup2;(x)</td>
+            </tr>
+            <tr>
+                <td class="fx">sin(kx)</td>
+                <td class="fpx">k&middot;cos(kx)</td>
+            </tr>
+            <tr>
+                <td class="fx">cos(kx)</td>
+                <td class="fpx">&minus;k&middot;sin(kx)</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- ---- COMMON MISTAKES ---- -->
+    <div class="mistakes-box">
+        <h2>Common Mistakes</h2>
+        <ul>
+            <li>
+                <strong>Forgetting the chain rule on composite functions:</strong><br>
+                d/dx[sin(3x)] = <span class="wrong">cos(3x)</span> &rarr; <span class="right">3cos(3x)</span>
+            </li>
+            <li>
+                <strong>Sign errors with cos &rarr; &minus;sin:</strong><br>
+                d/dx[cos(x)] = <span class="wrong">sin(x)</span> &rarr; <span class="right">&minus;sin(x)</span>
+            </li>
+            <li>
+                <strong>Mixing up product and quotient rule formulas:</strong> product has a <strong>+</strong>, quotient has a <strong>&minus;</strong> (and the square on the bottom).
+            </li>
+            <li>
+                <strong>Not simplifying the answer:</strong> always factorise and cancel where possible &mdash; marks are often awarded for the simplified form.
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+<script>
+// Interactive flowchart decision tree for differentiation rules
+var tree = {
+    q: "Is there only ONE simple function (no composition, no multiplication/division)?",
+    yes: {
+        result: true,
+        name: "Power Rule",
+        desc: "Bring the power down, reduce the power by one: d/dx[xⁿ] = nxⁿ⁻¹. For standard functions (eˣ, sin, cos, ln), use the standard results table.",
+        example: "e.g. d/dx[x⁵] = 5x⁴,  d/dx[eˣ] = eˣ",
+        color: "power"
+    },
+    no: {
+        q: "Is it a function INSIDE another function? (something nested)",
+        yes: {
+            result: true,
+            name: "Chain Rule",
+            desc: "dy/dx = dy/du × du/dx. Differentiate the outer function (keeping the inner as u), then multiply by the derivative of the inner function.",
+            example: "e.g. sin(3x²) → cos(3x²) × 6x = 6x·cos(3x²)",
+            color: "chain"
+        },
+        no: {
+            q: "Are two functions MULTIPLIED together?",
+            yes: {
+                result: true,
+                name: "Product Rule",
+                desc: "d(uv)/dx = u·dv/dx + v·du/dx. Label the two parts u and v, differentiate each, then apply the formula.",
+                example: "e.g. x²·eˣ → x²·eˣ + eˣ·2x = eˣ(x²+2x)",
+                color: "product"
+            },
+            no: {
+                result: true,
+                name: "Quotient Rule",
+                desc: "d(u/v)/dx = [v·du/dx − u·dv/dx] / v². Or rewrite as u·v⁻¹ and use product + chain rule.",
+                example: "e.g. sin(x)/x² → [x²cos(x) − 2x·sin(x)] / x⁴",
+                color: "quotient"
+            }
+        }
+    }
+};
+
+var currentNode = tree;
+
+function fcStart() {
+    currentNode = tree;
+    document.getElementById('fcQuestion').textContent = currentNode.q;
+    document.getElementById('fcButtons').style.display = 'flex';
+    document.getElementById('fcResult').className = 'fc-result';
+    document.getElementById('fcReset').className = 'fc-reset';
+}
+
+function fcAnswer(isYes) {
+    var next = isYes ? currentNode.yes : currentNode.no;
+
+    if (next.result) {
+        document.getElementById('fcButtons').style.display = 'none';
+        document.getElementById('fcQuestion').textContent = '';
+
+        var resultEl = document.getElementById('fcResult');
+        resultEl.className = 'fc-result show';
+
+        var colors = {
+            power: { bg: 'var(--power-bg)', color: 'var(--power-color)' },
+            chain: { bg: 'var(--chain-bg)', color: 'var(--chain-color)' },
+            product: { bg: 'var(--product-bg)', color: 'var(--product-color)' },
+            quotient: { bg: 'var(--quotient-bg)', color: 'var(--quotient-color)' }
+        };
+
+        var c = colors[next.color];
+        resultEl.style.background = c.bg;
+        resultEl.style.border = '2px solid ' + c.color;
+
+        document.getElementById('fcTechName').textContent = next.name;
+        document.getElementById('fcTechName').style.color = c.color;
+        document.getElementById('fcTechDesc').textContent = next.desc;
+        document.getElementById('fcTechExample').textContent = next.example;
+
+        document.getElementById('fcReset').className = 'fc-reset show';
+    } else {
+        currentNode = next;
+        document.getElementById('fcQuestion').textContent = next.q;
+    }
+}
+
+fcStart();
+</script>
+
+</body>
+</html>

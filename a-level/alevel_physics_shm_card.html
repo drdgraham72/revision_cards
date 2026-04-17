@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Physics — Simple Harmonic Motion: The Complete Picture</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&family=Caveat:wght@600;700&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --disp-color: #1677ff;
+            --disp-bg: #e6f4ff;
+            --vel-color: #fa8c16;
+            --vel-bg: #fff7e6;
+            --acc-color: #f5222d;
+            --acc-bg: #fff1f0;
+            --energy-color: #52c41a;
+            --energy-bg: #f6ffed;
+            --ke-color: #fa8c16;
+            --pe-color: #1677ff;
+            --damp-color: #722ed1;
+            --damp-bg: #f9f0ff;
+            --warn-color: #f5222d;
+            --warn-bg: #fff1f0;
+            --bg: #fafafa;
+            --card-bg: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #666;
+            --mono: 'DM Mono', monospace;
+            --font: 'Barlow Condensed', sans-serif;
+            --hand: 'Caveat', cursive;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --disp-color: #69b1ff;
+                --disp-bg: #0d2240;
+                --vel-color: #ffc069;
+                --vel-bg: #2a1a00;
+                --acc-color: #ff7875;
+                --acc-bg: #2a0d0d;
+                --energy-color: #95de64;
+                --energy-bg: #0d2a0d;
+                --ke-color: #ffc069;
+                --pe-color: #69b1ff;
+                --damp-color: #b37feb;
+                --damp-bg: #1a0d2a;
+                --warn-color: #ff7875;
+                --warn-bg: #2a0d0d;
+                --bg: #141416;
+                --card-bg: #1e1e22;
+                --text: #e8e4dc;
+                --text-light: #999;
+            }
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 1.5rem 1rem;
+        }
+
+        .page { max-width: 960px; margin: 0 auto; }
+
+        /* ---- HERO ---- */
+        .hero { text-align: center; margin-bottom: 2rem; }
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            line-height: 1.1;
+            margin-bottom: 6px;
+        }
+        .hero .subtitle {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--text-light);
+            letter-spacing: 0.03em;
+        }
+
+        /* ---- SECTION HEADERS ---- */
+        .section-header {
+            font-size: 24px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 16px;
+            margin-top: 2.5rem;
+            text-align: center;
+        }
+
+        /* ---- DEFINITION BOX ---- */
+        .definition-box {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 32px 28px;
+            border: 3px solid var(--disp-color);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .definition-box .def-text {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .definition-box .def-highlight {
+            color: var(--disp-color);
+            font-weight: 800;
+        }
+
+        .definition-box .def-formula {
+            font-family: var(--mono);
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--acc-color);
+            margin-bottom: 12px;
+        }
+
+        .definition-box .def-explain {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .definition-box .def-explain strong { color: var(--acc-color); }
+
+        .omega-box {
+            display: inline-block;
+            background: var(--disp-bg);
+            border: 2px solid var(--disp-color);
+            border-radius: 10px;
+            padding: 12px 24px;
+            margin-top: 12px;
+            font-family: var(--mono);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--disp-color);
+        }
+
+        /* ---- THREE EQUATIONS GRID ---- */
+        .equations-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 1rem;
+        }
+
+        .eq-card {
+            border-radius: 16px;
+            padding: 24px 18px;
+            text-align: center;
+        }
+
+        .eq-card.disp { background: var(--disp-bg); border: 3px solid var(--disp-color); }
+        .eq-card.vel { background: var(--vel-bg); border: 3px solid var(--vel-color); }
+        .eq-card.accel { background: var(--acc-bg); border: 3px solid var(--acc-color); }
+
+        .eq-label {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+
+        .eq-label.disp { color: var(--disp-color); }
+        .eq-label.vel { color: var(--vel-color); }
+        .eq-label.accel { color: var(--acc-color); }
+
+        .eq-formula {
+            font-family: var(--mono);
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 10px;
+        }
+
+        .eq-formula.disp { color: var(--disp-color); }
+        .eq-formula.vel { color: var(--vel-color); }
+        .eq-formula.accel { color: var(--acc-color); }
+
+        .eq-note {
+            font-size: 12px;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        /* ---- MAX VALUES STRIP ---- */
+        .max-strip {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .max-strip { border-color: rgba(255,255,255,0.08); }
+        }
+
+        .max-item {
+            text-align: center;
+        }
+
+        .max-item .label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+
+        .max-item .value {
+            font-family: var(--mono);
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .max-item .value.vel { color: var(--vel-color); }
+        .max-item .value.accel { color: var(--acc-color); }
+
+        /* ---- SVG GRAPHS ---- */
+        .graph-stack {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 2rem;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .graph-stack { border-color: rgba(255,255,255,0.08); }
+        }
+
+        .graph-stack svg text { font-family: var(--mono); }
+
+        .graph-title {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        /* ---- VELOCITY EQUATION CARD ---- */
+        .velocity-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 28px 24px;
+            border: 3px solid var(--vel-color);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .velocity-card .big-formula {
+            font-family: var(--mono);
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--vel-color);
+            margin-bottom: 16px;
+        }
+
+        .velocity-card .cases {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .velocity-card .case-box {
+            padding: 16px;
+            border-radius: 10px;
+        }
+
+        .velocity-card .case-box.at-centre { background: var(--vel-bg); }
+        .velocity-card .case-box.at-extreme { background: var(--disp-bg); }
+
+        .velocity-card .case-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+
+        .velocity-card .case-formula {
+            font-family: var(--mono);
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .velocity-card .case-formula.vel-c { color: var(--vel-color); }
+        .velocity-card .case-formula.disp-c { color: var(--disp-color); }
+
+        .velocity-card .case-why {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        /* Worked example */
+        .worked-example {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--vel-color);
+            text-align: left;
+        }
+
+        .worked-example .ex-title {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .step-row {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .step-num {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #fff;
+        }
+
+        .step-num.s-disp { background: var(--disp-color); }
+        .step-num.s-vel { background: var(--vel-color); }
+        .step-num.s-acc { background: var(--acc-color); }
+        .step-num.s-energy { background: var(--energy-color); }
+
+        .step-content {
+            font-size: 14px;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .step-content .calc {
+            font-family: var(--hand);
+            font-size: 24px;
+            font-weight: 700;
+            display: block;
+            margin: 4px 0;
+        }
+
+        .step-content .calc.disp-c { color: var(--disp-color); }
+        .step-content .calc.vel-c { color: var(--vel-color); }
+        .step-content .calc.acc-c { color: var(--acc-color); }
+        .step-content .calc.energy-c { color: var(--energy-color); }
+
+        .final-answer {
+            font-family: var(--hand);
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            padding: 12px;
+            margin-top: 8px;
+            border-radius: 8px;
+            border: 2px dashed;
+        }
+
+        .final-answer.vel-c { color: var(--vel-color); border-color: var(--vel-color); background: var(--vel-bg); }
+
+        /* ---- ENERGY SECTION ---- */
+        .energy-equations {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 1rem;
+        }
+
+        .energy-box {
+            border-radius: 12px;
+            padding: 20px 16px;
+            text-align: center;
+        }
+
+        .energy-box.ke { background: var(--vel-bg); border: 2px solid var(--ke-color); }
+        .energy-box.pe { background: var(--disp-bg); border: 2px solid var(--pe-color); }
+        .energy-box.total { background: var(--energy-bg); border: 2px solid var(--energy-color); }
+
+        .energy-box .e-label {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 6px;
+        }
+
+        .energy-box .e-label.ke { color: var(--ke-color); }
+        .energy-box .e-label.pe { color: var(--pe-color); }
+        .energy-box .e-label.total { color: var(--energy-color); }
+
+        .energy-box .e-formula {
+            font-family: var(--mono);
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .energy-box .e-formula.ke { color: var(--ke-color); }
+        .energy-box .e-formula.pe { color: var(--pe-color); }
+        .energy-box .e-formula.total { color: var(--energy-color); }
+
+        .energy-box .e-note {
+            font-size: 11px;
+            color: var(--text-light);
+            line-height: 1.3;
+        }
+
+        .energy-summary {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 1rem;
+        }
+
+        .energy-state {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .energy-state { border-color: rgba(255,255,255,0.08); }
+        }
+
+        .energy-state .state-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        .energy-state .state-detail {
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 1.5;
+        }
+
+        /* ---- DAMPING SECTION ---- */
+        .damping-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 2rem;
+        }
+
+        .damp-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            border-left: 5px solid var(--damp-color);
+        }
+
+        .damp-card .damp-title {
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--damp-color);
+            margin-bottom: 8px;
+        }
+
+        .damp-card .damp-detail {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .resonance-card {
+            background: var(--damp-bg);
+            border-radius: 12px;
+            padding: 24px;
+            border: 3px solid var(--damp-color);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .resonance-card .res-title {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--damp-color);
+            margin-bottom: 8px;
+        }
+
+        .resonance-card .res-formula {
+            font-family: var(--mono);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--damp-color);
+            margin-bottom: 8px;
+        }
+
+        .resonance-card .res-detail {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        /* ---- WARNING BOX ---- */
+        .warning-box {
+            background: var(--warn-bg);
+            border: 3px solid var(--warn-color);
+            border-radius: 16px;
+            padding: 28px 24px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .warning-box .warn-title {
+            font-size: 22px;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: var(--warn-color);
+            margin-bottom: 12px;
+        }
+
+        .warning-box .warn-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            text-align: left;
+        }
+
+        .warning-box .warn-side {
+            padding: 16px;
+            border-radius: 10px;
+        }
+
+        .warning-box .warn-side.suvat { background: rgba(0,0,0,0.04); }
+        .warning-box .warn-side.shm { background: var(--disp-bg); }
+
+        @media (prefers-color-scheme: dark) {
+            .warning-box .warn-side.suvat { background: rgba(255,255,255,0.04); }
+        }
+
+        .warning-box .warn-side .side-label {
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .warning-box .warn-side.suvat .side-label { color: var(--warn-color); }
+        .warning-box .warn-side.shm .side-label { color: var(--disp-color); }
+
+        .warning-box .warn-side .side-detail {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .warning-box .never-text {
+            margin-top: 16px;
+            font-family: var(--hand);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--warn-color);
+        }
+
+        /* ---- MANTRA ---- */
+        .mantra {
+            text-align: center;
+            padding: 32px 24px;
+            background: #1a1a2e;
+            color: #fff;
+            border-radius: 16px;
+            margin-bottom: 1rem;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .mantra { background: #0a0a14; }
+        }
+
+        .mantra .big-text {
+            font-size: 28px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .mantra .big-text .disp-c { color: var(--disp-color); }
+        .mantra .big-text .vel-c { color: #ffc069; }
+        .mantra .big-text .acc-c { color: #ff7875; }
+
+        .mantra .small-text {
+            font-family: var(--mono);
+            font-size: 11px;
+            opacity: 0.6;
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 700px) {
+            .equations-grid { grid-template-columns: 1fr; }
+            .energy-equations { grid-template-columns: 1fr; }
+            .energy-summary { grid-template-columns: 1fr; }
+            .damping-grid { grid-template-columns: 1fr; }
+            .velocity-card .cases { grid-template-columns: 1fr; }
+            .warning-box .warn-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 28px; }
+            .section-header { font-size: 20px; }
+            .definition-box .def-formula { font-size: 28px; }
+            .velocity-card .big-formula { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <div class="hero">
+        <h1>Simple Harmonic Motion</h1>
+        <div class="subtitle">A-Level Physics &bull; The complete picture, one card</div>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- SECTION 1: THE DEFINITION -->
+    <!-- ============================================= -->
+    <h2 class="section-header">The Definition</h2>
+
+    <div class="definition-box">
+        <div class="def-text">
+            Acceleration is <span class="def-highlight">proportional to displacement</span>
+            AND <span class="def-highlight">directed towards the equilibrium position</span>
+        </div>
+        <div class="def-formula">a = &minus;&omega;&sup2;x</div>
+        <div class="def-explain">
+            The <strong>minus sign</strong> means the acceleration always points <strong>back towards equilibrium</strong>.<br>
+            When x is positive, a is negative. When x is negative, a is positive. Always restoring.
+        </div>
+        <div class="omega-box">
+            &omega; = 2&pi;f = 2&pi;/T
+        </div>
+        <div class="def-explain" style="margin-top: 10px;">
+            &omega; is the angular frequency (rad/s). f is frequency (Hz). T is period (s).
+        </div>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- SECTION 2: THE THREE EQUATIONS -->
+    <!-- ============================================= -->
+    <h2 class="section-header">The Three Equations</h2>
+
+    <div class="equations-grid">
+        <div class="eq-card disp">
+            <div class="eq-label disp">Displacement</div>
+            <div class="eq-formula disp">x = A cos(&omega;t)</div>
+            <div class="eq-note">Starts at maximum if released from rest (t=0, x=A)</div>
+        </div>
+        <div class="eq-card vel">
+            <div class="eq-label vel">Velocity</div>
+            <div class="eq-formula vel">v = &minus;A&omega; sin(&omega;t)</div>
+            <div class="eq-note">Zero at the extremes, maximum at the centre</div>
+        </div>
+        <div class="eq-card accel">
+            <div class="eq-label accel">Acceleration</div>
+            <div class="eq-formula accel">a = &minus;A&omega;&sup2; cos(&omega;t)</div>
+            <div class="eq-note">Maximum at the extremes, zero at the centre</div>
+        </div>
+    </div>
+
+    <div class="max-strip">
+        <div class="max-item">
+            <div class="label">Max Speed</div>
+            <div class="value vel">v<sub>max</sub> = A&omega;</div>
+        </div>
+        <div class="max-item">
+            <div class="label">Max Acceleration</div>
+            <div class="value accel">a<sub>max</sub> = A&omega;&sup2;</div>
+        </div>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- SECTION 3: THE GRAPHS (SVG) -->
+    <!-- ============================================= -->
+    <h2 class="section-header">The Graphs &mdash; Phase Relationships</h2>
+
+    <div class="graph-stack">
+        <div class="graph-title">x, v, and a vs time &mdash; stacked to show phase</div>
+        <svg viewBox="0 0 600 520" width="100%" style="max-width:600px;">
+            <!-- ====== DISPLACEMENT GRAPH ====== -->
+            <!-- Axis -->
+            <line x1="60" y1="80" x2="570" y2="80" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+            <line x1="60" y1="20" x2="60" y2="140" stroke="currentColor" stroke-width="1.5"/>
+            <text x="25" y="85" font-size="12" fill="currentColor" font-weight="700">x</text>
+            <text x="55" y="15" font-size="9" fill="var(--disp-color)" font-weight="600">+A</text>
+            <text x="55" y="148" font-size="9" fill="var(--disp-color)" font-weight="600">&minus;A</text>
+
+            <!-- Cosine: x = A cos(wt) -->
+            <path d="M60,20 Q145,20 187.5,80 Q230,140 315,140 Q400,140 442.5,80 Q485,20 570,20"
+                  fill="none" stroke="var(--disp-color)" stroke-width="3"/>
+            <text x="575" y="25" font-size="11" fill="var(--disp-color)" font-weight="700">x = Acos(&omega;t)</text>
+
+            <!-- Annotations for displacement -->
+            <circle cx="60" cy="20" r="5" fill="var(--disp-color)"/>
+            <text x="62" y="10" font-size="8" fill="var(--disp-color)" font-weight="600">x=A, v=0</text>
+            <circle cx="187.5" cy="80" r="5" fill="var(--vel-color)"/>
+            <text x="155" y="100" font-size="8" fill="var(--vel-color)" font-weight="600">x=0, v=max</text>
+            <circle cx="315" cy="140" r="5" fill="var(--acc-color)"/>
+            <text x="280" y="155" font-size="8" fill="var(--acc-color)" font-weight="600">x=&minus;A, a=max</text>
+
+            <!-- T labels -->
+            <text x="187" y="168" font-size="9" fill="var(--text-light)">T/4</text>
+            <text x="312" y="168" font-size="9" fill="var(--text-light)">T/2</text>
+            <text x="440" y="168" font-size="9" fill="var(--text-light)">3T/4</text>
+            <text x="567" y="168" font-size="9" fill="var(--text-light)">T</text>
+
+            <!-- ====== VELOCITY GRAPH ====== -->
+            <line x1="60" y1="260" x2="570" y2="260" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+            <line x1="60" y1="200" x2="60" y2="320" stroke="currentColor" stroke-width="1.5"/>
+            <text x="25" y="265" font-size="12" fill="currentColor" font-weight="700">v</text>
+            <text x="45" y="195" font-size="9" fill="var(--vel-color)" font-weight="600">+A&omega;</text>
+            <text x="45" y="328" font-size="9" fill="var(--vel-color)" font-weight="600">&minus;A&omega;</text>
+
+            <!-- Negative sine: v = -Aw sin(wt) — at t=0 v=0, at T/4 v=-Aw, at T/2 v=0, at 3T/4 v=+Aw, at T v=0 -->
+            <path d="M60,260 C102,260 145,320 187.5,320 C230,320 272,260 315,260 C358,260 400,200 442.5,200 C485,200 528,260 570,260"
+                  fill="none" stroke="var(--vel-color)" stroke-width="3"/>
+
+            <text x="575" y="205" font-size="11" fill="var(--vel-color)" font-weight="700">v = &minus;A&omega;sin(&omega;t)</text>
+            <text x="150" y="340" font-size="8" fill="var(--vel-color)" font-weight="600">90&deg; behind x</text>
+
+            <!-- ====== ACCELERATION GRAPH ====== -->
+            <line x1="60" y1="440" x2="570" y2="440" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+            <line x1="60" y1="380" x2="60" y2="500" stroke="currentColor" stroke-width="1.5"/>
+            <text x="25" y="445" font-size="12" fill="currentColor" font-weight="700">a</text>
+            <text x="40" y="375" font-size="9" fill="var(--acc-color)" font-weight="600">+A&omega;&sup2;</text>
+            <text x="40" y="508" font-size="9" fill="var(--acc-color)" font-weight="600">&minus;A&omega;&sup2;</text>
+
+            <!-- Negative cosine: a = -Aw^2 cos(wt) — starts at -max, mirror of x -->
+            <path d="M60,500 C102,500 145,500 187.5,440 C230,380 272,380 315,380 C358,380 400,380 442.5,440 C485,500 528,500 570,500"
+                  fill="none" stroke="var(--acc-color)" stroke-width="3"/>
+
+            <text x="575" y="385" font-size="11" fill="var(--acc-color)" font-weight="700">a = &minus;A&omega;&sup2;cos(&omega;t)</text>
+            <text x="150" y="515" font-size="8" fill="var(--acc-color)" font-weight="600">180&deg; behind x (mirror image)</text>
+
+            <!-- Time axis at bottom -->
+            <line x1="60" y1="520" x2="570" y2="520" stroke="currentColor" stroke-width="1"/>
+            <text x="310" y="518" font-size="11" fill="currentColor" text-anchor="middle">time &rarr;</text>
+        </svg>
+
+        <div style="margin-top:12px; font-size:13px; color: var(--text-light); line-height:1.6;">
+            When <span style="color:var(--disp-color); font-weight:700;">x is at max</span>,
+            <span style="color:var(--vel-color); font-weight:700;">v = 0</span> and
+            <span style="color:var(--acc-color); font-weight:700;">a is at max negative</span>.
+            &bull; Velocity leads displacement by 90&deg;. Acceleration is 180&deg; ahead (anti-phase with x).
+        </div>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- SECTION 4: THE VELOCITY EQUATION -->
+    <!-- ============================================= -->
+    <h2 class="section-header">The Velocity Equation They Always Forget</h2>
+
+    <div class="velocity-card">
+        <div class="big-formula">v = &plusmn;&omega;&radic;(A&sup2; &minus; x&sup2;)</div>
+
+        <div class="cases">
+            <div class="case-box at-centre">
+                <div class="case-label">At equilibrium (x = 0)</div>
+                <div class="case-formula vel-c">v = &plusmn;&omega;A</div>
+                <div class="case-why">Maximum speed &mdash; all energy is kinetic</div>
+            </div>
+            <div class="case-box at-extreme">
+                <div class="case-label">At extreme (x = A)</div>
+                <div class="case-formula disp-c">v = 0</div>
+                <div class="case-why">Momentarily stationary &mdash; all energy is potential</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="worked-example">
+        <div class="ex-title">Worked Example: A pendulum has A = 0.05 m and T = 2.0 s. Find v when x = 0.03 m.</div>
+        <div class="step-row">
+            <div class="step-num s-disp">1</div>
+            <div class="step-content">
+                Find &omega;
+                <span class="calc disp-c">&omega; = 2&pi;/T = 2&pi;/2.0 = &pi; = 3.14 rad/s</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-vel">2</div>
+            <div class="step-content">
+                Use v = &omega;&radic;(A&sup2; &minus; x&sup2;)
+                <span class="calc vel-c">v = 3.14 &times; &radic;(0.05&sup2; &minus; 0.03&sup2;)</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-vel">3</div>
+            <div class="step-content">
+                Evaluate
+                <span class="calc vel-c">v = 3.14 &times; &radic;(0.0025 &minus; 0.0009) = 3.14 &times; 0.04 = 0.126 m/s</span>
+            </div>
+        </div>
+        <div class="final-answer vel-c">v = 0.13 m/s (2 s.f.)</div>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- SECTION 5: ENERGY IN SHM -->
+    <!-- ============================================= -->
+    <h2 class="section-header">Energy in SHM</h2>
+
+    <div class="energy-equations">
+        <div class="energy-box ke">
+            <div class="e-label ke">Kinetic Energy</div>
+            <div class="e-formula ke">KE = &frac12;m&omega;&sup2;(A&sup2;&minus;x&sup2;)</div>
+            <div class="e-note">Max at centre, zero at extremes</div>
+        </div>
+        <div class="energy-box pe">
+            <div class="e-label pe">Potential Energy</div>
+            <div class="e-formula pe">PE = &frac12;m&omega;&sup2;x&sup2;</div>
+            <div class="e-note">Zero at centre, max at extremes</div>
+        </div>
+        <div class="energy-box total">
+            <div class="e-label total">Total Energy</div>
+            <div class="e-formula total">E = &frac12;m&omega;&sup2;A&sup2;</div>
+            <div class="e-note">CONSTANT &mdash; always the same</div>
+        </div>
+    </div>
+
+    <div class="energy-summary">
+        <div class="energy-state">
+            <div class="state-label">At Equilibrium (x = 0)</div>
+            <div class="state-detail">
+                <span style="color:var(--ke-color);">ALL kinetic energy</span><br>
+                <span style="color:var(--pe-color);">Zero potential energy</span>
+            </div>
+        </div>
+        <div class="energy-state">
+            <div class="state-label">At Extremes (x = &plusmn;A)</div>
+            <div class="state-detail">
+                <span style="color:var(--pe-color);">ALL potential energy</span><br>
+                <span style="color:var(--ke-color);">Zero kinetic energy</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Energy vs displacement SVG -->
+    <div class="graph-stack">
+        <div class="graph-title">Energy vs Displacement</div>
+        <svg viewBox="0 0 500 280" width="100%" style="max-width:500px;">
+            <!-- Axes -->
+            <line x1="60" y1="240" x2="460" y2="240" stroke="currentColor" stroke-width="2"/>
+            <line x1="260" y1="240" x2="260" y2="20" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+            <line x1="60" y1="240" x2="60" y2="20" stroke="currentColor" stroke-width="2"/>
+
+            <text x="260" y="258" text-anchor="middle" font-size="11" fill="currentColor">0</text>
+            <text x="460" y="258" text-anchor="middle" font-size="11" fill="currentColor">+A</text>
+            <text x="60" y="258" text-anchor="middle" font-size="11" fill="currentColor">&minus;A</text>
+            <text x="265" y="270" text-anchor="middle" font-size="12" fill="currentColor">displacement x</text>
+            <text x="30" y="130" font-size="12" fill="currentColor" transform="rotate(-90 30 130)">Energy</text>
+
+            <!-- Total energy (horizontal green line) -->
+            <line x1="60" y1="40" x2="460" y2="40" stroke="var(--energy-color)" stroke-width="2.5" stroke-dasharray="8,4"/>
+            <text x="465" y="38" font-size="10" fill="var(--energy-color)" font-weight="700">TOTAL</text>
+
+            <!-- PE parabola (blue, opening upward, min at centre) -->
+            <path d="M60,40 Q160,240 260,240 Q360,240 460,40"
+                  fill="none" stroke="var(--pe-color)" stroke-width="2.5"/>
+            <text x="465" y="75" font-size="10" fill="var(--pe-color)" font-weight="700">PE</text>
+
+            <!-- KE parabola (orange, opening downward, max at centre) -->
+            <path d="M60,240 Q160,40 260,40 Q360,40 460,240"
+                  fill="none" stroke="var(--ke-color)" stroke-width="2.5"/>
+            <text x="465" y="220" font-size="10" fill="var(--ke-color)" font-weight="700">KE</text>
+
+            <!-- Annotations -->
+            <circle cx="260" cy="40" r="4" fill="var(--ke-color)"/>
+            <text x="268" y="32" font-size="9" fill="var(--ke-color)" font-weight="600">KE max</text>
+            <circle cx="260" cy="240" r="4" fill="var(--pe-color)"/>
+            <text x="268" y="235" font-size="9" fill="var(--pe-color)" font-weight="600">PE = 0</text>
+        </svg>
+        <div style="margin-top:8px; font-size:12px; color: var(--text-light);">
+            KE + PE = constant at every point. The two parabolas are mirror images. Where one is max, the other is zero.
+        </div>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- SECTION 6: DAMPING & RESONANCE -->
+    <!-- ============================================= -->
+    <h2 class="section-header">Damping &amp; Resonance</h2>
+
+    <div class="damping-grid">
+        <div class="damp-card">
+            <div class="damp-title">Light Damping</div>
+            <div class="damp-detail">Amplitude decreases gradually over many oscillations. Frequency stays (approximately) the same. Exponential decay envelope.</div>
+        </div>
+        <div class="damp-card">
+            <div class="damp-title">Heavy Damping</div>
+            <div class="damp-detail">Returns to equilibrium slowly without oscillating. Takes a long time. Think: mass in treacle.</div>
+        </div>
+        <div class="damp-card">
+            <div class="damp-title">Critical Damping</div>
+            <div class="damp-detail">Returns to equilibrium as quickly as possible without oscillating. The sweet spot. Used in car suspension and door closers.</div>
+        </div>
+        <div class="damp-card">
+            <div class="damp-title">Overdamping</div>
+            <div class="damp-detail">Returns to equilibrium without oscillating but slower than critical damping. More resistive force than needed.</div>
+        </div>
+    </div>
+
+    <div class="resonance-card">
+        <div class="res-title">Resonance</div>
+        <div class="res-formula">f<sub>driving</sub> = f<sub>natural</sub> &rarr; maximum amplitude</div>
+        <div class="res-detail">
+            When the driving frequency matches the natural frequency, energy transfer is most efficient and amplitude reaches a maximum.<br>
+            <strong>More damping = lower and broader resonance peak. Less damping = taller and sharper peak.</strong>
+        </div>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- SECTION 7: SHM vs SUVAT -->
+    <!-- ============================================= -->
+    <h2 class="section-header">SHM vs SUVAT &mdash; The Critical Distinction</h2>
+
+    <div class="warning-box">
+        <div class="warn-title">Do Not Confuse These</div>
+        <div class="warn-grid">
+            <div class="warn-side suvat">
+                <div class="side-label">SUVAT</div>
+                <div class="side-detail">
+                    <strong>Constant</strong> acceleration.<br>
+                    a does not change.<br>
+                    v = u + at, s = ut + &frac12;at&sup2;<br>
+                    Projectiles, free fall, linear motion.
+                </div>
+            </div>
+            <div class="warn-side shm">
+                <div class="side-label">SHM</div>
+                <div class="side-detail">
+                    Acceleration <strong>changes continuously</strong>.<br>
+                    a = &minus;&omega;&sup2;x (depends on position).<br>
+                    x = A cos(&omega;t), v = &minus;A&omega; sin(&omega;t)<br>
+                    Pendulums, springs, oscillations.
+                </div>
+            </div>
+        </div>
+        <div class="never-text">NEVER use SUVAT for SHM!</div>
+    </div>
+
+    <!-- ---- MANTRA ---- -->
+    <div class="mantra">
+        <div class="big-text">
+            <span class="acc-c">a = &minus;&omega;&sup2;x</span>
+        </div>
+        <div class="big-text" style="font-size:22px;">
+            <span class="disp-c">x = Acos</span> &bull;
+            <span class="vel-c">v = &minus;A&omega;sin</span> &bull;
+            <span class="acc-c">a = &minus;A&omega;&sup2;cos</span>
+        </div>
+        <div class="big-text" style="font-size:20px; margin-top:4px;">
+            <span class="vel-c">v = &plusmn;&omega;&radic;(A&sup2; &minus; x&sup2;)</span>
+        </div>
+        <div class="small-text" style="margin-top: 12px;">The definition, the three equations, and the velocity formula. That's SHM.</div>
+    </div>
+
+</div>
+
+</body>
+</html>

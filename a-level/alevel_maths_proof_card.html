@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Maths — Mathematical Proof — How to Structure It</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&family=Caveat:wght@600;700&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --direct-color: #0958d9;
+            --direct-bg: #e6f4ff;
+            --exhaust-color: #389e0d;
+            --exhaust-bg: #f6ffed;
+            --counter-color: #d4380d;
+            --counter-bg: #fff1f0;
+            --contra-color: #722ed1;
+            --contra-bg: #f9f0ff;
+            --trig-color: #d48806;
+            --trig-bg: #fffbe6;
+            --trick-color: #08979c;
+            --trick-bg: #e6fffb;
+            --warn-color: #d4380d;
+            --warn-bg: #fff1f0;
+            --arrow-color: #1a1a2e;
+            --bg: #fafafa;
+            --card-bg: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #666;
+            --mono: 'DM Mono', monospace;
+            --font: 'Barlow Condensed', sans-serif;
+            --hand: 'Caveat', cursive;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --direct-color: #69b1ff;
+                --direct-bg: #0d2240;
+                --exhaust-color: #73d13d;
+                --exhaust-bg: #0d2a0d;
+                --counter-color: #ff7a45;
+                --counter-bg: #3a1a0d;
+                --contra-color: #b37feb;
+                --contra-bg: #1a0d33;
+                --trig-color: #ffc53d;
+                --trig-bg: #2a2000;
+                --trick-color: #36cfc9;
+                --trick-bg: #002329;
+                --warn-color: #ff7a45;
+                --warn-bg: #3a1a0d;
+                --arrow-color: #e8e4dc;
+                --bg: #141416;
+                --card-bg: #1e1e22;
+                --text: #e8e4dc;
+                --text-light: #999;
+            }
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 1.5rem 1rem;
+        }
+
+        .page { max-width: 900px; margin: 0 auto; }
+
+        /* ---- HERO TITLE ---- */
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            line-height: 1.1;
+            margin-bottom: 6px;
+        }
+
+        .hero .subtitle {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--text-light);
+            letter-spacing: 0.03em;
+        }
+
+        /* ---- SECTION HEADERS ---- */
+        .section-header {
+            font-size: 22px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 16px;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        /* ---- THE BIG FOUR CHAIN ---- */
+        .four-methods {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 2rem;
+        }
+
+        .method-box {
+            padding: 24px 20px;
+            border-radius: 16px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 160px;
+        }
+
+        .method-box.direct { background: var(--direct-bg); border: 3px solid var(--direct-color); }
+        .method-box.exhaust { background: var(--exhaust-bg); border: 3px solid var(--exhaust-color); }
+        .method-box.counter { background: var(--counter-bg); border: 3px solid var(--counter-color); }
+        .method-box.contra { background: var(--contra-bg); border: 3px solid var(--contra-color); }
+
+        .method-label {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 4px;
+        }
+
+        .method-label.direct-c { color: var(--direct-color); }
+        .method-label.exhaust-c { color: var(--exhaust-color); }
+        .method-label.counter-c { color: var(--counter-color); }
+        .method-label.contra-c { color: var(--contra-color); }
+
+        .method-name {
+            font-size: 28px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 8px;
+        }
+
+        .method-name.direct-c { color: var(--direct-color); }
+        .method-name.exhaust-c { color: var(--exhaust-color); }
+        .method-name.counter-c { color: var(--counter-color); }
+        .method-name.contra-c { color: var(--contra-color); }
+
+        .method-when {
+            font-size: 12px;
+            color: var(--text-light);
+            font-family: var(--mono);
+            line-height: 1.4;
+        }
+
+        /* ---- PROOF TEMPLATE CARDS ---- */
+        .proof-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            border-left: 5px solid;
+        }
+
+        .proof-card.direct-border { border-left-color: var(--direct-color); }
+        .proof-card.exhaust-border { border-left-color: var(--exhaust-color); }
+        .proof-card.counter-border { border-left-color: var(--counter-color); }
+        .proof-card.contra-border { border-left-color: var(--contra-color); }
+        .proof-card.trig-border { border-left-color: var(--trig-color); }
+        .proof-card.trick-border { border-left-color: var(--trick-color); }
+        .proof-card.warn-border { border-left-color: var(--warn-color); }
+
+        .proof-card .card-title {
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 16px;
+        }
+
+        .proof-card .card-title.direct-c { color: var(--direct-color); }
+        .proof-card .card-title.exhaust-c { color: var(--exhaust-color); }
+        .proof-card .card-title.counter-c { color: var(--counter-color); }
+        .proof-card .card-title.contra-c { color: var(--contra-color); }
+        .proof-card .card-title.trig-c { color: var(--trig-color); }
+        .proof-card .card-title.trick-c { color: var(--trick-color); }
+        .proof-card .card-title.warn-c { color: var(--warn-color); }
+
+        /* ---- TEMPLATE STEPS ---- */
+        .template-step {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .template-step .step-marker {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #fff;
+        }
+
+        .template-step .step-marker.direct-bg { background: var(--direct-color); }
+        .template-step .step-marker.exhaust-bg { background: var(--exhaust-color); }
+        .template-step .step-marker.counter-bg { background: var(--counter-color); }
+        .template-step .step-marker.contra-bg { background: var(--contra-color); }
+        .template-step .step-marker.trig-bg { background: var(--trig-color); }
+        .template-step .step-marker.dark-bg { background: var(--arrow-color); }
+
+        .template-step .step-text {
+            font-size: 14px;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .template-step .step-text .phrase {
+            font-family: var(--mono);
+            font-size: 13px;
+            font-weight: 600;
+            display: block;
+            padding: 6px 12px;
+            margin: 4px 0;
+            border-radius: 6px;
+            background: rgba(0,0,0,0.04);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .template-step .step-text .phrase { background: rgba(255,255,255,0.05); }
+        }
+
+        /* ---- WORKED EXAMPLE BLOCK ---- */
+        .worked-example {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 12px;
+            border: 2px solid transparent;
+        }
+
+        .worked-example.direct-border { border-color: var(--direct-color); }
+        .worked-example.exhaust-border { border-color: var(--exhaust-color); }
+        .worked-example.counter-border { border-color: var(--counter-color); }
+        .worked-example.contra-border { border-color: var(--contra-color); }
+        .worked-example.trig-border { border-color: var(--trig-color); }
+
+        .worked-example .ex-title {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .step-row {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .step-num {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #fff;
+        }
+
+        .step-num.s-direct { background: var(--direct-color); }
+        .step-num.s-exhaust { background: var(--exhaust-color); }
+        .step-num.s-counter { background: var(--counter-color); }
+        .step-num.s-contra { background: var(--contra-color); }
+        .step-num.s-trig { background: var(--trig-color); }
+        .step-num.s-dark { background: var(--arrow-color); }
+
+        .step-content {
+            font-size: 14px;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .step-content .calc {
+            font-family: var(--hand);
+            font-size: 24px;
+            font-weight: 700;
+            display: block;
+            margin: 4px 0;
+        }
+
+        .step-content .calc.direct-c { color: var(--direct-color); }
+        .step-content .calc.exhaust-c { color: var(--exhaust-color); }
+        .step-content .calc.counter-c { color: var(--counter-color); }
+        .step-content .calc.contra-c { color: var(--contra-color); }
+        .step-content .calc.trig-c { color: var(--trig-color); }
+
+        .final-answer {
+            font-family: var(--hand);
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+            padding: 12px;
+            margin-top: 8px;
+            border-radius: 8px;
+            border: 2px dashed;
+        }
+
+        .final-answer.direct-c { color: var(--direct-color); border-color: var(--direct-color); background: var(--direct-bg); }
+        .final-answer.exhaust-c { color: var(--exhaust-color); border-color: var(--exhaust-color); background: var(--exhaust-bg); }
+        .final-answer.counter-c { color: var(--counter-color); border-color: var(--counter-color); background: var(--counter-bg); }
+        .final-answer.contra-c { color: var(--contra-color); border-color: var(--contra-color); background: var(--contra-bg); }
+        .final-answer.trig-c { color: var(--trig-color); border-color: var(--trig-color); background: var(--trig-bg); }
+
+        /* ---- TRICKS REFERENCE ---- */
+        .tricks-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .trick-item {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 14px 18px;
+            border: 2px solid var(--trick-color);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .trick-item .trick-symbol {
+            font-family: var(--mono);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--trick-color);
+            white-space: nowrap;
+            min-width: 90px;
+            text-align: center;
+        }
+
+        .trick-item .trick-meaning {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        /* ---- MISTAKES ---- */
+        .mistakes-list {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 2rem;
+            border: 2px solid var(--warn-color);
+        }
+
+        .mistakes-list .mistake-item {
+            font-size: 14px;
+            line-height: 1.6;
+            padding: 6px 0;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .mistakes-list .mistake-item::before {
+            content: "\2717";
+            position: absolute;
+            left: 0;
+            color: var(--warn-color);
+            font-weight: 900;
+            font-size: 16px;
+        }
+
+        /* ---- MANTRA ---- */
+        .mantra {
+            text-align: center;
+            padding: 32px 24px;
+            background: var(--arrow-color);
+            color: #fff;
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        .mantra .big-text {
+            font-size: 28px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            line-height: 1.3;
+            margin-bottom: 8px;
+        }
+
+        .mantra .big-text .direct-c { color: #69b1ff; }
+        .mantra .big-text .counter-c { color: #ff7a45; }
+        .mantra .big-text .contra-c { color: #b37feb; }
+        .mantra .big-text .exhaust-c { color: #73d13d; }
+
+        .mantra .small-text {
+            font-family: var(--mono);
+            font-size: 11px;
+            opacity: 0.6;
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 700px) {
+            .four-methods { grid-template-columns: 1fr; }
+            .tricks-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 28px; }
+            .method-name { font-size: 22px; }
+            .mantra .big-text { font-size: 22px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <div class="hero">
+        <h1>Mathematical Proof</h1>
+        <div class="subtitle">How to structure it &mdash; templates for every type</div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 1. TYPES OF PROOF -->
+    <!-- ============================================ -->
+    <h2 class="section-header">The Four Types of Proof</h2>
+
+    <div class="four-methods">
+        <div class="method-box direct">
+            <div class="method-label direct-c">Method 1</div>
+            <div class="method-name direct-c">Direct Proof</div>
+            <div class="method-when">Start from known facts,<br>reach the conclusion logically.<br>Most common type.</div>
+        </div>
+
+        <div class="method-box exhaust">
+            <div class="method-label exhaust-c">Method 2</div>
+            <div class="method-name exhaust-c">By Exhaustion</div>
+            <div class="method-when">Check every possible case.<br>Only when there are<br>finitely many cases.</div>
+        </div>
+
+        <div class="method-box counter">
+            <div class="method-label counter-c">Method 3</div>
+            <div class="method-name counter-c">Counter-Example</div>
+            <div class="method-when">Find ONE case where<br>the statement fails.<br>Quickest way to disprove.</div>
+        </div>
+
+        <div class="method-box contra">
+            <div class="method-label contra-c">Method 4</div>
+            <div class="method-name contra-c">Contradiction</div>
+            <div class="method-when">Assume the opposite is true,<br>show it leads to<br>a contradiction.</div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 2. DIRECT PROOF -->
+    <!-- ============================================ -->
+    <h2 class="section-header">Direct Proof &mdash; The Template</h2>
+
+    <div class="proof-card direct-border">
+        <div class="card-title direct-c">Template: Direct Proof (Deduction)</div>
+        <div class="template-step">
+            <div class="step-marker direct-bg">1</div>
+            <div class="step-text">
+                State your variable
+                <span class="phrase">"Let n be an integer"</span>
+            </div>
+        </div>
+        <div class="template-step">
+            <div class="step-marker direct-bg">2</div>
+            <div class="step-text">
+                Express the thing you're proving in terms of n
+            </div>
+        </div>
+        <div class="template-step">
+            <div class="step-marker direct-bg">3</div>
+            <div class="step-text">
+                Use algebra to reach the required form
+            </div>
+        </div>
+        <div class="template-step">
+            <div class="step-marker direct-bg">4</div>
+            <div class="step-text">
+                State the conclusion explicitly
+                <span class="phrase">"Therefore ... is divisible by ..."</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="worked-example direct-border">
+        <div class="ex-title">Example 1: Prove that the sum of two consecutive odd numbers is divisible by 4</div>
+        <div class="step-row">
+            <div class="step-num s-direct">1</div>
+            <div class="step-content">
+                Let the two consecutive odd numbers be (2n &minus; 1) and (2n + 1) for some integer n
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-direct">2</div>
+            <div class="step-content">
+                Add them together:
+                <span class="calc direct-c">(2n &minus; 1) + (2n + 1) = 4n</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-direct">3</div>
+            <div class="step-content">
+                4n = 4 &times; n, which is a multiple of 4 for any integer n
+            </div>
+        </div>
+        <div class="final-answer direct-c">Therefore the sum of two consecutive odd numbers is always divisible by 4 &square;</div>
+    </div>
+
+    <div class="worked-example direct-border">
+        <div class="ex-title">Example 2: Prove that (n+1)&sup2; &minus; n&sup2; = 2n + 1</div>
+        <div class="step-row">
+            <div class="step-num s-direct">1</div>
+            <div class="step-content">
+                Start from the left-hand side (LHS):
+                <span class="calc direct-c">(n+1)&sup2; &minus; n&sup2;</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-direct">2</div>
+            <div class="step-content">
+                Expand (n+1)&sup2;:
+                <span class="calc direct-c">= n&sup2; + 2n + 1 &minus; n&sup2;</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-direct">3</div>
+            <div class="step-content">
+                Simplify:
+                <span class="calc direct-c">= 2n + 1 = RHS</span>
+            </div>
+        </div>
+        <div class="final-answer direct-c">LHS = RHS, therefore (n+1)&sup2; &minus; n&sup2; = 2n + 1 &square;</div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 3. PROOF BY EXHAUSTION -->
+    <!-- ============================================ -->
+    <h2 class="section-header">Proof by Exhaustion &mdash; The Template</h2>
+
+    <div class="proof-card exhaust-border">
+        <div class="card-title exhaust-c">Template: Proof by Exhaustion</div>
+        <div class="template-step">
+            <div class="step-marker exhaust-bg">1</div>
+            <div class="step-text">
+                List ALL possible cases
+            </div>
+        </div>
+        <div class="template-step">
+            <div class="step-marker exhaust-bg">2</div>
+            <div class="step-text">
+                Check each one satisfies the statement
+            </div>
+        </div>
+        <div class="template-step">
+            <div class="step-marker exhaust-bg">3</div>
+            <div class="step-text">
+                State the conclusion
+                <span class="phrase">"All cases have been checked, therefore the statement is true"</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="worked-example exhaust-border">
+        <div class="ex-title">Example: Prove that n&sup2; + n is even for all integers n between 1 and 4</div>
+        <div class="step-row">
+            <div class="step-num s-exhaust">1</div>
+            <div class="step-content">
+                n = 1: &nbsp;1&sup2; + 1 = 2
+                <span class="calc exhaust-c">2 is even &checkmark;</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-exhaust">2</div>
+            <div class="step-content">
+                n = 2: &nbsp;2&sup2; + 2 = 6
+                <span class="calc exhaust-c">6 is even &checkmark;</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-exhaust">3</div>
+            <div class="step-content">
+                n = 3: &nbsp;3&sup2; + 3 = 12
+                <span class="calc exhaust-c">12 is even &checkmark;</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-exhaust">4</div>
+            <div class="step-content">
+                n = 4: &nbsp;4&sup2; + 4 = 20
+                <span class="calc exhaust-c">20 is even &checkmark;</span>
+            </div>
+        </div>
+        <div class="final-answer exhaust-c">All cases checked. n&sup2; + n is even for n = 1, 2, 3, 4 &square;</div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 4. DISPROOF BY COUNTER-EXAMPLE -->
+    <!-- ============================================ -->
+    <h2 class="section-header">Disproof by Counter-Example &mdash; The Template</h2>
+
+    <div class="proof-card counter-border">
+        <div class="card-title counter-c">Template: Disproof by Counter-Example</div>
+        <div class="template-step">
+            <div class="step-marker counter-bg">1</div>
+            <div class="step-text">
+                State your chosen value
+                <span class="phrase">"Consider n = ..."</span>
+            </div>
+        </div>
+        <div class="template-step">
+            <div class="step-marker counter-bg">2</div>
+            <div class="step-text">
+                Show the statement fails for this value
+            </div>
+        </div>
+        <div class="template-step">
+            <div class="step-marker counter-bg">3</div>
+            <div class="step-text">
+                State the conclusion
+                <span class="phrase">"This is a counter-example, therefore the statement is false"</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="worked-example counter-border">
+        <div class="ex-title">Example: Disprove &mdash; "n&sup2; &gt; 3n for all positive integers n"</div>
+        <div class="step-row">
+            <div class="step-num s-counter">1</div>
+            <div class="step-content">
+                Consider n = 1:
+                <span class="calc counter-c">n&sup2; = 1&sup2; = 1</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-counter">2</div>
+            <div class="step-content">
+                Compare: is 1 &gt; 3(1)?
+                <span class="calc counter-c">1 &gt; 3? &mdash; No!</span>
+            </div>
+        </div>
+        <div class="final-answer counter-c">n = 1 is a counter-example. The statement is false. &square;</div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 5. PROOF BY CONTRADICTION -->
+    <!-- ============================================ -->
+    <h2 class="section-header">Proof by Contradiction &mdash; The Template</h2>
+
+    <div class="proof-card contra-border">
+        <div class="card-title contra-c">Template: Proof by Contradiction</div>
+        <div class="template-step">
+            <div class="step-marker contra-bg">1</div>
+            <div class="step-text">
+                Assume the opposite
+                <span class="phrase">"Assume, for contradiction, that..."</span>
+            </div>
+        </div>
+        <div class="template-step">
+            <div class="step-marker contra-bg">2</div>
+            <div class="step-text">
+                Follow the logical consequences of this assumption
+            </div>
+        </div>
+        <div class="template-step">
+            <div class="step-marker contra-bg">3</div>
+            <div class="step-text">
+                Reach a statement that contradicts a known fact
+            </div>
+        </div>
+        <div class="template-step">
+            <div class="step-marker contra-bg">4</div>
+            <div class="step-text">
+                State the conclusion
+                <span class="phrase">"This is a contradiction, therefore our assumption was wrong, so..."</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="worked-example contra-border">
+        <div class="ex-title">Example 1: Prove that &radic;2 is irrational</div>
+        <div class="step-row">
+            <div class="step-num s-contra">1</div>
+            <div class="step-content">
+                Assume, for contradiction, that &radic;2 IS rational.
+                <span class="calc contra-c">Then &radic;2 = a/b where a, b are integers with no common factors</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-contra">2</div>
+            <div class="step-content">
+                Square both sides: 2 = a&sup2;/b&sup2;, so a&sup2; = 2b&sup2;
+                <span class="calc contra-c">a&sup2; is even, so a must be even. Write a = 2k.</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-contra">3</div>
+            <div class="step-content">
+                Substitute: (2k)&sup2; = 2b&sup2; &rArr; 4k&sup2; = 2b&sup2; &rArr; b&sup2; = 2k&sup2;
+                <span class="calc contra-c">b&sup2; is even, so b must also be even.</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-contra">4</div>
+            <div class="step-content">
+                But if both a and b are even, they share a common factor of 2.
+                <span class="calc contra-c">This contradicts our assumption that a/b has no common factors!</span>
+            </div>
+        </div>
+        <div class="final-answer contra-c">Contradiction! Therefore &radic;2 is irrational &square;</div>
+    </div>
+
+    <div class="worked-example contra-border">
+        <div class="ex-title">Example 2: Prove there are infinitely many primes</div>
+        <div class="step-row">
+            <div class="step-num s-contra">1</div>
+            <div class="step-content">
+                Assume, for contradiction, that there are finitely many primes.
+                <span class="calc contra-c">List them all: p&sub1;, p&sub2;, p&sub3;, ..., p&#8345;</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-contra">2</div>
+            <div class="step-content">
+                Construct the number N = p&sub1; &times; p&sub2; &times; p&sub3; &times; ... &times; p&#8345; + 1
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-contra">3</div>
+            <div class="step-content">
+                N is not divisible by any prime in our list (dividing by any p&#7522; leaves remainder 1).
+                <span class="calc contra-c">So N is either prime itself, or has a prime factor not in our list.</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-contra">4</div>
+            <div class="step-content">
+                Either way, there exists a prime not in our "complete" list.
+                <span class="calc contra-c">This contradicts our assumption that we listed ALL primes!</span>
+            </div>
+        </div>
+        <div class="final-answer contra-c">Contradiction! Therefore there are infinitely many primes &square;</div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 6. TRIG IDENTITY PROOFS -->
+    <!-- ============================================ -->
+    <h2 class="section-header">Trig Identity Proofs &mdash; The Method</h2>
+
+    <div class="proof-card trig-border">
+        <div class="card-title trig-c">The Rules for Trig Proofs</div>
+        <div class="template-step">
+            <div class="step-marker trig-bg">1</div>
+            <div class="step-text">
+                Start from <strong>ONE SIDE</strong> (usually the more complex side)
+            </div>
+        </div>
+        <div class="template-step">
+            <div class="step-marker trig-bg">2</div>
+            <div class="step-text">
+                Use known identities:
+                <span class="phrase">sin&sup2;&theta; + cos&sup2;&theta; &equiv; 1 &nbsp;&nbsp;&bull;&nbsp;&nbsp; tan&theta; &equiv; sin&theta; / cos&theta;</span>
+            </div>
+        </div>
+        <div class="template-step">
+            <div class="step-marker trig-bg">3</div>
+            <div class="step-text">
+                Manipulate algebraically until you reach the <strong>OTHER SIDE</strong>
+            </div>
+        </div>
+        <div class="template-step">
+            <div class="step-marker dark-bg">!</div>
+            <div class="step-text">
+                <strong>NEVER work from both sides towards the middle &mdash; that is not a valid proof</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="worked-example trig-border">
+        <div class="ex-title">Example: Prove that (1 &minus; cos&sup2;&theta;) / sin&theta; &equiv; sin&theta;</div>
+        <div class="step-row">
+            <div class="step-num s-trig">1</div>
+            <div class="step-content">
+                Start from the LHS (the more complex side):
+                <span class="calc trig-c">(1 &minus; cos&sup2;&theta;) / sin&theta;</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-trig">2</div>
+            <div class="step-content">
+                Use the identity sin&sup2;&theta; + cos&sup2;&theta; &equiv; 1, so 1 &minus; cos&sup2;&theta; = sin&sup2;&theta;:
+                <span class="calc trig-c">= sin&sup2;&theta; / sin&theta;</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-trig">3</div>
+            <div class="step-content">
+                Cancel one sin&theta;:
+                <span class="calc trig-c">= sin&theta; = RHS</span>
+            </div>
+        </div>
+        <div class="final-answer trig-c">LHS = RHS &mdash; identity proven &square;</div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 7. ALGEBRAIC PROOF TRICKS -->
+    <!-- ============================================ -->
+    <h2 class="section-header">Algebraic Proof &mdash; Your Toolkit</h2>
+
+    <div class="tricks-grid">
+        <div class="trick-item">
+            <div class="trick-symbol">2n</div>
+            <div class="trick-meaning">Even number</div>
+        </div>
+        <div class="trick-item">
+            <div class="trick-symbol">2n + 1</div>
+            <div class="trick-meaning">Odd number</div>
+        </div>
+        <div class="trick-item">
+            <div class="trick-symbol">n, n+1, n+2</div>
+            <div class="trick-meaning">Consecutive integers</div>
+        </div>
+        <div class="trick-item">
+            <div class="trick-symbol">2n, 2n+2</div>
+            <div class="trick-meaning">Consecutive even numbers</div>
+        </div>
+        <div class="trick-item">
+            <div class="trick-symbol">2n+1, 2n+3</div>
+            <div class="trick-meaning">Consecutive odd numbers</div>
+        </div>
+        <div class="trick-item">
+            <div class="trick-symbol">kn</div>
+            <div class="trick-meaning">"Divisible by k" = k &times; (something)</div>
+        </div>
+        <div class="trick-item">
+            <div class="trick-symbol">3n</div>
+            <div class="trick-meaning">Multiple of 3</div>
+        </div>
+        <div class="trick-item">
+            <div class="trick-symbol">n&sup2;</div>
+            <div class="trick-meaning">Square number</div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 8. COMMON MISTAKES -->
+    <!-- ============================================ -->
+    <h2 class="section-header">Common Mistakes</h2>
+
+    <div class="mistakes-list">
+        <div class="mistake-item">Not starting with a clear assumption or statement of variables</div>
+        <div class="mistake-item">Working from both sides in a trig proof &mdash; you must start from one side only</div>
+        <div class="mistake-item">Using specific numbers instead of general variables in a direct proof &mdash; "it works for n = 3" is not proof</div>
+        <div class="mistake-item">Forgetting to state the conclusion &mdash; always write "therefore..."</div>
+        <div class="mistake-item">"Showing it works for a few cases" is NOT proof (unless it's exhaustion covering ALL cases)</div>
+    </div>
+
+    <!-- ---- THE MANTRA ---- -->
+    <div class="mantra">
+        <div class="big-text">
+            <span class="direct-c">Prove it?</span> &rarr; Direct proof
+        </div>
+        <div class="big-text" style="font-size: 22px;">
+            <span class="counter-c">Disprove it?</span> &rarr; One counter-example
+        </div>
+        <div class="big-text" style="font-size: 22px;">
+            <span class="contra-c">Seems impossible?</span> &rarr; Assume the opposite
+        </div>
+        <div class="big-text" style="font-size: 22px;">
+            <span class="exhaust-c">Finite cases?</span> &rarr; Check them all
+        </div>
+        <div class="small-text" style="margin-top: 12px;">State. Manipulate. Conclude. Always say why. Always end with a box.</div>
+    </div>
+
+</div>
+
+</body>
+</html>

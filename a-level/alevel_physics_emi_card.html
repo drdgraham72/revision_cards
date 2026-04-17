@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Physics — Electromagnetic Induction</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&family=Caveat:wght@600;700&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #f5f5f0;
+            --card: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #666;
+            --border: rgba(0,0,0,0.1);
+            --font: 'Barlow Condensed', sans-serif;
+            --mono: 'DM Mono', monospace;
+            --hand: 'Caveat', cursive;
+
+            --flux-color: #0958d9;
+            --flux-bg: #e6f4ff;
+            --faraday-color: #7c3aed;
+            --faraday-bg: #f5f3ff;
+            --lenz-color: #d4380d;
+            --lenz-bg: #fff1f0;
+            --gen-color: #0f6e56;
+            --gen-bg: #e1f5ee;
+            --warn-color: #854f0b;
+            --warn-bg: #faeeda;
+            --green: #389e0d;
+            --red: #d4380d;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #141416;
+                --card: #1e1e22;
+                --text: #e8e4dc;
+                --text-light: #999;
+                --border: rgba(255,255,255,0.08);
+                --flux-bg: #0d2240;
+                --faraday-bg: #1e1630;
+                --lenz-bg: #3a1a0d;
+                --gen-bg: #0d2a1a;
+                --warn-bg: #2a1e0d;
+            }
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 1.5rem 1rem;
+        }
+
+        .page { max-width: 960px; margin: 0 auto; }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            line-height: 1.1;
+            margin-bottom: 6px;
+        }
+
+        .hero .subtitle {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* ---- SECTION CARDS ---- */
+        .section-card {
+            border-radius: 16px;
+            border: 2px solid;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .section-card.flux { border-color: var(--flux-color); }
+        .section-card.faraday { border-color: var(--faraday-color); }
+        .section-card.lenz { border-color: var(--lenz-color); }
+        .section-card.gen { border-color: var(--gen-color); }
+        .section-card.warn { border-color: var(--warn-color); }
+        .section-card.big-idea { border-color: var(--text); border-width: 3px; }
+
+        .section-header {
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-card.flux .section-header { background: var(--flux-bg); }
+        .section-card.faraday .section-header { background: var(--faraday-bg); }
+        .section-card.lenz .section-header { background: var(--lenz-bg); }
+        .section-card.gen .section-header { background: var(--gen-bg); }
+        .section-card.warn .section-header { background: var(--warn-bg); }
+        .section-card.big-idea .section-header { background: var(--card); }
+
+        .section-header h2 {
+            font-size: 24px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .section-card.flux .section-header h2 { color: var(--flux-color); }
+        .section-card.faraday .section-header h2 { color: var(--faraday-color); }
+        .section-card.lenz .section-header h2 { color: var(--lenz-color); }
+        .section-card.gen .section-header h2 { color: var(--gen-color); }
+        .section-card.warn .section-header h2 { color: var(--warn-color); }
+
+        .section-header .tag {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 4px;
+            color: #fff;
+        }
+
+        .section-card.flux .tag { background: var(--flux-color); }
+        .section-card.faraday .tag { background: var(--faraday-color); }
+        .section-card.lenz .tag { background: var(--lenz-color); }
+        .section-card.gen .tag { background: var(--gen-color); }
+        .section-card.warn .tag { background: var(--warn-color); }
+        .section-card.big-idea .tag { background: var(--text); }
+
+        .section-body {
+            padding: 20px 24px;
+            background: var(--card);
+        }
+
+        .section-body p {
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .section-body p:last-child { margin-bottom: 0; }
+        .section-body strong { font-weight: 800; }
+
+        /* ---- THE BIG IDEA BANNER ---- */
+        .big-idea-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .big-idea-statement {
+            font-family: var(--hand);
+            font-size: 26px;
+            font-weight: 700;
+            text-align: center;
+            padding: 18px 20px;
+            border-radius: 12px;
+            line-height: 1.3;
+        }
+
+        .big-idea-statement.s1 {
+            background: var(--flux-bg);
+            color: var(--flux-color);
+        }
+
+        .big-idea-statement.s2 {
+            background: var(--lenz-bg);
+            color: var(--lenz-color);
+        }
+
+        .big-idea-statement.s3 {
+            font-family: var(--mono);
+            font-size: 14px;
+            font-weight: 500;
+            background: var(--card);
+            border: 2px dashed var(--border);
+            color: var(--text-light);
+        }
+
+        /* ---- CALLOUTS ---- */
+        .callout {
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 12px 0;
+        }
+
+        .callout.flux { background: var(--flux-bg); border-left: 5px solid var(--flux-color); }
+        .callout.faraday { background: var(--faraday-bg); border-left: 5px solid var(--faraday-color); }
+        .callout.lenz { background: var(--lenz-bg); border-left: 5px solid var(--lenz-color); }
+        .callout.gen { background: var(--gen-bg); border-left: 5px solid var(--gen-color); }
+        .callout.warn { background: var(--warn-bg); border-left: 5px solid var(--warn-color); }
+
+        .callout .callout-title {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 8px;
+        }
+
+        .callout.flux .callout-title { color: var(--flux-color); }
+        .callout.faraday .callout-title { color: var(--faraday-color); }
+        .callout.lenz .callout-title { color: var(--lenz-color); }
+        .callout.gen .callout-title { color: var(--gen-color); }
+        .callout.warn .callout-title { color: var(--warn-color); }
+
+        .callout ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .callout ul li {
+            font-size: 14px;
+            line-height: 1.6;
+            padding: 4px 0 4px 18px;
+            position: relative;
+        }
+
+        .callout ul li::before {
+            content: '\25CF';
+            position: absolute;
+            left: 0;
+            font-size: 8px;
+            top: 8px;
+            color: var(--text-light);
+        }
+
+        /* ---- BIG EQUATIONS ---- */
+        .big-equation {
+            font-family: var(--hand);
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            padding: 18px;
+            margin: 12px 0;
+            border-radius: 10px;
+        }
+
+        .big-equation.flux { background: var(--flux-bg); color: var(--flux-color); }
+        .big-equation.faraday { background: var(--faraday-bg); color: var(--faraday-color); }
+        .big-equation.gen { background: var(--gen-bg); color: var(--gen-color); }
+
+        /* ---- DEFINITION GRID ---- */
+        .def-grid {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 6px 16px;
+            margin: 12px 0;
+            padding: 16px 20px;
+            border-radius: 12px;
+            background: var(--flux-bg);
+        }
+
+        .def-symbol {
+            font-family: var(--mono);
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--flux-color);
+            text-align: right;
+        }
+
+        .def-meaning {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* ---- LENZ SCENARIOS ---- */
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin: 14px 0;
+        }
+
+        .scenario-box {
+            border: 2px solid var(--lenz-color);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .scenario-box .scenario-action {
+            background: var(--lenz-bg);
+            padding: 12px 16px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--lenz-color);
+            text-align: center;
+        }
+
+        .scenario-box .scenario-result {
+            padding: 12px 16px;
+            font-size: 13px;
+            line-height: 1.5;
+            background: var(--card);
+            text-align: center;
+        }
+
+        .scenario-box .scenario-result .arrow {
+            font-size: 20px;
+            display: block;
+            margin: 4px 0;
+            color: var(--lenz-color);
+        }
+
+        /* ---- GENERATOR & TRANSFORMER COMPARISON ---- */
+        .gt-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 12px 0;
+        }
+
+        .gt-card {
+            border-radius: 12px;
+            padding: 20px;
+            border: 2px solid var(--gen-color);
+        }
+
+        .gt-card h3 {
+            font-size: 18px;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: var(--gen-color);
+            margin-bottom: 4px;
+        }
+
+        .gt-card .gt-sub {
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        .gt-card .gt-eq {
+            font-family: var(--hand);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--gen-color);
+            text-align: center;
+            padding: 10px;
+            background: var(--gen-bg);
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .gt-card .gt-point {
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 5px;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .gt-card .gt-point::before {
+            content: '\25CF';
+            position: absolute;
+            left: 0;
+            font-size: 8px;
+            top: 4px;
+            color: var(--gen-color);
+        }
+
+        /* ---- TRANSFORMER TYPES ---- */
+        .transformer-compare {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 10px 0;
+        }
+
+        .tf-type {
+            padding: 14px 16px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .tf-type.step-up {
+            background: var(--gen-bg);
+            border: 2px solid var(--gen-color);
+        }
+
+        .tf-type.step-down {
+            background: var(--flux-bg);
+            border: 2px solid var(--flux-color);
+        }
+
+        .tf-type h4 {
+            font-size: 16px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .tf-type.step-up h4 { color: var(--gen-color); }
+        .tf-type.step-down h4 { color: var(--flux-color); }
+
+        .tf-type .tf-detail {
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .tf-type .tf-detail strong { font-weight: 800; }
+
+        /* ---- MISTAKES ---- */
+        .mistakes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 10px 0;
+        }
+
+        .mistake-item {
+            padding: 14px 16px;
+            border-radius: 10px;
+            background: var(--warn-bg);
+            border-left: 4px solid var(--warn-color);
+        }
+
+        .mistake-item .wrong {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--red);
+            margin-bottom: 4px;
+        }
+
+        .mistake-item .right {
+            font-size: 13px;
+            line-height: 1.5;
+            color: var(--text);
+        }
+
+        /* ---- ENERGY CALLOUT ---- */
+        .energy-box {
+            background: var(--card);
+            border: 3px solid var(--lenz-color);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            margin: 14px 0;
+        }
+
+        .energy-box .energy-title {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--lenz-color);
+            margin-bottom: 8px;
+        }
+
+        .energy-box .energy-text {
+            font-family: var(--hand);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--lenz-color);
+            line-height: 1.4;
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 26px; }
+            .scenario-grid { grid-template-columns: 1fr; }
+            .gt-grid { grid-template-columns: 1fr; }
+            .transformer-compare { grid-template-columns: 1fr; }
+            .mistakes-grid { grid-template-columns: 1fr; }
+            .section-header h2 { font-size: 18px; }
+            .big-idea-statement { font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <div class="hero">
+        <h1>Electromagnetic Induction</h1>
+        <div class="subtitle">A-Level Physics &bull; Faraday's &amp; Lenz's Laws</div>
+    </div>
+
+    <!-- ======== 1. THE BIG IDEA ======== -->
+    <div class="section-card big-idea">
+        <div class="section-header">
+            <h2>The Big Idea</h2>
+            <span class="tag">THE WHOLE TOPIC IN THREE LINES</span>
+        </div>
+        <div class="section-body">
+            <div class="big-idea-grid">
+                <div class="big-idea-statement s1">A changing magnetic flux through a circuit induces an EMF</div>
+                <div class="big-idea-statement s2">The induced EMF opposes the change causing it</div>
+                <div class="big-idea-statement s3">That's it. Everything else is details.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======== 2. MAGNETIC FLUX ======== -->
+    <div class="section-card flux">
+        <div class="section-header">
+            <h2>Magnetic Flux</h2>
+            <span class="tag">STEP BY STEP</span>
+        </div>
+        <div class="section-body">
+            <div class="big-equation flux">&Phi; = BA cos&theta;</div>
+
+            <div class="def-grid">
+                <div class="def-symbol">&Phi;</div>
+                <div class="def-meaning">Magnetic flux &mdash; units: <strong>Weber (Wb)</strong></div>
+
+                <div class="def-symbol">B</div>
+                <div class="def-meaning">Magnetic flux density &mdash; units: <strong>Tesla (T)</strong></div>
+
+                <div class="def-symbol">A</div>
+                <div class="def-meaning">Area of coil &mdash; units: <strong>m&sup2;</strong></div>
+
+                <div class="def-symbol">&theta;</div>
+                <div class="def-meaning">Angle between <strong>B</strong> and the <strong>NORMAL</strong> to the coil surface</div>
+            </div>
+
+            <div class="callout flux">
+                <div class="callout-title">The angle trap</div>
+                <ul>
+                    <li>When <strong>B is perpendicular to the coil face</strong>: &theta; = 0&deg;, cos&theta; = 1, so <strong>&Phi; = BA</strong> (maximum flux)</li>
+                    <li>When <strong>B is parallel to the coil face</strong>: &theta; = 90&deg;, cos&theta; = 0, so <strong>&Phi; = 0</strong> (no flux)</li>
+                    <li>&theta; is measured from the <strong>normal</strong> (the line sticking out perpendicular to the coil face), NOT from the surface itself</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======== 3. FLUX LINKAGE ======== -->
+    <div class="section-card flux">
+        <div class="section-header">
+            <h2>Flux Linkage</h2>
+            <span class="tag">N TURNS</span>
+        </div>
+        <div class="section-body">
+            <div class="big-equation flux">Flux linkage = N&Phi;</div>
+            <p><strong>N</strong> = number of turns on the coil. <strong>&Phi;</strong> = flux through each turn.</p>
+            <p>Units: <strong>Wb turns</strong> (or just Wb, depending on the exam board).</p>
+            <p>A coil with 200 turns in a flux of 0.05 Wb has flux linkage = 200 &times; 0.05 = <strong>10 Wb turns</strong>.</p>
+        </div>
+    </div>
+
+    <!-- ======== 4. FARADAY'S LAW ======== -->
+    <div class="section-card faraday">
+        <div class="section-header">
+            <h2>Faraday's Law</h2>
+            <span class="tag">THE EQUATION</span>
+        </div>
+        <div class="section-body">
+            <div class="big-equation faraday">&epsilon; = &minus;N d&Phi;/dt</div>
+            <p><strong>The induced EMF equals the negative rate of change of flux linkage.</strong></p>
+
+            <div class="callout faraday">
+                <div class="callout-title">How to get a bigger EMF</div>
+                <ul>
+                    <li><strong>More turns</strong> (N) on the coil</li>
+                    <li><strong>Stronger magnetic field</strong> (bigger B, so bigger &Phi;)</li>
+                    <li><strong>Faster change</strong> (bigger d&Phi;/dt &mdash; move the magnet faster, spin the coil faster)</li>
+                    <li><strong>Larger coil area</strong> (bigger A, so bigger &Phi;)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======== 5. LENZ'S LAW ======== -->
+    <div class="section-card lenz">
+        <div class="section-header">
+            <h2>Lenz's Law</h2>
+            <span class="tag">THE DIRECTION</span>
+        </div>
+        <div class="section-body">
+            <p style="font-size: 17px; font-weight: 800;">The induced current flows in a direction to <span style="color: var(--lenz-color);">OPPOSE</span> the change causing it.</p>
+
+            <div class="scenario-grid">
+                <div class="scenario-box">
+                    <div class="scenario-action">Magnet pushed INTO coil</div>
+                    <div class="scenario-result">
+                        Flux through coil increases
+                        <span class="arrow">&darr;</span>
+                        Induced current creates a magnetic field to <strong>REPEL</strong> the magnet
+                    </div>
+                </div>
+                <div class="scenario-box">
+                    <div class="scenario-action">Magnet pulled OUT of coil</div>
+                    <div class="scenario-result">
+                        Flux through coil decreases
+                        <span class="arrow">&darr;</span>
+                        Induced current creates a magnetic field to <strong>ATTRACT</strong> the magnet
+                    </div>
+                </div>
+            </div>
+
+            <div class="energy-box">
+                <div class="energy-title">Why does it oppose?</div>
+                <div class="energy-text">Conservation of energy. If the induced current HELPED the change, you'd get energy for free. You have to do WORK to push the magnet in &mdash; that work is what generates the electrical energy.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======== 6. GENERATORS & TRANSFORMERS ======== -->
+    <div class="section-card gen">
+        <div class="section-header">
+            <h2>Generators &amp; Transformers</h2>
+            <span class="tag">APPLICATIONS</span>
+        </div>
+        <div class="section-body">
+            <div class="gt-grid">
+                <div class="gt-card">
+                    <h3>AC Generator</h3>
+                    <div class="gt-sub">Coil rotating in a magnetic field</div>
+                    <div class="gt-eq">&epsilon; = BAN&omega; sin(&omega;t)</div>
+                    <div class="gt-point">EMF is <strong>sinusoidal</strong> &mdash; alternates positive and negative</div>
+                    <div class="gt-point">Peak EMF = BAN&omega; (when coil is parallel to field, flux changing fastest)</div>
+                    <div class="gt-point">EMF = 0 when coil is perpendicular to field (flux momentarily not changing)</div>
+                    <div class="gt-point">&omega; = 2&pi;f = angular frequency</div>
+                </div>
+                <div class="gt-card">
+                    <h3>Transformers</h3>
+                    <div class="gt-sub">Changing flux links two coils via an iron core</div>
+                    <div class="gt-eq">V<sub>s</sub>/V<sub>p</sub> = N<sub>s</sub>/N<sub>p</sub> = I<sub>p</sub>/I<sub>s</sub></div>
+                    <div class="gt-point">Assumes <strong>100% efficiency</strong> (ideal transformer)</div>
+                    <div class="gt-point">Real transformers: energy lost as heat in coils and core</div>
+                    <div class="gt-point">Efficiency = (V<sub>s</sub>I<sub>s</sub>)/(V<sub>p</sub>I<sub>p</sub>) &times; 100%</div>
+                </div>
+            </div>
+
+            <div class="transformer-compare">
+                <div class="tf-type step-up">
+                    <h4>Step-Up</h4>
+                    <div class="tf-detail">N<sub>s</sub> &gt; N<sub>p</sub><br><strong>Increases</strong> voltage<br><strong>Decreases</strong> current</div>
+                </div>
+                <div class="tf-type step-down">
+                    <h4>Step-Down</h4>
+                    <div class="tf-detail">N<sub>s</sub> &lt; N<sub>p</sub><br><strong>Decreases</strong> voltage<br><strong>Increases</strong> current</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======== 7. COMMON MISTAKES ======== -->
+    <div class="section-card warn">
+        <div class="section-header">
+            <h2>The Mistakes</h2>
+            <span class="tag">AVOID THESE</span>
+        </div>
+        <div class="section-body">
+            <div class="mistakes-grid">
+                <div class="mistake-item">
+                    <div class="wrong">Confusing &Phi; (flux) with N&Phi; (flux linkage)</div>
+                    <div class="right">&Phi; is the flux through <strong>one loop</strong>. N&Phi; is the total flux linkage for a coil of N turns. Faraday's law uses N&Phi;.</div>
+                </div>
+                <div class="mistake-item">
+                    <div class="wrong">Getting &theta; wrong in &Phi; = BA cos&theta;</div>
+                    <div class="right">&theta; is the angle to the <strong>NORMAL</strong> (perpendicular to the coil face), NOT the angle to the surface. When field goes straight through the coil, &theta; = 0.</div>
+                </div>
+                <div class="mistake-item">
+                    <div class="wrong">Forgetting the minus sign</div>
+                    <div class="right">The minus sign in &epsilon; = &minus;Nd&Phi;/dt represents <strong>Lenz's law</strong>. It tells you the induced EMF opposes the change. Drop it and you lose the physics.</div>
+                </div>
+                <div class="mistake-item">
+                    <div class="wrong">Using V<sub>s</sub>/V<sub>p</sub> = N<sub>s</sub>/N<sub>p</sub> when not 100% efficient</div>
+                    <div class="right">The turns ratio always gives the <strong>voltage ratio</strong>. But I<sub>p</sub>/I<sub>s</sub> = N<sub>s</sub>/N<sub>p</sub> only holds for an <strong>ideal</strong> transformer. For real ones, use efficiency = P<sub>out</sub>/P<sub>in</sub>.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

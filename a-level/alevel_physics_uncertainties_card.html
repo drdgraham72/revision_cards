@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Physics — Uncertainties: The Rules</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&family=Caveat:wght@600;700&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --abs-color: #1677ff;
+            --abs-bg: #e6f4ff;
+            --frac-color: #fa8c16;
+            --frac-bg: #fff7e6;
+            --pct-color: #52c41a;
+            --pct-bg: #f6ffed;
+            --add-color: #1677ff;
+            --add-bg: #e6f4ff;
+            --mult-color: #fa8c16;
+            --mult-bg: #fff7e6;
+            --power-color: #eb2f96;
+            --power-bg: #fff0f6;
+            --warn-color: #f5222d;
+            --warn-bg: #fff1f0;
+            --bg: #fafafa;
+            --card-bg: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #666;
+            --mono: 'DM Mono', monospace;
+            --font: 'Barlow Condensed', sans-serif;
+            --hand: 'Caveat', cursive;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --abs-color: #69b1ff;
+                --abs-bg: #0d2240;
+                --frac-color: #ffc069;
+                --frac-bg: #2a1a00;
+                --pct-color: #95de64;
+                --pct-bg: #0d2a0d;
+                --add-color: #69b1ff;
+                --add-bg: #0d2240;
+                --mult-color: #ffc069;
+                --mult-bg: #2a1a00;
+                --power-color: #ff85c0;
+                --power-bg: #2a0d1e;
+                --warn-color: #ff7875;
+                --warn-bg: #2a0d0d;
+                --bg: #141416;
+                --card-bg: #1e1e22;
+                --text: #e8e4dc;
+                --text-light: #999;
+            }
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 1.5rem 1rem;
+        }
+
+        .page { max-width: 960px; margin: 0 auto; }
+
+        /* ---- HERO TITLE ---- */
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 46px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            line-height: 1.1;
+            margin-bottom: 6px;
+        }
+
+        .hero .subtitle {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--text-light);
+            letter-spacing: 0.03em;
+        }
+
+        /* ---- SECTION HEADERS ---- */
+        .section-header {
+            font-size: 24px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 16px;
+            margin-top: 2.5rem;
+            text-align: center;
+        }
+
+        .section-header:first-of-type { margin-top: 0; }
+
+        /* ---- THE THREE TYPES ---- */
+        .types-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 1rem;
+        }
+
+        .type-box {
+            padding: 28px 20px;
+            border-radius: 16px;
+            text-align: center;
+            position: relative;
+        }
+
+        .type-box.absolute { background: var(--abs-bg); border: 3px solid var(--abs-color); }
+        .type-box.fractional { background: var(--frac-bg); border: 3px solid var(--frac-color); }
+        .type-box.percentage { background: var(--pct-bg); border: 3px solid var(--pct-color); }
+
+        .type-label {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+
+        .type-label.absolute { color: var(--abs-color); }
+        .type-label.fractional { color: var(--frac-color); }
+        .type-label.percentage { color: var(--pct-color); }
+
+        .type-example {
+            font-family: var(--mono);
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 8px;
+        }
+
+        .type-example.absolute { color: var(--abs-color); }
+        .type-example.fractional { color: var(--frac-color); }
+        .type-example.percentage { color: var(--pct-color); }
+
+        .type-desc {
+            font-size: 12px;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        /* ---- CONVERSION STRIP ---- */
+        .conversion-strip {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 2rem;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .conversion-strip { border-color: rgba(255,255,255,0.08); }
+        }
+
+        .conversion-strip h3 {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        .conv-chain {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .conv-box {
+            font-family: var(--mono);
+            font-size: 15px;
+            font-weight: 700;
+            padding: 8px 14px;
+            border-radius: 8px;
+        }
+
+        .conv-box.abs-c { background: var(--abs-bg); color: var(--abs-color); border: 2px solid var(--abs-color); }
+        .conv-box.frac-c { background: var(--frac-bg); color: var(--frac-color); border: 2px solid var(--frac-color); }
+        .conv-box.pct-c { background: var(--pct-bg); color: var(--pct-color); border: 2px solid var(--pct-color); }
+
+        .conv-arrow {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .conv-arrow .dir { font-size: 20px; display: block; }
+
+        /* ---- COMBINING RULES ---- */
+        .combine-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 1rem;
+        }
+
+        .combine-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 28px 24px;
+            border: 3px solid;
+            text-align: center;
+        }
+
+        .combine-card.add-rule { border-color: var(--add-color); }
+        .combine-card.mult-rule { border-color: var(--mult-color); }
+
+        .combine-when {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 10px;
+        }
+
+        .combine-when.add-rule { color: var(--add-color); }
+        .combine-when.mult-rule { color: var(--mult-color); }
+
+        .combine-rule {
+            font-size: 20px;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 12px;
+        }
+
+        .combine-formula {
+            font-family: var(--mono);
+            font-size: 16px;
+            font-weight: 700;
+            padding: 10px 16px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .combine-formula.add-rule { background: var(--add-bg); color: var(--add-color); }
+        .combine-formula.mult-rule { background: var(--mult-bg); color: var(--mult-color); }
+
+        .combine-example {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.5;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            padding-top: 12px;
+            text-align: left;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .combine-example { border-top-color: rgba(255,255,255,0.08); }
+        }
+
+        .combine-example .calc {
+            font-family: var(--hand);
+            font-size: 22px;
+            font-weight: 700;
+            display: block;
+            margin: 4px 0;
+        }
+
+        .combine-example .calc.add-c { color: var(--add-color); }
+        .combine-example .calc.mult-c { color: var(--mult-color); }
+
+        /* ---- POWER CARD ---- */
+        .power-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 28px 24px;
+            border: 3px solid var(--power-color);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .power-card .combine-when { color: var(--power-color); }
+
+        .power-card .combine-formula {
+            background: var(--power-bg);
+            color: var(--power-color);
+        }
+
+        .power-card .combine-example .calc { color: var(--power-color); }
+
+        /* ---- INSTRUMENTS TABLE ---- */
+        .instruments {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 2rem;
+        }
+
+        .instr-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px 24px;
+            border-left: 5px solid var(--abs-color);
+        }
+
+        .instr-card .name {
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 6px;
+        }
+
+        .instr-card .uncertainty {
+            font-family: var(--mono);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--abs-color);
+            margin-bottom: 6px;
+        }
+
+        .instr-card .why {
+            font-size: 12px;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        /* ---- GRAPHS SECTION ---- */
+        .graph-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 28px 24px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--frac-color);
+        }
+
+        .graph-card .point-title {
+            font-size: 16px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .graph-card .point-detail {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .graph-card .calc {
+            font-family: var(--hand);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--frac-color);
+            display: block;
+            margin: 6px 0;
+        }
+
+        .graph-points {
+            margin-bottom: 2rem;
+        }
+
+        /* ---- SVG GRAPH ILLUSTRATION ---- */
+        .graph-visual {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 2rem;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .graph-visual { border-color: rgba(255,255,255,0.08); }
+        }
+
+        .graph-visual svg text { font-family: var(--mono); }
+
+        /* ---- MISTAKES ---- */
+        .mistakes {
+            margin-bottom: 2rem;
+        }
+
+        .mistake-card {
+            background: var(--warn-bg);
+            border: 2px solid var(--warn-color);
+            border-radius: 12px;
+            padding: 18px 24px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .mistake-icon {
+            font-size: 28px;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+
+        .mistake-text {
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.5;
+            color: var(--warn-color);
+        }
+
+        /* ---- MANTRA ---- */
+        .mantra {
+            text-align: center;
+            padding: 32px 24px;
+            background: #1a1a2e;
+            color: #fff;
+            border-radius: 16px;
+            margin-bottom: 1rem;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .mantra { background: #0a0a14; }
+        }
+
+        .mantra .big-text {
+            font-size: 28px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .mantra .big-text .add-c { color: var(--add-color); }
+        .mantra .big-text .mult-c { color: #ffc069; }
+        .mantra .big-text .power-c { color: #ff85c0; }
+
+        .mantra .small-text {
+            font-family: var(--mono);
+            font-size: 11px;
+            opacity: 0.6;
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 700px) {
+            .types-grid { grid-template-columns: 1fr; }
+            .combine-grid { grid-template-columns: 1fr; }
+            .instruments { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 30px; }
+            .section-header { font-size: 20px; }
+            .type-example { font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <div class="hero">
+        <h1>Uncertainties &mdash; The Rules</h1>
+        <div class="subtitle">A-Level Physics &bull; Every rule, every trap, one card</div>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- SECTION 1: THE THREE TYPES -->
+    <!-- ============================================= -->
+    <h2 class="section-header">The Three Types</h2>
+
+    <div class="types-grid">
+        <div class="type-box absolute">
+            <div class="type-label absolute">Absolute Uncertainty</div>
+            <div class="type-example absolute">&plusmn; 0.5 mm</div>
+            <div class="type-desc">Same units as the measurement.<br>It's the raw &ldquo;plus or minus&rdquo;.</div>
+        </div>
+        <div class="type-box fractional">
+            <div class="type-label fractional">Fractional Uncertainty</div>
+            <div class="type-example fractional">0.5 / 50.0 = 0.01</div>
+            <div class="type-desc">No units. Just a ratio.<br>Uncertainty &divide; measured value.</div>
+        </div>
+        <div class="type-box percentage">
+            <div class="type-label percentage">Percentage Uncertainty</div>
+            <div class="type-example percentage">0.01 &times; 100 = 1%</div>
+            <div class="type-desc">Fractional &times; 100.<br>The one you use most often.</div>
+        </div>
+    </div>
+
+    <!-- Conversion strip -->
+    <div class="conversion-strip">
+        <h3>Converting Between Them</h3>
+        <div class="conv-chain">
+            <div class="conv-box abs-c">&Delta;x = &plusmn;0.5 mm</div>
+            <div class="conv-arrow">
+                <div class="dir">&rarr;</div>
+                &divide; value
+            </div>
+            <div class="conv-box frac-c">0.5/50 = 0.01</div>
+            <div class="conv-arrow">
+                <div class="dir">&rarr;</div>
+                &times; 100
+            </div>
+            <div class="conv-box pct-c">1%</div>
+        </div>
+        <div class="conv-chain" style="margin-top: 10px;">
+            <div class="conv-box pct-c">1%</div>
+            <div class="conv-arrow">
+                <div class="dir">&rarr;</div>
+                &divide; 100
+            </div>
+            <div class="conv-box frac-c">0.01</div>
+            <div class="conv-arrow">
+                <div class="dir">&rarr;</div>
+                &times; value
+            </div>
+            <div class="conv-box abs-c">&plusmn;0.5 mm</div>
+        </div>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- SECTION 2: COMBINING UNCERTAINTIES -->
+    <!-- ============================================= -->
+    <h2 class="section-header">Combining Uncertainties</h2>
+
+    <div class="combine-grid">
+        <div class="combine-card add-rule">
+            <div class="combine-when add-rule">Adding or Subtracting Quantities</div>
+            <div class="combine-rule">ADD the absolute uncertainties</div>
+            <div class="combine-formula add-rule">&Delta;(A&plusmn;B) = &Delta;A + &Delta;B</div>
+            <div class="combine-example">
+                <strong>Example:</strong> Length = end &minus; start<br>
+                end = 84.0 &plusmn; 0.5 mm, start = 10.0 &plusmn; 0.5 mm
+                <span class="calc add-c">Length = 74.0 &plusmn; 1.0 mm</span>
+                Both absolute uncertainties add: 0.5 + 0.5 = 1.0 mm
+            </div>
+        </div>
+        <div class="combine-card mult-rule">
+            <div class="combine-when mult-rule">Multiplying or Dividing Quantities</div>
+            <div class="combine-rule">ADD the percentage uncertainties</div>
+            <div class="combine-formula mult-rule">%&Delta;(A&times;B) = %&Delta;A + %&Delta;B</div>
+            <div class="combine-example">
+                <strong>Example:</strong> Speed = distance / time<br>
+                d = 100 m &plusmn; 2%, t = 10 s &plusmn; 3%
+                <span class="calc mult-c">%&Delta;speed = 2% + 3% = 5%</span>
+                speed = 10 m/s &plusmn; 5% = 10 &plusmn; 0.5 m/s
+            </div>
+        </div>
+    </div>
+
+    <div class="power-card">
+        <div class="combine-when">Raising to a Power</div>
+        <div class="combine-rule">MULTIPLY the percentage uncertainty by the power</div>
+        <div class="combine-formula">%&Delta;(A<sup>n</sup>) = n &times; %&Delta;A</div>
+        <div class="combine-example" style="text-align:left;">
+            <strong>Example:</strong> Volume of a sphere: V = 4/3 &pi;r&sup3;<br>
+            If %&Delta;r = 2%, what is %&Delta;V?
+            <span class="calc" style="color: var(--power-color);">%&Delta;V = 3 &times; 2% = 6%</span>
+            The power of 3 on r means you triple the percentage uncertainty.
+        </div>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- SECTION 3: READING INSTRUMENTS -->
+    <!-- ============================================= -->
+    <h2 class="section-header">Reading Instruments</h2>
+
+    <div class="instruments">
+        <div class="instr-card">
+            <div class="name">Ruler</div>
+            <div class="uncertainty">&plusmn; 0.5 mm</div>
+            <div class="why">Half the smallest division (1 mm). Apply at <strong>each</strong> end if measuring a length &mdash; total &plusmn;1 mm.</div>
+        </div>
+        <div class="instr-card">
+            <div class="name">Stopwatch (Human)</div>
+            <div class="uncertainty">&plusmn; 0.2&ndash;0.5 s</div>
+            <div class="why">Reaction time dominates, <strong>not</strong> the instrument precision (0.01 s). Use &plusmn;0.2 s minimum per press.</div>
+        </div>
+        <div class="instr-card">
+            <div class="name">Digital Instrument</div>
+            <div class="uncertainty">&plusmn; 1 last digit</div>
+            <div class="why">A balance reading 24.56 g has uncertainty &plusmn;0.01 g. A voltmeter reading 3.2 V has &plusmn;0.1 V.</div>
+        </div>
+        <div class="instr-card">
+            <div class="name">Multiple Readings</div>
+            <div class="uncertainty">range / 2</div>
+            <div class="why">Take the spread: uncertainty = (max &minus; min) / 2. This captures the random variation in your data.</div>
+        </div>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- SECTION 4: GRAPHS AND UNCERTAINTIES -->
+    <!-- ============================================= -->
+    <h2 class="section-header">Graphs and Uncertainties</h2>
+
+    <!-- SVG illustration of error bars and lines -->
+    <div class="graph-visual">
+        <svg viewBox="0 0 500 300" width="100%" style="max-width:500px;">
+            <!-- Axes -->
+            <line x1="60" y1="260" x2="470" y2="260" stroke="currentColor" stroke-width="2"/>
+            <line x1="60" y1="260" x2="60" y2="20" stroke="currentColor" stroke-width="2"/>
+            <text x="265" y="295" text-anchor="middle" font-size="13" fill="currentColor">x</text>
+            <text x="30" y="140" text-anchor="middle" font-size="13" fill="currentColor" transform="rotate(-90 30 140)">y</text>
+
+            <!-- Data points with error bars -->
+            <line x1="120" y1="200" x2="120" y2="220" stroke="#1677ff" stroke-width="2"/>
+            <line x1="115" y1="200" x2="125" y2="200" stroke="#1677ff" stroke-width="2"/>
+            <line x1="115" y1="220" x2="125" y2="220" stroke="#1677ff" stroke-width="2"/>
+            <circle cx="120" cy="210" r="4" fill="#1677ff"/>
+
+            <line x1="200" y1="160" x2="200" y2="185" stroke="#1677ff" stroke-width="2"/>
+            <line x1="195" y1="160" x2="205" y2="160" stroke="#1677ff" stroke-width="2"/>
+            <line x1="195" y1="185" x2="205" y2="185" stroke="#1677ff" stroke-width="2"/>
+            <circle cx="200" cy="172" r="4" fill="#1677ff"/>
+
+            <line x1="280" y1="118" x2="280" y2="148" stroke="#1677ff" stroke-width="2"/>
+            <line x1="275" y1="118" x2="285" y2="118" stroke="#1677ff" stroke-width="2"/>
+            <line x1="275" y1="148" x2="285" y2="148" stroke="#1677ff" stroke-width="2"/>
+            <circle cx="280" cy="133" r="4" fill="#1677ff"/>
+
+            <line x1="360" y1="80" x2="360" y2="110" stroke="#1677ff" stroke-width="2"/>
+            <line x1="355" y1="80" x2="365" y2="80" stroke="#1677ff" stroke-width="2"/>
+            <line x1="355" y1="110" x2="365" y2="110" stroke="#1677ff" stroke-width="2"/>
+            <circle cx="360" cy="95" r="4" fill="#1677ff"/>
+
+            <line x1="430" y1="40" x2="430" y2="75" stroke="#1677ff" stroke-width="2"/>
+            <line x1="425" y1="40" x2="435" y2="40" stroke="#1677ff" stroke-width="2"/>
+            <line x1="425" y1="75" x2="435" y2="75" stroke="#1677ff" stroke-width="2"/>
+            <circle cx="430" cy="58" r="4" fill="#1677ff"/>
+
+            <!-- Best fit line (solid green) -->
+            <line x1="80" y1="240" x2="460" y2="30" stroke="#52c41a" stroke-width="2.5"/>
+            <text x="462" y="28" font-size="11" fill="#52c41a" font-weight="700">BEST FIT</text>
+
+            <!-- Worst acceptable line - steepest (dashed orange) -->
+            <line x1="90" y1="250" x2="450" y2="15" stroke="#fa8c16" stroke-width="1.5" stroke-dasharray="6,4"/>
+            <text x="452" y="13" font-size="10" fill="#fa8c16" font-weight="600">MAX</text>
+
+            <!-- Worst acceptable line - shallowest (dashed orange) -->
+            <line x1="70" y1="228" x2="460" y2="50" stroke="#fa8c16" stroke-width="1.5" stroke-dasharray="6,4"/>
+            <text x="462" y="48" font-size="10" fill="#fa8c16" font-weight="600">MIN</text>
+
+            <!-- Labels -->
+            <text x="80" y="15" font-size="11" fill="currentColor" font-weight="600">Error bars = absolute uncertainty on each point</text>
+        </svg>
+    </div>
+
+    <div class="graph-points">
+        <div class="graph-card">
+            <div class="point-title">Error Bars</div>
+            <div class="point-detail">Plot the absolute uncertainty as vertical (and/or horizontal) bars on each data point. The bar extends &plusmn;&Delta;y above and below the point.</div>
+        </div>
+        <div class="graph-card">
+            <div class="point-title">Best Fit &amp; Worst Acceptable Lines</div>
+            <div class="point-detail">
+                The <strong>best fit line</strong> goes through the data as closely as possible.<br>
+                The <strong>worst acceptable lines</strong> are the steepest and shallowest lines that still pass through all the error bars.
+            </div>
+        </div>
+        <div class="graph-card">
+            <div class="point-title">Gradient Uncertainty</div>
+            <div class="point-detail">
+                <span class="calc">&Delta;gradient = (max gradient &minus; min gradient) / 2</span>
+                Use the worst acceptable lines to find the steepest and shallowest gradients.
+            </div>
+        </div>
+        <div class="graph-card">
+            <div class="point-title">Y-Intercept Uncertainty</div>
+            <div class="point-detail">
+                Read the y-intercept from each worst acceptable line.
+                <span class="calc">&Delta;intercept = (max intercept &minus; min intercept) / 2</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- SECTION 5: MISTAKES THAT LOSE MARKS -->
+    <!-- ============================================= -->
+    <h2 class="section-header">The Mistakes That Lose Marks</h2>
+
+    <div class="mistakes">
+        <div class="mistake-card">
+            <div class="mistake-icon">&times;</div>
+            <div class="mistake-text">Confusing absolute and percentage uncertainties &mdash; you can't add percentage uncertainties when you're adding/subtracting quantities!</div>
+        </div>
+        <div class="mistake-card">
+            <div class="mistake-icon">&times;</div>
+            <div class="mistake-text">Forgetting to multiply the percentage uncertainty by the power &mdash; if r has 2% uncertainty, r&sup3; has 6%, not 2%.</div>
+        </div>
+        <div class="mistake-card">
+            <div class="mistake-icon">&times;</div>
+            <div class="mistake-text">Not stating the uncertainty with the correct units &mdash; absolute uncertainties MUST have units, percentage uncertainties MUST NOT.</div>
+        </div>
+        <div class="mistake-card">
+            <div class="mistake-icon">&times;</div>
+            <div class="mistake-text">Too many significant figures in the uncertainty &mdash; uncertainties should be 1 or 2 s.f. maximum. If your uncertainty is &plusmn;0.4732 mm, round it to &plusmn;0.5 mm.</div>
+        </div>
+    </div>
+
+    <!-- ---- MANTRA ---- -->
+    <div class="mantra">
+        <div class="big-text">
+            <span class="add-c">Add/Sub</span> &rarr; add absolutes
+        </div>
+        <div class="big-text">
+            <span class="mult-c">Mult/Div</span> &rarr; add percentages
+        </div>
+        <div class="big-text">
+            <span class="power-c">Powers</span> &rarr; multiply percentage by n
+        </div>
+        <div class="small-text" style="margin-top: 12px;">Three rules. That's the whole game. Learn which one to use, and you'll never drop marks on uncertainties again.</div>
+    </div>
+
+</div>
+
+</body>
+</html>
