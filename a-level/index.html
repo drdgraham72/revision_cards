@@ -189,6 +189,11 @@
         .sub-title.mechanics { border-left-color: #854f0b; color: #854f0b; }
         .sub-title.micro { border-left-color: #389e0d; color: #389e0d; }
         .sub-title.macro { border-left-color: #d4380d; color: #d4380d; }
+        .sub-title.deepdive { border-left-color: #1a1a2e; color: #1a1a2e; }
+
+        @media (prefers-color-scheme: dark) {
+            .sub-title.deepdive { border-left-color: #aaa; color: #aaa; }
+        }
 
         .card {
             display: block;
@@ -412,6 +417,7 @@
                         <div class="card-title"><span class="icon">&#x2699;&#xfe0f;</span>Mechanics Year 2 — Crib Sheet</div>
                         <div class="card-desc">Calculus kinematics, projectiles, friction, statics, Hooke's law</div>
                     </div>
+                    <div class="sub-title deepdive">Deep Dives</div>
                     <div class="card maths breakout" onclick="loadPage('alevel_maths_differentiation_card.html')">
                         <div class="card-title"><span class="icon">&#x1f4d0;</span>Differentiation Rules</div>
                         <div class="card-desc">Chain, product, quotient: which one, how to apply, standard results, decision flowchart</div>
@@ -441,6 +447,7 @@
                         <div class="card-title"><span class="icon">&#x26a1;</span>Physics Year 2 — Crib Sheet</div>
                         <div class="card-desc">Circular motion, SHM, fields, capacitors, magnetic induction, nuclear, thermal</div>
                     </div>
+                    <div class="sub-title deepdive">Deep Dives</div>
                     <div class="card physics breakout" onclick="loadPage('alevel_physics_uncertainties_card.html')">
                         <div class="card-title"><span class="icon">&#x1f4cf;</span>Uncertainties</div>
                         <div class="card-desc">Absolute vs percentage, combining rules, reading instruments, graph uncertainties</div>
