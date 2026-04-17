@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCSE Physics — Waves Made Clear</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&family=Caveat:wght@600;700&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #f5f5f0;
+            --card: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #666;
+            --border: rgba(0,0,0,0.1);
+            --font: 'Barlow Condensed', sans-serif;
+            --mono: 'DM Mono', monospace;
+            --hand: 'Caveat', cursive;
+
+            --transverse-color: #7c3aed;
+            --transverse-bg: #f5f3ff;
+            --longitudinal-color: #0958d9;
+            --longitudinal-bg: #e6f4ff;
+            --amplitude-color: #d4380d;
+            --amplitude-bg: #fff1f0;
+            --wavelength-color: #0f6e56;
+            --wavelength-bg: #e1f5ee;
+            --frequency-color: #b45309;
+            --frequency-bg: #fef3c7;
+            --equation-color: #1d4ed8;
+            --equation-bg: #eff6ff;
+            --spectrum-color: #7c3aed;
+            --spectrum-bg: #f5f3ff;
+            --reflect-color: #0891b2;
+            --reflect-bg: #ecfeff;
+            --refract-color: #c2410c;
+            --refract-bg: #fff7ed;
+            --green: #389e0d;
+            --red: #d4380d;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #141416;
+                --card: #1e1e22;
+                --text: #e8e4dc;
+                --text-light: #999;
+                --border: rgba(255,255,255,0.08);
+                --transverse-bg: #1e1630;
+                --longitudinal-bg: #0d2240;
+                --amplitude-bg: #3a1a0d;
+                --wavelength-bg: #0d2a1a;
+                --frequency-bg: #2a1e0d;
+                --equation-bg: #0d1a3a;
+                --spectrum-bg: #1e1630;
+                --reflect-bg: #0d2a2e;
+                --refract-bg: #2a1a0d;
+            }
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 1.5rem 1rem;
+        }
+
+        .page { max-width: 960px; margin: 0 auto; }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            line-height: 1.1;
+            margin-bottom: 6px;
+            color: var(--transverse-color);
+        }
+
+        .hero .subtitle {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* ---- SECTION CARD ---- */
+        .section-card {
+            border-radius: 16px;
+            border: 2px solid;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .section-header {
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-header h2 {
+            font-size: 24px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .section-header .tag {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 4px;
+            color: #fff;
+        }
+
+        .section-body {
+            padding: 20px 24px;
+            background: var(--card);
+        }
+
+        .section-title {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-desc {
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .section-desc strong { font-weight: 800; }
+
+        /* ---- SIDE-BY-SIDE COMPARE ---- */
+        .compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 2rem;
+        }
+
+        .compare-card {
+            border-radius: 16px;
+            padding: 24px;
+            border: 2px solid;
+        }
+
+        .compare-card h3 {
+            font-size: 22px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .compare-card .compare-sub {
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        .compare-card .compare-point {
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 6px;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .compare-card .compare-point::before {
+            content: '\25CF';
+            position: absolute;
+            left: 0;
+            font-size: 8px;
+            top: 4px;
+        }
+
+        .compare-card .compare-examples {
+            font-family: var(--hand);
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid var(--border);
+        }
+
+        .compare-card.transverse {
+            border-color: var(--transverse-color);
+            background: var(--transverse-bg);
+        }
+        .compare-card.transverse h3 { color: var(--transverse-color); }
+        .compare-card.transverse .compare-point::before { color: var(--transverse-color); }
+
+        .compare-card.longitudinal {
+            border-color: var(--longitudinal-color);
+            background: var(--longitudinal-bg);
+        }
+        .compare-card.longitudinal h3 { color: var(--longitudinal-color); }
+        .compare-card.longitudinal .compare-point::before { color: var(--longitudinal-color); }
+
+        /* ---- SVG DIAGRAMS ---- */
+        .diagram-wrap {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 12px;
+            margin: 12px 0;
+            text-align: center;
+        }
+
+        .diagram-wrap svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* ---- THREE CONFUSIONS ---- */
+        .confusion-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 2rem;
+        }
+
+        .confusion-card {
+            border-radius: 16px;
+            border: 2px solid;
+            overflow: hidden;
+        }
+
+        .confusion-card .cc-header {
+            padding: 14px 18px;
+            text-align: center;
+        }
+
+        .confusion-card .cc-header h3 {
+            font-size: 20px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .confusion-card .cc-header .cc-symbol {
+            font-size: 28px;
+            font-weight: 900;
+            font-family: var(--hand);
+        }
+
+        .confusion-card .cc-body {
+            padding: 16px 18px;
+            background: var(--card);
+        }
+
+        .confusion-card .cc-body .cc-def {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .confusion-card .cc-body .cc-unit {
+            font-family: var(--mono);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .confusion-card.amplitude {
+            border-color: var(--amplitude-color);
+        }
+        .confusion-card.amplitude .cc-header {
+            background: var(--amplitude-bg);
+        }
+        .confusion-card.amplitude .cc-header h3,
+        .confusion-card.amplitude .cc-header .cc-symbol { color: var(--amplitude-color); }
+        .confusion-card.amplitude .cc-body .cc-unit { background: var(--amplitude-bg); color: var(--amplitude-color); }
+
+        .confusion-card.wavelength {
+            border-color: var(--wavelength-color);
+        }
+        .confusion-card.wavelength .cc-header {
+            background: var(--wavelength-bg);
+        }
+        .confusion-card.wavelength .cc-header h3,
+        .confusion-card.wavelength .cc-header .cc-symbol { color: var(--wavelength-color); }
+        .confusion-card.wavelength .cc-body .cc-unit { background: var(--wavelength-bg); color: var(--wavelength-color); }
+
+        .confusion-card.frequency {
+            border-color: var(--frequency-color);
+        }
+        .confusion-card.frequency .cc-header {
+            background: var(--frequency-bg);
+        }
+        .confusion-card.frequency .cc-header h3,
+        .confusion-card.frequency .cc-header .cc-symbol { color: var(--frequency-color); }
+        .confusion-card.frequency .cc-body .cc-unit { background: var(--frequency-bg); color: var(--frequency-color); }
+
+        /* ---- EQUATION BOX ---- */
+        .equation-box {
+            background: var(--card);
+            border: 3px solid var(--equation-color);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .equation-box h2 {
+            font-size: 24px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 16px;
+            color: var(--equation-color);
+        }
+
+        .big-equation {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--equation-color);
+            margin: 16px 0;
+            letter-spacing: 0.04em;
+        }
+
+        .big-equation .eq-label {
+            font-size: 14px;
+            font-weight: 600;
+            display: block;
+            color: var(--text-light);
+            font-family: var(--mono);
+            letter-spacing: 0;
+            margin-top: 4px;
+        }
+
+        .equation-secondary {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--text);
+            margin: 12px 0 8px 0;
+        }
+
+        .equation-secondary .eq-label {
+            font-size: 12px;
+            font-weight: 600;
+            display: block;
+            color: var(--text-light);
+            font-family: var(--mono);
+            margin-top: 2px;
+        }
+
+        .triangle-wrap {
+            display: inline-block;
+            margin: 16px auto;
+        }
+
+        .worked-examples {
+            text-align: left;
+            max-width: 700px;
+            margin: 20px auto 0;
+        }
+
+        .worked-example {
+            padding: 14px 18px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border-left: 4px solid;
+        }
+
+        .worked-example .we-q {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .worked-example .we-a {
+            font-family: var(--hand);
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .worked-example:nth-child(1) { background: var(--transverse-bg); border-left-color: var(--transverse-color); }
+        .worked-example:nth-child(1) .we-a { color: var(--transverse-color); }
+        .worked-example:nth-child(2) { background: var(--longitudinal-bg); border-left-color: var(--longitudinal-color); }
+        .worked-example:nth-child(2) .we-a { color: var(--longitudinal-color); }
+        .worked-example:nth-child(3) { background: var(--frequency-bg); border-left-color: var(--frequency-color); }
+        .worked-example:nth-child(3) .we-a { color: var(--frequency-color); }
+
+        /* ---- EM SPECTRUM ---- */
+        .spectrum-section {
+            background: var(--card);
+            border: 2px solid var(--spectrum-color);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 2rem;
+        }
+
+        .spectrum-section h2 {
+            font-size: 24px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 8px;
+            text-align: center;
+            color: var(--spectrum-color);
+        }
+
+        .spectrum-strip {
+            display: flex;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 16px 0;
+            border: 2px solid var(--border);
+        }
+
+        .spectrum-band {
+            flex: 1;
+            padding: 12px 6px;
+            text-align: center;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .spectrum-band .band-name {
+            font-size: 11px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .spectrum-band .band-use {
+            font-size: 9px;
+            font-weight: 500;
+            opacity: 0.9;
+            margin-top: 4px;
+        }
+
+        .spectrum-band .band-danger {
+            font-size: 9px;
+            font-weight: 500;
+            opacity: 0.8;
+            font-style: italic;
+            margin-top: 2px;
+        }
+
+        .band-radio { background: #8b5cf6; }
+        .band-micro { background: #6366f1; }
+        .band-infra { background: #ef4444; }
+        .band-visible { background: linear-gradient(90deg, #ef4444, #f59e0b, #22c55e, #3b82f6, #8b5cf6); }
+        .band-uv { background: #7c3aed; }
+        .band-xray { background: #4338ca; }
+        .band-gamma { background: #1e1b4b; }
+
+        .spectrum-arrows {
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--text-light);
+            margin: 4px 4px 16px;
+        }
+
+        .spectrum-mnemonic {
+            text-align: center;
+            font-family: var(--hand);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--spectrum-color);
+            margin: 12px 0;
+        }
+
+        .spectrum-facts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .spectrum-fact {
+            padding: 12px 16px;
+            border-radius: 10px;
+            background: var(--spectrum-bg);
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+
+        .spectrum-fact strong {
+            color: var(--spectrum-color);
+        }
+
+        .spectrum-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            margin-top: 16px;
+        }
+
+        .spectrum-table th {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 8px 10px;
+            text-align: center;
+            border-bottom: 2px solid var(--border);
+            color: var(--text-light);
+        }
+
+        .spectrum-table td {
+            padding: 8px 10px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+            line-height: 1.4;
+        }
+
+        .spectrum-table tr:last-child td { border-bottom: none; }
+
+        /* ---- REFLECTION & REFRACTION ---- */
+        .rr-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 2rem;
+        }
+
+        .rr-card {
+            border-radius: 16px;
+            border: 2px solid;
+            overflow: hidden;
+        }
+
+        .rr-card .rr-header {
+            padding: 14px 20px;
+        }
+
+        .rr-card .rr-header h3 {
+            font-size: 22px;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .rr-card .rr-body {
+            padding: 16px 20px;
+            background: var(--card);
+        }
+
+        .rr-card .rr-rule {
+            font-family: var(--hand);
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .rr-card .rr-desc {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .rr-card.reflect {
+            border-color: var(--reflect-color);
+        }
+        .rr-card.reflect .rr-header { background: var(--reflect-bg); }
+        .rr-card.reflect .rr-header h3 { color: var(--reflect-color); }
+        .rr-card.reflect .rr-rule { color: var(--reflect-color); }
+
+        .rr-card.refract {
+            border-color: var(--refract-color);
+        }
+        .rr-card.refract .rr-header { background: var(--refract-bg); }
+        .rr-card.refract .rr-header h3 { color: var(--refract-color); }
+        .rr-card.refract .rr-rule { color: var(--refract-color); }
+
+        /* ---- EXAM MISTAKES ---- */
+        .mistakes {
+            background: var(--text);
+            color: #fff;
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 1rem;
+        }
+
+        .mistakes h2 {
+            font-size: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 16px;
+            text-align: center;
+            color: #ff6b6b;
+        }
+
+        .mistake-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .mistake-item {
+            padding: 14px 16px;
+            border-radius: 10px;
+            background: rgba(255,107,107,0.12);
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .mistake-item .wrong {
+            font-size: 13px;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 4px;
+        }
+
+        .mistake-item .right {
+            font-size: 13px;
+            color: #6ee7b7;
+            font-weight: 600;
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 26px; }
+            .compare-grid { grid-template-columns: 1fr; }
+            .confusion-cards { grid-template-columns: 1fr; }
+            .spectrum-strip { flex-direction: column; }
+            .spectrum-band { padding: 8px 12px; }
+            .rr-grid { grid-template-columns: 1fr; }
+            .mistake-grid { grid-template-columns: 1fr; }
+            .spectrum-facts { grid-template-columns: 1fr; }
+            .big-equation { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <div class="hero">
+        <h1>Waves: The Complete Picture</h1>
+        <div class="subtitle">GCSE Physics Paper 1 &mdash; frequency, wavelength, amplitude &amp; the EM spectrum</div>
+    </div>
+
+    <!-- ======== SECTION 1: TRANSVERSE vs LONGITUDINAL ======== -->
+    <div class="compare-grid">
+        <div class="compare-card transverse">
+            <h3>Transverse Waves</h3>
+            <div class="compare-sub">Oscillation PERPENDICULAR to direction of travel</div>
+
+            <div class="diagram-wrap">
+                <svg viewBox="0 0 420 180" xmlns="http://www.w3.org/2000/svg" width="420" height="180">
+                    <!-- Direction arrow -->
+                    <defs>
+                        <marker id="arrowT" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+                            <polygon points="0 0, 8 3, 0 6" fill="#7c3aed"/>
+                        </marker>
+                        <marker id="arrowTdim" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
+                            <polygon points="0 0, 6 2.5, 0 5" fill="#999"/>
+                        </marker>
+                    </defs>
+                    <!-- Direction of travel -->
+                    <line x1="20" y1="165" x2="380" y2="165" stroke="#7c3aed" stroke-width="2" marker-end="url(#arrowT)"/>
+                    <text x="200" y="178" text-anchor="middle" font-size="10" fill="#7c3aed" font-weight="700" font-family="'DM Mono',monospace">DIRECTION OF TRAVEL →</text>
+                    <!-- Rest position line -->
+                    <line x1="20" y1="90" x2="400" y2="90" stroke="#ccc" stroke-width="1" stroke-dasharray="4,4"/>
+                    <text x="408" y="93" font-size="9" fill="#999" font-family="'DM Mono',monospace">rest</text>
+                    <!-- Sine wave -->
+                    <path d="M 20,90 Q 55,10 90,90 Q 125,170 160,90 Q 195,10 230,90 Q 265,170 300,90 Q 335,10 370,90" stroke="#7c3aed" stroke-width="3" fill="none"/>
+                    <!-- Crest label -->
+                    <circle cx="90" cy="18" r="3" fill="#7c3aed"/>
+                    <text x="90" y="12" text-anchor="middle" font-size="10" fill="#7c3aed" font-weight="700">CREST</text>
+                    <!-- Trough label -->
+                    <circle cx="160" cy="162" r="3" fill="#7c3aed"/>
+                    <text x="160" y="155" text-anchor="middle" font-size="10" fill="#7c3aed" font-weight="700">TROUGH</text>
+                    <!-- Amplitude arrow -->
+                    <line x1="230" y1="90" x2="230" y2="18" stroke="#d4380d" stroke-width="2" marker-end="url(#arrowTdim)"/>
+                    <line x1="225" y1="90" x2="235" y2="90" stroke="#d4380d" stroke-width="2"/>
+                    <text x="244" y="55" font-size="10" fill="#d4380d" font-weight="700">AMPLITUDE</text>
+                    <!-- Wavelength arrow -->
+                    <line x1="90" y1="8" x2="230" y2="8" stroke="#0f6e56" stroke-width="2"/>
+                    <line x1="90" y1="4" x2="90" y2="12" stroke="#0f6e56" stroke-width="2"/>
+                    <line x1="230" y1="4" x2="230" y2="12" stroke="#0f6e56" stroke-width="2"/>
+                    <text x="160" y="6" text-anchor="middle" font-size="10" fill="#0f6e56" font-weight="700">WAVELENGTH (λ)</text>
+                </svg>
+            </div>
+
+            <div class="compare-point"><strong>Oscillation at right angles</strong> to the wave direction</div>
+            <div class="compare-point">Has crests (peaks) and troughs</div>
+            <div class="compare-point">Can be polarised</div>
+            <div class="compare-examples">Light, water waves, EM waves, waves on a string</div>
+        </div>
+
+        <div class="compare-card longitudinal">
+            <h3>Longitudinal Waves</h3>
+            <div class="compare-sub">Oscillation PARALLEL to direction of travel</div>
+
+            <div class="diagram-wrap">
+                <svg viewBox="0 0 420 180" xmlns="http://www.w3.org/2000/svg" width="420" height="180">
+                    <defs>
+                        <marker id="arrowL" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+                            <polygon points="0 0, 8 3, 0 6" fill="#0958d9"/>
+                        </marker>
+                    </defs>
+                    <!-- Direction of travel -->
+                    <line x1="20" y1="165" x2="380" y2="165" stroke="#0958d9" stroke-width="2" marker-end="url(#arrowL)"/>
+                    <text x="200" y="178" text-anchor="middle" font-size="10" fill="#0958d9" font-weight="700" font-family="'DM Mono',monospace">DIRECTION OF TRAVEL →</text>
+                    <!-- Particles as vertical lines showing compressions and rarefactions -->
+                    <!-- Compression 1 (tightly spaced) -->
+                    <line x1="30" y1="50" x2="30" y2="130" stroke="#0958d9" stroke-width="2.5" opacity="0.7"/>
+                    <line x1="38" y1="50" x2="38" y2="130" stroke="#0958d9" stroke-width="2.5" opacity="0.7"/>
+                    <line x1="46" y1="50" x2="46" y2="130" stroke="#0958d9" stroke-width="2.5" opacity="0.7"/>
+                    <line x1="52" y1="50" x2="52" y2="130" stroke="#0958d9" stroke-width="2.5" opacity="0.7"/>
+                    <line x1="58" y1="50" x2="58" y2="130" stroke="#0958d9" stroke-width="2.5" opacity="0.7"/>
+                    <line x1="64" y1="50" x2="64" y2="130" stroke="#0958d9" stroke-width="2.5" opacity="0.7"/>
+                    <!-- Rarefaction 1 (widely spaced) -->
+                    <line x1="88" y1="50" x2="88" y2="130" stroke="#0958d9" stroke-width="2" opacity="0.35"/>
+                    <line x1="108" y1="50" x2="108" y2="130" stroke="#0958d9" stroke-width="2" opacity="0.35"/>
+                    <line x1="128" y1="50" x2="128" y2="130" stroke="#0958d9" stroke-width="2" opacity="0.35"/>
+                    <!-- Compression 2 -->
+                    <line x1="150" y1="50" x2="150" y2="130" stroke="#0958d9" stroke-width="2.5" opacity="0.7"/>
+                    <line x1="158" y1="50" x2="158" y2="130" stroke="#0958d9" stroke-width="2.5" opacity="0.7"/>
+                    <line x1="166" y1="50" x2="166" y2="130" stroke="#0958d9" stroke-width="2.5" opacity="0.7"/>
+                    <line x1="172" y1="50" x2="172" y2="130" stroke="#0958d9" stroke-width="2.5" opacity="0.7"/>
+                    <line x1="178" y1="50" x2="178" y2="130" stroke="#0958d9" stroke-width="2.5" opacity="0.7"/>
+                    <line x1="184" y1="50" x2="184" y2="130" stroke="#0958d9" stroke-width="2.5" opacity="0.7"/>
+                    <!-- Rarefaction 2 -->
+                    <line x1="208" y1="50" x2="208" y2="130" stroke="#0958d9" stroke-width="2" opacity="0.35"/>
+                    <line x1="228" y1="50" x2="228" y2="130" stroke="#0958d9" stroke-width="2" opacity="0.35"/>
+                    <line x1="248" y1="50" x2="248" y2="130" stroke="#0958d9" stroke-width="2" opacity="0.35"/>
+                    <!-- Compression 3 -->
+                    <line x1="270" y1="50" x2="270" y2="130" stroke="#0958d9" stroke-width="2.5" opacity="0.7"/>
+                    <line x1="278" y1="50" x2="278" y2="130" stroke="#0958d9" stroke-width="2.5" opacity="0.7"/>
+                    <line x1="286" y1="50" x2="286" y2="130" stroke="#0958d9" stroke-width="2.5" opacity="0.7"/>
+                    <line x1="292" y1="50" x2="292" y2="130" stroke="#0958d9" stroke-width="2.5" opacity="0.7"/>
+                    <line x1="298" y1="50" x2="298" y2="130" stroke="#0958d9" stroke-width="2.5" opacity="0.7"/>
+                    <line x1="304" y1="50" x2="304" y2="130" stroke="#0958d9" stroke-width="2.5" opacity="0.7"/>
+                    <!-- Rarefaction 3 -->
+                    <line x1="328" y1="50" x2="328" y2="130" stroke="#0958d9" stroke-width="2" opacity="0.35"/>
+                    <line x1="348" y1="50" x2="348" y2="130" stroke="#0958d9" stroke-width="2" opacity="0.35"/>
+                    <line x1="368" y1="50" x2="368" y2="130" stroke="#0958d9" stroke-width="2" opacity="0.35"/>
+                    <!-- Labels -->
+                    <text x="47" y="42" text-anchor="middle" font-size="10" fill="#0958d9" font-weight="700">COMPRESSION</text>
+                    <text x="108" y="42" text-anchor="middle" font-size="10" fill="#0958d9" font-weight="700">RAREFACTION</text>
+                    <!-- Wavelength bracket -->
+                    <line x1="47" y1="138" x2="167" y2="138" stroke="#0f6e56" stroke-width="2"/>
+                    <line x1="47" y1="134" x2="47" y2="142" stroke="#0f6e56" stroke-width="2"/>
+                    <line x1="167" y1="134" x2="167" y2="142" stroke="#0f6e56" stroke-width="2"/>
+                    <text x="107" y="150" text-anchor="middle" font-size="10" fill="#0f6e56" font-weight="700">WAVELENGTH (λ)</text>
+                </svg>
+            </div>
+
+            <div class="compare-point"><strong>Oscillation along the same direction</strong> as the wave</div>
+            <div class="compare-point">Has compressions and rarefactions</div>
+            <div class="compare-point">Cannot be polarised</div>
+            <div class="compare-examples">Sound waves, ultrasound, P-waves (earthquakes)</div>
+        </div>
+    </div>
+
+    <!-- ======== SECTION 2: THE THREE THINGS STUDENTS CONFUSE ======== -->
+    <div style="text-align:center; margin-bottom:12px;">
+        <h2 style="font-size:22px; font-weight:900; text-transform:uppercase; letter-spacing:0.03em; color:var(--text);">The Three Things Students Confuse</h2>
+        <div style="font-family:var(--mono); font-size:11px; color:var(--text-light);">Get these right and the rest follows</div>
+    </div>
+
+    <div class="confusion-cards">
+        <!-- AMPLITUDE -->
+        <div class="confusion-card amplitude">
+            <div class="cc-header">
+                <div class="cc-symbol">A</div>
+                <h3>Amplitude</h3>
+            </div>
+            <div class="cc-body">
+                <div class="cc-def"><strong>Height from rest position to peak.</strong> Bigger amplitude = louder sound or brighter light.</div>
+                <div class="cc-unit">Measured in metres (m)</div>
+                <div class="diagram-wrap">
+                    <svg viewBox="0 0 280 130" xmlns="http://www.w3.org/2000/svg" width="280" height="130">
+                        <!-- Rest line -->
+                        <line x1="10" y1="65" x2="270" y2="65" stroke="#ccc" stroke-width="1" stroke-dasharray="3,3"/>
+                        <!-- Big amplitude wave -->
+                        <path d="M 10,65 Q 40,5 70,65 Q 100,125 130,65" stroke="#d4380d" stroke-width="2.5" fill="none"/>
+                        <text x="70" y="130" text-anchor="middle" font-size="9" fill="#d4380d" font-weight="700">BIG amplitude</text>
+                        <!-- Amplitude arrow big -->
+                        <line x1="72" y1="65" x2="72" y2="10" stroke="#d4380d" stroke-width="1.5"/>
+                        <line x1="68" y1="65" x2="76" y2="65" stroke="#d4380d" stroke-width="1.5"/>
+                        <text x="84" y="38" font-size="8" fill="#d4380d" font-weight="700">A</text>
+                        <!-- Small amplitude wave -->
+                        <path d="M 150,65 Q 175,40 200,65 Q 225,90 250,65" stroke="#d4380d" stroke-width="2.5" fill="none" opacity="0.5"/>
+                        <text x="200" y="110" text-anchor="middle" font-size="9" fill="#d4380d" font-weight="700" opacity="0.7">Small amplitude</text>
+                        <!-- Amplitude arrow small -->
+                        <line x1="202" y1="65" x2="202" y2="42" stroke="#d4380d" stroke-width="1.5" opacity="0.6"/>
+                        <line x1="198" y1="65" x2="206" y2="65" stroke="#d4380d" stroke-width="1.5" opacity="0.6"/>
+                        <text x="212" y="54" font-size="8" fill="#d4380d" font-weight="700" opacity="0.6">A</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- WAVELENGTH -->
+        <div class="confusion-card wavelength">
+            <div class="cc-header">
+                <div class="cc-symbol">&lambda;</div>
+                <h3>Wavelength</h3>
+            </div>
+            <div class="cc-body">
+                <div class="cc-def"><strong>Distance from one peak to the next</strong> (or one compression to the next). One full cycle.</div>
+                <div class="cc-unit">Measured in metres (m)</div>
+                <div class="diagram-wrap">
+                    <svg viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg" width="280" height="120">
+                        <line x1="10" y1="60" x2="270" y2="60" stroke="#ccc" stroke-width="1" stroke-dasharray="3,3"/>
+                        <path d="M 10,60 Q 45,10 80,60 Q 115,110 150,60 Q 185,10 220,60 Q 255,110 270,75" stroke="#0f6e56" stroke-width="2.5" fill="none"/>
+                        <!-- Wavelength bracket peak to peak -->
+                        <line x1="80" y1="8" x2="220" y2="8" stroke="#0f6e56" stroke-width="2"/>
+                        <line x1="80" y1="4" x2="80" y2="16" stroke="#0f6e56" stroke-width="2"/>
+                        <line x1="220" y1="4" x2="220" y2="16" stroke="#0f6e56" stroke-width="2"/>
+                        <text x="150" y="6" text-anchor="middle" font-size="10" fill="#0f6e56" font-weight="800">λ = one full wave</text>
+                        <!-- Dots on peaks -->
+                        <circle cx="80" cy="14" r="4" fill="#0f6e56"/>
+                        <circle cx="220" cy="14" r="4" fill="#0f6e56"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- FREQUENCY -->
+        <div class="confusion-card frequency">
+            <div class="cc-header">
+                <div class="cc-symbol">f</div>
+                <h3>Frequency</h3>
+            </div>
+            <div class="cc-body">
+                <div class="cc-def"><strong>How many waves pass a point per second.</strong> More waves = higher pitch/frequency.</div>
+                <div class="cc-unit">Measured in Hertz (Hz)</div>
+                <div class="diagram-wrap">
+                    <svg viewBox="0 0 280 130" xmlns="http://www.w3.org/2000/svg" width="280" height="130">
+                        <line x1="10" y1="35" x2="270" y2="35" stroke="#ccc" stroke-width="1" stroke-dasharray="3,3"/>
+                        <line x1="10" y1="95" x2="270" y2="95" stroke="#ccc" stroke-width="1" stroke-dasharray="3,3"/>
+                        <!-- High frequency (squished) -->
+                        <path d="M 10,35 Q 22,10 34,35 Q 46,60 58,35 Q 70,10 82,35 Q 94,60 106,35 Q 118,10 130,35 Q 142,60 154,35 Q 166,10 178,35 Q 190,60 202,35 Q 214,10 226,35 Q 238,60 250,35 Q 262,10 270,25" stroke="#b45309" stroke-width="2.5" fill="none"/>
+                        <text x="140" y="70" text-anchor="middle" font-size="10" fill="#b45309" font-weight="700">HIGH FREQUENCY — many waves</text>
+                        <!-- Low frequency (stretched) -->
+                        <path d="M 10,95 Q 60,65 110,95 Q 160,125 210,95 Q 260,65 270,88" stroke="#b45309" stroke-width="2.5" fill="none" opacity="0.5"/>
+                        <text x="140" y="128" text-anchor="middle" font-size="10" fill="#b45309" font-weight="700" opacity="0.7">LOW FREQUENCY — fewer waves</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======== SECTION 3: THE WAVE EQUATION ======== -->
+    <div class="equation-box">
+        <h2>The Wave Equation</h2>
+
+        <div class="big-equation">
+            v = f &times; &lambda;
+            <span class="eq-label">wave speed (m/s) = frequency (Hz) &times; wavelength (m)</span>
+        </div>
+
+        <!-- Formula triangle SVG -->
+        <div class="triangle-wrap">
+            <svg viewBox="0 0 200 170" xmlns="http://www.w3.org/2000/svg" width="180" height="150">
+                <polygon points="100,10 10,160 190,160" fill="none" stroke="var(--equation-color)" stroke-width="3"/>
+                <line x1="10" y1="100" x2="190" y2="100" stroke="var(--equation-color)" stroke-width="2"/>
+                <line x1="100" y1="100" x2="100" y2="160" stroke="var(--equation-color)" stroke-width="2"/>
+                <text x="100" y="70" text-anchor="middle" font-size="28" fill="var(--equation-color)" font-weight="900">v</text>
+                <text x="58" y="142" text-anchor="middle" font-size="24" fill="var(--equation-color)" font-weight="900">f</text>
+                <text x="142" y="142" text-anchor="middle" font-size="24" fill="var(--equation-color)" font-weight="900">&lambda;</text>
+            </svg>
+        </div>
+
+        <div class="equation-secondary">
+            T = 1 / f
+            <span class="eq-label">period (s) = 1 / frequency (Hz)</span>
+        </div>
+
+        <div class="worked-examples">
+            <div style="font-family:var(--mono); font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-light); margin-bottom:10px; text-align:center;">Worked Examples</div>
+
+            <div class="worked-example">
+                <div class="we-q">A wave has frequency 50 Hz and wavelength 4 m. Calculate the wave speed.</div>
+                <div class="we-a">v = f &times; &lambda; = 50 &times; 4 = <strong>200 m/s</strong></div>
+            </div>
+            <div class="worked-example">
+                <div class="we-q">Sound travels at 340 m/s. Its frequency is 680 Hz. Calculate the wavelength.</div>
+                <div class="we-a">&lambda; = v / f = 340 / 680 = <strong>0.5 m</strong></div>
+            </div>
+            <div class="worked-example">
+                <div class="we-q">A wave has a period of 0.02 s. What is its frequency?</div>
+                <div class="we-a">f = 1 / T = 1 / 0.02 = <strong>50 Hz</strong></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======== SECTION 4: THE EM SPECTRUM ======== -->
+    <div class="spectrum-section">
+        <h2>The Electromagnetic Spectrum</h2>
+
+        <div class="spectrum-strip">
+            <div class="spectrum-band band-radio">
+                <div class="band-name">Radio</div>
+                <div class="band-use">TV, radio</div>
+                <div class="band-danger">Low energy</div>
+            </div>
+            <div class="spectrum-band band-micro">
+                <div class="band-name">Micro&shy;wave</div>
+                <div class="band-use">Cooking, phones</div>
+                <div class="band-danger">Internal heating</div>
+            </div>
+            <div class="spectrum-band band-infra">
+                <div class="band-name">Infrared</div>
+                <div class="band-use">Heating, remotes</div>
+                <div class="band-danger">Skin burns</div>
+            </div>
+            <div class="spectrum-band band-visible">
+                <div class="band-name">Visible</div>
+                <div class="band-use">Seeing!</div>
+                <div class="band-danger">Safe range</div>
+            </div>
+            <div class="spectrum-band band-uv">
+                <div class="band-name">UV</div>
+                <div class="band-use">Sun beds, sterilise</div>
+                <div class="band-danger">Skin cancer</div>
+            </div>
+            <div class="spectrum-band band-xray">
+                <div class="band-name">X-ray</div>
+                <div class="band-use">Medical imaging</div>
+                <div class="band-danger">Cell damage</div>
+            </div>
+            <div class="spectrum-band band-gamma">
+                <div class="band-name">Gamma</div>
+                <div class="band-use">Cancer treatment</div>
+                <div class="band-danger">Cell mutation</div>
+            </div>
+        </div>
+
+        <div class="spectrum-arrows">
+            <span>&larr; LONGEST wavelength / LOWEST frequency</span>
+            <span>SHORTEST wavelength / HIGHEST frequency &rarr;</span>
+        </div>
+
+        <div class="spectrum-mnemonic">
+            "Raging Martians Invaded Venus Using X-ray Guns"
+        </div>
+
+        <div class="spectrum-facts">
+            <div class="spectrum-fact">
+                <strong>ALL</strong> EM waves travel at the <strong>speed of light</strong>: <strong>3 &times; 10&sup8; m/s</strong> in a vacuum
+            </div>
+            <div class="spectrum-fact">
+                <strong>ALL</strong> EM waves are <strong>transverse</strong> waves
+            </div>
+        </div>
+
+        <table class="spectrum-table">
+            <tr>
+                <th>Wave Type</th>
+                <th>Key Use</th>
+                <th>Key Property / Danger</th>
+            </tr>
+            <tr>
+                <td><strong>Radio</strong></td>
+                <td>TV &amp; radio broadcasting</td>
+                <td>Longest wavelength, passes through walls</td>
+            </tr>
+            <tr>
+                <td><strong>Microwave</strong></td>
+                <td>Mobile phones, cooking</td>
+                <td>Can cause internal body heating</td>
+            </tr>
+            <tr>
+                <td><strong>Infrared</strong></td>
+                <td>Remote controls, thermal imaging</td>
+                <td>Causes skin burns</td>
+            </tr>
+            <tr>
+                <td><strong>Visible light</strong></td>
+                <td>Human vision, fibre optics</td>
+                <td>Only part we can see (ROYGBIV)</td>
+            </tr>
+            <tr>
+                <td><strong>Ultraviolet</strong></td>
+                <td>Sterilisation, detecting fake notes</td>
+                <td>Causes sunburn and skin cancer</td>
+            </tr>
+            <tr>
+                <td><strong>X-rays</strong></td>
+                <td>Medical imaging (bones)</td>
+                <td>Can damage/kill cells, cause cancer</td>
+            </tr>
+            <tr>
+                <td><strong>Gamma rays</strong></td>
+                <td>Cancer treatment, sterilising food</td>
+                <td>Most penetrating, causes cell mutation</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- ======== SECTION 5: REFLECTION & REFRACTION ======== -->
+    <div class="rr-grid">
+        <div class="rr-card reflect">
+            <div class="rr-header">
+                <h3>Reflection</h3>
+            </div>
+            <div class="rr-body">
+                <div class="rr-rule">Angle of incidence = Angle of reflection</div>
+                <div class="rr-desc">Both angles are measured from the <strong>normal</strong> (the line perpendicular to the surface), NOT from the surface itself.</div>
+
+                <div class="diagram-wrap">
+                    <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" width="320" height="200">
+                        <defs>
+                            <marker id="arrowR" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+                                <polygon points="0 0, 8 3, 0 6" fill="#0891b2"/>
+                            </marker>
+                        </defs>
+                        <!-- Mirror surface -->
+                        <line x1="40" y1="150" x2="280" y2="150" stroke="#0891b2" stroke-width="3"/>
+                        <text x="160" y="170" text-anchor="middle" font-size="10" fill="#0891b2" font-weight="700" font-family="'DM Mono',monospace">MIRROR SURFACE</text>
+                        <!-- Hatching -->
+                        <line x1="50" y1="150" x2="40" y2="165" stroke="#0891b2" stroke-width="1" opacity="0.4"/>
+                        <line x1="75" y1="150" x2="65" y2="165" stroke="#0891b2" stroke-width="1" opacity="0.4"/>
+                        <line x1="100" y1="150" x2="90" y2="165" stroke="#0891b2" stroke-width="1" opacity="0.4"/>
+                        <line x1="125" y1="150" x2="115" y2="165" stroke="#0891b2" stroke-width="1" opacity="0.4"/>
+                        <line x1="150" y1="150" x2="140" y2="165" stroke="#0891b2" stroke-width="1" opacity="0.4"/>
+                        <line x1="175" y1="150" x2="165" y2="165" stroke="#0891b2" stroke-width="1" opacity="0.4"/>
+                        <line x1="200" y1="150" x2="190" y2="165" stroke="#0891b2" stroke-width="1" opacity="0.4"/>
+                        <line x1="225" y1="150" x2="215" y2="165" stroke="#0891b2" stroke-width="1" opacity="0.4"/>
+                        <line x1="250" y1="150" x2="240" y2="165" stroke="#0891b2" stroke-width="1" opacity="0.4"/>
+                        <line x1="275" y1="150" x2="265" y2="165" stroke="#0891b2" stroke-width="1" opacity="0.4"/>
+                        <!-- Normal (dashed) -->
+                        <line x1="160" y1="30" x2="160" y2="150" stroke="#999" stroke-width="1.5" stroke-dasharray="5,4"/>
+                        <text x="168" y="40" font-size="10" fill="#999" font-weight="700" font-family="'DM Mono',monospace">NORMAL</text>
+                        <!-- Incident ray -->
+                        <line x1="80" y1="40" x2="160" y2="150" stroke="#0891b2" stroke-width="2.5" marker-end="url(#arrowR)"/>
+                        <text x="95" y="80" font-size="10" fill="#0891b2" font-weight="700">Incident ray</text>
+                        <!-- Reflected ray -->
+                        <line x1="160" y1="150" x2="240" y2="40" stroke="#0891b2" stroke-width="2.5" marker-end="url(#arrowR)"/>
+                        <text x="210" y="80" font-size="10" fill="#0891b2" font-weight="700">Reflected ray</text>
+                        <!-- Angle arcs -->
+                        <path d="M 152,105 A 45,45 0 0,0 125,122" fill="none" stroke="#d4380d" stroke-width="2"/>
+                        <text x="126" y="110" font-size="10" fill="#d4380d" font-weight="800">i</text>
+                        <path d="M 168,105 A 45,45 0 0,1 195,122" fill="none" stroke="#d4380d" stroke-width="2"/>
+                        <text x="188" y="110" font-size="10" fill="#d4380d" font-weight="800">r</text>
+                        <!-- Equals -->
+                        <text x="160" y="195" text-anchor="middle" font-size="12" fill="#d4380d" font-weight="800">i = r</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="rr-card refract">
+            <div class="rr-header">
+                <h3>Refraction</h3>
+            </div>
+            <div class="rr-body">
+                <div class="rr-rule">Wave changes speed &rarr; changes direction</div>
+                <div class="rr-desc">
+                    <strong>Less dense &rarr; more dense:</strong> bends <strong>TOWARDS</strong> normal (slows down).<br>
+                    <strong>More dense &rarr; less dense:</strong> bends <strong>AWAY</strong> from normal (speeds up).
+                </div>
+
+                <div class="diagram-wrap">
+                    <svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg" width="320" height="220">
+                        <defs>
+                            <marker id="arrowRef" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+                                <polygon points="0 0, 8 3, 0 6" fill="#c2410c"/>
+                            </marker>
+                        </defs>
+                        <!-- Less dense medium (top) -->
+                        <rect x="40" y="10" width="240" height="95" fill="#fff7ed" rx="4" opacity="0.5"/>
+                        <text x="260" y="55" text-anchor="end" font-size="10" fill="#c2410c" font-weight="700" opacity="0.6">LESS DENSE</text>
+                        <text x="260" y="67" text-anchor="end" font-size="9" fill="#c2410c" opacity="0.5">(e.g. air)</text>
+                        <!-- More dense medium (bottom) -->
+                        <rect x="40" y="105" width="240" height="95" fill="#c2410c" rx="4" opacity="0.08"/>
+                        <text x="260" y="150" text-anchor="end" font-size="10" fill="#c2410c" font-weight="700" opacity="0.6">MORE DENSE</text>
+                        <text x="260" y="162" text-anchor="end" font-size="9" fill="#c2410c" opacity="0.5">(e.g. glass)</text>
+                        <!-- Boundary line -->
+                        <line x1="40" y1="105" x2="280" y2="105" stroke="#c2410c" stroke-width="2"/>
+                        <!-- Normal -->
+                        <line x1="160" y1="20" x2="160" y2="195" stroke="#999" stroke-width="1.5" stroke-dasharray="5,4"/>
+                        <text x="168" y="28" font-size="9" fill="#999" font-weight="700" font-family="'DM Mono',monospace">NORMAL</text>
+                        <!-- Incident ray (wider angle from normal) -->
+                        <line x1="90" y1="25" x2="160" y2="105" stroke="#c2410c" stroke-width="2.5" marker-end="url(#arrowRef)"/>
+                        <!-- Refracted ray (narrower angle from normal — towards normal) -->
+                        <line x1="160" y1="105" x2="200" y2="195" stroke="#c2410c" stroke-width="2.5" marker-end="url(#arrowRef)"/>
+                        <!-- Angle of incidence arc -->
+                        <path d="M 154,68 A 37,37 0 0,0 128,85" fill="none" stroke="#7c3aed" stroke-width="2"/>
+                        <text x="124" y="72" font-size="10" fill="#7c3aed" font-weight="800">i</text>
+                        <!-- Angle of refraction arc (smaller) -->
+                        <path d="M 164,138 A 33,33 0 0,1 180,148" fill="none" stroke="#7c3aed" stroke-width="2"/>
+                        <text x="178" y="140" font-size="10" fill="#7c3aed" font-weight="800">r</text>
+                        <!-- Arrow label -->
+                        <text x="160" y="212" text-anchor="middle" font-size="11" fill="#c2410c" font-weight="800">Bends TOWARDS normal (slows down)</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======== SECTION 6: COMMON EXAM MISTAKES ======== -->
+    <div class="mistakes">
+        <h2>Common Exam Mistakes</h2>
+        <div class="mistake-grid">
+            <div class="mistake-item">
+                <div class="wrong">&#10007; Mixing up amplitude and wavelength</div>
+                <div class="right">&#10003; Amplitude = height from rest. Wavelength = distance between peaks.</div>
+            </div>
+            <div class="mistake-item">
+                <div class="wrong">&#10007; "Waves carry matter from place to place"</div>
+                <div class="right">&#10003; Waves transfer ENERGY, not matter. The medium oscillates but doesn't travel.</div>
+            </div>
+            <div class="mistake-item">
+                <div class="wrong">&#10007; Forgetting all EM waves travel at the same speed</div>
+                <div class="right">&#10003; ALL electromagnetic waves travel at 3 &times; 10&sup8; m/s in a vacuum.</div>
+            </div>
+            <div class="mistake-item">
+                <div class="wrong">&#10007; Measuring the angle from the surface</div>
+                <div class="right">&#10003; Always measure from the NORMAL (perpendicular to the surface).</div>
+            </div>
+            <div class="mistake-item">
+                <div class="wrong">&#10007; Confusing frequency (Hz) with period (s)</div>
+                <div class="right">&#10003; They are inverses: f = 1/T and T = 1/f. Frequency = waves per second. Period = seconds per wave.</div>
+            </div>
+            <div class="mistake-item">
+                <div class="wrong">&#10007; Thinking higher frequency means longer wavelength</div>
+                <div class="right">&#10003; Higher frequency = SHORTER wavelength (if speed is constant). They are inversely proportional.</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

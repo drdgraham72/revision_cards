@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCSE Physics — Energy Transfers &amp; Efficiency</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&family=Caveat:wght@600;700&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #f5f5f0;
+            --card: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #666;
+            --border: rgba(0,0,0,0.1);
+            --font: 'Barlow Condensed', sans-serif;
+            --mono: 'DM Mono', monospace;
+            --hand: 'Caveat', cursive;
+
+            /* Energy store colours */
+            --kinetic-color: #0958d9;
+            --kinetic-bg: #e6f4ff;
+            --gpe-color: #389e0d;
+            --gpe-bg: #f6ffed;
+            --elastic-color: #d4380d;
+            --elastic-bg: #fff1f0;
+            --thermal-color: #cf1322;
+            --thermal-bg: #fff1f0;
+            --chemical-color: #854f0b;
+            --chemical-bg: #faeeda;
+            --magnetic-color: #7c3aed;
+            --magnetic-bg: #f5f3ff;
+            --electrostatic-color: #d48806;
+            --electrostatic-bg: #fffbe6;
+            --nuclear-color: #08979c;
+            --nuclear-bg: #e6fffb;
+
+            /* Section accent colours */
+            --transfer-color: #0958d9;
+            --transfer-bg: #e6f4ff;
+            --conserve-color: #389e0d;
+            --conserve-bg: #f6ffed;
+            --efficiency-color: #d4380d;
+            --efficiency-bg: #fff1f0;
+            --shc-color: #7c3aed;
+            --shc-bg: #f5f3ff;
+            --power-color: #d48806;
+            --power-bg: #fffbe6;
+            --equations-color: #08979c;
+            --equations-bg: #e6fffb;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #141416;
+                --card: #1e1e22;
+                --text: #e8e4dc;
+                --text-light: #999;
+                --border: rgba(255,255,255,0.08);
+
+                --kinetic-bg: #0d2240;
+                --gpe-bg: #0d2a0d;
+                --elastic-bg: #3a1a0d;
+                --thermal-bg: #3a1115;
+                --chemical-bg: #2a1e0d;
+                --magnetic-bg: #1e1630;
+                --electrostatic-bg: #2a2500;
+                --nuclear-bg: #0d2a2a;
+
+                --transfer-bg: #0d2240;
+                --conserve-bg: #0d2a0d;
+                --efficiency-bg: #3a1a0d;
+                --shc-bg: #1e1630;
+                --power-bg: #2a2500;
+                --equations-bg: #0d2a2a;
+            }
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 1.5rem 1rem;
+        }
+
+        .page { max-width: 960px; margin: 0 auto; }
+
+        /* ---- HERO ---- */
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            line-height: 1.1;
+            margin-bottom: 6px;
+        }
+
+        .hero .subtitle {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* ---- SECTION HEADINGS ---- */
+        .section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .section-num {
+            font-family: var(--mono);
+            font-size: 12px;
+            font-weight: 700;
+            color: #fff;
+            background: var(--text);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .section-header h2 {
+            font-size: 24px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        /* ---- ENERGY STORE CARDS ---- */
+        .stores-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .store-card {
+            border-radius: 12px;
+            padding: 16px;
+            border-top: 5px solid;
+            text-align: center;
+        }
+
+        .store-card .store-icon { font-size: 32px; margin-bottom: 6px; }
+        .store-card .store-name {
+            font-size: 15px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            margin-bottom: 6px;
+        }
+        .store-card .store-meaning {
+            font-size: 12px;
+            line-height: 1.4;
+            margin-bottom: 8px;
+            color: var(--text-light);
+        }
+        .store-card .store-example {
+            font-family: var(--hand);
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .store-card.kinetic { background: var(--kinetic-bg); border-top-color: var(--kinetic-color); }
+        .store-card.kinetic .store-name { color: var(--kinetic-color); }
+        .store-card.gpe { background: var(--gpe-bg); border-top-color: var(--gpe-color); }
+        .store-card.gpe .store-name { color: var(--gpe-color); }
+        .store-card.elastic { background: var(--elastic-bg); border-top-color: var(--elastic-color); }
+        .store-card.elastic .store-name { color: var(--elastic-color); }
+        .store-card.thermal { background: var(--thermal-bg); border-top-color: var(--thermal-color); }
+        .store-card.thermal .store-name { color: var(--thermal-color); }
+        .store-card.chemical { background: var(--chemical-bg); border-top-color: var(--chemical-color); }
+        .store-card.chemical .store-name { color: var(--chemical-color); }
+        .store-card.magnetic { background: var(--magnetic-bg); border-top-color: var(--magnetic-color); }
+        .store-card.magnetic .store-name { color: var(--magnetic-color); }
+        .store-card.electrostatic { background: var(--electrostatic-bg); border-top-color: var(--electrostatic-color); }
+        .store-card.electrostatic .store-name { color: var(--electrostatic-color); }
+        .store-card.nuclear { background: var(--nuclear-bg); border-top-color: var(--nuclear-color); }
+        .store-card.nuclear .store-name { color: var(--nuclear-color); }
+
+        /* ---- TRANSFER PATHWAYS ---- */
+        .transfers-box {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .transfer-methods {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .transfer-method {
+            padding: 16px;
+            border-radius: 10px;
+            border-left: 5px solid var(--transfer-color);
+            background: var(--transfer-bg);
+        }
+
+        .transfer-method .tm-name {
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--transfer-color);
+            margin-bottom: 4px;
+        }
+
+        .transfer-method .tm-desc {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 6px;
+        }
+
+        .transfer-method .tm-example {
+            font-family: var(--hand);
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        /* Arrow diagrams */
+        .arrow-diagrams {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .arrow-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px;
+            background: var(--card);
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            flex-wrap: wrap;
+        }
+
+        .arrow-diagram .ad-scenario {
+            font-size: 14px;
+            font-weight: 700;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 4px;
+        }
+
+        .ad-store {
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .ad-store.ke { background: var(--kinetic-bg); color: var(--kinetic-color); }
+        .ad-store.gpe { background: var(--gpe-bg); color: var(--gpe-color); }
+        .ad-store.chem { background: var(--chemical-bg); color: var(--chemical-color); }
+        .ad-store.therm { background: var(--thermal-bg); color: var(--thermal-color); }
+        .ad-store.elast { background: var(--elastic-bg); color: var(--elastic-color); }
+
+        .ad-arrow {
+            font-size: 20px;
+            color: var(--text-light);
+        }
+
+        .ad-via {
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--text-light);
+            padding: 2px 8px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            background: var(--card);
+        }
+
+        /* ---- CONSERVATION BOX ---- */
+        .conserve-box {
+            background: var(--conserve-bg);
+            border: 3px solid var(--conserve-color);
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+        }
+
+        .conserve-box .big-rule {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--conserve-color);
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .conserve-box .rule-explain {
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .conserve-box .exam-tip {
+            background: var(--card);
+            border-radius: 10px;
+            padding: 16px;
+            text-align: left;
+            font-size: 13px;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1.5px solid var(--conserve-color);
+        }
+
+        .conserve-box .exam-tip strong {
+            color: var(--conserve-color);
+        }
+
+        /* ---- EFFICIENCY / SANKEY ---- */
+        .efficiency-box {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .formula-row {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .formula-card {
+            background: var(--efficiency-bg);
+            border: 2px solid var(--efficiency-color);
+            border-radius: 10px;
+            padding: 16px 24px;
+            text-align: center;
+        }
+
+        .formula-card .formula {
+            font-family: var(--mono);
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--efficiency-color);
+            margin-bottom: 4px;
+        }
+
+        .formula-card .formula-desc {
+            font-size: 11px;
+            color: var(--text-light);
+        }
+
+        /* Sankey diagrams */
+        .sankey-examples {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .sankey {
+            background: var(--bg);
+            border-radius: 12px;
+            padding: 18px;
+            text-align: center;
+        }
+
+        .sankey .sankey-title {
+            font-size: 15px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .sankey-diagram {
+            position: relative;
+            height: 120px;
+            margin-bottom: 10px;
+        }
+
+        /* Input arrow */
+        .sankey-input {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30%;
+            background: var(--text-light);
+            border-radius: 4px 0 0 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            font-family: var(--mono);
+        }
+
+        /* Useful output */
+        .sankey-useful {
+            position: absolute;
+            right: 0;
+            border-radius: 0 4px 4px 0;
+            background: var(--conserve-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            font-family: var(--mono);
+        }
+
+        /* Wasted output */
+        .sankey-wasted {
+            position: absolute;
+            right: 0;
+            border-radius: 0 4px 4px 0;
+            background: var(--thermal-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            font-family: var(--mono);
+        }
+
+        .sankey-efficiency {
+            font-size: 28px;
+            font-weight: 900;
+            margin-top: 4px;
+        }
+
+        .sankey-efficiency.low { color: var(--thermal-color); }
+        .sankey-efficiency.mid { color: var(--electrostatic-color); }
+        .sankey-efficiency.high { color: var(--conserve-color); }
+
+        .sankey-label {
+            font-size: 11px;
+            color: var(--text-light);
+        }
+
+        /* ---- SHC SECTION ---- */
+        .shc-box {
+            background: var(--shc-bg);
+            border: 2px solid var(--shc-color);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .shc-formula-big {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .shc-formula-big .formula-huge {
+            font-family: var(--mono);
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--shc-color);
+            letter-spacing: 0.02em;
+        }
+
+        .shc-vars {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .shc-var {
+            text-align: center;
+            padding: 14px 8px;
+            background: var(--card);
+            border-radius: 10px;
+            border: 1.5px solid var(--border);
+        }
+
+        .shc-var .var-letter {
+            font-family: var(--mono);
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--shc-color);
+        }
+
+        .shc-var .var-equals {
+            font-size: 13px;
+            font-weight: 700;
+            margin: 4px 0;
+        }
+
+        .shc-var .var-unit {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--text-light);
+        }
+
+        /* Triangle rearranging */
+        .triangle-row {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .triangle-container {
+            text-align: center;
+        }
+
+        .triangle-container .tri-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--shc-color);
+            margin-bottom: 6px;
+        }
+
+        .triangle-svg {
+            width: 120px;
+            height: 80px;
+        }
+
+        .triangle-svg text {
+            font-family: 'DM Mono', monospace;
+            font-weight: 700;
+            font-size: 14px;
+            fill: var(--text);
+        }
+
+        .triangle-svg .highlight {
+            fill: var(--shc-color);
+            font-size: 16px;
+        }
+
+        .triangle-svg line {
+            stroke: var(--shc-color);
+            stroke-width: 2;
+        }
+
+        .triangle-svg .tri-outline {
+            fill: none;
+            stroke: var(--shc-color);
+            stroke-width: 2;
+        }
+
+        /* Worked examples */
+        .worked-example {
+            background: var(--card);
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 12px;
+            border-left: 5px solid;
+        }
+
+        .worked-example .we-question {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .worked-example .we-steps {
+            font-family: var(--mono);
+            font-size: 13px;
+            line-height: 2;
+            color: var(--text-light);
+        }
+
+        .worked-example .we-answer {
+            font-size: 16px;
+            font-weight: 800;
+            margin-top: 6px;
+        }
+
+        .we-shc { border-left-color: var(--shc-color); }
+        .we-shc .we-answer { color: var(--shc-color); }
+        .we-power { border-left-color: var(--power-color); }
+        .we-power .we-answer { color: var(--power-color); }
+        .we-ke { border-left-color: var(--kinetic-color); }
+        .we-ke .we-answer { color: var(--kinetic-color); }
+        .we-gpe { border-left-color: var(--gpe-color); }
+        .we-gpe .we-answer { color: var(--gpe-color); }
+
+        /* Practical box */
+        .practical-box {
+            background: var(--card);
+            border: 2px dashed var(--shc-color);
+            border-radius: 10px;
+            padding: 16px;
+            margin-top: 14px;
+        }
+
+        .practical-box .prac-title {
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--shc-color);
+            margin-bottom: 8px;
+        }
+
+        .practical-box .prac-steps {
+            font-size: 12px;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        .practical-box .prac-steps ol {
+            padding-left: 20px;
+        }
+
+        /* Mistake callout */
+        .mistake-box {
+            background: var(--thermal-bg);
+            border-left: 4px solid var(--thermal-color);
+            border-radius: 0 8px 8px 0;
+            padding: 12px 16px;
+            margin-top: 12px;
+            font-size: 13px;
+        }
+
+        .mistake-box strong {
+            color: var(--thermal-color);
+        }
+
+        /* ---- POWER SECTION ---- */
+        .power-box {
+            background: var(--power-bg);
+            border: 2px solid var(--power-color);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .power-formulas {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .power-formula {
+            background: var(--card);
+            border: 2px solid var(--power-color);
+            border-radius: 10px;
+            padding: 16px 28px;
+            text-align: center;
+        }
+
+        .power-formula .formula {
+            font-family: var(--mono);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--power-color);
+        }
+
+        .power-formula .formula-desc {
+            font-size: 11px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        .power-vars {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .power-var {
+            font-size: 13px;
+            padding: 6px 14px;
+            background: var(--card);
+            border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+
+        .power-var strong {
+            font-family: var(--mono);
+            color: var(--power-color);
+        }
+
+        .units-note {
+            text-align: center;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--power-color);
+        }
+
+        /* ---- KE & GPE SECTION ---- */
+        .ke-gpe-box {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .ke-gpe-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .eq-card {
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid;
+        }
+
+        .eq-card.ke-card {
+            background: var(--kinetic-bg);
+            border-color: var(--kinetic-color);
+        }
+
+        .eq-card.gpe-card {
+            background: var(--gpe-bg);
+            border-color: var(--gpe-color);
+        }
+
+        .eq-card .eq-title {
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .eq-card.ke-card .eq-title { color: var(--kinetic-color); }
+        .eq-card.gpe-card .eq-title { color: var(--gpe-color); }
+
+        .eq-card .eq-formula {
+            font-family: var(--mono);
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .eq-card.ke-card .eq-formula { color: var(--kinetic-color); }
+        .eq-card.gpe-card .eq-formula { color: var(--gpe-color); }
+
+        .eq-card .eq-vars {
+            font-size: 12px;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        .eq-card .eq-warning {
+            margin-top: 10px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .eq-card.ke-card .eq-warning {
+            background: var(--thermal-bg);
+            color: var(--thermal-color);
+            border: 1.5px solid var(--thermal-color);
+        }
+
+        /* Transfer diagram */
+        .transfer-diagram {
+            background: var(--bg);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .transfer-diagram .td-title {
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .transfer-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .tv-block {
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .tv-block.gpe { background: var(--gpe-bg); color: var(--gpe-color); border: 2px solid var(--gpe-color); }
+        .tv-block.ke { background: var(--kinetic-bg); color: var(--kinetic-color); border: 2px solid var(--kinetic-color); }
+        .tv-block.therm { background: var(--thermal-bg); color: var(--thermal-color); border: 1.5px dashed var(--thermal-color); font-size: 11px; }
+
+        .tv-arrow {
+            font-size: 24px;
+            color: var(--text-light);
+        }
+
+        .tv-label {
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--text-light);
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 28px; }
+            .stores-grid { grid-template-columns: repeat(2, 1fr); }
+            .transfer-methods { grid-template-columns: 1fr; }
+            .sankey-examples { grid-template-columns: 1fr; }
+            .shc-vars { grid-template-columns: repeat(2, 1fr); }
+            .ke-gpe-grid { grid-template-columns: 1fr; }
+            .formula-row { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <!-- ===== HERO ===== -->
+    <div class="hero">
+        <h1>Energy Transfers &amp; Efficiency</h1>
+        <div class="subtitle">AQA GCSE Physics &middot; Paper 1 &middot; Energy</div>
+    </div>
+
+    <!-- ===== 1. THE 8 ENERGY STORES ===== -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-num">1</div>
+            <h2>The 8 Energy Stores</h2>
+        </div>
+
+        <div class="stores-grid">
+            <div class="store-card kinetic">
+                <div class="store-icon">&#127939;</div>
+                <div class="store-name">Kinetic</div>
+                <div class="store-meaning">Energy an object has because it is moving</div>
+                <div class="store-example">A car driving, a runner sprinting</div>
+            </div>
+
+            <div class="store-card gpe">
+                <div class="store-icon">&#9968;</div>
+                <div class="store-name">Gravitational Potential</div>
+                <div class="store-meaning">Energy stored by an object raised above the ground</div>
+                <div class="store-example">A book on a shelf, a skier at the top of a slope</div>
+            </div>
+
+            <div class="store-card elastic">
+                <div class="store-icon">&#128299;</div>
+                <div class="store-name">Elastic Potential</div>
+                <div class="store-meaning">Energy stored when an object is stretched or compressed</div>
+                <div class="store-example">A stretched rubber band, a compressed spring</div>
+            </div>
+
+            <div class="store-card thermal">
+                <div class="store-icon">&#128293;</div>
+                <div class="store-name">Thermal</div>
+                <div class="store-meaning">Energy stored in an object because of its temperature</div>
+                <div class="store-example">A hot cup of tea, a warm radiator</div>
+            </div>
+
+            <div class="store-card chemical">
+                <div class="store-icon">&#9889;</div>
+                <div class="store-name">Chemical</div>
+                <div class="store-meaning">Energy stored in chemical bonds &mdash; released by reactions</div>
+                <div class="store-example">Food, batteries, fuel</div>
+            </div>
+
+            <div class="store-card magnetic">
+                <div class="store-icon">&#129522;</div>
+                <div class="store-name">Magnetic</div>
+                <div class="store-meaning">Energy stored by magnets attracting or repelling</div>
+                <div class="store-example">Two magnets pulling together, a fridge magnet</div>
+            </div>
+
+            <div class="store-card electrostatic">
+                <div class="store-icon">&#9889;</div>
+                <div class="store-name">Electrostatic</div>
+                <div class="store-meaning">Energy stored by electric charges attracting or repelling</div>
+                <div class="store-example">A charged balloon sticking to a wall, lightning</div>
+            </div>
+
+            <div class="store-card nuclear">
+                <div class="store-icon">&#9762;</div>
+                <div class="store-name">Nuclear</div>
+                <div class="store-meaning">Energy stored in the nucleus of an atom</div>
+                <div class="store-example">Nuclear power stations, the Sun</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 2. ENERGY TRANSFERS ===== -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-num">2</div>
+            <h2>Energy Transfers</h2>
+        </div>
+
+        <div class="transfers-box">
+            <div class="transfer-methods">
+                <div class="transfer-method">
+                    <div class="tm-name">Mechanically</div>
+                    <div class="tm-desc">Energy transferred by a force acting on an object</div>
+                    <div class="tm-example">Pushing, pulling, stretching, squashing</div>
+                </div>
+
+                <div class="transfer-method">
+                    <div class="tm-name">Electrically</div>
+                    <div class="tm-desc">Energy transferred by an electric current flowing</div>
+                    <div class="tm-example">A kettle heating water, a motor spinning</div>
+                </div>
+
+                <div class="transfer-method">
+                    <div class="tm-name">By Heating</div>
+                    <div class="tm-desc">Energy transferred from a hotter object to a cooler one</div>
+                    <div class="tm-example">A hot pan warming food, body heat escaping</div>
+                </div>
+
+                <div class="transfer-method">
+                    <div class="tm-name">By Radiation</div>
+                    <div class="tm-desc">Energy transferred by light, sound, or other waves</div>
+                    <div class="tm-example">Sunlight warming the Earth, a speaker playing music</div>
+                </div>
+            </div>
+
+            <div class="arrow-diagrams">
+                <div class="arrow-diagram">
+                    <div class="ad-scenario">Ball falling from a shelf</div>
+                    <span class="ad-store gpe">GPE</span>
+                    <span class="ad-arrow">&rarr;</span>
+                    <span class="ad-via">mechanical</span>
+                    <span class="ad-arrow">&rarr;</span>
+                    <span class="ad-store ke">KE</span>
+                </div>
+
+                <div class="arrow-diagram">
+                    <div class="ad-scenario">A battery powering a torch</div>
+                    <span class="ad-store chem">Chemical</span>
+                    <span class="ad-arrow">&rarr;</span>
+                    <span class="ad-via">electrical</span>
+                    <span class="ad-arrow">&rarr;</span>
+                    <span class="ad-store therm">Thermal</span>
+                    <span class="ad-arrow">+</span>
+                    <span class="ad-via">radiation (light)</span>
+                </div>
+
+                <div class="arrow-diagram">
+                    <div class="ad-scenario">Stretching an elastic band then letting go</div>
+                    <span class="ad-store elast">Elastic</span>
+                    <span class="ad-arrow">&rarr;</span>
+                    <span class="ad-via">mechanical</span>
+                    <span class="ad-arrow">&rarr;</span>
+                    <span class="ad-store ke">KE</span>
+                </div>
+
+                <div class="arrow-diagram">
+                    <div class="ad-scenario">Car braking</div>
+                    <span class="ad-store ke">KE</span>
+                    <span class="ad-arrow">&rarr;</span>
+                    <span class="ad-via">mechanical (friction)</span>
+                    <span class="ad-arrow">&rarr;</span>
+                    <span class="ad-store therm">Thermal</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 3. CONSERVATION OF ENERGY ===== -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-num">3</div>
+            <h2>Conservation of Energy</h2>
+        </div>
+
+        <div class="conserve-box">
+            <div class="big-rule">Energy cannot be created or destroyed &mdash;<br>only transferred between stores.</div>
+            <div class="rule-explain">
+                The total energy before a transfer is <strong>always equal to</strong> the total energy after.
+                Energy is never "used up" &mdash; it just moves from one store to another.
+                Some always ends up in thermal stores (heat) and is dissipated to the surroundings.
+            </div>
+            <div class="exam-tip">
+                <strong>Common exam phrasing:</strong> "Describe the energy transfers..."<br><br>
+                <strong>How to answer:</strong> Name the <em>starting energy store</em>, say how it is transferred
+                (mechanically / electrically / by heating / by radiation), and name the <em>final energy store(s)</em>.
+                Always mention wasted energy going to the thermal store of the surroundings.<br><br>
+                <strong>Example answer:</strong> "Energy is transferred from the chemical store of the fuel to
+                the kinetic store of the car (mechanically), with some energy dissipated to the thermal store
+                of the surroundings by heating."
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 4. EFFICIENCY ===== -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-num">4</div>
+            <h2>Efficiency</h2>
+        </div>
+
+        <div class="efficiency-box">
+            <div class="formula-row">
+                <div class="formula-card">
+                    <div class="formula">useful output energy</div>
+                    <div class="formula" style="border-top: 2px solid var(--efficiency-color); padding-top: 4px; margin-top: 4px;">total input energy</div>
+                    <div class="formula-desc">&times; 100 for a percentage</div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula">useful power output</div>
+                    <div class="formula" style="border-top: 2px solid var(--efficiency-color); padding-top: 4px; margin-top: 4px;">total power input</div>
+                    <div class="formula-desc">&times; 100 for a percentage</div>
+                </div>
+            </div>
+
+            <div class="sankey-examples">
+                <!-- Light bulb -->
+                <div class="sankey">
+                    <div class="sankey-title">Filament Light Bulb</div>
+                    <div class="sankey-diagram">
+                        <div class="sankey-input" style="height: 80px; top: 50%; transform: translateY(-50%);">100J in</div>
+                        <div class="sankey-useful" style="height: 10px; top: 10px; left: 35%; width: 65%;">10J light</div>
+                        <div class="sankey-wasted" style="height: 60px; bottom: 10px; left: 35%; width: 65%;">90J heat</div>
+                    </div>
+                    <div class="sankey-efficiency low">10%</div>
+                    <div class="sankey-label">Mostly wasted as heat</div>
+                </div>
+
+                <!-- LED -->
+                <div class="sankey">
+                    <div class="sankey-title">LED Bulb</div>
+                    <div class="sankey-diagram">
+                        <div class="sankey-input" style="height: 80px; top: 50%; transform: translateY(-50%);">100J in</div>
+                        <div class="sankey-useful" style="height: 52px; top: 10px; left: 35%; width: 65%;">75J light</div>
+                        <div class="sankey-wasted" style="height: 18px; bottom: 10px; left: 35%; width: 65%;">25J heat</div>
+                    </div>
+                    <div class="sankey-efficiency high">75%</div>
+                    <div class="sankey-label">Much more efficient!</div>
+                </div>
+
+                <!-- Motor -->
+                <div class="sankey">
+                    <div class="sankey-title">Electric Motor</div>
+                    <div class="sankey-diagram">
+                        <div class="sankey-input" style="height: 80px; top: 50%; transform: translateY(-50%);">500J in</div>
+                        <div class="sankey-useful" style="height: 45px; top: 10px; left: 35%; width: 65%;">350J KE</div>
+                        <div class="sankey-wasted" style="height: 25px; bottom: 10px; left: 35%; width: 65%;">150J heat+sound</div>
+                    </div>
+                    <div class="sankey-efficiency mid">70%</div>
+                    <div class="sankey-label">350 &divide; 500 &times; 100</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 5. SPECIFIC HEAT CAPACITY ===== -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-num">5</div>
+            <h2>Specific Heat Capacity</h2>
+        </div>
+
+        <div class="shc-box">
+            <div class="shc-formula-big">
+                <div class="formula-huge">E = m c &Delta;T</div>
+            </div>
+
+            <div class="shc-vars">
+                <div class="shc-var">
+                    <div class="var-letter">E</div>
+                    <div class="var-equals">Energy transferred</div>
+                    <div class="var-unit">Joules (J)</div>
+                </div>
+                <div class="shc-var">
+                    <div class="var-letter">m</div>
+                    <div class="var-equals">Mass</div>
+                    <div class="var-unit">Kilograms (kg)</div>
+                </div>
+                <div class="shc-var">
+                    <div class="var-letter">c</div>
+                    <div class="var-equals">Specific heat capacity</div>
+                    <div class="var-unit">J/kg&deg;C</div>
+                </div>
+                <div class="shc-var">
+                    <div class="var-letter">&Delta;T</div>
+                    <div class="var-equals">Temperature change</div>
+                    <div class="var-unit">&deg;C</div>
+                </div>
+            </div>
+
+            <!-- Formula triangle -->
+            <div class="triangle-row">
+                <div class="triangle-container">
+                    <div class="tri-label">Find E</div>
+                    <svg class="triangle-svg" viewBox="0 0 120 80">
+                        <polygon class="tri-outline" points="60,5 115,75 5,75"/>
+                        <line x1="5" y1="50" x2="115" y2="50"/>
+                        <text x="60" y="42" text-anchor="middle" class="highlight">E</text>
+                        <text x="38" y="68" text-anchor="middle">mc</text>
+                        <text x="82" y="68" text-anchor="middle">&Delta;T</text>
+                    </svg>
+                    <div style="font-family: var(--mono); font-size: 12px; color: var(--text-light);">E = mc&Delta;T</div>
+                </div>
+                <div class="triangle-container">
+                    <div class="tri-label">Find m</div>
+                    <svg class="triangle-svg" viewBox="0 0 120 80">
+                        <polygon class="tri-outline" points="60,5 115,75 5,75"/>
+                        <line x1="5" y1="50" x2="115" y2="50"/>
+                        <text x="60" y="42" text-anchor="middle">E</text>
+                        <text x="38" y="68" text-anchor="middle" class="highlight">m</text>
+                        <text x="82" y="68" text-anchor="middle">c&Delta;T</text>
+                    </svg>
+                    <div style="font-family: var(--mono); font-size: 12px; color: var(--text-light);">m = E &divide; c&Delta;T</div>
+                </div>
+                <div class="triangle-container">
+                    <div class="tri-label">Find &Delta;T</div>
+                    <svg class="triangle-svg" viewBox="0 0 120 80">
+                        <polygon class="tri-outline" points="60,5 115,75 5,75"/>
+                        <line x1="5" y1="50" x2="115" y2="50"/>
+                        <text x="60" y="42" text-anchor="middle">E</text>
+                        <text x="38" y="68" text-anchor="middle">mc</text>
+                        <text x="82" y="68" text-anchor="middle" class="highlight">&Delta;T</text>
+                    </svg>
+                    <div style="font-family: var(--mono); font-size: 12px; color: var(--text-light);">&Delta;T = E &divide; mc</div>
+                </div>
+            </div>
+
+            <!-- Worked example -->
+            <div class="worked-example we-shc">
+                <div class="we-question">How much energy is needed to heat 2 kg of water by 50&deg;C? (c = 4200 J/kg&deg;C)</div>
+                <div class="we-steps">
+                    E = m &times; c &times; &Delta;T<br>
+                    E = 2 &times; 4200 &times; 50<br>
+                    E = 420,000 J
+                </div>
+                <div class="we-answer">E = 420,000 J (or 420 kJ)</div>
+            </div>
+
+            <!-- Required practical -->
+            <div class="practical-box">
+                <div class="prac-title">Required Practical: Investigating Specific Heat Capacity</div>
+                <div class="prac-steps">
+                    <ol>
+                        <li>Measure the mass of the material block (in kg)</li>
+                        <li>Insert a thermometer and an electric heater into the block</li>
+                        <li>Record the starting temperature</li>
+                        <li>Turn on the heater and use a joulemeter to measure energy supplied</li>
+                        <li>Record the temperature every minute for a set time</li>
+                        <li>Use E = mc&Delta;T, rearranged to c = E &divide; (m&Delta;T)</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="mistake-box">
+                <strong>Common mistake:</strong> Forgetting to convert grams to kilograms!
+                Mass MUST be in kg. If you are given 500g, that is 0.5 kg.
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 6. POWER ===== -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-num">6</div>
+            <h2>Power</h2>
+        </div>
+
+        <div class="power-box">
+            <div class="power-formulas">
+                <div class="power-formula">
+                    <div class="formula">P = E &divide; t</div>
+                    <div class="formula-desc">Power = Energy transferred &divide; time</div>
+                </div>
+                <div class="power-formula">
+                    <div class="formula">P = W &divide; t</div>
+                    <div class="formula-desc">Power = Work done &divide; time</div>
+                </div>
+            </div>
+
+            <div class="power-vars">
+                <div class="power-var"><strong>P</strong> = Power (Watts, W)</div>
+                <div class="power-var"><strong>E</strong> = Energy (Joules, J)</div>
+                <div class="power-var"><strong>W</strong> = Work done (Joules, J)</div>
+                <div class="power-var"><strong>t</strong> = Time (seconds, s)</div>
+            </div>
+
+            <div class="units-note">1 kilowatt (kW) = 1000 watts (W)</div>
+
+            <div class="worked-example we-power">
+                <div class="we-question">A kettle transfers 360,000 J of energy in 3 minutes. What is its power?</div>
+                <div class="we-steps">
+                    Convert time: 3 minutes = 180 seconds<br>
+                    P = E &divide; t<br>
+                    P = 360,000 &divide; 180<br>
+                    P = 2000 W
+                </div>
+                <div class="we-answer">P = 2000 W (or 2 kW)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 7. KINETIC ENERGY & GPE ===== -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-num">7</div>
+            <h2>Kinetic Energy &amp; GPE</h2>
+        </div>
+
+        <div class="ke-gpe-box">
+            <div class="ke-gpe-grid">
+                <div class="eq-card ke-card">
+                    <div class="eq-title">Kinetic Energy</div>
+                    <div class="eq-formula">KE = &frac12;mv&sup2;</div>
+                    <div class="eq-vars">
+                        <strong>KE</strong> = kinetic energy (J)<br>
+                        <strong>m</strong> = mass (kg)<br>
+                        <strong>v</strong> = speed (m/s)
+                    </div>
+                    <div class="eq-warning">
+                        v is SQUARED! Doubling speed = 4&times; the KE!<br>
+                        Tripling speed = 9&times; the KE!
+                    </div>
+                </div>
+
+                <div class="eq-card gpe-card">
+                    <div class="eq-title">Gravitational Potential Energy</div>
+                    <div class="eq-formula">GPE = mgh</div>
+                    <div class="eq-vars">
+                        <strong>GPE</strong> = gravitational PE (J)<br>
+                        <strong>m</strong> = mass (kg)<br>
+                        <strong>g</strong> = gravitational field strength (N/kg)<br>
+                        <strong>h</strong> = height (m)<br><br>
+                        <em>g = 10 N/kg on Earth (given in exam)</em>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transfer visual -->
+            <div class="transfer-diagram">
+                <div class="td-title">Falling object: GPE transfers to KE</div>
+                <div class="transfer-visual">
+                    <div class="tv-block gpe">GPE (max)</div>
+                    <div>
+                        <div class="tv-arrow">&rarr;</div>
+                        <div class="tv-label">falling</div>
+                    </div>
+                    <div class="tv-block ke">KE (max)</div>
+                    <div>
+                        <div class="tv-arrow">+</div>
+                    </div>
+                    <div class="tv-block therm">thermal (air resistance)</div>
+                </div>
+                <div style="font-family: var(--hand); font-size: 18px; margin-top: 10px; color: var(--text-light);">
+                    At the top: all GPE, no KE. At the bottom: all KE, no GPE.
+                </div>
+            </div>
+
+            <!-- Worked examples -->
+            <div class="worked-example we-ke">
+                <div class="we-question">A 1200 kg car is travelling at 15 m/s. Calculate its kinetic energy.</div>
+                <div class="we-steps">
+                    KE = &frac12; &times; m &times; v&sup2;<br>
+                    KE = &frac12; &times; 1200 &times; 15&sup2;<br>
+                    KE = &frac12; &times; 1200 &times; 225<br>
+                    KE = 135,000 J
+                </div>
+                <div class="we-answer">KE = 135,000 J (or 135 kJ)</div>
+            </div>
+
+            <div class="worked-example we-gpe">
+                <div class="we-question">A 0.5 kg ball is thrown to a height of 12 m. Calculate the GPE gained. (g = 10 N/kg)</div>
+                <div class="we-steps">
+                    GPE = m &times; g &times; h<br>
+                    GPE = 0.5 &times; 10 &times; 12<br>
+                    GPE = 60 J
+                </div>
+                <div class="we-answer">GPE = 60 J</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

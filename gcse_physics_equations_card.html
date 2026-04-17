@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCSE Physics Paper 1 — Every Equation You Need</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&family=Caveat:wght@600;700&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            /* Motion = blue */
+            --motion-color: #0958d9;
+            --motion-bg: #e6f4ff;
+            /* Energy = green */
+            --energy-color: #389e0d;
+            --energy-bg: #f6ffed;
+            /* Waves = purple */
+            --waves-color: #722ed1;
+            --waves-bg: #f9f0ff;
+            /* Accents */
+            --warn-color: #d4380d;
+            --warn-bg: #fff1f0;
+            --arrow-color: #1a1a2e;
+            --bg: #fafafa;
+            --card-bg: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #666;
+            --mono: 'DM Mono', monospace;
+            --font: 'Barlow Condensed', sans-serif;
+            --hand: 'Caveat', cursive;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --motion-color: #69b1ff;
+                --motion-bg: #0d2240;
+                --energy-color: #73d13d;
+                --energy-bg: #0d2a0d;
+                --waves-color: #b37feb;
+                --waves-bg: #1a0d2e;
+                --warn-color: #ff7a45;
+                --warn-bg: #3a1a0d;
+                --arrow-color: #e8e4dc;
+                --bg: #141416;
+                --card-bg: #1e1e22;
+                --text: #e8e4dc;
+                --text-light: #999;
+            }
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 1.5rem 1rem;
+        }
+
+        .page { max-width: 960px; margin: 0 auto; }
+
+        /* ---- HERO TITLE ---- */
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 44px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            line-height: 1.1;
+            margin-bottom: 6px;
+        }
+
+        .hero h1 .motion-c { color: var(--motion-color); }
+        .hero h1 .energy-c { color: var(--energy-color); }
+        .hero h1 .waves-c { color: var(--waves-color); }
+
+        .hero .subtitle {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--text-light);
+            letter-spacing: 0.03em;
+        }
+
+        /* ---- SECTION HEADERS ---- */
+        .section-title {
+            font-size: 24px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin: 2.5rem 0 1rem;
+            text-align: center;
+            padding-bottom: 8px;
+            border-bottom: 3px solid var(--arrow-color);
+        }
+
+        .section-title.motion { color: var(--motion-color); border-bottom-color: var(--motion-color); }
+        .section-title.energy { color: var(--energy-color); border-bottom-color: var(--energy-color); }
+        .section-title.waves { color: var(--waves-color); border-bottom-color: var(--waves-color); }
+
+        /* ---- EQUATION CARDS ---- */
+        .eq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 1.5rem;
+        }
+
+        .eq-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px 22px;
+            border-left: 5px solid;
+            position: relative;
+        }
+
+        .eq-card.motion { border-left-color: var(--motion-color); }
+        .eq-card.energy { border-left-color: var(--energy-color); }
+        .eq-card.waves { border-left-color: var(--waves-color); }
+
+        .eq-card .eq-name {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 6px;
+        }
+
+        .eq-card.motion .eq-name { color: var(--motion-color); }
+        .eq-card.energy .eq-name { color: var(--energy-color); }
+        .eq-card.waves .eq-name { color: var(--waves-color); }
+
+        .eq-card .eq-formula {
+            font-size: 30px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 6px;
+        }
+
+        .eq-card .eq-words {
+            font-size: 13px;
+            color: var(--text-light);
+            font-family: var(--mono);
+            line-height: 1.4;
+        }
+
+        .eq-card.full-width {
+            grid-column: 1 / -1;
+        }
+
+        /* ---- FORMULA TRIANGLES ---- */
+        .triangles-section {
+            margin-bottom: 2rem;
+        }
+
+        .triangles-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .triangle-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px 16px 16px;
+            text-align: center;
+            border: 2px solid transparent;
+        }
+
+        .triangle-card.motion { border-color: var(--motion-color); }
+        .triangle-card.energy { border-color: var(--energy-color); }
+        .triangle-card.waves { border-color: var(--waves-color); }
+
+        .triangle-card .tri-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 10px;
+        }
+
+        .triangle-card.motion .tri-label { color: var(--motion-color); }
+        .triangle-card.energy .tri-label { color: var(--energy-color); }
+        .triangle-card.waves .tri-label { color: var(--waves-color); }
+
+        /* CSS Triangle visual */
+        .tri-visual {
+            position: relative;
+            width: 140px;
+            height: 110px;
+            margin: 0 auto 10px;
+        }
+
+        .tri-outline {
+            position: absolute;
+            inset: 0;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        .triangle-card.motion .tri-outline { background: var(--motion-bg); }
+        .triangle-card.energy .tri-outline { background: var(--energy-bg); }
+        .triangle-card.waves .tri-outline { background: var(--waves-bg); }
+
+        /* Top cell of triangle */
+        .tri-top {
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 28px;
+            font-weight: 900;
+            z-index: 2;
+        }
+
+        /* Divider line in triangle */
+        .tri-divider {
+            position: absolute;
+            top: 55%;
+            left: 15%;
+            width: 70%;
+            height: 2px;
+            background: var(--text-light);
+            opacity: 0.4;
+            z-index: 2;
+        }
+
+        /* Bottom-left and bottom-right cells */
+        .tri-bl, .tri-br {
+            position: absolute;
+            bottom: 8px;
+            font-size: 24px;
+            font-weight: 900;
+            z-index: 2;
+        }
+
+        .tri-bl { left: 22%; }
+        .tri-br { right: 22%; }
+
+        .tri-times {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-light);
+            z-index: 2;
+        }
+
+        .triangle-card.motion .tri-top,
+        .triangle-card.motion .tri-bl,
+        .triangle-card.motion .tri-br { color: var(--motion-color); }
+
+        .triangle-card.energy .tri-top,
+        .triangle-card.energy .tri-bl,
+        .triangle-card.energy .tri-br { color: var(--energy-color); }
+
+        .triangle-card.waves .tri-top,
+        .triangle-card.waves .tri-bl,
+        .triangle-card.waves .tri-br { color: var(--waves-color); }
+
+        .tri-howto {
+            font-size: 11px;
+            color: var(--text-light);
+            font-family: var(--mono);
+            line-height: 1.4;
+        }
+
+        /* ---- TRIANGLE INSTRUCTION BOX ---- */
+        .tri-instruction {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 1rem;
+            text-align: center;
+            border: 2px dashed var(--text-light);
+        }
+
+        .tri-instruction .big {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .tri-instruction .detail {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        /* ---- REARRANGING SECTION ---- */
+        .rearrange-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 14px;
+            border-left: 5px solid var(--arrow-color);
+        }
+
+        .rearrange-card .r-title {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .step-row {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .step-num {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #fff;
+            background: var(--arrow-color);
+        }
+
+        .step-num.s-motion { background: var(--motion-color); }
+        .step-num.s-energy { background: var(--energy-color); }
+        .step-num.s-waves { background: var(--waves-color); }
+
+        .step-content {
+            font-size: 14px;
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .step-content .calc {
+            font-family: var(--hand);
+            font-size: 26px;
+            font-weight: 700;
+            display: block;
+            margin: 4px 0;
+        }
+
+        .calc.motion-c { color: var(--motion-color); }
+        .calc.energy-c { color: var(--energy-color); }
+        .calc.waves-c { color: var(--waves-color); }
+
+        .golden-rule {
+            background: var(--arrow-color);
+            color: #fff;
+            border-radius: 10px;
+            padding: 16px 24px;
+            text-align: center;
+            margin-bottom: 14px;
+            font-size: 22px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .op-highlight {
+            display: inline-block;
+            padding: 1px 8px;
+            border-radius: 4px;
+            font-family: var(--mono);
+            font-weight: 700;
+        }
+
+        .op-highlight.divide { background: var(--motion-bg); color: var(--motion-color); }
+        .op-highlight.sqrt { background: var(--energy-bg); color: var(--energy-color); }
+        .op-highlight.multiply { background: var(--waves-bg); color: var(--waves-color); }
+
+        /* ---- UNITS TABLE ---- */
+        .units-table-wrap {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 1.5rem;
+            overflow-x: auto;
+        }
+
+        .units-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 15px;
+        }
+
+        .units-table th {
+            text-align: left;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-light);
+            padding: 8px 12px;
+            border-bottom: 2px solid var(--arrow-color);
+        }
+
+        .units-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            vertical-align: middle;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .units-table td { border-bottom-color: rgba(255,255,255,0.06); }
+        }
+
+        .units-table .qty { font-weight: 700; }
+        .units-table .unit-symbol {
+            font-family: var(--mono);
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .units-table .unit-name {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .units-table tr.motion-row .unit-symbol { color: var(--motion-color); }
+        .units-table tr.energy-row .unit-symbol { color: var(--energy-color); }
+        .units-table tr.waves-row .unit-symbol { color: var(--waves-color); }
+
+        /* ---- WARNING BOX ---- */
+        .warn-box {
+            background: var(--warn-bg);
+            border: 3px solid var(--warn-color);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 2rem;
+        }
+
+        .warn-box .warn-title {
+            font-size: 16px;
+            font-weight: 900;
+            color: var(--warn-color);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 10px;
+        }
+
+        .warn-box .warn-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 24px;
+        }
+
+        .warn-item {
+            font-size: 14px;
+            line-height: 1.5;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .warn-item .conv {
+            font-family: var(--mono);
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--warn-color);
+        }
+
+        /* ---- WHICH EQUATION TABLE ---- */
+        .lookup-table-wrap {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 2rem;
+            overflow-x: auto;
+        }
+
+        .lookup-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .lookup-table th {
+            text-align: left;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-light);
+            padding: 8px 12px;
+            border-bottom: 2px solid var(--arrow-color);
+        }
+
+        .lookup-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            vertical-align: top;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .lookup-table td { border-bottom-color: rgba(255,255,255,0.06); }
+        }
+
+        .lookup-table .gives { font-weight: 600; }
+        .lookup-table .use-eq {
+            font-family: var(--mono);
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .lookup-table .use-eq.motion-c { color: var(--motion-color); }
+        .lookup-table .use-eq.energy-c { color: var(--energy-color); }
+        .lookup-table .use-eq.waves-c { color: var(--waves-color); }
+
+        /* ---- MANTRA / FOOTER ---- */
+        .mantra {
+            text-align: center;
+            padding: 32px 24px;
+            background: var(--arrow-color);
+            color: #fff;
+            border-radius: 16px;
+            margin-bottom: 1rem;
+        }
+
+        .mantra .big-text {
+            font-size: 28px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .mantra .big-text .motion-c { color: #69b1ff; }
+        .mantra .big-text .energy-c { color: #73d13d; }
+        .mantra .big-text .waves-c { color: #b37feb; }
+
+        .mantra .small-text {
+            font-family: var(--mono);
+            font-size: 11px;
+            opacity: 0.6;
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 700px) {
+            .eq-grid { grid-template-columns: 1fr; }
+            .triangles-grid { grid-template-columns: 1fr 1fr; }
+            .hero h1 { font-size: 28px; }
+            .eq-card .eq-formula { font-size: 24px; }
+            .warn-box .warn-grid { grid-template-columns: 1fr; }
+            .tri-visual { width: 120px; height: 95px; }
+            .tri-top { font-size: 22px; }
+            .tri-bl, .tri-br { font-size: 20px; }
+            .mantra .big-text { font-size: 20px; }
+        }
+
+        @media (max-width: 480px) {
+            .triangles-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <!-- HERO -->
+    <div class="hero">
+        <h1>
+            <span class="motion-c">Physics</span> Paper 1
+            <br>Every Equation You Need
+        </h1>
+        <div class="subtitle">Rearrange them. Understand them. Own them.</div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SECTION 1: THE EQUATIONS                     -->
+    <!-- ============================================ -->
+
+    <h2 class="section-title motion">Motion &amp; Forces</h2>
+    <div class="eq-grid">
+        <div class="eq-card motion">
+            <div class="eq-name">Speed</div>
+            <div class="eq-formula">v = s &divide; t</div>
+            <div class="eq-words">speed = distance &divide; time</div>
+        </div>
+        <div class="eq-card motion">
+            <div class="eq-name">Acceleration</div>
+            <div class="eq-formula">a = &Delta;v &divide; t</div>
+            <div class="eq-words">acceleration = change in velocity &divide; time</div>
+        </div>
+        <div class="eq-card motion">
+            <div class="eq-name">Newton's Second Law</div>
+            <div class="eq-formula">F = m a</div>
+            <div class="eq-words">force = mass &times; acceleration</div>
+        </div>
+        <div class="eq-card motion">
+            <div class="eq-name">Work Done</div>
+            <div class="eq-formula">W = F d</div>
+            <div class="eq-words">work done = force &times; distance</div>
+        </div>
+        <div class="eq-card motion full-width">
+            <div class="eq-name">Momentum</div>
+            <div class="eq-formula">p = m v</div>
+            <div class="eq-words">momentum = mass &times; velocity</div>
+        </div>
+    </div>
+
+    <h2 class="section-title energy">Energy</h2>
+    <div class="eq-grid">
+        <div class="eq-card energy">
+            <div class="eq-name">Kinetic Energy</div>
+            <div class="eq-formula">KE = &frac12;mv&sup2;</div>
+            <div class="eq-words">kinetic energy = &frac12; &times; mass &times; velocity&sup2;</div>
+        </div>
+        <div class="eq-card energy">
+            <div class="eq-name">Gravitational PE</div>
+            <div class="eq-formula">GPE = m g h</div>
+            <div class="eq-words">grav. potential energy = mass &times; g &times; height</div>
+        </div>
+        <div class="eq-card energy">
+            <div class="eq-name">Power (from energy)</div>
+            <div class="eq-formula">P = E &divide; t</div>
+            <div class="eq-words">power = energy transferred &divide; time</div>
+        </div>
+        <div class="eq-card energy">
+            <div class="eq-name">Power (from work)</div>
+            <div class="eq-formula">P = W &divide; t</div>
+            <div class="eq-words">power = work done &divide; time</div>
+        </div>
+        <div class="eq-card energy">
+            <div class="eq-name">Efficiency</div>
+            <div class="eq-formula" style="font-size: 22px;">efficiency = <sup>useful output</sup>&frasl;<sub>total input</sub> &times; 100</div>
+            <div class="eq-words">as a percentage &mdash; or leave as a decimal (0 to 1)</div>
+        </div>
+        <div class="eq-card energy">
+            <div class="eq-name">Specific Heat Capacity</div>
+            <div class="eq-formula">E = mc&Delta;T</div>
+            <div class="eq-words">energy = mass &times; SHC &times; temp change</div>
+        </div>
+    </div>
+
+    <h2 class="section-title waves">Waves</h2>
+    <div class="eq-grid">
+        <div class="eq-card waves">
+            <div class="eq-name">Wave Speed</div>
+            <div class="eq-formula">v = f &lambda;</div>
+            <div class="eq-words">wave speed = frequency &times; wavelength</div>
+        </div>
+        <div class="eq-card waves">
+            <div class="eq-name">Period</div>
+            <div class="eq-formula">T = 1 &divide; f</div>
+            <div class="eq-words">period = 1 &divide; frequency</div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SECTION 2: FORMULA TRIANGLES                 -->
+    <!-- ============================================ -->
+
+    <h2 class="section-title">The Formula Triangle Method</h2>
+
+    <div class="tri-instruction">
+        <div class="big">Cover what you WANT &mdash; read what's LEFT</div>
+        <div class="detail">
+            Put your finger over the quantity you're solving for.<br>
+            If the two remaining are side by side &rarr; <strong>multiply</strong> them.<br>
+            If one is on top of the other &rarr; <strong>divide</strong> (top &divide; bottom).
+        </div>
+    </div>
+
+    <div class="triangles-grid">
+        <!-- Speed triangle -->
+        <div class="triangle-card motion">
+            <div class="tri-label">Speed</div>
+            <div class="tri-visual">
+                <div class="tri-outline"></div>
+                <div class="tri-top">s</div>
+                <div class="tri-divider"></div>
+                <div class="tri-bl">v</div>
+                <div class="tri-times">&times;</div>
+                <div class="tri-br">t</div>
+            </div>
+            <div class="tri-howto">
+                v = s &divide; t<br>
+                s = v &times; t<br>
+                t = s &divide; v
+            </div>
+        </div>
+
+        <!-- Force triangle -->
+        <div class="triangle-card motion">
+            <div class="tri-label">Force</div>
+            <div class="tri-visual">
+                <div class="tri-outline"></div>
+                <div class="tri-top">F</div>
+                <div class="tri-divider"></div>
+                <div class="tri-bl">m</div>
+                <div class="tri-times">&times;</div>
+                <div class="tri-br">a</div>
+            </div>
+            <div class="tri-howto">
+                F = m &times; a<br>
+                m = F &divide; a<br>
+                a = F &divide; m
+            </div>
+        </div>
+
+        <!-- Wave triangle -->
+        <div class="triangle-card waves">
+            <div class="tri-label">Wave Speed</div>
+            <div class="tri-visual">
+                <div class="tri-outline"></div>
+                <div class="tri-top">v</div>
+                <div class="tri-divider"></div>
+                <div class="tri-bl">f</div>
+                <div class="tri-times">&times;</div>
+                <div class="tri-br">&lambda;</div>
+            </div>
+            <div class="tri-howto">
+                v = f &times; &lambda;<br>
+                f = v &divide; &lambda;<br>
+                &lambda; = v &divide; f
+            </div>
+        </div>
+
+        <!-- Power triangle -->
+        <div class="triangle-card energy">
+            <div class="tri-label">Power</div>
+            <div class="tri-visual">
+                <div class="tri-outline"></div>
+                <div class="tri-top">E</div>
+                <div class="tri-divider"></div>
+                <div class="tri-bl">P</div>
+                <div class="tri-times">&times;</div>
+                <div class="tri-br">t</div>
+            </div>
+            <div class="tri-howto">
+                P = E &divide; t<br>
+                E = P &times; t<br>
+                t = E &divide; P
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SECTION 3: REARRANGING ALGEBRAICALLY         -->
+    <!-- ============================================ -->
+
+    <h2 class="section-title">Rearranging Algebraically</h2>
+
+    <div class="golden-rule">
+        Whatever you do to one side, do EXACTLY the same to the other
+    </div>
+
+    <!-- Example 1: simple division -->
+    <div class="rearrange-card">
+        <div class="r-title">Example: v = f&lambda; &mdash; find f</div>
+        <div class="step-row">
+            <div class="step-num s-waves">1</div>
+            <div class="step-content">
+                Start with the equation
+                <span class="calc waves-c">v = f&lambda;</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-waves">2</div>
+            <div class="step-content">
+                You want f on its own &mdash; it's being <strong>multiplied</strong> by &lambda;, so <span class="op-highlight divide">divide both sides</span> by &lambda;
+                <span class="calc waves-c">v &divide; &lambda; = f&lambda; &divide; &lambda;</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-waves">3</div>
+            <div class="step-content">
+                The &lambda; cancels on the right
+                <span class="calc waves-c">f = v &divide; &lambda;</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Example 2: square root -->
+    <div class="rearrange-card">
+        <div class="r-title">Example: KE = &frac12;mv&sup2; &mdash; find v</div>
+        <div class="step-row">
+            <div class="step-num s-energy">1</div>
+            <div class="step-content">
+                Start with
+                <span class="calc energy-c">KE = &frac12;mv&sup2;</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-energy">2</div>
+            <div class="step-content">
+                <span class="op-highlight multiply">Multiply both sides</span> by 2 to clear the &frac12;
+                <span class="calc energy-c">2 &times; KE = mv&sup2;</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-energy">3</div>
+            <div class="step-content">
+                <span class="op-highlight divide">Divide both sides</span> by m
+                <span class="calc energy-c">2KE &divide; m = v&sup2;</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-energy">4</div>
+            <div class="step-content">
+                <span class="op-highlight sqrt">Square root</span> both sides
+                <span class="calc energy-c">v = &radic;(2KE &divide; m)</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Example 3: simple rearrange -->
+    <div class="rearrange-card">
+        <div class="r-title">Example: F = ma &mdash; find m</div>
+        <div class="step-row">
+            <div class="step-num s-motion">1</div>
+            <div class="step-content">
+                Start with
+                <span class="calc motion-c">F = ma</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-motion">2</div>
+            <div class="step-content">
+                m is multiplied by a, so <span class="op-highlight divide">divide both sides</span> by a
+                <span class="calc motion-c">F &divide; a = ma &divide; a</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-motion">3</div>
+            <div class="step-content">
+                The a cancels on the right
+                <span class="calc motion-c">m = F &divide; a</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SECTION 4: UNITS MATTER                      -->
+    <!-- ============================================ -->
+
+    <h2 class="section-title">Units Matter</h2>
+
+    <div class="units-table-wrap">
+        <table class="units-table">
+            <thead>
+                <tr>
+                    <th>Quantity</th>
+                    <th>Unit</th>
+                    <th>Symbol</th>
+                    <th>Watch Out</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="motion-row">
+                    <td class="qty">Speed</td>
+                    <td>metres per second</td>
+                    <td class="unit-symbol">m/s</td>
+                    <td class="unit-name">NOT km/h</td>
+                </tr>
+                <tr class="motion-row">
+                    <td class="qty">Acceleration</td>
+                    <td>metres per second squared</td>
+                    <td class="unit-symbol">m/s&sup2;</td>
+                    <td class="unit-name">&nbsp;</td>
+                </tr>
+                <tr class="motion-row">
+                    <td class="qty">Force</td>
+                    <td>newtons</td>
+                    <td class="unit-symbol">N</td>
+                    <td class="unit-name">&nbsp;</td>
+                </tr>
+                <tr class="motion-row">
+                    <td class="qty">Mass</td>
+                    <td>kilograms</td>
+                    <td class="unit-symbol">kg</td>
+                    <td class="unit-name" style="color: var(--warn-color); font-weight: 700;">NOT grams!</td>
+                </tr>
+                <tr class="energy-row">
+                    <td class="qty">Energy</td>
+                    <td>joules</td>
+                    <td class="unit-symbol">J</td>
+                    <td class="unit-name">NOT kJ</td>
+                </tr>
+                <tr class="energy-row">
+                    <td class="qty">Power</td>
+                    <td>watts</td>
+                    <td class="unit-symbol">W</td>
+                    <td class="unit-name">NOT kW</td>
+                </tr>
+                <tr class="waves-row">
+                    <td class="qty">Frequency</td>
+                    <td>hertz</td>
+                    <td class="unit-symbol">Hz</td>
+                    <td class="unit-name">&nbsp;</td>
+                </tr>
+                <tr class="waves-row">
+                    <td class="qty">Wavelength</td>
+                    <td>metres</td>
+                    <td class="unit-symbol">m</td>
+                    <td class="unit-name">NOT cm or nm</td>
+                </tr>
+                <tr class="motion-row">
+                    <td class="qty">Time</td>
+                    <td>seconds</td>
+                    <td class="unit-symbol">s</td>
+                    <td class="unit-name">NOT minutes</td>
+                </tr>
+                <tr class="energy-row">
+                    <td class="qty">Temp. change</td>
+                    <td>degrees Celsius</td>
+                    <td class="unit-symbol">&deg;C</td>
+                    <td class="unit-name">&nbsp;</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- WARNING BOX -->
+    <div class="warn-box">
+        <div class="warn-title">Unit Conversion Traps</div>
+        <div class="warn-grid">
+            <div class="warn-item">
+                <span class="conv">g &rarr; kg</span>
+                <span>&divide; 1000</span>
+            </div>
+            <div class="warn-item">
+                <span class="conv">km/h &rarr; m/s</span>
+                <span>&divide; 3.6</span>
+            </div>
+            <div class="warn-item">
+                <span class="conv">kJ &rarr; J</span>
+                <span>&times; 1000</span>
+            </div>
+            <div class="warn-item">
+                <span class="conv">kW &rarr; W</span>
+                <span>&times; 1000</span>
+            </div>
+            <div class="warn-item">
+                <span class="conv">minutes &rarr; s</span>
+                <span>&times; 60</span>
+            </div>
+            <div class="warn-item">
+                <span class="conv">hours &rarr; s</span>
+                <span>&times; 3600</span>
+            </div>
+            <div class="warn-item">
+                <span class="conv">cm &rarr; m</span>
+                <span>&divide; 100</span>
+            </div>
+            <div class="warn-item">
+                <span class="conv">km &rarr; m</span>
+                <span>&times; 1000</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SECTION 5: WHICH EQUATION DO I NEED?         -->
+    <!-- ============================================ -->
+
+    <h2 class="section-title">Which Equation Do I Need?</h2>
+
+    <div class="lookup-table-wrap">
+        <table class="lookup-table">
+            <thead>
+                <tr>
+                    <th>The question gives you&hellip;</th>
+                    <th>And asks for&hellip;</th>
+                    <th>Use this</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="gives">distance, time</td>
+                    <td>speed</td>
+                    <td class="use-eq motion-c">v = s &divide; t</td>
+                </tr>
+                <tr>
+                    <td class="gives">velocity change, time</td>
+                    <td>acceleration</td>
+                    <td class="use-eq motion-c">a = &Delta;v &divide; t</td>
+                </tr>
+                <tr>
+                    <td class="gives">mass, acceleration</td>
+                    <td>force (or resultant force)</td>
+                    <td class="use-eq motion-c">F = ma</td>
+                </tr>
+                <tr>
+                    <td class="gives">force, distance</td>
+                    <td>work done / energy transferred</td>
+                    <td class="use-eq motion-c">W = Fd</td>
+                </tr>
+                <tr>
+                    <td class="gives">mass, velocity</td>
+                    <td>momentum</td>
+                    <td class="use-eq motion-c">p = mv</td>
+                </tr>
+                <tr>
+                    <td class="gives">mass, velocity</td>
+                    <td>kinetic energy</td>
+                    <td class="use-eq energy-c">KE = &frac12;mv&sup2;</td>
+                </tr>
+                <tr>
+                    <td class="gives">mass, height, g</td>
+                    <td>gravitational PE</td>
+                    <td class="use-eq energy-c">GPE = mgh</td>
+                </tr>
+                <tr>
+                    <td class="gives">energy, time</td>
+                    <td>power</td>
+                    <td class="use-eq energy-c">P = E &divide; t</td>
+                </tr>
+                <tr>
+                    <td class="gives">work done, time</td>
+                    <td>power</td>
+                    <td class="use-eq energy-c">P = W &divide; t</td>
+                </tr>
+                <tr>
+                    <td class="gives">useful output, total input</td>
+                    <td>efficiency</td>
+                    <td class="use-eq energy-c">eff = useful &divide; total</td>
+                </tr>
+                <tr>
+                    <td class="gives">mass, SHC, temp change</td>
+                    <td>energy for heating</td>
+                    <td class="use-eq energy-c">E = mc&Delta;T</td>
+                </tr>
+                <tr>
+                    <td class="gives">frequency, wavelength</td>
+                    <td>wave speed</td>
+                    <td class="use-eq waves-c">v = f&lambda;</td>
+                </tr>
+                <tr>
+                    <td class="gives">frequency</td>
+                    <td>period (or vice versa)</td>
+                    <td class="use-eq waves-c">T = 1 &divide; f</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- MANTRA -->
+    <div class="mantra">
+        <div class="big-text">
+            <span class="motion-c">Read</span> the question.
+            <span class="energy-c">Pick</span> the equation.
+            <span class="waves-c">Rearrange</span> if needed.
+        </div>
+        <div class="big-text" style="font-size: 22px; margin-top: 4px;">
+            Substitute. Calculate. <span class="motion-c">Units.</span> Done.
+        </div>
+        <div class="small-text" style="margin-top: 12px;">You've got this. Every single equation on this page &mdash; you already know it.</div>
+    </div>
+
+</div>
+
+</body>
+</html>
