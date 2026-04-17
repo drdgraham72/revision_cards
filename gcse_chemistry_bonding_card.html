@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCSE Chemistry — Bonding Made Clear</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&family=Caveat:wght@600;700&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #f5f5f0;
+            --card: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #666;
+            --border: rgba(0,0,0,0.1);
+            --font: 'Barlow Condensed', sans-serif;
+            --mono: 'DM Mono', monospace;
+            --hand: 'Caveat', cursive;
+
+            --ionic-color: #d4380d;
+            --ionic-bg: #fff1f0;
+            --covalent-color: #0958d9;
+            --covalent-bg: #e6f4ff;
+            --metallic-color: #7c3aed;
+            --metallic-bg: #f5f3ff;
+            --simple-color: #0f6e56;
+            --simple-bg: #e1f5ee;
+            --giant-color: #854f0b;
+            --giant-bg: #faeeda;
+            --green: #389e0d;
+            --red: #d4380d;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #141416;
+                --card: #1e1e22;
+                --text: #e8e4dc;
+                --text-light: #999;
+                --border: rgba(255,255,255,0.08);
+                --ionic-bg: #3a1a0d;
+                --covalent-bg: #0d2240;
+                --metallic-bg: #1e1630;
+                --simple-bg: #0d2a1a;
+                --giant-bg: #2a1e0d;
+            }
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 1.5rem 1rem;
+        }
+
+        .page { max-width: 960px; margin: 0 auto; }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            line-height: 1.1;
+            margin-bottom: 6px;
+        }
+
+        .hero .subtitle {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* ---- THE BIG RULE ---- */
+        .big-rule {
+            display: flex;
+            gap: 0;
+            margin-bottom: 2rem;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 2px solid var(--border);
+        }
+
+        .big-rule-item {
+            flex: 1;
+            padding: 24px 16px;
+            text-align: center;
+        }
+
+        .big-rule-item.ionic { background: var(--ionic-bg); }
+        .big-rule-item.covalent { background: var(--covalent-bg); }
+        .big-rule-item.metallic { background: var(--metallic-bg); }
+
+        .big-rule-item .who {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 6px;
+        }
+
+        .big-rule-item.ionic .who { color: var(--ionic-color); }
+        .big-rule-item.covalent .who { color: var(--covalent-color); }
+        .big-rule-item.metallic .who { color: var(--metallic-color); }
+
+        .big-rule-item .what {
+            font-size: 22px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            margin-bottom: 4px;
+        }
+
+        .big-rule-item.ionic .what { color: var(--ionic-color); }
+        .big-rule-item.covalent .what { color: var(--covalent-color); }
+        .big-rule-item.metallic .what { color: var(--metallic-color); }
+
+        .big-rule-item .how {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .big-rule-item .between {
+            font-family: var(--hand);
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .big-rule-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 3px;
+            background: var(--border);
+        }
+
+        /* ---- THREE BIG CARDS ---- */
+        .bond-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 2rem;
+        }
+
+        .bond-card {
+            border-radius: 16px;
+            border: 2px solid;
+            overflow: hidden;
+        }
+
+        .bond-card.ionic { border-color: var(--ionic-color); }
+        .bond-card.covalent { border-color: var(--covalent-color); }
+        .bond-card.metallic { border-color: var(--metallic-color); }
+
+        .bond-card-header {
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .bond-card.ionic .bond-card-header { background: var(--ionic-bg); }
+        .bond-card.covalent .bond-card-header { background: var(--covalent-bg); }
+        .bond-card.metallic .bond-card-header { background: var(--metallic-bg); }
+
+        .bond-card-header h2 {
+            font-size: 24px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .bond-card.ionic .bond-card-header h2 { color: var(--ionic-color); }
+        .bond-card.covalent .bond-card-header h2 { color: var(--covalent-color); }
+        .bond-card.metallic .bond-card-header h2 { color: var(--metallic-color); }
+
+        .bond-card-header .tag {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 4px;
+            color: #fff;
+        }
+
+        .bond-card.ionic .bond-card-header .tag { background: var(--ionic-color); }
+        .bond-card.covalent .bond-card-header .tag { background: var(--covalent-color); }
+        .bond-card.metallic .bond-card-header .tag { background: var(--metallic-color); }
+
+        .bond-card-body {
+            padding: 20px 24px;
+            background: var(--card);
+        }
+
+        .bond-section {
+            margin-bottom: 16px;
+        }
+
+        .bond-section:last-child { margin-bottom: 0; }
+
+        .bond-section-title {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .bond-desc {
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .bond-desc strong { font-weight: 800; }
+
+        .bond-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            padding: 16px;
+            border-radius: 10px;
+            margin: 8px 0;
+            font-family: var(--hand);
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        .bond-card.ionic .bond-diagram { background: var(--ionic-bg); color: var(--ionic-color); }
+        .bond-card.covalent .bond-diagram { background: var(--covalent-bg); color: var(--covalent-color); }
+        .bond-card.metallic .bond-diagram { background: var(--metallic-bg); color: var(--metallic-color); }
+
+        .bond-diagram .particle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            font-size: 20px;
+            font-family: var(--font);
+            font-weight: 800;
+            border: 3px solid;
+        }
+
+        .particle.pos { background: var(--ionic-bg); border-color: var(--ionic-color); color: var(--ionic-color); }
+        .particle.neg { background: var(--covalent-bg); border-color: var(--covalent-color); color: var(--covalent-color); }
+        .particle.neutral { background: var(--simple-bg); border-color: var(--simple-color); color: var(--simple-color); }
+        .particle.metal-ion { background: var(--metallic-bg); border-color: var(--metallic-color); color: var(--metallic-color); }
+        .particle.electron { width: 16px; height: 16px; border-radius: 50%; background: var(--metallic-color); border: none; font-size: 0; }
+
+        /* ---- PROPERTIES COMPARISON ---- */
+        .props-table-wrap {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 2rem;
+            overflow-x: auto;
+        }
+
+        .props-table-wrap h2 {
+            font-size: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .props-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .props-table th {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 10px 12px;
+            text-align: center;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .props-table th.ionic { color: var(--ionic-color); background: var(--ionic-bg); }
+        .props-table th.covalent { color: var(--covalent-color); background: var(--covalent-bg); }
+        .props-table th.metallic { color: var(--metallic-color); background: var(--metallic-bg); }
+        .props-table th.giant { color: var(--giant-color); background: var(--giant-bg); }
+
+        .props-table th.prop-col {
+            text-align: left;
+            color: var(--text-light);
+            background: transparent;
+            width: 18%;
+        }
+
+        .props-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+            vertical-align: top;
+            line-height: 1.4;
+        }
+
+        .props-table td:first-child {
+            text-align: left;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .props-table tr:last-child td { border-bottom: none; }
+
+        .hi { color: var(--red); font-weight: 700; }
+        .lo { color: var(--covalent-color); font-weight: 700; }
+        .yes { color: var(--green); font-weight: 700; }
+        .no { color: var(--red); font-weight: 700; }
+        .cond { font-weight: 700; color: var(--giant-color); }
+
+        /* ---- WHY SECTION ---- */
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 2rem;
+        }
+
+        .why-card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 5px solid;
+        }
+
+        .why-card .why-q {
+            font-size: 15px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .why-card .why-a {
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .why-card .why-a .key {
+            font-weight: 800;
+            padding: 1px 4px;
+            border-radius: 3px;
+        }
+
+        .why-card.q-ionic { border-left-color: var(--ionic-color); }
+        .why-card.q-ionic .key { background: var(--ionic-bg); color: var(--ionic-color); }
+        .why-card.q-covalent { border-left-color: var(--covalent-color); }
+        .why-card.q-covalent .key { background: var(--covalent-bg); color: var(--covalent-color); }
+        .why-card.q-metallic { border-left-color: var(--metallic-color); }
+        .why-card.q-metallic .key { background: var(--metallic-bg); color: var(--metallic-color); }
+        .why-card.q-simple { border-left-color: var(--simple-color); }
+        .why-card.q-simple .key { background: var(--simple-bg); color: var(--simple-color); }
+
+        /* ---- EXAM KEYWORD STRIP ---- */
+        .keywords {
+            background: var(--text);
+            color: #fff;
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 2rem;
+        }
+
+        .keywords h2 {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .kw-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+        }
+
+        .kw-item {
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .kw-item.ionic { background: rgba(212,56,13,0.2); }
+        .kw-item.covalent { background: rgba(9,88,217,0.2); }
+        .kw-item.metallic { background: rgba(124,58,237,0.2); }
+
+        .kw-item .kw-phrase {
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .kw-item .kw-when {
+            font-size: 10px;
+            opacity: 0.7;
+            font-family: var(--mono);
+        }
+
+        /* ---- SIMPLE vs GIANT ---- */
+        .sg-compare {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 2rem;
+        }
+
+        .sg-card {
+            border-radius: 16px;
+            padding: 24px;
+            border: 2px solid;
+        }
+
+        .sg-card.simple { border-color: var(--simple-color); background: var(--simple-bg); }
+        .sg-card.giant { border-color: var(--giant-color); background: var(--giant-bg); }
+
+        .sg-card h3 {
+            font-size: 20px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .sg-card.simple h3 { color: var(--simple-color); }
+        .sg-card.giant h3 { color: var(--giant-color); }
+
+        .sg-card .sg-sub {
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        .sg-card .sg-point {
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 6px;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .sg-card .sg-point::before {
+            content: '\25CF';
+            position: absolute;
+            left: 0;
+            font-size: 8px;
+            top: 4px;
+        }
+
+        .sg-card.simple .sg-point::before { color: var(--simple-color); }
+        .sg-card.giant .sg-point::before { color: var(--giant-color); }
+
+        .sg-card .sg-examples {
+            font-family: var(--hand);
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid var(--border);
+        }
+
+        /* ---- THE KILLER QUESTION ---- */
+        .killer {
+            background: var(--card);
+            border: 3px solid var(--text);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .killer h2 {
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 16px;
+            color: var(--text-light);
+        }
+
+        .killer .killer-q {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .killer .killer-a {
+            text-align: left;
+            font-size: 14px;
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .killer .killer-a .step {
+            margin-bottom: 10px;
+            padding: 10px 14px;
+            border-radius: 8px;
+        }
+
+        .killer .killer-a .step.s1 { background: var(--ionic-bg); border-left: 4px solid var(--ionic-color); }
+        .killer .killer-a .step.s2 { background: var(--covalent-bg); border-left: 4px solid var(--covalent-color); }
+        .killer .killer-a .step.s3 { background: var(--simple-bg); border-left: 4px solid var(--simple-color); }
+
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 26px; }
+            .big-rule { flex-direction: column; }
+            .big-rule-arrow { width: 100%; height: 2px; }
+            .why-grid { grid-template-columns: 1fr; }
+            .kw-grid { grid-template-columns: 1fr; }
+            .sg-compare { grid-template-columns: 1fr; }
+            .props-table { font-size: 11px; }
+            .props-table th, .props-table td { padding: 6px 8px; }
+            .bond-card-header h2 { font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <div class="hero">
+        <h1>The Three Types of Bonding</h1>
+        <div class="subtitle">What they are, how they form, and why properties follow</div>
+    </div>
+
+    <!-- ---- THE BIG RULE: WHO BONDS WITH WHOM ---- -->
+    <div class="big-rule">
+        <div class="big-rule-item ionic">
+            <div class="who">Metal + Non-metal</div>
+            <div class="what">Ionic</div>
+            <div class="how">Electrons transferred</div>
+            <div class="between">Na + Cl, Mg + O, Ca + F</div>
+        </div>
+        <div class="big-rule-arrow"></div>
+        <div class="big-rule-item covalent">
+            <div class="who">Non-metal + Non-metal</div>
+            <div class="what">Covalent</div>
+            <div class="how">Electrons shared</div>
+            <div class="between">H + O, C + O, N + H</div>
+        </div>
+        <div class="big-rule-arrow"></div>
+        <div class="big-rule-item metallic">
+            <div class="who">Metal + Metal</div>
+            <div class="what">Metallic</div>
+            <div class="how">Electrons delocalised</div>
+            <div class="between">Fe, Cu, Al, Na</div>
+        </div>
+    </div>
+
+    <!-- ---- THREE DETAILED BOND CARDS ---- -->
+    <div class="bond-cards">
+
+        <!-- IONIC -->
+        <div class="bond-card ionic">
+            <div class="bond-card-header">
+                <h2>Ionic Bonding</h2>
+                <span class="tag">TRANSFER</span>
+            </div>
+            <div class="bond-card-body">
+                <div class="bond-section">
+                    <div class="bond-section-title">What happens</div>
+                    <div class="bond-desc">
+                        Metal atoms <strong>lose</strong> electrons &rarr; become <strong>positive ions</strong> (cations).<br>
+                        Non-metal atoms <strong>gain</strong> electrons &rarr; become <strong>negative ions</strong> (anions).<br>
+                        Both get <strong>full outer shells</strong> (like noble gases).
+                    </div>
+                    <div class="bond-diagram">
+                        <span class="particle pos">Na<sup>+</sup></span>
+                        <span style="font-size: 16px; font-family: var(--font);">transfers e<sup>&minus;</sup> to</span>
+                        <span class="particle neg">Cl<sup>&minus;</sup></span>
+                    </div>
+                </div>
+                <div class="bond-section">
+                    <div class="bond-section-title">What holds it together</div>
+                    <div class="bond-desc">
+                        <strong>Strong electrostatic attraction</strong> between oppositely charged ions.<br>
+                        Ions pack into a <strong>giant ionic lattice</strong> &mdash; regular repeating 3D structure, billions of ions.
+                    </div>
+                </div>
+                <div class="bond-section">
+                    <div class="bond-section-title">The sentence that gets full marks</div>
+                    <div class="bond-desc" style="font-family: var(--hand); font-size: 22px; color: var(--ionic-color);">
+                        "Strong electrostatic forces of attraction between oppositely charged ions in a giant ionic lattice."
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COVALENT -->
+        <div class="bond-card covalent">
+            <div class="bond-card-header">
+                <h2>Covalent Bonding</h2>
+                <span class="tag">SHARING</span>
+            </div>
+            <div class="bond-card-body">
+                <div class="bond-section">
+                    <div class="bond-section-title">What happens</div>
+                    <div class="bond-desc">
+                        Non-metal atoms <strong>share pairs of electrons</strong> so both get full outer shells.<br>
+                        Each shared pair = <strong>one covalent bond</strong>.<br>
+                        Double bond = two shared pairs. Triple bond = three.
+                    </div>
+                    <div class="bond-diagram">
+                        <span class="particle neutral">H</span>
+                        <span style="font-size: 18px; font-family: var(--font);">shares e<sup>&minus;</sup> pair with</span>
+                        <span class="particle neutral">H</span>
+                        <span style="font-size: 18px; font-family: var(--font);">&rarr; H&mdash;H</span>
+                    </div>
+                </div>
+                <div class="bond-section">
+                    <div class="bond-section-title">Two types of covalent structure</div>
+                    <div class="bond-desc">
+                        <strong>Simple molecular</strong> (H<sub>2</sub>O, CO<sub>2</sub>, O<sub>2</sub>): small molecules, weak forces BETWEEN them.<br>
+                        <strong>Giant covalent</strong> (diamond, silicon dioxide): billions of atoms all bonded, no molecules.
+                    </div>
+                </div>
+                <div class="bond-section">
+                    <div class="bond-section-title">The sentence that gets full marks</div>
+                    <div class="bond-desc" style="font-family: var(--hand); font-size: 22px; color: var(--covalent-color);">
+                        "A shared pair of electrons between two non-metal atoms."
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- METALLIC -->
+        <div class="bond-card metallic">
+            <div class="bond-card-header">
+                <h2>Metallic Bonding</h2>
+                <span class="tag">DELOCALISED</span>
+            </div>
+            <div class="bond-card-body">
+                <div class="bond-section">
+                    <div class="bond-section-title">What happens</div>
+                    <div class="bond-desc">
+                        Metal atoms lose their outer electrons. These become <strong>delocalised</strong> (free to move).<br>
+                        What's left: a lattice of <strong>positive metal ions</strong> in a <strong>sea of delocalised electrons</strong>.
+                    </div>
+                    <div class="bond-diagram">
+                        <span class="particle metal-ion">Cu<sup>+</sup></span>
+                        <span class="particle electron"></span>
+                        <span class="particle metal-ion">Cu<sup>+</sup></span>
+                        <span class="particle electron"></span>
+                        <span class="particle metal-ion">Cu<sup>+</sup></span>
+                        <span class="particle electron"></span>
+                        <span class="particle metal-ion">Cu<sup>+</sup></span>
+                    </div>
+                </div>
+                <div class="bond-section">
+                    <div class="bond-section-title">What holds it together</div>
+                    <div class="bond-desc">
+                        <strong>Strong electrostatic attraction</strong> between the positive ions and the sea of delocalised electrons.<br>
+                        This acts in all directions &mdash; very strong, needs lots of energy to break.
+                    </div>
+                </div>
+                <div class="bond-section">
+                    <div class="bond-section-title">The sentence that gets full marks</div>
+                    <div class="bond-desc" style="font-family: var(--hand); font-size: 22px; color: var(--metallic-color);">
+                        "Strong electrostatic attraction between positive metal ions and a sea of delocalised electrons."
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ---- SIMPLE vs GIANT COVALENT ---- -->
+    <div class="sg-compare">
+        <div class="sg-card simple">
+            <h3>Simple Molecular</h3>
+            <div class="sg-sub">Small molecules, weak forces between them</div>
+            <div class="sg-point"><strong>Strong bonds WITHIN</strong> each molecule (covalent)</div>
+            <div class="sg-point"><strong>Weak forces BETWEEN</strong> molecules (intermolecular forces)</div>
+            <div class="sg-point"><strong>Low</strong> melting/boiling points (easy to separate molecules)</div>
+            <div class="sg-point"><strong>Don't conduct</strong> &mdash; no free electrons or ions</div>
+            <div class="sg-examples">H&#x2082;O, CO&#x2082;, O&#x2082;, CH&#x2084;, NH&#x2083;</div>
+        </div>
+        <div class="sg-card giant">
+            <h3>Giant Covalent</h3>
+            <div class="sg-sub">Billions of atoms, all bonded together</div>
+            <div class="sg-point"><strong>Strong bonds THROUGHOUT</strong> the entire structure</div>
+            <div class="sg-point"><strong>No weak forces</strong> &mdash; you must break covalent bonds to melt it</div>
+            <div class="sg-point"><strong>Very high</strong> melting points (takes huge energy)</div>
+            <div class="sg-point">Usually <strong>don't conduct</strong> (except graphite &mdash; delocalised electrons)</div>
+            <div class="sg-examples">Diamond, graphite, silicon dioxide</div>
+        </div>
+    </div>
+
+    <!-- ---- PROPERTIES COMPARISON TABLE ---- -->
+    <div class="props-table-wrap">
+        <h2>Properties at a Glance</h2>
+        <table class="props-table">
+            <tr>
+                <th class="prop-col">Property</th>
+                <th class="ionic">Ionic</th>
+                <th class="covalent">Simple Covalent</th>
+                <th class="giant">Giant Covalent</th>
+                <th class="metallic">Metallic</th>
+            </tr>
+            <tr>
+                <td>Melting point</td>
+                <td><span class="hi">HIGH</span></td>
+                <td><span class="lo">LOW</span></td>
+                <td><span class="hi">VERY HIGH</span></td>
+                <td><span class="hi">HIGH</span></td>
+            </tr>
+            <tr>
+                <td>Conduct as solid?</td>
+                <td><span class="no">NO</span><br><small>ions locked in place</small></td>
+                <td><span class="no">NO</span><br><small>no charged particles</small></td>
+                <td><span class="no">NO*</span><br><small>*except graphite</small></td>
+                <td><span class="yes">YES</span><br><small>delocalised electrons</small></td>
+            </tr>
+            <tr>
+                <td>Conduct when molten/dissolved?</td>
+                <td><span class="yes">YES</span><br><small>ions free to move</small></td>
+                <td><span class="no">NO</span></td>
+                <td><span class="no">NO*</span></td>
+                <td><span class="yes">YES</span></td>
+            </tr>
+            <tr>
+                <td>Soluble in water?</td>
+                <td><span class="yes">Often YES</span></td>
+                <td>Some</td>
+                <td><span class="no">NO</span></td>
+                <td><span class="no">NO</span></td>
+            </tr>
+            <tr>
+                <td>Hard or soft?</td>
+                <td>Hard, brittle</td>
+                <td>Soft</td>
+                <td>Very hard</td>
+                <td>Hard, malleable</td>
+            </tr>
+            <tr>
+                <td>Structure</td>
+                <td>Giant ionic lattice</td>
+                <td>Small molecules</td>
+                <td>Giant lattice of atoms</td>
+                <td>Giant lattice of ions</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- ---- THE WHY QUESTIONS (6-mark killers) ---- -->
+    <div class="why-grid">
+        <div class="why-card q-ionic">
+            <div class="why-q">Why don't ionic solids conduct?</div>
+            <div class="why-a">Ions are in <span class="key">fixed positions</span> in the lattice. They <span class="key">cannot move</span> to carry charge. When melted or dissolved, ions are <span class="key">free to move</span>, so they can carry charge &rarr; conducts.</div>
+        </div>
+        <div class="why-card q-simple">
+            <div class="why-q">Why do simple covalent substances have low boiling points?</div>
+            <div class="why-a">The covalent bonds within molecules are strong, BUT the <span class="key">intermolecular forces between molecules are weak</span>. It takes <span class="key">little energy to overcome</span> these weak forces, so boiling point is low.</div>
+        </div>
+        <div class="why-card q-metallic">
+            <div class="why-q">Why do metals conduct electricity?</div>
+            <div class="why-a">Metals have <span class="key">delocalised electrons</span> that are <span class="key">free to move</span> through the structure. These electrons <span class="key">carry electrical charge</span> when a voltage is applied.</div>
+        </div>
+        <div class="why-card q-metallic">
+            <div class="why-q">Why are metals malleable?</div>
+            <div class="why-a">The <span class="key">layers of ions can slide</span> over each other without breaking the metallic bond. The sea of electrons <span class="key">shifts with the ions</span>, holding the structure together in its new shape.</div>
+        </div>
+        <div class="why-card q-ionic">
+            <div class="why-q">Why are ionic compounds brittle?</div>
+            <div class="why-a">If layers shift, ions of the <span class="key">same charge line up next to each other</span>. They <span class="key">repel</span>, and the crystal <span class="key">shatters</span>. Unlike metals, there's no "sea of electrons" to hold it together.</div>
+        </div>
+        <div class="why-card q-covalent">
+            <div class="why-q">Why does diamond have a high melting point?</div>
+            <div class="why-a">Diamond is a <span class="key">giant covalent structure</span>. Each carbon is bonded to four others by <span class="key">strong covalent bonds</span>. There are <span class="key">many bonds to break</span>, requiring <span class="key">large amounts of energy</span>.</div>
+        </div>
+    </div>
+
+    <!-- ---- EXAM KEYWORDS ---- -->
+    <div class="keywords">
+        <h2>Phrases That Get Marks</h2>
+        <div class="kw-grid">
+            <div class="kw-item ionic">
+                <div class="kw-phrase">"Strong electrostatic attraction between oppositely charged ions"</div>
+                <div class="kw-when">Use for: ionic bonding, high m.p. of ionic compounds</div>
+            </div>
+            <div class="kw-item ionic">
+                <div class="kw-phrase">"Ions are free to move and carry charge"</div>
+                <div class="kw-when">Use for: why ionic conducts when molten/dissolved</div>
+            </div>
+            <div class="kw-item ionic">
+                <div class="kw-phrase">"Ions are fixed in position and cannot move"</div>
+                <div class="kw-when">Use for: why ionic does NOT conduct as a solid</div>
+            </div>
+            <div class="kw-item covalent">
+                <div class="kw-phrase">"Weak intermolecular forces between molecules"</div>
+                <div class="kw-when">Use for: low m.p. of simple molecular substances</div>
+            </div>
+            <div class="kw-item covalent">
+                <div class="kw-phrase">"No free electrons or ions to carry charge"</div>
+                <div class="kw-when">Use for: why covalent substances don't conduct</div>
+            </div>
+            <div class="kw-item covalent">
+                <div class="kw-phrase">"Many strong covalent bonds throughout the structure"</div>
+                <div class="kw-when">Use for: high m.p. of giant covalent (diamond etc.)</div>
+            </div>
+            <div class="kw-item metallic">
+                <div class="kw-phrase">"Sea of delocalised electrons free to move"</div>
+                <div class="kw-when">Use for: metallic bonding, conductivity, malleability</div>
+            </div>
+            <div class="kw-item metallic">
+                <div class="kw-phrase">"Strong electrostatic attraction between positive ions and delocalised electrons"</div>
+                <div class="kw-when">Use for: high m.p. of metals, metallic bond description</div>
+            </div>
+            <div class="kw-item metallic">
+                <div class="kw-phrase">"Layers of ions can slide over each other"</div>
+                <div class="kw-when">Use for: why metals are malleable/ductile</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ---- THE KILLER 6-MARK QUESTION ---- -->
+    <div class="killer">
+        <h2>How to answer the classic 6-mark bonding question</h2>
+        <div class="killer-q">"Explain why sodium chloride has a high melting point but does not conduct electricity as a solid, whereas it does conduct when molten."</div>
+        <div class="killer-a">
+            <div class="step s1">
+                <strong>Structure:</strong> Sodium chloride has a <strong>giant ionic lattice</strong> structure. Na<sup>+</sup> and Cl<sup>&minus;</sup> ions are arranged in a regular pattern.
+            </div>
+            <div class="step s1">
+                <strong>High melting point:</strong> There are <strong>strong electrostatic forces of attraction</strong> between the oppositely charged ions. A <strong>large amount of energy</strong> is needed to overcome these forces, so the melting point is high.
+            </div>
+            <div class="step s2">
+                <strong>Doesn't conduct as solid:</strong> The ions are held in <strong>fixed positions</strong> in the lattice. They <strong>cannot move</strong> to carry electrical charge.
+            </div>
+            <div class="step s3">
+                <strong>Conducts when molten:</strong> When melted, the ionic lattice breaks down. The ions are now <strong>free to move</strong> and can <strong>carry electrical charge</strong>, so it conducts.
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
