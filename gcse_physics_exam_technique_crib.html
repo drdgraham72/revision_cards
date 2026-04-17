@@ -88,6 +88,25 @@ body{font-family:var(--font);background:var(--bg2);color:var(--t1);padding:1.75r
         }
         .yt-link:hover { background: #cc0000; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
         .yt-link svg { flex-shrink: 0; }
+    
+        /* Mobile readability */
+        @media (max-width: 768px) {
+            .page { font-size: 0.95rem; }
+            .box-body, .val, .kw { font-size: 0.85rem; }
+            .box-head { font-size: 0.8rem; }
+            .formula-box, .formula { font-size: 0.8rem; }
+            .warn, .tip, .good, .trap, .gold { font-size: 0.85rem; }
+            .row { grid-template-columns: 30% 70%; }
+            .ex-box { font-size: 0.85rem; }
+        }
+        @media (max-width: 480px) {
+            .page { font-size: 1rem; }
+            .box-body, .val, .kw { font-size: 0.9rem; }
+            .box-head { font-size: 0.85rem; }
+            .header h1 { font-size: 1.1rem; }
+            .formula-box, .formula { font-size: 0.85rem; }
+            .warn, .tip, .good, .trap, .gold { font-size: 0.9rem; }
+        }
     </style>
 </head>
 <body>

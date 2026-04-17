@@ -112,6 +112,31 @@
         }
         .yt-link:hover { background: #cc0000; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
         .yt-link svg { flex-shrink: 0; }
+    
+        /* Mobile readability */
+        @media (max-width: 768px) {
+            body { font-size: 16px; }
+            .page, .container { font-size: 15px; }
+            .bond-desc, .tech-how, .step-content, .plan-step-content,
+            .why-card .why-a, .rule-english, .eval-phrase, .mc-desc,
+            .trap-text, .sug-item, .slot-desc, .method-content .mc-desc,
+            .we-step-content, .ref-table, .props-table, .key-terms,
+            .sg-point, .answer-line, .fc-question, .explain-body,
+            .bond-section-title { font-size: 15px; }
+            .step-row .step-content, .chain-desc { font-size: 14px; }
+            .question-box .q-text { font-size: 16px; }
+            .hero h1 { font-size: 28px; }
+            h2 { font-size: 18px; }
+            h3 { font-size: 16px; }
+            .card-title, .tech-name, .bond-card-header h2 { font-size: 18px; }
+            .card-desc, .tech-what, .tech-use { font-size: 14px; }
+            .explain-body { font-size: 14px; }
+            .explain-title { font-size: 18px; }
+        }
+        @media (max-width: 480px) {
+            body { font-size: 18px; }
+            .hero h1 { font-size: 24px; }
+        }
     </style>
 </head>
 <body>
