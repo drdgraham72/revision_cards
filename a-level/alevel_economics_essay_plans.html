@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Economics — Essay Plans</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&family=Caveat:wght@600;700&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #f5f5f0;
+            --card: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #666;
+            --border: rgba(0,0,0,0.1);
+            --font: 'Barlow Condensed', sans-serif;
+            --mono: 'DM Mono', monospace;
+            --hand: 'Caveat', cursive;
+            --micro: #0958d9; --micro-bg: #e6f4ff;
+            --macro: #d4380d; --macro-bg: #fff1f0;
+            --business: #7c3aed; --business-bg: #f5f3ff;
+            --global: #0f6e56; --global-bg: #e1f5ee;
+            --green: #389e0d; --green-bg: #f6ffed;
+            --amber: #854f0b; --amber-bg: #faeeda;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #141416; --card: #1e1e22;
+                --text: #e8e4dc; --text-light: #999;
+                --border: rgba(255,255,255,0.08);
+                --micro-bg: #0d2240; --macro-bg: #3a1a0d;
+                --business-bg: #1e1630; --global-bg: #0d2a1a;
+                --green-bg: #0d2a0d; --amber-bg: #2a1e0d;
+            }
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 1.5rem 1rem;
+        }
+
+        .page { max-width: 900px; margin: 0 auto; }
+
+        .hero { text-align: center; margin-bottom: 1.5rem; }
+
+        .hero h1 {
+            font-size: 36px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            margin-bottom: 6px;
+        }
+
+        .hero .subtitle {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        /* Essay structure template */
+        .structure-box {
+            background: var(--text);
+            color: #fff;
+            border-radius: 16px;
+            padding: 24px 28px;
+            margin-bottom: 2rem;
+        }
+
+        .structure-box h2 {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .structure-steps {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+        }
+
+        .ss {
+            text-align: center;
+            padding: 12px 8px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .ss .ss-num {
+            font-family: var(--mono);
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            opacity: 0.5;
+            margin-bottom: 4px;
+        }
+
+        .ss .ss-name {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .ss .ss-what {
+            font-size: 10px;
+            opacity: 0.7;
+            line-height: 1.3;
+        }
+
+        .ss:nth-child(1) { border-color: var(--micro); }
+        .ss:nth-child(2) { border-color: var(--green); }
+        .ss:nth-child(3) { border-color: var(--green); }
+        .ss:nth-child(4) { border-color: #d4380d; }
+        .ss:nth-child(5) { border-color: var(--amber); }
+
+        /* Evaluation phrases */
+        .eval-box {
+            background: var(--amber-bg);
+            border: 2px solid var(--amber);
+            border-radius: 16px;
+            padding: 20px 24px;
+            margin-bottom: 2rem;
+        }
+
+        .eval-box h2 {
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--amber);
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .eval-phrases {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+        }
+
+        .eval-phrase {
+            font-size: 12px;
+            padding: 6px 10px;
+            background: var(--card);
+            border-radius: 4px;
+            border-left: 3px solid var(--amber);
+        }
+
+        /* Section labels */
+        .section-label {
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 8px 14px;
+            border-radius: 8px;
+            margin: 24px 0 12px;
+            text-align: center;
+        }
+
+        .section-label.micro { background: var(--micro-bg); color: var(--micro); }
+        .section-label.macro { background: var(--macro-bg); color: var(--macro); }
+        .section-label.business { background: var(--business-bg); color: var(--business); }
+        .section-label.global { background: var(--global-bg); color: var(--global); }
+
+        /* Essay plan cards */
+        .essay {
+            background: var(--card);
+            border-radius: 12px;
+            margin-bottom: 10px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .essay-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 18px;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.15s;
+        }
+
+        .essay-header:hover { background: var(--bg); }
+
+        .essay-header .essay-q {
+            flex: 1;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .essay-header .essay-marks {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 3px;
+            background: var(--text);
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .essay-header .chevron {
+            font-size: 12px;
+            color: var(--text-light);
+            transition: transform 0.2s;
+            flex-shrink: 0;
+        }
+
+        .essay-header .chevron.open { transform: rotate(180deg); }
+
+        .essay-body {
+            display: none;
+            padding: 0 18px 18px;
+            border-top: 1px solid var(--border);
+        }
+
+        .essay-body.show { display: block; }
+
+        /* Plan steps */
+        .plan-step {
+            margin-top: 12px;
+        }
+
+        .plan-step-label {
+            font-family: var(--mono);
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .plan-step-label .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .dot.intro { background: var(--micro); }
+        .dot.analysis { background: var(--green); }
+        .dot.eval { background: #d4380d; }
+        .dot.conclude { background: var(--amber); }
+        .dot.diagram { background: var(--business); }
+
+        .plan-step-content {
+            font-size: 13px;
+            line-height: 1.6;
+            padding-left: 14px;
+        }
+
+        .plan-step-content strong { font-weight: 700; }
+
+        .plan-step-content .chain {
+            font-family: var(--hand);
+            font-size: 18px;
+            font-weight: 600;
+            display: block;
+            margin: 4px 0;
+            color: var(--text);
+        }
+
+        .plan-step-content .diagram-note {
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--business);
+            background: var(--business-bg);
+            padding: 4px 8px;
+            border-radius: 3px;
+            display: inline-block;
+            margin: 2px 0;
+        }
+
+        .plan-step-content .eval-point {
+            color: #d4380d;
+            font-weight: 600;
+        }
+
+        .plan-step-content ul {
+            margin: 4px 0;
+            padding-left: 16px;
+        }
+
+        .plan-step-content li { margin-bottom: 2px; }
+
+        /* Key terms */
+        .key-terms {
+            margin-top: 10px;
+            padding: 8px 12px;
+            background: var(--green-bg);
+            border-radius: 6px;
+            border-left: 3px solid var(--green);
+            font-size: 11px;
+            line-height: 1.5;
+        }
+
+        .key-terms strong { color: var(--green); }
+
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 26px; }
+            .structure-steps { grid-template-columns: 1fr; }
+            .eval-phrases { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <div class="hero">
+        <h1>Economics Essay Plans</h1>
+        <div class="subtitle">OCR H567 &middot; 15 plans covering the major topics &middot; tap to expand</div>
+    </div>
+
+    <!-- THE UNIVERSAL STRUCTURE -->
+    <div class="structure-box">
+        <h2>Every essay follows this structure</h2>
+        <div class="structure-steps">
+            <div class="ss">
+                <div class="ss-num">Para 1</div>
+                <div class="ss-name">Define</div>
+                <div class="ss-what">Key terms. Set the context. 2-3 sentences.</div>
+            </div>
+            <div class="ss">
+                <div class="ss-num">Para 2-3</div>
+                <div class="ss-name">Analyse</div>
+                <div class="ss-what">Point &rarr; chain of reasoning &rarr; diagram &rarr; link back to question.</div>
+            </div>
+            <div class="ss">
+                <div class="ss-num">Para 4-5</div>
+                <div class="ss-name">Counter</div>
+                <div class="ss-what">The other side. "However..." or a second analytical point.</div>
+            </div>
+            <div class="ss">
+                <div class="ss-num">Para 6</div>
+                <div class="ss-name">Evaluate</div>
+                <div class="ss-what">Depends on... Short run vs long run. Magnitude. Assumptions.</div>
+            </div>
+            <div class="ss">
+                <div class="ss-num">Para 7</div>
+                <div class="ss-name">Conclude</div>
+                <div class="ss-what">Weigh up. Make a judgement. "On balance..." Don't sit on the fence.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EVALUATION PHRASES -->
+    <div class="eval-box">
+        <h2>Evaluation phrases that get A* marks</h2>
+        <div class="eval-phrases">
+            <div class="eval-phrase">"It depends on the magnitude of..."</div>
+            <div class="eval-phrase">"In the short run... however in the long run..."</div>
+            <div class="eval-phrase">"This assumes that... but in reality..."</div>
+            <div class="eval-phrase">"The effectiveness depends on the state of the economy..."</div>
+            <div class="eval-phrase">"There may be time lags before..."</div>
+            <div class="eval-phrase">"This is only true if demand is price elastic..."</div>
+            <div class="eval-phrase">"The outcome depends on the elasticity of..."</div>
+            <div class="eval-phrase">"Government failure may mean that..."</div>
+            <div class="eval-phrase">"There is an opportunity cost because..."</div>
+            <div class="eval-phrase">"Ceteris paribus this is true, but in practice..."</div>
+            <div class="eval-phrase">"The impact will vary between industries/countries..."</div>
+            <div class="eval-phrase">"On balance, the benefits outweigh the costs because..."</div>
+        </div>
+    </div>
+
+    <!-- ===== MICROECONOMICS ===== -->
+    <div class="section-label micro">Microeconomics</div>
+
+    <div class="essay" data-id="1">
+        <div class="essay-header" onclick="toggle(this)">
+            <span class="essay-q">"Evaluate the view that government intervention is always necessary to correct market failure."</span>
+            <span class="essay-marks">25 marks</span>
+            <span class="chevron">&#x25BC;</span>
+        </div>
+        <div class="essay-body">
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot intro"></span> Define &amp; Context</div>
+                <div class="plan-step-content">
+                    Define <strong>market failure</strong> (where the free market fails to allocate resources efficiently) and <strong>government intervention</strong> (taxes, subsidies, regulation, provision).
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot analysis"></span> Analysis 1: Yes, intervention is needed</div>
+                <div class="plan-step-content">
+                    <strong>Negative externalities</strong> — production/consumption creates costs to third parties (e.g. pollution).
+                    <span class="chain">Overproduction at free market &rarr; MSC > MPC &rarr; welfare loss &rarr; tax shifts MPC to MSC &rarr; socially optimal output</span>
+                    <span class="diagram-note">Diagram: MSC/MPC with welfare loss triangle</span>
+                    <br><strong>Public goods</strong> — non-rival, non-excludable &rarr; free rider problem &rarr; market won't provide &rarr; government must.
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot analysis"></span> Analysis 2: Behavioural justification</div>
+                <div class="plan-step-content">
+                    <strong>Bounded rationality</strong> — consumers don't always act rationally (demerit goods, info gaps).
+                    <span class="chain">Consumers overconsume harmful goods &rarr; nudges/regulation can correct &rarr; e.g. sugar tax, plain packaging</span>
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot eval"></span> Counter: Government failure</div>
+                <div class="plan-step-content">
+                    <span class="eval-point">However,</span> intervention can cause <strong>government failure</strong>:
+                    <ul>
+                        <li>Information gaps — government may not know the correct level of tax/subsidy</li>
+                        <li>Unintended consequences — e.g. rent controls causing housing shortages</li>
+                        <li>Administrative costs — may exceed the welfare gain</li>
+                        <li>Political self-interest — decisions driven by votes not efficiency</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot eval"></span> Evaluation</div>
+                <div class="plan-step-content">
+                    <span class="eval-point">It depends on:</span> the type of market failure (public goods REQUIRE intervention, externalities might self-correct via Coase theorem), the <strong>magnitude</strong> of the failure vs the cost of intervention, and whether the market can develop <strong>private solutions</strong> (e.g. carbon trading).
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot conclude"></span> Conclusion</div>
+                <div class="plan-step-content">
+                    <strong>Not always</strong> — for public goods, yes. For externalities, the optimal level of intervention depends on whether government can accurately identify the externality and set the right level of correction. The word "always" makes the statement too strong.
+                </div>
+            </div>
+            <div class="key-terms"><strong>Define:</strong> market failure, allocative efficiency, externality, government failure, Coase theorem</div>
+        </div>
+    </div>
+
+    <div class="essay" data-id="2">
+        <div class="essay-header" onclick="toggle(this)">
+            <span class="essay-q">"Evaluate the impact of imposing an indirect tax on a demerit good."</span>
+            <span class="essay-marks">25 marks</span>
+            <span class="chevron">&#x25BC;</span>
+        </div>
+        <div class="essay-body">
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot intro"></span> Define</div>
+                <div class="plan-step-content">Define <strong>indirect tax</strong> (tax on spending, shifts supply left) and <strong>demerit good</strong> (overconsumed, negative externalities or information failure).</div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot analysis"></span> Analysis 1: How it works</div>
+                <div class="plan-step-content">
+                    <span class="chain">Tax &rarr; supply shifts left (S to S+tax) &rarr; price rises &rarr; quantity falls &rarr; consumption closer to socially optimal level</span>
+                    <span class="diagram-note">Diagram: S/D with tax shifting S left, showing new equilibrium</span>
+                    <br>Tax revenue can fund NHS/education &rarr; double dividend.
+                    <br>Internalises the externality — polluter pays principle.
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot eval"></span> Counter &amp; Evaluation</div>
+                <div class="plan-step-content">
+                    <span class="eval-point">However:</span>
+                    <ul>
+                        <li><strong>PED matters:</strong> if demand is inelastic (e.g. cigarettes), quantity barely falls — tax raises revenue but doesn't change behaviour much</li>
+                        <li><strong>Regressive:</strong> hits low-income consumers hardest (higher % of income)</li>
+                        <li><strong>Black market:</strong> high tax may push consumers to illegal alternatives</li>
+                        <li><strong>Information problem:</strong> government may set tax too high or too low vs the externality</li>
+                        <li><strong>Time lags:</strong> behaviour change takes time, especially with addictive goods</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot conclude"></span> Conclusion</div>
+                <div class="plan-step-content">Effective when demand is <strong>relatively elastic</strong> and combined with other policies (education, regulation). Less effective for addictive goods where demand is inelastic. The optimal tax rate = the marginal external cost, but this is hard to calculate precisely.</div>
+            </div>
+            <div class="key-terms"><strong>Define:</strong> indirect tax, demerit good, PED, incidence of tax, deadweight loss, regressive</div>
+        </div>
+    </div>
+
+    <div class="essay" data-id="3">
+        <div class="essay-header" onclick="toggle(this)">
+            <span class="essay-q">"To what extent does monopoly lead to a worse outcome for consumers than perfect competition?"</span>
+            <span class="essay-marks">25 marks</span>
+            <span class="chevron">&#x25BC;</span>
+        </div>
+        <div class="essay-body">
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot intro"></span> Define</div>
+                <div class="plan-step-content">Define <strong>monopoly</strong> (single seller, 25%+ market share, price maker) and <strong>perfect competition</strong> (many sellers, homogeneous product, price taker).</div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot analysis"></span> Analysis 1: Monopoly is worse</div>
+                <div class="plan-step-content">
+                    <span class="chain">Monopoly restricts output &rarr; higher price, lower quantity &rarr; allocative inefficiency (P > MC) &rarr; deadweight loss &rarr; consumer surplus falls</span>
+                    <span class="diagram-note">Diagram: Monopoly MC/MR/AR with deadweight loss vs PC P=MC</span>
+                    <br>X-inefficiency: no competitive pressure &rarr; costs may be higher than necessary.
+                    <br>Supernormal profit in long run (barriers to entry protect it).
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot eval"></span> Counter: Monopoly can be better</div>
+                <div class="plan-step-content">
+                    <span class="eval-point">However:</span>
+                    <ul>
+                        <li><strong>Economies of scale:</strong> monopoly may achieve lower AC than many small firms &rarr; could pass on lower prices (natural monopoly argument)</li>
+                        <li><strong>Dynamic efficiency:</strong> supernormal profit funds R&D &rarr; innovation &rarr; better products (Schumpeter)</li>
+                        <li><strong>Cross-subsidisation:</strong> profits from one product can fund loss-making services</li>
+                        <li><strong>Perfect competition is theoretical:</strong> rarely exists in practice — monopolistic competition is more realistic comparator</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot conclude"></span> Conclusion</div>
+                <div class="plan-step-content">Depends on whether the monopoly is <strong>contestable</strong> (threat of entry disciplines behaviour), whether it exploits its position or invests in innovation, and whether <strong>regulation</strong> (e.g. CMA, price caps) keeps it in check. A regulated natural monopoly may be the best outcome for consumers.</div>
+            </div>
+            <div class="key-terms"><strong>Define:</strong> allocative efficiency, productive efficiency, dynamic efficiency, X-inefficiency, natural monopoly, contestability</div>
+        </div>
+    </div>
+
+    <div class="essay" data-id="4">
+        <div class="essay-header" onclick="toggle(this)">
+            <span class="essay-q">"Evaluate the impact of a national minimum wage on the labour market."</span>
+            <span class="essay-marks">25 marks</span>
+            <span class="chevron">&#x25BC;</span>
+        </div>
+        <div class="essay-body">
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot intro"></span> Define</div>
+                <div class="plan-step-content">Define <strong>national minimum wage</strong> (price floor in labour market, set above equilibrium wage). Distinguish NMW from National Living Wage.</div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot analysis"></span> Analysis 1: Competitive labour market</div>
+                <div class="plan-step-content">
+                    <span class="chain">NMW above equilibrium &rarr; supply of labour > demand &rarr; surplus of workers &rarr; unemployment &rarr; disequilibrium</span>
+                    <span class="diagram-note">Diagram: S/D for labour with NMW above We, showing excess supply</span>
+                    <br>Higher costs for firms &rarr; may reduce hiring, cut hours, or raise prices.
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot analysis"></span> Analysis 2: Monopsony employer</div>
+                <div class="plan-step-content">
+                    <span class="eval-point">However, if employer is a monopsony:</span>
+                    <span class="chain">Monopsony pays below competitive wage &rarr; NMW can increase BOTH wages AND employment &rarr; moves towards competitive outcome</span>
+                    <span class="diagram-note">Diagram: Monopsony with MCL above ACL, NMW between</span>
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot eval"></span> Evaluation</div>
+                <div class="plan-step-content">
+                    <ul>
+                        <li><strong>Depends on how far above equilibrium:</strong> small increase = minimal unemployment; large increase = significant job losses</li>
+                        <li><strong>Sector matters:</strong> low-skill sectors more affected than high-skill</li>
+                        <li><strong>Multiplier effect:</strong> low-paid workers have high MPC &rarr; spending increases AD</li>
+                        <li><strong>Reduces inequality</strong> and in-work poverty, but may not help the unemployed</li>
+                        <li><strong>Firms may absorb costs</strong> through lower profits rather than cutting jobs</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot conclude"></span> Conclusion</div>
+                <div class="plan-step-content">In a monopsony labour market, a moderate NMW can increase employment. In a competitive market, it creates unemployment. The real-world impact is somewhere between — empirical evidence (e.g. Card & Krueger) suggests moderate minimum wages have small negative effects on employment. <strong>The level relative to the median wage matters most.</strong></div>
+            </div>
+            <div class="key-terms"><strong>Define:</strong> NMW, monopsony, MRP, price floor, derived demand, wage elasticity of demand</div>
+        </div>
+    </div>
+
+    <!-- ===== MACROECONOMICS ===== -->
+    <div class="section-label macro">Macroeconomics</div>
+
+    <div class="essay" data-id="5">
+        <div class="essay-header" onclick="toggle(this)">
+            <span class="essay-q">"Evaluate the effectiveness of fiscal policy in reducing unemployment."</span>
+            <span class="essay-marks">25 marks</span>
+            <span class="chevron">&#x25BC;</span>
+        </div>
+        <div class="essay-body">
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot intro"></span> Define</div>
+                <div class="plan-step-content">Define <strong>fiscal policy</strong> (government spending and taxation to influence AD) and <strong>unemployment</strong> (those willing and able to work but without a job).</div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot analysis"></span> Analysis 1: How it reduces demand-deficient unemployment</div>
+                <div class="plan-step-content">
+                    <span class="chain">Increase G or cut T &rarr; AD shifts right &rarr; real GDP rises &rarr; derived demand for labour rises &rarr; unemployment falls</span>
+                    <span class="diagram-note">Diagram: AD/AS with AD shifting right along Keynesian LRAS</span>
+                    <br><strong>Multiplier effect:</strong> initial injection is respent &rarr; total increase in GDP is greater than the initial change. Multiplier = 1/(1-MPC).
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot eval"></span> Counter &amp; Evaluation</div>
+                <div class="plan-step-content">
+                    <ul>
+                        <li><span class="eval-point">Type of unemployment matters:</span> fiscal policy works for cyclical/demand-deficient, NOT for structural (need supply-side policies instead)</li>
+                        <li><span class="eval-point">Time lags:</span> planning, implementation, and impact can take 12-18 months</li>
+                        <li><span class="eval-point">Crowding out:</span> government borrowing may raise interest rates &rarr; reduces private investment</li>
+                        <li><span class="eval-point">Budget deficit:</span> expansionary fiscal policy increases national debt</li>
+                        <li><span class="eval-point">Inflation risk:</span> if economy is near full capacity, AD shift causes demand-pull inflation not lower unemployment</li>
+                        <li><span class="eval-point">Multiplier size:</span> depends on MPC, leakages (tax, imports, savings) — may be small in open economy</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot conclude"></span> Conclusion</div>
+                <div class="plan-step-content">Effective for demand-deficient unemployment in a recession with spare capacity. Less effective near full employment or for structural unemployment. <strong>Best used alongside supply-side policies</strong> for a comprehensive approach. Keynesian view: essential. Classical view: only short-term, creates long-term debt problems.</div>
+            </div>
+            <div class="key-terms"><strong>Define:</strong> fiscal policy, multiplier, MPC, crowding out, demand-deficient unemployment, structural unemployment, output gap</div>
+        </div>
+    </div>
+
+    <div class="essay" data-id="6">
+        <div class="essay-header" onclick="toggle(this)">
+            <span class="essay-q">"Evaluate the effectiveness of monetary policy in controlling inflation."</span>
+            <span class="essay-marks">25 marks</span>
+            <span class="chevron">&#x25BC;</span>
+        </div>
+        <div class="essay-body">
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot intro"></span> Define</div>
+                <div class="plan-step-content">Define <strong>monetary policy</strong> (use of interest rates, money supply, QE by central bank) and <strong>inflation</strong> (sustained rise in general price level, measured by CPI).</div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot analysis"></span> Analysis 1: Raising interest rates</div>
+                <div class="plan-step-content">
+                    <span class="chain">Bank rate rises &rarr; cost of borrowing rises &rarr; consumption &amp; investment fall &rarr; AD shifts left &rarr; inflationary pressure reduced</span>
+                    <span class="diagram-note">Diagram: AD/AS with AD shifting left</span>
+                    <br>Also: higher rates attract hot money &rarr; exchange rate appreciates &rarr; imports cheaper &rarr; reduces cost-push inflation.
+                    <br>Savings more attractive &rarr; consumption falls further.
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot eval"></span> Counter &amp; Evaluation</div>
+                <div class="plan-step-content">
+                    <ul>
+                        <li><span class="eval-point">Type of inflation:</span> effective for demand-pull, but NOT cost-push (raising rates won't fix oil price shocks)</li>
+                        <li><span class="eval-point">Time lags:</span> 18-24 months for full transmission</li>
+                        <li><span class="eval-point">Blunt instrument:</span> affects ALL sectors, not just overheating ones</li>
+                        <li><span class="eval-point">Liquidity trap:</span> if rates are already near zero (like post-2008), can't cut further</li>
+                        <li><span class="eval-point">QE effectiveness:</span> may inflate asset prices rather than real economic activity</li>
+                        <li><span class="eval-point">Mortgage holders:</span> rate rises disproportionately affect variable-rate mortgage borrowers</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot conclude"></span> Conclusion</div>
+                <div class="plan-step-content">Effective for demand-pull inflation when there is room to adjust rates. Less effective for cost-push or at the zero lower bound. <strong>Works best when combined with fiscal restraint and clear central bank communication</strong> (managing expectations).</div>
+            </div>
+            <div class="key-terms"><strong>Define:</strong> base rate, MPC, CPI, transmission mechanism, quantitative easing, liquidity trap, hot money</div>
+        </div>
+    </div>
+
+    <div class="essay" data-id="7">
+        <div class="essay-header" onclick="toggle(this)">
+            <span class="essay-q">"Evaluate the view that supply-side policies are the most effective way to achieve economic growth."</span>
+            <span class="essay-marks">25 marks</span>
+            <span class="chevron">&#x25BC;</span>
+        </div>
+        <div class="essay-body">
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot intro"></span> Define</div>
+                <div class="plan-step-content">Define <strong>supply-side policies</strong> (policies to increase productive capacity / shift LRAS right) and <strong>economic growth</strong> (increase in real GDP over time).</div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot analysis"></span> Analysis 1: Supply-side strengths</div>
+                <div class="plan-step-content">
+                    <span class="chain">Education/training &rarr; more productive workforce &rarr; LRAS shifts right &rarr; sustained growth without inflation</span>
+                    <span class="diagram-note">Diagram: AD/AS with LRAS shifting right, showing growth at stable prices</span>
+                    <br>Deregulation &rarr; lower business costs &rarr; more firms enter &rarr; competition &rarr; efficiency.
+                    <br>Tax cuts on profits &rarr; incentive to invest &rarr; capital deepening &rarr; productivity gains.
+                    <br><strong>Key advantage:</strong> non-inflationary growth (capacity expands alongside demand).
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot eval"></span> Counter: Limitations</div>
+                <div class="plan-step-content">
+                    <ul>
+                        <li><span class="eval-point">Very long time lags:</span> education takes years; infrastructure takes decades</li>
+                        <li><span class="eval-point">Costly:</span> government spending on education/infrastructure is expensive</li>
+                        <li><span class="eval-point">Market-based may increase inequality:</span> deregulation and tax cuts may favour the wealthy</li>
+                        <li><span class="eval-point">Won't help in a recession:</span> if AD is deficient, expanding capacity doesn't help — need demand-side stimulus first</li>
+                        <li><span class="eval-point">No guarantee:</span> cutting corporation tax doesn't guarantee firms will invest (may just increase dividends)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot conclude"></span> Conclusion</div>
+                <div class="plan-step-content">"Most effective" is too strong. Supply-side policies are essential for <strong>long-run sustainable growth</strong>, but in the short run, demand-side policies may be needed to close the output gap. <strong>Best approach: both together</strong> — fiscal/monetary stimulus for short-run recovery, supply-side for long-run capacity.</div>
+            </div>
+            <div class="key-terms"><strong>Define:</strong> LRAS, productive capacity, human capital, labour productivity, output gap, Laffer curve</div>
+        </div>
+    </div>
+
+    <!-- ===== BUSINESS & LABOUR ===== -->
+    <div class="section-label business">Business &amp; Labour Market</div>
+
+    <div class="essay" data-id="8">
+        <div class="essay-header" onclick="toggle(this)">
+            <span class="essay-q">"Evaluate whether consumers benefit from oligopolistic market structures."</span>
+            <span class="essay-marks">25 marks</span>
+            <span class="chevron">&#x25BC;</span>
+        </div>
+        <div class="essay-body">
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot intro"></span> Define</div>
+                <div class="plan-step-content">Define <strong>oligopoly</strong> (few dominant firms, high concentration ratio, interdependent decision-making, barriers to entry).</div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot analysis"></span> Analysis 1: Consumers lose</div>
+                <div class="plan-step-content">
+                    <strong>Collusion</strong> (tacit or overt) &rarr; firms act as a monopoly &rarr; restrict output, raise prices &rarr; allocative inefficiency, lower consumer surplus.
+                    <span class="diagram-note">Diagram: Kinked demand curve or cartel diagram (joint profit max at MC=MR)</span>
+                    <br>Price rigidity — kinked demand curve means prices don't fall even when costs do.
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot eval"></span> Counter: Consumers benefit</div>
+                <div class="plan-step-content">
+                    <ul>
+                        <li><strong>Non-price competition:</strong> quality, branding, innovation, customer service — consumers get better products</li>
+                        <li><strong>Economies of scale:</strong> large firms achieve lower AC, potentially lower prices than many small firms</li>
+                        <li><strong>Price wars:</strong> occasional breakdowns in collusion benefit consumers (e.g. supermarket price matching)</li>
+                        <li><strong>Dynamic efficiency:</strong> supernormal profits fund R&D (e.g. tech, pharmaceuticals)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot conclude"></span> Conclusion</div>
+                <div class="plan-step-content">Depends on whether firms <strong>compete or collude</strong>. If contestable (low barriers), competitive behaviour dominates. If collusive, consumers lose. <strong>Competition policy</strong> (CMA) is crucial in ensuring oligopolies behave competitively.</div>
+            </div>
+            <div class="key-terms"><strong>Define:</strong> oligopoly, interdependence, concentration ratio, kinked demand, game theory, Nash equilibrium, contestability</div>
+        </div>
+    </div>
+
+    <div class="essay" data-id="9">
+        <div class="essay-header" onclick="toggle(this)">
+            <span class="essay-q">"Evaluate the view that profit maximisation is always the primary objective of firms."</span>
+            <span class="essay-marks">25 marks</span>
+            <span class="chevron">&#x25BC;</span>
+        </div>
+        <div class="essay-body">
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot intro"></span> Define</div>
+                <div class="plan-step-content">Define <strong>profit maximisation</strong> (output where MC = MR, maximum difference between TR and TC).</div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot analysis"></span> Analysis 1: Yes, it's primary</div>
+                <div class="plan-step-content">
+                    In <strong>perfect competition</strong>, firms MUST profit maximise to survive (only normal profit in LR).
+                    <br><strong>Shareholders</strong> demand maximum returns &rarr; pressure on managers.
+                    <br>In the <strong>long run</strong>, all firms must at least cover costs or exit the market.
+                    <span class="diagram-note">Diagram: MC = MR profit maximisation</span>
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot eval"></span> Counter: Alternative objectives</div>
+                <div class="plan-step-content">
+                    <ul>
+                        <li><strong>Revenue maximisation</strong> (MR = 0): managers may prefer growth/market share over profit (Baumol)</li>
+                        <li><strong>Sales maximisation</strong> (AC = AR): maximise output while breaking even</li>
+                        <li><strong>Satisficing:</strong> earn "good enough" profit while pursuing other goals (Cyert & March, principal-agent problem)</li>
+                        <li><strong>Social enterprise:</strong> some firms prioritise social/environmental goals</li>
+                        <li><strong>Predatory pricing:</strong> short-run losses to drive out competitors</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot conclude"></span> Conclusion</div>
+                <div class="plan-step-content">Depends on <strong>ownership structure</strong> (shareholder-owned vs mutual vs public sector), <strong>market structure</strong> (competitive pressure forces profit max), and <strong>time horizon</strong> (short-run market share vs long-run profit). In practice, most large firms satisfice rather than strictly maximise.</div>
+            </div>
+            <div class="key-terms"><strong>Define:</strong> normal/supernormal profit, MC=MR, revenue maximisation, satisficing, principal-agent problem, divorce of ownership and control</div>
+        </div>
+    </div>
+
+    <div class="essay" data-id="10">
+        <div class="essay-header" onclick="toggle(this)">
+            <span class="essay-q">"Evaluate whether economies of scale always lead to lower prices for consumers."</span>
+            <span class="essay-marks">25 marks</span>
+            <span class="chevron">&#x25BC;</span>
+        </div>
+        <div class="essay-body">
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot intro"></span> Define</div>
+                <div class="plan-step-content">Define <strong>economies of scale</strong> (falling long-run average costs as output increases). Internal (technical, managerial, financial, marketing, risk-bearing) vs external.</div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot analysis"></span> Analysis 1: Yes, lower prices</div>
+                <div class="plan-step-content">
+                    <span class="chain">EoS &rarr; lower AC &rarr; firm can reduce prices and still make profit &rarr; consumer benefit</span>
+                    <span class="diagram-note">Diagram: LRAC curve showing falling AC as output rises</span>
+                    <br>In competitive markets, firms MUST pass on cost savings to retain market share.
+                    <br>Natural monopoly: one large firm has lower AC than multiple small firms &rarr; potentially lower prices for all.
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot eval"></span> Counter: Not necessarily</div>
+                <div class="plan-step-content">
+                    <ul>
+                        <li><strong>Market power:</strong> large firm may retain savings as supernormal profit rather than cutting prices</li>
+                        <li><strong>Diseconomies of scale:</strong> beyond MES, costs may RISE (coordination problems, bureaucracy)</li>
+                        <li><strong>X-inefficiency:</strong> lack of competition leads to waste/complacency</li>
+                        <li><strong>Price discrimination:</strong> monopolist may charge different consumers different prices</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot conclude"></span> Conclusion</div>
+                <div class="plan-step-content">EoS <strong>can</strong> but don't <strong>always</strong> lead to lower prices. The key factor is <strong>market structure and contestability</strong>. In competitive/contestable markets, cost savings are more likely to be passed on. In monopolistic markets, regulation may be needed to ensure consumers benefit.</div>
+            </div>
+            <div class="key-terms"><strong>Define:</strong> EoS, MES, LRAC, natural monopoly, X-inefficiency, diseconomies of scale, contestability</div>
+        </div>
+    </div>
+
+    <!-- ===== GLOBAL ECONOMY ===== -->
+    <div class="section-label global">The Global Economy</div>
+
+    <div class="essay" data-id="11">
+        <div class="essay-header" onclick="toggle(this)">
+            <span class="essay-q">"Evaluate the impact of globalisation on developing economies."</span>
+            <span class="essay-marks">25 marks</span>
+            <span class="chevron">&#x25BC;</span>
+        </div>
+        <div class="essay-body">
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot intro"></span> Define</div>
+                <div class="plan-step-content">Define <strong>globalisation</strong> (increasing integration and interdependence of world economies through trade, capital flows, migration, technology).</div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot analysis"></span> Analysis 1: Benefits</div>
+                <div class="plan-step-content">
+                    <span class="chain">FDI inflows &rarr; capital investment &rarr; jobs created &rarr; wages rise &rarr; GDP per capita increases &rarr; poverty reduction</span>
+                    Access to global markets &rarr; export-led growth (e.g. China, Vietnam).
+                    <br>Technology transfer from TNCs &rarr; productivity gains.
+                    <br>Comparative advantage exploitation &rarr; specialisation &rarr; efficiency.
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot eval"></span> Counter: Costs</div>
+                <div class="plan-step-content">
+                    <ul>
+                        <li><strong>Inequality:</strong> benefits concentrated in urban areas/skilled workers — rural poverty may persist</li>
+                        <li><strong>Environmental degradation:</strong> "race to the bottom" in environmental standards</li>
+                        <li><strong>Dependency:</strong> reliance on TNCs who may relocate for cheaper labour</li>
+                        <li><strong>Terms of trade:</strong> developing countries often export low-value primary commodities</li>
+                        <li><strong>Cultural erosion:</strong> homogenisation of culture by Western TNCs</li>
+                        <li><strong>Profit repatriation:</strong> TNC profits flow back to home country, not reinvested locally</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot conclude"></span> Conclusion</div>
+                <div class="plan-step-content">Globalisation has lifted millions out of poverty but the benefits are <strong>unevenly distributed</strong>. Success depends on <strong>governance quality</strong>, <strong>institutional strength</strong>, and whether the country can move up the value chain. <strong>Managed globalisation</strong> (with investment in education and infrastructure) is more beneficial than unrestricted openness.</div>
+            </div>
+            <div class="key-terms"><strong>Define:</strong> globalisation, FDI, TNC, comparative advantage, terms of trade, HDI, dependency</div>
+        </div>
+    </div>
+
+    <div class="essay" data-id="12">
+        <div class="essay-header" onclick="toggle(this)">
+            <span class="essay-q">"Evaluate the view that protectionism is never justified."</span>
+            <span class="essay-marks">25 marks</span>
+            <span class="chevron">&#x25BC;</span>
+        </div>
+        <div class="essay-body">
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot intro"></span> Define</div>
+                <div class="plan-step-content">Define <strong>protectionism</strong> (government policies to restrict imports — tariffs, quotas, subsidies, embargoes, administrative barriers).</div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot analysis"></span> Analysis 1: Free trade is better (protectionism is bad)</div>
+                <div class="plan-step-content">
+                    <span class="chain">Tariffs &rarr; higher import prices &rarr; consumers pay more &rarr; lower consumer surplus &rarr; allocative inefficiency</span>
+                    <span class="diagram-note">Diagram: Tariff diagram showing welfare loss triangles</span>
+                    <br>Comparative advantage theory: free trade allows specialisation &rarr; higher global output.
+                    <br>Protectionism invites retaliation &rarr; trade wars &rarr; everyone worse off.
+                    <br>Reduces competition &rarr; domestic firms become inefficient.
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot eval"></span> Counter: Sometimes justified</div>
+                <div class="plan-step-content">
+                    <ul>
+                        <li><strong>Infant industry argument:</strong> new industries need temporary protection to achieve EoS before competing globally</li>
+                        <li><strong>National security:</strong> strategic industries (defence, food, energy) shouldn't depend on imports</li>
+                        <li><strong>Anti-dumping:</strong> foreign firms selling below cost to destroy domestic competition</li>
+                        <li><strong>Protecting jobs:</strong> short-run political justification, especially in declining industries</li>
+                        <li><strong>Correcting trade imbalances:</strong> persistent current account deficit</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot conclude"></span> Conclusion</div>
+                <div class="plan-step-content">"Never justified" is too absolute. <strong>Temporary, targeted protectionism</strong> (infant industry, anti-dumping) can be justified. But permanent, broad protectionism reduces efficiency and harms consumers. The key test: does the long-run benefit outweigh the short-run cost? Usually, free trade wins in the long run.</div>
+            </div>
+            <div class="key-terms"><strong>Define:</strong> tariff, quota, comparative advantage, infant industry, dumping, WTO, trade creation/diversion</div>
+        </div>
+    </div>
+
+    <div class="essay" data-id="13">
+        <div class="essay-header" onclick="toggle(this)">
+            <span class="essay-q">"Evaluate policies to correct a persistent current account deficit."</span>
+            <span class="essay-marks">25 marks</span>
+            <span class="chevron">&#x25BC;</span>
+        </div>
+        <div class="essay-body">
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot intro"></span> Define</div>
+                <div class="plan-step-content">Define <strong>current account deficit</strong> (imports of goods/services/income exceed exports). Distinguish from budget deficit.</div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot analysis"></span> Policy 1: Expenditure-reducing</div>
+                <div class="plan-step-content">
+                    <span class="chain">Raise interest rates or cut G &rarr; AD falls &rarr; income falls &rarr; import spending falls &rarr; current account improves</span>
+                    <span class="eval-point">But:</span> causes unemployment and lower growth — painful trade-off.
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot analysis"></span> Policy 2: Expenditure-switching</div>
+                <div class="plan-step-content">
+                    <span class="chain">Depreciate exchange rate &rarr; imports dearer, exports cheaper &rarr; demand switches to domestic goods &rarr; current account improves</span>
+                    <span class="eval-point">But:</span> only works if <strong>Marshall-Lerner condition</strong> is met (PED exports + PED imports > 1). <strong>J-curve effect</strong>: worsens in short run before improving.
+                    <span class="diagram-note">Diagram: J-curve showing initial worsening then improvement</span>
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot analysis"></span> Policy 3: Supply-side</div>
+                <div class="plan-step-content">
+                    Improve competitiveness: invest in education, R&D, infrastructure &rarr; more competitive exports &rarr; long-run improvement.
+                    <br><span class="eval-point">But:</span> very long time lags. Doesn't help in the short run.
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot conclude"></span> Conclusion</div>
+                <div class="plan-step-content">No single policy is sufficient. <strong>Short run:</strong> expenditure-switching can work if Marshall-Lerner holds. <strong>Long run:</strong> supply-side improvements in competitiveness are essential. The best approach depends on the <strong>cause</strong> of the deficit — if structural (uncompetitive economy), supply-side is crucial; if cyclical (temporary demand surge), it may self-correct.</div>
+            </div>
+            <div class="key-terms"><strong>Define:</strong> current account, Marshall-Lerner, J-curve, exchange rate, expenditure-reducing, expenditure-switching</div>
+        </div>
+    </div>
+
+    <div class="essay" data-id="14">
+        <div class="essay-header" onclick="toggle(this)">
+            <span class="essay-q">"Evaluate the view that a floating exchange rate is always preferable to a fixed exchange rate."</span>
+            <span class="essay-marks">25 marks</span>
+            <span class="chevron">&#x25BC;</span>
+        </div>
+        <div class="essay-body">
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot intro"></span> Define</div>
+                <div class="plan-step-content">Define <strong>floating exchange rate</strong> (determined by market forces of supply and demand for the currency) and <strong>fixed exchange rate</strong> (pegged to another currency by the central bank).</div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot analysis"></span> Analysis 1: Floating advantages</div>
+                <div class="plan-step-content">
+                    <ul>
+                        <li><strong>Automatic adjustment:</strong> current account deficit &rarr; currency depreciates &rarr; exports cheaper &rarr; self-correcting</li>
+                        <li><strong>Monetary policy freedom:</strong> can set interest rates for domestic economy (not to defend the peg)</li>
+                        <li><strong>No need for reserves:</strong> central bank doesn't need to hold large foreign currency reserves</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot eval"></span> Counter: Fixed advantages</div>
+                <div class="plan-step-content">
+                    <ul>
+                        <li><strong>Certainty:</strong> businesses can plan trade/investment without exchange rate risk</li>
+                        <li><strong>Low inflation discipline:</strong> pegging to a low-inflation currency imports credibility</li>
+                        <li><strong>Prevents speculation:</strong> no room for destabilising currency speculation</li>
+                        <li><span class="eval-point">But:</span> requires large reserves, loses monetary independence, risk of speculative attacks if overvalued</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot conclude"></span> Conclusion</div>
+                <div class="plan-step-content">Neither is "always" preferable. Floating suits <strong>large, diversified economies</strong> (UK, US). Fixed can suit <strong>small, open, inflation-prone economies</strong>. Many countries use a <strong>managed float</strong> — a pragmatic middle ground. "Always" makes the statement too strong.</div>
+            </div>
+            <div class="key-terms"><strong>Define:</strong> floating, fixed, managed float, hot money, speculation, foreign currency reserves, interest rate parity</div>
+        </div>
+    </div>
+
+    <div class="essay" data-id="15">
+        <div class="essay-header" onclick="toggle(this)">
+            <span class="essay-q">"Evaluate strategies to promote economic development in developing countries."</span>
+            <span class="essay-marks">25 marks</span>
+            <span class="chevron">&#x25BC;</span>
+        </div>
+        <div class="essay-body">
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot intro"></span> Define</div>
+                <div class="plan-step-content">Define <strong>economic development</strong> (improvement in living standards, health, education, freedom — broader than GDP growth). Distinguish from economic growth. Mention HDI.</div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot analysis"></span> Strategy 1: Trade liberalisation</div>
+                <div class="plan-step-content">
+                    <span class="chain">Remove trade barriers &rarr; exploit comparative advantage &rarr; export-led growth &rarr; FDI inflows &rarr; job creation &rarr; development</span>
+                    <span class="eval-point">But:</span> may benefit only certain sectors/regions; terms of trade may deteriorate; infant industries may be destroyed.
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot analysis"></span> Strategy 2: Foreign aid</div>
+                <div class="plan-step-content">
+                    Aid can fund infrastructure, education, healthcare directly.
+                    <br><span class="eval-point">But:</span> may create dependency, corruption may divert funds, tied aid benefits donor country, may distort markets.
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot analysis"></span> Strategy 3: Microfinance &amp; debt relief</div>
+                <div class="plan-step-content">
+                    <strong>Microfinance:</strong> small loans to entrepreneurs &rarr; self-employment &rarr; income generation (e.g. Grameen Bank).
+                    <br><strong>Debt relief:</strong> freed-up government revenue can be spent on public services.
+                    <br><span class="eval-point">But:</span> microfinance has high interest rates; debt relief may encourage future reckless borrowing.
+                </div>
+            </div>
+            <div class="plan-step">
+                <div class="plan-step-label"><span class="dot conclude"></span> Conclusion</div>
+                <div class="plan-step-content">No single strategy is sufficient. Development requires a <strong>combination</strong>: trade access, institutional reform (rule of law, property rights, anti-corruption), investment in human capital, and appropriate levels of aid. The most successful developing countries (e.g. South Korea, Botswana) used <strong>managed trade + strong institutions + investment in education</strong>.</div>
+            </div>
+            <div class="key-terms"><strong>Define:</strong> economic development, HDI, FDI, Harrod-Domar model, microfinance, tied aid, debt relief, institutional quality</div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function toggle(header) {
+    var body = header.nextElementSibling;
+    var chev = header.querySelector('.chevron');
+    body.classList.toggle('show');
+    chev.classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
