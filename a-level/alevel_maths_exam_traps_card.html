@@ -309,7 +309,7 @@
             display: flex;
             align-items: center;
             gap: 4px;
-            padding: 5px 10px;
+            padding: 5px 12px; min-width: 72px; justify-content: center;
             border-radius: 4px;
             background: #ff0000;
             color: #fff;
@@ -326,18 +326,18 @@
     </style>
 </head>
 <body>
-<a class="yt-link" href="https://www.youtube.com/results?search_query=A+Level+Maths+common+mistakes+exam+tips" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>Watch</a>
+<a class="yt-link" href="https://www.youtube.com/results?search_query=A+Level+Maths+common+mistakes+exam+tips" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg><span class="yt-label">Watch</span></a>
 
 <div class="page">
 
     <div class="hero">
-        <h1 data-yt="A Level Maths A-Level Maths The Mistakes That Cost You Marks Every Year revision explained">A-Level Maths &mdash; The Mistakes That Cost You Marks Every Year</h1>
+        <h1 data-yt="A Level Maths A-Level Maths The Mistakes That Cost You Marks Every Year revision explained" data-yt-label="Traps">A-Level Maths &mdash; The Mistakes That Cost You Marks Every Year</h1>
         <div class="subtitle">The wall of shame. Learn these. Never lose these marks again.</div>
     </div>
 
     <!-- ========== 1. CALCULUS ========== -->
     <div class="section calculus">
-        <h2 data-yt="A Level Maths 1 Calculus Mistakes revision explained"><span class="section-num">1</span> Calculus Mistakes</h2>
+        <h2 data-yt="A Level Maths 1 Calculus Mistakes revision explained" data-yt-label="Calc"><span class="section-num">1</span> Calculus Mistakes</h2>
 
         <!-- +c -->
         <div class="trap">
@@ -511,7 +511,7 @@
 
     <!-- ========== 2. ALGEBRA ========== -->
     <div class="section algebra">
-        <h2 data-yt="A Level Maths 2 Algebra Mistakes revision explained"><span class="section-num">2</span> Algebra Mistakes</h2>
+        <h2 data-yt="A Level Maths 2 Algebra Mistakes revision explained" data-yt-label="Algebra"><span class="section-num">2</span> Algebra Mistakes</h2>
 
         <!-- (a+b)^2 -->
         <div class="trap">
@@ -631,7 +631,7 @@
 
     <!-- ========== 3. TRIGONOMETRY ========== -->
     <div class="section trig">
-        <h2 data-yt="A Level Maths 3 Trigonometry Mistakes revision explained"><span class="section-num">3</span> Trigonometry Mistakes</h2>
+        <h2 data-yt="A Level Maths 3 Trigonometry Mistakes revision explained" data-yt-label="Trig"><span class="section-num">3</span> Trigonometry Mistakes</h2>
 
         <!-- Calculator mode -->
         <div class="trap">
@@ -757,7 +757,7 @@
 
     <!-- ========== 4. STATISTICS ========== -->
     <div class="section stats">
-        <h2 data-yt="A Level Maths 4 Statistics Mistakes revision explained"><span class="section-num">4</span> Statistics Mistakes</h2>
+        <h2 data-yt="A Level Maths 4 Statistics Mistakes revision explained" data-yt-label="Stats"><span class="section-num">4</span> Statistics Mistakes</h2>
 
         <!-- sigma^2 vs sigma -->
         <div class="trap">
@@ -858,7 +858,7 @@
 
     <!-- ========== 5. MECHANICS ========== -->
     <div class="section mechanics">
-        <h2 data-yt="A Level Maths 5 Mechanics Mistakes revision explained"><span class="section-num">5</span> Mechanics Mistakes</h2>
+        <h2 data-yt="A Level Maths 5 Mechanics Mistakes revision explained" data-yt-label="Mech"><span class="section-num">5</span> Mechanics Mistakes</h2>
 
         <!-- W = mg -->
         <div class="trap">
@@ -959,7 +959,7 @@
 
     <!-- ========== 6. GENERAL EXAM TECHNIQUE ========== -->
     <div class="section technique">
-        <h2 data-yt="A Level Maths 6 General Exam Technique revision explained"><span class="section-num">6</span> General Exam Technique</h2>
+        <h2 data-yt="A Level Maths 6 General Exam Technique revision explained" data-yt-label="General"><span class="section-num">6</span> General Exam Technique</h2>
 
         <!-- Show that -->
         <div class="trap">
@@ -1082,6 +1082,14 @@
             if (entries[i].isIntersecting) {
                 var q = entries[i].target.getAttribute('data-yt');
                 btn.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+                var label = entries[i].target.getAttribute('data-yt-label');
+                if (label) { var span = btn.querySelector('.yt-label'); if (span) span.textContent = label; }
+                var label = entries[i].target.getAttribute('data-yt-label');
+                if (label) { var span = btn.querySelector('.yt-label'); if (span) span.textContent = label; }
+                var label = entries[i].target.getAttribute('data-yt-label');
+                if (label) { var span = btn.querySelector('.yt-label'); if (span) span.textContent = label; }
+                var label = entries[i].target.getAttribute('data-yt-label');
+                if (label) { var span = btn.querySelector('.yt-label'); if (span) span.textContent = label; }
             }
         }
     }, { threshold: 0.3 });

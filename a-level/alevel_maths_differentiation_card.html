@@ -519,7 +519,7 @@
             display: flex;
             align-items: center;
             gap: 4px;
-            padding: 5px 10px;
+            padding: 5px 12px; min-width: 72px; justify-content: center;
             border-radius: 4px;
             background: #ff0000;
             color: #fff;
@@ -536,12 +536,12 @@
     </style>
 </head>
 <body>
-<a class="yt-link" href="https://www.youtube.com/results?search_query=A+Level+Maths+chain+rule+product+rule+quotient+rule" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>Watch</a>
+<a class="yt-link" href="https://www.youtube.com/results?search_query=A+Level+Maths+chain+rule+product+rule+quotient+rule" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg><span class="yt-label">Watch</span></a>
 
 <div class="page">
 
     <div class="hero">
-        <h1 data-yt="A Level Maths Differentiation Rules revision explained">Differentiation Rules</h1>
+        <h1 data-yt="A Level Maths Differentiation Rules revision explained" data-yt-label="Diff'n">Differentiation Rules</h1>
         <div class="subtitle">Which one to use &amp; how to apply it</div>
     </div>
 
@@ -599,7 +599,7 @@
 
     <!-- ---- INTERACTIVE FLOWCHART ---- -->
     <div class="flowchart">
-        <h2 data-yt="A Level Maths Which rule do I need? Click to find out revision explained">Which rule do I need? &mdash; Click to find out</h2>
+        <h2 data-yt="A Level Maths Which rule do I need? Click to find out revision explained" data-yt-label="Picker">Which rule do I need? &mdash; Click to find out</h2>
         <div class="intro">Answer Yes or No. Three questions maximum.</div>
 
         <div class="fc-question" id="fcQuestion"></div>
@@ -705,7 +705,7 @@
 
     <!-- ---- STANDARD RESULTS TABLE ---- -->
     <div class="quick-ref">
-        <h2 data-yt="A Level Maths Standard Results Must Know revision explained">Standard Results &mdash; Must Know</h2>
+        <h2 data-yt="A Level Maths Standard Results Must Know revision explained" data-yt-label="Results">Standard Results &mdash; Must Know</h2>
         <table class="ref-table">
             <tr>
                 <th>f(x)</th>
@@ -752,7 +752,7 @@
 
     <!-- ---- COMMON MISTAKES ---- -->
     <div class="mistakes-box">
-        <h2 data-yt="A Level Maths Common Mistakes revision explained">Common Mistakes</h2>
+        <h2 data-yt="A Level Maths Common Mistakes revision explained" data-yt-label="Traps">Common Mistakes</h2>
         <ul>
             <li>
                 <strong>Forgetting the chain rule on composite functions:</strong><br>
@@ -872,6 +872,14 @@ fcStart();
             if (entries[i].isIntersecting) {
                 var q = entries[i].target.getAttribute('data-yt');
                 btn.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+                var label = entries[i].target.getAttribute('data-yt-label');
+                if (label) { var span = btn.querySelector('.yt-label'); if (span) span.textContent = label; }
+                var label = entries[i].target.getAttribute('data-yt-label');
+                if (label) { var span = btn.querySelector('.yt-label'); if (span) span.textContent = label; }
+                var label = entries[i].target.getAttribute('data-yt-label');
+                if (label) { var span = btn.querySelector('.yt-label'); if (span) span.textContent = label; }
+                var label = entries[i].target.getAttribute('data-yt-label');
+                if (label) { var span = btn.querySelector('.yt-label'); if (span) span.textContent = label; }
             }
         }
     }, { threshold: 0.3 });

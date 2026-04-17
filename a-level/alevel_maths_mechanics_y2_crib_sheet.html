@@ -66,7 +66,7 @@
             display: flex;
             align-items: center;
             gap: 4px;
-            padding: 5px 10px;
+            padding: 5px 12px; min-width: 72px; justify-content: center;
             border-radius: 4px;
             background: #ff0000;
             color: #fff;
@@ -83,10 +83,10 @@
     </style>
 </head>
 <body>
-<a class="yt-link" href="https://www.youtube.com/results?search_query=A+Level+Maths+Mechanics+Year+2+projectiles+friction" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>Watch</a>
+<a class="yt-link" href="https://www.youtube.com/results?search_query=A+Level+Maths+Mechanics+Year+2+projectiles+friction" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg><span class="yt-label">Watch</span></a>
 <div class="page">
 <div class="header">
-  <h1 data-yt="A Level Maths A-Level Mechanics — Year 13 Crib Sheet revision explained">A-Level Mechanics — Year 13 Crib Sheet</h1>
+  <h1 data-yt="A Level Maths A-Level Mechanics — Year 13 Crib Sheet revision explained" data-yt-label="A-level">A-Level Mechanics — Year 13 Crib Sheet</h1>
   <span>Edexcel · Year 2/A2 · Mechanics</span>
 </div>
 
@@ -95,7 +95,7 @@
 
 <!-- FURTHER KINEMATICS (CALCULUS) -->
 <div class="box">
-<div data-yt="A Level Maths Further Kinematics (Calculus) Ch 6 revision explained" class="box-head s1">Further Kinematics (Calculus) <span class="marks">Ch 6</span></div>
+<div data-yt="A Level Maths Further Kinematics (Calculus) Ch 6 revision explained" data-yt-label="Kinem" class="box-head s1">Further Kinematics (Calculus) <span class="marks">Ch 6</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Calculus relationships</div><div class="val">For motion with variable acceleration, the suvat equations do not apply. Use calculus instead:<div class="formula-box">v = ds/dt &nbsp;(differentiate displacement)<br>a = dv/dt = d²s/dt² &nbsp;(differentiate velocity)<br>s = ∫v dt &nbsp;(integrate velocity)<br>v = ∫a dt &nbsp;(integrate acceleration)</div></div></div>
 <div class="row"><div class="kw">Vector form (i, j)</div><div class="val">Position, velocity and acceleration can be given as vectors:<div class="formula-box">r = x<strong>i</strong> + y<strong>j</strong><br>v = ẋ<strong>i</strong> + ẏ<strong>j</strong> = dr/dt<br>a = ẍ<strong>i</strong> + ÿ<strong>j</strong> = dv/dt</div>Differentiate and integrate each component separately.</div></div>
@@ -109,7 +109,7 @@
 
 <!-- PROJECTILES (ADVANCED) -->
 <div class="box">
-<div data-yt="A Level Maths Projectiles (Advanced) Ch 7 revision explained" class="box-head s2">Projectiles (Advanced) <span class="marks">Ch 7</span></div>
+<div data-yt="A Level Maths Projectiles (Advanced) Ch 7 revision explained" data-yt-label="Project" class="box-head s2">Projectiles (Advanced) <span class="marks">Ch 7</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Resolving at angle θ</div><div class="val">For a projectile launched at speed u at angle θ to the horizontal:<div class="formula-box">Horizontal: u_x = u cos θ &nbsp;(constant, no acceleration)<br>Vertical: u_y = u sin θ &nbsp;(acceleration = −g)</div></div></div>
 <div class="row"><div class="kw">Key equations</div><div class="val"><div class="formula-box">Horizontal: x = (u cos θ)t<br>Vertical: y = (u sin θ)t − ½gt²<br>Vertical velocity: v_y = u sin θ − gt</div>Treat horizontal and vertical components independently. There is no horizontal acceleration (ignoring air resistance).</div></div>
@@ -124,7 +124,7 @@
 
 <!-- ELASTIC STRINGS & SPRINGS -->
 <div class="box">
-<div data-yt="A Level Maths Elastic Strings & Springs Ch 10 revision explained" class="box-head s6">Elastic Strings &amp; Springs <span class="marks">Ch 10</span></div>
+<div data-yt="A Level Maths Elastic Strings & Springs Ch 10 revision explained" data-yt-label="Springs" class="box-head s6">Elastic Strings &amp; Springs <span class="marks">Ch 10</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Hooke's law</div><div class="val">The tension in an elastic string or spring is proportional to the extension:<div class="formula-box">T = kx = λx / l<br><br>k = spring constant (stiffness)<br>λ = modulus of elasticity<br>l = natural length<br>x = extension (or compression for springs)</div>Strings can only be in tension (T ≥ 0). Springs can be in tension or compression.</div></div>
 <div class="row"><div class="kw">Elastic potential energy</div><div class="val"><div class="formula-box">EPE = ½kx² = λx² / (2l)</div>This is the energy stored in a stretched (or compressed) elastic string or spring. Used in energy conservation problems.</div></div>
@@ -141,7 +141,7 @@
 
 <!-- FURTHER DYNAMICS -->
 <div class="box">
-<div data-yt="A Level Maths Further Dynamics Ch 8 revision explained" class="box-head s3">Further Dynamics <span class="marks">Ch 8</span></div>
+<div data-yt="A Level Maths Further Dynamics Ch 8 revision explained" data-yt-label="Further" class="box-head s3">Further Dynamics <span class="marks">Ch 8</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">F = ma (variable forces)</div><div class="val">Newton's second law still applies when forces vary with time or position:<div class="formula-box">F(t) = ma = m(dv/dt)<br>F(x) = ma = mv(dv/dx)</div>Solve by integrating or using calculus techniques from kinematics.</div></div>
 <div class="row"><div class="kw">Momentum</div><div class="val"><div class="formula-box">Momentum: p = mv<br>Conservation: m₁u₁ + m₂u₂ = m₁v₁ + m₂v₂</div>Momentum is conserved when no external forces act on the system. Always define a positive direction first.</div></div>
@@ -155,7 +155,7 @@
 
 <!-- STATICS -->
 <div class="box">
-<div data-yt="A Level Maths Statics Ch 9 revision explained" class="box-head s4">Statics <span class="marks">Ch 9</span></div>
+<div data-yt="A Level Maths Statics Ch 9 revision explained" data-yt-label="Statics" class="box-head s4">Statics <span class="marks">Ch 9</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Equilibrium conditions</div><div class="val">A body is in equilibrium when:<div class="formula-box">ΣF = 0 &nbsp;(net force is zero)<br>ΣM = 0 &nbsp;(net moment about any point is zero)</div>Resolve forces horizontally and vertically, and take moments about a suitable point.</div></div>
 <div class="row"><div class="kw">Moments</div><div class="val"><div class="formula-box">Moment = Force × perpendicular distance from pivot<br>M = Fd</div>Take moments about a point where an unknown force acts — this eliminates that unknown from the equation. Clockwise and anticlockwise moments must balance.</div></div>
@@ -185,6 +185,14 @@
             if (entries[i].isIntersecting) {
                 var q = entries[i].target.getAttribute('data-yt');
                 btn.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+                var label = entries[i].target.getAttribute('data-yt-label');
+                if (label) { var span = btn.querySelector('.yt-label'); if (span) span.textContent = label; }
+                var label = entries[i].target.getAttribute('data-yt-label');
+                if (label) { var span = btn.querySelector('.yt-label'); if (span) span.textContent = label; }
+                var label = entries[i].target.getAttribute('data-yt-label');
+                if (label) { var span = btn.querySelector('.yt-label'); if (span) span.textContent = label; }
+                var label = entries[i].target.getAttribute('data-yt-label');
+                if (label) { var span = btn.querySelector('.yt-label'); if (span) span.textContent = label; }
             }
         }
     }, { threshold: 0.3 });

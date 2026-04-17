@@ -377,7 +377,7 @@
             display: flex;
             align-items: center;
             gap: 4px;
-            padding: 5px 10px;
+            padding: 5px 12px; min-width: 72px; justify-content: center;
             border-radius: 4px;
             background: #ff0000;
             color: #fff;
@@ -394,7 +394,7 @@
     </style>
 </head>
 <body>
-<a class="yt-link" href="https://www.youtube.com/results?search_query=GCSE+Maths+worked+examples+6+mark+questions" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>Watch</a>
+<a class="yt-link" href="https://www.youtube.com/results?search_query=GCSE+Maths+worked+examples+6+mark+questions" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg><span class="yt-label">Watch</span></a>
 
 <div class="container">
 
@@ -855,6 +855,14 @@ init();
             if (entries[i].isIntersecting) {
                 var q = entries[i].target.getAttribute('data-yt');
                 btn.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+                var label = entries[i].target.getAttribute('data-yt-label');
+                if (label) { var span = btn.querySelector('.yt-label'); if (span) span.textContent = label; }
+                var label = entries[i].target.getAttribute('data-yt-label');
+                if (label) { var span = btn.querySelector('.yt-label'); if (span) span.textContent = label; }
+                var label = entries[i].target.getAttribute('data-yt-label');
+                if (label) { var span = btn.querySelector('.yt-label'); if (span) span.textContent = label; }
+                var label = entries[i].target.getAttribute('data-yt-label');
+                if (label) { var span = btn.querySelector('.yt-label'); if (span) span.textContent = label; }
             }
         }
     }, { threshold: 0.3 });

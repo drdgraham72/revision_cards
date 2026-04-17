@@ -66,7 +66,7 @@
             display: flex;
             align-items: center;
             gap: 4px;
-            padding: 5px 10px;
+            padding: 5px 12px; min-width: 72px; justify-content: center;
             border-radius: 4px;
             background: #ff0000;
             color: #fff;
@@ -83,10 +83,10 @@
     </style>
 </head>
 <body>
-<a class="yt-link" href="https://www.youtube.com/results?search_query=A+Level+Maths+Pure+Year+2+revision+further+calculus" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>Watch</a>
+<a class="yt-link" href="https://www.youtube.com/results?search_query=A+Level+Maths+Pure+Year+2+revision+further+calculus" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg><span class="yt-label">Watch</span></a>
 <div class="page">
 <div class="header">
-  <h1 data-yt="A Level Maths A-Level Pure Maths — Year 13 Crib Sheet revision explained">A-Level Pure Maths — Year 13 Crib Sheet</h1>
+  <h1 data-yt="A Level Maths A-Level Pure Maths — Year 13 Crib Sheet revision explained" data-yt-label="A-level">A-Level Pure Maths — Year 13 Crib Sheet</h1>
   <span>Edexcel · Year 2/A2 · Advanced Pure Topics</span>
 </div>
 
@@ -95,7 +95,7 @@
 
 <!-- FURTHER TRIGONOMETRY -->
 <div class="box">
-<div data-yt="A Level Maths Further Trigonometry Ch 6–7 revision explained" class="box-head s1">Further Trigonometry <span class="marks">Ch 6–7</span></div>
+<div data-yt="A Level Maths Further Trigonometry Ch 6–7 revision explained" data-yt-label="Trig" class="box-head s1">Further Trigonometry <span class="marks">Ch 6–7</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Reciprocal trig functions</div><div class="val"><div class="formula-box">secθ = 1/cosθ &nbsp;·&nbsp; cosecθ = 1/sinθ &nbsp;·&nbsp; cotθ = 1/tanθ = cosθ/sinθ</div>sec is undefined where cosθ = 0, cosec where sinθ = 0, cot where tanθ = 0. Graphs are reflections/reciprocals of the standard trig curves with vertical asymptotes at the zeros.</div></div>
 <div class="row"><div class="kw">Pythagorean identities</div><div class="val"><div class="formula-box">sin²θ + cos²θ ≡ 1<br>sec²θ ≡ 1 + tan²θ &nbsp;&nbsp;(divide by cos²θ)<br>cosec²θ ≡ 1 + cot²θ &nbsp;&nbsp;(divide by sin²θ)</div>The second and third identities are obtained by dividing the first by cos²θ and sin²θ respectively.</div></div>
@@ -110,7 +110,7 @@
 
 <!-- FURTHER DIFFERENTIATION -->
 <div class="box">
-<div data-yt="A Level Maths Further Differentiation Ch 9–10 revision explained" class="box-head s3">Further Differentiation <span class="marks">Ch 9–10</span></div>
+<div data-yt="A Level Maths Further Differentiation Ch 9–10 revision explained" data-yt-label="Further" class="box-head s3">Further Differentiation <span class="marks">Ch 9–10</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Chain rule</div><div class="val"><div class="formula-box">dy/dx = dy/du × du/dx</div>For composite functions y = f(g(x)): differentiate the outer function, multiply by the derivative of the inner.<div class="ex-box"><span class="ex-label">Example</span>y = (3x+1)⁵ → dy/dx = 5(3x+1)⁴ × 3 = 15(3x+1)⁴</div></div></div>
 <div class="row"><div class="kw">Product rule</div><div class="val"><div class="formula-box">d(uv)/dx = u(dv/dx) + v(du/dx)</div><div class="ex-box"><span class="ex-label">Example</span>y = x²sinx → dy/dx = x²cosx + 2x sinx</div></div></div>
@@ -127,7 +127,7 @@
 
 <!-- DIFFERENTIAL EQUATIONS -->
 <div class="box">
-<div data-yt="A Level Maths Differential Equations Ch 11 revision explained" class="box-head s4">Differential Equations <span class="marks">Ch 11</span></div>
+<div data-yt="A Level Maths Differential Equations Ch 11 revision explained" data-yt-label="Diff Eq" class="box-head s4">Differential Equations <span class="marks">Ch 11</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Separable variables</div><div class="val">If dy/dx = f(x)g(y), separate and integrate:<div class="formula-box">∫ 1/g(y) dy = ∫ f(x) dx</div><div class="ex-box"><span class="ex-label">Example</span>dy/dx = xy → ∫(1/y)dy = ∫x dx → ln|y| = x²/2 + c → y = Ae^(x²/2)</div></div></div>
 <div class="row"><div class="kw">Particular solutions</div><div class="val">Use boundary/initial conditions to find the constant of integration. Substitute the given point (x₀, y₀) into the general solution and solve for c (or A).</div></div>
@@ -143,7 +143,7 @@
 
 <!-- FURTHER INTEGRATION -->
 <div class="box">
-<div data-yt="A Level Maths Further Integration Ch 11 revision explained" class="box-head s5">Further Integration <span class="marks">Ch 11</span></div>
+<div data-yt="A Level Maths Further Integration Ch 11 revision explained" data-yt-label="Further" class="box-head s5">Further Integration <span class="marks">Ch 11</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Standard results</div><div class="val"><div class="formula-box">∫ eˣ dx = eˣ + c &nbsp;·&nbsp; ∫ e^(kx) dx = (1/k)e^(kx) + c<br>∫ 1/x dx = ln|x| + c<br>∫ sinx dx = −cosx + c &nbsp;·&nbsp; ∫ cosx dx = sinx + c<br>∫ sec²x dx = tanx + c</div></div></div>
 <div class="row"><div class="kw">Integration by substitution</div><div class="val">Replace a complicated part with u, find du/dx, substitute everything including dx:<div class="formula-box">∫ f(g(x)) · g′(x) dx → let u = g(x), du = g′(x)dx → ∫ f(u) du</div>For definite integrals: change the limits to u-values, or convert back to x at the end.<div class="ex-box"><span class="ex-label">Example</span>∫ 2x(x²+1)³ dx, let u = x²+1, du = 2x dx → ∫ u³ du = u⁴/4 + c = (x²+1)⁴/4 + c</div></div></div>
@@ -158,7 +158,7 @@
 
 <!-- SEQUENCES & SERIES -->
 <div class="box">
-<div data-yt="A Level Maths Sequences & Series Ch 3–4 revision explained" class="box-head s2">Sequences &amp; Series <span class="marks">Ch 3–4</span></div>
+<div data-yt="A Level Maths Sequences & Series Ch 3–4 revision explained" data-yt-label="Series" class="box-head s2">Sequences &amp; Series <span class="marks">Ch 3–4</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Arithmetic sequences</div><div class="val"><div class="formula-box">uₙ = a + (n−1)d<br>Sₙ = n/2 · (2a + (n−1)d) = n/2 · (a + l)</div>a = first term, d = common difference, l = last term. Sum formula: average of first and last, times n.</div></div>
 <div class="row"><div class="kw">Geometric sequences</div><div class="val"><div class="formula-box">uₙ = arⁿ⁻¹<br>Sₙ = a(1 − rⁿ) / (1 − r) &nbsp;&nbsp;(r ≠ 1)</div>a = first term, r = common ratio. Find r by dividing consecutive terms: r = u₂/u₁.</div></div>
@@ -172,7 +172,7 @@
 
 <!-- NUMERICAL METHODS -->
 <div class="box">
-<div data-yt="A Level Maths Numerical Methods Ch 8 revision explained" class="box-head s6">Numerical Methods <span class="marks">Ch 8</span></div>
+<div data-yt="A Level Maths Numerical Methods Ch 8 revision explained" data-yt-label="Numer" class="box-head s6">Numerical Methods <span class="marks">Ch 8</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Sign change method</div><div class="val">If f(a) and f(b) have opposite signs AND f is continuous on [a,b], then there is a root in (a,b).<div class="formula-box">f(a) &gt; 0 and f(b) &lt; 0 (or vice versa) → root exists in (a, b)</div></div></div>
 <div class="row"><div class="kw">Iteration</div><div class="val">Rearrange f(x) = 0 into x = g(x), then iterate:<div class="formula-box">xₙ₊₁ = g(xₙ)</div>Converges when |g′(x)| &lt; 1 near the root. Different rearrangements may converge to different roots or diverge.<div class="ex-box"><span class="ex-label">Example</span>x³ = 5x + 1 → x = (5x+1)^(1/3), start x₀ = 2: x₁ = ∛11 ≈ 2.224...</div></div></div>
@@ -185,7 +185,7 @@
 
 <!-- VECTORS (3D) -->
 <div class="box">
-<div data-yt="A Level Maths Vectors (3D) Ch 12 revision explained" class="box-head s3">Vectors (3D) <span class="marks">Ch 12</span></div>
+<div data-yt="A Level Maths Vectors (3D) Ch 12 revision explained" data-yt-label="Vectors" class="box-head s3">Vectors (3D) <span class="marks">Ch 12</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">3D vectors</div><div class="val">Position vectors in 3D: r = xi + yj + zk or as column vectors.<div class="formula-box">|a| = √(x² + y² + z²)</div>Unit vector: â = a / |a|. Direction ratios give the relative components.</div></div>
 <div class="row"><div class="kw">Scalar (dot) product</div><div class="val"><div class="formula-box">a · b = a₁b₁ + a₂b₂ + a₃b₃ = |a||b|cosθ</div>If a · b = 0, the vectors are perpendicular. Rearrange to find the angle:<div class="formula-box">cosθ = (a · b) / (|a||b|)</div></div></div>
@@ -213,6 +213,14 @@
             if (entries[i].isIntersecting) {
                 var q = entries[i].target.getAttribute('data-yt');
                 btn.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+                var label = entries[i].target.getAttribute('data-yt-label');
+                if (label) { var span = btn.querySelector('.yt-label'); if (span) span.textContent = label; }
+                var label = entries[i].target.getAttribute('data-yt-label');
+                if (label) { var span = btn.querySelector('.yt-label'); if (span) span.textContent = label; }
+                var label = entries[i].target.getAttribute('data-yt-label');
+                if (label) { var span = btn.querySelector('.yt-label'); if (span) span.textContent = label; }
+                var label = entries[i].target.getAttribute('data-yt-label');
+                if (label) { var span = btn.querySelector('.yt-label'); if (span) span.textContent = label; }
             }
         }
     }, { threshold: 0.3 });

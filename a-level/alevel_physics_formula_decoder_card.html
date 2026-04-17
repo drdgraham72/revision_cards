@@ -479,7 +479,7 @@
             display: flex;
             align-items: center;
             gap: 4px;
-            padding: 5px 10px;
+            padding: 5px 12px; min-width: 72px; justify-content: center;
             border-radius: 4px;
             background: #ff0000;
             color: #fff;
@@ -496,7 +496,7 @@
     </style>
 </head>
 <body>
-<a class="yt-link" href="https://www.youtube.com/results?search_query=AQA+A+Level+Physics+equations+formula+sheet" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>Watch</a>
+<a class="yt-link" href="https://www.youtube.com/results?search_query=AQA+A+Level+Physics+equations+formula+sheet" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg><span class="yt-label">Watch</span></a>
 
 <div class="page">
 
@@ -514,7 +514,7 @@
     <!-- SECTION 1: FORMULAS ON THE AQA DATA SHEET   -->
     <!-- ============================================ -->
 
-    <h2 class="section-title" data-yt="A Level Physics 1. Formulas Given vs Memorise revision explained">1. Formulas &mdash; Given vs Memorise</h2>
+    <h2 class="section-title" data-yt="A Level Physics 1. Formulas Given vs Memorise revision explained" data-yt-label="Given?">1. Formulas &mdash; Given vs Memorise</h2>
 
     <!-- Mechanics -->
     <span class="topic-label mech">Mechanics</span>
@@ -781,7 +781,7 @@
     <!-- SECTION 2: THE BIG LOOKUP TABLE              -->
     <!-- ============================================ -->
 
-    <h2 class="section-title" data-yt="A Level Physics 2. The Big Lookup Table The question mentions revision explained">2. The Big Lookup Table &mdash; &ldquo;The question mentions&hellip;&rdquo;</h2>
+    <h2 class="section-title" data-yt="A Level Physics 2. The Big Lookup Table The question mentions revision explained" data-yt-label="Lookup">2. The Big Lookup Table &mdash; &ldquo;The question mentions&hellip;&rdquo;</h2>
 
     <div class="lookup-table-wrap">
         <table class="lookup-table">
@@ -1059,7 +1059,7 @@
     <!-- SECTION 3: SUVAT DECISION TREE              -->
     <!-- ============================================ -->
 
-    <h2 class="section-title mech" data-yt="A Level Physics 3. SUVAT Decision Tree Which of the 5 equations? revision explained">3. SUVAT Decision Tree &mdash; Which of the 5 equations?</h2>
+    <h2 class="section-title mech" data-yt="A Level Physics 3. SUVAT Decision Tree Which of the 5 equations? revision explained" data-yt-label="SUVAT">3. SUVAT Decision Tree &mdash; Which of the 5 equations?</h2>
 
     <div class="suvat-instruction">
         <div class="big">Identify your 3 knowns and 1 unknown. Find the equation that contains all 4.</div>
@@ -1101,7 +1101,7 @@
     <!-- SECTION 4: UNIT CHECKS                      -->
     <!-- ============================================ -->
 
-    <h2 class="section-title" data-yt="A Level Physics 4. Unit Checks The Quick Sanity Test revision explained">4. Unit Checks &mdash; The Quick Sanity Test</h2>
+    <h2 class="section-title" data-yt="A Level Physics 4. Unit Checks The Quick Sanity Test revision explained" data-yt-label="Units">4. Unit Checks &mdash; The Quick Sanity Test</h2>
 
     <div class="sanity-check">
         <div class="sc-title">The Reality Check</div>
@@ -1170,7 +1170,7 @@
     <!-- SECTION 5: THE GOLDEN RULE                  -->
     <!-- ============================================ -->
 
-    <h2 class="section-title" data-yt="A Level Physics 5. The Golden Rule revision explained">5. The Golden Rule</h2>
+    <h2 class="section-title" data-yt="A Level Physics 5. The Golden Rule revision explained" data-yt-label="Golden">5. The Golden Rule</h2>
 
     <div class="golden-rule">
         <div class="rule-title">The One Rule That Prevents Most Mistakes</div>
@@ -1210,6 +1210,14 @@
             if (entries[i].isIntersecting) {
                 var q = entries[i].target.getAttribute('data-yt');
                 btn.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+                var label = entries[i].target.getAttribute('data-yt-label');
+                if (label) { var span = btn.querySelector('.yt-label'); if (span) span.textContent = label; }
+                var label = entries[i].target.getAttribute('data-yt-label');
+                if (label) { var span = btn.querySelector('.yt-label'); if (span) span.textContent = label; }
+                var label = entries[i].target.getAttribute('data-yt-label');
+                if (label) { var span = btn.querySelector('.yt-label'); if (span) span.textContent = label; }
+                var label = entries[i].target.getAttribute('data-yt-label');
+                if (label) { var span = btn.querySelector('.yt-label'); if (span) span.textContent = label; }
             }
         }
     }, { threshold: 0.3 });

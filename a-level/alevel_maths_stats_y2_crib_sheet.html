@@ -66,7 +66,7 @@
             display: flex;
             align-items: center;
             gap: 4px;
-            padding: 5px 10px;
+            padding: 5px 12px; min-width: 72px; justify-content: center;
             border-radius: 4px;
             background: #ff0000;
             color: #fff;
@@ -83,10 +83,10 @@
     </style>
 </head>
 <body>
-<a class="yt-link" href="https://www.youtube.com/results?search_query=A+Level+Maths+Statistics+Year+2+normal+distribution" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>Watch</a>
+<a class="yt-link" href="https://www.youtube.com/results?search_query=A+Level+Maths+Statistics+Year+2+normal+distribution" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg><span class="yt-label">Watch</span></a>
 <div class="page">
 <div class="header">
-  <h1 data-yt="A Level Maths A-Level Statistics — Year 13 Crib Sheet revision explained">A-Level Statistics — Year 13 Crib Sheet</h1>
+  <h1 data-yt="A Level Maths A-Level Statistics — Year 13 Crib Sheet revision explained" data-yt-label="A-level">A-Level Statistics — Year 13 Crib Sheet</h1>
   <span>Edexcel · Year 2/A2 · Statistics</span>
 </div>
 
@@ -95,7 +95,7 @@
 
 <!-- NORMAL DISTRIBUTION -->
 <div class="box">
-<div data-yt="A Level Maths Normal Distribution Ch 3 revision explained" class="box-head s1">Normal Distribution <span class="marks">Ch 3</span></div>
+<div data-yt="A Level Maths Normal Distribution Ch 3 revision explained" data-yt-label="Normal" class="box-head s1">Normal Distribution <span class="marks">Ch 3</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">N(μ, σ²) notation</div><div class="val">X ~ N(μ, σ²) means X is normally distributed with mean μ and variance σ². The distribution is symmetric, bell-shaped, centred on μ. Total area under the curve = 1.<div class="formula-box">About 68% within μ ± σ<br>About 95% within μ ± 2σ<br>About 99.7% within μ ± 3σ</div></div></div>
 <div class="row"><div class="kw">Standardising</div><div class="val">Convert X ~ N(μ, σ²) to Z ~ N(0, 1) using:<div class="formula-box">Z = (X − μ) / σ</div>This lets you use the standard normal table. Z tells you how many standard deviations X is from the mean.</div></div>
@@ -109,7 +109,7 @@
 
 <!-- APPROXIMATING BINOMIAL WITH NORMAL -->
 <div class="box">
-<div data-yt="A Level Maths Normal Approximation to Binomial Ch 4 revision explained" class="box-head s2">Normal Approximation to Binomial <span class="marks">Ch 4</span></div>
+<div data-yt="A Level Maths Normal Approximation to Binomial Ch 4 revision explained" data-yt-label="Normal" class="box-head s2">Normal Approximation to Binomial <span class="marks">Ch 4</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">When to use</div><div class="val">If X ~ B(n, p) and n is large with np &gt; 5 and n(1−p) &gt; 5, then X can be approximated by:<div class="formula-box">X ≈ N(np, np(1−p))<br>Mean = np, Variance = np(1−p)</div></div></div>
 <div class="row"><div class="kw">Continuity correction</div><div class="val">The binomial is discrete; the normal is continuous. Apply a continuity correction of ±0.5:<div class="formula-box">P(X ≤ n) → P(Y &lt; n + 0.5)<br>P(X &lt; n) → P(Y &lt; n − 0.5)<br>P(X ≥ n) → P(Y &gt; n − 0.5)<br>P(X &gt; n) → P(Y &gt; n + 0.5)<br>P(X = n) → P(n − 0.5 &lt; Y &lt; n + 0.5)</div></div></div>
@@ -121,7 +121,7 @@
 
 <!-- CONDITIONAL PROBABILITY (ADVANCED) -->
 <div class="box">
-<div data-yt="A Level Maths Conditional Probability (Advanced) Ch 2 revision explained" class="box-head s3">Conditional Probability (Advanced) <span class="marks">Ch 2</span></div>
+<div data-yt="A Level Maths Conditional Probability (Advanced) Ch 2 revision explained" data-yt-label="Prob" class="box-head s3">Conditional Probability (Advanced) <span class="marks">Ch 2</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Formula</div><div class="val"><div class="formula-box">P(A|B) = P(A ∩ B) / P(B)</div>Rearranges to: P(A ∩ B) = P(A|B) × P(B). This is the multiplication rule for dependent events.</div></div>
 <div class="row"><div class="kw">Tree diagrams</div><div class="val">For sequential events with conditional probabilities, tree diagrams are essential. Second branches show P(B|A) and P(B|A').<div class="formula-box">P(B) = P(B|A)P(A) + P(B|A')P(A')</div>This is the law of total probability — sum over all branches that lead to B.</div></div>
@@ -138,7 +138,7 @@
 
 <!-- REGRESSION & CORRELATION -->
 <div class="box">
-<div data-yt="A Level Maths Regression & Correlation Ch 1 revision explained" class="box-head s4">Regression &amp; Correlation <span class="marks">Ch 1</span></div>
+<div data-yt="A Level Maths Regression & Correlation Ch 1 revision explained" data-yt-label="Regress" class="box-head s4">Regression &amp; Correlation <span class="marks">Ch 1</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">PMCC (r)</div><div class="val">The product moment correlation coefficient measures the strength and direction of the linear relationship between two variables. Calculated from:<div class="formula-box">r = S_xy / √(S_xx × S_yy)<br><br>S_xx = Σx² − (Σx)²/n<br>S_yy = Σy² − (Σy)²/n<br>S_xy = Σxy − (Σx)(Σy)/n</div>r = 1: perfect positive linear; r = −1: perfect negative linear; r = 0: no linear correlation.</div></div>
 <div class="row"><div class="kw">Spearman's rank (r_s)</div><div class="val">Rank the data for each variable, then calculate:<div class="formula-box">r_s = 1 − (6Σd²) / (n(n² − 1))<br>where d = difference in ranks</div>Use when data is not linear, or for ordinal data. Values between −1 and 1. For tied ranks, assign the average rank.</div></div>
@@ -152,7 +152,7 @@
 
 <!-- HYPOTHESIS TESTING WITH NORMAL -->
 <div class="box">
-<div data-yt="A Level Maths Hypothesis Testing with Normal Ch 5 revision explained" class="box-head s5">Hypothesis Testing with Normal <span class="marks">Ch 5</span></div>
+<div data-yt="A Level Maths Hypothesis Testing with Normal Ch 5 revision explained" data-yt-label="H-Test" class="box-head s5">Hypothesis Testing with Normal <span class="marks">Ch 5</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Testing a mean</div><div class="val">When X ~ N(μ, σ²) with σ known, and you take a sample of size n with sample mean X̄:<div class="formula-box">X̄ ~ N(μ, σ²/n)<br><br>Test statistic: Z = (X̄ − μ₀) / (σ/√n)</div>where μ₀ is the value of μ under H₀.</div></div>
 <div class="row"><div class="kw">Hypotheses</div><div class="val"><div class="formula-box">H₀: μ = μ₀<br>H₁: μ &lt; μ₀ (one-tail, lower)<br>H₁: μ &gt; μ₀ (one-tail, upper)<br>H₁: μ ≠ μ₀ (two-tail)</div></div></div>
@@ -181,6 +181,14 @@
             if (entries[i].isIntersecting) {
                 var q = entries[i].target.getAttribute('data-yt');
                 btn.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+                var label = entries[i].target.getAttribute('data-yt-label');
+                if (label) { var span = btn.querySelector('.yt-label'); if (span) span.textContent = label; }
+                var label = entries[i].target.getAttribute('data-yt-label');
+                if (label) { var span = btn.querySelector('.yt-label'); if (span) span.textContent = label; }
+                var label = entries[i].target.getAttribute('data-yt-label');
+                if (label) { var span = btn.querySelector('.yt-label'); if (span) span.textContent = label; }
+                var label = entries[i].target.getAttribute('data-yt-label');
+                if (label) { var span = btn.querySelector('.yt-label'); if (span) span.textContent = label; }
             }
         }
     }, { threshold: 0.3 });
