@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCSE Chemistry — Balancing Equations</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&family=Caveat:wght@600;700&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #f5f5f0;
+            --card: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #666;
+            --border: rgba(0,0,0,0.1);
+            --font: 'Barlow Condensed', sans-serif;
+            --mono: 'DM Mono', monospace;
+            --hand: 'Caveat', cursive;
+            --green: #389e0d;
+            --green-bg: #f6ffed;
+            --red: #d4380d;
+            --red-bg: #fff1f0;
+            --blue: #0958d9;
+            --blue-bg: #e6f4ff;
+            --purple: #7c3aed;
+            --purple-bg: #f5f3ff;
+            --amber: #854f0b;
+            --amber-bg: #faeeda;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #141416;
+                --card: #1e1e22;
+                --text: #e8e4dc;
+                --text-light: #999;
+                --border: rgba(255,255,255,0.08);
+                --green-bg: #0d2a0d;
+                --red-bg: #3a1a0d;
+                --blue-bg: #0d2240;
+                --purple-bg: #1e1630;
+                --amber-bg: #2a1e0d;
+            }
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 1.5rem 1rem;
+        }
+
+        .page { max-width: 900px; margin: 0 auto; }
+
+        .hero { text-align: center; margin-bottom: 2rem; }
+
+        .hero h1 {
+            font-size: 38px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            line-height: 1.1;
+            margin-bottom: 6px;
+        }
+
+        .hero .subtitle {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* ---- THE ONE RULE ---- */
+        .one-rule {
+            background: var(--text);
+            color: #fff;
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .one-rule .big {
+            font-size: 26px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+
+        .one-rule .big .yes-do { color: #73d13d; }
+        .one-rule .big .no-do { color: #ff7a45; }
+
+        .one-rule-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .one-rule-box {
+            padding: 14px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .one-rule-box.do-this {
+            background: rgba(56,158,13,0.15);
+            border: 2px solid rgba(56,158,13,0.4);
+        }
+
+        .one-rule-box.not-this {
+            background: rgba(212,56,13,0.15);
+            border: 2px solid rgba(212,56,13,0.4);
+        }
+
+        .one-rule-box .rule-label {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 6px;
+        }
+
+        .one-rule-box.do-this .rule-label { color: #73d13d; }
+        .one-rule-box.not-this .rule-label { color: #ff7a45; }
+
+        .one-rule-box .rule-example {
+            font-family: var(--hand);
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .one-rule-box .rule-explain {
+            font-size: 11px;
+            opacity: 0.7;
+            margin-top: 4px;
+        }
+
+        /* ---- METHOD STEPS ---- */
+        .method {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 2rem;
+        }
+
+        .method h2 {
+            font-size: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .method-step {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            align-items: flex-start;
+        }
+
+        .method-step:last-child { margin-bottom: 0; }
+
+        .method-num {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 900;
+            flex-shrink: 0;
+            color: #fff;
+        }
+
+        .method-num.n1 { background: var(--blue); }
+        .method-num.n2 { background: var(--purple); }
+        .method-num.n3 { background: var(--amber); }
+        .method-num.n4 { background: var(--green); }
+
+        .method-content {
+            flex: 1;
+        }
+
+        .method-content .mc-title {
+            font-size: 16px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .method-content .mc-desc {
+            font-size: 13px;
+            line-height: 1.5;
+            color: var(--text-light);
+        }
+
+        /* ---- INTERACTIVE BALANCER ---- */
+        .balancer {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 2rem;
+        }
+
+        .balancer h2 {
+            font-size: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .balancer .b-intro {
+            font-size: 13px;
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .b-nav {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .b-nav-btn {
+            padding: 5px 12px;
+            border: 1.5px solid var(--border);
+            border-radius: 4px;
+            background: var(--card);
+            color: var(--text);
+            font-family: var(--mono);
+            font-size: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .b-nav-btn:hover { border-color: var(--blue); color: var(--blue); }
+        .b-nav-btn.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+
+        .equation-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            min-height: 70px;
+        }
+
+        .eq-term {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .coeff-controls {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .coeff-btn {
+            width: 28px;
+            height: 28px;
+            border: 1.5px solid var(--border);
+            border-radius: 4px;
+            background: var(--card);
+            color: var(--text);
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s;
+            font-family: var(--font);
+        }
+
+        .coeff-btn:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-bg); }
+
+        .coeff-val {
+            font-family: var(--mono);
+            font-size: 22px;
+            font-weight: 700;
+            width: 30px;
+            text-align: center;
+            color: var(--blue);
+        }
+
+        .eq-formula {
+            font-size: 22px;
+            font-weight: 700;
+            font-family: var(--font);
+        }
+
+        .eq-plus {
+            font-size: 20px;
+            color: var(--text-light);
+            font-weight: 600;
+            padding: 0 2px;
+        }
+
+        .eq-arrow {
+            font-size: 24px;
+            color: var(--text-light);
+            padding: 0 4px;
+        }
+
+        /* Atom tally */
+        .tally-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 12px;
+            margin-bottom: 16px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tally-side {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .tally-side.left { text-align: right; }
+        .tally-side.right { text-align: left; }
+
+        .tally-label {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+
+        .tally-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 3px 0;
+        }
+
+        .tally-side.left .tally-row { justify-content: flex-end; }
+
+        .tally-element {
+            font-family: var(--mono);
+            font-size: 12px;
+            font-weight: 700;
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--blue-bg);
+            color: var(--blue);
+        }
+
+        .tally-count { font-family: var(--mono); font-size: 14px; }
+        .tally-count.match { color: var(--green); }
+        .tally-count.mismatch { color: var(--red); font-weight: 800; }
+
+        .tally-divider {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            padding-top: 20px;
+        }
+
+        .tally-check {
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .tally-check.match { color: var(--green); }
+        .tally-check.mismatch { color: var(--red); }
+
+        .b-status {
+            text-align: center;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            transition: all 0.3s;
+        }
+
+        .b-status.balanced { background: var(--green-bg); color: var(--green); border: 2px solid var(--green); }
+        .b-status.unbalanced { background: var(--red-bg); color: var(--red); border: 2px solid var(--red); }
+
+        .b-hint {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .b-hint button {
+            background: none;
+            border: none;
+            color: var(--blue);
+            font-family: var(--font);
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .b-hint .hint-text {
+            display: none;
+            margin-top: 6px;
+            font-family: var(--hand);
+            font-size: 18px;
+            color: var(--text);
+        }
+
+        .b-hint .hint-text.show { display: block; }
+
+        /* ---- WORKED EXAMPLES ---- */
+        .worked {
+            margin-bottom: 2rem;
+        }
+
+        .worked h2 {
+            font-size: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .worked-example {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 12px;
+            border-left: 5px solid var(--blue);
+        }
+
+        .worked-example .we-title {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .we-step {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 8px;
+            align-items: baseline;
+        }
+
+        .we-step-label {
+            font-family: var(--mono);
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-light);
+            width: 60px;
+            flex-shrink: 0;
+            text-align: right;
+        }
+
+        .we-step-content {
+            font-size: 14px;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .we-step-content .eq {
+            font-family: var(--hand);
+            font-size: 22px;
+            font-weight: 700;
+            display: block;
+            margin: 4px 0;
+        }
+
+        .we-step-content .eq .coeff { color: var(--blue); }
+        .we-step-content .eq .changed { color: var(--red); font-weight: 800; }
+        .we-step-content .eq .done { color: var(--green); }
+
+        .we-tally {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--text-light);
+            padding: 6px 10px;
+            background: var(--blue-bg);
+            border-radius: 4px;
+            margin: 4px 0;
+            display: inline-block;
+        }
+
+        .we-tally .ok { color: var(--green); font-weight: 700; }
+        .we-tally .fix { color: var(--red); font-weight: 700; }
+
+        /* ---- STATE SYMBOLS ---- */
+        .state-box {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 2rem;
+        }
+
+        .state-box h2 {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .state-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .state-item {
+            text-align: center;
+            padding: 16px 12px;
+            border-radius: 10px;
+            border: 2px solid var(--border);
+        }
+
+        .state-item .sym {
+            font-family: var(--mono);
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .state-item .meaning {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .state-item .eg {
+            font-size: 11px;
+            color: var(--text-light);
+        }
+
+        .state-item:nth-child(1) { background: var(--amber-bg); }
+        .state-item:nth-child(1) .sym { color: var(--amber); }
+        .state-item:nth-child(2) { background: var(--blue-bg); }
+        .state-item:nth-child(2) .sym { color: var(--blue); }
+        .state-item:nth-child(3) { background: var(--purple-bg); }
+        .state-item:nth-child(3) .sym { color: var(--purple); }
+        .state-item:nth-child(4) { background: var(--green-bg); }
+        .state-item:nth-child(4) .sym { color: var(--green); }
+
+        /* ---- COMMON TRAPS ---- */
+        .traps {
+            background: var(--red-bg);
+            border: 2px solid var(--red);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 1rem;
+        }
+
+        .traps h2 {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .trap-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+            align-items: flex-start;
+        }
+
+        .trap-item:last-child { margin-bottom: 0; }
+
+        .trap-x {
+            font-size: 18px;
+            font-weight: 900;
+            color: var(--red);
+            flex-shrink: 0;
+            width: 24px;
+            text-align: center;
+        }
+
+        .trap-text {
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .trap-text strong { color: var(--red); }
+
+        .trap-text .wrong {
+            font-family: var(--hand);
+            font-size: 20px;
+            color: var(--red);
+            text-decoration: line-through;
+            text-decoration-thickness: 2px;
+        }
+
+        .trap-text .right {
+            font-family: var(--hand);
+            font-size: 20px;
+            color: var(--green);
+        }
+
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 26px; }
+            .one-rule-grid { grid-template-columns: 1fr; }
+            .one-rule .big { font-size: 20px; }
+            .state-grid { grid-template-columns: 1fr 1fr; }
+            .equation-display { gap: 4px; }
+            .eq-formula { font-size: 16px; }
+            .coeff-val { font-size: 18px; width: 24px; }
+            .coeff-btn { width: 24px; height: 24px; font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <div class="hero">
+        <h1>Balancing Equations</h1>
+        <div class="subtitle">Same atoms in, same atoms out. That's it.</div>
+    </div>
+
+    <!-- ---- THE ONE RULE ---- -->
+    <div class="one-rule">
+        <div class="big">
+            <span class="yes-do">Change the BIG numbers</span> (coefficients) in front<br>
+            <span class="no-do">NEVER change the small numbers</span> (subscripts) inside a formula
+        </div>
+        <div class="one-rule-grid">
+            <div class="one-rule-box do-this">
+                <div class="rule-label">Do this</div>
+                <div class="rule-example"><span style="color:#73d13d; font-size:32px;">2</span>H&#x2082;O</div>
+                <div class="rule-explain">Put a big 2 in front &mdash; means 2 molecules of H&#x2082;O</div>
+            </div>
+            <div class="one-rule-box not-this">
+                <div class="rule-label">Never this</div>
+                <div class="rule-example" style="text-decoration: line-through; text-decoration-thickness: 3px;">H&#x2083;O</div>
+                <div class="rule-explain">Changing the subscript creates a different substance entirely!</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ---- METHOD ---- -->
+    <div class="method">
+        <h2>The 4-Step Method</h2>
+        <div class="method-step">
+            <div class="method-num n1">1</div>
+            <div class="method-content">
+                <div class="mc-title">Write the unbalanced equation</div>
+                <div class="mc-desc">Write all the correct formulae. Don't change these once written.</div>
+            </div>
+        </div>
+        <div class="method-step">
+            <div class="method-num n2">2</div>
+            <div class="method-content">
+                <div class="mc-title">Count atoms on each side</div>
+                <div class="mc-desc">Make a tally: how many of each element on the left vs right?</div>
+            </div>
+        </div>
+        <div class="method-step">
+            <div class="method-num n3">3</div>
+            <div class="method-content">
+                <div class="mc-title">Add coefficients to balance</div>
+                <div class="mc-desc">Put big numbers in front of formulae until each element matches. Start with the element that appears in the fewest places. Leave H and O until last.</div>
+            </div>
+        </div>
+        <div class="method-step">
+            <div class="method-num n4">4</div>
+            <div class="method-content">
+                <div class="mc-title">Final check</div>
+                <div class="mc-desc">Re-count every atom. Left must equal right. Every single one.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ---- INTERACTIVE BALANCER ---- -->
+    <div class="balancer">
+        <h2>Practice: Balance These Equations</h2>
+        <div class="b-intro">Tap + and &minus; to change the coefficients. Make both sides match.</div>
+
+        <div class="b-nav" id="bNav"></div>
+
+        <div class="equation-display" id="eqDisplay"></div>
+
+        <div class="tally-grid" id="tallyGrid"></div>
+
+        <div class="b-status" id="bStatus"></div>
+
+        <div class="b-hint" id="bHint">
+            Stuck? <button onclick="showHint()">Show hint</button>
+            <div class="hint-text" id="hintText"></div>
+        </div>
+    </div>
+
+    <!-- ---- WORKED EXAMPLES ---- -->
+    <div class="worked">
+        <h2>Worked Examples</h2>
+
+        <div class="worked-example">
+            <div class="we-title">Balance: Mg + O&#x2082; &rarr; MgO</div>
+            <div class="we-step">
+                <div class="we-step-label">Unbalanced</div>
+                <div class="we-step-content">
+                    <span class="eq">Mg + O&#x2082; &rarr; MgO</span>
+                    <span class="we-tally">Mg: <span class="ok">1=1</span> &nbsp; O: <span class="fix">2&ne;1</span></span>
+                </div>
+            </div>
+            <div class="we-step">
+                <div class="we-step-label">Fix O</div>
+                <div class="we-step-content">
+                    O has 2 on left, 1 on right. Put a <strong>2</strong> in front of MgO:
+                    <span class="eq">Mg + O&#x2082; &rarr; <span class="changed">2</span>MgO</span>
+                    <span class="we-tally">Mg: <span class="fix">1&ne;2</span> &nbsp; O: <span class="ok">2=2</span></span>
+                </div>
+            </div>
+            <div class="we-step">
+                <div class="we-step-label">Fix Mg</div>
+                <div class="we-step-content">
+                    Now Mg is 1 vs 2. Put a <strong>2</strong> in front of Mg:
+                    <span class="eq done"><span class="coeff">2</span>Mg + O&#x2082; &rarr; <span class="coeff">2</span>MgO</span>
+                    <span class="we-tally">Mg: <span class="ok">2=2</span> &nbsp; O: <span class="ok">2=2</span> &nbsp; &#x2714; Balanced!</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="worked-example">
+            <div class="we-title">Balance: Na + H&#x2082;O &rarr; NaOH + H&#x2082;</div>
+            <div class="we-step">
+                <div class="we-step-label">Unbalanced</div>
+                <div class="we-step-content">
+                    <span class="eq">Na + H&#x2082;O &rarr; NaOH + H&#x2082;</span>
+                    <span class="we-tally">Na: <span class="ok">1=1</span> &nbsp; H: <span class="fix">2&ne;3</span> &nbsp; O: <span class="ok">1=1</span></span>
+                </div>
+            </div>
+            <div class="we-step">
+                <div class="we-step-label">Fix H</div>
+                <div class="we-step-content">
+                    H is tricky &mdash; it appears in three places. Try <strong>2</strong> in front of H&#x2082;O and <strong>2</strong> in front of NaOH:
+                    <span class="eq">Na + <span class="changed">2</span>H&#x2082;O &rarr; <span class="changed">2</span>NaOH + H&#x2082;</span>
+                    <span class="we-tally">Na: <span class="fix">1&ne;2</span> &nbsp; H: <span class="ok">4=4</span> &nbsp; O: <span class="ok">2=2</span></span>
+                </div>
+            </div>
+            <div class="we-step">
+                <div class="we-step-label">Fix Na</div>
+                <div class="we-step-content">
+                    Put <strong>2</strong> in front of Na:
+                    <span class="eq done"><span class="coeff">2</span>Na + <span class="coeff">2</span>H&#x2082;O &rarr; <span class="coeff">2</span>NaOH + H&#x2082;</span>
+                    <span class="we-tally">Na: <span class="ok">2=2</span> &nbsp; H: <span class="ok">4=4</span> &nbsp; O: <span class="ok">2=2</span> &nbsp; &#x2714; Balanced!</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="worked-example">
+            <div class="we-title">Balance: Fe&#x2082;O&#x2083; + C &rarr; Fe + CO&#x2082;</div>
+            <div class="we-step">
+                <div class="we-step-label">Unbalanced</div>
+                <div class="we-step-content">
+                    <span class="eq">Fe&#x2082;O&#x2083; + C &rarr; Fe + CO&#x2082;</span>
+                    <span class="we-tally">Fe: <span class="fix">2&ne;1</span> &nbsp; O: <span class="fix">3&ne;2</span> &nbsp; C: <span class="ok">1=1</span></span>
+                </div>
+            </div>
+            <div class="we-step">
+                <div class="we-step-label">Fix Fe</div>
+                <div class="we-step-content">
+                    2 Fe on left, 1 on right. Put <strong>2</strong> in front of Fe:
+                    <span class="eq">Fe&#x2082;O&#x2083; + C &rarr; <span class="changed">2</span>Fe + CO&#x2082;</span>
+                    <span class="we-tally">Fe: <span class="ok">2=2</span> &nbsp; O: <span class="fix">3&ne;2</span> &nbsp; C: <span class="ok">1=1</span></span>
+                </div>
+            </div>
+            <div class="we-step">
+                <div class="we-step-label">Fix O</div>
+                <div class="we-step-content">
+                    3 O on left, 2 on right. Need 3 on right, so put <strong>3</strong> in front of CO&#x2082; (gives 6 O). Then need 2 Fe&#x2082;O&#x2083; for 6 O on left:
+                    <span class="eq"><span class="changed">2</span>Fe&#x2082;O&#x2083; + <span class="changed">3</span>C &rarr; <span class="changed">4</span>Fe + <span class="changed">3</span>CO&#x2082;</span>
+                    <span class="we-tally">Fe: <span class="ok">4=4</span> &nbsp; O: <span class="ok">6=6</span> &nbsp; C: <span class="ok">3=3</span> &nbsp; &#x2714; Balanced!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ---- STATE SYMBOLS ---- -->
+    <div class="state-box">
+        <h2>Don't Forget State Symbols</h2>
+        <div class="state-grid">
+            <div class="state-item">
+                <div class="sym">(s)</div>
+                <div class="meaning">Solid</div>
+                <div class="eg">MgO(s), NaCl(s)</div>
+            </div>
+            <div class="state-item">
+                <div class="sym">(l)</div>
+                <div class="meaning">Liquid</div>
+                <div class="eg">H&#x2082;O(l), Br&#x2082;(l)</div>
+            </div>
+            <div class="state-item">
+                <div class="sym">(g)</div>
+                <div class="meaning">Gas</div>
+                <div class="eg">CO&#x2082;(g), H&#x2082;(g)</div>
+            </div>
+            <div class="state-item">
+                <div class="sym">(aq)</div>
+                <div class="meaning">Aqueous</div>
+                <div class="eg">NaCl(aq), HCl(aq)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ---- COMMON TRAPS ---- -->
+    <div class="traps">
+        <h2>Mistakes That Lose Marks Every Time</h2>
+        <div class="trap-item">
+            <div class="trap-x">&times;</div>
+            <div class="trap-text">
+                <strong>Changing subscripts instead of coefficients.</strong>
+                To get 2 oxygen atoms, write <span class="wrong">H&#x2082;O&#x2082;</span> &mdash; NO! That's hydrogen peroxide. Write <span class="right">2H&#x2082;O</span>.
+            </div>
+        </div>
+        <div class="trap-item">
+            <div class="trap-x">&times;</div>
+            <div class="trap-text">
+                <strong>Forgetting that the coefficient multiplies EVERYTHING.</strong>
+                2H&#x2082;SO&#x2084; means 2&times;H&#x2082;SO&#x2084; = 4 H, 2 S, 8 O. Not just 2 H.
+            </div>
+        </div>
+        <div class="trap-item">
+            <div class="trap-x">&times;</div>
+            <div class="trap-text">
+                <strong>Not rechecking after balancing one element.</strong>
+                Fixing oxygen often unbalances hydrogen. Always recount ALL elements at the end.
+            </div>
+        </div>
+        <div class="trap-item">
+            <div class="trap-x">&times;</div>
+            <div class="trap-text">
+                <strong>Forgetting diatomic elements.</strong>
+                O&#x2082;, H&#x2082;, N&#x2082;, F&#x2082;, Cl&#x2082;, Br&#x2082;, I&#x2082; &mdash; these always come in pairs when they're elements on their own.
+            </div>
+        </div>
+        <div class="trap-item">
+            <div class="trap-x">&times;</div>
+            <div class="trap-text">
+                <strong>Missing state symbols.</strong>
+                If the question says "include state symbols" and you don't, you lose a mark. Free mark thrown away.
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+// ---- Interactive balancer data ----
+var equations = [
+    {
+        label: "H\u2082 + O\u2082 \u2192 H\u2082O",
+        reactants: [
+            { formula: "H\u2082", elements: { H: 2 } },
+            { formula: "O\u2082", elements: { O: 2 } }
+        ],
+        products: [
+            { formula: "H\u2082O", elements: { H: 2, O: 1 } }
+        ],
+        answer: [2, 1, 2],
+        hint: "Start with O: you have 2 on the left. Put a 2 in front of H\u2082O to get 2 O on the right. Then fix H."
+    },
+    {
+        label: "N\u2082 + H\u2082 \u2192 NH\u2083",
+        reactants: [
+            { formula: "N\u2082", elements: { N: 2 } },
+            { formula: "H\u2082", elements: { H: 2 } }
+        ],
+        products: [
+            { formula: "NH\u2083", elements: { N: 1, H: 3 } }
+        ],
+        answer: [1, 3, 2],
+        hint: "Put 2 in front of NH\u2083 to fix N. Now you need 6 H on the left: put 3 in front of H\u2082."
+    },
+    {
+        label: "CH\u2084 + O\u2082 \u2192 CO\u2082 + H\u2082O",
+        reactants: [
+            { formula: "CH\u2084", elements: { C: 1, H: 4 } },
+            { formula: "O\u2082", elements: { O: 2 } }
+        ],
+        products: [
+            { formula: "CO\u2082", elements: { C: 1, O: 2 } },
+            { formula: "H\u2082O", elements: { H: 2, O: 1 } }
+        ],
+        answer: [1, 2, 1, 2],
+        hint: "C is already 1=1. Fix H: put 2 in front of H\u2082O (4 H each side). Now count O on right: 2+2=4. Put 2 in front of O\u2082."
+    },
+    {
+        label: "HCl + NaOH \u2192 NaCl + H\u2082O",
+        reactants: [
+            { formula: "HCl", elements: { H: 1, Cl: 1 } },
+            { formula: "NaOH", elements: { Na: 1, O: 1, H: 1 } }
+        ],
+        products: [
+            { formula: "NaCl", elements: { Na: 1, Cl: 1 } },
+            { formula: "H\u2082O", elements: { H: 2, O: 1 } }
+        ],
+        answer: [1, 1, 1, 1],
+        hint: "This one is already balanced! Count everything: H:2=2, Cl:1=1, Na:1=1, O:1=1."
+    },
+    {
+        label: "Fe + Cl\u2082 \u2192 FeCl\u2083",
+        reactants: [
+            { formula: "Fe", elements: { Fe: 1 } },
+            { formula: "Cl\u2082", elements: { Cl: 2 } }
+        ],
+        products: [
+            { formula: "FeCl\u2083", elements: { Fe: 1, Cl: 3 } }
+        ],
+        answer: [2, 3, 2],
+        hint: "Cl: 2 on left, 3 on right. LCM is 6. Put 3 in front of Cl\u2082 (6 Cl) and 2 in front of FeCl\u2083 (6 Cl). Then fix Fe: put 2 in front."
+    },
+    {
+        label: "Mg + HCl \u2192 MgCl\u2082 + H\u2082",
+        reactants: [
+            { formula: "Mg", elements: { Mg: 1 } },
+            { formula: "HCl", elements: { H: 1, Cl: 1 } }
+        ],
+        products: [
+            { formula: "MgCl\u2082", elements: { Mg: 1, Cl: 2 } },
+            { formula: "H\u2082", elements: { H: 2 } }
+        ],
+        answer: [1, 2, 1, 1],
+        hint: "Cl: 1 on left, 2 on right. Put 2 in front of HCl. Now H: 2=2, Cl: 2=2, Mg: 1=1."
+    },
+    {
+        label: "Al + O\u2082 \u2192 Al\u2082O\u2083",
+        reactants: [
+            { formula: "Al", elements: { Al: 1 } },
+            { formula: "O\u2082", elements: { O: 2 } }
+        ],
+        products: [
+            { formula: "Al\u2082O\u2083", elements: { Al: 2, O: 3 } }
+        ],
+        answer: [4, 3, 2],
+        hint: "O: 2 vs 3. LCM = 6. Put 3 in front of O\u2082 (6 O) and 2 in front of Al\u2082O\u2083 (6 O). Now Al: need 4 on left."
+    },
+    {
+        label: "C\u2082H\u2086 + O\u2082 \u2192 CO\u2082 + H\u2082O",
+        reactants: [
+            { formula: "C\u2082H\u2086", elements: { C: 2, H: 6 } },
+            { formula: "O\u2082", elements: { O: 2 } }
+        ],
+        products: [
+            { formula: "CO\u2082", elements: { C: 1, O: 2 } },
+            { formula: "H\u2082O", elements: { H: 2, O: 1 } }
+        ],
+        answer: [2, 7, 4, 6],
+        hint: "C: put 2 in front of C\u2082H\u2086, 4 in front of CO\u2082. H: 12 on left, put 6 in front of H\u2082O. O: 8+6=14 on right, put 7 in front of O\u2082."
+    }
+];
+
+var currentEq = 0;
+var coeffs = [];
+
+function initBalancer() {
+    var nav = document.getElementById('bNav');
+    nav.innerHTML = '';
+    for (var i = 0; i < equations.length; i++) {
+        var b = document.createElement('button');
+        b.className = 'b-nav-btn' + (i === 0 ? ' active' : '');
+        b.textContent = (i + 1);
+        b.setAttribute('data-idx', i);
+        b.onclick = function() { selectEq(parseInt(this.getAttribute('data-idx'))); };
+        nav.appendChild(b);
+    }
+    selectEq(0);
+}
+
+function selectEq(idx) {
+    currentEq = idx;
+    var eq = equations[idx];
+    var total = eq.reactants.length + eq.products.length;
+    coeffs = [];
+    for (var i = 0; i < total; i++) coeffs.push(1);
+
+    var btns = document.querySelectorAll('.b-nav-btn');
+    for (var i = 0; i < btns.length; i++) btns[i].className = 'b-nav-btn' + (i === idx ? ' active' : '');
+
+    document.getElementById('hintText').className = 'hint-text';
+    document.getElementById('hintText').textContent = eq.hint;
+
+    renderEquation();
+}
+
+function changeCoeff(idx, delta) {
+    var newVal = coeffs[idx] + delta;
+    if (newVal < 1) newVal = 1;
+    if (newVal > 9) newVal = 9;
+    coeffs[idx] = newVal;
+    renderEquation();
+}
+
+function renderEquation() {
+    var eq = equations[currentEq];
+    var display = document.getElementById('eqDisplay');
+    display.innerHTML = '';
+
+    var allTerms = eq.reactants.concat(eq.products);
+    var termIdx = 0;
+
+    for (var i = 0; i < allTerms.length; i++) {
+        if (i > 0 && i < eq.reactants.length) {
+            var plus = document.createElement('span');
+            plus.className = 'eq-plus';
+            plus.textContent = '+';
+            display.appendChild(plus);
+        }
+        if (i === eq.reactants.length) {
+            var arrow = document.createElement('span');
+            arrow.className = 'eq-arrow';
+            arrow.textContent = '\u2192';
+            display.appendChild(arrow);
+        }
+        if (i > eq.reactants.length) {
+            var plus2 = document.createElement('span');
+            plus2.className = 'eq-plus';
+            plus2.textContent = '+';
+            display.appendChild(plus2);
+        }
+
+        var term = document.createElement('div');
+        term.className = 'eq-term';
+
+        var controls = document.createElement('div');
+        controls.className = 'coeff-controls';
+
+        var btnMinus = document.createElement('button');
+        btnMinus.className = 'coeff-btn';
+        btnMinus.textContent = '\u2212';
+        btnMinus.setAttribute('data-idx', i);
+        btnMinus.onclick = function() { changeCoeff(parseInt(this.getAttribute('data-idx')), -1); };
+
+        var val = document.createElement('span');
+        val.className = 'coeff-val';
+        val.textContent = coeffs[i];
+
+        var btnPlus = document.createElement('button');
+        btnPlus.className = 'coeff-btn';
+        btnPlus.textContent = '+';
+        btnPlus.setAttribute('data-idx', i);
+        btnPlus.onclick = function() { changeCoeff(parseInt(this.getAttribute('data-idx')), 1); };
+
+        controls.appendChild(btnMinus);
+        controls.appendChild(val);
+        controls.appendChild(btnPlus);
+
+        var formula = document.createElement('span');
+        formula.className = 'eq-formula';
+        formula.textContent = allTerms[i].formula;
+
+        term.appendChild(controls);
+        term.appendChild(formula);
+        display.appendChild(term);
+    }
+
+    // Calculate tallies
+    var allElements = {};
+    var allTermsList = eq.reactants.concat(eq.products);
+    for (var i = 0; i < allTermsList.length; i++) {
+        for (var el in allTermsList[i].elements) {
+            allElements[el] = true;
+        }
+    }
+
+    var leftCounts = {};
+    var rightCounts = {};
+
+    for (var el in allElements) {
+        leftCounts[el] = 0;
+        rightCounts[el] = 0;
+    }
+
+    for (var i = 0; i < eq.reactants.length; i++) {
+        for (var el in eq.reactants[i].elements) {
+            leftCounts[el] += eq.reactants[i].elements[el] * coeffs[i];
+        }
+    }
+
+    for (var i = 0; i < eq.products.length; i++) {
+        var ci = eq.reactants.length + i;
+        for (var el in eq.products[i].elements) {
+            rightCounts[el] += eq.products[i].elements[el] * coeffs[ci];
+        }
+    }
+
+    // Render tally
+    var tallyGrid = document.getElementById('tallyGrid');
+    tallyGrid.innerHTML = '';
+
+    var leftSide = document.createElement('div');
+    leftSide.className = 'tally-side left';
+    var leftLabel = document.createElement('div');
+    leftLabel.className = 'tally-label';
+    leftLabel.textContent = 'Reactants';
+    leftSide.appendChild(leftLabel);
+
+    var divider = document.createElement('div');
+    divider.className = 'tally-divider';
+
+    var rightSide = document.createElement('div');
+    rightSide.className = 'tally-side right';
+    var rightLabel = document.createElement('div');
+    rightLabel.className = 'tally-label';
+    rightLabel.textContent = 'Products';
+    rightSide.appendChild(rightLabel);
+
+    var allBalanced = true;
+
+    for (var el in allElements) {
+        var match = leftCounts[el] === rightCounts[el];
+        if (!match) allBalanced = false;
+
+        var lr = document.createElement('div');
+        lr.className = 'tally-row';
+        var lCount = document.createElement('span');
+        lCount.className = 'tally-count ' + (match ? 'match' : 'mismatch');
+        lCount.textContent = leftCounts[el];
+        var lEl = document.createElement('span');
+        lEl.className = 'tally-element';
+        lEl.textContent = el;
+        lr.appendChild(lCount);
+        lr.appendChild(lEl);
+        leftSide.appendChild(lr);
+
+        var check = document.createElement('div');
+        check.className = 'tally-check ' + (match ? 'match' : 'mismatch');
+        check.textContent = match ? '=' : '\u2260';
+        divider.appendChild(check);
+
+        var rr = document.createElement('div');
+        rr.className = 'tally-row';
+        var rEl = document.createElement('span');
+        rEl.className = 'tally-element';
+        rEl.textContent = el;
+        var rCount = document.createElement('span');
+        rCount.className = 'tally-count ' + (match ? 'match' : 'mismatch');
+        rCount.textContent = rightCounts[el];
+        rr.appendChild(rEl);
+        rr.appendChild(rCount);
+        rightSide.appendChild(rr);
+    }
+
+    tallyGrid.appendChild(leftSide);
+    tallyGrid.appendChild(divider);
+    tallyGrid.appendChild(rightSide);
+
+    var status = document.getElementById('bStatus');
+    if (allBalanced) {
+        status.className = 'b-status balanced';
+        status.textContent = '\u2714 Balanced!';
+    } else {
+        status.className = 'b-status unbalanced';
+        status.textContent = '\u2718 Not balanced yet';
+    }
+}
+
+function showHint() {
+    document.getElementById('hintText').className = 'hint-text show';
+}
+
+initBalancer();
+</script>
+
+</body>
+</html>
