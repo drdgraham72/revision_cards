@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Macroeconomics — Year 12 Crib Sheet</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+          --bg1: #ffffff; --bg2: #f4f6f2; --bg3: #eaf3de;
+          --t1: #1a1a18; --t2: #5f5e5a; --t3: #888780;
+          --bl: rgba(0,0,0,0.11); --bm: rgba(0,0,0,0.20);
+          --r: 8px; --rl: 12px;
+          --font: system-ui,-apple-system,sans-serif; --mono: 'Courier New', monospace;
+        }
+        @media(prefers-color-scheme:dark){
+          :root{
+            --bg1:#1e1e1c;--bg2:#252723;--bg3:#1a2a14;
+            --t1:#f0ece4;--t2:#a8a59e;--t3:#6e6d69;
+            --bl:rgba(255,255,255,0.09);--bm:rgba(255,255,255,0.18);
+          }
+        }
+        body{font-family:var(--font);background:var(--bg2);color:var(--t1);padding:1.75rem 1rem;min-height:100vh;}
+        .page { width: 100%; max-width: 1000px; margin: 0 auto; font-size: 12px; line-height: 1.4; }
+        h1 { font-size: 18px; font-weight: 600; margin-bottom: 0.25rem; }
+        .header { background: var(--bl); backdrop-filter: blur(8px); padding: 1rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-radius: var(--r); border: 0.5px solid var(--bm); }
+        .header h1 { font-size: 18px; font-weight: 600; margin: 0; }
+        .header span { font-size: 11px; color: var(--t2); font-family: var(--mono); letter-spacing: 0.05em; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .col { display: flex; flex-direction: column; gap: 8px; }
+        @media (max-width:768px) {
+          .grid { grid-template-columns: 1fr; }
+          .page { padding: 0; }
+        }
+        .box { background: var(--bg1); border: 0.5px solid var(--bl); border-radius: var(--r); overflow: hidden; }
+        .box-head { padding: 10px 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; background: var(--bl); }
+        .box-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; }
+        .row { display: grid; grid-template-columns: 28% 72%; gap: 8px; padding-bottom: 6px; border-bottom: 0.5px solid var(--bl); }
+        .row:last-child { border-bottom: none; }
+        .kw { font-weight: 650; color: var(--t2); font-size: 11px; font-family: var(--mono); }
+        .val { font-size: 11.5px; color: var(--t1); line-height: 1.35; }
+        .marks { font-family: var(--mono); font-size: 10px; color: var(--t2); background: var(--bg3); padding: 2px 5px; border-radius: 2px; }
+        .ex-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; border-left: 2px solid var(--t2); }
+        .ex-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--t2); display: block; margin-bottom: 2px; }
+        .formula-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; font-family: var(--mono); font-size: 10.5px; border-left: 2px solid #3b6d11; }
+        .board { font-size: 9px; font-weight: 600; display: inline-block; padding: 1px 5px; border-radius: 3px; background: var(--bl); color: var(--t1); margin: 2px 2px 0 0; }
+        .board.all { background: #eaf3de; color: #3b6d11; }
+        .board.h { background: #e6f1fb; color: #185fa5; }
+        .board.f { background: #faeeda; color: #854f0b; }
+        .warn { background: #faeeda; border-left: 2px solid #ef9f27; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #633806; margin: 4px 0; }
+        .tip { background: #eeedfe; border-left: 2px solid #7f77dd; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #3c3489; margin: 4px 0; }
+        .good { background: #eaf3de; border-left: 2px solid #639922; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #173404; margin: 4px 0; }
+        .s1 { background: #3b6d11; color: #eaf3de; }
+        .s2 { background: #185fa5; color: #e6f1fb; }
+        .s3 { background: #534ab7; color: #eeedfe; }
+        .s4 { background: #854f0b; color: #faeeda; }
+        .s5 { background: #a32d2d; color: #fcebeb; }
+        .s6 { background: #0f6e56; color: #e1f5ee; }
+    </style>
+</head>
+<body>
+<div class="page">
+<div class="header">
+  <h1>A-Level Macroeconomics — Year 12 Crib Sheet</h1>
+  <span>Edexcel Theme 2 · The UK Economy</span>
+</div>
+
+<div class="grid">
+<div class="col">
+
+<div class="box">
+<div class="box-head s1">Measures of Economic Performance <span class="marks">2.1</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">GDP</div><div class="val"><div class="good">Gross Domestic Product: the total value of goods and services produced in an economy over a given period (usually one year).</div>
+<strong>Real GDP:</strong> adjusted for inflation (constant prices) — allows meaningful comparisons over time.
+<strong>Nominal GDP:</strong> measured at current prices — can be misleading as rises may reflect inflation, not real growth.
+<strong>GDP per capita:</strong> GDP divided by population — better indicator of living standards than total GDP.
+<div class="ex-box"><span class="ex-label">Limitations of GDP</span>Ignores income distribution, excludes informal/black economy, ignores negative externalities (pollution), doesn't capture quality of life, unpaid work (household labour) excluded, doesn't reflect sustainability.</div>
+<div class="warn">Common essay trap: stating GDP growth always means improved living standards. Always evaluate — who benefits? Is it sustainable? What about inequality?</div></div></div>
+<div class="row"><div class="kw">Inflation</div><div class="val"><div class="good">Inflation: a sustained increase in the general price level, measured as an annual percentage change.</div>
+<strong>CPI (Consumer Price Index):</strong> the UK government's target measure. Based on a basket of 700+ goods/services, weighted by spending patterns. Excludes mortgage costs.
+<strong>RPI (Retail Price Index):</strong> includes mortgage interest payments. Tends to be higher than CPI. Used for some contracts and index-linked pensions.
+<div class="formula-box">CPI inflation = (CPI this year − CPI last year) ÷ CPI last year × 100</div>
+<strong>Demand-pull inflation:</strong> caused by excess AD outstripping AS — "too much money chasing too few goods."
+<strong>Cost-push inflation:</strong> caused by rising costs of production (wages, raw materials, energy) — firms pass on higher costs as higher prices.
+<div class="ex-box"><span class="ex-label">Consequences of inflation</span>Erosion of purchasing power, menu costs, shoe-leather costs, uncertainty discourages investment, redistributes from savers to borrowers, damages international competitiveness if higher than trading partners.</div>
+<div class="tip">Evaluation: low and stable inflation (2% target) is not harmful — it signals a growing economy. Deflation (falling prices) can be worse: consumers delay purchases, debt burden rises, profits fall.</div></div></div>
+<div class="row"><div class="kw">Unemployment</div><div class="val"><div class="good">Unemployment: people of working age who are actively seeking work but unable to find a job.</div>
+<strong>Cyclical:</strong> caused by a downturn in the economic cycle — demand-deficient unemployment. Falls when AD rises.
+<strong>Structural:</strong> mismatch between workers' skills and available jobs. Caused by deindustrialisation, technological change. Long-term and geographically concentrated.
+<strong>Frictional:</strong> short-term, between jobs — people transitioning. Generally voluntary and brief.
+<strong>Seasonal:</strong> linked to time of year (e.g. tourism, agriculture).
+<div class="ex-box"><span class="ex-label">Measurement</span><strong>Claimant count:</strong> number claiming unemployment-related benefits. Easy to collect but excludes those not eligible or who don't claim. <strong>Labour Force Survey (LFS):</strong> ILO measure — surveys 40,000 households. More comprehensive but survey-based, costly, time-lagged.</div>
+<div class="ex-box"><span class="ex-label">Consequences</span>Loss of output (inside PPF), loss of tax revenue, increased government spending on benefits, social costs (mental health, crime), hysteresis (long-term unemployed lose skills).</div></div></div>
+<div class="row"><div class="kw">Balance of Payments</div><div class="val"><div class="good">Balance of payments: a record of all financial transactions between a country and the rest of the world over a year.</div>
+<strong>Current account components:</strong>
+<strong>Trade in goods:</strong> exports minus imports of physical goods (UK typically runs a deficit here).
+<strong>Trade in services:</strong> exports minus imports of services (UK typically runs a surplus — financial services, insurance).
+<strong>Primary income:</strong> investment income flowing in and out (wages, dividends, interest on overseas assets).
+<strong>Secondary income:</strong> transfers — e.g. foreign aid, remittances, EU contributions.
+<div class="formula-box">Current account balance = (X − M) goods + (X − M) services + net primary income + net secondary income</div>
+<div class="warn">Common essay trap: assuming a current account deficit is always bad. It may reflect strong consumer confidence and imports of capital goods for investment. Evaluate the cause and sustainability.</div></div></div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s2">Aggregate Demand (AD) <span class="marks">2.2</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">AD Components</div><div class="val"><div class="formula-box">AD = C + I + G + (X − M)</div>
+<div class="good">Aggregate Demand: the total planned expenditure on goods and services in an economy at a given price level over a given period.</div>
+<strong>C (Consumption):</strong> household spending — largest component (~65% of AD). Influenced by income, interest rates, consumer confidence, wealth effects, availability of credit.
+<strong>I (Investment):</strong> spending by firms on capital goods. Influenced by interest rates, business confidence, expected profits, technological change.
+<strong>G (Government spending):</strong> spending on public services and investment. Determined by fiscal policy.
+<strong>(X − M) Net exports:</strong> exports minus imports. Influenced by exchange rate, relative inflation, income levels abroad.</div></div>
+<div class="row"><div class="kw">AD Curve</div><div class="val"><strong>Why AD slopes downward:</strong>
+<strong>Wealth effect:</strong> higher price level → real value of savings falls → less spending.
+<strong>Interest rate effect:</strong> higher prices → more money needed for transactions → interest rates rise → less C and I.
+<strong>Trade effect:</strong> higher domestic prices → exports less competitive, imports cheaper → (X−M) falls.
+<div class="warn">AD slopes downward because of price level changes — do not confuse this with a microeconomic demand curve which relates to a single good's price.</div></div></div>
+<div class="row"><div class="kw">Shifts of AD</div><div class="val"><strong>AD shifts right (increase):</strong> rise in C (e.g. tax cuts, confidence), rise in I (lower interest rates), rise in G (expansionary fiscal policy), rise in net exports (weaker exchange rate).
+<strong>AD shifts left (decrease):</strong> fall in C (e.g. higher taxes, pessimism), fall in I (higher interest rates), cuts in G (austerity), fall in net exports (stronger exchange rate).
+<div class="tip">Evaluation: distinguish between a movement along AD (caused by a change in price level) and a shift of AD (caused by a change in any component of C, I, G, or X−M).</div></div></div>
+<div class="row"><div class="kw">The Multiplier</div><div class="val"><div class="formula-box">Multiplier = 1 ÷ (1 − MPC) = 1 ÷ MPW</div>
+<div class="formula-box">MPW = MPS + MPT + MPM (marginal propensity to: save, tax, import)</div>
+<div class="good">Multiplier effect: an initial injection into the circular flow causes a larger final increase in national income, as spending is re-spent through successive rounds.</div>
+<div class="ex-box"><span class="ex-label">Example</span>If MPC = 0.8, multiplier = 1/(1−0.8) = 5. A £10bn rise in government spending increases national income by £50bn.</div>
+<div class="warn">Common essay trap: treating the multiplier as instant and precise. In reality, there are time lags, leakages vary, and the size of the multiplier depends on spare capacity. If the economy is near full employment, the multiplier effect may be inflationary rather than increasing real output.</div></div></div>
+</div>
+</div>
+
+</div>
+
+<div class="col">
+
+<div class="box">
+<div class="box-head s3">Aggregate Supply (AS) <span class="marks">2.2</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">SRAS</div><div class="val"><div class="good">Short-run aggregate supply: the total output firms are willing and able to supply at each price level, given that factor prices (wages) are sticky in the short run.</div>
+<strong>SRAS slopes upward:</strong> higher prices → higher profit margins (wages lag behind) → firms produce more.
+<strong>Shifts of SRAS:</strong> changes in costs of production — raw materials, wages, energy prices, exchange rate (affects import costs), indirect taxes/subsidies, productivity.
+<div class="ex-box"><span class="ex-label">SRAS shifts left</span>Oil price spike, higher NMW, weaker exchange rate (imports dearer), new indirect tax.</div>
+<div class="ex-box"><span class="ex-label">SRAS shifts right</span>Fall in commodity prices, improved productivity, stronger exchange rate, subsidy on production.</div></div></div>
+<div class="row"><div class="kw">LRAS</div><div class="val"><strong>Classical LRAS:</strong> vertical at full employment output (Yfe). The economy's maximum sustainable output. Changes in AD only affect the price level in the long run, not real output.
+<strong>Keynesian LRAS:</strong> L-shaped (horizontal at low output, then curves up and becomes vertical at full capacity). Below full employment, output can increase without inflation.
+<div class="tip">Evaluation: the Classical vs Keynesian debate matters for policy. If LRAS is vertical, demand-side policies only cause inflation. If Keynesian, fiscal/monetary stimulus can increase real output when there is spare capacity.</div></div></div>
+<div class="row"><div class="kw">Shifts of LRAS</div><div class="val">LRAS shifts right = increase in the economy's productive potential.
+<strong>Investment:</strong> more/better capital goods.
+<strong>Education &amp; training:</strong> improved human capital and labour productivity.
+<strong>Technology:</strong> innovation raises efficiency and output.
+<strong>Migration:</strong> net immigration increases labour supply.
+<strong>Institutional change:</strong> deregulation, property rights, rule of law.
+<div class="formula-box">LRAS shifts right → PPF shifts outward → higher potential GDP</div></div></div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s4">National Income &amp; Circular Flow <span class="marks">2.2</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Circular Flow Model</div><div class="val"><div class="good">The circular flow shows how income, spending, and output flow between households and firms, with injections and withdrawals affecting national income.</div>
+<strong>Injections (J):</strong> Investment (I), Government spending (G), Exports (X) — add to the circular flow.
+<strong>Withdrawals (W):</strong> Saving (S), Taxation (T), Imports (M) — leak out of the circular flow.
+<div class="formula-box">Equilibrium: J = W → I + G + X = S + T + M</div></div></div>
+<div class="row"><div class="kw">Equilibrium &amp; the Multiplier</div><div class="val">If J &gt; W → national income rises (expansionary). If W &gt; J → national income falls (contractionary).
+An increase in injections triggers the multiplier process: initial spending → becomes income → part re-spent → becomes income again → successive rounds of spending.
+The multiplier is larger when withdrawals are small (low MPS, low MPT, low MPM).
+<div class="tip">Evaluation: the circular flow is a simplification. In reality, financial markets, government, and the international sector all interact simultaneously. Use it as a framework, not a precise model.</div></div></div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s5">Fiscal Policy <span class="marks">2.3</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Fiscal Policy Tools</div><div class="val"><div class="good">Fiscal policy: the use of government spending and taxation to influence aggregate demand and the economy.</div>
+<strong>Government spending (G):</strong> current spending (day-to-day, e.g. NHS wages) and capital spending (investment, e.g. infrastructure).
+<strong>Taxation:</strong> direct taxes (income tax, corporation tax) and indirect taxes (VAT, excise duties).
+<strong>Expansionary:</strong> increase G and/or cut taxes → AD shifts right. Used in recessions.
+<strong>Contractionary:</strong> cut G and/or raise taxes → AD shifts left. Used to reduce inflation or deficit.</div></div>
+<div class="row"><div class="kw">Budget &amp; National Debt</div><div class="val"><div class="formula-box">Budget deficit = G &gt; tax revenue (government borrows). Budget surplus = tax revenue &gt; G.</div>
+<strong>Automatic stabilisers:</strong> tax revenues and benefit spending that automatically adjust with the economic cycle — in a recession, tax revenue falls and benefit spending rises (cushioning the downturn) without deliberate policy change.
+<strong>National debt:</strong> the total accumulated borrowing over time. UK national debt is over 100% of GDP.
+<div class="warn">Common essay trap: confusing the budget deficit (annual flow) with the national debt (total stock). A surplus reduces the debt; a smaller deficit still adds to it.</div></div></div>
+<div class="row"><div class="kw">Evaluation</div><div class="val"><div class="tip">Fiscal policy strengths: can target specific sectors/regions, automatic stabilisers act quickly, direct impact on AD. Weaknesses: time lags (political process), crowding out (government borrowing raises interest rates, reducing private I), opportunity cost, difficult to reverse, may increase national debt.</div></div></div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s6">Monetary Policy <span class="marks">2.3</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Bank of England &amp; MPC</div><div class="val"><div class="good">Monetary policy: the use of interest rates and the money supply by the central bank to influence aggregate demand and meet the inflation target (2% CPI).</div>
+The Monetary Policy Committee (MPC) meets 8 times a year to set the Bank Rate. Independent of government since 1997 — reduces political interference and improves credibility.</div></div>
+<div class="row"><div class="kw">Interest Rates</div><div class="val"><strong>Lower interest rates →</strong> cheaper borrowing → more C and I, less incentive to save, mortgage payments fall → more disposable income, exchange rate falls (less attractive to hold £) → exports cheaper → AD shifts right.
+<strong>Higher interest rates →</strong> opposite effects → AD shifts left.
+<div class="formula-box">Transmission mechanism: Bank Rate change → commercial bank rates → C, I, saving, exchange rate → AD → output, employment, inflation</div>
+<div class="warn">Common essay trap: assuming interest rate changes affect all consumers equally. Renters and those without debt are less affected. Also, time lags of 18–24 months before full effects are felt.</div></div></div>
+<div class="row"><div class="kw">Quantitative Easing (QE)</div><div class="val">Used when interest rates are near zero (liquidity trap). The Bank of England creates new money electronically and buys government bonds from financial institutions.
+<strong>Effect:</strong> increases money supply → pushes down long-term interest rates → banks have more liquidity to lend → encourages C and I → AD shifts right. Also raises asset prices (wealth effect).
+<div class="tip">Evaluation: QE may increase inequality (raises asset prices, benefiting the wealthy), risk of inflation if too much money created, banks may not lend on (broken transmission mechanism), may create asset bubbles.</div></div></div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s1">Supply-Side Policies <span class="marks">2.3</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Market-Based</div><div class="val"><strong>Deregulation:</strong> removing rules/regulations to increase competition and efficiency.
+<strong>Privatisation:</strong> transferring state-owned enterprises to the private sector — profit motive drives efficiency.
+<strong>Tax cuts:</strong> lower income/corporation tax → incentivise work, enterprise, and investment.
+<strong>Flexible labour markets:</strong> weaker trade unions, easier hiring/firing, zero-hour contracts — reduce costs but may increase inequality.
+<div class="ex-box"><span class="ex-label">Example</span>Thatcher-era reforms: privatisation of BT, BA; deregulation of financial markets; trade union legislation.</div></div></div>
+<div class="row"><div class="kw">Interventionist</div><div class="val"><strong>Education &amp; training:</strong> improve human capital → raise productivity → LRAS shifts right.
+<strong>Infrastructure:</strong> better transport, broadband → reduces costs, increases efficiency.
+<strong>Industrial policy:</strong> government supports specific sectors (e.g. green energy, R&amp;D grants).
+<div class="ex-box"><span class="ex-label">Example</span>HS2, Apprenticeship Levy, R&amp;D tax credits, investment in 5G networks.</div></div></div>
+<div class="row"><div class="kw">Evaluation</div><div class="val"><div class="tip">Strengths: can increase LRAS without inflation, improve competitiveness, reduce structural unemployment. Weaknesses: long time lags (education takes years), expensive (infrastructure), uncertain outcomes, market-based may increase inequality, interventionist may involve government failure.</div>
+<div class="warn">Common essay trap: listing supply-side policies without evaluating effectiveness. Always discuss time lags, costs, and trade-offs. A policy that shifts LRAS right in theory may fail in practice due to implementation problems.</div></div></div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s2">International Trade <span class="marks">2.4</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Comparative &amp; Absolute Advantage</div><div class="val"><div class="good">Absolute advantage: a country can produce a good using fewer resources than another. Comparative advantage: a country can produce a good at a lower opportunity cost than another.</div>
+<div class="formula-box">A country should specialise in goods where it has the lowest opportunity cost, then trade — both countries gain.</div>
+<div class="tip">Evaluation: comparative advantage assumes constant costs, perfect factor mobility, no transport costs, free trade, and ignores externalities. In reality, these conditions rarely hold — but the principle explains why trade is mutually beneficial.</div></div></div>
+<div class="row"><div class="kw">Terms of Trade</div><div class="val"><div class="formula-box">Terms of trade index = (export price index ÷ import price index) × 100</div>
+<strong>Improvement:</strong> index rises — can buy more imports per unit of exports. But may reflect loss of competitiveness (exports becoming expensive).
+<strong>Deterioration:</strong> index falls — need to export more to buy the same imports.</div></div>
+<div class="row"><div class="kw">Free Trade vs Protectionism</div><div class="val"><strong>Free trade benefits:</strong> lower prices, greater choice, economies of scale, increased competition, access to resources.
+<strong>Protectionism methods:</strong>
+<strong>Tariffs:</strong> tax on imports → raises price → domestic producers gain, consumers lose (deadweight loss).
+<strong>Quotas:</strong> physical limit on imports → restricts supply → raises price.
+<strong>Subsidies:</strong> government support for domestic producers → artificially lowers their costs → can compete with imports.
+<div class="ex-box"><span class="ex-label">Arguments for protectionism</span>Infant industry protection, national security, anti-dumping, protecting jobs, correcting a trade deficit, environmental/safety standards.</div>
+<div class="warn">Common essay trap: arguing protectionism "saves jobs" without evaluating the cost — higher consumer prices, retaliation from trading partners, reduced efficiency, and the jobs "saved" may be in declining industries.</div></div></div>
+<div class="row"><div class="kw">Trading Blocs &amp; WTO</div><div class="val"><strong>Trading blocs:</strong> groups of countries with reduced trade barriers between members. Free trade areas (e.g. USMCA), customs unions (e.g. EU single market), common markets.
+<strong>WTO (World Trade Organisation):</strong> promotes free trade, settles disputes, enforces rules. 164 member countries. Operates on Most Favoured Nation principle (no discrimination between trading partners).
+<div class="tip">Evaluation: trading blocs create trade creation (new trade between members) but also trade diversion (switching from efficient non-members to less efficient members). Brexit is a key case study — UK left the EU customs union, gaining trade policy independence but facing new trade barriers.</div></div></div>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Microeconomics — Year 12 Crib Sheet</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+          --bg1: #ffffff; --bg2: #f4f6f2; --bg3: #eaf3de;
+          --t1: #1a1a18; --t2: #5f5e5a; --t3: #888780;
+          --bl: rgba(0,0,0,0.11); --bm: rgba(0,0,0,0.20);
+          --r: 8px; --rl: 12px;
+          --font: system-ui,-apple-system,sans-serif; --mono: 'Courier New', monospace;
+        }
+        @media(prefers-color-scheme:dark){
+          :root{
+            --bg1:#1e1e1c;--bg2:#252723;--bg3:#1a2a14;
+            --t1:#f0ece4;--t2:#a8a59e;--t3:#6e6d69;
+            --bl:rgba(255,255,255,0.09);--bm:rgba(255,255,255,0.18);
+          }
+        }
+        body{font-family:var(--font);background:var(--bg2);color:var(--t1);padding:1.75rem 1rem;min-height:100vh;}
+        .page { width: 100%; max-width: 1000px; margin: 0 auto; font-size: 12px; line-height: 1.4; }
+        h1 { font-size: 18px; font-weight: 600; margin-bottom: 0.25rem; }
+        .header { background: var(--bl); backdrop-filter: blur(8px); padding: 1rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-radius: var(--r); border: 0.5px solid var(--bm); }
+        .header h1 { font-size: 18px; font-weight: 600; margin: 0; }
+        .header span { font-size: 11px; color: var(--t2); font-family: var(--mono); letter-spacing: 0.05em; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .col { display: flex; flex-direction: column; gap: 8px; }
+        @media (max-width:768px) {
+          .grid { grid-template-columns: 1fr; }
+          .page { padding: 0; }
+        }
+        .box { background: var(--bg1); border: 0.5px solid var(--bl); border-radius: var(--r); overflow: hidden; }
+        .box-head { padding: 10px 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; background: var(--bl); }
+        .box-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; }
+        .row { display: grid; grid-template-columns: 28% 72%; gap: 8px; padding-bottom: 6px; border-bottom: 0.5px solid var(--bl); }
+        .row:last-child { border-bottom: none; }
+        .kw { font-weight: 650; color: var(--t2); font-size: 11px; font-family: var(--mono); }
+        .val { font-size: 11.5px; color: var(--t1); line-height: 1.35; }
+        .marks { font-family: var(--mono); font-size: 10px; color: var(--t2); background: var(--bg3); padding: 2px 5px; border-radius: 2px; }
+        .ex-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; border-left: 2px solid var(--t2); }
+        .ex-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--t2); display: block; margin-bottom: 2px; }
+        .formula-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; font-family: var(--mono); font-size: 10.5px; border-left: 2px solid #3b6d11; }
+        .board { font-size: 9px; font-weight: 600; display: inline-block; padding: 1px 5px; border-radius: 3px; background: var(--bl); color: var(--t1); margin: 2px 2px 0 0; }
+        .board.all { background: #eaf3de; color: #3b6d11; }
+        .board.h { background: #e6f1fb; color: #185fa5; }
+        .board.f { background: #faeeda; color: #854f0b; }
+        .warn { background: #faeeda; border-left: 2px solid #ef9f27; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #633806; margin: 4px 0; }
+        .tip { background: #eeedfe; border-left: 2px solid #7f77dd; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #3c3489; margin: 4px 0; }
+        .good { background: #eaf3de; border-left: 2px solid #639922; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #173404; margin: 4px 0; }
+        .s1 { background: #3b6d11; color: #eaf3de; }
+        .s2 { background: #185fa5; color: #e6f1fb; }
+        .s3 { background: #534ab7; color: #eeedfe; }
+        .s4 { background: #854f0b; color: #faeeda; }
+        .s5 { background: #a32d2d; color: #fcebeb; }
+        .s6 { background: #0f6e56; color: #e1f5ee; }
+    </style>
+</head>
+<body>
+<div class="page">
+<div class="header">
+  <h1>A-Level Microeconomics — Year 12 Crib Sheet</h1>
+  <span>Edexcel Theme 1 · Markets &amp; Market Failure</span>
+</div>
+
+<div class="grid">
+<div class="col">
+
+<div class="box">
+<div class="box-head s1">The Economic Problem <span class="marks">1.1</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Scarcity</div><div class="val"><div class="good">Scarcity: unlimited wants but limited resources — the fundamental economic problem. Forces societies to make choices about allocation.</div></div></div>
+<div class="row"><div class="kw">Choice &amp; Opportunity Cost</div><div class="val"><div class="good">Opportunity cost: the next best alternative forgone when a choice is made.</div> Not all alternatives — only the single best one given up. Applies to individuals, firms, and governments.
+<div class="ex-box"><span class="ex-label">Example</span>Government spends £10bn on defence → opportunity cost = £10bn of NHS spending (if that was next best use)</div></div></div>
+<div class="row"><div class="kw">PPF (Production Possibility Frontier)</div><div class="val">Shows maximum output combinations of two goods using all resources efficiently.
+<div class="ex-box"><span class="ex-label">Key points</span><strong>On the curve</strong> = productive efficiency. <strong>Inside</strong> = inefficiency / unemployed resources. <strong>Outside</strong> = currently unattainable.</div>
+<strong>Shifts outward:</strong> improved technology, more resources, better education/training, immigration. <strong>Shifts inward:</strong> natural disaster, war, emigration. Movement along = reallocation (shows opportunity cost as a trade-off).
+<div class="warn">Common mistake: saying points outside the PPF are "impossible" — they are unattainable with current resources but achievable with economic growth.</div></div></div>
+<div class="row"><div class="kw">Specialisation &amp; Division of Labour</div><div class="val"><strong>Specialisation:</strong> concentrating on producing goods/services where you have lowest opportunity cost. <strong>Division of labour:</strong> breaking production into separate tasks.
+<div class="ex-box"><span class="ex-label">Benefits</span>Higher productivity, economies of scale, higher output, skill development, time saving</div>
+<div class="ex-box"><span class="ex-label">Drawbacks</span>Worker boredom, structural unemployment if demand changes, over-dependence on others, monotony reduces quality</div></div></div>
+<div class="row"><div class="kw">Economic Systems</div><div class="val"><strong>Free market:</strong> resources allocated by price mechanism; private ownership; profit motive. <strong>Command:</strong> state allocates resources; government ownership; central planning. <strong>Mixed:</strong> combination of market and government allocation (all real-world economies).
+<div class="tip">Evaluation: no economy is purely free market or purely command. The debate is about the degree of government intervention, not whether it should exist at all.</div></div></div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s2">Demand <span class="marks">1.2</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Law of Demand</div><div class="val"><div class="good">As price rises, quantity demanded falls (ceteris paribus) — inverse relationship. The demand curve slopes downward left to right.</div></div></div>
+<div class="row"><div class="kw">Movement vs Shift</div><div class="val"><strong>Movement along:</strong> caused by a change in the good's own price. <strong>Shift of the whole curve:</strong> caused by non-price factors (conditions of demand).</div></div>
+<div class="row"><div class="kw">Demand Curve Shifters</div><div class="val">
+<strong>Income:</strong> normal goods — demand rises with income (shift right); inferior goods — demand falls with income (shift left).
+<strong>Substitutes:</strong> price of substitute rises → demand for this good rises (shift right).
+<strong>Complements:</strong> price of complement rises → demand for this good falls (shift left).
+<strong>Tastes/fashion:</strong> favourable change → shift right.
+<strong>Population:</strong> larger population → shift right.
+<strong>Advertising:</strong> successful campaign → shift right.
+<strong>Expectations:</strong> expected future price rise → demand rises now.
+<div class="warn">Common mistake: confusing a movement along the demand curve (price change) with a shift (non-price factor). Examiners penalise this heavily.</div></div></div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s2">Supply <span class="marks">1.2</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Law of Supply</div><div class="val"><div class="good">As price rises, quantity supplied rises (ceteris paribus) — positive relationship. The supply curve slopes upward left to right.</div></div></div>
+<div class="row"><div class="kw">Supply Curve Shifters</div><div class="val">
+<strong>Costs of production:</strong> wages, raw materials rise → shift left (decrease in supply).
+<strong>Technology:</strong> improved tech → shift right (lower costs per unit).
+<strong>Subsidies:</strong> government subsidy → shift right (reduces costs).
+<strong>Indirect taxes:</strong> tax imposed → shift left (increases costs).
+<strong>Weather/natural factors:</strong> good harvest → shift right for agricultural goods.
+<strong>Number of firms:</strong> more firms enter → market supply shifts right.
+</div></div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s3">Market Equilibrium &amp; Price Mechanism <span class="marks">1.2</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Equilibrium</div><div class="val"><div class="good">Market equilibrium: where quantity demanded = quantity supplied (S=D). The equilibrium price clears the market — no excess supply or excess demand.</div>
+<strong>Excess supply</strong> (price above equilibrium): firms cut price → movement down supply, up demand → back to equilibrium.
+<strong>Excess demand</strong> (price below equilibrium): firms raise price → movement up supply, down demand → back to equilibrium.</div></div>
+<div class="row"><div class="kw">Price Mechanism Functions</div><div class="val"><strong>Rationing:</strong> prices rise to ration scarce goods among those willing and able to pay.
+<strong>Signalling:</strong> prices signal information to producers and consumers about where resources are needed.
+<strong>Incentive:</strong> high prices incentivise firms to supply more (profit motive) and consumers to demand less.
+<div class="tip">A* evaluation: the price mechanism assumes perfect information, rational behaviour, and no externalities. Where these fail, we get market failure — linking 1.2 to 1.3/1.4.</div></div></div>
+<div class="row"><div class="kw">Consumer &amp; Producer Surplus</div><div class="val"><strong>Consumer surplus:</strong> difference between what consumers are willing to pay and what they actually pay. Area below demand curve, above price, to the left of Q.
+<strong>Producer surplus:</strong> difference between the price received and the minimum price producers are willing to accept. Area above supply curve, below price, to the left of Q.
+<strong>Total welfare = CS + PS.</strong> Maximised at free market equilibrium (allocative efficiency).
+<div class="warn">In diagrams: CS is the triangle above price line, below demand curve. PS is the triangle below price line, above supply curve. Always label these clearly.</div></div></div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s4">Elasticity — PED <span class="marks">1.2</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">PED Formula</div><div class="val"><div class="formula-box">PED = % change in quantity demanded ÷ % change in price</div>
+<div class="formula-box">% change = (new − old) ÷ old × 100</div>
+PED is always negative (law of demand) but we use the absolute value.
+<div class="good">Elastic: |PED| &gt; 1 (demand responsive to price). Inelastic: |PED| &lt; 1 (demand unresponsive). Unitary: |PED| = 1.</div>
+<strong>Perfectly elastic:</strong> PED = infinity (horizontal demand curve — any price rise = zero demand).
+<strong>Perfectly inelastic:</strong> PED = 0 (vertical demand curve — demand unchanged whatever the price).</div></div>
+<div class="row"><div class="kw">PED Determinants</div><div class="val"><strong>Substitutes:</strong> more substitutes → more elastic.
+<strong>Necessity vs luxury:</strong> necessities → inelastic; luxuries → elastic.
+<strong>Proportion of income:</strong> larger share of income → more elastic.
+<strong>Time:</strong> longer time period → more elastic (more time to find alternatives).
+<strong>Habit/addiction:</strong> addictive goods → inelastic.</div></div>
+<div class="row"><div class="kw">PED &amp; Total Revenue</div><div class="val"><div class="formula-box">Total Revenue = Price × Quantity</div>
+If demand is <strong>elastic</strong>: price rise → TR falls (quantity falls proportionally more). Price cut → TR rises.
+If demand is <strong>inelastic</strong>: price rise → TR rises (quantity falls proportionally less). Price cut → TR falls.
+<div class="tip">A* point: firms with inelastic demand (e.g. Apple) can raise prices and increase revenue. This explains why governments tax inelastic goods (tobacco, petrol) — revenue is high and quantity doesn't fall much.</div></div></div>
+</div>
+</div>
+
+</div>
+
+<div class="col">
+
+<div class="box">
+<div class="box-head s4">Elasticity — YED, XED, PES <span class="marks">1.2</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">YED (Income Elasticity)</div><div class="val"><div class="formula-box">YED = % change in quantity demanded ÷ % change in income</div>
+<div class="good">Normal goods: YED &gt; 0 (demand rises with income). Inferior goods: YED &lt; 0 (demand falls as income rises).</div>
+<strong>Necessities:</strong> 0 &lt; YED &lt; 1 (income inelastic — demand rises but less than proportionally).
+<strong>Luxuries:</strong> YED &gt; 1 (income elastic — demand rises more than proportionally).
+<div class="tip">A* application: as economies grow, demand for luxury goods rises faster than necessities. Firms selling inferior goods (e.g. budget brands) see falling demand in booms — relevant for business strategy.</div></div></div>
+<div class="row"><div class="kw">XED (Cross Elasticity)</div><div class="val"><div class="formula-box">XED = % change in Qd of good A ÷ % change in price of good B</div>
+<div class="good">Substitutes: XED &gt; 0 (positive — price of B rises, demand for A rises). Complements: XED &lt; 0 (negative — price of B rises, demand for A falls).</div>
+<strong>Unrelated goods:</strong> XED = 0 or close to 0.
+The higher the value, the stronger the relationship between goods.
+<div class="warn">Don't confuse the direction: XED measures the effect of good B's price on good A's quantity demanded, not the other way round.</div></div></div>
+<div class="row"><div class="kw">PES (Price Elasticity of Supply)</div><div class="val"><div class="formula-box">PES = % change in quantity supplied ÷ % change in price</div>
+PES is always positive (law of supply). <strong>Determinants:</strong>
+<strong>Time:</strong> longer time → more elastic (firms can adjust capacity).
+<strong>Spare capacity:</strong> more spare capacity → more elastic (can increase output easily).
+<strong>Stocks/inventories:</strong> more stocks → more elastic.
+<strong>Mobility of factors:</strong> easier to switch resources → more elastic.
+<strong>Perishability:</strong> perishable goods → inelastic supply.</div></div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s5">Market Failure <span class="marks">1.3</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Definition</div><div class="val"><div class="good">Market failure: where the free market mechanism fails to achieve allocative efficiency — resources are misallocated, leading to a net welfare loss.</div></div></div>
+<div class="row"><div class="kw">Externalities</div><div class="val">Occur when production or consumption affects third parties not involved in the transaction.
+<div class="ex-box"><span class="ex-label">Negative externality of production</span>Factory pollution → MSC &gt; MPC. Overproduction. Welfare loss triangle between MSC and MPC. E.g. carbon emissions from manufacturing.</div>
+<div class="ex-box"><span class="ex-label">Negative externality of consumption</span>Smoking, alcohol → MSB &lt; MPB. Overconsumption. E.g. passive smoking harms others.</div>
+<div class="ex-box"><span class="ex-label">Positive externality of production</span>R&amp;D spillovers → MSC &lt; MPC. Underproduction. E.g. tech firm research benefits other industries.</div>
+<div class="ex-box"><span class="ex-label">Positive externality of consumption</span>Education, vaccination → MSB &gt; MPB. Underconsumption. E.g. educated workforce benefits whole economy.</div>
+<div class="formula-box">MSC = MPC + external cost</div>
+<div class="formula-box">MSB = MPB + external benefit</div>
+<div class="warn">Always state whether the externality is in production or consumption — examiners require this distinction. Also: the welfare loss is the triangle between the social and private curves, not the whole area.</div></div></div>
+<div class="row"><div class="kw">Merit &amp; Demerit Goods</div><div class="val"><strong>Merit goods:</strong> goods that are underconsumed because consumers undervalue the benefits (positive externalities + information failure). E.g. education, healthcare, museums.
+<strong>Demerit goods:</strong> goods that are overconsumed because consumers undervalue the costs (negative externalities + information failure). E.g. tobacco, alcohol, gambling.
+<div class="tip">A* point: merit/demerit goods involve BOTH externalities AND information failure. Many students only mention one — you need both for full marks.</div></div></div>
+<div class="row"><div class="kw">Public Goods</div><div class="val"><div class="good">Non-rival: one person's use does not reduce availability for others. Non-excludable: impossible to prevent non-payers from consuming.</div>
+<strong>Free rider problem:</strong> rational consumers won't pay if they can't be excluded → no private firm will provide → market fails completely (missing market).
+E.g. street lighting, national defence, flood defences. <strong>Quasi-public goods:</strong> have some but not all characteristics (e.g. roads — non-rival until congestion).</div></div>
+<div class="row"><div class="kw">Information Gaps</div><div class="val"><strong>Asymmetric information:</strong> one party in a transaction has more/better information than the other.
+<strong>Imperfect information:</strong> consumers or producers lack full knowledge.
+E.g. second-hand cars (seller knows faults, buyer doesn't), health risks of smoking, financial products.
+Leads to: adverse selection, moral hazard, over/underconsumption.</div></div>
+<div class="row"><div class="kw">MSC/MSB Diagrams</div><div class="val"><strong>Allocative efficiency:</strong> where MSB = MSC (socially optimal output).
+<strong>Free market produces:</strong> where MPB = MPC (privately optimal output).
+The gap between social and private optimum = <strong>welfare loss</strong> (deadweight loss triangle).
+For negative externalities: free market overproduces. For positive externalities: free market underproduces.
+<div class="warn">Always label: MPC, MSC, MPB, MSB, free market output (Qm), socially optimal output (Qs), welfare loss triangle. Missing labels lose marks.</div></div></div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s6">Government Intervention <span class="marks">1.4</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Indirect Taxes</div><div class="val"><strong>Specific tax:</strong> fixed amount per unit (shifts supply left by fixed distance, parallel). <strong>Ad valorem tax:</strong> percentage of price (supply pivots — gap widens at higher prices). E.g. VAT at 20%.
+<div class="formula-box">Tax incidence depends on PED/PES: inelastic demand → consumer bears more; elastic demand → producer bears more.</div>
+<div class="tip">Evaluation: effective for inelastic goods (tobacco); may be regressive (hit low-income harder); may encourage black markets; revenue can fund alternatives.</div></div></div>
+<div class="row"><div class="kw">Subsidies</div><div class="val">Government payment to producers → shifts supply right (reduces costs). Increases output, reduces price paid by consumers. Used for merit goods, positive externalities.
+<div class="warn">Subsidy drawbacks: opportunity cost of government spending, may create dependency, difficult to calculate correct amount, may benefit producers more than consumers.</div></div></div>
+<div class="row"><div class="kw">Maximum Prices (Price Ceilings)</div><div class="val">Set below equilibrium to make goods affordable. Creates <strong>excess demand</strong> (shortage). E.g. rent controls.
+Effects: shortages, black markets, reduced quality, need for rationing (queuing/lottery).
+<div class="warn">A maximum price set ABOVE equilibrium has no effect — the market clears below it anyway.</div></div></div>
+<div class="row"><div class="kw">Minimum Prices (Price Floors)</div><div class="val">Set above equilibrium to protect producers/workers. Creates <strong>excess supply</strong>. E.g. National Minimum Wage, agricultural price floors.
+Effects: surplus, government may need to buy up excess, may cause unemployment (if applied to labour market).</div></div>
+<div class="row"><div class="kw">Regulation &amp; Legislation</div><div class="val">Laws to ban/restrict activities. E.g. pollution limits, age restrictions on alcohol, planning regulations.
+Advantages: directly addresses market failure, legally enforceable. Disadvantages: costly to enforce, may be evaded, may not address root cause.</div></div>
+<div class="row"><div class="kw">Provision of Public Goods</div><div class="val">Government directly provides goods the market won't (non-rival, non-excludable). Funded through taxation. E.g. defence, street lighting, judiciary.</div></div>
+<div class="row"><div class="kw">Information Provision</div><div class="val">Government campaigns to correct information failure. E.g. nutritional labelling, health warnings on cigarettes, energy efficiency ratings.
+<div class="tip">Often used alongside other policies. Low cost but effectiveness depends on whether consumers act on the information — behavioural economics suggests they often don't.</div></div></div>
+<div class="row"><div class="kw">Government Failure</div><div class="val"><div class="good">Government failure: where government intervention leads to a net welfare loss or makes the misallocation of resources worse than the market failure it aimed to correct.</div>
+<strong>Causes:</strong> unintended consequences (e.g. minimum wage → unemployment), administrative costs exceeding benefits, distortion of market signals, political short-termism, regulatory capture, imperfect information by policymakers.
+<div class="tip">A* evaluation: always weigh intervention against government failure. The question is not "does market failure exist?" but "will intervention improve the outcome?" — this is the key to top-band answers.</div></div></div>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</body>
+</html>

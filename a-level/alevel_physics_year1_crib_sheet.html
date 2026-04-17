@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Physics — Year 1 Crib Sheet</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+          --bg1: #ffffff; --bg2: #f4f6f2; --bg3: #eaf3de;
+          --t1: #1a1a18; --t2: #5f5e5a; --t3: #888780;
+          --bl: rgba(0,0,0,0.11); --bm: rgba(0,0,0,0.20);
+          --r: 8px; --rl: 12px;
+          --font: system-ui,-apple-system,sans-serif; --mono: 'Courier New', monospace;
+        }
+        @media(prefers-color-scheme:dark){
+          :root{
+            --bg1:#1e1e1c;--bg2:#252723;--bg3:#1a2a14;
+            --t1:#f0ece4;--t2:#a8a59e;--t3:#6e6d69;
+            --bl:rgba(255,255,255,0.09);--bm:rgba(255,255,255,0.18);
+          }
+        }
+        body{font-family:var(--font);background:var(--bg2);color:var(--t1);padding:1.75rem 1rem;min-height:100vh;}
+        .page { width: 100%; max-width: 1000px; margin: 0 auto; font-size: 12px; line-height: 1.4; }
+        h1 { font-size: 18px; font-weight: 600; margin-bottom: 0.25rem; }
+        .header { background: var(--bl); backdrop-filter: blur(8px); padding: 1rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-radius: var(--r); border: 0.5px solid var(--bm); }
+        .header h1 { font-size: 18px; font-weight: 600; margin: 0; }
+        .header span { font-size: 11px; color: var(--t2); font-family: var(--mono); letter-spacing: 0.05em; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .col { display: flex; flex-direction: column; gap: 8px; }
+        @media (max-width:768px) {
+          .grid { grid-template-columns: 1fr; }
+          .page { padding: 0; }
+        }
+        .box { background: var(--bg1); border: 0.5px solid var(--bl); border-radius: var(--r); overflow: hidden; }
+        .box-head { padding: 10px 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; background: var(--bl); }
+        .box-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; }
+        .row { display: grid; grid-template-columns: 28% 72%; gap: 8px; padding-bottom: 6px; border-bottom: 0.5px solid var(--bl); }
+        .row:last-child { border-bottom: none; }
+        .kw { font-weight: 650; color: var(--t2); font-size: 11px; font-family: var(--mono); }
+        .val { font-size: 11.5px; color: var(--t1); line-height: 1.35; }
+        .marks { font-family: var(--mono); font-size: 10px; color: var(--t2); background: var(--bg3); padding: 2px 5px; border-radius: 2px; }
+        .ex-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; border-left: 2px solid var(--t2); }
+        .ex-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--t2); display: block; margin-bottom: 2px; }
+        .formula-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; font-family: var(--mono); font-size: 10.5px; border-left: 2px solid #3b6d11; }
+        .board { font-size: 9px; font-weight: 600; display: inline-block; padding: 1px 5px; border-radius: 3px; background: var(--bl); color: var(--t1); margin: 2px 2px 0 0; }
+        .board.all { background: #eaf3de; color: #3b6d11; }
+        .board.h { background: #e6f1fb; color: #185fa5; }
+        .board.f { background: #faeeda; color: #854f0b; }
+        .warn { background: #faeeda; border-left: 2px solid #ef9f27; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #633806; margin: 4px 0; }
+        .tip { background: #eeedfe; border-left: 2px solid #7f77dd; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #3c3489; margin: 4px 0; }
+        .good { background: #eaf3de; border-left: 2px solid #639922; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #173404; margin: 4px 0; }
+        .s1 { background: #3b6d11; color: #eaf3de; }
+        .s2 { background: #185fa5; color: #e6f1fb; }
+        .s3 { background: #534ab7; color: #eeedfe; }
+        .s4 { background: #854f0b; color: #faeeda; }
+        .s5 { background: #a32d2d; color: #fcebeb; }
+        .s6 { background: #0f6e56; color: #e1f5ee; }
+    </style>
+</head>
+<body>
+<div class="page">
+<div class="header">
+  <h1>A-Level Physics — Year 1 Crib Sheet</h1>
+  <span>Edexcel · Topics 1-5 · Core equations &amp; concepts</span>
+</div>
+
+<div class="grid">
+<div class="col">
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- MEASUREMENTS & ERRORS                              -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="box">
+<div class="box-head s1">Measurements &amp; Errors <span class="marks">Topic 1</span></div>
+<div class="box-body">
+
+<div class="row"><div class="kw">SI base units</div><div class="val">
+metre (m), kilogram (kg), second (s), ampere (A), kelvin (K), mole (mol), candela (cd)
+<div class="formula-box">All derived units reduce to combinations of these seven</div>
+</div></div>
+
+<div class="row"><div class="kw">SI prefixes</div><div class="val">
+<div class="formula-box">p = 10⁻¹², n = 10⁻⁹, &mu; = 10⁻⁶, m = 10⁻³, c = 10⁻², k = 10³, M = 10⁶, G = 10⁹, T = 10¹²</div>
+<span style="font-size:10px;">pico, nano, micro, milli, centi, kilo, mega, giga, tera</span>
+</div></div>
+
+<div class="row"><div class="kw">Random vs systematic errors</div><div class="val">
+<strong>Random:</strong> unpredictable scatter around true value; reduced by repeating &amp; averaging.<br>
+<strong>Systematic:</strong> consistent offset in one direction (e.g. zero error); NOT reduced by repeating &mdash; must recalibrate or correct.
+</div></div>
+
+<div class="row"><div class="kw">Precision vs accuracy</div><div class="val">
+<strong>Precise:</strong> repeated readings are close together (small spread).<br>
+<strong>Accurate:</strong> readings are close to the true value.<br>
+You can be precise but inaccurate (systematic error) or accurate but imprecise (large random error with mean near true value).
+</div></div>
+
+<div class="row"><div class="kw">Percentage uncertainty</div><div class="val">
+<div class="formula-box">% uncertainty = (absolute uncertainty / measured value) &times; 100</div>
+<div class="ex-box"><span class="ex-label">Example</span>Length = 25.0 &plusmn; 0.5 cm &rarr; % unc = (0.5/25.0) &times; 100 = 2.0%</div>
+</div></div>
+
+<div class="row"><div class="kw">Combining uncertainties</div><div class="val">
+<div class="formula-box">Adding/subtracting quantities: ADD absolute uncertainties</div>
+<div class="formula-box">Multiplying/dividing quantities: ADD percentage uncertainties</div>
+<div class="formula-box">Raising to a power n: MULTIPLY percentage uncertainty by n</div>
+</div></div>
+
+<div class="row"><div class="kw">Significant figures</div><div class="val">
+Final answer should match the least number of s.f. used in the calculation. Leading zeros don't count. Trailing zeros after a decimal point do count.
+</div></div>
+
+<div class="warn">Common mistake: giving a final answer to more s.f. than the raw data &mdash; this implies false precision.</div>
+<div class="tip">Exam tip: always state the uncertainty rule you're using when combining uncertainties. Marks are awarded for method.</div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- PARTICLES & RADIATION                              -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="box">
+<div class="box-head s2">Particles &amp; Radiation <span class="marks">Topic 2</span></div>
+<div class="box-body">
+
+<div class="row"><div class="kw">The Standard Model</div><div class="val">
+<strong>Quarks</strong> (6 flavours, each with antiquark):<br>
+up (+⅔e), down (&minus;⅓e), strange (&minus;⅓e), charm (+⅔e), top (+⅔e), bottom (&minus;⅓e)<br>
+<strong>Leptons</strong> (3 generations):<br>
+electron (e⁻), muon (&mu;⁻), tau (&tau;⁻) + corresponding neutrinos (&nu;ₑ, &nu;&mu;, &nu;&tau;)<br>
+<strong>Exchange bosons:</strong> photon (&gamma;, EM), W&plusmn; &amp; Z⁰ (weak), gluon (strong), Higgs (mass)
+</div></div>
+
+<div class="row"><div class="kw">Hadrons</div><div class="val">
+Particles made of quarks, feel the strong force.<br>
+<div class="formula-box">Baryons = 3 quarks (e.g. proton = uud, neutron = udd)</div>
+<div class="formula-box">Mesons = quark + antiquark (e.g. pion &pi;⁺ = u&#x64;&#x0304;)</div>
+Antibaryons = 3 antiquarks.
+</div></div>
+
+<div class="row"><div class="kw">Conservation laws</div><div class="val">
+In every interaction, the following are conserved:
+<div class="formula-box">Charge (Q), Baryon number (B), Lepton number (L) &mdash; always conserved</div>
+<div class="formula-box">Strangeness (S) &mdash; conserved in strong &amp; EM interactions, can change by &plusmn;1 in weak</div>
+<div class="ex-box"><span class="ex-label">Baryon numbers</span>Quarks: B = +⅓ each &rarr; baryon B = +1, antibaryon B = &minus;1, meson B = 0</div>
+</div></div>
+
+<div class="row"><div class="kw">Photon energy</div><div class="val">
+<div class="formula-box">E = hf = hc/&lambda;</div>
+h = 6.63 &times; 10⁻³⁴ J s, c = 3.00 &times; 10⁸ m s⁻¹<br>
+<div class="formula-box">1 eV = 1.60 &times; 10⁻¹⁹ J</div>
+</div></div>
+
+<div class="row"><div class="kw">Photoelectric effect</div><div class="val">
+<div class="formula-box">hf = &phi; + E_k(max)</div>
+&phi; = work function (minimum energy to release electron).<br>
+<strong>Threshold frequency f₀:</strong> hf₀ = &phi; &rarr; f₀ = &phi;/h. Below f₀, no electrons emitted regardless of intensity.
+<div class="formula-box">E_k(max) = hf &minus; &phi; = eV_s (stopping potential)</div>
+</div></div>
+
+<div class="row"><div class="kw">Wave-particle duality</div><div class="val">
+<div class="formula-box">de Broglie wavelength: &lambda; = h / mv = h / p</div>
+All matter has wave properties. Electrons diffract through crystal lattices, confirming wave behaviour.
+</div></div>
+
+<div class="warn">Common mistake: thinking increasing light intensity below threshold frequency will eventually eject electrons. It won't &mdash; each photon must individually have E &ge; &phi;.</div>
+<div class="tip">Exam tip: always convert eV to joules (or vice versa) before substituting into E = hf. State the conversion factor.</div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- WAVES                                              -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="box">
+<div class="box-head s3">Waves <span class="marks">Topic 3</span></div>
+<div class="box-body">
+
+<div class="row"><div class="kw">Progressive waves</div><div class="val">
+<strong>Transverse:</strong> oscillation perpendicular to direction of travel (e.g. EM waves, water waves).<br>
+<strong>Longitudinal:</strong> oscillation parallel to direction of travel (e.g. sound waves) &mdash; compressions &amp; rarefactions.
+<div class="formula-box">v = f&lambda; &nbsp;&nbsp;|&nbsp;&nbsp; T = 1/f &nbsp;&nbsp;|&nbsp;&nbsp; v = &lambda;/T</div>
+</div></div>
+
+<div class="row"><div class="kw">Wave properties</div><div class="val">
+<strong>Amplitude (A):</strong> maximum displacement from equilibrium.<br>
+<strong>Wavelength (&lambda;):</strong> distance for one complete cycle.<br>
+<strong>Frequency (f):</strong> number of complete cycles per second (Hz).<br>
+<strong>Phase difference:</strong> measured in degrees or radians. In phase = 0&deg;/360&deg;; antiphase = 180&deg;.
+</div></div>
+
+<div class="row"><div class="kw">Superposition</div><div class="val">
+When two waves meet, resultant displacement = sum of individual displacements.
+<div class="formula-box">Constructive: path difference = n&lambda; (in phase, amplitudes add)</div>
+<div class="formula-box">Destructive: path difference = (n+&frac12;)&lambda; (antiphase, amplitudes cancel)</div>
+</div></div>
+
+<div class="row"><div class="kw">Standing waves</div><div class="val">
+Formed by superposition of two progressive waves of same f, &lambda;, amplitude travelling in opposite directions.<br>
+<strong>Nodes:</strong> zero displacement (destructive). <strong>Antinodes:</strong> maximum displacement (constructive).<br>
+<div class="formula-box">1st harmonic: L = &lambda;/2 &nbsp;|&nbsp; 2nd: L = &lambda; &nbsp;|&nbsp; 3rd: L = 3&lambda;/2</div>
+<div class="formula-box">f_n = n &times; f₁ &nbsp;(nth harmonic)</div>
+</div></div>
+
+<div class="row"><div class="kw">Young's double slit</div><div class="val">
+<div class="formula-box">&lambda; = ax / D</div>
+a = slit separation, x = fringe spacing, D = slit-to-screen distance.<br>
+Proves wave nature of light. Requires coherent, monochromatic source.
+</div></div>
+
+<div class="row"><div class="kw">Diffraction gratings</div><div class="val">
+<div class="formula-box">d sin&theta; = n&lambda;</div>
+d = slit spacing (1/N where N = lines per metre), n = order number.<br>
+Sharper maxima than double slit; used to measure &lambda; precisely.
+</div></div>
+
+<div class="row"><div class="kw">Refraction</div><div class="val">
+<div class="formula-box">Snell's law: n₁ sin&theta;₁ = n₂ sin&theta;₂</div>
+<div class="formula-box">n = c / v &nbsp;(refractive index)</div>
+<strong>Total internal reflection:</strong> occurs when &theta; &gt; critical angle &theta;_c and light goes from denser to less dense medium.
+<div class="formula-box">sin &theta;_c = n₂ / n₁ &nbsp;(where n₁ &gt; n₂)</div>
+</div></div>
+
+<div class="warn">Common mistake: using d sin&theta; = n&lambda; but forgetting d = 1/N (lines per metre, not lines per mm).</div>
+<div class="tip">Exam tip: for standing waves, sketch the pattern and label nodes/antinodes. Count the number of half-wavelengths that fit in the string length.</div>
+</div>
+</div>
+
+</div>
+
+<div class="col">
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- MECHANICS                                          -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="box">
+<div class="box-head s4">Mechanics <span class="marks">Topic 4</span></div>
+<div class="box-body">
+
+<div class="row"><div class="kw">SUVAT equations</div><div class="val">
+<div class="formula-box">v = u + at</div>
+<div class="formula-box">s = ut + &frac12;at&sup2;</div>
+<div class="formula-box">s = vt &minus; &frac12;at&sup2;</div>
+<div class="formula-box">v&sup2; = u&sup2; + 2as</div>
+<div class="formula-box">s = &frac12;(u + v)t</div>
+s = displacement, u = initial velocity, v = final velocity, a = acceleration, t = time. Only valid for <strong>constant acceleration</strong>.
+</div></div>
+
+<div class="row"><div class="kw">Projectile motion</div><div class="val">
+Resolve into two independent components:<br>
+<div class="formula-box">Horizontal: constant velocity (a = 0), s_x = v_x &times; t</div>
+<div class="formula-box">Vertical: constant acceleration (a = g = 9.81 m s&sup2;), use SUVAT</div>
+Air resistance ignored unless stated. Time of flight is the link between components.
+</div></div>
+
+<div class="row"><div class="kw">Newton's laws</div><div class="val">
+<strong>1st:</strong> An object remains at rest or in uniform motion unless acted on by a resultant force (inertia).<br>
+<strong>2nd:</strong> Resultant force = rate of change of momentum.
+<div class="formula-box">F = ma &nbsp;(when mass is constant)</div>
+<strong>3rd:</strong> If A exerts a force on B, B exerts an equal and opposite force on A. Forces act on <em>different</em> objects, same type.
+<div class="formula-box">W = mg &nbsp;(weight, where g = 9.81 m s⁻²)</div>
+</div></div>
+
+<div class="row"><div class="kw">Moments</div><div class="val">
+<div class="formula-box">Moment = Force &times; perpendicular distance from pivot</div>
+<div class="formula-box">Principle of moments: &Sigma; clockwise moments = &Sigma; anticlockwise moments (in equilibrium)</div>
+A couple = two equal, antiparallel forces &rarr; torque = F &times; d (no net force, pure rotation).
+</div></div>
+
+<div class="row"><div class="kw">Work, energy &amp; power</div><div class="val">
+<div class="formula-box">Work done: W = Fs cos&theta;</div>
+<div class="formula-box">KE = &frac12;mv&sup2; &nbsp;&nbsp;|&nbsp;&nbsp; GPE = mgh</div>
+<div class="formula-box">Power: P = W/t = Fv</div>
+<div class="formula-box">Efficiency = useful output energy (or power) / total input energy (or power)</div>
+Conservation of energy: total energy in a closed system is constant. Energy transforms between KE, GPE, elastic PE, thermal, etc.
+</div></div>
+
+<div class="row"><div class="kw">Momentum &amp; impulse</div><div class="val">
+<div class="formula-box">p = mv &nbsp;(momentum, kg m s⁻¹)</div>
+<div class="formula-box">Conservation: total momentum before = total momentum after (in a closed system)</div>
+<div class="formula-box">Impulse = F&Delta;t = &Delta;p = mv &minus; mu</div>
+<strong>Elastic collision:</strong> KE conserved. <strong>Inelastic:</strong> KE not conserved (some &rarr; heat/sound). <strong>Perfectly inelastic:</strong> objects stick together.
+</div></div>
+
+<div class="warn">Common mistake: forgetting that momentum is a vector &mdash; assign positive/negative directions and be consistent.</div>
+<div class="warn">Common mistake: using SUVAT when acceleration is not constant. Check the question context.</div>
+<div class="tip">Exam tip: for projectile problems, always separate horizontal and vertical. Write two columns of SUVAT values.</div>
+<div class="good">Remember: Newton's 3rd law pairs must be the same TYPE of force (both gravitational, both contact, etc.) acting on DIFFERENT objects.</div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- ELECTRICITY                                        -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="box">
+<div class="box-head s5">Electricity <span class="marks">Topic 5</span></div>
+<div class="box-body">
+
+<div class="row"><div class="kw">Current &amp; charge</div><div class="val">
+<div class="formula-box">I = &Delta;Q / &Delta;t</div>
+Current = rate of flow of charge. Conventional current: positive to negative. Electron flow: opposite direction. 1 A = 1 C s⁻¹.
+</div></div>
+
+<div class="row"><div class="kw">Potential difference</div><div class="val">
+<div class="formula-box">V = W / Q</div>
+p.d. = energy transferred per unit charge. 1 V = 1 J C⁻¹.
+</div></div>
+
+<div class="row"><div class="kw">Resistance</div><div class="val">
+<div class="formula-box">V = IR &nbsp;(Ohm's law)</div>
+<div class="formula-box">Resistivity: R = &rho;L / A</div>
+&rho; = resistivity (&Omega; m), L = length, A = cross-sectional area. Ohm's law only applies to ohmic conductors (constant R at constant temperature).
+</div></div>
+
+<div class="row"><div class="kw">Power</div><div class="val">
+<div class="formula-box">P = IV = I&sup2;R = V&sup2;/R</div>
+<div class="formula-box">E = Pt = IVt &nbsp;(energy transferred)</div>
+</div></div>
+
+<div class="row"><div class="kw">Series circuits</div><div class="val">
+<div class="formula-box">Same current through all components</div>
+<div class="formula-box">V_total = V₁ + V₂ + ... (voltages add)</div>
+<div class="formula-box">R_total = R₁ + R₂ + ... (resistances add)</div>
+</div></div>
+
+<div class="row"><div class="kw">Parallel circuits</div><div class="val">
+<div class="formula-box">Same p.d. across all branches</div>
+<div class="formula-box">I_total = I₁ + I₂ + ... (currents add)</div>
+<div class="formula-box">1/R_total = 1/R₁ + 1/R₂ + ...</div>
+</div></div>
+
+<div class="row"><div class="kw">EMF &amp; internal resistance</div><div class="val">
+<div class="formula-box">&epsilon; = I(R + r)</div>
+<div class="formula-box">V = &epsilon; &minus; Ir &nbsp;(terminal p.d.)</div>
+&epsilon; = EMF (total energy per unit charge from source), r = internal resistance. "Lost volts" = Ir.
+<div class="ex-box"><span class="ex-label">Finding r</span>Plot V vs I: gradient = &minus;r, y-intercept = &epsilon;</div>
+</div></div>
+
+<div class="row"><div class="kw">Kirchhoff's laws</div><div class="val">
+<div class="formula-box">1st law (junction): &Sigma;I_in = &Sigma;I_out (conservation of charge)</div>
+<div class="formula-box">2nd law (loop): &Sigma;&epsilon; = &Sigma;IR (conservation of energy around any closed loop)</div>
+</div></div>
+
+<div class="row"><div class="kw">Potential dividers</div><div class="val">
+<div class="formula-box">V_out = V_in &times; R₂ / (R₁ + R₂)</div>
+Used with LDRs (resistance decreases with light) and thermistors (resistance decreases with temperature) to create sensor circuits.
+</div></div>
+
+<div class="row"><div class="kw">I-V characteristics</div><div class="val">
+<strong>Ohmic conductor:</strong> straight line through origin (constant R).<br>
+<strong>Filament lamp:</strong> curve &mdash; R increases as temperature rises (more lattice vibrations).<br>
+<strong>Diode:</strong> conducts in forward bias above ~0.6 V; virtually zero current in reverse bias.
+</div></div>
+
+<div class="warn">Common mistake: using V = IR for the whole circuit when there is internal resistance. Use &epsilon; = I(R + r) instead.</div>
+<div class="warn">Common mistake: forgetting that for parallel resistors, total R is always LESS than the smallest individual R.</div>
+<div class="tip">Exam tip: sketch I-V graphs from memory &mdash; they come up frequently. Label axes (I vertical, V horizontal by convention in physics).</div>
+<div class="good">For potential divider questions, check whether the component is R₁ (top) or R₂ (bottom) before applying the formula.</div>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</body>
+</html>

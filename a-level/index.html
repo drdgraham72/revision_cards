@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Revision Cards</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Barlow+Condensed:wght@400;500;600;700&display=swap');
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html, body {
+            height: 100%;
+            font-family: 'Barlow Condensed', sans-serif;
+            background: #1a1a2e;
+            color: #fff;
+        }
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 20px;
+            background: #1a1a2e;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            height: 48px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .topbar-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .home-btn {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            background: transparent;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.2s ease;
+        }
+
+        .home-btn:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.4); }
+
+        .gcse-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px 10px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            background: transparent;
+            color: #aaa;
+            cursor: pointer;
+            font-size: 11px;
+            font-family: 'DM Mono', monospace;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .gcse-link:hover { background: rgba(255,255,255,0.1); color: #fff; border-color: rgba(255,255,255,0.4); }
+
+        .topbar-right {
+            display: none;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .page-select {
+            font-family: 'DM Mono', monospace;
+            font-size: 12px;
+            padding: 6px 32px 6px 10px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            background: #252547;
+            color: #fff;
+            cursor: pointer;
+            min-width: 280px;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 5l3 3 3-3' stroke='%23aaa' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+        }
+
+        .page-select:hover { border-color: rgba(255,255,255,0.4); }
+        .page-select:focus { outline: none; border-color: #537dbc; box-shadow: 0 0 0 2px rgba(83,125,188,0.3); }
+        .page-select optgroup { font-weight: 600; color: #aaa; font-style: normal; }
+        .page-select option { color: #fff; background: #252547; padding: 4px; }
+
+        body.viewing .topbar-right { display: flex; }
+        body.viewing .home-btn { display: flex; }
+        body.viewing { overflow: hidden; }
+
+        #content { height: calc(100vh - 48px); }
+
+        .viewer { width: 100%; height: 100%; }
+        .viewer iframe { width: 100%; height: 100%; border: none; background: #f5f5f5; }
+
+        .home {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            color: #333;
+            padding: 20px;
+            overflow-y: auto;
+            height: calc(100vh - 48px);
+        }
+
+        .home-inner { max-width: 1200px; margin: 0 auto; }
+
+        .home-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 30px 20px 20px;
+        }
+
+        .home-header h2 {
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+            color: #1a1a2e;
+            text-transform: uppercase;
+        }
+
+        .home-header .level-badge {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 4px 16px;
+            border-radius: 4px;
+            background: #1a1a2e;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .home-header p {
+            font-size: 14px;
+            color: #666;
+            font-family: 'DM Mono', monospace;
+            letter-spacing: 0.03em;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .category { margin-bottom: 30px; }
+
+        .category-title {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #666;
+            margin-bottom: 12px;
+            padding-left: 8px;
+            border-left: 3px solid #1a1a2e;
+        }
+
+        .sub-title {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #999;
+            margin: 16px 0 8px;
+            padding-left: 8px;
+            border-left: 2px solid;
+        }
+
+        .sub-title.pure { border-left-color: #185fa5; color: #185fa5; }
+        .sub-title.stats { border-left-color: #534ab7; color: #534ab7; }
+        .sub-title.mechanics { border-left-color: #854f0b; color: #854f0b; }
+        .sub-title.micro { border-left-color: #389e0d; color: #389e0d; }
+        .sub-title.macro { border-left-color: #d4380d; color: #d4380d; }
+
+        .card {
+            display: block;
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            background: white;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.25s ease;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            cursor: pointer;
+            margin-bottom: 8px;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+            border-color: #1a1a2e;
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-desc { font-size: 12px; color: #777; line-height: 1.4; }
+
+        .icon { font-size: 16px; width: 20px; }
+
+        .card.maths { border-left: 4px solid #3b6d11; }
+        .card.maths:hover { background: #eaf3de; }
+        .card.physics { border-left: 4px solid #185fa5; }
+        .card.physics:hover { background: #e6f1fb; }
+        .card.economics { border-left: 4px solid #854f0b; }
+        .card.economics:hover { background: #faeeda; }
+
+        .card.breakout {
+            margin-left: 24px;
+            border-left-width: 4px;
+            border-left-style: dashed;
+            background: #fafafa;
+            position: relative;
+        }
+
+        .card.breakout::after {
+            content: 'DEEP DIVE';
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 2px 6px;
+            border-radius: 3px;
+            background: #1a1a2e;
+            color: #fff;
+            font-family: 'DM Mono', monospace;
+        }
+
+        .card.breakout:hover { background: #f0f0f0; }
+
+        .card.disabled { opacity: 0.5; cursor: not-allowed; pointer-events: none; }
+
+        .wip-banner {
+            text-align: center;
+            padding: 16px;
+            font-size: 12px;
+            color: #999;
+            font-family: 'DM Mono', monospace;
+            border: 1px dashed #ccc;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 11px;
+            color: #999;
+            font-family: 'DM Mono', monospace;
+        }
+
+        @media (max-width: 768px) {
+            .home-header h2 { font-size: 32px; }
+            .grid { grid-template-columns: 1fr; gap: 15px; }
+        }
+
+        @media (max-width: 600px) {
+            .page-select { min-width: 160px; font-size: 11px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="topbar">
+    <div class="topbar-left">
+        <button class="home-btn" onclick="goHome()" title="Back to home">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+        </button>
+        <a href="../index.html" class="gcse-link">GCSE</a>
+    </div>
+    <div class="topbar-right">
+        <select class="page-select" id="pageSelect" onchange="loadPage(this.value)">
+            <option value="">-- Select a topic --</option>
+            <optgroup label="Mathematics">
+                <option value="alevel_maths_pure_crib_sheet.html">Pure Maths — Crib Sheet</option>
+                <option value="alevel_maths_stats_crib_sheet.html">Statistics — Crib Sheet</option>
+                <option value="alevel_maths_mechanics_crib_sheet.html">Mechanics — Crib Sheet</option>
+            </optgroup>
+            <optgroup label="Physics">
+                <option value="alevel_physics_year1_crib_sheet.html">Physics Year 1 — Crib Sheet</option>
+            </optgroup>
+            <optgroup label="Economics">
+                <option value="alevel_economics_micro_crib_sheet.html">Microeconomics — Crib Sheet</option>
+                <option value="alevel_economics_macro_crib_sheet.html">Macroeconomics — Crib Sheet</option>
+            </optgroup>
+        </select>
+    </div>
+</div>
+
+<div id="content">
+    <div class="home" id="homeView">
+        <div class="home-inner">
+            <div class="home-header">
+                <div class="level-badge">A-Level</div>
+                <h2>Revision Cards</h2>
+                <p>Year 12 &amp; 13 — Maths, Physics, Economics</p>
+            </div>
+
+            <div class="wip-banner">Building out — core content first, deep dives to follow. Same approach as GCSE: crib sheets, exam technique, then breakout cards.</div>
+
+            <div class="grid">
+                <!-- Mathematics -->
+                <div class="category">
+                    <div class="category-title">Mathematics</div>
+                    <div class="sub-title pure">Pure Maths</div>
+                    <div class="card maths" onclick="loadPage('alevel_maths_pure_crib_sheet.html')">
+                        <div class="card-title"><span class="icon">&#x1f4d0;</span>Pure Maths — Crib Sheet</div>
+                        <div class="card-desc">Algebra, coordinate geometry, calculus, exponentials, trig — Year 12 essentials</div>
+                    </div>
+                    <div class="sub-title stats">Statistics</div>
+                    <div class="card maths" onclick="loadPage('alevel_maths_stats_crib_sheet.html')">
+                        <div class="card-title"><span class="icon">&#x1f4ca;</span>Statistics — Crib Sheet</div>
+                        <div class="card-desc">Data, probability, distributions, hypothesis testing</div>
+                    </div>
+                    <div class="sub-title mechanics">Mechanics</div>
+                    <div class="card maths" onclick="loadPage('alevel_maths_mechanics_crib_sheet.html')">
+                        <div class="card-title"><span class="icon">&#x2699;&#xfe0f;</span>Mechanics — Crib Sheet</div>
+                        <div class="card-desc">Kinematics, forces, moments, Newton's laws — the SUVAT equations and beyond</div>
+                    </div>
+                </div>
+
+                <!-- Physics -->
+                <div class="category">
+                    <div class="category-title">Physics</div>
+                    <div class="card physics" onclick="loadPage('alevel_physics_year1_crib_sheet.html')">
+                        <div class="card-title"><span class="icon">&#x26a1;</span>Physics Year 1 — Crib Sheet</div>
+                        <div class="card-desc">Measurements, particles, waves, mechanics, electricity</div>
+                    </div>
+                </div>
+
+                <!-- Economics -->
+                <div class="category">
+                    <div class="category-title">Economics</div>
+                    <div class="sub-title micro">Microeconomics</div>
+                    <div class="card economics" onclick="loadPage('alevel_economics_micro_crib_sheet.html')">
+                        <div class="card-title"><span class="icon">&#x1f4b0;</span>Microeconomics — Crib Sheet</div>
+                        <div class="card-desc">Supply &amp; demand, elasticity, market failure, government intervention</div>
+                    </div>
+                    <div class="sub-title macro">Macroeconomics</div>
+                    <div class="card economics" onclick="loadPage('alevel_economics_macro_crib_sheet.html')">
+                        <div class="card-title"><span class="icon">&#x1f310;</span>Macroeconomics — Crib Sheet</div>
+                        <div class="card-desc">GDP, inflation, unemployment, fiscal &amp; monetary policy, trade</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <p>A-Level Revision Cards — <a href="../index.html" style="color: #666;">Back to GCSE</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function loadPage(url) {
+        if (!url) return;
+        document.body.classList.add('viewing');
+        document.getElementById('content').innerHTML =
+            '<div class="viewer"><iframe src="' + url + '"></iframe></div>';
+        document.getElementById('pageSelect').value = url;
+    }
+
+    function goHome() {
+        document.body.classList.remove('viewing');
+        document.getElementById('pageSelect').value = '';
+        location.reload();
+    }
+</script>
+
+</body>
+</html>

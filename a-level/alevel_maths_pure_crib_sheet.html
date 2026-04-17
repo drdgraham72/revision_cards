@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Pure Maths — Year 12 Crib Sheet</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+          --bg1: #ffffff; --bg2: #f4f6f2; --bg3: #eaf3de;
+          --t1: #1a1a18; --t2: #5f5e5a; --t3: #888780;
+          --bl: rgba(0,0,0,0.11); --bm: rgba(0,0,0,0.20);
+          --r: 8px; --rl: 12px;
+          --font: system-ui,-apple-system,sans-serif; --mono: 'Courier New', monospace;
+        }
+        @media(prefers-color-scheme:dark){
+          :root{
+            --bg1:#1e1e1c;--bg2:#252723;--bg3:#1a2a14;
+            --t1:#f0ece4;--t2:#a8a59e;--t3:#6e6d69;
+            --bl:rgba(255,255,255,0.09);--bm:rgba(255,255,255,0.18);
+          }
+        }
+        body{font-family:var(--font);background:var(--bg2);color:var(--t1);padding:1.75rem 1rem;min-height:100vh;}
+        .page { width: 100%; max-width: 1000px; margin: 0 auto; font-size: 12px; line-height: 1.4; }
+        h1 { font-size: 18px; font-weight: 600; margin-bottom: 0.25rem; }
+        .header { background: var(--bl); backdrop-filter: blur(8px); padding: 1rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-radius: var(--r); border: 0.5px solid var(--bm); }
+        .header h1 { font-size: 18px; font-weight: 600; margin: 0; }
+        .header span { font-size: 11px; color: var(--t2); font-family: var(--mono); letter-spacing: 0.05em; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .col { display: flex; flex-direction: column; gap: 8px; }
+        @media (max-width:768px) {
+          .grid { grid-template-columns: 1fr; }
+          .page { padding: 0; }
+        }
+        .box { background: var(--bg1); border: 0.5px solid var(--bl); border-radius: var(--r); overflow: hidden; }
+        .box-head { padding: 10px 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; background: var(--bl); }
+        .box-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; }
+        .row { display: grid; grid-template-columns: 28% 72%; gap: 8px; padding-bottom: 6px; border-bottom: 0.5px solid var(--bl); }
+        .row:last-child { border-bottom: none; }
+        .kw { font-weight: 650; color: var(--t2); font-size: 11px; font-family: var(--mono); }
+        .val { font-size: 11.5px; color: var(--t1); line-height: 1.35; }
+        .marks { font-family: var(--mono); font-size: 10px; color: var(--t2); background: var(--bg3); padding: 2px 5px; border-radius: 2px; }
+        .ex-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; border-left: 2px solid var(--t2); }
+        .ex-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--t2); display: block; margin-bottom: 2px; }
+        .formula-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; font-family: var(--mono); font-size: 10.5px; border-left: 2px solid #3b6d11; }
+        .board { font-size: 9px; font-weight: 600; display: inline-block; padding: 1px 5px; border-radius: 3px; background: var(--bl); color: var(--t1); margin: 2px 2px 0 0; }
+        .board.all { background: #eaf3de; color: #3b6d11; }
+        .board.h { background: #e6f1fb; color: #185fa5; }
+        .board.f { background: #faeeda; color: #854f0b; }
+        .warn { background: #faeeda; border-left: 2px solid #ef9f27; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #633806; margin: 4px 0; }
+        .tip { background: #eeedfe; border-left: 2px solid #7f77dd; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #3c3489; margin: 4px 0; }
+        .good { background: #eaf3de; border-left: 2px solid #639922; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #173404; margin: 4px 0; }
+        .s1 { background: #3b6d11; color: #eaf3de; }
+        .s2 { background: #185fa5; color: #e6f1fb; }
+        .s3 { background: #534ab7; color: #eeedfe; }
+        .s4 { background: #854f0b; color: #faeeda; }
+        .s5 { background: #a32d2d; color: #fcebeb; }
+        .s6 { background: #0f6e56; color: #e1f5ee; }
+    </style>
+</head>
+<body>
+<div class="page">
+<div class="header">
+  <h1>A-Level Pure Maths — Year 12 Crib Sheet</h1>
+  <span>Edexcel · AS/Year 1 · Core Pure Topics</span>
+</div>
+
+<div class="grid">
+<div class="col">
+
+<!-- ALGEBRA & FUNCTIONS -->
+<div class="box">
+<div class="box-head s1">Algebra &amp; Functions <span class="marks">Ch 1–4</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Laws of indices</div><div class="val"><div class="formula-box">aᵐ × aⁿ = aᵐ⁺ⁿ &nbsp;·&nbsp; aᵐ ÷ aⁿ = aᵐ⁻ⁿ &nbsp;·&nbsp; (aᵐ)ⁿ = aᵐⁿ</div><div class="formula-box">a⁰ = 1 &nbsp;·&nbsp; a⁻ⁿ = 1/aⁿ &nbsp;·&nbsp; a^(½) = √a &nbsp;·&nbsp; a^(m/n) = ⁿ√(aᵐ)</div></div></div>
+<div class="row"><div class="kw">Surds</div><div class="val">Simplify: √12 = 2√3. Rationalise denominators:<div class="formula-box">a/√b → a√b/b &nbsp;·&nbsp; a/(p+√q) → a(p−√q)/(p²−q)</div></div></div>
+<div class="row"><div class="kw">Completing the square</div><div class="val"><div class="formula-box">x² + bx + c = (x + b/2)² − (b/2)² + c</div>Gives vertex form: vertex at (−b/2, c − b²/4). Minimum/maximum read directly.</div></div>
+<div class="row"><div class="kw">Discriminant</div><div class="val"><div class="formula-box">Δ = b² − 4ac</div>Δ &gt; 0 → two distinct real roots · Δ = 0 → one repeated root · Δ &lt; 0 → no real roots</div></div>
+<div class="row"><div class="kw">Quadratic formula</div><div class="val"><div class="formula-box">x = (−b ± √(b²−4ac)) / 2a</div></div></div>
+<div class="row"><div class="kw">Simultaneous eqns</div><div class="val">Linear + quadratic: substitute linear into quadratic. Solve resulting quadratic — may give 0, 1, or 2 solution pairs.<div class="ex-box"><span class="ex-label">Example</span>y = x + 1, x² + y² = 5 → x² + (x+1)² = 5 → 2x² + 2x − 4 = 0</div></div></div>
+<div class="row"><div class="kw">Inequalities</div><div class="val">Linear: solve as equations (flip sign if ×/÷ by negative).<br>Quadratic: solve = 0 first, sketch parabola, read off solution set.<div class="formula-box">x² − 5x + 6 &lt; 0 → (x−2)(x−3) &lt; 0 → 2 &lt; x &lt; 3</div></div></div>
+<div class="row"><div class="kw">Factor theorem</div><div class="val"><div class="formula-box">If f(a) = 0 then (x − a) is a factor of f(x)</div>Use to find roots of cubics. Then algebraic division or inspection to fully factorise.</div></div>
+<div class="row"><div class="kw">Graph transforms</div><div class="val"><div class="formula-box">y = f(x) + a → translate (0, a) ↑<br>y = f(x + a) → translate (−a, 0) ←<br>y = af(x) → vertical stretch, scale factor a<br>y = f(ax) → horizontal stretch, scale factor 1/a<br>y = −f(x) → reflect in x-axis<br>y = f(−x) → reflect in y-axis</div></div></div>
+<div class="warn">f(x + a) moves LEFT (opposite sign). f(ax) compresses by factor a, not stretches. These trip up almost everyone.</div>
+<div class="tip">Sketch cubics: find roots via factor theorem, check sign of leading coefficient for end behaviour, plot y-intercept.</div>
+</div>
+</div>
+
+<!-- COORDINATE GEOMETRY -->
+<div class="box">
+<div class="box-head s2">Coordinate Geometry <span class="marks">Ch 5–6</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Straight line forms</div><div class="val"><div class="formula-box">y = mx + c &nbsp;(slope-intercept)<br>y − y₁ = m(x − x₁) &nbsp;(point-gradient)</div></div></div>
+<div class="row"><div class="kw">Gradient</div><div class="val"><div class="formula-box">m = (y₂ − y₁) / (x₂ − x₁)</div></div></div>
+<div class="row"><div class="kw">Parallel &amp; perpendicular</div><div class="val"><div class="formula-box">Parallel: m₁ = m₂<br>Perpendicular: m₁ × m₂ = −1</div></div></div>
+<div class="row"><div class="kw">Distance &amp; midpoint</div><div class="val"><div class="formula-box">d = √((x₂−x₁)² + (y₂−y₁)²)<br>Midpoint = ((x₁+x₂)/2, (y₁+y₂)/2)</div></div></div>
+<div class="row"><div class="kw">Equation of a circle</div><div class="val"><div class="formula-box">(x − a)² + (y − b)² = r²</div>Centre (a, b), radius r. Expand to get x² + y² + Dx + Ey + F = 0 — complete the square to recover centre/radius.</div></div>
+<div class="row"><div class="kw">Tangent / normal to circle</div><div class="val">Radius to point of tangency is perpendicular to tangent.<br>1. Find gradient of radius (centre → point)<br>2. Tangent gradient = −1/m_radius<br>3. Use point-gradient form for tangent equation<br>Normal passes through centre — same gradient as radius.</div></div>
+<div class="tip">To show a point lies on a circle: substitute into the equation and verify LHS = RHS. To find intersections with a line: substitute and solve the resulting quadratic.</div>
+</div>
+</div>
+
+<!-- PROOF -->
+<div class="box">
+<div class="box-head s4">Proof <span class="marks">Ch 7</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">By deduction</div><div class="val">Start from known facts/axioms, use logical steps to reach the conclusion. Most common proof type at AS level.<div class="ex-box"><span class="ex-label">Example</span>Prove (2n+1)² is always odd: = 4n²+4n+1 = 2(2n²+2n)+1, which is odd ✓</div></div></div>
+<div class="row"><div class="kw">By exhaustion</div><div class="val">Check every possible case. Only works when the number of cases is finite and manageable.</div></div>
+<div class="row"><div class="kw">Disproof by counter-example</div><div class="val">To disprove "for all x, P(x)" — find ONE x where P(x) is false.<div class="ex-box"><span class="ex-label">Example</span>"n² + n + 1 is always prime" → n = 4: 16+4+1 = 21 = 3×7. Disproved ✓</div></div></div>
+<div class="good">Use 2n for even, 2n+1 for odd, n² for square numbers. These representations are your proof toolkit.</div>
+</div>
+</div>
+
+</div>
+
+<div class="col">
+
+<!-- DIFFERENTIATION -->
+<div class="box">
+<div class="box-head s3">Differentiation <span class="marks">Ch 12–13</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">First principles</div><div class="val"><div class="formula-box">f′(x) = lim(h→0) [f(x+h) − f(x)] / h</div>The formal definition — you must be able to derive simple results (e.g. xⁿ for small n) from this.</div></div>
+<div class="row"><div class="kw">Power rule</div><div class="val"><div class="formula-box">y = axⁿ → dy/dx = anxⁿ⁻¹</div>Works for fractional and negative n. Rewrite roots/fractions first:<div class="formula-box">√x = x^(½) → dy/dx = ½x^(−½)<br>1/x² = x⁻² → dy/dx = −2x⁻³</div></div></div>
+<div class="row"><div class="kw">Gradient at a point</div><div class="val">Substitute x-value into dy/dx. This gives the gradient of the tangent to the curve at that point.</div></div>
+<div class="row"><div class="kw">Tangent &amp; normal</div><div class="val">At point (a, f(a)):<div class="formula-box">Tangent: y − f(a) = f′(a)(x − a)<br>Normal: y − f(a) = −1/f′(a) · (x − a)</div></div></div>
+<div class="row"><div class="kw">Stationary points</div><div class="val"><div class="formula-box">Set dy/dx = 0, solve for x</div>Classify using second derivative:<div class="formula-box">d²y/dx² &gt; 0 → minimum<br>d²y/dx² &lt; 0 → maximum<br>d²y/dx² = 0 → test further (could be point of inflection)</div></div></div>
+<div class="row"><div class="kw">Increasing / decreasing</div><div class="val"><div class="formula-box">f′(x) &gt; 0 → f is increasing<br>f′(x) &lt; 0 → f is decreasing</div>Find where dy/dx changes sign to identify intervals.</div></div>
+<div class="warn">When d²y/dx² = 0, you CANNOT conclude "point of inflection" — you must check sign changes in dy/dx either side. Examiners penalise this.</div>
+</div>
+</div>
+
+<!-- INTEGRATION -->
+<div class="box">
+<div class="box-head s5">Integration <span class="marks">Ch 14</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Reverse of differentiation</div><div class="val"><div class="formula-box">∫xⁿ dx = xⁿ⁺¹/(n+1) + c &nbsp;&nbsp;(n ≠ −1)</div>Works for fractional/negative powers. Integrate term by term.</div></div>
+<div class="row"><div class="kw">Finding f(x) from f′(x)</div><div class="val">Integrate, then use a known point to find c.<div class="ex-box"><span class="ex-label">Example</span>f′(x) = 3x², f(1) = 5 → f(x) = x³ + c → 1 + c = 5 → c = 4 → f(x) = x³ + 4</div></div></div>
+<div class="row"><div class="kw">Definite integrals</div><div class="val"><div class="formula-box">∫ₐᵇ f(x) dx = [F(x)]ₐᵇ = F(b) − F(a)</div>No +c needed. Result gives the signed area under the curve between x = a and x = b.</div></div>
+<div class="row"><div class="kw">Area under a curve</div><div class="val">Area between curve y = f(x), x-axis, x = a and x = b. If curve dips below x-axis, that region gives a negative integral — take |value| and add separately.</div></div>
+<div class="row"><div class="kw">Area between curves</div><div class="val"><div class="formula-box">Area = ∫ₐᵇ [f(x) − g(x)] dx</div>Where f(x) is the upper curve. Find intersection points first (set f = g).</div></div>
+<div class="warn">ALWAYS add +c for indefinite integrals. Losing the constant of integration loses marks every single time.</div>
+<div class="tip">If the area comes out negative, check: is the curve below the x-axis in that interval? Split the integral at the roots.</div>
+</div>
+</div>
+
+<!-- EXPONENTIALS & LOGARITHMS -->
+<div class="box">
+<div class="box-head s6">Exponentials &amp; Logarithms <span class="marks">Ch 14</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">eˣ and ln(x)</div><div class="val">eˣ and ln(x) are inverse functions. e ≈ 2.71828...<div class="formula-box">ln(eˣ) = x &nbsp;·&nbsp; e^(ln x) = x &nbsp;(x &gt; 0)</div>The gradient of y = eˣ is eˣ (it differentiates to itself).</div></div>
+<div class="row"><div class="kw">Laws of logarithms</div><div class="val"><div class="formula-box">log(ab) = log a + log b<br>log(a/b) = log a − log b<br>log(aⁿ) = n log a<br>log(1) = 0 &nbsp;·&nbsp; logₐ(a) = 1</div>These work for any base — log, ln, log₁₀, etc.</div></div>
+<div class="row"><div class="kw">Solving aˣ = b</div><div class="val">Take logs of both sides:<div class="formula-box">aˣ = b → x ln a = ln b → x = ln b / ln a</div></div></div>
+<div class="row"><div class="kw">Change of base</div><div class="val"><div class="formula-box">logₐ(b) = ln b / ln a = log b / log a</div></div></div>
+<div class="row"><div class="kw">Growth &amp; decay models</div><div class="val"><div class="formula-box">N = N₀ eᵏᵗ</div>k &gt; 0 → growth · k &lt; 0 → decay. N₀ = initial value, t = time. To find t for a given N: rearrange and use ln.</div></div>
+<div class="warn">ln(a + b) ≠ ln a + ln b. The log laws only work for products, quotients, and powers — never sums.</div>
+</div>
+</div>
+
+<!-- TRIGONOMETRY -->
+<div class="box">
+<div class="box-head s1">Trigonometry <span class="marks">Ch 9–10</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Exact values</div><div class="val"><div class="formula-box">       0°    30°     45°     60°    90°
+sin    0    1/2    √2/2    √3/2    1
+cos    1    √3/2   √2/2    1/2     0
+tan    0    √3/3    1      √3      —</div></div></div>
+<div class="row"><div class="kw">Sine &amp; cosine rules</div><div class="val"><div class="formula-box">Sine rule: a/sinA = b/sinB = c/sinC<br>Cosine rule: a² = b² + c² − 2bc cosA<br>Area = ½ab sinC</div>Sine rule: need angle-side opposite pair. Cosine rule: need SAS or SSS.</div></div>
+<div class="row"><div class="kw">Identities</div><div class="val"><div class="formula-box">sin²θ + cos²θ ≡ 1<br>tanθ ≡ sinθ / cosθ</div>Use to simplify expressions and solve equations. Rearrange: sin²θ = 1 − cos²θ, etc.</div></div>
+<div class="row"><div class="kw">Solving trig equations</div><div class="val">1. Reduce to sin/cos/tanθ = k using identities<br>2. Find principal value from calculator<br>3. Use CAST diagram or symmetry for all solutions in range<div class="formula-box">sinθ = sinα → θ = α or θ = 180°−α (+ 360°n)<br>cosθ = cosα → θ = α or θ = 360°−α (+ 360°n)<br>tanθ = tanα → θ = α (+ 180°n)</div></div></div>
+<div class="row"><div class="kw">Radians</div><div class="val"><div class="formula-box">π rad = 180° &nbsp;·&nbsp; 1 rad ≈ 57.3°</div><div class="formula-box">Arc length: s = rθ<br>Sector area: A = ½r²θ<br>Segment area: A = ½r²(θ − sinθ)</div>θ must be in radians for these formulas.</div></div>
+<div class="warn">Make sure your calculator is in the correct mode (degrees or radians). This catches students in every exam sitting.</div>
+<div class="tip">For trig equations: always write down the full general solution, then list values in the given range. Show the CAST diagram if asked to "show working".</div>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</body>
+</html>

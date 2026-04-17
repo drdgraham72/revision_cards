@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Statistics — Year 12 Crib Sheet</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+          --bg1: #ffffff; --bg2: #f4f6f2; --bg3: #eaf3de;
+          --t1: #1a1a18; --t2: #5f5e5a; --t3: #888780;
+          --bl: rgba(0,0,0,0.11); --bm: rgba(0,0,0,0.20);
+          --r: 8px; --rl: 12px;
+          --font: system-ui,-apple-system,sans-serif; --mono: 'Courier New', monospace;
+        }
+        @media(prefers-color-scheme:dark){
+          :root{
+            --bg1:#1e1e1c;--bg2:#252723;--bg3:#1a2a14;
+            --t1:#f0ece4;--t2:#a8a59e;--t3:#6e6d69;
+            --bl:rgba(255,255,255,0.09);--bm:rgba(255,255,255,0.18);
+          }
+        }
+        body{font-family:var(--font);background:var(--bg2);color:var(--t1);padding:1.75rem 1rem;min-height:100vh;}
+        .page { width: 100%; max-width: 1000px; margin: 0 auto; font-size: 12px; line-height: 1.4; }
+        h1 { font-size: 18px; font-weight: 600; margin-bottom: 0.25rem; }
+        .header { background: var(--bl); backdrop-filter: blur(8px); padding: 1rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-radius: var(--r); border: 0.5px solid var(--bm); }
+        .header h1 { font-size: 18px; font-weight: 600; margin: 0; }
+        .header span { font-size: 11px; color: var(--t2); font-family: var(--mono); letter-spacing: 0.05em; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .col { display: flex; flex-direction: column; gap: 8px; }
+        @media (max-width:768px) {
+          .grid { grid-template-columns: 1fr; }
+          .page { padding: 0; }
+        }
+        .box { background: var(--bg1); border: 0.5px solid var(--bl); border-radius: var(--r); overflow: hidden; }
+        .box-head { padding: 10px 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; background: var(--bl); }
+        .box-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; }
+        .row { display: grid; grid-template-columns: 28% 72%; gap: 8px; padding-bottom: 6px; border-bottom: 0.5px solid var(--bl); }
+        .row:last-child { border-bottom: none; }
+        .kw { font-weight: 650; color: var(--t2); font-size: 11px; font-family: var(--mono); }
+        .val { font-size: 11.5px; color: var(--t1); line-height: 1.35; }
+        .marks { font-family: var(--mono); font-size: 10px; color: var(--t2); background: var(--bg3); padding: 2px 5px; border-radius: 2px; }
+        .ex-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; border-left: 2px solid var(--t2); }
+        .ex-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--t2); display: block; margin-bottom: 2px; }
+        .formula-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; font-family: var(--mono); font-size: 10.5px; border-left: 2px solid #3b6d11; }
+        .board { font-size: 9px; font-weight: 600; display: inline-block; padding: 1px 5px; border-radius: 3px; background: var(--bl); color: var(--t1); margin: 2px 2px 0 0; }
+        .board.all { background: #eaf3de; color: #3b6d11; }
+        .board.h { background: #e6f1fb; color: #185fa5; }
+        .board.f { background: #faeeda; color: #854f0b; }
+        .warn { background: #faeeda; border-left: 2px solid #ef9f27; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #633806; margin: 4px 0; }
+        .tip { background: #eeedfe; border-left: 2px solid #7f77dd; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #3c3489; margin: 4px 0; }
+        .good { background: #eaf3de; border-left: 2px solid #639922; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #173404; margin: 4px 0; }
+        .s1 { background: #3b6d11; color: #eaf3de; }
+        .s2 { background: #185fa5; color: #e6f1fb; }
+        .s3 { background: #534ab7; color: #eeedfe; }
+        .s4 { background: #854f0b; color: #faeeda; }
+        .s5 { background: #a32d2d; color: #fcebeb; }
+        .s6 { background: #0f6e56; color: #e1f5ee; }
+    </style>
+</head>
+<body>
+<div class="page">
+<div class="header">
+  <h1>A-Level Statistics — Year 12 Crib Sheet</h1>
+  <span>Edexcel · AS/Year 1 · Statistics</span>
+</div>
+
+<div class="grid">
+<div class="col">
+
+<!-- DATA COLLECTION -->
+<div class="box">
+<div class="box-head s1">Data Collection <span class="marks">Ch 1</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Census vs sample</div><div class="val">Census: every member of the population. Accurate but expensive, time-consuming, and may be impractical. Sample: a subset — cheaper, faster, but may not be representative.</div></div>
+<div class="row"><div class="kw">Simple random</div><div class="val">Every item has an equal chance of selection. Use random number generator/table from a sampling frame.<br><strong>+</strong> Bias-free, easy to implement<br><strong>−</strong> Need a complete sampling frame; may not be representative of subgroups</div></div>
+<div class="row"><div class="kw">Systematic</div><div class="val">Take every kth item from an ordered list, where k = population size ÷ sample size. Random start point.<br><strong>+</strong> Simple, suitable for large populations<br><strong>−</strong> Sampling frame needed; can introduce bias if there is a periodic pattern</div></div>
+<div class="row"><div class="kw">Stratified</div><div class="val">Population divided into strata (groups). Sample proportionally from each stratum.<div class="formula-box">Stratum sample = (stratum size / population size) × total sample size</div><strong>+</strong> Proportional representation of subgroups<br><strong>−</strong> Strata must be clearly defined; still need a sampling frame</div></div>
+<div class="row"><div class="kw">Quota</div><div class="val">Interviewer selects a specified number from each subgroup until quota is met. Non-random — interviewer chooses who to approach.<br><strong>+</strong> No sampling frame needed; quick and cheap<br><strong>−</strong> Bias from interviewer choice; not truly random; can't generalise</div></div>
+<div class="row"><div class="kw">Opportunity (convenience)</div><div class="val">Sample whoever is available at the time. Easiest method but least reliable.<br><strong>+</strong> Easy, cheap, fast<br><strong>−</strong> Unlikely to be representative; very prone to bias</div></div>
+<div class="warn">Exam questions love asking you to identify the sampling method used and justify advantages/disadvantages in context. Always relate your answer to the specific scenario given.</div>
+<div class="tip">For stratified sampling calculations: always round your stratum samples to whole numbers and check they sum to the total sample size.</div>
+</div>
+</div>
+
+<!-- DATA PRESENTATION & INTERPRETATION -->
+<div class="box">
+<div class="box-head s2">Data Presentation &amp; Interpretation <span class="marks">Ch 2–4</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Histograms</div><div class="val">Continuous data with unequal class widths. The y-axis is frequency density, not frequency.<div class="formula-box">Frequency density = frequency / class width</div>Area of each bar = frequency. Total area = total frequency.</div></div>
+<div class="row"><div class="kw">Cumulative frequency</div><div class="val">Plot upper class boundary vs cumulative frequency. Use to estimate median (n/2), lower quartile (n/4), upper quartile (3n/4). Draw smooth S-shaped (ogive) curve.</div></div>
+<div class="row"><div class="kw">Box plots</div><div class="val">Show minimum, Q1, median, Q3, maximum. Useful for comparing distributions side by side. Outliers plotted as individual crosses beyond the fences.</div></div>
+<div class="row"><div class="kw">Mean</div><div class="val"><div class="formula-box">Ungrouped: x̄ = Σx / n<br>Grouped: x̄ = Σfx / Σf &nbsp;(use class midpoints for x)</div></div></div>
+<div class="row"><div class="kw">Median &amp; mode</div><div class="val">Median: middle value when ordered. For grouped data, use interpolation or read from cumulative frequency graph. Mode: most common value / modal class (highest frequency density for grouped data).</div></div>
+<div class="row"><div class="kw">Variance &amp; standard deviation</div><div class="val"><div class="formula-box">Variance: σ² = Σx²/n − (Σx/n)² = Σx²/n − x̄²<br>Grouped: σ² = Σfx²/Σf − (Σfx/Σf)²<br>Standard deviation: σ = √(variance)</div></div></div>
+<div class="row"><div class="kw">Range &amp; IQR</div><div class="val"><div class="formula-box">Range = max − min<br>IQR = Q3 − Q1</div>IQR is resistant to outliers; range is not.</div></div>
+<div class="row"><div class="kw">Outliers</div><div class="val"><div class="formula-box">Outlier if: x &lt; Q1 − 1.5 × IQR &nbsp;or&nbsp; x &gt; Q3 + 1.5 × IQR</div>These are called fences. An outlier is not necessarily an error — it may be a genuine extreme value. State whether to include or exclude with justification.</div></div>
+<div class="row"><div class="kw">Coding</div><div class="val">If y = (x − a)/b then:<div class="formula-box">ȳ = (x̄ − a) / b<br>σ_y = σ_x / b</div>Coding simplifies calculations. Code, compute, then decode.</div></div>
+<div class="row"><div class="kw">Comparing distributions</div><div class="val">Compare a measure of central tendency (mean or median) and a measure of spread (IQR or standard deviation). Always interpret in context.<div class="ex-box"><span class="ex-label">Example</span>"The mean score for group A (54) is higher than group B (48), suggesting group A performed better on average. The IQR for A (12) is smaller than B (20), indicating less variation in group A's scores."</div></div></div>
+<div class="warn">When comparing distributions, you MUST compare both an average and a spread. Comparing only one loses marks. Always use "on average" and "consistency/variation" language.</div>
+</div>
+</div>
+
+</div>
+
+<div class="col">
+
+<!-- PROBABILITY -->
+<div class="box">
+<div class="box-head s3">Probability <span class="marks">Ch 5</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Addition rule</div><div class="val"><div class="formula-box">P(A ∪ B) = P(A) + P(B) − P(A ∩ B)</div>For mutually exclusive events: P(A ∩ B) = 0, so P(A ∪ B) = P(A) + P(B).</div></div>
+<div class="row"><div class="kw">Multiplication rule</div><div class="val"><div class="formula-box">P(A ∩ B) = P(A) × P(B|A)</div>For independent events: P(B|A) = P(B), so P(A ∩ B) = P(A) × P(B).</div></div>
+<div class="row"><div class="kw">Conditional probability</div><div class="val"><div class="formula-box">P(A|B) = P(A ∩ B) / P(B)</div>"The probability of A given that B has already occurred." Restricts the sample space to B.<div class="ex-box"><span class="ex-label">Example</span>P(pass | revised) = P(pass ∩ revised) / P(revised)</div></div></div>
+<div class="row"><div class="kw">Independent events</div><div class="val"><div class="formula-box">A and B independent ⟺ P(A ∩ B) = P(A) × P(B)<br>Equivalently: P(A|B) = P(A)</div>One event does not affect the probability of the other.</div></div>
+<div class="row"><div class="kw">Mutually exclusive</div><div class="val"><div class="formula-box">A and B mutually exclusive ⟺ P(A ∩ B) = 0</div>Cannot happen at the same time. On a Venn diagram, the circles do not overlap.</div></div>
+<div class="row"><div class="kw">Tree diagrams</div><div class="val">Branches show sequential events. Multiply along branches for P(A ∩ B). Add between branches for P(A ∪ B). Probabilities on each set of branches must sum to 1.</div></div>
+<div class="row"><div class="kw">Venn diagrams</div><div class="val">Fill in from the intersection outward. Don't forget the region outside all sets (complement). Useful for "at least one" problems: P(at least one) = 1 − P(none).</div></div>
+<div class="warn">Mutually exclusive events CANNOT be independent (unless one has probability 0). If P(A ∩ B) = 0 and both P(A), P(B) &gt; 0, then P(A ∩ B) ≠ P(A)×P(B). Examiners test this distinction explicitly.</div>
+<div class="tip">For Venn diagram problems: let the intersection be x and set up an equation. Often the total probability must equal 1, or a given number of items are "in neither".</div>
+</div>
+</div>
+
+<!-- STATISTICAL DISTRIBUTIONS -->
+<div class="box">
+<div class="box-head s5">Statistical Distributions <span class="marks">Ch 6</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Binomial conditions</div><div class="val">X ~ B(n, p) requires:<br>1. Fixed number of trials (n)<br>2. Two outcomes only (success/failure)<br>3. Constant probability of success (p)<br>4. Trials are independent</div></div>
+<div class="row"><div class="kw">Binomial formula</div><div class="val"><div class="formula-box">P(X = r) = ⁿCᵣ × pʳ × (1−p)ⁿ⁻ʳ</div>where ⁿCᵣ = n! / (r!(n−r)!)</div></div>
+<div class="row"><div class="kw">Mean of binomial</div><div class="val"><div class="formula-box">E(X) = np</div>This is the expected number of successes. Variance = np(1−p).</div></div>
+<div class="row"><div class="kw">Cumulative probabilities</div><div class="val"><div class="formula-box">P(X ≤ r) = P(X=0) + P(X=1) + ... + P(X=r)</div>Use cumulative binomial tables or calculator. For other forms:<div class="formula-box">P(X &lt; r) = P(X ≤ r−1)<br>P(X &gt; r) = 1 − P(X ≤ r)<br>P(X ≥ r) = 1 − P(X ≤ r−1)</div></div></div>
+<div class="row"><div class="kw">Using tables</div><div class="val">Tables give P(X ≤ r) for specific n and p values. If p &gt; 0.5, use the complement: let Y = n − X, then Y ~ B(n, 1−p) where 1−p &lt; 0.5.</div></div>
+<div class="warn">The four binomial conditions are a favourite exam question. State them clearly, then verify each one holds in the context given. If any condition fails, justify why the binomial model may not be appropriate.</div>
+<div class="tip">For P(X ≥ 1), always use 1 − P(X = 0). It's faster and less error-prone than summing individual terms.</div>
+</div>
+</div>
+
+<!-- HYPOTHESIS TESTING -->
+<div class="box">
+<div class="box-head s6">Hypothesis Testing <span class="marks">Ch 7</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Null &amp; alternative</div><div class="val"><div class="formula-box">H₀: p = k &nbsp;(null — the default assumption)<br>H₁: p &lt; k, p &gt; k, or p ≠ k &nbsp;(alternative)</div>H₀ always uses =. H₁ determines one-tailed (&lt; or &gt;) or two-tailed (≠).</div></div>
+<div class="row"><div class="kw">Significance levels</div><div class="val">Common levels: 1%, 5%, 10%. The significance level is the probability of incorrectly rejecting H₀ (Type I error). Lower level = stronger evidence required to reject.</div></div>
+<div class="row"><div class="kw">One-tailed vs two-tailed</div><div class="val">One-tailed: testing for increase or decrease (H₁: p &lt; k or p &gt; k). Entire significance level in one tail.<br>Two-tailed: testing for change in either direction (H₁: p ≠ k). Significance level split equally between both tails.</div></div>
+<div class="row"><div class="kw">Critical region</div><div class="val">The set of values of X that would lead to rejecting H₀. Found by comparing cumulative probabilities to the significance level.<div class="formula-box">For H₁: p &lt; k → critical region in lower tail<br>Find largest r such that P(X ≤ r) &lt; significance level<br>Critical value = r, critical region: X ≤ r</div></div></div>
+<div class="row"><div class="kw">Binomial test steps</div><div class="val">1. Define the parameter: "Let p = probability of..."<br>2. State H₀ and H₁ in terms of p<br>3. State significance level and distribution: X ~ B(n, p) under H₀<br>4. Calculate P(X ≤ observed) or P(X ≥ observed) under H₀<br>5. Compare p-value with significance level<br>6. Conclude: reject or do not reject H₀<br>7. Interpret in context</div></div>
+<div class="row"><div class="kw">Actual significance level</div><div class="val">The probability of being in the critical region under H₀. Due to discrete distributions, this is usually less than the stated significance level.<div class="formula-box">Actual significance = P(X is in critical region | H₀ true)</div></div></div>
+<div class="row"><div class="kw">Interpreting results</div><div class="val"><div class="ex-box"><span class="ex-label">If reject H₀</span>"There is sufficient evidence at the _% significance level to reject H₀. There is evidence that [context interpretation of H₁]."</div><div class="ex-box"><span class="ex-label">If do not reject H₀</span>"There is insufficient evidence at the _% significance level to reject H₀. There is no evidence that [context interpretation of H₁]."</div></div></div>
+<div class="warn">NEVER say "accept H₀" — always say "do not reject H₀" or "insufficient evidence to reject H₀". You cannot prove H₀ is true; you can only fail to disprove it.</div>
+<div class="tip">Always define p clearly in context before stating hypotheses. Conclusion must be in context of the original question — don't just say "reject H₀", say what that means for the real-world scenario.</div>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</body>
+</html>

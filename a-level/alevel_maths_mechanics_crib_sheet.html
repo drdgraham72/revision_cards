@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Mechanics — Year 12 Crib Sheet</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+          --bg1: #ffffff; --bg2: #f4f6f2; --bg3: #eaf3de;
+          --t1: #1a1a18; --t2: #5f5e5a; --t3: #888780;
+          --bl: rgba(0,0,0,0.11); --bm: rgba(0,0,0,0.20);
+          --r: 8px; --rl: 12px;
+          --font: system-ui,-apple-system,sans-serif; --mono: 'Courier New', monospace;
+        }
+        @media(prefers-color-scheme:dark){
+          :root{
+            --bg1:#1e1e1c;--bg2:#252723;--bg3:#1a2a14;
+            --t1:#f0ece4;--t2:#a8a59e;--t3:#6e6d69;
+            --bl:rgba(255,255,255,0.09);--bm:rgba(255,255,255,0.18);
+          }
+        }
+        body{font-family:var(--font);background:var(--bg2);color:var(--t1);padding:1.75rem 1rem;min-height:100vh;}
+        .page { width: 100%; max-width: 1000px; margin: 0 auto; font-size: 12px; line-height: 1.4; }
+        h1 { font-size: 18px; font-weight: 600; margin-bottom: 0.25rem; }
+        .header { background: var(--bl); backdrop-filter: blur(8px); padding: 1rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-radius: var(--r); border: 0.5px solid var(--bm); }
+        .header h1 { font-size: 18px; font-weight: 600; margin: 0; }
+        .header span { font-size: 11px; color: var(--t2); font-family: var(--mono); letter-spacing: 0.05em; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .col { display: flex; flex-direction: column; gap: 8px; }
+        @media (max-width:768px) {
+          .grid { grid-template-columns: 1fr; }
+          .page { padding: 0; }
+        }
+        .box { background: var(--bg1); border: 0.5px solid var(--bl); border-radius: var(--r); overflow: hidden; }
+        .box-head { padding: 10px 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; background: var(--bl); }
+        .box-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; }
+        .row { display: grid; grid-template-columns: 28% 72%; gap: 8px; padding-bottom: 6px; border-bottom: 0.5px solid var(--bl); }
+        .row:last-child { border-bottom: none; }
+        .kw { font-weight: 650; color: var(--t2); font-size: 11px; font-family: var(--mono); }
+        .val { font-size: 11.5px; color: var(--t1); line-height: 1.35; }
+        .marks { font-family: var(--mono); font-size: 10px; color: var(--t2); background: var(--bg3); padding: 2px 5px; border-radius: 2px; }
+        .ex-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; border-left: 2px solid var(--t2); }
+        .ex-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--t2); display: block; margin-bottom: 2px; }
+        .formula-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; font-family: var(--mono); font-size: 10.5px; border-left: 2px solid #3b6d11; }
+        .board { font-size: 9px; font-weight: 600; display: inline-block; padding: 1px 5px; border-radius: 3px; background: var(--bl); color: var(--t1); margin: 2px 2px 0 0; }
+        .board.all { background: #eaf3de; color: #3b6d11; }
+        .board.h { background: #e6f1fb; color: #185fa5; }
+        .board.f { background: #faeeda; color: #854f0b; }
+        .warn { background: #faeeda; border-left: 2px solid #ef9f27; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #633806; margin: 4px 0; }
+        .tip { background: #eeedfe; border-left: 2px solid #7f77dd; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #3c3489; margin: 4px 0; }
+        .good { background: #eaf3de; border-left: 2px solid #639922; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #173404; margin: 4px 0; }
+        .s1 { background: #3b6d11; color: #eaf3de; }
+        .s2 { background: #185fa5; color: #e6f1fb; }
+        .s3 { background: #534ab7; color: #eeedfe; }
+        .s4 { background: #854f0b; color: #faeeda; }
+        .s5 { background: #a32d2d; color: #fcebeb; }
+        .s6 { background: #0f6e56; color: #e1f5ee; }
+    </style>
+</head>
+<body>
+<div class="page">
+<div class="header">
+  <h1>A-Level Mechanics — Year 12 Crib Sheet</h1>
+  <span>Edexcel · AS/Year 1 · Mechanics</span>
+</div>
+
+<div class="grid">
+<div class="col">
+
+<!-- KINEMATICS -->
+<div class="box">
+<div class="box-head s1">Kinematics <span class="marks">Ch 9–10</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">SUVAT equations</div><div class="val">Five equations for constant acceleration. Each omits one variable:
+<div class="formula-box">v = u + at &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(no s)<br>s = ut + ½at² &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(no v)<br>s = vt − ½at² &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(no u)<br>v² = u² + 2as &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(no t)<br>s = ½(u + v)t &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(no a)</div>
+s = displacement, u = initial velocity, v = final velocity, a = acceleration, t = time.
+<div class="ex-box"><span class="ex-label">Which to use</span>Identify the three known quantities and the one you want. Pick the equation that uses exactly those four variables.</div></div></div>
+<div class="row"><div class="kw">Motion graphs</div><div class="val"><strong>Displacement–time:</strong> gradient = velocity. Straight line = constant velocity. Curve = changing velocity.<br><strong>Velocity–time:</strong> gradient = acceleration. Area under graph = displacement.<br><strong>Acceleration–time:</strong> area under graph = change in velocity.
+<div class="formula-box">v = ds/dt &nbsp;&nbsp;(gradient of s–t graph)<br>a = dv/dt &nbsp;&nbsp;(gradient of v–t graph)<br>s = area under v–t graph</div></div></div>
+<div class="row"><div class="kw">Variable acceleration</div><div class="val">When acceleration is not constant, use calculus instead of SUVAT:
+<div class="formula-box">v = ds/dt &nbsp;&nbsp;&nbsp;(differentiate displacement)<br>a = dv/dt &nbsp;&nbsp;&nbsp;(differentiate velocity)<br>s = ∫ v dt &nbsp;&nbsp;(integrate velocity)<br>v = ∫ a dt &nbsp;&nbsp;(integrate acceleration)</div>Use initial conditions to find constants of integration.</div></div>
+<div class="row"><div class="kw">Vertical motion under gravity</div><div class="val">Free fall: a = g = 9.8 m/s² (downward). Use SUVAT with a = ±9.8.
+<div class="formula-box">Taking upward as positive: a = −9.8 m/s²<br>Taking downward as positive: a = +9.8 m/s²</div>
+At the highest point, v = 0. Time up = time down (if returning to same level).</div></div>
+<div class="row"><div class="kw">Projectile motion</div><div class="val">Resolve into two independent components:
+<div class="formula-box">Horizontal: aₓ = 0, so x = uₓt<br>where uₓ = u cosθ<br><br>Vertical: aᵧ = −g, use SUVAT<br>where uᵧ = u sinθ</div>
+Time of flight links both components. At the highest point, vᵧ = 0 but vₓ unchanged.</div></div>
+<div class="warn">Sign convention mistakes: once you choose a positive direction, stick with it throughout. Mixing signs is the single most common error in kinematics problems.</div>
+</div>
+</div>
+
+<!-- FORCES & NEWTON'S LAWS -->
+<div class="box">
+<div class="box-head s2">Forces &amp; Newton's Laws <span class="marks">Ch 10–11</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Newton's 1st law</div><div class="val">A body remains at rest or moves with constant velocity unless acted on by a resultant force. Zero resultant force means zero acceleration (equilibrium), not zero motion.</div></div>
+<div class="row"><div class="kw">Newton's 2nd law</div><div class="val"><div class="formula-box">F = ma</div>The resultant (net) force equals mass times acceleration. F and a are in the same direction. Units: force in Newtons (N), mass in kg, acceleration in m/s².</div></div>
+<div class="row"><div class="kw">Newton's 3rd law</div><div class="val">If body A exerts a force on body B, then B exerts an equal and opposite force on A. The forces act on different bodies, are the same type, equal in magnitude, opposite in direction.
+<div class="ex-box"><span class="ex-label">Key point</span>Third-law pairs act on DIFFERENT objects. Weight and normal reaction are NOT a third-law pair — they act on the same object.</div></div></div>
+<div class="row"><div class="kw">Free body diagrams</div><div class="val">Show ALL forces acting on a single object: weight (down), normal reaction (perpendicular to surface), tension (along string/rope), friction (opposing motion), applied forces. Label magnitudes and directions.</div></div>
+<div class="row"><div class="kw">Common forces</div><div class="val"><div class="formula-box">Weight: W = mg &nbsp;(always downward)<br>Normal reaction: R ⊥ surface<br>Tension: T along the string<br>Friction: F ≤ μR &nbsp;(opposes motion)</div></div></div>
+<div class="row"><div class="kw">Resolving forces</div><div class="val">Break forces into perpendicular components. Apply F = ma in each direction independently:
+<div class="formula-box">Horizontal: ΣFₓ = maₓ<br>Vertical: &nbsp;&nbsp;ΣFᵧ = maᵧ</div></div></div>
+<div class="tip">When resolving forces: draw a clear diagram first. Choose axes wisely — for inclined planes, resolve parallel and perpendicular to the slope to simplify the equations.</div>
+</div>
+</div>
+
+</div>
+
+<div class="col">
+
+<!-- CONNECTED PARTICLES & INCLINED PLANES -->
+<div class="box">
+<div class="box-head s3">Connected Particles &amp; Inclined Planes <span class="marks">Ch 11–12</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Connected particles (pulleys)</div><div class="val">Two masses connected by a light inextensible string over a smooth pulley:
+<div class="formula-box">For each mass, apply F = ma separately.<br>String is inextensible → same magnitude of acceleration for both.<br>String is light → tension is the same throughout.</div>
+<div class="ex-box"><span class="ex-label">Method</span>1. Draw free body diagram for each particle<br>2. Write F = ma for each (be consistent with positive direction)<br>3. Solve simultaneous equations for a and T</div></div></div>
+<div class="row"><div class="kw">Towing problems</div><div class="val">Vehicle towing a trailer: apply F = ma to the whole system to find acceleration, then to the trailer alone to find tension in the tow-bar.
+<div class="formula-box">Whole system: Driving force − Resistance = (M + m)a<br>Trailer alone: T − R_trailer = ma</div></div></div>
+<div class="row"><div class="kw">Inclined planes</div><div class="val">Resolve forces parallel and perpendicular to the slope:
+<div class="formula-box">Parallel to slope: mg sinθ (down the slope)<br>Perpendicular to slope: mg cosθ (into the slope)<br><br>Normal reaction: R = mg cosθ<br>Friction (if present): F = μR = μmg cosθ</div></div></div>
+<div class="row"><div class="kw">F = ma on a slope</div><div class="val"><div class="formula-box">Up the slope (positive up):<br>Applied force − mg sinθ − μmg cosθ = ma<br><br>Down the slope (positive down):<br>mg sinθ − μmg cosθ = ma</div></div></div>
+<div class="warn">On inclined planes: the weight component down the slope is mg sinθ, NOT mg cosθ. The normal reaction is mg cosθ, NOT mg. Mixing these up is extremely common.</div>
+<div class="tip">For connected particles: always define positive direction consistently. If one mass goes up, the other goes down — make sure your F = ma equations reflect this.</div>
+</div>
+</div>
+
+<!-- MOMENTS -->
+<div class="box">
+<div class="box-head s4">Moments <span class="marks">Ch 12–13</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Moment of a force</div><div class="val"><div class="formula-box">Moment = Force × perpendicular distance from pivot</div>Units: Newton-metres (N m). A moment is a turning effect. Clockwise and anticlockwise moments are given opposite signs.</div></div>
+<div class="row"><div class="kw">Principle of moments</div><div class="val"><div class="formula-box">For equilibrium:<br>Sum of clockwise moments = Sum of anticlockwise moments</div>Take moments about any point — choosing a point where an unknown force acts eliminates that force from the equation.</div></div>
+<div class="row"><div class="kw">Centre of mass</div><div class="val">The point at which the entire weight of a body can be considered to act. For a uniform rod or beam, the centre of mass is at the midpoint. For composite shapes, use moments to find the combined centre of mass.</div></div>
+<div class="row"><div class="kw">Equilibrium conditions</div><div class="val">For a rigid body to be in static equilibrium:
+<div class="formula-box">1. Sum of all forces = 0 &nbsp;(no net force)<br>2. Sum of all moments about any point = 0</div>Both conditions must hold simultaneously.</div></div>
+<div class="row"><div class="kw">Tilting &amp; toppling</div><div class="val"><strong>Tilting:</strong> a body is on the point of tilting when the reaction at one support becomes zero. Take moments about the other support.<br><br><strong>Toppling:</strong> occurs when the line of action of the weight falls outside the base of support. The object topples about the edge of the base.
+<div class="ex-box"><span class="ex-label">Method for tilting</span>Set R = 0 at the support about to lift off. Take moments about the remaining support. Solve for the unknown force or distance.</div></div></div>
+<div class="warn">When calculating moments: use the PERPENDICULAR distance from the line of action of the force to the pivot, not the direct distance along the beam. If the force is at an angle, resolve it first.</div>
+<div class="good">Choose your pivot wisely. Taking moments about the point where the most unknowns act reduces the number of simultaneous equations you need to solve.</div>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</body>
+</html>
