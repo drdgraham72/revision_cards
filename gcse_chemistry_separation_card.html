@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCSE Chemistry — Which Separation Technique?</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&family=Caveat:wght@600;700&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #f5f5f0;
+            --card: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #666;
+            --border: rgba(0,0,0,0.1);
+            --font: 'Barlow Condensed', sans-serif;
+            --mono: 'DM Mono', monospace;
+            --hand: 'Caveat', cursive;
+
+            --filter-color: #d4380d;
+            --filter-bg: #fff1f0;
+            --distil-color: #0958d9;
+            --distil-bg: #e6f4ff;
+            --cryst-color: #389e0d;
+            --cryst-bg: #f6ffed;
+            --chrom-color: #7c3aed;
+            --chrom-bg: #f5f3ff;
+            --evap-color: #854f0b;
+            --evap-bg: #faeeda;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #141416;
+                --card: #1e1e22;
+                --text: #e8e4dc;
+                --text-light: #999;
+                --border: rgba(255,255,255,0.08);
+                --filter-bg: #3a1a0d;
+                --distil-bg: #0d2240;
+                --cryst-bg: #0d2a0d;
+                --chrom-bg: #1e1630;
+                --evap-bg: #2a1e0d;
+            }
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 1.5rem 1rem;
+        }
+
+        .page { max-width: 900px; margin: 0 auto; }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            line-height: 1.1;
+            margin-bottom: 6px;
+        }
+
+        .hero .subtitle {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* ---- DECISION TREE ---- */
+        .tree {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            margin-bottom: 2.5rem;
+        }
+
+        .node {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 16px 24px;
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+        }
+
+        .node.question {
+            border-color: var(--text);
+            background: var(--text);
+            color: #fff;
+        }
+
+        .node.question .q {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .branch {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            width: 100%;
+            max-width: 700px;
+        }
+
+        .branch-arm {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            flex: 1;
+        }
+
+        .connector {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 6px 0;
+        }
+
+        .connector .line {
+            width: 2px;
+            height: 16px;
+            background: var(--text-light);
+        }
+
+        .connector .label {
+            font-family: var(--mono);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-light);
+            padding: 2px 10px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: var(--card);
+        }
+
+        .connector .label.yes { color: var(--cryst-color); border-color: var(--cryst-color); }
+        .connector .label.no { color: var(--filter-color); border-color: var(--filter-color); }
+
+        .node.answer {
+            font-size: 16px;
+            font-weight: 700;
+            padding: 14px 20px;
+        }
+
+        .node.answer.filtration { border-color: var(--filter-color); background: var(--filter-bg); color: var(--filter-color); }
+        .node.answer.distillation { border-color: var(--distil-color); background: var(--distil-bg); color: var(--distil-color); }
+        .node.answer.crystallisation { border-color: var(--cryst-color); background: var(--cryst-bg); color: var(--cryst-color); }
+        .node.answer.chromatography { border-color: var(--chrom-color); background: var(--chrom-bg); color: var(--chrom-color); }
+        .node.answer.evaporation { border-color: var(--evap-color); background: var(--evap-bg); color: var(--evap-color); }
+
+        /* ---- INTERACTIVE FLOWCHART ---- */
+        .flowchart {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 32px 28px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .flowchart h2 {
+            font-size: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 8px;
+        }
+
+        .flowchart .intro {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .fc-question {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.3;
+        }
+
+        .fc-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .fc-btn {
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-family: var(--font);
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 2px solid;
+        }
+
+        .fc-btn.yes {
+            background: var(--cryst-bg);
+            color: var(--cryst-color);
+            border-color: var(--cryst-color);
+        }
+
+        .fc-btn.yes:hover { background: var(--cryst-color); color: #fff; }
+
+        .fc-btn.no {
+            background: var(--filter-bg);
+            color: var(--filter-color);
+            border-color: var(--filter-color);
+        }
+
+        .fc-btn.no:hover { background: var(--filter-color); color: #fff; }
+
+        .fc-result {
+            display: none;
+            padding: 24px;
+            border-radius: 12px;
+            margin-top: 12px;
+        }
+
+        .fc-result.show { display: block; }
+
+        .fc-result .technique-name {
+            font-size: 32px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 8px;
+        }
+
+        .fc-result .technique-desc {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .fc-result .technique-example {
+            font-family: var(--hand);
+            font-size: 20px;
+            font-weight: 600;
+            opacity: 0.8;
+        }
+
+        .fc-reset {
+            display: none;
+            margin-top: 16px;
+            padding: 8px 20px;
+            border: 1.5px solid var(--border);
+            border-radius: 6px;
+            background: var(--card);
+            color: var(--text);
+            font-family: var(--font);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .fc-reset.show { display: inline-block; }
+        .fc-reset:hover { border-color: var(--text); }
+
+        /* ---- TECHNIQUE CARDS ---- */
+        .techniques {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 2rem;
+        }
+
+        .tech-card {
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 6px solid;
+        }
+
+        .tech-card.filtration { background: var(--filter-bg); border-left-color: var(--filter-color); }
+        .tech-card.distillation { background: var(--distil-bg); border-left-color: var(--distil-color); }
+        .tech-card.crystallisation { background: var(--cryst-bg); border-left-color: var(--cryst-color); }
+        .tech-card.chromatography { background: var(--chrom-bg); border-left-color: var(--chrom-color); }
+        .tech-card.evaporation { background: var(--evap-bg); border-left-color: var(--evap-color); }
+
+        .tech-card .tech-name {
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 6px;
+        }
+
+        .tech-card.filtration .tech-name { color: var(--filter-color); }
+        .tech-card.distillation .tech-name { color: var(--distil-color); }
+        .tech-card.crystallisation .tech-name { color: var(--cryst-color); }
+        .tech-card.chromatography .tech-name { color: var(--chrom-color); }
+        .tech-card.evaporation .tech-name { color: var(--evap-color); }
+
+        .tech-card .tech-what {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .tech-card .tech-how {
+            font-size: 12px;
+            line-height: 1.5;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        .tech-card .tech-use {
+            font-family: var(--hand);
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .tech-card .tech-trap {
+            font-size: 11px;
+            margin-top: 8px;
+            padding: 6px 10px;
+            border-radius: 4px;
+            background: rgba(0,0,0,0.05);
+            border-left: 3px solid var(--filter-color);
+            color: var(--text);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .tech-card .tech-trap { background: rgba(255,255,255,0.05); }
+        }
+
+        /* ---- QUICK REFERENCE GRID ---- */
+        .quick-ref {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 2rem;
+        }
+
+        .quick-ref h2 {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .ref-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .ref-table th {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-light);
+            padding: 8px 12px;
+            text-align: left;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .ref-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        .ref-table tr:last-child td { border-bottom: none; }
+
+        .ref-table .mixture { font-weight: 700; }
+
+        .ref-table .technique {
+            font-weight: 700;
+            font-size: 12px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .ref-table .technique.t-filter { background: var(--filter-bg); color: var(--filter-color); }
+        .ref-table .technique.t-distil { background: var(--distil-bg); color: var(--distil-color); }
+        .ref-table .technique.t-cryst { background: var(--cryst-bg); color: var(--cryst-color); }
+        .ref-table .technique.t-chrom { background: var(--chrom-bg); color: var(--chrom-color); }
+        .ref-table .technique.t-evap { background: var(--evap-bg); color: var(--evap-color); }
+
+        /* ---- WATER TREATMENT ---- */
+        .water-box {
+            background: var(--distil-bg);
+            border: 2px solid var(--distil-color);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 1rem;
+        }
+
+        .water-box h2 {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--distil-color);
+            margin-bottom: 12px;
+        }
+
+        .water-steps {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .water-step {
+            text-align: center;
+            padding: 12px 16px;
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .water-step .ws-num {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--distil-color);
+            margin-bottom: 4px;
+        }
+
+        .water-step .ws-name {
+            font-size: 15px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .water-step .ws-what {
+            font-size: 11px;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        .water-arrow {
+            font-size: 22px;
+            color: var(--distil-color);
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 26px; }
+            .techniques { grid-template-columns: 1fr; }
+            .branch { flex-direction: column; gap: 12px; align-items: center; }
+            .fc-question { font-size: 18px; }
+            .ref-table { font-size: 11px; }
+            .ref-table th, .ref-table td { padding: 6px 8px; }
+            .water-steps { flex-direction: column; }
+            .water-arrow { transform: rotate(90deg); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <div class="hero">
+        <h1>Which Separation Technique?</h1>
+        <div class="subtitle">Ask yourself these questions. The answer falls out.</div>
+    </div>
+
+    <!-- ---- INTERACTIVE FLOWCHART ---- -->
+    <div class="flowchart">
+        <h2>Answer the questions &mdash; get the technique</h2>
+        <div class="intro">Click Yes or No. Three questions maximum.</div>
+
+        <div class="fc-question" id="fcQuestion"></div>
+        <div class="fc-buttons" id="fcButtons">
+            <button class="fc-btn yes" onclick="fcAnswer(true)">Yes</button>
+            <button class="fc-btn no" onclick="fcAnswer(false)">No</button>
+        </div>
+        <div class="fc-result" id="fcResult">
+            <div class="technique-name" id="fcTechName"></div>
+            <div class="technique-desc" id="fcTechDesc"></div>
+            <div class="technique-example" id="fcTechExample"></div>
+        </div>
+        <button class="fc-reset" id="fcReset" onclick="fcStart()">Try another mixture</button>
+    </div>
+
+    <!-- ---- TECHNIQUE DETAIL CARDS ---- -->
+    <div class="techniques">
+        <div class="tech-card filtration">
+            <div class="tech-name">Filtration</div>
+            <div class="tech-what">Separates an insoluble solid from a liquid</div>
+            <div class="tech-how">Pour mixture through filter paper in a funnel. The solid stays on the paper (residue), the liquid passes through (filtrate).</div>
+            <div class="tech-use">Sand from salty water, calcium carbonate from a reaction mixture</div>
+            <div class="tech-trap">Exam trap: they ask "what is the residue?" (solid) vs "what is the filtrate?" (liquid). Know both words.</div>
+        </div>
+
+        <div class="tech-card evaporation">
+            <div class="tech-name">Evaporation</div>
+            <div class="tech-what">Gets a dissolved solid from a solution (when you don't need the liquid)</div>
+            <div class="tech-how">Heat the solution in an evaporating basin until the water boils off. The solid remains.</div>
+            <div class="tech-use">Salt from salt water (quick but gives small crystals/powder)</div>
+            <div class="tech-trap">Fast but crude. If you want nice crystals, use crystallisation instead. Evaporation can decompose some solids.</div>
+        </div>
+
+        <div class="tech-card crystallisation">
+            <div class="tech-name">Crystallisation</div>
+            <div class="tech-what">Gets pure crystals of a dissolved solid from a solution</div>
+            <div class="tech-how">Heat gently until saturated (crystals form at edges). Stop heating. Leave to cool slowly. Filter off crystals, pat dry.</div>
+            <div class="tech-use">Copper sulfate crystals, pure salt crystals</div>
+            <div class="tech-trap">Don't boil to dryness! You'll get powder, not crystals. Slow cooling = bigger, purer crystals.</div>
+        </div>
+
+        <div class="tech-card distillation">
+            <div class="tech-name">Simple Distillation</div>
+            <div class="tech-what">Separates a liquid from a solution (when you want the liquid)</div>
+            <div class="tech-how">Heat solution. Liquid boils, vapour rises into condenser, cools back to liquid, collected in a beaker.</div>
+            <div class="tech-use">Pure water from salt water, water from ink</div>
+            <div class="tech-trap">Use FRACTIONAL distillation if separating two liquids with different boiling points (e.g. ethanol from water). The fractionating column is the difference.</div>
+        </div>
+
+        <div class="tech-card chromatography">
+            <div class="tech-name">Chromatography</div>
+            <div class="tech-what">Separates and identifies substances in a mixture (usually dyes/inks)</div>
+            <div class="tech-how">Spot sample on pencil baseline. Place paper in solvent (below the line!). Solvent rises, carries substances different distances.</div>
+            <div class="tech-use">Identifying dyes in food colouring, checking purity of a substance</div>
+            <div class="tech-trap">Baseline in PENCIL (ink would dissolve!). Solvent level BELOW the baseline. One spot = pure, multiple spots = mixture.</div>
+        </div>
+
+        <div class="tech-card distillation" style="border-left-color: #0f6e56;">
+            <div class="tech-name" style="color: #0f6e56;">Fractional Distillation</div>
+            <div class="tech-what">Separates two or more miscible liquids with different boiling points</div>
+            <div class="tech-how">Same as simple distillation but with a fractionating column. Liquid with lowest boiling point comes off first.</div>
+            <div class="tech-use">Ethanol from water, separating crude oil fractions</div>
+            <div class="tech-trap">Know the difference: SIMPLE = liquid from a dissolved solid. FRACTIONAL = liquid from another liquid.</div>
+        </div>
+    </div>
+
+    <!-- ---- QUICK REFERENCE TABLE ---- -->
+    <div class="quick-ref">
+        <h2>"I need to separate..." &mdash; Quick Lookup</h2>
+        <table class="ref-table">
+            <tr>
+                <th>Mixture</th>
+                <th>What you want</th>
+                <th>Technique</th>
+            </tr>
+            <tr>
+                <td class="mixture">Sand + water</td>
+                <td>The water (without sand)</td>
+                <td><span class="technique t-filter">Filtration</span></td>
+            </tr>
+            <tr>
+                <td class="mixture">Salt + water</td>
+                <td>The salt (solid)</td>
+                <td><span class="technique t-evap">Evaporation</span> or <span class="technique t-cryst">Crystallisation</span></td>
+            </tr>
+            <tr>
+                <td class="mixture">Salt + water</td>
+                <td>The water (pure liquid)</td>
+                <td><span class="technique t-distil">Simple Distillation</span></td>
+            </tr>
+            <tr>
+                <td class="mixture">Rock salt (salt + sand)</td>
+                <td>Pure salt</td>
+                <td><span class="technique t-filter">Filtration</span> then <span class="technique t-cryst">Crystallisation</span></td>
+            </tr>
+            <tr>
+                <td class="mixture">Ethanol + water</td>
+                <td>Separate the two liquids</td>
+                <td><span class="technique t-distil">Fractional Distillation</span></td>
+            </tr>
+            <tr>
+                <td class="mixture">Ink / food colouring</td>
+                <td>Identify the dyes in it</td>
+                <td><span class="technique t-chrom">Chromatography</span></td>
+            </tr>
+            <tr>
+                <td class="mixture">Copper sulfate solution</td>
+                <td>Pure CuSO&#x2084; crystals</td>
+                <td><span class="technique t-cryst">Crystallisation</span></td>
+            </tr>
+            <tr>
+                <td class="mixture">Seawater</td>
+                <td>Drinking water</td>
+                <td><span class="technique t-distil">Simple Distillation</span></td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- ---- WATER TREATMENT ---- -->
+    <div class="water-box">
+        <h2>Water Treatment (Potable Water)</h2>
+        <div class="water-steps">
+            <div class="water-step">
+                <div class="ws-num">Step 1</div>
+                <div class="ws-name">Sedimentation</div>
+                <div class="ws-what">Heavy particles settle to the bottom of a tank</div>
+            </div>
+            <div class="water-arrow">&rarr;</div>
+            <div class="water-step">
+                <div class="ws-num">Step 2</div>
+                <div class="ws-name">Filtration</div>
+                <div class="ws-what">Water passes through sand beds to remove fine particles</div>
+            </div>
+            <div class="water-arrow">&rarr;</div>
+            <div class="water-step">
+                <div class="ws-num">Step 3</div>
+                <div class="ws-name">Chlorination</div>
+                <div class="ws-what">Chlorine added to kill bacteria and make water safe</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+// Interactive flowchart decision tree
+var tree = {
+    q: "Is there a solid mixed in with a liquid?",
+    yes: {
+        q: "Is the solid dissolved (you can't see it)?",
+        yes: {
+            q: "Do you want the solid or the liquid?",
+            yes: {
+                result: true,
+                name: "Crystallisation",
+                desc: "Heat gently until saturated, then cool slowly to form pure crystals. Filter and pat dry.",
+                example: "e.g. Getting pure copper sulfate crystals from solution",
+                color: "cryst"
+            },
+            no: {
+                result: true,
+                name: "Simple Distillation",
+                desc: "Heat the solution. The liquid evaporates, condenses in the condenser, and is collected pure.",
+                example: "e.g. Getting pure water from salt water",
+                color: "distil"
+            },
+            qOverride: "Do you want the SOLID? (Yes = solid, No = liquid)"
+        },
+        no: {
+            result: true,
+            name: "Filtration",
+            desc: "Pour through filter paper in a funnel. Solid stays on the paper (residue), liquid passes through (filtrate).",
+            example: "e.g. Removing sand from water, removing excess reactant",
+            color: "filter"
+        }
+    },
+    no: {
+        q: "Are you trying to identify what's IN a mixture?",
+        yes: {
+            result: true,
+            name: "Chromatography",
+            desc: "Spot sample on a pencil baseline. Dip in solvent. Different substances travel different distances. Calculate Rf values.",
+            example: "e.g. Identifying dyes in food colouring, checking purity",
+            color: "chrom"
+        },
+        no: {
+            result: true,
+            name: "Fractional Distillation",
+            desc: "Two miscible liquids with different boiling points. Use a fractionating column \u2014 lowest boiling point comes off first.",
+            example: "e.g. Separating ethanol from water, crude oil fractions",
+            color: "distil"
+        }
+    }
+};
+
+var currentNode = tree;
+
+function fcStart() {
+    currentNode = tree;
+    document.getElementById('fcQuestion').textContent = currentNode.q;
+    document.getElementById('fcButtons').style.display = 'flex';
+    document.getElementById('fcResult').className = 'fc-result';
+    document.getElementById('fcReset').className = 'fc-reset';
+}
+
+function fcAnswer(isYes) {
+    var next = isYes ? currentNode.yes : currentNode.no;
+
+    if (next.result) {
+        // Show result
+        document.getElementById('fcButtons').style.display = 'none';
+        document.getElementById('fcQuestion').textContent = '';
+
+        var resultEl = document.getElementById('fcResult');
+        resultEl.className = 'fc-result show';
+
+        var colors = {
+            filter: { bg: 'var(--filter-bg)', color: 'var(--filter-color)' },
+            distil: { bg: 'var(--distil-bg)', color: 'var(--distil-color)' },
+            cryst: { bg: 'var(--cryst-bg)', color: 'var(--cryst-color)' },
+            chrom: { bg: 'var(--chrom-bg)', color: 'var(--chrom-color)' }
+        };
+
+        var c = colors[next.color];
+        resultEl.style.background = c.bg;
+        resultEl.style.border = '2px solid ' + c.color;
+
+        document.getElementById('fcTechName').textContent = next.name;
+        document.getElementById('fcTechName').style.color = c.color;
+        document.getElementById('fcTechDesc').textContent = next.desc;
+        document.getElementById('fcTechExample').textContent = next.example;
+
+        document.getElementById('fcReset').className = 'fc-reset show';
+    } else {
+        // Next question
+        currentNode = next;
+        var questionText = next.qOverride || next.q;
+        document.getElementById('fcQuestion').textContent = questionText;
+    }
+}
+
+fcStart();
+</script>
+
+</body>
+</html>
