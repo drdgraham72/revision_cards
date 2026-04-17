@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCSE Maths — Probability</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&family=Caveat:wght@600;700&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #f5f5f0;
+            --card: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #666;
+            --border: rgba(0,0,0,0.1);
+            --font: 'Barlow Condensed', sans-serif;
+            --mono: 'DM Mono', monospace;
+            --hand: 'Caveat', cursive;
+
+            --and-color: #d4380d;
+            --and-bg: #fff1f0;
+            --or-color: #0958d9;
+            --or-bg: #e6f4ff;
+            --tree-color: #389e0d;
+            --tree-bg: #f6ffed;
+            --venn-color: #7c3aed;
+            --venn-bg: #f5f3ff;
+            --grid-color: #854f0b;
+            --grid-bg: #faeeda;
+            --warn-color: #cf1322;
+            --warn-bg: #fff1f0;
+            --freq-color: #0f6e56;
+            --freq-bg: #e6fff7;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #141416;
+                --card: #1e1e22;
+                --text: #e8e4dc;
+                --text-light: #999;
+                --border: rgba(255,255,255,0.08);
+                --and-bg: #3a1a0d;
+                --or-bg: #0d2240;
+                --tree-bg: #0d2a0d;
+                --venn-bg: #1e1630;
+                --grid-bg: #2a1e0d;
+                --warn-bg: #3a0d0d;
+                --freq-bg: #0d2a1e;
+            }
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 1.5rem 1rem;
+        }
+
+        .page { max-width: 900px; margin: 0 auto; }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            line-height: 1.1;
+            margin-bottom: 6px;
+        }
+
+        .hero .subtitle {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* ---- SECTION HEADERS ---- */
+        .section {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 28px 24px;
+            margin-bottom: 1.5rem;
+        }
+
+        .section h2 {
+            font-size: 22px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 16px;
+        }
+
+        .section h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            margin-top: 16px;
+        }
+
+        .section p, .section li {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .section ul li {
+            padding-left: 18px;
+            position: relative;
+            margin-bottom: 4px;
+        }
+
+        .section ul li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--text-light);
+        }
+
+        /* ---- THE TWO RULES ---- */
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .rule-box {
+            border-radius: 14px;
+            padding: 28px 24px;
+            border: 3px solid;
+            text-align: center;
+        }
+
+        .rule-box.and-rule {
+            background: var(--and-bg);
+            border-color: var(--and-color);
+        }
+
+        .rule-box.or-rule {
+            background: var(--or-bg);
+            border-color: var(--or-color);
+        }
+
+        .rule-box .rule-keyword {
+            font-size: 42px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .rule-box.and-rule .rule-keyword { color: var(--and-color); }
+        .rule-box.or-rule .rule-keyword { color: var(--or-color); }
+
+        .rule-box .rule-operator {
+            font-size: 28px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .rule-box.and-rule .rule-operator { color: var(--and-color); }
+        .rule-box.or-rule .rule-operator { color: var(--or-color); }
+
+        .rule-box .rule-formula {
+            font-family: var(--mono);
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        .rule-box .rule-memory {
+            font-family: var(--hand);
+            font-size: 22px;
+            font-weight: 700;
+            opacity: 0.85;
+        }
+
+        .rule-box.and-rule .rule-memory { color: var(--and-color); }
+        .rule-box.or-rule .rule-memory { color: var(--or-color); }
+
+        .rule-note {
+            text-align: center;
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--text-light);
+            padding: 10px;
+            border: 1px dashed var(--border);
+            border-radius: 8px;
+        }
+
+        /* ---- TREE DIAGRAMS ---- */
+        .tree-diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0;
+            margin: 20px 0;
+            padding: 20px;
+            background: var(--tree-bg);
+            border-radius: 12px;
+            border: 2px solid var(--tree-color);
+            overflow-x: auto;
+        }
+
+        .tree-level {
+            display: flex;
+            align-items: stretch;
+        }
+
+        .tree-node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .tree-start {
+            font-weight: 700;
+            font-size: 14px;
+            padding: 8px 14px;
+            background: var(--card);
+            border-radius: 8px;
+            border: 2px solid var(--tree-color);
+            color: var(--tree-color);
+        }
+
+        /* CSS tree using nested lists */
+        .css-tree {
+            margin: 20px 0;
+            padding: 24px 20px 24px 10px;
+            background: var(--tree-bg);
+            border-radius: 12px;
+            border: 2px solid var(--tree-color);
+            overflow-x: auto;
+        }
+
+        .css-tree ul {
+            list-style: none;
+            padding-left: 32px;
+            position: relative;
+        }
+
+        .css-tree > ul { padding-left: 0; }
+
+        .css-tree li {
+            position: relative;
+            padding: 6px 0 6px 24px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .css-tree li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            border-left: 2px solid var(--tree-color);
+            border-bottom: 2px solid var(--tree-color);
+            width: 18px;
+            height: 18px;
+            border-radius: 0 0 0 6px;
+        }
+
+        .css-tree li:last-child::before {
+            border-left: 2px solid var(--tree-color);
+        }
+
+        .css-tree li::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 18px;
+            bottom: 0;
+            border-left: 2px solid var(--tree-color);
+        }
+
+        .css-tree li:last-child::after {
+            display: none;
+        }
+
+        .css-tree .prob {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--tree-color);
+            font-weight: 700;
+            background: var(--card);
+            padding: 1px 6px;
+            border-radius: 4px;
+            border: 1px solid var(--tree-color);
+            margin-right: 6px;
+        }
+
+        .css-tree .outcome {
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .css-tree .outcome.red { background: #fee2e2; color: #b91c1c; }
+        .css-tree .outcome.blue { background: #dbeafe; color: #1d4ed8; }
+
+        .css-tree .result {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--text-light);
+            margin-left: 8px;
+        }
+
+        .css-tree .calc {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--and-color);
+            font-weight: 700;
+            margin-left: 6px;
+        }
+
+        /* ---- WORKED CALCULATION ---- */
+        .worked {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin: 14px 0;
+        }
+
+        .worked .worked-title {
+            font-family: var(--mono);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        .worked .step {
+            font-size: 14px;
+            line-height: 1.7;
+            padding: 2px 0;
+        }
+
+        .worked .step .label {
+            font-weight: 700;
+            color: var(--and-color);
+        }
+
+        .worked .step code {
+            font-family: var(--mono);
+            font-size: 13px;
+            background: rgba(0,0,0,0.04);
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .worked .step code { background: rgba(255,255,255,0.06); }
+        }
+
+        .worked .answer {
+            font-size: 16px;
+            font-weight: 800;
+            margin-top: 8px;
+            padding: 8px 14px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .worked .answer.green {
+            background: var(--tree-bg);
+            color: var(--tree-color);
+            border: 2px solid var(--tree-color);
+        }
+
+        /* ---- VENN DIAGRAM ---- */
+        .venn-container {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin: 16px 0;
+        }
+
+        .venn-svg-wrap {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .venn-labels {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .venn-labels .vl-item {
+            padding: 6px 0;
+            font-size: 14px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .venn-labels .vl-item:last-child { border-bottom: none; }
+
+        .venn-labels .vl-region {
+            font-weight: 700;
+            font-family: var(--mono);
+            font-size: 12px;
+            display: inline-block;
+            min-width: 80px;
+        }
+
+        /* ---- SAMPLE SPACE GRID ---- */
+        .sample-grid {
+            overflow-x: auto;
+            margin: 16px 0;
+        }
+
+        .sample-grid table {
+            border-collapse: collapse;
+            font-family: var(--mono);
+            font-size: 13px;
+            width: auto;
+        }
+
+        .sample-grid th {
+            padding: 8px 12px;
+            font-weight: 700;
+            text-align: center;
+            border-bottom: 2px solid var(--grid-color);
+        }
+
+        .sample-grid th.corner {
+            background: transparent;
+            border: none;
+        }
+
+        .sample-grid th.die-header {
+            background: var(--grid-bg);
+            color: var(--grid-color);
+            border: 1px solid var(--border);
+        }
+
+        .sample-grid td {
+            padding: 8px 12px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+
+        .sample-grid td.row-header {
+            font-weight: 700;
+            background: var(--grid-bg);
+            color: var(--grid-color);
+            border: 1px solid var(--border);
+        }
+
+        .sample-grid td.highlight {
+            background: var(--or-bg);
+            color: var(--or-color);
+            font-weight: 700;
+        }
+
+        /* ---- EXPECTED FREQUENCY ---- */
+        .freq-box {
+            background: var(--freq-bg);
+            border: 2px solid var(--freq-color);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 14px 0;
+            text-align: center;
+        }
+
+        .freq-box .freq-formula {
+            font-family: var(--mono);
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--freq-color);
+            margin-bottom: 8px;
+        }
+
+        .freq-box .freq-desc {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* ---- COMMON MISTAKES ---- */
+        .mistakes-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .mistakes-list li {
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            background: var(--warn-bg);
+            border-left: 5px solid var(--warn-color);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .mistakes-list li strong {
+            color: var(--warn-color);
+        }
+
+        .mistakes-list li code {
+            font-family: var(--mono);
+            font-size: 12px;
+            background: rgba(0,0,0,0.04);
+            padding: 1px 5px;
+            border-radius: 3px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .mistakes-list li code { background: rgba(255,255,255,0.08); }
+        }
+
+        /* ---- WITHOUT REPLACEMENT HIGHLIGHT ---- */
+        .change-highlight {
+            display: inline-block;
+            background: var(--and-bg);
+            color: var(--and-color);
+            font-weight: 700;
+            font-family: var(--mono);
+            font-size: 13px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            border: 1px solid var(--and-color);
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 26px; }
+            .rules-grid { grid-template-columns: 1fr; }
+            .rule-box .rule-keyword { font-size: 32px; }
+            .venn-container { flex-direction: column; }
+            .sample-grid table { font-size: 11px; }
+            .sample-grid th, .sample-grid td { padding: 5px 7px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <div class="hero">
+        <h1>Probability — The Complete Picture</h1>
+        <div class="subtitle">AND / OR &bull; Tree Diagrams &bull; Venn Diagrams &bull; Sample Spaces</div>
+    </div>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- 1. THE TWO RULES                        -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="section">
+        <h2>1. The Two Rules — Learn These or Fail</h2>
+
+        <div class="rules-grid">
+            <div class="rule-box and-rule">
+                <div class="rule-keyword">"AND"</div>
+                <div class="rule-operator">= MULTIPLY &times;</div>
+                <div class="rule-formula">P(A and B) = P(A) &times; P(B)</div>
+                <div class="rule-memory">"this AND that" &rarr; times</div>
+            </div>
+            <div class="rule-box or-rule">
+                <div class="rule-keyword">"OR"</div>
+                <div class="rule-operator">= ADD +</div>
+                <div class="rule-formula">P(A or B) = P(A) + P(B)</div>
+                <div class="rule-memory">"this OR that" &rarr; plus</div>
+            </div>
+        </div>
+
+        <div class="rule-note">
+            The OR rule above is for <strong>mutually exclusive</strong> events (they can't both happen at once).
+            When events CAN overlap, see the Venn Diagram section below for the full formula.
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- 2. TREE DIAGRAMS (WITH REPLACEMENT)     -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="section">
+        <h2>2. Tree Diagrams — With Replacement</h2>
+
+        <h3>How to draw one</h3>
+        <ul>
+            <li>Each branch represents one possible outcome</li>
+            <li>Write probabilities ON the branches</li>
+            <li>Outcomes are listed at the end of each path</li>
+            <li><strong>Branches from the same point MUST add up to 1</strong></li>
+            <li>Multiply ALONG branches (AND rule)</li>
+            <li>Add BETWEEN final outcomes (OR rule)</li>
+        </ul>
+
+        <h3>Example: Bag contains 3 red balls and 2 blue balls. Pick one, replace it, pick again.</h3>
+
+        <div class="css-tree">
+            <ul>
+                <li>
+                    <span class="prob">3/5</span> <span class="outcome red">Red</span>
+                    <ul>
+                        <li><span class="prob">3/5</span> <span class="outcome red">Red</span> <span class="result">RR</span> <span class="calc">3/5 &times; 3/5 = 9/25</span></li>
+                        <li><span class="prob">2/5</span> <span class="outcome blue">Blue</span> <span class="result">RB</span> <span class="calc">3/5 &times; 2/5 = 6/25</span></li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="prob">2/5</span> <span class="outcome blue">Blue</span>
+                    <ul>
+                        <li><span class="prob">3/5</span> <span class="outcome red">Red</span> <span class="result">BR</span> <span class="calc">2/5 &times; 3/5 = 6/25</span></li>
+                        <li><span class="prob">2/5</span> <span class="outcome blue">Blue</span> <span class="result">BB</span> <span class="calc">2/5 &times; 2/5 = 4/25</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="worked">
+            <div class="worked-title">Worked calculation — P(at least one red)</div>
+            <div class="step"><span class="label">Method 1 (OR rule):</span> P(RR) + P(RB) + P(BR) = <code>9/25 + 6/25 + 6/25 = 21/25</code></div>
+            <div class="step"><span class="label">Method 2 (shortcut):</span> P(at least one red) = 1 &minus; P(no red) = 1 &minus; P(BB) = <code>1 &minus; 4/25 = 21/25</code></div>
+            <div class="answer green">P(at least one red) = 21/25 = 0.84</div>
+        </div>
+
+        <div class="worked">
+            <div class="worked-title">Check — all outcomes sum to 1</div>
+            <div class="step"><code>9/25 + 6/25 + 6/25 + 4/25 = 25/25 = 1</code> &check;</div>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- 3. TREE DIAGRAMS WITHOUT REPLACEMENT    -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="section" style="border-color: var(--and-color);">
+        <h2 style="color: var(--and-color);">3. Without Replacement — The Fractions Change!</h2>
+
+        <p style="margin-bottom: 12px;">
+            When you <strong>don't put the item back</strong>, the second set of probabilities CHANGE
+            because one item is gone. The total goes from <span class="change-highlight">5 &rarr; 4</span> and
+            the count of whatever you picked goes down by 1.
+        </p>
+        <p style="margin-bottom: 12px;">This is what makes events <strong>dependent</strong> (also called <strong>conditional</strong>).</p>
+
+        <h3>Same bag: 3 red, 2 blue. Pick one, DON'T replace, pick again.</h3>
+
+        <div class="css-tree" style="border-color: var(--and-color); background: var(--and-bg);">
+            <ul>
+                <li>
+                    <span class="prob">3/5</span> <span class="outcome red">Red</span>
+                    <ul>
+                        <li><span class="prob" style="border-color:var(--and-color);color:var(--and-color);">2/4</span> <span class="outcome red">Red</span> <span class="result">RR</span> <span class="calc">3/5 &times; 2/4 = 6/20</span></li>
+                        <li><span class="prob" style="border-color:var(--and-color);color:var(--and-color);">2/4</span> <span class="outcome blue">Blue</span> <span class="result">RB</span> <span class="calc">3/5 &times; 2/4 = 6/20</span></li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="prob">2/5</span> <span class="outcome blue">Blue</span>
+                    <ul>
+                        <li><span class="prob" style="border-color:var(--and-color);color:var(--and-color);">3/4</span> <span class="outcome red">Red</span> <span class="result">BR</span> <span class="calc">2/5 &times; 3/4 = 6/20</span></li>
+                        <li><span class="prob" style="border-color:var(--and-color);color:var(--and-color);">1/4</span> <span class="outcome blue">Blue</span> <span class="result">BB</span> <span class="calc">2/5 &times; 1/4 = 2/20</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="worked">
+            <div class="worked-title">Key differences to spot</div>
+            <div class="step"><span class="label">After picking Red first:</span> 2 red left, 2 blue left &rarr; denominator is now <code>4</code> not 5</div>
+            <div class="step"><span class="label">After picking Blue first:</span> 3 red left, 1 blue left &rarr; denominator is now <code>4</code> not 5</div>
+            <div class="step"><span class="label">Check:</span> <code>6/20 + 6/20 + 6/20 + 2/20 = 20/20 = 1</code> &check;</div>
+        </div>
+
+        <div class="worked">
+            <div class="worked-title">Worked — P(both the same colour)</div>
+            <div class="step">P(RR) + P(BB) = <code>6/20 + 2/20 = 8/20 = 2/5</code></div>
+            <div class="answer green">P(same colour) = 2/5 = 0.4</div>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- 4. VENN DIAGRAMS                        -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="section">
+        <h2>4. Venn Diagrams</h2>
+
+        <div class="venn-container">
+            <div class="venn-svg-wrap">
+                <svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:400px;">
+                    <!-- outer rectangle -->
+                    <rect x="10" y="10" width="380" height="240" rx="10" fill="none" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                    <text x="370" y="35" text-anchor="end" font-family="'DM Mono',monospace" font-size="13" fill="currentColor" opacity="0.5">ξ</text>
+
+                    <!-- circle A -->
+                    <circle cx="155" cy="130" r="90" fill="#7c3aed" fill-opacity="0.12" stroke="#7c3aed" stroke-width="2.5"/>
+                    <text x="100" y="125" font-family="'Barlow Condensed',sans-serif" font-size="18" font-weight="800" fill="#7c3aed">A only</text>
+                    <text x="100" y="145" font-family="'DM Mono',monospace" font-size="14" font-weight="700" fill="#7c3aed">10</text>
+
+                    <!-- circle B -->
+                    <circle cx="245" cy="130" r="90" fill="#0958d9" fill-opacity="0.12" stroke="#0958d9" stroke-width="2.5"/>
+                    <text x="270" y="125" font-family="'Barlow Condensed',sans-serif" font-size="18" font-weight="800" fill="#0958d9">B only</text>
+                    <text x="285" y="145" font-family="'DM Mono',monospace" font-size="14" font-weight="700" fill="#0958d9">15</text>
+
+                    <!-- intersection -->
+                    <text x="192" y="120" font-family="'Barlow Condensed',sans-serif" font-size="15" font-weight="800" fill="#d4380d" text-anchor="middle">A∩B</text>
+                    <text x="192" y="142" font-family="'DM Mono',monospace" font-size="16" font-weight="700" fill="#d4380d" text-anchor="middle">5</text>
+
+                    <!-- neither -->
+                    <text x="40" y="235" font-family="'Barlow Condensed',sans-serif" font-size="14" font-weight="700" fill="currentColor" opacity="0.6">Neither: 20</text>
+
+                    <!-- labels -->
+                    <text x="120" y="50" font-family="'Barlow Condensed',sans-serif" font-size="16" font-weight="800" fill="#7c3aed">A</text>
+                    <text x="275" y="50" font-family="'Barlow Condensed',sans-serif" font-size="16" font-weight="800" fill="#0958d9">B</text>
+                </svg>
+            </div>
+
+            <div class="venn-labels">
+                <h3 style="margin-top:0;">Reading the diagram (total = 50)</h3>
+                <div class="vl-item"><span class="vl-region">P(A)</span> = (10 + 5)/50 = <strong>15/50</strong></div>
+                <div class="vl-item"><span class="vl-region">P(B)</span> = (5 + 15)/50 = <strong>20/50</strong></div>
+                <div class="vl-item"><span class="vl-region">P(A ∩ B)</span> = 5/50 = <strong>5/50</strong></div>
+                <div class="vl-item"><span class="vl-region">P(A ∪ B)</span> = (10 + 5 + 15)/50 = <strong>30/50</strong></div>
+                <div class="vl-item"><span class="vl-region">P(neither)</span> = 20/50 = <strong>20/50</strong></div>
+            </div>
+        </div>
+
+        <div class="rule-box or-rule" style="margin-top: 16px; text-align: center;">
+            <div class="rule-operator" style="font-size: 16px; margin-bottom: 4px;">When events are NOT mutually exclusive:</div>
+            <div class="rule-formula" style="font-size: 16px;">P(A or B) = P(A) + P(B) &minus; P(A and B)</div>
+            <div class="rule-memory">Subtract the overlap or you count it twice!</div>
+        </div>
+
+        <div class="worked">
+            <div class="worked-title">Check with numbers</div>
+            <div class="step">P(A or B) = P(A) + P(B) &minus; P(A and B)</div>
+            <div class="step"><code>15/50 + 20/50 &minus; 5/50 = 30/50</code> &check; matches the diagram</div>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- 5. SAMPLE SPACE DIAGRAMS               -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="section">
+        <h2>5. Sample Space Diagrams</h2>
+
+        <p style="margin-bottom:8px;">A grid showing <strong>every possible outcome</strong> of two events. Best for two dice, spinners, or coins.</p>
+        <p style="margin-bottom:16px;"><strong>When to use:</strong> when you have two independent events and want to see all combinations.</p>
+
+        <h3>Example: Sum of two dice</h3>
+
+        <div class="sample-grid">
+            <table>
+                <tr>
+                    <th class="corner">+</th>
+                    <th class="die-header">1</th>
+                    <th class="die-header">2</th>
+                    <th class="die-header">3</th>
+                    <th class="die-header">4</th>
+                    <th class="die-header">5</th>
+                    <th class="die-header">6</th>
+                </tr>
+                <tr>
+                    <td class="row-header">1</td>
+                    <td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td class="highlight">7</td>
+                </tr>
+                <tr>
+                    <td class="row-header">2</td>
+                    <td>3</td><td>4</td><td>5</td><td>6</td><td class="highlight">7</td><td>8</td>
+                </tr>
+                <tr>
+                    <td class="row-header">3</td>
+                    <td>4</td><td>5</td><td>6</td><td class="highlight">7</td><td>8</td><td>9</td>
+                </tr>
+                <tr>
+                    <td class="row-header">4</td>
+                    <td>5</td><td>6</td><td class="highlight">7</td><td>8</td><td>9</td><td>10</td>
+                </tr>
+                <tr>
+                    <td class="row-header">5</td>
+                    <td>6</td><td class="highlight">7</td><td>8</td><td>9</td><td>10</td><td>11</td>
+                </tr>
+                <tr>
+                    <td class="row-header">6</td>
+                    <td class="highlight">7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="worked">
+            <div class="worked-title">Reading the grid</div>
+            <div class="step">Total outcomes: <code>6 &times; 6 = 36</code></div>
+            <div class="step"><span class="label">P(sum = 7):</span> Count the highlighted 7s &rarr; 6 of them &rarr; <code>6/36 = 1/6</code></div>
+            <div class="step"><span class="label">P(sum = 2):</span> Only one way (1+1) &rarr; <code>1/36</code></div>
+            <div class="step"><span class="label">P(sum &gt; 10):</span> Sums of 11 and 12 &rarr; 2 + 1 = 3 ways &rarr; <code>3/36 = 1/12</code></div>
+        </div>
+
+        <p style="font-family:var(--hand); font-size:20px; color:var(--grid-color); margin-top:12px;">
+            7 is the most likely sum. 2 and 12 are the least likely. That's why 7 matters in board games!
+        </p>
+    </div>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- 6. EXPECTED FREQUENCY                   -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="section">
+        <h2>6. Expected Frequency</h2>
+
+        <div class="freq-box">
+            <div class="freq-formula">Expected frequency = probability &times; number of trials</div>
+            <div class="freq-desc">How many times you EXPECT an outcome to happen</div>
+        </div>
+
+        <div class="worked">
+            <div class="worked-title">Example</div>
+            <div class="step">P(heads) = 0.5. You flip a coin 200 times.</div>
+            <div class="step">Expected heads = <code>0.5 &times; 200 = 100</code></div>
+            <div class="answer green">Expect 100 heads</div>
+        </div>
+
+        <div class="worked">
+            <div class="worked-title">Another example</div>
+            <div class="step">P(rolling a 6) = 1/6. You roll a die 300 times.</div>
+            <div class="step">Expected sixes = <code>1/6 &times; 300 = 50</code></div>
+            <div class="answer green">Expect 50 sixes</div>
+        </div>
+
+        <p style="margin-top: 14px; padding: 12px 16px; border-radius: 8px; background: var(--grid-bg); border-left: 5px solid var(--grid-color); font-size: 14px;">
+            <strong>&ldquo;Expected&rdquo; does NOT mean &ldquo;guaranteed.&rdquo;</strong>
+            You might get 97 or 108 heads &mdash; that's normal. Expected frequency is the long-run average, not a promise.
+        </p>
+    </div>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- 7. COMMON MISTAKES                      -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="section" style="border-color: var(--warn-color);">
+        <h2 style="color: var(--warn-color);">7. Common Mistakes — Don't Be That Student</h2>
+
+        <ul class="mistakes-list">
+            <li>
+                <strong>Adding when you should multiply.</strong>
+                "A AND B" means multiply. If you see "and" and reach for the + sign, stop. AND = &times;.
+            </li>
+            <li>
+                <strong>Forgetting to change probabilities for "without replacement."</strong>
+                If one ball is taken out, the total goes DOWN by 1 and the colour count changes. The second branch fractions are DIFFERENT from the first.
+            </li>
+            <li>
+                <strong>Forgetting the complement shortcut:</strong> <code>P(not A) = 1 &minus; P(A)</code>.
+                "At least one" questions are almost always easier using <code>1 &minus; P(none)</code>.
+            </li>
+            <li>
+                <strong>Probabilities must be between 0 and 1.</strong>
+                If your answer is negative or greater than 1, something went wrong. Go back and check.
+            </li>
+            <li>
+                <strong>All outcomes must sum to 1.</strong>
+                In a tree diagram, add up every final branch. If they don't total 1, you've made an error somewhere.
+            </li>
+            <li>
+                <strong>Double-counting in Venn diagrams.</strong>
+                P(A or B) &ne; P(A) + P(B) unless the events are mutually exclusive. If there's an overlap, subtract P(A and B).
+            </li>
+            <li>
+                <strong>Confusing "at least one" with "exactly one."</strong>
+                "At least one red" includes RR, RB, and BR. "Exactly one red" is only RB and BR.
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+</body>
+</html>

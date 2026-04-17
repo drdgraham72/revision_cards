@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCSE Maths — Quadratics &amp; Completing the Square</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&family=Caveat:wght@600;700&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --factor-color: #d4380d;
+            --factor-bg: #fff1f0;
+            --formula-color: #0958d9;
+            --formula-bg: #e6f4ff;
+            --complete-color: #389e0d;
+            --complete-bg: #f6ffed;
+            --graph-color: #722ed1;
+            --graph-bg: #f9f0ff;
+            --warn-color: #d48806;
+            --warn-bg: #fffbe6;
+            --accent: #1a1a2e;
+            --bg: #fafafa;
+            --card-bg: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #666;
+            --mono: 'DM Mono', monospace;
+            --font: 'Barlow Condensed', sans-serif;
+            --hand: 'Caveat', cursive;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --factor-color: #ff7a45;
+                --factor-bg: #3a1a0d;
+                --formula-color: #69b1ff;
+                --formula-bg: #0d2240;
+                --complete-color: #73d13d;
+                --complete-bg: #0d2a0d;
+                --graph-color: #b37feb;
+                --graph-bg: #1a0d2e;
+                --warn-color: #ffc53d;
+                --warn-bg: #2a2200;
+                --accent: #e8e4dc;
+                --bg: #141416;
+                --card-bg: #1e1e22;
+                --text: #e8e4dc;
+                --text-light: #999;
+            }
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 1.5rem 1rem;
+        }
+
+        .page { max-width: 900px; margin: 0 auto; }
+
+        /* ---- HERO TITLE ---- */
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            line-height: 1.1;
+            margin-bottom: 6px;
+        }
+
+        .hero .subtitle {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--text-light);
+            letter-spacing: 0.03em;
+        }
+
+        /* ---- SECTION HEADERS ---- */
+        .section-header {
+            font-size: 22px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 16px;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .section-header:first-of-type { margin-top: 0; }
+
+        /* ---- INTRO CARD ---- */
+        .intro-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 2rem;
+            border: 2px solid var(--graph-color);
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .intro-text { flex: 1; }
+
+        .intro-text h3 {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--graph-color);
+            margin-bottom: 10px;
+        }
+
+        .intro-text ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .intro-text li {
+            font-size: 15px;
+            line-height: 1.6;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .intro-text li::before {
+            content: "\25B6";
+            position: absolute;
+            left: 0;
+            color: var(--graph-color);
+            font-size: 10px;
+            top: 4px;
+        }
+
+        .intro-formula {
+            font-family: var(--mono);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--graph-color);
+            background: var(--graph-bg);
+            padding: 10px 16px;
+            border-radius: 8px;
+            display: inline-block;
+            margin: 8px 0;
+        }
+
+        .intro-svg {
+            flex-shrink: 0;
+            width: 220px;
+        }
+
+        /* ---- THREE METHODS ---- */
+        .methods {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 2rem;
+        }
+
+        .method-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            border: 3px solid;
+            position: relative;
+        }
+
+        .method-card.factoring { border-color: var(--factor-color); }
+        .method-card.formula { border-color: var(--formula-color); }
+        .method-card.completing { border-color: var(--complete-color); }
+
+        .method-badge {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 3px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .method-card.factoring .method-badge { background: var(--factor-color); }
+        .method-card.formula .method-badge { background: var(--formula-color); }
+        .method-card.completing .method-badge { background: var(--complete-color); }
+
+        .method-card h3 {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .method-card.factoring h3 { color: var(--factor-color); }
+        .method-card.formula h3 { color: var(--formula-color); }
+        .method-card.completing h3 { color: var(--complete-color); }
+
+        .method-card .when {
+            font-size: 11px;
+            font-family: var(--mono);
+            color: var(--text-light);
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .method-card .when { border-bottom-color: rgba(255,255,255,0.08); }
+        }
+
+        .method-card .method-steps {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 12px;
+        }
+
+        .method-card .method-steps li {
+            font-size: 13px;
+            line-height: 1.5;
+            padding: 4px 0;
+            padding-left: 18px;
+            position: relative;
+        }
+
+        .method-card .method-steps li::before {
+            content: attr(data-step);
+            position: absolute;
+            left: 0;
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+
+        .method-example {
+            background: var(--bg);
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 8px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .method-example { background: rgba(255,255,255,0.04); }
+        }
+
+        .method-example .ex-label {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-light);
+            margin-bottom: 6px;
+        }
+
+        .method-example .ex-line {
+            font-family: var(--hand);
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .method-card.factoring .ex-line { color: var(--factor-color); }
+        .method-card.formula .ex-line { color: var(--formula-color); }
+        .method-card.completing .ex-line { color: var(--complete-color); }
+
+        /* Big formula display */
+        .big-formula {
+            font-family: var(--mono);
+            font-size: 18px;
+            font-weight: 700;
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 10px 0;
+            line-height: 1.4;
+        }
+
+        .big-formula.formula-c {
+            color: var(--formula-color);
+            background: var(--formula-bg);
+            border: 2px solid var(--formula-color);
+        }
+
+        .big-formula.complete-c {
+            color: var(--complete-color);
+            background: var(--complete-bg);
+            border: 2px solid var(--complete-color);
+        }
+
+        /* ---- DISCRIMINANT ---- */
+        .discriminant {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 2rem;
+            border: 2px solid var(--formula-color);
+        }
+
+        .discriminant h3 {
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--formula-color);
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .disc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+        }
+
+        .disc-case {
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            background: var(--bg);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .disc-case { background: rgba(255,255,255,0.04); }
+        }
+
+        .disc-case .disc-val {
+            font-family: var(--mono);
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .disc-case .disc-result {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .disc-case .disc-explain {
+            font-size: 11px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        .disc-case.two { border: 2px solid var(--complete-color); }
+        .disc-case.two .disc-val, .disc-case.two .disc-result { color: var(--complete-color); }
+        .disc-case.one { border: 2px solid var(--formula-color); }
+        .disc-case.one .disc-val, .disc-case.one .disc-result { color: var(--formula-color); }
+        .disc-case.none { border: 2px solid var(--factor-color); }
+        .disc-case.none .disc-val, .disc-case.none .disc-result { color: var(--factor-color); }
+
+        /* ---- DECISION GUIDE ---- */
+        .decision-guide {
+            background: var(--accent);
+            color: #fff;
+            border-radius: 16px;
+            padding: 28px 24px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .decision-guide h3 {
+            font-size: 20px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 16px;
+        }
+
+        .decision-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .decision-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .decision-q {
+            text-align: right;
+            min-width: 300px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .decision-arrow {
+            font-size: 20px;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .decision-a {
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: 6px;
+            text-align: left;
+        }
+
+        .decision-a.factor-a { background: var(--factor-color); }
+        .decision-a.formula-a { background: var(--formula-color); }
+        .decision-a.complete-a { background: var(--complete-color); }
+
+        .decision-fallback {
+            font-family: var(--mono);
+            font-size: 12px;
+            opacity: 0.6;
+            margin-top: 10px;
+        }
+
+        /* ---- GRAPHING CARD ---- */
+        .graph-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 2rem;
+            border: 2px solid var(--graph-color);
+        }
+
+        .graph-card h3 {
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--graph-color);
+            margin-bottom: 14px;
+            text-align: center;
+        }
+
+        .graph-steps {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .graph-step {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            padding: 10px;
+            background: var(--bg);
+            border-radius: 8px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .graph-step { background: rgba(255,255,255,0.04); }
+        }
+
+        .graph-step-num {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #fff;
+            background: var(--graph-color);
+        }
+
+        .graph-step-text {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .graph-step-text strong { color: var(--graph-color); }
+
+        .graph-step-text .hint {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--text-light);
+            display: block;
+            margin-top: 2px;
+        }
+
+        /* ---- MISTAKES ---- */
+        .mistakes {
+            background: var(--warn-bg);
+            border: 3px solid var(--warn-color);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 2rem;
+        }
+
+        .mistakes h3 {
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--warn-color);
+            margin-bottom: 14px;
+            text-align: center;
+        }
+
+        .mistake-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .mistake-list li {
+            font-size: 13px;
+            line-height: 1.5;
+            padding: 8px 12px 8px 30px;
+            position: relative;
+            background: var(--card-bg);
+            border-radius: 8px;
+        }
+
+        .mistake-list li::before {
+            content: "\26A0";
+            position: absolute;
+            left: 10px;
+            top: 8px;
+            color: var(--warn-color);
+            font-size: 13px;
+        }
+
+        /* ---- FOOTER MANTRA ---- */
+        .mantra {
+            text-align: center;
+            padding: 32px 24px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 16px;
+            margin-bottom: 1rem;
+        }
+
+        .mantra .big-text {
+            font-size: 28px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .mantra .big-text .factor-c { color: var(--factor-color); }
+        .mantra .big-text .formula-c { color: #69b1ff; }
+        .mantra .big-text .complete-c { color: var(--complete-color); }
+
+        .mantra .small-text {
+            font-family: var(--mono);
+            font-size: 11px;
+            opacity: 0.6;
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 700px) {
+            .methods { grid-template-columns: 1fr; }
+            .disc-grid { grid-template-columns: 1fr; }
+            .graph-steps { grid-template-columns: 1fr; }
+            .mistake-list { grid-template-columns: 1fr; }
+            .intro-card { flex-direction: column; }
+            .intro-svg { width: 100%; max-width: 280px; }
+            .hero h1 { font-size: 28px; }
+            .decision-row { flex-direction: column; gap: 4px; }
+            .decision-q { text-align: center; min-width: unset; }
+            .mantra .big-text { font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <div class="hero">
+        <h1>Quadratics &amp; Completing the Square</h1>
+        <div class="subtitle">Three methods, one goal: solve ax&sup2; + bx + c = 0</div>
+    </div>
+
+    <!-- 1. WHAT IS A QUADRATIC? -->
+    <h2 class="section-header">1. What is a Quadratic?</h2>
+
+    <div class="intro-card">
+        <div class="intro-text">
+            <h3>Any equation where x&sup2; is the highest power</h3>
+            <div class="intro-formula">ax&sup2; + bx + c = 0</div>
+            <ul>
+                <li><strong>a</strong> = coefficient of x&sup2; (can't be 0)</li>
+                <li><strong>b</strong> = coefficient of x</li>
+                <li><strong>c</strong> = constant term</li>
+                <li>The graph is always a <strong>parabola</strong></li>
+                <li>If a &gt; 0 it's a <strong>U shape</strong> &mdash; if a &lt; 0 it's an <strong>&cap; shape</strong></li>
+            </ul>
+        </div>
+        <div class="intro-svg">
+            <!-- Simple parabola SVG with labelled features -->
+            <svg viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+                <!-- Axes -->
+                <line x1="20" y1="140" x2="200" y2="140" stroke="var(--text-light)" stroke-width="1.5"/>
+                <line x1="110" y1="20" x2="110" y2="180" stroke="var(--text-light)" stroke-width="1.5"/>
+                <text x="204" y="143" font-size="11" fill="var(--text-light)" font-family="var(--mono)">x</text>
+                <text x="113" y="18" font-size="11" fill="var(--text-light)" font-family="var(--mono)">y</text>
+                <!-- Parabola path (y = 0.02(x-110)^2 + 60, mapped to SVG coords) -->
+                <path d="M 30,172 Q 50,130 70,98 Q 90,66 110,60 Q 130,66 150,98 Q 170,130 190,172"
+                      fill="none" stroke="var(--graph-color)" stroke-width="3" stroke-linecap="round"/>
+                <!-- Roots -->
+                <circle cx="50" cy="140" r="5" fill="var(--factor-color)"/>
+                <text x="35" y="158" font-size="10" font-weight="700" fill="var(--factor-color)" font-family="var(--font)">root</text>
+                <circle cx="170" cy="140" r="5" fill="var(--factor-color)"/>
+                <text x="155" y="158" font-size="10" font-weight="700" fill="var(--factor-color)" font-family="var(--font)">root</text>
+                <!-- Vertex -->
+                <circle cx="110" cy="60" r="5" fill="var(--complete-color)"/>
+                <text x="115" y="52" font-size="10" font-weight="700" fill="var(--complete-color)" font-family="var(--font)">vertex</text>
+                <text x="115" y="63" font-size="8" fill="var(--complete-color)" font-family="var(--mono)">(turning point)</text>
+                <!-- Y-intercept -->
+                <circle cx="110" cy="98" r="4" fill="var(--formula-color)"/>
+                <text x="115" y="95" font-size="9" font-weight="700" fill="var(--formula-color)" font-family="var(--font)">y-intercept (c)</text>
+                <!-- Axis labels -->
+                <text x="90" y="195" font-size="9" fill="var(--text-light)" font-family="var(--mono)">y = 0 line</text>
+            </svg>
+        </div>
+    </div>
+
+    <!-- 2. THREE METHODS -->
+    <h2 class="section-header">2. Three Ways to Solve ax&sup2; + bx + c = 0</h2>
+
+    <div class="methods">
+        <!-- METHOD 1: FACTORISING -->
+        <div class="method-card factoring">
+            <div class="method-badge">Try first</div>
+            <h3>Factorising</h3>
+            <div class="when">When the numbers are "nice" (integer solutions)</div>
+            <ul class="method-steps">
+                <li data-step="1.">Find two numbers that <strong>multiply</strong> to give c</li>
+                <li data-step="2.">&hellip;and <strong>add</strong> to give b</li>
+                <li data-step="3.">Write as two brackets</li>
+                <li data-step="4.">Set each bracket = 0</li>
+            </ul>
+            <div class="method-example">
+                <div class="ex-label">Worked Example</div>
+                <div class="ex-line">x&sup2; + 5x + 6 = 0</div>
+                <div class="ex-line">What multiplies to 6 and adds to 5?</div>
+                <div class="ex-line" style="font-size:18px;">2 &times; 3 = 6 &ensp;&ensp; 2 + 3 = 5 &ensp; &#10004;</div>
+                <div class="ex-line">(x + 2)(x + 3) = 0</div>
+                <div class="ex-line" style="font-size:24px;"><strong>x = &minus;2 or x = &minus;3</strong></div>
+            </div>
+        </div>
+
+        <!-- METHOD 2: QUADRATIC FORMULA -->
+        <div class="method-card formula">
+            <div class="method-badge">Always works</div>
+            <h3>Quadratic Formula</h3>
+            <div class="when">When it won't factorise &mdash; gives exact or decimal answers</div>
+            <div class="big-formula formula-c">
+                x = (<span style="white-space:nowrap;">&minus;b &plusmn; &radic;(b&sup2;&minus;4ac)</span>) / 2a
+            </div>
+            <ul class="method-steps">
+                <li data-step="1.">Identify a, b, and c</li>
+                <li data-step="2.">Substitute into the formula</li>
+                <li data-step="3.">The &plusmn; gives <strong>two</strong> answers</li>
+            </ul>
+            <div class="method-example">
+                <div class="ex-label">Example: 2x&sup2; + 3x &minus; 2 = 0</div>
+                <div class="ex-line" style="font-size:16px;">a=2, b=3, c=&minus;2</div>
+                <div class="ex-line" style="font-size:16px;">x = (&minus;3 &plusmn; &radic;(9+16)) / 4</div>
+                <div class="ex-line" style="font-size:16px;">x = (&minus;3 &plusmn; &radic;25) / 4</div>
+                <div class="ex-line" style="font-size:16px;">x = (&minus;3 &plusmn; 5) / 4</div>
+                <div class="ex-line" style="font-size:22px;"><strong>x = 0.5 or x = &minus;2</strong></div>
+            </div>
+        </div>
+
+        <!-- METHOD 3: COMPLETING THE SQUARE -->
+        <div class="method-card completing">
+            <div class="method-badge">Higher tier</div>
+            <h3>Completing the Square</h3>
+            <div class="when">When you need the turning point or exact surd form</div>
+            <div class="big-formula complete-c" style="font-size:14px;">
+                x&sup2; + bx + c &rarr; (x + b/2)&sup2; &minus; (b/2)&sup2; + c
+            </div>
+            <ul class="method-steps">
+                <li data-step="1.">Halve the coefficient of x</li>
+                <li data-step="2.">Write (x + half)&sup2;</li>
+                <li data-step="3.">Subtract (half)&sup2;</li>
+                <li data-step="4.">Add c back on</li>
+            </ul>
+            <div class="method-example">
+                <div class="ex-label">Example: x&sup2; + 6x + 2</div>
+                <div class="ex-line" style="font-size:16px;">Half of 6 = 3</div>
+                <div class="ex-line" style="font-size:16px;">(x + 3)&sup2; &minus; 9 + 2</div>
+                <div class="ex-line" style="font-size:22px;"><strong>(x + 3)&sup2; &minus; 7</strong></div>
+                <div class="ex-line" style="font-size:14px; color: var(--text-light);">Turning point: (&minus;3, &minus;7)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DISCRIMINANT -->
+    <div class="discriminant">
+        <h3>The Discriminant: b&sup2; &minus; 4ac tells you how many solutions</h3>
+        <div class="disc-grid">
+            <div class="disc-case two">
+                <div class="disc-val">b&sup2;&minus;4ac &gt; 0</div>
+                <div class="disc-result">2 Solutions</div>
+                <div class="disc-explain">Parabola crosses x-axis twice</div>
+            </div>
+            <div class="disc-case one">
+                <div class="disc-val">b&sup2;&minus;4ac = 0</div>
+                <div class="disc-result">1 Solution</div>
+                <div class="disc-explain">Parabola just touches x-axis (repeated root)</div>
+            </div>
+            <div class="disc-case none">
+                <div class="disc-val">b&sup2;&minus;4ac &lt; 0</div>
+                <div class="disc-result">No Real Solutions</div>
+                <div class="disc-explain">Parabola doesn't reach x-axis</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. WHICH METHOD? -->
+    <h2 class="section-header">3. Which Method Should I Use?</h2>
+
+    <div class="decision-guide">
+        <h3>The Decision Guide</h3>
+        <div class="decision-flow">
+            <div class="decision-row">
+                <div class="decision-q">Does it factorise easily?</div>
+                <div class="decision-arrow">&rarr;</div>
+                <div class="decision-a factor-a">Factorise</div>
+            </div>
+            <div class="decision-row">
+                <div class="decision-q">Says "give to 2 d.p." or "give in surd form"?</div>
+                <div class="decision-arrow">&rarr;</div>
+                <div class="decision-a formula-a">Quadratic Formula</div>
+            </div>
+            <div class="decision-row">
+                <div class="decision-q">Asks for the turning point?</div>
+                <div class="decision-arrow">&rarr;</div>
+                <div class="decision-a complete-a">Complete the Square</div>
+            </div>
+            <div class="decision-fallback">Not sure? The formula ALWAYS works. When in doubt, use the formula.</div>
+        </div>
+    </div>
+
+    <!-- 4. SKETCHING GRAPHS -->
+    <h2 class="section-header">4. Sketching Quadratic Graphs</h2>
+
+    <div class="graph-card">
+        <h3>Four things to find, then sketch</h3>
+        <div class="graph-steps">
+            <div class="graph-step">
+                <div class="graph-step-num">1</div>
+                <div class="graph-step-text">
+                    <strong>Find the roots</strong> (where y = 0)
+                    <span class="hint">Use any of the three solving methods</span>
+                </div>
+            </div>
+            <div class="graph-step">
+                <div class="graph-step-num">2</div>
+                <div class="graph-step-text">
+                    <strong>Find the y-intercept</strong> (set x = 0)
+                    <span class="hint">It's just c &mdash; the constant term</span>
+                </div>
+            </div>
+            <div class="graph-step">
+                <div class="graph-step-num">3</div>
+                <div class="graph-step-text">
+                    <strong>Find the turning point</strong>
+                    <span class="hint">x = &minus;b/2a, then substitute back for y</span>
+                </div>
+            </div>
+            <div class="graph-step">
+                <div class="graph-step-num">4</div>
+                <div class="graph-step-text">
+                    <strong>U or &cap;?</strong> Check the sign of a
+                    <span class="hint">a &gt; 0 = U shape &ensp;|&ensp; a &lt; 0 = &cap; shape</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. COMMON MISTAKES -->
+    <h2 class="section-header">5. Common Mistakes</h2>
+
+    <div class="mistakes">
+        <h3>Don't lose marks on these</h3>
+        <ul class="mistake-list">
+            <li>Forgetting the <strong>&plusmn;</strong> in the quadratic formula &mdash; there are <strong>two</strong> solutions!</li>
+            <li>Writing x = &minus;2, 3 instead of <strong>x = &minus;2 or x = 3</strong></li>
+            <li>Calculating b&sup2; wrong: it's <strong>b &times; b</strong>, not b &times; 2</li>
+            <li>Sign errors when completing the square &mdash; watch the minus!</li>
+            <li>Forgetting to set the equation <strong>= 0</strong> before solving</li>
+        </ul>
+    </div>
+
+    <!-- MANTRA -->
+    <div class="mantra">
+        <div class="big-text">
+            Can I <span class="factor-c">factorise</span> it?
+        </div>
+        <div class="big-text" style="font-size:22px;">
+            No? Use the <span class="formula-c">formula</span>.
+        </div>
+        <div class="big-text" style="font-size:22px;">
+            Need the turning point? <span class="complete-c">Complete the square</span>.
+        </div>
+        <div class="small-text" style="margin-top: 12px;">Three tools, same job. Know when to reach for each one.</div>
+    </div>
+
+</div>
+
+</body>
+</html>

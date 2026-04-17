@@ -194,6 +194,21 @@
             border-left: 3px solid #1a1a2e;
         }
 
+        .sub-title {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #999;
+            margin: 16px 0 8px;
+            padding-left: 8px;
+            border-left: 2px solid;
+        }
+
+        .sub-title.biology { border-left-color: #389e0d; color: #389e0d; }
+        .sub-title.chemistry { border-left-color: #185fa5; color: #185fa5; }
+        .sub-title.physics { border-left-color: #854f0b; color: #854f0b; }
+
         .card {
             display: block;
             padding: 20px;
@@ -246,6 +261,33 @@
         .card.modern:hover { background: #eeedfe; }
         .card.pe { border-left: 4px solid #993556; }
         .card.pe:hover { background: #fbeaf0; }
+
+        /* Deep-dive breakout cards */
+        .card.breakout {
+            margin-left: 24px;
+            border-left-width: 4px;
+            border-left-style: dashed;
+            background: #fafafa;
+            position: relative;
+        }
+
+        .card.breakout::after {
+            content: 'DEEP DIVE';
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 2px 6px;
+            border-radius: 3px;
+            background: #1a1a2e;
+            color: #fff;
+            font-family: 'DM Mono', monospace;
+        }
+
+        .card.breakout:hover { background: #f0f0f0; }
 
         .card.disabled {
             opacity: 0.5;
@@ -302,6 +344,10 @@
                 <option value="gcse_maths_paper6h_ocr_crib_sheet.html">Maths — Paper 6H (Calculator)</option>
                 <option value="gcse_maths_exam_technique_crib.html">Maths — Exam Technique &amp; Key Formulae</option>
                 <option value="gcse_maths_worked_examples.html">Maths — Worked Examples (Interactive)</option>
+                <option value="gcse_maths_circle_theorems_card.html">Maths — Circle Theorems</option>
+                <option value="gcse_maths_trigonometry_card.html">Maths — Trigonometry</option>
+                <option value="gcse_maths_probability_card.html">Maths — Probability</option>
+                <option value="gcse_maths_quadratics_card.html">Maths — Quadratics</option>
             </optgroup>
             <optgroup label="History">
                 <option value="gcse_history_wwi_weimar_flashcards.html">WWI &amp; Weimar</option>
@@ -401,9 +447,25 @@
                         <div class="card-title"><span class="icon">&#x1f3af;</span>Maths — Exam Technique &amp; Key Formulae</div>
                         <div class="card-desc">Command words, mark scheme structure, formulae to memorise vs given</div>
                     </div>
-                    <div class="card maths" onclick="loadPage('gcse_maths_worked_examples.html')">
+                    <div class="card maths breakout" onclick="loadPage('gcse_maths_worked_examples.html')">
                         <div class="card-title"><span class="icon">&#x1f4dd;</span>Maths — Worked Examples (Interactive)</div>
                         <div class="card-desc">Step-by-step animated model answers — see how to lay out 4-6 mark questions</div>
+                    </div>
+                    <div class="card maths breakout" onclick="loadPage('gcse_maths_circle_theorems_card.html')">
+                        <div class="card-title"><span class="icon">&#x25ef;</span>Maths — Circle Theorems</div>
+                        <div class="card-desc">All 7 theorems with SVG diagrams, decision tree for spotting which one, worked example</div>
+                    </div>
+                    <div class="card maths breakout" onclick="loadPage('gcse_maths_trigonometry_card.html')">
+                        <div class="card-title"><span class="icon">&#x1f4d0;</span>Maths — Trigonometry</div>
+                        <div class="card-desc">SOHCAHTOA, sine rule, cosine rule — which method when, exact values, worked examples</div>
+                    </div>
+                    <div class="card maths breakout" onclick="loadPage('gcse_maths_probability_card.html')">
+                        <div class="card-title"><span class="icon">&#x1f3b2;</span>Maths — Probability</div>
+                        <div class="card-desc">AND/OR rules, tree diagrams with &amp; without replacement, Venn diagrams, sample spaces</div>
+                    </div>
+                    <div class="card maths breakout" onclick="loadPage('gcse_maths_quadratics_card.html')">
+                        <div class="card-title"><span class="icon">&#x1f4c9;</span>Maths — Quadratics</div>
+                        <div class="card-desc">Factorising, formula, completing the square — three methods, when to use which</div>
                     </div>
                 </div>
 
@@ -419,10 +481,12 @@
                 <!-- Sciences -->
                 <div class="category">
                     <div class="category-title">Sciences</div>
+                    <div class="sub-title biology">Biology</div>
                     <div class="card science" onclick="loadPage('gcse_biology_paper1_edexcel_flashcards.html')">
                         <div class="card-title"><span class="icon">&#x1f9ec;</span>Biology — Paper 1</div>
                         <div class="card-desc">Edexcel Higher — cells, bacteria, and organisation</div>
                     </div>
+                    <div class="sub-title chemistry">Chemistry</div>
                     <div class="card science" onclick="loadPage('gcse_chemistry_paper1_edexcel_flashcards.html')">
                         <div class="card-title"><span class="icon">&#x2697;&#xfe0f;</span>Chemistry — Paper 1</div>
                         <div class="card-desc">Edexcel Higher — atomic structure to equilibrium</div>
@@ -435,26 +499,27 @@
                         <div class="card-title"><span class="icon">&#x1f4d1;</span>Chemistry — Crib Sheet</div>
                         <div class="card-desc">Paper 1 essentials — formulas, equations, quick reference</div>
                     </div>
-                    <div class="card science" onclick="loadPage('gcse_chemistry_worked_examples.html')">
+                    <div class="card science breakout" onclick="loadPage('gcse_chemistry_worked_examples.html')">
                         <div class="card-title"><span class="icon">&#x1f4dd;</span>Chemistry — Worked Examples (Interactive)</div>
                         <div class="card-desc">Step-by-step model answers — atomic structure, bonding, acids, separation, redox</div>
                     </div>
-                    <div class="card science" onclick="loadPage('gcse_chemistry_moles_card.html')">
+                    <div class="card science breakout" onclick="loadPage('gcse_chemistry_moles_card.html')">
                         <div class="card-title"><span class="icon">&#x2696;&#xfe0f;</span>Chemistry — Moles Made Obvious</div>
                         <div class="card-desc">THE poster: grams &rarr; moles &rarr; atoms, every step, impossible to forget</div>
                     </div>
-                    <div class="card science" onclick="loadPage('gcse_chemistry_separation_card.html')">
+                    <div class="card science breakout" onclick="loadPage('gcse_chemistry_separation_card.html')">
                         <div class="card-title"><span class="icon">&#x1f52c;</span>Chemistry — Which Separation Technique?</div>
                         <div class="card-desc">Interactive decision tree: answer 3 questions, get the right technique every time</div>
                     </div>
-                    <div class="card science" onclick="loadPage('gcse_chemistry_bonding_card.html')">
+                    <div class="card science breakout" onclick="loadPage('gcse_chemistry_bonding_card.html')">
                         <div class="card-title"><span class="icon">&#x1f517;</span>Chemistry — Bonding Made Clear</div>
                         <div class="card-desc">Ionic vs covalent vs metallic: structure, properties, and the exact phrases that get marks</div>
                     </div>
-                    <div class="card science" onclick="loadPage('gcse_chemistry_balancing_card.html')">
+                    <div class="card science breakout" onclick="loadPage('gcse_chemistry_balancing_card.html')">
                         <div class="card-title"><span class="icon">&#x2696;&#xfe0f;</span>Chemistry — Balancing Equations</div>
                         <div class="card-desc">Interactive practice: tap to balance, live atom tally, 8 equations from easy to hard</div>
                     </div>
+                    <div class="sub-title physics">Physics</div>
                     <div class="card science" onclick="loadPage('gcse_physics_paper1_edexcel_flashcards.html')">
                         <div class="card-title"><span class="icon">&#x26a1;</span>Physics — Paper 1</div>
                         <div class="card-desc">Edexcel Higher — forces, energy, and waves</div>
@@ -467,19 +532,19 @@
                         <div class="card-title"><span class="icon">&#x1f4d1;</span>Physics — Crib Sheet</div>
                         <div class="card-desc">Paper 1 essentials — equations, formulas, quick reference</div>
                     </div>
-                    <div class="card science" onclick="loadPage('gcse_physics_motion_graphs_card.html')">
+                    <div class="card science breakout" onclick="loadPage('gcse_physics_motion_graphs_card.html')">
                         <div class="card-title"><span class="icon">&#x1f4c8;</span>Physics — Motion Graphs</div>
                         <div class="card-desc">Distance-time vs velocity-time decoded: gradients, areas, what every shape means</div>
                     </div>
-                    <div class="card science" onclick="loadPage('gcse_physics_equations_card.html')">
+                    <div class="card science breakout" onclick="loadPage('gcse_physics_equations_card.html')">
                         <div class="card-title"><span class="icon">&#x1f9ee;</span>Physics — Equations &amp; Rearranging</div>
                         <div class="card-desc">All Paper 1 equations, formula triangles, rearranging step-by-step, units</div>
                     </div>
-                    <div class="card science" onclick="loadPage('gcse_physics_energy_card.html')">
+                    <div class="card science breakout" onclick="loadPage('gcse_physics_energy_card.html')">
                         <div class="card-title"><span class="icon">&#x26a1;</span>Physics — Energy &amp; Efficiency</div>
                         <div class="card-desc">8 energy stores, transfers, Sankey diagrams, E=mcΔT, KE &amp; GPE</div>
                     </div>
-                    <div class="card science" onclick="loadPage('gcse_physics_waves_card.html')">
+                    <div class="card science breakout" onclick="loadPage('gcse_physics_waves_card.html')">
                         <div class="card-title"><span class="icon">&#x1f30a;</span>Physics — Waves &amp; EM Spectrum</div>
                         <div class="card-desc">Transverse vs longitudinal, v=fλ, the full EM spectrum, reflection &amp; refraction</div>
                     </div>

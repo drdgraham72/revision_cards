@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCSE Maths — Circle Theorems</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&family=Caveat:wght@600;700&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #f5f5f0;
+            --card: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #666;
+            --border: rgba(0,0,0,0.1);
+            --font: 'Barlow Condensed', sans-serif;
+            --mono: 'DM Mono', monospace;
+            --hand: 'Caveat', cursive;
+
+            --t1-color: #0e7c42;
+            --t1-bg: #e6f7ee;
+            --t2-color: #0958d9;
+            --t2-bg: #e6f0ff;
+            --t3-color: #7c3aed;
+            --t3-bg: #f3f0ff;
+            --t4-color: #0891b2;
+            --t4-bg: #e0f7fa;
+            --t5-color: #d4380d;
+            --t5-bg: #fff1f0;
+            --t6-color: #b45309;
+            --t6-bg: #fef3c7;
+            --t7-color: #be185d;
+            --t7-bg: #fce7f3;
+
+            --green: #0e7c42;
+            --blue: #0958d9;
+            --purple: #7c3aed;
+            --red: #d4380d;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #141416;
+                --card: #1e1e22;
+                --text: #e8e4dc;
+                --text-light: #999;
+                --border: rgba(255,255,255,0.08);
+                --t1-bg: #0d2a1a;
+                --t2-bg: #0d1e40;
+                --t3-bg: #1e1630;
+                --t4-bg: #0d2a2e;
+                --t5-bg: #3a1a0d;
+                --t6-bg: #2a1e0d;
+                --t7-bg: #2a0d1e;
+            }
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 1.5rem 1rem;
+        }
+
+        .page { max-width: 960px; margin: 0 auto; }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            line-height: 1.1;
+            margin-bottom: 6px;
+        }
+
+        .hero .subtitle {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* ---- THEOREM CARDS ---- */
+        .theorem-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 2rem;
+        }
+
+        .theorem-card {
+            border-radius: 16px;
+            border: 2px solid;
+            overflow: hidden;
+        }
+
+        .theorem-card-header {
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .theorem-card-header h2 {
+            font-size: 22px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .theorem-card-header .tag {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 4px;
+            color: #fff;
+            white-space: nowrap;
+        }
+
+        .theorem-card-body {
+            padding: 20px 24px;
+            background: var(--card);
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+        }
+
+        .theorem-text { flex: 1; }
+
+        .theorem-section {
+            margin-bottom: 12px;
+        }
+
+        .theorem-section:last-child { margin-bottom: 0; }
+
+        .theorem-section-title {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-light);
+            margin-bottom: 6px;
+            padding-bottom: 3px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .theorem-desc {
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .theorem-desc strong { font-weight: 800; }
+
+        .theorem-diagram {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .exam-phrase {
+            font-family: var(--hand);
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        /* Colour per theorem */
+        .t1 { border-color: var(--t1-color); }
+        .t1 .theorem-card-header { background: var(--t1-bg); }
+        .t1 .theorem-card-header h2 { color: var(--t1-color); }
+        .t1 .theorem-card-header .tag { background: var(--t1-color); }
+        .t1 .exam-phrase { color: var(--t1-color); }
+
+        .t2 { border-color: var(--t2-color); }
+        .t2 .theorem-card-header { background: var(--t2-bg); }
+        .t2 .theorem-card-header h2 { color: var(--t2-color); }
+        .t2 .theorem-card-header .tag { background: var(--t2-color); }
+        .t2 .exam-phrase { color: var(--t2-color); }
+
+        .t3 { border-color: var(--t3-color); }
+        .t3 .theorem-card-header { background: var(--t3-bg); }
+        .t3 .theorem-card-header h2 { color: var(--t3-color); }
+        .t3 .theorem-card-header .tag { background: var(--t3-color); }
+        .t3 .exam-phrase { color: var(--t3-color); }
+
+        .t4 { border-color: var(--t4-color); }
+        .t4 .theorem-card-header { background: var(--t4-bg); }
+        .t4 .theorem-card-header h2 { color: var(--t4-color); }
+        .t4 .theorem-card-header .tag { background: var(--t4-color); }
+        .t4 .exam-phrase { color: var(--t4-color); }
+
+        .t5 { border-color: var(--t5-color); }
+        .t5 .theorem-card-header { background: var(--t5-bg); }
+        .t5 .theorem-card-header h2 { color: var(--t5-color); }
+        .t5 .theorem-card-header .tag { background: var(--t5-color); }
+        .t5 .exam-phrase { color: var(--t5-color); }
+
+        .t6 { border-color: var(--t6-color); }
+        .t6 .theorem-card-header { background: var(--t6-bg); }
+        .t6 .theorem-card-header h2 { color: var(--t6-color); }
+        .t6 .theorem-card-header .tag { background: var(--t6-color); }
+        .t6 .exam-phrase { color: var(--t6-color); }
+
+        .t7 { border-color: var(--t7-color); }
+        .t7 .theorem-card-header { background: var(--t7-bg); }
+        .t7 .theorem-card-header h2 { color: var(--t7-color); }
+        .t7 .theorem-card-header .tag { background: var(--t7-color); }
+        .t7 .exam-phrase { color: var(--t7-color); }
+
+        /* ---- DECISION TREE ---- */
+        .decision-tree {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 2rem;
+        }
+
+        .decision-tree h2 {
+            font-size: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .dt-branch {
+            margin-bottom: 16px;
+            padding: 16px 20px;
+            border-radius: 12px;
+            border-left: 5px solid;
+        }
+
+        .dt-branch.tangent { border-left-color: var(--t5-color); background: var(--t5-bg); }
+        .dt-branch.centre { border-left-color: var(--t1-color); background: var(--t1-bg); }
+        .dt-branch.neither { border-left-color: var(--t3-color); background: var(--t3-bg); }
+
+        .dt-question {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .dt-branch.tangent .dt-question { color: var(--t5-color); }
+        .dt-branch.centre .dt-question { color: var(--t1-color); }
+        .dt-branch.neither .dt-question { color: var(--t3-color); }
+
+        .dt-option {
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 4px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .dt-option::before {
+            content: '\2192';
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        .dt-option strong { font-weight: 800; }
+
+        /* ---- WORKED EXAMPLE ---- */
+        .worked {
+            background: var(--card);
+            border: 3px solid var(--text);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 2rem;
+        }
+
+        .worked h2 {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 8px;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        .worked .worked-q {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .worked-layout {
+            display: flex;
+            gap: 28px;
+            align-items: flex-start;
+        }
+
+        .worked-diagram {
+            flex-shrink: 0;
+        }
+
+        .worked-steps {
+            flex: 1;
+        }
+
+        .worked .step {
+            margin-bottom: 12px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .worked .step.s1 { background: var(--t1-bg); border-left: 4px solid var(--t1-color); }
+        .worked .step.s2 { background: var(--t2-bg); border-left: 4px solid var(--t2-color); }
+        .worked .step.s3 { background: var(--t4-bg); border-left: 4px solid var(--t4-color); }
+
+        .worked .step strong { font-weight: 800; }
+
+        /* ---- COMMON MISTAKES ---- */
+        .mistakes {
+            background: var(--text);
+            color: #fff;
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 1rem;
+        }
+
+        .mistakes h2 {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .mistake-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .mistake-item {
+            padding: 16px;
+            border-radius: 10px;
+            background: rgba(212,56,13,0.15);
+        }
+
+        .mistake-item .mistake-title {
+            font-size: 14px;
+            font-weight: 800;
+            margin-bottom: 6px;
+            color: #ff8a80;
+        }
+
+        .mistake-item .mistake-desc {
+            font-size: 13px;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+
+        .mistake-item .mistake-fix {
+            font-family: var(--hand);
+            font-size: 18px;
+            font-weight: 600;
+            color: #69f0ae;
+            margin-top: 6px;
+        }
+
+        /* ---- SVG STYLES ---- */
+        svg text {
+            font-family: 'Barlow Condensed', sans-serif;
+        }
+
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 26px; }
+            .theorem-card-body { flex-direction: column; }
+            .theorem-diagram { align-self: center; }
+            .mistake-grid { grid-template-columns: 1fr; }
+            .worked-layout { flex-direction: column; align-items: center; }
+            .theorem-card-header h2 { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <div class="hero">
+        <h1>The Seven Circle Theorems</h1>
+        <div class="subtitle">OCR GCSE Maths &mdash; know them, spot them, use them</div>
+    </div>
+
+    <!-- ---- THE SEVEN THEOREMS ---- -->
+    <div class="theorem-cards">
+
+        <!-- THEOREM 1: Angle at centre -->
+        <div class="theorem-card t1">
+            <div class="theorem-card-header">
+                <h2>1. Angle at the Centre</h2>
+                <span class="tag">CENTRE &amp; CIRCUMFERENCE</span>
+            </div>
+            <div class="theorem-card-body">
+                <div class="theorem-text">
+                    <div class="theorem-section">
+                        <div class="theorem-section-title">The rule</div>
+                        <div class="theorem-desc">
+                            The angle at the <strong>centre</strong> of a circle is <strong>twice</strong> the angle at the <strong>circumference</strong>, when both are subtended by the <strong>same arc</strong>.
+                        </div>
+                    </div>
+                    <div class="theorem-section">
+                        <div class="theorem-section-title">Exam phrase</div>
+                        <div class="exam-phrase">"The angle at the centre is twice the angle at the circumference."</div>
+                    </div>
+                </div>
+                <div class="theorem-diagram">
+                    <svg width="150" height="150" viewBox="0 0 150 150">
+                        <circle cx="75" cy="75" r="60" fill="none" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                        <circle cx="75" cy="75" r="3" fill="var(--t1-color)"/>
+                        <!-- Arc points A and B at bottom -->
+                        <circle cx="30" cy="105" r="3" fill="var(--t1-color)"/>
+                        <circle cx="120" cy="105" r="3" fill="var(--t1-color)"/>
+                        <!-- Point P at top circumference -->
+                        <circle cx="75" cy="15" r="3" fill="var(--t1-color)"/>
+                        <!-- Lines from A and B to centre O -->
+                        <line x1="30" y1="105" x2="75" y2="75" stroke="var(--t1-color)" stroke-width="2"/>
+                        <line x1="120" y1="105" x2="75" y2="75" stroke="var(--t1-color)" stroke-width="2"/>
+                        <!-- Lines from A and B to P -->
+                        <line x1="30" y1="105" x2="75" y2="15" stroke="var(--t3-color)" stroke-width="2"/>
+                        <line x1="120" y1="105" x2="75" y2="15" stroke="var(--t3-color)" stroke-width="2"/>
+                        <!-- Angle arc at centre -->
+                        <path d="M 65,80 A 10,10 0 0,1 68,68" fill="none" stroke="var(--t1-color)" stroke-width="2"/>
+                        <!-- Angle arc at circumference -->
+                        <path d="M 68,25 A 10,10 0 0,1 82,25" fill="none" stroke="var(--t3-color)" stroke-width="1.5"/>
+                        <!-- Labels -->
+                        <text x="75" y="70" text-anchor="middle" font-size="11" font-weight="700" fill="var(--t1-color)">2x</text>
+                        <text x="75" y="40" text-anchor="middle" font-size="11" font-weight="700" fill="var(--t3-color)">x</text>
+                        <text x="75" y="88" text-anchor="middle" font-size="9" fill="var(--text-light)">O</text>
+                        <text x="22" y="115" font-size="9" font-weight="700" fill="var(--t1-color)">A</text>
+                        <text x="122" y="115" font-size="9" font-weight="700" fill="var(--t1-color)">B</text>
+                        <text x="78" y="13" font-size="9" font-weight="700" fill="var(--t3-color)">P</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- THEOREM 2: Angle in semicircle -->
+        <div class="theorem-card t2">
+            <div class="theorem-card-header">
+                <h2>2. Angle in a Semicircle</h2>
+                <span class="tag">DIAMETER = 90&deg;</span>
+            </div>
+            <div class="theorem-card-body">
+                <div class="theorem-text">
+                    <div class="theorem-section">
+                        <div class="theorem-section-title">The rule</div>
+                        <div class="theorem-desc">
+                            The angle at the circumference in a <strong>semicircle</strong> is always <strong>90&deg;</strong>. The triangle must be drawn from both ends of a <strong>diameter</strong>.
+                        </div>
+                    </div>
+                    <div class="theorem-section">
+                        <div class="theorem-section-title">Exam phrase</div>
+                        <div class="exam-phrase">"The angle in a semicircle is 90&deg;."</div>
+                    </div>
+                </div>
+                <div class="theorem-diagram">
+                    <svg width="150" height="150" viewBox="0 0 150 150">
+                        <circle cx="75" cy="75" r="60" fill="none" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                        <circle cx="75" cy="75" r="3" fill="var(--t2-color)"/>
+                        <!-- Diameter A to B -->
+                        <line x1="15" y1="75" x2="135" y2="75" stroke="var(--t2-color)" stroke-width="2.5" stroke-dasharray="6,3"/>
+                        <circle cx="15" cy="75" r="3" fill="var(--t2-color)"/>
+                        <circle cx="135" cy="75" r="3" fill="var(--t2-color)"/>
+                        <!-- Point P on circumference top -->
+                        <circle cx="100" cy="23" r="3" fill="var(--t2-color)"/>
+                        <!-- Triangle -->
+                        <line x1="15" y1="75" x2="100" y2="23" stroke="var(--t2-color)" stroke-width="2"/>
+                        <line x1="135" y1="75" x2="100" y2="23" stroke="var(--t2-color)" stroke-width="2"/>
+                        <!-- Right angle marker at P -->
+                        <polyline points="90,30 90,20 100,20" fill="none" stroke="var(--t2-color)" stroke-width="1.5"/>
+                        <!-- Labels -->
+                        <text x="100" y="18" text-anchor="middle" font-size="11" font-weight="800" fill="var(--t2-color)">90&deg;</text>
+                        <text x="10" y="68" font-size="9" font-weight="700" fill="var(--t2-color)">A</text>
+                        <text x="132" y="68" font-size="9" font-weight="700" fill="var(--t2-color)">B</text>
+                        <text x="75" y="88" text-anchor="middle" font-size="9" fill="var(--text-light)">O</text>
+                        <text x="70" y="70" text-anchor="end" font-size="8" fill="var(--text-light)">diameter</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- THEOREM 3: Same segment -->
+        <div class="theorem-card t3">
+            <div class="theorem-card-header">
+                <h2>3. Angles in the Same Segment</h2>
+                <span class="tag">SAME ARC = EQUAL</span>
+            </div>
+            <div class="theorem-card-body">
+                <div class="theorem-text">
+                    <div class="theorem-section">
+                        <div class="theorem-section-title">The rule</div>
+                        <div class="theorem-desc">
+                            Angles at the circumference <strong>subtended by the same arc</strong> (in the same segment) are <strong>equal</strong>.
+                        </div>
+                    </div>
+                    <div class="theorem-section">
+                        <div class="theorem-section-title">Exam phrase</div>
+                        <div class="exam-phrase">"Angles in the same segment are equal."</div>
+                    </div>
+                </div>
+                <div class="theorem-diagram">
+                    <svg width="150" height="150" viewBox="0 0 150 150">
+                        <circle cx="75" cy="75" r="60" fill="none" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                        <!-- Chord AB at bottom -->
+                        <circle cx="30" cy="105" r="3" fill="var(--t3-color)"/>
+                        <circle cx="120" cy="105" r="3" fill="var(--t3-color)"/>
+                        <line x1="30" y1="105" x2="120" y2="105" stroke="var(--text-light)" stroke-width="1.5" stroke-dasharray="4,3"/>
+                        <!-- Point P1 top-left -->
+                        <circle cx="45" cy="25" r="3" fill="var(--t3-color)"/>
+                        <!-- Point P2 top-right -->
+                        <circle cx="105" cy="25" r="3" fill="var(--t3-color)"/>
+                        <!-- Lines from A,B to P1 -->
+                        <line x1="30" y1="105" x2="45" y2="25" stroke="var(--t3-color)" stroke-width="1.5"/>
+                        <line x1="120" y1="105" x2="45" y2="25" stroke="var(--t3-color)" stroke-width="1.5"/>
+                        <!-- Lines from A,B to P2 -->
+                        <line x1="30" y1="105" x2="105" y2="25" stroke="var(--t1-color)" stroke-width="1.5"/>
+                        <line x1="120" y1="105" x2="105" y2="25" stroke="var(--t1-color)" stroke-width="1.5"/>
+                        <!-- Angle arcs -->
+                        <path d="M 50,35 A 8,8 0 0,1 55,30" fill="none" stroke="var(--t3-color)" stroke-width="2"/>
+                        <path d="M 98,33 A 8,8 0 0,1 100,28" fill="none" stroke="var(--t1-color)" stroke-width="2"/>
+                        <!-- Labels -->
+                        <text x="45" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="var(--t3-color)">x</text>
+                        <text x="105" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="var(--t1-color)">x</text>
+                        <text x="22" y="115" font-size="9" font-weight="700" fill="var(--t3-color)">A</text>
+                        <text x="122" y="115" font-size="9" font-weight="700" fill="var(--t3-color)">B</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- THEOREM 4: Cyclic quadrilateral -->
+        <div class="theorem-card t4">
+            <div class="theorem-card-header">
+                <h2>4. Cyclic Quadrilateral</h2>
+                <span class="tag">OPPOSITE = 180&deg;</span>
+            </div>
+            <div class="theorem-card-body">
+                <div class="theorem-text">
+                    <div class="theorem-section">
+                        <div class="theorem-section-title">The rule</div>
+                        <div class="theorem-desc">
+                            <strong>Opposite</strong> angles in a cyclic quadrilateral (all 4 vertices on the circle) <strong>add up to 180&deg;</strong>.
+                        </div>
+                    </div>
+                    <div class="theorem-section">
+                        <div class="theorem-section-title">Exam phrase</div>
+                        <div class="exam-phrase">"Opposite angles in a cyclic quadrilateral sum to 180&deg;."</div>
+                    </div>
+                </div>
+                <div class="theorem-diagram">
+                    <svg width="150" height="150" viewBox="0 0 150 150">
+                        <circle cx="75" cy="75" r="60" fill="none" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                        <!-- Four points -->
+                        <circle cx="55" cy="18" r="3" fill="var(--t4-color)"/>
+                        <circle cx="130" cy="60" r="3" fill="var(--t4-color)"/>
+                        <circle cx="110" cy="128" r="3" fill="var(--t4-color)"/>
+                        <circle cx="20" cy="90" r="3" fill="var(--t4-color)"/>
+                        <!-- Quadrilateral -->
+                        <polygon points="55,18 130,60 110,128 20,90" fill="none" stroke="var(--t4-color)" stroke-width="2"/>
+                        <!-- Angle labels: opposite pairs in matching colours -->
+                        <text x="55" y="35" text-anchor="middle" font-size="11" font-weight="700" fill="var(--t4-color)">a</text>
+                        <text x="110" y="118" text-anchor="middle" font-size="11" font-weight="700" fill="var(--t4-color)">b</text>
+                        <text x="122" y="55" font-size="11" font-weight="700" fill="var(--t1-color)">c</text>
+                        <text x="28" y="85" font-size="11" font-weight="700" fill="var(--t1-color)">d</text>
+                        <!-- Sum labels -->
+                        <text x="75" y="80" text-anchor="middle" font-size="9" font-weight="700" fill="var(--t4-color)">a+b = 180&deg;</text>
+                        <text x="75" y="92" text-anchor="middle" font-size="9" font-weight="700" fill="var(--t1-color)">c+d = 180&deg;</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- THEOREM 5: Tangent meets radius -->
+        <div class="theorem-card t5">
+            <div class="theorem-card-header">
+                <h2>5. Tangent &amp; Radius</h2>
+                <span class="tag">TANGENT &#8869; RADIUS</span>
+            </div>
+            <div class="theorem-card-body">
+                <div class="theorem-text">
+                    <div class="theorem-section">
+                        <div class="theorem-section-title">The rule</div>
+                        <div class="theorem-desc">
+                            A <strong>tangent</strong> to a circle meets the <strong>radius</strong> at the point of contact at <strong>90&deg;</strong>.
+                        </div>
+                    </div>
+                    <div class="theorem-section">
+                        <div class="theorem-section-title">Exam phrase</div>
+                        <div class="exam-phrase">"A tangent to a circle is perpendicular to the radius at the point of contact."</div>
+                    </div>
+                </div>
+                <div class="theorem-diagram">
+                    <svg width="150" height="150" viewBox="0 0 150 150">
+                        <circle cx="75" cy="70" r="50" fill="none" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                        <circle cx="75" cy="70" r="3" fill="var(--t5-color)"/>
+                        <!-- Point of tangency at right -->
+                        <circle cx="125" cy="70" r="3" fill="var(--t5-color)"/>
+                        <!-- Radius O to T -->
+                        <line x1="75" y1="70" x2="125" y2="70" stroke="var(--t5-color)" stroke-width="2.5"/>
+                        <!-- Tangent line (vertical at T) -->
+                        <line x1="125" y1="20" x2="125" y2="130" stroke="var(--t5-color)" stroke-width="2"/>
+                        <!-- Right angle marker -->
+                        <polyline points="115,70 115,60 125,60" fill="none" stroke="var(--t5-color)" stroke-width="1.5"/>
+                        <!-- Labels -->
+                        <text x="75" y="62" text-anchor="middle" font-size="9" fill="var(--text-light)">O</text>
+                        <text x="132" y="68" font-size="9" font-weight="700" fill="var(--t5-color)">T</text>
+                        <text x="100" y="65" text-anchor="middle" font-size="8" fill="var(--text-light)">radius</text>
+                        <text x="140" y="75" font-size="8" fill="var(--text-light)">tangent</text>
+                        <text x="108" y="58" font-size="10" font-weight="700" fill="var(--t5-color)">90&deg;</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- THEOREM 6: Two tangents from external point -->
+        <div class="theorem-card t6">
+            <div class="theorem-card-header">
+                <h2>6. Two Tangents from a Point</h2>
+                <span class="tag">EQUAL LENGTH</span>
+            </div>
+            <div class="theorem-card-body">
+                <div class="theorem-text">
+                    <div class="theorem-section">
+                        <div class="theorem-section-title">The rule</div>
+                        <div class="theorem-desc">
+                            Two tangents drawn from an <strong>external point</strong> to a circle are <strong>equal in length</strong>.
+                        </div>
+                    </div>
+                    <div class="theorem-section">
+                        <div class="theorem-section-title">Exam phrase</div>
+                        <div class="exam-phrase">"Tangents from an external point are equal in length."</div>
+                    </div>
+                </div>
+                <div class="theorem-diagram">
+                    <svg width="150" height="150" viewBox="0 0 150 150">
+                        <circle cx="60" cy="75" r="45" fill="none" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                        <circle cx="60" cy="75" r="3" fill="var(--t6-color)"/>
+                        <!-- External point P -->
+                        <circle cx="140" cy="75" r="3" fill="var(--t6-color)"/>
+                        <!-- Tangent points -->
+                        <circle cx="95" cy="42" r="3" fill="var(--t6-color)"/>
+                        <circle cx="95" cy="108" r="3" fill="var(--t6-color)"/>
+                        <!-- Tangent lines -->
+                        <line x1="140" y1="75" x2="95" y2="42" stroke="var(--t6-color)" stroke-width="2"/>
+                        <line x1="140" y1="75" x2="95" y2="108" stroke="var(--t6-color)" stroke-width="2"/>
+                        <!-- Tick marks to show equal length -->
+                        <line x1="115" y1="55" x2="119" y2="60" stroke="var(--t6-color)" stroke-width="2"/>
+                        <line x1="115" y1="95" x2="119" y2="90" stroke="var(--t6-color)" stroke-width="2"/>
+                        <!-- Labels -->
+                        <text x="60" y="68" text-anchor="middle" font-size="9" fill="var(--text-light)">O</text>
+                        <text x="143" y="72" font-size="9" font-weight="700" fill="var(--t6-color)">P</text>
+                        <text x="88" y="38" font-size="9" font-weight="700" fill="var(--t6-color)">A</text>
+                        <text x="88" y="120" font-size="9" font-weight="700" fill="var(--t6-color)">B</text>
+                        <text x="112" y="78" text-anchor="middle" font-size="9" font-weight="700" fill="var(--t6-color)">PA = PB</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- THEOREM 7: Alternate segment -->
+        <div class="theorem-card t7">
+            <div class="theorem-card-header">
+                <h2>7. Alternate Segment Theorem</h2>
+                <span class="tag">TANGENT &amp; CHORD</span>
+            </div>
+            <div class="theorem-card-body">
+                <div class="theorem-text">
+                    <div class="theorem-section">
+                        <div class="theorem-section-title">The rule</div>
+                        <div class="theorem-desc">
+                            The angle between a <strong>tangent</strong> and a <strong>chord</strong> at the point of contact equals the angle in the <strong>alternate segment</strong>.
+                        </div>
+                    </div>
+                    <div class="theorem-section">
+                        <div class="theorem-section-title">Exam phrase</div>
+                        <div class="exam-phrase">"Alternate segment theorem: the angle between a tangent and chord equals the angle in the alternate segment."</div>
+                    </div>
+                </div>
+                <div class="theorem-diagram">
+                    <svg width="150" height="150" viewBox="0 0 150 150">
+                        <circle cx="75" cy="70" r="50" fill="none" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                        <!-- Tangent point T at bottom -->
+                        <circle cx="75" cy="120" r="3" fill="var(--t7-color)"/>
+                        <!-- Tangent line through T -->
+                        <line x1="15" y1="120" x2="140" y2="120" stroke="var(--t7-color)" stroke-width="2"/>
+                        <!-- Chord from T to B (top-left) -->
+                        <circle cx="38" cy="40" r="3" fill="var(--t7-color)"/>
+                        <line x1="75" y1="120" x2="38" y2="40" stroke="var(--t7-color)" stroke-width="2"/>
+                        <!-- Point C in alternate segment (top-right) -->
+                        <circle cx="118" cy="48" r="3" fill="var(--t7-color)"/>
+                        <!-- Lines from B and T to C (to show angle in alternate segment) -->
+                        <line x1="38" y1="40" x2="118" y2="48" stroke="var(--t3-color)" stroke-width="1.5"/>
+                        <line x1="75" y1="120" x2="118" y2="48" stroke="var(--t3-color)" stroke-width="1.5" opacity="0.4"/>
+                        <!-- Angle between tangent and chord at T (left side) -->
+                        <path d="M 60,120 A 15,15 0 0,1 66,110" fill="none" stroke="var(--t7-color)" stroke-width="2"/>
+                        <!-- Angle at C in alternate segment -->
+                        <path d="M 108,50 A 12,12 0 0,0 112,42" fill="none" stroke="var(--t7-color)" stroke-width="2"/>
+                        <!-- Labels -->
+                        <text x="52" y="115" font-size="11" font-weight="700" fill="var(--t7-color)">x</text>
+                        <text x="105" y="42" font-size="11" font-weight="700" fill="var(--t7-color)">x</text>
+                        <text x="75" y="135" text-anchor="middle" font-size="9" font-weight="700" fill="var(--t7-color)">T</text>
+                        <text x="30" y="38" font-size="9" font-weight="700" fill="var(--t7-color)">B</text>
+                        <text x="122" y="45" font-size="9" font-weight="700" fill="var(--t7-color)">C</text>
+                        <text x="20" y="115" font-size="8" fill="var(--text-light)">tangent</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ---- HOW TO SPOT WHICH THEOREM ---- -->
+    <div class="decision-tree">
+        <h2>How to Spot Which Theorem</h2>
+
+        <div class="dt-branch tangent">
+            <div class="dt-question">Can you see a tangent?</div>
+            <div class="dt-option">Tangent meets a <strong>radius</strong> at the circle? <strong>&rarr; Theorem 5</strong> (tangent &perp; radius = 90&deg;)</div>
+            <div class="dt-option">Two tangents from an <strong>external point</strong>? <strong>&rarr; Theorem 6</strong> (equal lengths)</div>
+            <div class="dt-option">Tangent meets a <strong>chord</strong>? <strong>&rarr; Theorem 7</strong> (alternate segment)</div>
+        </div>
+
+        <div class="dt-branch centre">
+            <div class="dt-question">Can you see the centre marked?</div>
+            <div class="dt-option">Angle at the centre AND angle at the circumference from the <strong>same arc</strong>? <strong>&rarr; Theorem 1</strong> (centre = 2&times; circumference)</div>
+            <div class="dt-option">A <strong>diameter</strong> (line through centre) with a triangle on it? <strong>&rarr; Theorem 2</strong> (angle in semicircle = 90&deg;)</div>
+        </div>
+
+        <div class="dt-branch neither">
+            <div class="dt-question">No centre, no tangent?</div>
+            <div class="dt-option">Two angles from the <strong>same chord</strong>, both on the same side? <strong>&rarr; Theorem 3</strong> (same segment, equal angles)</div>
+            <div class="dt-option">A <strong>quadrilateral</strong> with all 4 vertices on the circle? <strong>&rarr; Theorem 4</strong> (opposite angles = 180&deg;)</div>
+        </div>
+    </div>
+
+    <!-- ---- WORKED EXAMPLE ---- -->
+    <div class="worked">
+        <h2>Worked Example &mdash; Multi-Step Problem</h2>
+        <div class="worked-q">Points A, B, C and D lie on a circle with centre O. Angle AOB = 104&deg;. BD is a diameter. Find angle ACD.</div>
+
+        <div class="worked-layout">
+            <div class="worked-diagram">
+                <svg width="200" height="200" viewBox="0 0 200 200">
+                    <circle cx="100" cy="100" r="75" fill="none" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                    <circle cx="100" cy="100" r="3" fill="var(--text-light)"/>
+                    <!-- Points -->
+                    <!-- A: top-left -->
+                    <circle cx="45" cy="52" r="3" fill="var(--t1-color)"/>
+                    <!-- B: left -->
+                    <circle cx="25" cy="100" r="3" fill="var(--t2-color)"/>
+                    <!-- D: right (diameter from B through O) -->
+                    <circle cx="175" cy="100" r="3" fill="var(--t2-color)"/>
+                    <!-- C: bottom-right -->
+                    <circle cx="145" cy="160" r="3" fill="var(--t4-color)"/>
+                    <!-- Diameter BD -->
+                    <line x1="25" y1="100" x2="175" y2="100" stroke="var(--t2-color)" stroke-width="2" stroke-dasharray="6,3"/>
+                    <!-- Lines OA, OB for angle at centre -->
+                    <line x1="100" y1="100" x2="45" y2="52" stroke="var(--t1-color)" stroke-width="1.5"/>
+                    <line x1="100" y1="100" x2="25" y2="100" stroke="var(--t1-color)" stroke-width="1.5"/>
+                    <!-- Chord AB -->
+                    <line x1="45" y1="52" x2="25" y2="100" stroke="var(--text-light)" stroke-width="1" opacity="0.4"/>
+                    <!-- Lines for angle ACB and ACD -->
+                    <line x1="45" y1="52" x2="145" y2="160" stroke="var(--t4-color)" stroke-width="1.5"/>
+                    <line x1="175" y1="100" x2="145" y2="160" stroke="var(--t4-color)" stroke-width="1.5"/>
+                    <line x1="25" y1="100" x2="145" y2="160" stroke="var(--t3-color)" stroke-width="1.5"/>
+                    <!-- Angle at centre label -->
+                    <text x="80" y="95" font-size="10" font-weight="700" fill="var(--t1-color)">104&deg;</text>
+                    <!-- Labels -->
+                    <text x="38" y="46" font-size="10" font-weight="700" fill="var(--t1-color)">A</text>
+                    <text x="12" y="100" font-size="10" font-weight="700" fill="var(--t2-color)">B</text>
+                    <text x="150" y="168" font-size="10" font-weight="700" fill="var(--t4-color)">C</text>
+                    <text x="178" y="97" font-size="10" font-weight="700" fill="var(--t2-color)">D</text>
+                    <text x="100" y="115" text-anchor="middle" font-size="9" fill="var(--text-light)">O</text>
+                </svg>
+            </div>
+            <div class="worked-steps">
+                <div class="step s1">
+                    <strong>Step 1 &mdash; Theorem 1 (angle at centre):</strong><br>
+                    Angle AOB = 104&deg; is at the centre. Angle ACB is at the circumference, subtended by the same arc AB.<br>
+                    So angle ACB = 104&deg; &divide; 2 = <strong>52&deg;</strong>
+                </div>
+                <div class="step s2">
+                    <strong>Step 2 &mdash; Theorem 2 (angle in semicircle):</strong><br>
+                    BD is a diameter, so angle BCD (the angle at C in the semicircle) = <strong>90&deg;</strong>
+                </div>
+                <div class="step s3">
+                    <strong>Step 3 &mdash; Put it together:</strong><br>
+                    Angle ACD = angle BCD &minus; angle ACB<br>
+                    Angle ACD = 90&deg; &minus; 52&deg; = <strong>38&deg;</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ---- COMMON MISTAKES ---- -->
+    <div class="mistakes">
+        <h2>Common Mistakes to Avoid</h2>
+        <div class="mistake-grid">
+            <div class="mistake-item">
+                <div class="mistake-title">Confusing "angle at centre" with other angles</div>
+                <div class="mistake-desc">The angle at the centre MUST have its vertex at point O. If the angle is at the circumference, it's not the centre angle.</div>
+                <div class="mistake-fix">Check: does the angle vertex sit on point O?</div>
+            </div>
+            <div class="mistake-item">
+                <div class="mistake-title">Not stating the theorem name</div>
+                <div class="mistake-desc">You MUST name the theorem to get the "reason" mark. Just writing the number isn't enough.</div>
+                <div class="mistake-fix">Always write: "because [theorem name]"</div>
+            </div>
+            <div class="mistake-item">
+                <div class="mistake-title">Not spotting a diameter</div>
+                <div class="mistake-desc">A diameter passes through the centre. If it's not through the centre, it's just a chord, not a diameter. No semicircle theorem.</div>
+                <div class="mistake-fix">A diameter MUST go through O!</div>
+            </div>
+            <div class="mistake-item">
+                <div class="mistake-title">Mixing up alternate segment</div>
+                <div class="mistake-desc">The angle between tangent and chord equals the angle in the OTHER segment, not the same one. Draw it out if unsure.</div>
+                <div class="mistake-fix">Tangent-chord angle = angle on the opposite side of the chord</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

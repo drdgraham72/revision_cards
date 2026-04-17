@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCSE Maths — Trigonometry: Which Method Do I Use?</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&family=Caveat:wght@600;700&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --soh-color: #d4380d;
+            --soh-bg: #fff1f0;
+            --cah-color: #0958d9;
+            --cah-bg: #e6f4ff;
+            --toa-color: #389e0d;
+            --toa-bg: #f6ffed;
+            --sine-color: #722ed1;
+            --sine-bg: #f9f0ff;
+            --cosine-color: #c41d7f;
+            --cosine-bg: #fff0f6;
+            --area-color: #d46b08;
+            --area-bg: #fff7e6;
+            --arrow-color: #1a1a2e;
+            --bg: #fafafa;
+            --card-bg: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #666;
+            --mono: 'DM Mono', monospace;
+            --font: 'Barlow Condensed', sans-serif;
+            --hand: 'Caveat', cursive;
+            --yes-color: #389e0d;
+            --no-color: #d4380d;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --soh-color: #ff7a45;
+                --soh-bg: #3a1a0d;
+                --cah-color: #69b1ff;
+                --cah-bg: #0d2240;
+                --toa-color: #73d13d;
+                --toa-bg: #0d2a0d;
+                --sine-color: #b37feb;
+                --sine-bg: #1a0d30;
+                --cosine-color: #f759ab;
+                --cosine-bg: #300d20;
+                --area-color: #ffa940;
+                --area-bg: #301a0d;
+                --arrow-color: #e8e4dc;
+                --bg: #141416;
+                --card-bg: #1e1e22;
+                --text: #e8e4dc;
+                --text-light: #999;
+                --yes-color: #73d13d;
+                --no-color: #ff7a45;
+            }
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 1.5rem 1rem;
+        }
+
+        .page { max-width: 900px; margin: 0 auto; }
+
+        /* ---- HERO TITLE ---- */
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            line-height: 1.1;
+            margin-bottom: 6px;
+        }
+
+        .hero .subtitle {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--text-light);
+            letter-spacing: 0.03em;
+        }
+
+        /* ---- SECTION HEADERS ---- */
+        .section-title {
+            font-size: 22px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--text-light);
+            text-align: center;
+            margin-top: -10px;
+            margin-bottom: 16px;
+        }
+
+        /* ---- DECISION FLOWCHART ---- */
+        .flowchart {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 28px 24px;
+            margin-bottom: 2rem;
+            border: 2px solid rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .flowchart { border-color: rgba(255,255,255,0.08); }
+        }
+
+        .flow-question {
+            background: var(--arrow-color);
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            padding: 14px 28px;
+            border-radius: 12px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .flow-arrow-down {
+            display: flex;
+            gap: 80px;
+            align-items: flex-start;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-top: -2px;
+        }
+
+        .flow-branch {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            flex: 1;
+        }
+
+        .flow-label {
+            font-family: var(--mono);
+            font-size: 13px;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin: 8px 0;
+        }
+
+        .flow-label.yes { background: var(--toa-bg); color: var(--yes-color); border: 2px solid var(--yes-color); }
+        .flow-label.no { background: var(--soh-bg); color: var(--no-color); border: 2px solid var(--no-color); }
+
+        .flow-connector {
+            width: 2px;
+            height: 12px;
+            background: var(--text-light);
+        }
+
+        .flow-answer {
+            padding: 14px 20px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 15px;
+            width: 100%;
+            max-width: 240px;
+        }
+
+        .flow-answer.sohcahtoa {
+            background: var(--toa-bg);
+            border: 3px solid var(--toa-color);
+            color: var(--toa-color);
+        }
+
+        .flow-answer .formula {
+            font-family: var(--mono);
+            font-size: 12px;
+            font-weight: 500;
+            margin-top: 4px;
+            display: block;
+        }
+
+        .flow-sub-question {
+            background: var(--card-bg);
+            border: 2px solid var(--arrow-color);
+            font-size: 13px;
+            font-weight: 600;
+            padding: 12px 16px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 280px;
+            width: 100%;
+        }
+
+        .flow-sub-branches {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .flow-answer.sine-rule {
+            background: var(--sine-bg);
+            border: 3px solid var(--sine-color);
+            color: var(--sine-color);
+        }
+
+        .flow-answer.cosine-rule {
+            background: var(--cosine-bg);
+            border: 3px solid var(--cosine-color);
+            color: var(--cosine-color);
+        }
+
+        /* ---- SOHCAHTOA CARDS ---- */
+        .sohcahtoa-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 2rem;
+        }
+
+        .trig-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .trig-card.soh { border: 3px solid var(--soh-color); }
+        .trig-card.cah { border: 3px solid var(--cah-color); }
+        .trig-card.toa { border: 3px solid var(--toa-color); }
+
+        .trig-card .trig-name {
+            font-size: 36px;
+            font-weight: 900;
+            letter-spacing: 0.06em;
+            margin-bottom: 4px;
+        }
+
+        .trig-card.soh .trig-name { color: var(--soh-color); }
+        .trig-card.cah .trig-name { color: var(--cah-color); }
+        .trig-card.toa .trig-name { color: var(--toa-color); }
+
+        .trig-card .trig-formula {
+            font-family: var(--mono);
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .trig-card .trig-words {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .trig-card .trig-words strong {
+            color: var(--text);
+        }
+
+        /* ---- DIAGRAM CONTAINER ---- */
+        .diagram-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 2rem;
+        }
+
+        .diagram-box {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .diagram-box { border-color: rgba(255,255,255,0.08); }
+        }
+
+        .diagram-box h3 {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 12px;
+            color: var(--text-light);
+        }
+
+        .diagram-box svg {
+            width: 100%;
+            max-width: 300px;
+        }
+
+        /* ---- RULE CARDS (sine/cosine/area) ---- */
+        .rule-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .rule-card.sine { border: 3px solid var(--sine-color); }
+        .rule-card.cosine { border: 3px solid var(--cosine-color); }
+        .rule-card.area-sine { border: 3px solid var(--area-color); }
+
+        .rule-card .rule-header {
+            font-size: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 4px;
+        }
+
+        .rule-card.sine .rule-header { color: var(--sine-color); }
+        .rule-card.cosine .rule-header { color: var(--cosine-color); }
+        .rule-card.area-sine .rule-header { color: var(--area-color); }
+
+        .rule-card .rule-when {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .rule-card .rule-formula-big {
+            font-size: 28px;
+            font-weight: 800;
+            text-align: center;
+            padding: 12px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+        }
+
+        .rule-card.sine .rule-formula-big { color: var(--sine-color); background: var(--sine-bg); }
+        .rule-card.cosine .rule-formula-big { color: var(--cosine-color); background: var(--cosine-bg); }
+        .rule-card.area-sine .rule-formula-big { color: var(--area-color); background: var(--area-bg); }
+
+        .rule-card .rule-rearrange {
+            font-family: var(--mono);
+            font-size: 13px;
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        /* ---- WORKED EXAMPLES ---- */
+        .example {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 12px;
+            border-left: 5px solid;
+        }
+
+        .example.ex-soh { border-left-color: var(--soh-color); }
+        .example.ex-cah { border-left-color: var(--cah-color); }
+        .example.ex-toa { border-left-color: var(--toa-color); }
+        .example.ex-sine { border-left-color: var(--sine-color); }
+        .example.ex-cosine { border-left-color: var(--cosine-color); }
+
+        .example .ex-title {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .step-row {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .step-num {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #fff;
+        }
+
+        .step-num.s-soh { background: var(--soh-color); }
+        .step-num.s-cah { background: var(--cah-color); }
+        .step-num.s-toa { background: var(--toa-color); }
+        .step-num.s-sine { background: var(--sine-color); }
+        .step-num.s-cosine { background: var(--cosine-color); }
+        .step-num.s-dark { background: var(--arrow-color); }
+
+        .step-content {
+            font-size: 14px;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .step-content .calc {
+            font-family: var(--hand);
+            font-size: 24px;
+            font-weight: 700;
+            display: block;
+            margin: 4px 0;
+        }
+
+        .step-content .calc.soh-c { color: var(--soh-color); }
+        .step-content .calc.cah-c { color: var(--cah-color); }
+        .step-content .calc.toa-c { color: var(--toa-color); }
+        .step-content .calc.sine-c { color: var(--sine-color); }
+        .step-content .calc.cosine-c { color: var(--cosine-color); }
+
+        .final-answer {
+            font-family: var(--hand);
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            padding: 12px;
+            margin-top: 8px;
+            border-radius: 8px;
+            border: 2px dashed;
+        }
+
+        .final-answer.soh-c { color: var(--soh-color); border-color: var(--soh-color); background: var(--soh-bg); }
+        .final-answer.cah-c { color: var(--cah-color); border-color: var(--cah-color); background: var(--cah-bg); }
+        .final-answer.toa-c { color: var(--toa-color); border-color: var(--toa-color); background: var(--toa-bg); }
+        .final-answer.sine-c { color: var(--sine-color); border-color: var(--sine-color); background: var(--sine-bg); }
+        .final-answer.cosine-c { color: var(--cosine-color); border-color: var(--cosine-color); background: var(--cosine-bg); }
+
+        /* ---- EXACT VALUES TABLE ---- */
+        .values-table-wrap {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 2rem;
+            border: 2px solid rgba(0,0,0,0.08);
+            overflow-x: auto;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .values-table-wrap { border-color: rgba(255,255,255,0.08); }
+        }
+
+        .values-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .values-table th {
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 10px 12px;
+            border-bottom: 3px solid var(--arrow-color);
+            font-size: 14px;
+        }
+
+        .values-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            font-family: var(--mono);
+            font-size: 15px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .values-table td { border-bottom-color: rgba(255,255,255,0.06); }
+        }
+
+        .values-table td:first-child {
+            font-family: var(--font);
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .values-table tr:last-child td { border-bottom: none; }
+
+        .values-table .sin-col { color: var(--soh-color); }
+        .values-table .cos-col { color: var(--cah-color); }
+        .values-table .tan-col { color: var(--toa-color); }
+
+        /* ---- MISTAKES SECTION ---- */
+        .mistakes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .mistake-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 5px solid var(--no-color);
+        }
+
+        .mistake-card .mistake-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--no-color);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .mistake-card .mistake-desc {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        /* ---- HOW-TO STRIP ---- */
+        .how-to-strip {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 2rem;
+        }
+
+        .how-to-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px 24px;
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .how-to-card { border-color: rgba(255,255,255,0.08); }
+        }
+
+        .how-to-card h3 {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 8px;
+        }
+
+        .how-to-card .how-content {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .how-to-card .how-content strong {
+            color: var(--text);
+        }
+
+        /* ---- MANTRA ---- */
+        .mantra {
+            text-align: center;
+            padding: 32px 24px;
+            background: var(--arrow-color);
+            color: #fff;
+            border-radius: 16px;
+            margin-bottom: 1rem;
+        }
+
+        .mantra .big-text {
+            font-size: 28px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .mantra .big-text .soh-c { color: var(--soh-color); }
+        .mantra .big-text .cah-c { color: #69b1ff; }
+        .mantra .big-text .toa-c { color: var(--toa-color); }
+        .mantra .big-text .sine-c { color: var(--sine-color); }
+        .mantra .big-text .cosine-c { color: var(--cosine-color); }
+
+        .mantra .small-text {
+            font-family: var(--mono);
+            font-size: 11px;
+            opacity: 0.6;
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 700px) {
+            .sohcahtoa-grid { grid-template-columns: 1fr; }
+            .diagram-row { grid-template-columns: 1fr; }
+            .mistakes { grid-template-columns: 1fr; }
+            .how-to-strip { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 28px; }
+            .flow-arrow-down { gap: 20px; }
+            .flow-question { font-size: 14px; padding: 10px 16px; }
+            .flow-answer { font-size: 13px; padding: 10px 14px; }
+            .flow-sub-question { font-size: 11px; padding: 10px 12px; }
+            .flow-sub-branches { flex-direction: column; align-items: center; }
+            .mantra .big-text { font-size: 20px; }
+            .trig-card .trig-name { font-size: 28px; }
+            .rule-card .rule-formula-big { font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <div class="hero">
+        <h1>Trigonometry: Which Method Do I Use?</h1>
+        <div class="subtitle">SOHCAHTOA &bull; Sine Rule &bull; Cosine Rule &bull; Everything you need</div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 1. THE BIG DECISION FLOWCHART                -->
+    <!-- ============================================ -->
+    <h2 class="section-title">Step 1: Which Method?</h2>
+    <div class="section-subtitle">Ask yourself these questions IN ORDER</div>
+
+    <div class="flowchart">
+        <!-- Top question -->
+        <div class="flow-question">Is it a RIGHT-ANGLED triangle?</div>
+
+        <div class="flow-arrow-down">
+            <!-- YES branch -->
+            <div class="flow-branch">
+                <div class="flow-label yes">YES</div>
+                <div class="flow-connector"></div>
+                <div class="flow-answer sohcahtoa">
+                    Use SOHCAHTOA
+                    <span class="formula">sin, cos, or tan</span>
+                </div>
+            </div>
+
+            <!-- NO branch -->
+            <div class="flow-branch">
+                <div class="flow-label no">NO</div>
+                <div class="flow-connector"></div>
+                <div class="flow-sub-question">Do you know a SIDE and its OPPOSITE ANGLE?</div>
+
+                <div class="flow-sub-branches">
+                    <div class="flow-branch">
+                        <div class="flow-label yes">YES</div>
+                        <div class="flow-connector"></div>
+                        <div class="flow-answer sine-rule">
+                            Sine Rule
+                            <span class="formula">a/sinA = b/sinB</span>
+                        </div>
+                    </div>
+                    <div class="flow-branch">
+                        <div class="flow-label no">NO</div>
+                        <div class="flow-connector"></div>
+                        <div class="flow-answer cosine-rule">
+                            Cosine Rule
+                            <span class="formula">a&sup2; = b&sup2; + c&sup2; &minus; 2bc cosA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 2. SOHCAHTOA BREAKDOWN                       -->
+    <!-- ============================================ -->
+    <h2 class="section-title">SOHCAHTOA &mdash; The Big Three</h2>
+    <div class="section-subtitle">Only for RIGHT-ANGLED triangles</div>
+
+    <div class="sohcahtoa-grid">
+        <div class="trig-card soh">
+            <div class="trig-name">SOH</div>
+            <div class="trig-formula">sin(&theta;) = O / H</div>
+            <div class="trig-words"><strong>S</strong>in = <strong>O</strong>pposite &divide; <strong>H</strong>ypotenuse</div>
+        </div>
+        <div class="trig-card cah">
+            <div class="trig-name">CAH</div>
+            <div class="trig-formula">cos(&theta;) = A / H</div>
+            <div class="trig-words"><strong>C</strong>os = <strong>A</strong>djacent &divide; <strong>H</strong>ypotenuse</div>
+        </div>
+        <div class="trig-card toa">
+            <div class="trig-name">TOA</div>
+            <div class="trig-formula">tan(&theta;) = O / A</div>
+            <div class="trig-words"><strong>T</strong>an = <strong>O</strong>pposite &divide; <strong>A</strong>djacent</div>
+        </div>
+    </div>
+
+    <!-- How to use SOHCAHTOA -->
+    <div class="how-to-strip">
+        <div class="how-to-card">
+            <h3>Finding a Side</h3>
+            <div class="how-content">
+                1. Label the triangle (O, A, H)<br>
+                2. Pick the ratio that uses <strong>the side you want</strong> and <strong>the side you know</strong><br>
+                3. Substitute and <strong>rearrange</strong> to solve<br>
+                <br>
+                e.g. if you know H and want O:<br>
+                <strong>sin(&theta;) = O/H &rarr; O = H &times; sin(&theta;)</strong>
+            </div>
+        </div>
+        <div class="how-to-card">
+            <h3>Finding an Angle</h3>
+            <div class="how-content">
+                1. Label the triangle (O, A, H)<br>
+                2. Pick the ratio that uses <strong>the two sides you know</strong><br>
+                3. Calculate the fraction, then use <strong>INVERSE</strong>:<br>
+                <br>
+                <strong>&theta; = sin&sup1;(O/H)</strong><br>
+                <strong>&theta; = cos&sup1;(A/H)</strong><br>
+                <strong>&theta; = tan&sup1;(O/A)</strong><br>
+                <span style="font-size: 11px;">(That's the SHIFT button on your calculator)</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SVG: Right triangle with labels -->
+    <div class="diagram-row">
+        <div class="diagram-box">
+            <h3>The Right Triangle</h3>
+            <svg viewBox="0 0 280 220" xmlns="http://www.w3.org/2000/svg">
+                <!-- Triangle -->
+                <polygon points="40,190 240,190 240,40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+                <!-- Right angle square -->
+                <rect x="222" y="172" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <!-- Angle arc at bottom-left -->
+                <path d="M 65,190 A 25,25 0 0,0 55,172" fill="none" stroke="var(--soh-color)" stroke-width="2"/>
+                <!-- Theta label -->
+                <text x="72" y="183" font-family="'Barlow Condensed', sans-serif" font-size="16" font-weight="700" fill="var(--soh-color)">&theta;</text>
+                <!-- Hypotenuse label (angled side) -->
+                <text x="110" y="100" font-family="'Barlow Condensed', sans-serif" font-size="15" font-weight="700" fill="var(--cah-color)" transform="rotate(-37, 130, 110)">HYPOTENUSE (H)</text>
+                <!-- Opposite label (right side) -->
+                <text x="248" y="120" font-family="'Barlow Condensed', sans-serif" font-size="14" font-weight="700" fill="var(--soh-color)">OPP (O)</text>
+                <!-- Adjacent label (bottom side) -->
+                <text x="110" y="210" font-family="'Barlow Condensed', sans-serif" font-size="14" font-weight="700" fill="var(--toa-color)">ADJ (A)</text>
+            </svg>
+        </div>
+        <div class="diagram-box">
+            <h3>Different angle? O and A swap!</h3>
+            <svg viewBox="0 0 280 220" xmlns="http://www.w3.org/2000/svg">
+                <!-- Triangle (same shape) -->
+                <polygon points="40,190 240,190 240,40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+                <!-- Right angle square -->
+                <rect x="222" y="172" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <!-- Angle arc at top-right -->
+                <path d="M 240,65 A 25,25 0 0,0 222,52" fill="none" stroke="var(--soh-color)" stroke-width="2"/>
+                <!-- Alpha label -->
+                <text x="220" y="75" font-family="'Barlow Condensed', sans-serif" font-size="16" font-weight="700" fill="var(--soh-color)">&alpha;</text>
+                <!-- Hypotenuse (still the same side) -->
+                <text x="110" y="100" font-family="'Barlow Condensed', sans-serif" font-size="15" font-weight="700" fill="var(--cah-color)" transform="rotate(-37, 130, 110)">HYPOTENUSE (H)</text>
+                <!-- Now ADJACENT is the right side (next to alpha) -->
+                <text x="248" y="120" font-family="'Barlow Condensed', sans-serif" font-size="14" font-weight="700" fill="var(--toa-color)">ADJ (A)</text>
+                <!-- Now OPPOSITE is the bottom (opposite alpha) -->
+                <text x="110" y="210" font-family="'Barlow Condensed', sans-serif" font-size="14" font-weight="700" fill="var(--soh-color)">OPP (O)</text>
+            </svg>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 3. LABELLING THE TRIANGLE                    -->
+    <!-- ============================================ -->
+    <h2 class="section-title">Labelling &mdash; The Step Everyone Skips</h2>
+
+    <div class="how-to-strip" style="margin-bottom: 2rem;">
+        <div class="how-to-card">
+            <h3>Hypotenuse (H)</h3>
+            <div class="how-content">
+                <strong>Always opposite the right angle.</strong><br>
+                Always the <strong>longest</strong> side.<br>
+                Never changes &mdash; it's always the same side regardless of which angle you're using.
+            </div>
+        </div>
+        <div class="how-to-card">
+            <h3>Opposite (O) &amp; Adjacent (A)</h3>
+            <div class="how-content">
+                These depend on <strong>which angle</strong> you're working with:<br><br>
+                <strong>Opposite:</strong> the side directly across from your angle<br>
+                <strong>Adjacent:</strong> the side next to your angle (that isn't the hypotenuse)<br><br>
+                <em>Change the angle &rarr; O and A swap!</em>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SOHCAHTOA WORKED EXAMPLES                    -->
+    <!-- ============================================ -->
+    <h2 class="section-title">SOHCAHTOA Worked Examples</h2>
+
+    <!-- Example 1: Finding a side with SOH -->
+    <div class="example ex-soh">
+        <div class="ex-title">Example 1: Find the length of side x (finding a side)</div>
+        <div class="step-row">
+            <div class="step-num s-dark">1</div>
+            <div class="step-content">
+                Right-angled triangle. Angle = 35&deg;, Hypotenuse = 12 cm. Find the Opposite side.
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-soh">2</div>
+            <div class="step-content">
+                I have H, I want O &rarr; that's <strong>SOH</strong>
+                <span class="calc soh-c">sin(35&deg;) = x / 12</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-soh">3</div>
+            <div class="step-content">
+                Rearrange: x = 12 &times; sin(35&deg;)
+                <span class="calc soh-c">x = 12 &times; 0.5736 = 6.88 cm</span>
+            </div>
+        </div>
+        <div class="final-answer soh-c">x = 6.88 cm</div>
+    </div>
+
+    <!-- Example 2: Finding an angle with TOA -->
+    <div class="example ex-toa">
+        <div class="ex-title">Example 2: Find angle &theta; (finding an angle)</div>
+        <div class="step-row">
+            <div class="step-num s-dark">1</div>
+            <div class="step-content">
+                Right-angled triangle. Opposite = 7 cm, Adjacent = 10 cm. Find the angle.
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-toa">2</div>
+            <div class="step-content">
+                I have O and A &rarr; that's <strong>TOA</strong>
+                <span class="calc toa-c">tan(&theta;) = 7 / 10 = 0.7</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-toa">3</div>
+            <div class="step-content">
+                Use INVERSE tan (shift + tan on calculator):
+                <span class="calc toa-c">&theta; = tan&sup1;(0.7) = 35.0&deg;</span>
+            </div>
+        </div>
+        <div class="final-answer toa-c">&theta; = 35.0&deg;</div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 4. SINE RULE                                 -->
+    <!-- ============================================ -->
+    <div class="rule-card sine">
+        <div class="rule-header">Sine Rule</div>
+        <div class="rule-when">USE WHEN: Non-right-angled triangle + you know a side AND its opposite angle (an angle-side pair)</div>
+        <div class="rule-formula-big">a / sin A = b / sin B = c / sin C</div>
+        <div class="rule-rearrange">To find a side: a = (b &times; sin A) / sin B &nbsp;&nbsp;|&nbsp;&nbsp; To find an angle: sin A = (a &times; sin B) / b</div>
+    </div>
+
+    <!-- Sine Rule worked example -->
+    <div class="example ex-sine">
+        <div class="ex-title">Sine Rule Example: Find side b</div>
+        <div class="step-row">
+            <div class="step-num s-dark">1</div>
+            <div class="step-content">
+                Triangle (not right-angled): A = 40&deg;, a = 8 cm, B = 75&deg;. Find b.
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-sine">2</div>
+            <div class="step-content">
+                I know a side-angle pair (a and A) + another angle &rarr; <strong>Sine Rule</strong>
+                <span class="calc sine-c">a / sin A = b / sin B</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-sine">3</div>
+            <div class="step-content">
+                Substitute: 8 / sin 40&deg; = b / sin 75&deg;
+                <span class="calc sine-c">b = (8 &times; sin 75&deg;) / sin 40&deg;</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-sine">4</div>
+            <div class="step-content">
+                Calculate:
+                <span class="calc sine-c">b = (8 &times; 0.9659) / 0.6428 = 12.02 cm</span>
+            </div>
+        </div>
+        <div class="final-answer sine-c">b = 12.0 cm</div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 5. COSINE RULE                               -->
+    <!-- ============================================ -->
+    <div class="rule-card cosine">
+        <div class="rule-header">Cosine Rule</div>
+        <div class="rule-when">USE WHEN: Non-right-angled triangle + you know TWO SIDES and the INCLUDED ANGLE, or ALL THREE SIDES (to find an angle)</div>
+        <div class="rule-formula-big">a&sup2; = b&sup2; + c&sup2; &minus; 2bc cos A</div>
+        <div class="rule-rearrange">To find an angle: cos A = (b&sup2; + c&sup2; &minus; a&sup2;) / 2bc &nbsp;&nbsp;then&nbsp;&nbsp; A = cos&sup1;(...)</div>
+    </div>
+
+    <!-- Cosine Rule worked example -->
+    <div class="example ex-cosine">
+        <div class="ex-title">Cosine Rule Example: Find side a</div>
+        <div class="step-row">
+            <div class="step-num s-dark">1</div>
+            <div class="step-content">
+                Triangle: b = 6 cm, c = 9 cm, included angle A = 52&deg;. Find a.
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-cosine">2</div>
+            <div class="step-content">
+                Two sides + included angle, no side-angle pair &rarr; <strong>Cosine Rule</strong>
+                <span class="calc cosine-c">a&sup2; = b&sup2; + c&sup2; &minus; 2bc cos A</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-cosine">3</div>
+            <div class="step-content">
+                Substitute: a&sup2; = 6&sup2; + 9&sup2; &minus; 2(6)(9) cos 52&deg;
+                <span class="calc cosine-c">a&sup2; = 36 + 81 &minus; 108 &times; 0.6157</span>
+            </div>
+        </div>
+        <div class="step-row">
+            <div class="step-num s-cosine">4</div>
+            <div class="step-content">
+                Calculate:
+                <span class="calc cosine-c">a&sup2; = 117 &minus; 66.50 = 50.50</span>
+                <span class="calc cosine-c">a = &radic;50.50 = 7.11 cm</span>
+            </div>
+        </div>
+        <div class="final-answer cosine-c">a = 7.11 cm</div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 6. AREA WITH SINE                            -->
+    <!-- ============================================ -->
+    <div class="rule-card area-sine" style="margin-top: 2rem;">
+        <div class="rule-header">Area of a Triangle (with Sine)</div>
+        <div class="rule-when">USE WHEN: You know TWO SIDES and the INCLUDED ANGLE &mdash; works on any triangle</div>
+        <div class="rule-formula-big">Area = &frac12; ab sin C</div>
+        <div class="rule-rearrange">a and b are the two sides &bull; C is the angle BETWEEN them</div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 7. EXACT TRIG VALUES                         -->
+    <!-- ============================================ -->
+    <h2 class="section-title" style="margin-top: 2rem;">Exact Trig Values (Non-Calculator &mdash; Memorise These!)</h2>
+
+    <div class="values-table-wrap">
+        <table class="values-table">
+            <thead>
+                <tr>
+                    <th>Angle</th>
+                    <th class="sin-col">sin</th>
+                    <th class="cos-col">cos</th>
+                    <th class="tan-col">tan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>0&deg;</td>
+                    <td class="sin-col">0</td>
+                    <td class="cos-col">1</td>
+                    <td class="tan-col">0</td>
+                </tr>
+                <tr>
+                    <td>30&deg;</td>
+                    <td class="sin-col">&frac12;</td>
+                    <td class="cos-col">&radic;3 / 2</td>
+                    <td class="tan-col">1 / &radic;3</td>
+                </tr>
+                <tr>
+                    <td>45&deg;</td>
+                    <td class="sin-col">1 / &radic;2</td>
+                    <td class="cos-col">1 / &radic;2</td>
+                    <td class="tan-col">1</td>
+                </tr>
+                <tr>
+                    <td>60&deg;</td>
+                    <td class="sin-col">&radic;3 / 2</td>
+                    <td class="cos-col">&frac12;</td>
+                    <td class="tan-col">&radic;3</td>
+                </tr>
+                <tr>
+                    <td>90&deg;</td>
+                    <td class="sin-col">1</td>
+                    <td class="cos-col">0</td>
+                    <td class="tan-col">undef</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 8. COMMON MISTAKES                           -->
+    <!-- ============================================ -->
+    <h2 class="section-title">Common Mistakes</h2>
+
+    <div class="mistakes">
+        <div class="mistake-card">
+            <div class="mistake-title">Wrong Calculator Mode</div>
+            <div class="mistake-desc">Your calculator must be in <strong>DEGREES</strong> mode, not radians! Look for a tiny "D" on screen. If you see "R" or "RAD" &mdash; change it before you start.</div>
+        </div>
+        <div class="mistake-card">
+            <div class="mistake-title">Mislabelling O / A / H</div>
+            <div class="mistake-desc">Opposite and Adjacent depend on <strong>which angle</strong> you're using. Always label relative to your angle, not just by position. The hypotenuse never changes.</div>
+        </div>
+        <div class="mistake-card">
+            <div class="mistake-title">SOHCAHTOA on Non-Right Triangles</div>
+            <div class="mistake-desc">SOHCAHTOA <strong>only works on right-angled triangles</strong>. No right angle? You need the Sine Rule or Cosine Rule instead.</div>
+        </div>
+        <div class="mistake-card">
+            <div class="mistake-title">Forgetting Inverse Trig</div>
+            <div class="mistake-desc">If you get sin(&theta;) = 0.5 and write "&theta; = 0.5" &mdash; <strong>NO!</strong> You need sin&sup1;(0.5) = 30&deg;. Use SHIFT + sin/cos/tan on your calculator.</div>
+        </div>
+    </div>
+
+    <!-- ---- MANTRA ---- -->
+    <div class="mantra">
+        <div class="big-text">
+            Right angle? &rarr; <span class="toa-c">SOHCAHTOA</span>
+        </div>
+        <div class="big-text" style="font-size: 22px;">
+            Got a pair? &rarr; <span class="sine-c">Sine Rule</span>
+        </div>
+        <div class="big-text" style="font-size: 22px;">
+            No pair? &rarr; <span class="cosine-c">Cosine Rule</span>
+        </div>
+        <div class="small-text" style="margin-top: 12px;">Label the triangle first. Check your calculator is in degrees. Show your working. You've got this.</div>
+    </div>
+
+</div>
+
+</body>
+</html>
