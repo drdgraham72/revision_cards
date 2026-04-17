@@ -541,7 +541,7 @@
 <div class="page">
 
     <div class="hero">
-        <h1>Differentiation Rules</h1>
+        <h1 data-yt="A Level Maths Differentiation Rules revision explained">Differentiation Rules</h1>
         <div class="subtitle">Which one to use &amp; how to apply it</div>
     </div>
 
@@ -599,7 +599,7 @@
 
     <!-- ---- INTERACTIVE FLOWCHART ---- -->
     <div class="flowchart">
-        <h2>Which rule do I need? &mdash; Click to find out</h2>
+        <h2 data-yt="A Level Maths Which rule do I need? Click to find out revision explained">Which rule do I need? &mdash; Click to find out</h2>
         <div class="intro">Answer Yes or No. Three questions maximum.</div>
 
         <div class="fc-question" id="fcQuestion"></div>
@@ -705,7 +705,7 @@
 
     <!-- ---- STANDARD RESULTS TABLE ---- -->
     <div class="quick-ref">
-        <h2>Standard Results &mdash; Must Know</h2>
+        <h2 data-yt="A Level Maths Standard Results Must Know revision explained">Standard Results &mdash; Must Know</h2>
         <table class="ref-table">
             <tr>
                 <th>f(x)</th>
@@ -752,7 +752,7 @@
 
     <!-- ---- COMMON MISTAKES ---- -->
     <div class="mistakes-box">
-        <h2>Common Mistakes</h2>
+        <h2 data-yt="A Level Maths Common Mistakes revision explained">Common Mistakes</h2>
         <ul>
             <li>
                 <strong>Forgetting the chain rule on composite functions:</strong><br>
@@ -859,5 +859,26 @@ function fcAnswer(isYes) {
 fcStart();
 </script>
 
+
+<script>
+(function() {
+    var btn = document.querySelector('.yt-link');
+    if (!btn) return;
+    var defaultHref = btn.href;
+    var sections = document.querySelectorAll('[data-yt]');
+    if (sections.length === 0) return;
+    var observer = new IntersectionObserver(function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+                var q = entries[i].target.getAttribute('data-yt');
+                btn.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+            }
+        }
+    }, { threshold: 0.3 });
+    for (var i = 0; i < sections.length; i++) {
+        observer.observe(sections[i]);
+    }
+})();
+</script>
 </body>
 </html>

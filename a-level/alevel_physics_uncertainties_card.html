@@ -485,14 +485,14 @@
 <div class="page">
 
     <div class="hero">
-        <h1>Uncertainties &mdash; The Rules</h1>
+        <h1 data-yt="A Level Physics Uncertainties The Rules revision explained">Uncertainties &mdash; The Rules</h1>
         <div class="subtitle">A-Level Physics &bull; Every rule, every trap, one card</div>
     </div>
 
     <!-- ============================================= -->
     <!-- SECTION 1: THE THREE TYPES -->
     <!-- ============================================= -->
-    <h2 class="section-header">The Three Types</h2>
+    <h2 class="section-header" data-yt="A Level Physics The Three Types revision explained">The Three Types</h2>
 
     <div class="types-grid">
         <div class="type-box absolute">
@@ -514,7 +514,7 @@
 
     <!-- Conversion strip -->
     <div class="conversion-strip">
-        <h3>Converting Between Them</h3>
+        <h3 data-yt="A Level Physics Converting Between Them revision explained">Converting Between Them</h3>
         <div class="conv-chain">
             <div class="conv-box abs-c">&Delta;x = &plusmn;0.5 mm</div>
             <div class="conv-arrow">
@@ -546,7 +546,7 @@
     <!-- ============================================= -->
     <!-- SECTION 2: COMBINING UNCERTAINTIES -->
     <!-- ============================================= -->
-    <h2 class="section-header">Combining Uncertainties</h2>
+    <h2 class="section-header" data-yt="A Level Physics Combining Uncertainties revision explained">Combining Uncertainties</h2>
 
     <div class="combine-grid">
         <div class="combine-card add-rule">
@@ -588,7 +588,7 @@
     <!-- ============================================= -->
     <!-- SECTION 3: READING INSTRUMENTS -->
     <!-- ============================================= -->
-    <h2 class="section-header">Reading Instruments</h2>
+    <h2 class="section-header" data-yt="A Level Physics Reading Instruments revision explained">Reading Instruments</h2>
 
     <div class="instruments">
         <div class="instr-card">
@@ -616,7 +616,7 @@
     <!-- ============================================= -->
     <!-- SECTION 4: GRAPHS AND UNCERTAINTIES -->
     <!-- ============================================= -->
-    <h2 class="section-header">Graphs and Uncertainties</h2>
+    <h2 class="section-header" data-yt="A Level Physics Graphs and Uncertainties revision explained">Graphs and Uncertainties</h2>
 
     <!-- SVG illustration of error bars and lines -->
     <div class="graph-visual">
@@ -701,7 +701,7 @@
     <!-- ============================================= -->
     <!-- SECTION 5: MISTAKES THAT LOSE MARKS -->
     <!-- ============================================= -->
-    <h2 class="section-header">The Mistakes That Lose Marks</h2>
+    <h2 class="section-header" data-yt="A Level Physics The Mistakes That Lose Marks revision explained">The Mistakes That Lose Marks</h2>
 
     <div class="mistakes">
         <div class="mistake-card">
@@ -738,5 +738,26 @@
 
 </div>
 
+
+<script>
+(function() {
+    var btn = document.querySelector('.yt-link');
+    if (!btn) return;
+    var defaultHref = btn.href;
+    var sections = document.querySelectorAll('[data-yt]');
+    if (sections.length === 0) return;
+    var observer = new IntersectionObserver(function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+                var q = entries[i].target.getAttribute('data-yt');
+                btn.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+            }
+        }
+    }, { threshold: 0.3 });
+    for (var i = 0; i < sections.length; i++) {
+        observer.observe(sections[i]);
+    }
+})();
+</script>
 </body>
 </html>

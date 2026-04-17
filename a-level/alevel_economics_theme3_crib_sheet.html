@@ -86,7 +86,7 @@
 <a class="yt-link" href="https://www.youtube.com/results?search_query=A+Level+Economics+market+structures+oligopoly+labour+market" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>Watch</a>
 <div class="page">
 <div class="header">
-  <h1>A-Level Economics — Business &amp; Labour Crib Sheet</h1>
+  <h1 data-yt="A Level Economics A-Level Economics — Business & Labour Crib Sheet revision explained">A-Level Economics — Business &amp; Labour Crib Sheet</h1>
   <span>OCR H567 · Component 1 &amp; 2 topics · Business Behaviour &amp; Labour Market</span>
 </div>
 
@@ -94,7 +94,7 @@
 <div class="col">
 
 <div class="box">
-<div class="box-head s1">Business Objectives <span class="marks">3.1</span></div>
+<div data-yt="A Level Economics Business Objectives 3.1 revision explained" class="box-head s1">Business Objectives <span class="marks">3.1</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Profit Maximisation</div><div class="val"><div class="good">Profit maximisation: the output level where MC = MR (marginal cost equals marginal revenue). The traditional assumption of firm behaviour in neoclassical economics.</div>
 <div class="formula-box">Profit maximised where MC = MR (and MC cuts MR from below)</div>
@@ -113,7 +113,7 @@ Managers may pursue their own goals (perks, quiet life, empire building) rather 
 </div>
 
 <div class="box">
-<div class="box-head s2">Revenue, Costs &amp; Profit <span class="marks">3.1</span></div>
+<div data-yt="A Level Economics Revenue, Costs & Profit 3.1 revision explained" class="box-head s2">Revenue, Costs &amp; Profit <span class="marks">3.1</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Revenue Curves</div><div class="val">
 <div class="formula-box">Total Revenue (TR) = Price × Quantity = AR × Q</div>
@@ -143,7 +143,7 @@ MC always cuts AC at the minimum point of AC (if MC &lt; AC, AC is falling; if M
 </div>
 
 <div class="box">
-<div class="box-head s5">Government Intervention in Markets <span class="marks">3.4</span></div>
+<div data-yt="A Level Economics Government Intervention in Markets 3.4 revision explained" class="box-head s5">Government Intervention in Markets <span class="marks">3.4</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Competition Policy</div><div class="val"><div class="good">Competition policy: government measures to promote competition and prevent abuse of market power. In the UK, enforced by the CMA (Competition and Markets Authority).</div>
 <strong>Merger control:</strong> CMA can block mergers that substantially lessen competition. <strong>Cartels:</strong> illegal agreements between firms to fix prices or restrict output. <strong>Abuse of dominance:</strong> firms with &gt;40% market share must not engage in predatory pricing, exclusive dealing, or tying.
@@ -165,7 +165,7 @@ MC always cuts AC at the minimum point of AC (if MC &lt; AC, AC is falling; if M
 <div class="col">
 
 <div class="box">
-<div class="box-head s3">Market Structures <span class="marks">3.2</span></div>
+<div data-yt="A Level Economics Market Structures 3.2 revision explained" class="box-head s3">Market Structures <span class="marks">3.2</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Perfect Competition</div><div class="val"><div class="good">Perfect competition: many firms, identical products, perfect information, no barriers to entry/exit, firms are price takers (AR = MR = horizontal demand curve).</div>
 <strong>Short run:</strong> firms can earn supernormal profit (AR &gt; AC) or make losses (AR &lt; AC). <strong>Long run:</strong> supernormal profit attracts entry → supply increases → price falls → only normal profit survives (AR = AC at minimum AC).
@@ -200,7 +200,7 @@ Result: even a monopoly or oligopoly behaves competitively if the market is cont
 </div>
 
 <div class="box">
-<div class="box-head s6">The Labour Market <span class="marks">3.3</span></div>
+<div data-yt="A Level Economics The Labour Market 3.3 revision explained" class="box-head s6">The Labour Market <span class="marks">3.3</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Demand for Labour (MRP)</div><div class="val"><div class="good">Demand for labour is a derived demand — firms hire workers not for their own sake but for the output they produce.</div>
 <div class="formula-box">MRP = MPP × MR (Marginal Revenue Product = Marginal Physical Product × Marginal Revenue)</div>
@@ -235,4 +235,25 @@ Wages differ between occupations due to: skill level, compensating differentials
 </div>
 
 </div>
+
+<script>
+(function() {
+    var btn = document.querySelector('.yt-link');
+    if (!btn) return;
+    var defaultHref = btn.href;
+    var sections = document.querySelectorAll('[data-yt]');
+    if (sections.length === 0) return;
+    var observer = new IntersectionObserver(function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+                var q = entries[i].target.getAttribute('data-yt');
+                btn.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+            }
+        }
+    }, { threshold: 0.3 });
+    for (var i = 0; i < sections.length; i++) {
+        observer.observe(sections[i]);
+    }
+})();
+</script>
 </body></html>

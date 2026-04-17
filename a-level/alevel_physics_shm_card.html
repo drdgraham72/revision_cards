@@ -666,14 +666,14 @@
 <div class="page">
 
     <div class="hero">
-        <h1>Simple Harmonic Motion</h1>
+        <h1 data-yt="A Level Physics Simple Harmonic Motion revision explained">Simple Harmonic Motion</h1>
         <div class="subtitle">A-Level Physics &bull; The complete picture, one card</div>
     </div>
 
     <!-- ============================================= -->
     <!-- SECTION 1: THE DEFINITION -->
     <!-- ============================================= -->
-    <h2 class="section-header">The Definition</h2>
+    <h2 class="section-header" data-yt="A Level Physics The Definition revision explained">The Definition</h2>
 
     <div class="definition-box">
         <div class="def-text">
@@ -696,7 +696,7 @@
     <!-- ============================================= -->
     <!-- SECTION 2: THE THREE EQUATIONS -->
     <!-- ============================================= -->
-    <h2 class="section-header">The Three Equations</h2>
+    <h2 class="section-header" data-yt="A Level Physics The Three Equations revision explained">The Three Equations</h2>
 
     <div class="equations-grid">
         <div class="eq-card disp">
@@ -730,7 +730,7 @@
     <!-- ============================================= -->
     <!-- SECTION 3: THE GRAPHS (SVG) -->
     <!-- ============================================= -->
-    <h2 class="section-header">The Graphs &mdash; Phase Relationships</h2>
+    <h2 class="section-header" data-yt="A Level Physics The Graphs Phase Relationships revision explained">The Graphs &mdash; Phase Relationships</h2>
 
     <div class="graph-stack">
         <div class="graph-title">x, v, and a vs time &mdash; stacked to show phase</div>
@@ -806,7 +806,7 @@
     <!-- ============================================= -->
     <!-- SECTION 4: THE VELOCITY EQUATION -->
     <!-- ============================================= -->
-    <h2 class="section-header">The Velocity Equation They Always Forget</h2>
+    <h2 class="section-header" data-yt="A Level Physics The Velocity Equation They Always Forget revision explained">The Velocity Equation They Always Forget</h2>
 
     <div class="velocity-card">
         <div class="big-formula">v = &plusmn;&omega;&radic;(A&sup2; &minus; x&sup2;)</div>
@@ -854,7 +854,7 @@
     <!-- ============================================= -->
     <!-- SECTION 5: ENERGY IN SHM -->
     <!-- ============================================= -->
-    <h2 class="section-header">Energy in SHM</h2>
+    <h2 class="section-header" data-yt="A Level Physics Energy in SHM revision explained">Energy in SHM</h2>
 
     <div class="energy-equations">
         <div class="energy-box ke">
@@ -934,7 +934,7 @@
     <!-- ============================================= -->
     <!-- SECTION 6: DAMPING & RESONANCE -->
     <!-- ============================================= -->
-    <h2 class="section-header">Damping &amp; Resonance</h2>
+    <h2 class="section-header" data-yt="A Level Physics Damping & Resonance revision explained">Damping &amp; Resonance</h2>
 
     <div class="damping-grid">
         <div class="damp-card">
@@ -967,7 +967,7 @@
     <!-- ============================================= -->
     <!-- SECTION 7: SHM vs SUVAT -->
     <!-- ============================================= -->
-    <h2 class="section-header">SHM vs SUVAT &mdash; The Critical Distinction</h2>
+    <h2 class="section-header" data-yt="A Level Physics SHM vs SUVAT The Critical Distinction revision explained">SHM vs SUVAT &mdash; The Critical Distinction</h2>
 
     <div class="warning-box">
         <div class="warn-title">Do Not Confuse These</div>
@@ -1012,5 +1012,26 @@
 
 </div>
 
+
+<script>
+(function() {
+    var btn = document.querySelector('.yt-link');
+    if (!btn) return;
+    var defaultHref = btn.href;
+    var sections = document.querySelectorAll('[data-yt]');
+    if (sections.length === 0) return;
+    var observer = new IntersectionObserver(function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+                var q = entries[i].target.getAttribute('data-yt');
+                btn.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+            }
+        }
+    }, { threshold: 0.3 });
+    for (var i = 0; i < sections.length; i++) {
+        observer.observe(sections[i]);
+    }
+})();
+</script>
 </body>
 </html>

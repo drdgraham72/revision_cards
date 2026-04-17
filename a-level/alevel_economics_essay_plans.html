@@ -348,13 +348,13 @@
 <div class="page">
 
     <div class="hero">
-        <h1>Economics Essay Plans</h1>
+        <h1 data-yt="A Level Economics Economics Essay Plans revision explained">Economics Essay Plans</h1>
         <div class="subtitle">OCR H567 &middot; 15 plans covering the major topics &middot; tap to expand</div>
     </div>
 
     <!-- THE UNIVERSAL STRUCTURE -->
     <div class="structure-box">
-        <h2>Every essay follows this structure</h2>
+        <h2 data-yt="A Level Economics Every essay follows this structure revision explained">Every essay follows this structure</h2>
         <div class="structure-steps">
             <div class="ss">
                 <div class="ss-num">Para 1</div>
@@ -386,7 +386,7 @@
 
     <!-- EVALUATION PHRASES -->
     <div class="eval-box">
-        <h2>Evaluation phrases that get A* marks</h2>
+        <h2 data-yt="A Level Economics Evaluation phrases that get A marks revision explained">Evaluation phrases that get A* marks</h2>
         <div class="eval-phrases">
             <div class="eval-phrase">"It depends on the magnitude of..."</div>
             <div class="eval-phrase">"In the short run... however in the long run..."</div>
@@ -1054,5 +1054,26 @@ function toggle(header) {
 }
 </script>
 
+
+<script>
+(function() {
+    var btn = document.querySelector('.yt-link');
+    if (!btn) return;
+    var defaultHref = btn.href;
+    var sections = document.querySelectorAll('[data-yt]');
+    if (sections.length === 0) return;
+    var observer = new IntersectionObserver(function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+                var q = entries[i].target.getAttribute('data-yt');
+                btn.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+            }
+        }
+    }, { threshold: 0.3 });
+    for (var i = 0; i < sections.length; i++) {
+        observer.observe(sections[i]);
+    }
+})();
+</script>
 </body>
 </html>

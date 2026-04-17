@@ -86,7 +86,7 @@
 <a class="yt-link" href="https://www.youtube.com/results?search_query=A+Level+Maths+Statistics+Year+1+binomial+hypothesis+testing" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>Watch</a>
 <div class="page">
 <div class="header">
-  <h1>A-Level Statistics — Year 12 Crib Sheet</h1>
+  <h1 data-yt="A Level Maths A-Level Statistics — Year 12 Crib Sheet revision explained">A-Level Statistics — Year 12 Crib Sheet</h1>
   <span>Edexcel · AS/Year 1 · Statistics</span>
 </div>
 
@@ -95,7 +95,7 @@
 
 <!-- DATA COLLECTION -->
 <div class="box">
-<div class="box-head s1">Data Collection <span class="marks">Ch 1</span></div>
+<div data-yt="A Level Maths Data Collection Ch 1 revision explained" class="box-head s1">Data Collection <span class="marks">Ch 1</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Census vs sample</div><div class="val">Census: every member of the population. Accurate but expensive, time-consuming, and may be impractical. Sample: a subset — cheaper, faster, but may not be representative.</div></div>
 <div class="row"><div class="kw">Simple random</div><div class="val">Every item has an equal chance of selection. Use random number generator/table from a sampling frame.<br><strong>+</strong> Bias-free, easy to implement<br><strong>−</strong> Need a complete sampling frame; may not be representative of subgroups</div></div>
@@ -110,7 +110,7 @@
 
 <!-- DATA PRESENTATION & INTERPRETATION -->
 <div class="box">
-<div class="box-head s2">Data Presentation &amp; Interpretation <span class="marks">Ch 2–4</span></div>
+<div data-yt="A Level Maths Data Presentation & Interpretation Ch 2–4 revision explained" class="box-head s2">Data Presentation &amp; Interpretation <span class="marks">Ch 2–4</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Histograms</div><div class="val">Continuous data with unequal class widths. The y-axis is frequency density, not frequency.<div class="formula-box">Frequency density = frequency / class width</div>Area of each bar = frequency. Total area = total frequency.</div></div>
 <div class="row"><div class="kw">Cumulative frequency</div><div class="val">Plot upper class boundary vs cumulative frequency. Use to estimate median (n/2), lower quartile (n/4), upper quartile (3n/4). Draw smooth S-shaped (ogive) curve.</div></div>
@@ -132,7 +132,7 @@
 
 <!-- PROBABILITY -->
 <div class="box">
-<div class="box-head s3">Probability <span class="marks">Ch 5</span></div>
+<div data-yt="A Level Maths Probability Ch 5 revision explained" class="box-head s3">Probability <span class="marks">Ch 5</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Addition rule</div><div class="val"><div class="formula-box">P(A ∪ B) = P(A) + P(B) − P(A ∩ B)</div>For mutually exclusive events: P(A ∩ B) = 0, so P(A ∪ B) = P(A) + P(B).</div></div>
 <div class="row"><div class="kw">Multiplication rule</div><div class="val"><div class="formula-box">P(A ∩ B) = P(A) × P(B|A)</div>For independent events: P(B|A) = P(B), so P(A ∩ B) = P(A) × P(B).</div></div>
@@ -148,7 +148,7 @@
 
 <!-- STATISTICAL DISTRIBUTIONS -->
 <div class="box">
-<div class="box-head s5">Statistical Distributions <span class="marks">Ch 6</span></div>
+<div data-yt="A Level Maths Statistical Distributions Ch 6 revision explained" class="box-head s5">Statistical Distributions <span class="marks">Ch 6</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Binomial conditions</div><div class="val">X ~ B(n, p) requires:<br>1. Fixed number of trials (n)<br>2. Two outcomes only (success/failure)<br>3. Constant probability of success (p)<br>4. Trials are independent</div></div>
 <div class="row"><div class="kw">Binomial formula</div><div class="val"><div class="formula-box">P(X = r) = ⁿCᵣ × pʳ × (1−p)ⁿ⁻ʳ</div>where ⁿCᵣ = n! / (r!(n−r)!)</div></div>
@@ -162,7 +162,7 @@
 
 <!-- HYPOTHESIS TESTING -->
 <div class="box">
-<div class="box-head s6">Hypothesis Testing <span class="marks">Ch 7</span></div>
+<div data-yt="A Level Maths Hypothesis Testing Ch 7 revision explained" class="box-head s6">Hypothesis Testing <span class="marks">Ch 7</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Null &amp; alternative</div><div class="val"><div class="formula-box">H₀: p = k &nbsp;(null — the default assumption)<br>H₁: p &lt; k, p &gt; k, or p ≠ k &nbsp;(alternative)</div>H₀ always uses =. H₁ determines one-tailed (&lt; or &gt;) or two-tailed (≠).</div></div>
 <div class="row"><div class="kw">Significance levels</div><div class="val">Common levels: 1%, 5%, 10%. The significance level is the probability of incorrectly rejecting H₀ (Type I error). Lower level = stronger evidence required to reject.</div></div>
@@ -180,5 +180,26 @@
 </div>
 
 </div>
+
+<script>
+(function() {
+    var btn = document.querySelector('.yt-link');
+    if (!btn) return;
+    var defaultHref = btn.href;
+    var sections = document.querySelectorAll('[data-yt]');
+    if (sections.length === 0) return;
+    var observer = new IntersectionObserver(function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+                var q = entries[i].target.getAttribute('data-yt');
+                btn.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+            }
+        }
+    }, { threshold: 0.3 });
+    for (var i = 0; i < sections.length; i++) {
+        observer.observe(sections[i]);
+    }
+})();
+</script>
 </body>
 </html>

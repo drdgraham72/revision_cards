@@ -603,7 +603,7 @@
     <!-- SECTION 1: THE EQUATIONS                     -->
     <!-- ============================================ -->
 
-    <h2 class="section-title motion">Motion &amp; Forces</h2>
+    <h2 class="section-title motion" data-yt="GCSE Physics Motion & Forces revision explained">Motion &amp; Forces</h2>
     <div class="eq-grid">
         <div class="eq-card motion">
             <div class="eq-name">Speed</div>
@@ -632,7 +632,7 @@
         </div>
     </div>
 
-    <h2 class="section-title energy">Energy</h2>
+    <h2 class="section-title energy" data-yt="GCSE Physics Energy revision explained">Energy</h2>
     <div class="eq-grid">
         <div class="eq-card energy">
             <div class="eq-name">Kinetic Energy</div>
@@ -666,7 +666,7 @@
         </div>
     </div>
 
-    <h2 class="section-title waves">Waves</h2>
+    <h2 class="section-title waves" data-yt="GCSE Physics Waves revision explained">Waves</h2>
     <div class="eq-grid">
         <div class="eq-card waves">
             <div class="eq-name">Wave Speed</div>
@@ -684,7 +684,7 @@
     <!-- SECTION 2: FORMULA TRIANGLES                 -->
     <!-- ============================================ -->
 
-    <h2 class="section-title">The Formula Triangle Method</h2>
+    <h2 class="section-title" data-yt="GCSE Physics The Formula Triangle Method revision explained">The Formula Triangle Method</h2>
 
     <div class="tri-instruction">
         <div class="big">Cover what you WANT &mdash; read what's LEFT</div>
@@ -773,7 +773,7 @@
     <!-- SECTION 3: REARRANGING ALGEBRAICALLY         -->
     <!-- ============================================ -->
 
-    <h2 class="section-title">Rearranging Algebraically</h2>
+    <h2 class="section-title" data-yt="GCSE Physics Rearranging Algebraically revision explained">Rearranging Algebraically</h2>
 
     <div class="golden-rule">
         Whatever you do to one side, do EXACTLY the same to the other
@@ -868,7 +868,7 @@
     <!-- SECTION 4: UNITS MATTER                      -->
     <!-- ============================================ -->
 
-    <h2 class="section-title">Units Matter</h2>
+    <h2 class="section-title" data-yt="GCSE Physics Units Matter revision explained">Units Matter</h2>
 
     <div class="units-table-wrap">
         <table class="units-table">
@@ -988,7 +988,7 @@
     <!-- SECTION 5: WHICH EQUATION DO I NEED?         -->
     <!-- ============================================ -->
 
-    <h2 class="section-title">Which Equation Do I Need?</h2>
+    <h2 class="section-title" data-yt="GCSE Physics Which Equation Do I Need? revision explained">Which Equation Do I Need?</h2>
 
     <div class="lookup-table-wrap">
         <table class="lookup-table">
@@ -1084,5 +1084,26 @@
 
 </div>
 
+
+<script>
+(function() {
+    var btn = document.querySelector('.yt-link');
+    if (!btn) return;
+    var defaultHref = btn.href;
+    var sections = document.querySelectorAll('[data-yt]');
+    if (sections.length === 0) return;
+    var observer = new IntersectionObserver(function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+                var q = entries[i].target.getAttribute('data-yt');
+                btn.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+            }
+        }
+    }, { threshold: 0.3 });
+    for (var i = 0; i < sections.length; i++) {
+        observer.observe(sections[i]);
+    }
+})();
+</script>
 </body>
 </html>

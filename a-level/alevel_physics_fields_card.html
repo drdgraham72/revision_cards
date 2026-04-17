@@ -473,14 +473,14 @@
 <div class="page">
 
     <div class="hero">
-        <h1>Fields &mdash; Gravitational vs Electric</h1>
+        <h1 data-yt="A Level Physics Fields Gravitational vs Electric revision explained">Fields &mdash; Gravitational vs Electric</h1>
         <div class="subtitle">A-Level Physics &bull; Deep-Dive Poster Card</div>
         <div class="insight">They follow IDENTICAL mathematical structures. See it once, never confuse them again.</div>
     </div>
 
     <!-- ======== 1. THE PARALLEL — BIG COMPARISON TABLE ======== -->
     <div class="compare-table-wrap">
-        <h2>The Parallel</h2>
+        <h2 data-yt="A Level Physics The Parallel revision explained">The Parallel</h2>
         <table class="compare-table">
             <tr>
                 <th class="concept-col">Concept</th>
@@ -528,7 +528,7 @@
     <!-- ======== 2. THE NEGATIVE SIGNS ======== -->
     <div class="section-card dual" style="border-color: var(--grav-color);">
         <div class="section-header" style="background: var(--grav-bg);">
-            <h2 style="color: var(--grav-color);">The Negative Signs</h2>
+            <h2 style="color: var(--grav-color);" data-yt="A Level Physics The Negative Signs revision explained">The Negative Signs</h2>
             <span class="tag" style="background: var(--grav-color);">CRITICAL</span>
         </div>
         <div class="section-body">
@@ -556,7 +556,7 @@
     <!-- ======== 3. FIELD LINES vs EQUIPOTENTIALS ======== -->
     <div class="section-card dual" style="border-color: var(--text);">
         <div class="section-header">
-            <h2>Field Lines vs Equipotentials</h2>
+            <h2 data-yt="A Level Physics Field Lines vs Equipotentials revision explained">Field Lines vs Equipotentials</h2>
             <span class="tag">VISUALISE</span>
         </div>
         <div class="section-body">
@@ -651,7 +651,7 @@
     <!-- ======== 4. ORBITS ======== -->
     <div class="section-card orbit">
         <div class="section-header">
-            <h2>Orbits</h2>
+            <h2 data-yt="A Level Physics Orbits revision explained">Orbits</h2>
             <span class="tag">GRAVITATIONAL</span>
         </div>
         <div class="section-body">
@@ -688,7 +688,7 @@
     <!-- ======== 5. CAPACITORS ======== -->
     <div class="section-card cap">
         <div class="section-header">
-            <h2>Capacitors</h2>
+            <h2 data-yt="A Level Physics Capacitors revision explained">Capacitors</h2>
             <span class="tag">ELECTRIC FIELD APPLICATION</span>
         </div>
         <div class="section-body">
@@ -762,7 +762,7 @@
     <!-- ======== 6. COMMON MISTAKES ======== -->
     <div class="section-card warn">
         <div class="section-header">
-            <h2>Common Mistakes</h2>
+            <h2 data-yt="A Level Physics Common Mistakes revision explained">Common Mistakes</h2>
             <span class="tag">AVOID THESE</span>
         </div>
         <div class="section-body">
@@ -789,5 +789,26 @@
 
 </div>
 
+
+<script>
+(function() {
+    var btn = document.querySelector('.yt-link');
+    if (!btn) return;
+    var defaultHref = btn.href;
+    var sections = document.querySelectorAll('[data-yt]');
+    if (sections.length === 0) return;
+    var observer = new IntersectionObserver(function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+                var q = entries[i].target.getAttribute('data-yt');
+                btn.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+            }
+        }
+    }, { threshold: 0.3 });
+    for (var i = 0; i < sections.length; i++) {
+        observer.observe(sections[i]);
+    }
+})();
+</script>
 </body>
 </html>

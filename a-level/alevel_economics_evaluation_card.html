@@ -472,7 +472,7 @@
 
     <!-- HERO -->
     <div class="hero">
-        <h1>Evaluation &mdash; The Difference Between B and A*</h1>
+        <h1 data-yt="A Level Economics Evaluation The Difference Between B and A revision explained">Evaluation &mdash; The Difference Between B and A*</h1>
         <div class="subtitle">How to build analytical depth &middot; not just "however" &middot; chain your reasoning</div>
     </div>
 
@@ -743,5 +743,26 @@
 
 </div>
 
+
+<script>
+(function() {
+    var btn = document.querySelector('.yt-link');
+    if (!btn) return;
+    var defaultHref = btn.href;
+    var sections = document.querySelectorAll('[data-yt]');
+    if (sections.length === 0) return;
+    var observer = new IntersectionObserver(function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+                var q = entries[i].target.getAttribute('data-yt');
+                btn.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+            }
+        }
+    }, { threshold: 0.3 });
+    for (var i = 0; i < sections.length; i++) {
+        observer.observe(sections[i]);
+    }
+})();
+</script>
 </body>
 </html>

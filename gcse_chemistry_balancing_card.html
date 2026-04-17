@@ -674,7 +674,7 @@
 <div class="page">
 
     <div class="hero">
-        <h1>Balancing Equations</h1>
+        <h1 data-yt="GCSE Chemistry Balancing Equations revision explained">Balancing Equations</h1>
         <div class="subtitle">Same atoms in, same atoms out. That's it.</div>
     </div>
 
@@ -700,7 +700,7 @@
 
     <!-- ---- METHOD ---- -->
     <div class="method">
-        <h2>The 4-Step Method</h2>
+        <h2 data-yt="GCSE Chemistry The 4-Step Method revision explained">The 4-Step Method</h2>
         <div class="method-step">
             <div class="method-num n1">1</div>
             <div class="method-content">
@@ -733,7 +733,7 @@
 
     <!-- ---- INTERACTIVE BALANCER ---- -->
     <div class="balancer">
-        <h2>Practice: Balance These Equations</h2>
+        <h2 data-yt="GCSE Chemistry Practice: Balance These Equations revision explained">Practice: Balance These Equations</h2>
         <div class="b-intro">Tap + and &minus; to change the coefficients. Make both sides match.</div>
 
         <div class="b-nav" id="bNav"></div>
@@ -752,7 +752,7 @@
 
     <!-- ---- WORKED EXAMPLES ---- -->
     <div class="worked">
-        <h2>Worked Examples</h2>
+        <h2 data-yt="GCSE Chemistry Worked Examples revision explained">Worked Examples</h2>
 
         <div class="worked-example">
             <div class="we-title">Balance: Mg + O&#x2082; &rarr; MgO</div>
@@ -838,7 +838,7 @@
 
     <!-- ---- STATE SYMBOLS ---- -->
     <div class="state-box">
-        <h2>Don't Forget State Symbols</h2>
+        <h2 data-yt="GCSE Chemistry Don't Forget State Symbols revision explained">Don't Forget State Symbols</h2>
         <div class="state-grid">
             <div class="state-item">
                 <div class="sym">(s)</div>
@@ -865,7 +865,7 @@
 
     <!-- ---- COMMON TRAPS ---- -->
     <div class="traps">
-        <h2>Mistakes That Lose Marks Every Time</h2>
+        <h2 data-yt="GCSE Chemistry Mistakes That Lose Marks Every Time revision explained">Mistakes That Lose Marks Every Time</h2>
         <div class="trap-item">
             <div class="trap-x">&times;</div>
             <div class="trap-text">
@@ -1222,5 +1222,26 @@ function showHint() {
 initBalancer();
 </script>
 
+
+<script>
+(function() {
+    var btn = document.querySelector('.yt-link');
+    if (!btn) return;
+    var defaultHref = btn.href;
+    var sections = document.querySelectorAll('[data-yt]');
+    if (sections.length === 0) return;
+    var observer = new IntersectionObserver(function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+                var q = entries[i].target.getAttribute('data-yt');
+                btn.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+            }
+        }
+    }, { threshold: 0.3 });
+    for (var i = 0; i < sections.length; i++) {
+        observer.observe(sections[i]);
+    }
+})();
+</script>
 </body>
 </html>

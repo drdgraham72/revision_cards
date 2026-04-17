@@ -98,7 +98,7 @@ hr.div { border: none; border-top: 0.5px solid var(--bl); margin: 4px 0; }
 
 <div class="page">
 <div class="header">
-  <h1>GCSE Physics — Paper 1 Higher · Crib Sheet</h1>
+  <h1 data-yt="GCSE Physics GCSE Physics — Paper 1 Higher Crib Sheet revision explained">GCSE Physics — Paper 1 Higher · Crib Sheet</h1>
   <span>Edexcel 1PH0/1H · all question types</span>
 </div>
 
@@ -106,7 +106,7 @@ hr.div { border: none; border-top: 0.5px solid var(--bl); margin: 4px 0; }
 <div class="col">
 
 <div class="box">
-<div class="box-head s1">Motion & Forces <span class="marks">Q1–8 · 15 marks</span></div>
+<div data-yt="GCSE Physics Motion & Forces Q1–8 revision explained" class="box-head s1">Motion & Forces <span class="marks">Q1–8 · 15 marks</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Vectors</div><div class="val">Magnitude + direction: velocity, force, acceleration, displacement, momentum</div></div>
 <div class="row"><div class="kw">Scalars</div><div class="val">Magnitude only: speed, distance, mass, energy, time, power, temperature</div></div>
@@ -120,7 +120,7 @@ hr.div { border: none; border-top: 0.5px solid var(--bl); margin: 4px 0; }
 </div>
 
 <div class="box">
-<div class="box-head s2">Conservation of Energy <span class="marks">Q9–12 · 12 marks</span></div>
+<div data-yt="GCSE Physics Conservation of Energy Q9–12 revision explained" class="box-head s2">Conservation of Energy <span class="marks">Q9–12 · 12 marks</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Conservation</div><div class="val">Energy cannot be created/destroyed, only transferred/converted</div></div>
 <div class="row"><div class="kw">Kinetic</div><div class="val">EK = ½mv²; increases with speed²</div></div>
@@ -134,7 +134,7 @@ hr.div { border: none; border-top: 0.5px solid var(--bl); margin: 4px 0; }
 </div>
 
 <div class="box">
-<div class="box-head s3">Waves <span class="marks">Q13–16 · 12 marks</span></div>
+<div data-yt="GCSE Physics Waves Q13–16 revision explained" class="box-head s3">Waves <span class="marks">Q13–16 · 12 marks</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Transverse</div><div class="val">Oscillations ⊥ to direction: light, water, EM waves</div></div>
 <div class="row"><div class="kw">Longitudinal</div><div class="val">Oscillations ∥ to direction: sound, P-waves</div></div>
@@ -152,7 +152,7 @@ hr.div { border: none; border-top: 0.5px solid var(--bl); margin: 4px 0; }
 <div class="col">
 
 <div class="box">
-<div class="box-head s4">Electromagnetic Spectrum <span class="marks">Q17–20 · 11 marks</span></div>
+<div data-yt="GCSE Physics Electromagnetic Spectrum Q17–20 revision explained" class="box-head s4">Electromagnetic Spectrum <span class="marks">Q17–20 · 11 marks</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Order (low→high)</div><div class="val">Radio → Microwave → IR → Visible → UV → X-ray → Gamma</div></div>
 <div class="row"><div class="kw">Increasing</div><div class="val">Wavelength ↓, Frequency ↑, Energy ↑</div></div>
@@ -168,7 +168,7 @@ hr.div { border: none; border-top: 0.5px solid var(--bl); margin: 4px 0; }
 </div>
 
 <div class="box">
-<div class="box-head s5">Key Equations & Units</div>
+<div data-yt="GCSE Physics Key Equations & Units revision explained" class="box-head s5">Key Equations & Units</div>
 <div class="box-body">
 <div class="row"><div class="kw">Speed</div><div class="val">v = d/t (m/s)</div></div>
 <div class="row"><div class="kw">Acceleration</div><div class="val">a = Δv/t = (v-u)/t (m/s²)</div></div>
@@ -187,7 +187,7 @@ hr.div { border: none; border-top: 0.5px solid var(--bl); margin: 4px 0; }
 </div>
 
 <div class="box">
-<div class="box-head s6">Practical & Core Practical Notes</div>
+<div data-yt="GCSE Physics Practical & Core Practical Notes revision explained" class="box-head s6">Practical & Core Practical Notes</div>
 <div class="box-body">
 <div class="row"><div class="kw">Reaction time</div><div class="val">Ruler drop: measure distance fallen, calculate speed</div></div>
 <div class="row"><div class="kw">Force & acceleration</div><div class="val">Trolley + pulley + masses; plot F vs a → straight line</div></div>
@@ -203,5 +203,26 @@ hr.div { border: none; border-top: 0.5px solid var(--bl); margin: 4px 0; }
 </div>
 </div>
 </div>
+
+<script>
+(function() {
+    var btn = document.querySelector('.yt-link');
+    if (!btn) return;
+    var defaultHref = btn.href;
+    var sections = document.querySelectorAll('[data-yt]');
+    if (sections.length === 0) return;
+    var observer = new IntersectionObserver(function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+                var q = entries[i].target.getAttribute('data-yt');
+                btn.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+            }
+        }
+    }, { threshold: 0.3 });
+    for (var i = 0; i < sections.length; i++) {
+        observer.observe(sections[i]);
+    }
+})();
+</script>
 </body>
 </html>

@@ -507,13 +507,13 @@
 <div class="page">
 
     <div class="hero">
-        <h1>Which Separation Technique?</h1>
+        <h1 data-yt="GCSE Chemistry Which Separation Technique? revision explained">Which Separation Technique?</h1>
         <div class="subtitle">Ask yourself these questions. The answer falls out.</div>
     </div>
 
     <!-- ---- INTERACTIVE FLOWCHART ---- -->
     <div class="flowchart">
-        <h2>Answer the questions &mdash; get the technique</h2>
+        <h2 data-yt="GCSE Chemistry Answer the questions get the technique revision explained">Answer the questions &mdash; get the technique</h2>
         <div class="intro">Click Yes or No. Three questions maximum.</div>
 
         <div class="fc-question" id="fcQuestion"></div>
@@ -582,7 +582,7 @@
 
     <!-- ---- QUICK REFERENCE TABLE ---- -->
     <div class="quick-ref">
-        <h2>"I need to separate..." &mdash; Quick Lookup</h2>
+        <h2 data-yt="GCSE Chemistry "I need to separate..." Quick Lookup revision explained">"I need to separate..." &mdash; Quick Lookup</h2>
         <table class="ref-table">
             <tr>
                 <th>Mixture</th>
@@ -634,7 +634,7 @@
 
     <!-- ---- WATER TREATMENT ---- -->
     <div class="water-box">
-        <h2>Water Treatment (Potable Water)</h2>
+        <h2 data-yt="GCSE Chemistry Water Treatment (Potable Water) revision explained">Water Treatment (Potable Water)</h2>
         <div class="water-steps">
             <div class="water-step">
                 <div class="ws-num">Step 1</div>
@@ -758,5 +758,26 @@ function fcAnswer(isYes) {
 fcStart();
 </script>
 
+
+<script>
+(function() {
+    var btn = document.querySelector('.yt-link');
+    if (!btn) return;
+    var defaultHref = btn.href;
+    var sections = document.querySelectorAll('[data-yt]');
+    if (sections.length === 0) return;
+    var observer = new IntersectionObserver(function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+                var q = entries[i].target.getAttribute('data-yt');
+                btn.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+            }
+        }
+    }, { threshold: 0.3 });
+    for (var i = 0; i < sections.length; i++) {
+        observer.observe(sections[i]);
+    }
+})();
+</script>
 </body>
 </html>

@@ -459,19 +459,19 @@
 <div class="page">
 
     <div class="hero">
-        <h1>Motion Graphs</h1>
+        <h1 data-yt="GCSE Physics Motion Graphs revision explained">Motion Graphs</h1>
         <div class="subtitle">Distance-Time vs Velocity-Time &mdash; how to read them, what they mean, and how to calculate from them</div>
     </div>
 
     <!-- ======== SECTION 1: THE BIG COMPARISON ======== -->
-    <h2 class="section-header">1. The Big Comparison</h2>
+    <h2 class="section-header" data-yt="GCSE Physics 1. The Big Comparison revision explained">1. The Big Comparison</h2>
 
     <div class="compare-grid">
 
         <!-- DISTANCE-TIME -->
         <div class="compare-card dt">
             <div class="compare-card-header">
-                <h2>Distance&ndash;Time</h2>
+                <h2 data-yt="GCSE Physics DistanceTime revision explained">Distance&ndash;Time</h2>
                 <span class="tag">D-T GRAPH</span>
             </div>
             <div class="compare-card-body">
@@ -528,7 +528,7 @@
         <!-- VELOCITY-TIME -->
         <div class="compare-card vt">
             <div class="compare-card-header">
-                <h2>Velocity&ndash;Time</h2>
+                <h2 data-yt="GCSE Physics VelocityTime revision explained">Velocity&ndash;Time</h2>
                 <span class="tag">V-T GRAPH</span>
             </div>
             <div class="compare-card-body">
@@ -586,7 +586,7 @@
 
     <!-- ======== SECTION 2: HOW TO READ GRADIENT ======== -->
     <div class="card bordered-dt">
-        <h2>2. How to Read the Gradient</h2>
+        <h2 data-yt="GCSE Physics 2. How to Read the Gradient revision explained">2. How to Read the Gradient</h2>
 
         <div class="steps">
             <div class="step dt">
@@ -656,7 +656,7 @@
 
     <!-- ======== SECTION 3: AREA UNDER V-T GRAPH ======== -->
     <div class="card bordered-vt">
-        <h2>3. How to Calculate Area Under a V-T Graph</h2>
+        <h2 data-yt="GCSE Physics 3. How to Calculate Area Under a V-T Graph revision explained">3. How to Calculate Area Under a V-T Graph</h2>
 
         <div class="area-methods">
             <div class="area-method">
@@ -742,7 +742,7 @@
     </div>
 
     <!-- ======== SECTION 4: WHAT THE SHAPES MEAN ======== -->
-    <h2 class="section-header">4. What the Shapes Mean &mdash; Visual Dictionary</h2>
+    <h2 class="section-header" data-yt="GCSE Physics 4. What the Shapes Mean Visual Dictionary revision explained">4. What the Shapes Mean &mdash; Visual Dictionary</h2>
 
     <div class="dict-grid" style="margin-bottom: 2rem;">
 
@@ -852,7 +852,7 @@
 
     <!-- ======== SECTION 5: KILLER MISTAKES ======== -->
     <div class="card bordered-warn" style="background: var(--card);">
-        <h2>5. The Killer Mistakes</h2>
+        <h2 data-yt="GCSE Physics 5. The Killer Mistakes revision explained">5. The Killer Mistakes</h2>
 
         <div class="mistakes-grid">
             <div class="mistake-card">
@@ -876,5 +876,26 @@
 
 </div>
 
+
+<script>
+(function() {
+    var btn = document.querySelector('.yt-link');
+    if (!btn) return;
+    var defaultHref = btn.href;
+    var sections = document.querySelectorAll('[data-yt]');
+    if (sections.length === 0) return;
+    var observer = new IntersectionObserver(function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+                var q = entries[i].target.getAttribute('data-yt');
+                btn.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+            }
+        }
+    }, { threshold: 0.3 });
+    for (var i = 0; i < sections.length; i++) {
+        observer.observe(sections[i]);
+    }
+})();
+</script>
 </body>
 </html>

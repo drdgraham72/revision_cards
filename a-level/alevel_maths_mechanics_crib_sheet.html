@@ -86,7 +86,7 @@
 <a class="yt-link" href="https://www.youtube.com/results?search_query=A+Level+Maths+Mechanics+SUVAT+forces+moments" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>Watch</a>
 <div class="page">
 <div class="header">
-  <h1>A-Level Mechanics — Year 12 Crib Sheet</h1>
+  <h1 data-yt="A Level Maths A-Level Mechanics — Year 12 Crib Sheet revision explained">A-Level Mechanics — Year 12 Crib Sheet</h1>
   <span>Edexcel · AS/Year 1 · Mechanics</span>
 </div>
 
@@ -95,7 +95,7 @@
 
 <!-- KINEMATICS -->
 <div class="box">
-<div class="box-head s1">Kinematics <span class="marks">Ch 9–10</span></div>
+<div data-yt="A Level Maths Kinematics Ch 9–10 revision explained" class="box-head s1">Kinematics <span class="marks">Ch 9–10</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">SUVAT equations</div><div class="val">Five equations for constant acceleration. Each omits one variable:
 <div class="formula-box">v = u + at &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(no s)<br>s = ut + ½at² &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(no v)<br>s = vt − ½at² &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(no u)<br>v² = u² + 2as &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(no t)<br>s = ½(u + v)t &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(no a)</div>
@@ -117,7 +117,7 @@ Time of flight links both components. At the highest point, vᵧ = 0 but vₓ un
 
 <!-- FORCES & NEWTON'S LAWS -->
 <div class="box">
-<div class="box-head s2">Forces &amp; Newton's Laws <span class="marks">Ch 10–11</span></div>
+<div data-yt="A Level Maths Forces & Newton's Laws Ch 10–11 revision explained" class="box-head s2">Forces &amp; Newton's Laws <span class="marks">Ch 10–11</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Newton's 1st law</div><div class="val">A body remains at rest or moves with constant velocity unless acted on by a resultant force. Zero resultant force means zero acceleration (equilibrium), not zero motion.</div></div>
 <div class="row"><div class="kw">Newton's 2nd law</div><div class="val"><div class="formula-box">F = ma</div>The resultant (net) force equals mass times acceleration. F and a are in the same direction. Units: force in Newtons (N), mass in kg, acceleration in m/s².</div></div>
@@ -137,7 +137,7 @@ Time of flight links both components. At the highest point, vᵧ = 0 but vₓ un
 
 <!-- CONNECTED PARTICLES & INCLINED PLANES -->
 <div class="box">
-<div class="box-head s3">Connected Particles &amp; Inclined Planes <span class="marks">Ch 11–12</span></div>
+<div data-yt="A Level Maths Connected Particles & Inclined Planes Ch 11–12 revision explained" class="box-head s3">Connected Particles &amp; Inclined Planes <span class="marks">Ch 11–12</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Connected particles (pulleys)</div><div class="val">Two masses connected by a light inextensible string over a smooth pulley:
 <div class="formula-box">For each mass, apply F = ma separately.<br>String is inextensible → same magnitude of acceleration for both.<br>String is light → tension is the same throughout.</div>
@@ -154,7 +154,7 @@ Time of flight links both components. At the highest point, vᵧ = 0 but vₓ un
 
 <!-- MOMENTS -->
 <div class="box">
-<div class="box-head s4">Moments <span class="marks">Ch 12–13</span></div>
+<div data-yt="A Level Maths Moments Ch 12–13 revision explained" class="box-head s4">Moments <span class="marks">Ch 12–13</span></div>
 <div class="box-body">
 <div class="row"><div class="kw">Moment of a force</div><div class="val"><div class="formula-box">Moment = Force × perpendicular distance from pivot</div>Units: Newton-metres (N m). A moment is a turning effect. Clockwise and anticlockwise moments are given opposite signs.</div></div>
 <div class="row"><div class="kw">Principle of moments</div><div class="val"><div class="formula-box">For equilibrium:<br>Sum of clockwise moments = Sum of anticlockwise moments</div>Take moments about any point — choosing a point where an unknown force acts eliminates that force from the equation.</div></div>
@@ -172,5 +172,26 @@ Time of flight links both components. At the highest point, vᵧ = 0 but vₓ un
 </div>
 
 </div>
+
+<script>
+(function() {
+    var btn = document.querySelector('.yt-link');
+    if (!btn) return;
+    var defaultHref = btn.href;
+    var sections = document.querySelectorAll('[data-yt]');
+    if (sections.length === 0) return;
+    var observer = new IntersectionObserver(function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+                var q = entries[i].target.getAttribute('data-yt');
+                btn.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+            }
+        }
+    }, { threshold: 0.3 });
+    for (var i = 0; i < sections.length; i++) {
+        observer.observe(sections[i]);
+    }
+})();
+</script>
 </body>
 </html>

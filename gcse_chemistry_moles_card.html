@@ -495,7 +495,7 @@
 <div class="page">
 
     <div class="hero">
-        <h1>Mass &rarr; Moles &rarr; Atoms</h1>
+        <h1 data-yt="GCSE Chemistry Mass Moles Atoms revision explained">Mass &rarr; Moles &rarr; Atoms</h1>
         <div class="subtitle">The only three steps you'll ever need</div>
     </div>
 
@@ -586,7 +586,7 @@
 
     <!-- UNIT CONVERSIONS -->
     <div class="unit-strip">
-        <h3>Before you start: get your mass into grams</h3>
+        <h3 data-yt="GCSE Chemistry Before you start: get your mass into grams revision explained">Before you start: get your mass into grams</h3>
         <div class="unit-chain">
             <div class="unit-box">mg</div>
             <div class="unit-arrow">
@@ -604,7 +604,7 @@
 
     <!-- WORKED EXAMPLES -->
     <div class="examples">
-        <h2>See it in action</h2>
+        <h2 data-yt="GCSE Chemistry See it in action revision explained">See it in action</h2>
 
         <!-- Example 1: Mass to Moles -->
         <div class="example ex-mass-to-moles">
@@ -744,5 +744,26 @@
 
 </div>
 
+
+<script>
+(function() {
+    var btn = document.querySelector('.yt-link');
+    if (!btn) return;
+    var defaultHref = btn.href;
+    var sections = document.querySelectorAll('[data-yt]');
+    if (sections.length === 0) return;
+    var observer = new IntersectionObserver(function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+                var q = entries[i].target.getAttribute('data-yt');
+                btn.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+            }
+        }
+    }, { threshold: 0.3 });
+    for (var i = 0; i < sections.length; i++) {
+        observer.observe(sections[i]);
+    }
+})();
+</script>
 </body>
 </html>

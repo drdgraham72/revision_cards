@@ -871,7 +871,7 @@
 
     <!-- ===== HERO ===== -->
     <div class="hero">
-        <h1>Energy Transfers &amp; Efficiency</h1>
+        <h1 data-yt="GCSE Physics Energy Transfers & Efficiency revision explained">Energy Transfers &amp; Efficiency</h1>
         <div class="subtitle">AQA GCSE Physics &middot; Paper 1 &middot; Energy</div>
     </div>
 
@@ -879,7 +879,7 @@
     <div class="section">
         <div class="section-header">
             <div class="section-num">1</div>
-            <h2>The 8 Energy Stores</h2>
+            <h2 data-yt="GCSE Physics The 8 Energy Stores revision explained">The 8 Energy Stores</h2>
         </div>
 
         <div class="stores-grid">
@@ -945,7 +945,7 @@
     <div class="section">
         <div class="section-header">
             <div class="section-num">2</div>
-            <h2>Energy Transfers</h2>
+            <h2 data-yt="GCSE Physics Energy Transfers revision explained">Energy Transfers</h2>
         </div>
 
         <div class="transfers-box">
@@ -1021,7 +1021,7 @@
     <div class="section">
         <div class="section-header">
             <div class="section-num">3</div>
-            <h2>Conservation of Energy</h2>
+            <h2 data-yt="GCSE Physics Conservation of Energy revision explained">Conservation of Energy</h2>
         </div>
 
         <div class="conserve-box">
@@ -1047,7 +1047,7 @@
     <div class="section">
         <div class="section-header">
             <div class="section-num">4</div>
-            <h2>Efficiency</h2>
+            <h2 data-yt="GCSE Physics Efficiency revision explained">Efficiency</h2>
         </div>
 
         <div class="efficiency-box">
@@ -1108,7 +1108,7 @@
     <div class="section">
         <div class="section-header">
             <div class="section-num">5</div>
-            <h2>Specific Heat Capacity</h2>
+            <h2 data-yt="GCSE Physics Specific Heat Capacity revision explained">Specific Heat Capacity</h2>
         </div>
 
         <div class="shc-box">
@@ -1213,7 +1213,7 @@
     <div class="section">
         <div class="section-header">
             <div class="section-num">6</div>
-            <h2>Power</h2>
+            <h2 data-yt="GCSE Physics Power revision explained">Power</h2>
         </div>
 
         <div class="power-box">
@@ -1254,7 +1254,7 @@
     <div class="section">
         <div class="section-header">
             <div class="section-num">7</div>
-            <h2>Kinetic Energy &amp; GPE</h2>
+            <h2 data-yt="GCSE Physics Kinetic Energy & GPE revision explained">Kinetic Energy &amp; GPE</h2>
         </div>
 
         <div class="ke-gpe-box">
@@ -1332,5 +1332,26 @@
 
 </div>
 
+
+<script>
+(function() {
+    var btn = document.querySelector('.yt-link');
+    if (!btn) return;
+    var defaultHref = btn.href;
+    var sections = document.querySelectorAll('[data-yt]');
+    if (sections.length === 0) return;
+    var observer = new IntersectionObserver(function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+                var q = entries[i].target.getAttribute('data-yt');
+                btn.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+            }
+        }
+    }, { threshold: 0.3 });
+    for (var i = 0; i < sections.length; i++) {
+        observer.observe(sections[i]);
+    }
+})();
+</script>
 </body>
 </html>

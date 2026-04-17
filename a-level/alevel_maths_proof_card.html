@@ -457,14 +457,14 @@
 <div class="page">
 
     <div class="hero">
-        <h1>Mathematical Proof</h1>
+        <h1 data-yt="A Level Maths Mathematical Proof revision explained">Mathematical Proof</h1>
         <div class="subtitle">How to structure it &mdash; templates for every type</div>
     </div>
 
     <!-- ============================================ -->
     <!-- 1. TYPES OF PROOF -->
     <!-- ============================================ -->
-    <h2 class="section-header">The Four Types of Proof</h2>
+    <h2 class="section-header" data-yt="A Level Maths The Four Types of Proof revision explained">The Four Types of Proof</h2>
 
     <div class="four-methods">
         <div class="method-box direct">
@@ -495,7 +495,7 @@
     <!-- ============================================ -->
     <!-- 2. DIRECT PROOF -->
     <!-- ============================================ -->
-    <h2 class="section-header">Direct Proof &mdash; The Template</h2>
+    <h2 class="section-header" data-yt="A Level Maths Direct Proof The Template revision explained">Direct Proof &mdash; The Template</h2>
 
     <div class="proof-card direct-border">
         <div class="card-title direct-c">Template: Direct Proof (Deduction)</div>
@@ -580,7 +580,7 @@
     <!-- ============================================ -->
     <!-- 3. PROOF BY EXHAUSTION -->
     <!-- ============================================ -->
-    <h2 class="section-header">Proof by Exhaustion &mdash; The Template</h2>
+    <h2 class="section-header" data-yt="A Level Maths Proof by Exhaustion The Template revision explained">Proof by Exhaustion &mdash; The Template</h2>
 
     <div class="proof-card exhaust-border">
         <div class="card-title exhaust-c">Template: Proof by Exhaustion</div>
@@ -641,7 +641,7 @@
     <!-- ============================================ -->
     <!-- 4. DISPROOF BY COUNTER-EXAMPLE -->
     <!-- ============================================ -->
-    <h2 class="section-header">Disproof by Counter-Example &mdash; The Template</h2>
+    <h2 class="section-header" data-yt="A Level Maths Disproof by Counter-Example The Template revision explained">Disproof by Counter-Example &mdash; The Template</h2>
 
     <div class="proof-card counter-border">
         <div class="card-title counter-c">Template: Disproof by Counter-Example</div>
@@ -689,7 +689,7 @@
     <!-- ============================================ -->
     <!-- 5. PROOF BY CONTRADICTION -->
     <!-- ============================================ -->
-    <h2 class="section-header">Proof by Contradiction &mdash; The Template</h2>
+    <h2 class="section-header" data-yt="A Level Maths Proof by Contradiction The Template revision explained">Proof by Contradiction &mdash; The Template</h2>
 
     <div class="proof-card contra-border">
         <div class="card-title contra-c">Template: Proof by Contradiction</div>
@@ -789,7 +789,7 @@
     <!-- ============================================ -->
     <!-- 6. TRIG IDENTITY PROOFS -->
     <!-- ============================================ -->
-    <h2 class="section-header">Trig Identity Proofs &mdash; The Method</h2>
+    <h2 class="section-header" data-yt="A Level Maths Trig Identity Proofs The Method revision explained">Trig Identity Proofs &mdash; The Method</h2>
 
     <div class="proof-card trig-border">
         <div class="card-title trig-c">The Rules for Trig Proofs</div>
@@ -849,7 +849,7 @@
     <!-- ============================================ -->
     <!-- 7. ALGEBRAIC PROOF TRICKS -->
     <!-- ============================================ -->
-    <h2 class="section-header">Algebraic Proof &mdash; Your Toolkit</h2>
+    <h2 class="section-header" data-yt="A Level Maths Algebraic Proof Your Toolkit revision explained">Algebraic Proof &mdash; Your Toolkit</h2>
 
     <div class="tricks-grid">
         <div class="trick-item">
@@ -889,7 +889,7 @@
     <!-- ============================================ -->
     <!-- 8. COMMON MISTAKES -->
     <!-- ============================================ -->
-    <h2 class="section-header">Common Mistakes</h2>
+    <h2 class="section-header" data-yt="A Level Maths Common Mistakes revision explained">Common Mistakes</h2>
 
     <div class="mistakes-list">
         <div class="mistake-item">Not starting with a clear assumption or statement of variables</div>
@@ -918,5 +918,26 @@
 
 </div>
 
+
+<script>
+(function() {
+    var btn = document.querySelector('.yt-link');
+    if (!btn) return;
+    var defaultHref = btn.href;
+    var sections = document.querySelectorAll('[data-yt]');
+    if (sections.length === 0) return;
+    var observer = new IntersectionObserver(function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+                var q = entries[i].target.getAttribute('data-yt');
+                btn.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+            }
+        }
+    }, { threshold: 0.3 });
+    for (var i = 0; i < sections.length; i++) {
+        observer.observe(sections[i]);
+    }
+})();
+</script>
 </body>
 </html>

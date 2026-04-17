@@ -681,14 +681,14 @@
 <div class="page">
 
     <div class="hero">
-        <h1>Waves: The Complete Picture</h1>
+        <h1 data-yt="GCSE Physics Waves: The Complete Picture revision explained">Waves: The Complete Picture</h1>
         <div class="subtitle">GCSE Physics Paper 1 &mdash; frequency, wavelength, amplitude &amp; the EM spectrum</div>
     </div>
 
     <!-- ======== SECTION 1: TRANSVERSE vs LONGITUDINAL ======== -->
     <div class="compare-grid">
         <div class="compare-card transverse">
-            <h3>Transverse Waves</h3>
+            <h3 data-yt="GCSE Physics Transverse Waves revision explained">Transverse Waves</h3>
             <div class="compare-sub">Oscillation PERPENDICULAR to direction of travel</div>
 
             <div class="diagram-wrap">
@@ -735,7 +735,7 @@
         </div>
 
         <div class="compare-card longitudinal">
-            <h3>Longitudinal Waves</h3>
+            <h3 data-yt="GCSE Physics Longitudinal Waves revision explained">Longitudinal Waves</h3>
             <div class="compare-sub">Oscillation PARALLEL to direction of travel</div>
 
             <div class="diagram-wrap">
@@ -802,7 +802,7 @@
 
     <!-- ======== SECTION 2: THE THREE THINGS STUDENTS CONFUSE ======== -->
     <div style="text-align:center; margin-bottom:12px;">
-        <h2 style="font-size:22px; font-weight:900; text-transform:uppercase; letter-spacing:0.03em; color:var(--text);">The Three Things Students Confuse</h2>
+        <h2 style="font-size:22px; font-weight:900; text-transform:uppercase; letter-spacing:0.03em; color:var(--text);" data-yt="GCSE Physics The Three Things Students Confuse revision explained">The Three Things Students Confuse</h2>
         <div style="font-family:var(--mono); font-size:11px; color:var(--text-light);">Get these right and the rest follows</div>
     </div>
 
@@ -811,7 +811,7 @@
         <div class="confusion-card amplitude">
             <div class="cc-header">
                 <div class="cc-symbol">A</div>
-                <h3>Amplitude</h3>
+                <h3 data-yt="GCSE Physics Amplitude revision explained">Amplitude</h3>
             </div>
             <div class="cc-body">
                 <div class="cc-def"><strong>Height from rest position to peak.</strong> Bigger amplitude = louder sound or brighter light.</div>
@@ -843,7 +843,7 @@
         <div class="confusion-card wavelength">
             <div class="cc-header">
                 <div class="cc-symbol">&lambda;</div>
-                <h3>Wavelength</h3>
+                <h3 data-yt="GCSE Physics Wavelength revision explained">Wavelength</h3>
             </div>
             <div class="cc-body">
                 <div class="cc-def"><strong>Distance from one peak to the next</strong> (or one compression to the next). One full cycle.</div>
@@ -869,7 +869,7 @@
         <div class="confusion-card frequency">
             <div class="cc-header">
                 <div class="cc-symbol">f</div>
-                <h3>Frequency</h3>
+                <h3 data-yt="GCSE Physics Frequency revision explained">Frequency</h3>
             </div>
             <div class="cc-body">
                 <div class="cc-def"><strong>How many waves pass a point per second.</strong> More waves = higher pitch/frequency.</div>
@@ -892,7 +892,7 @@
 
     <!-- ======== SECTION 3: THE WAVE EQUATION ======== -->
     <div class="equation-box">
-        <h2>The Wave Equation</h2>
+        <h2 data-yt="GCSE Physics The Wave Equation revision explained">The Wave Equation</h2>
 
         <div class="big-equation">
             v = f &times; &lambda;
@@ -936,7 +936,7 @@
 
     <!-- ======== SECTION 4: THE EM SPECTRUM ======== -->
     <div class="spectrum-section">
-        <h2>The Electromagnetic Spectrum</h2>
+        <h2 data-yt="GCSE Physics The Electromagnetic Spectrum revision explained">The Electromagnetic Spectrum</h2>
 
         <div class="spectrum-strip">
             <div class="spectrum-band band-radio">
@@ -1042,7 +1042,7 @@
     <div class="rr-grid">
         <div class="rr-card reflect">
             <div class="rr-header">
-                <h3>Reflection</h3>
+                <h3 data-yt="GCSE Physics Reflection revision explained">Reflection</h3>
             </div>
             <div class="rr-body">
                 <div class="rr-rule">Angle of incidence = Angle of reflection</div>
@@ -1092,7 +1092,7 @@
 
         <div class="rr-card refract">
             <div class="rr-header">
-                <h3>Refraction</h3>
+                <h3 data-yt="GCSE Physics Refraction revision explained">Refraction</h3>
             </div>
             <div class="rr-body">
                 <div class="rr-rule">Wave changes speed &rarr; changes direction</div>
@@ -1141,7 +1141,7 @@
 
     <!-- ======== SECTION 6: COMMON EXAM MISTAKES ======== -->
     <div class="mistakes">
-        <h2>Common Exam Mistakes</h2>
+        <h2 data-yt="GCSE Physics Common Exam Mistakes revision explained">Common Exam Mistakes</h2>
         <div class="mistake-grid">
             <div class="mistake-item">
                 <div class="wrong">&#10007; Mixing up amplitude and wavelength</div>
@@ -1172,5 +1172,26 @@
 
 </div>
 
+
+<script>
+(function() {
+    var btn = document.querySelector('.yt-link');
+    if (!btn) return;
+    var defaultHref = btn.href;
+    var sections = document.querySelectorAll('[data-yt]');
+    if (sections.length === 0) return;
+    var observer = new IntersectionObserver(function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+                var q = entries[i].target.getAttribute('data-yt');
+                btn.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+            }
+        }
+    }, { threshold: 0.3 });
+    for (var i = 0; i < sections.length; i++) {
+        observer.observe(sections[i]);
+    }
+})();
+</script>
 </body>
 </html>

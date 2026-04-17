@@ -602,16 +602,16 @@
 <div class="page">
 
     <div class="hero">
-        <h1>Quadratics &amp; Completing the Square</h1>
+        <h1 data-yt="GCSE Maths Quadratics & Completing the Square revision explained">Quadratics &amp; Completing the Square</h1>
         <div class="subtitle">Three methods, one goal: solve ax&sup2; + bx + c = 0</div>
     </div>
 
     <!-- 1. WHAT IS A QUADRATIC? -->
-    <h2 class="section-header">1. What is a Quadratic?</h2>
+    <h2 class="section-header" data-yt="GCSE Maths 1. What is a Quadratic? revision explained">1. What is a Quadratic?</h2>
 
     <div class="intro-card">
         <div class="intro-text">
-            <h3>Any equation where x&sup2; is the highest power</h3>
+            <h3 data-yt="GCSE Maths Any equation where x&sup2; is the highest power revision explained">Any equation where x&sup2; is the highest power</h3>
             <div class="intro-formula">ax&sup2; + bx + c = 0</div>
             <ul>
                 <li><strong>a</strong> = coefficient of x&sup2; (can't be 0)</li>
@@ -651,13 +651,13 @@
     </div>
 
     <!-- 2. THREE METHODS -->
-    <h2 class="section-header">2. Three Ways to Solve ax&sup2; + bx + c = 0</h2>
+    <h2 class="section-header" data-yt="GCSE Maths 2. Three Ways to Solve ax&sup2; + bx + c = 0 revision explained">2. Three Ways to Solve ax&sup2; + bx + c = 0</h2>
 
     <div class="methods">
         <!-- METHOD 1: FACTORISING -->
         <div class="method-card factoring">
             <div class="method-badge">Try first</div>
-            <h3>Factorising</h3>
+            <h3 data-yt="GCSE Maths Factorising revision explained">Factorising</h3>
             <div class="when">When the numbers are "nice" (integer solutions)</div>
             <ul class="method-steps">
                 <li data-step="1.">Find two numbers that <strong>multiply</strong> to give c</li>
@@ -678,7 +678,7 @@
         <!-- METHOD 2: QUADRATIC FORMULA -->
         <div class="method-card formula">
             <div class="method-badge">Always works</div>
-            <h3>Quadratic Formula</h3>
+            <h3 data-yt="GCSE Maths Quadratic Formula revision explained">Quadratic Formula</h3>
             <div class="when">When it won't factorise &mdash; gives exact or decimal answers</div>
             <div class="big-formula formula-c">
                 x = (<span style="white-space:nowrap;">&minus;b &plusmn; &radic;(b&sup2;&minus;4ac)</span>) / 2a
@@ -701,7 +701,7 @@
         <!-- METHOD 3: COMPLETING THE SQUARE -->
         <div class="method-card completing">
             <div class="method-badge">Higher tier</div>
-            <h3>Completing the Square</h3>
+            <h3 data-yt="GCSE Maths Completing the Square revision explained">Completing the Square</h3>
             <div class="when">When you need the turning point or exact surd form</div>
             <div class="big-formula complete-c" style="font-size:14px;">
                 x&sup2; + bx + c &rarr; (x + b/2)&sup2; &minus; (b/2)&sup2; + c
@@ -724,7 +724,7 @@
 
     <!-- DISCRIMINANT -->
     <div class="discriminant">
-        <h3>The Discriminant: b&sup2; &minus; 4ac tells you how many solutions</h3>
+        <h3 data-yt="GCSE Maths The Discriminant: b&sup2; 4ac tells you how many solutions revision explained">The Discriminant: b&sup2; &minus; 4ac tells you how many solutions</h3>
         <div class="disc-grid">
             <div class="disc-case two">
                 <div class="disc-val">b&sup2;&minus;4ac &gt; 0</div>
@@ -745,10 +745,10 @@
     </div>
 
     <!-- 3. WHICH METHOD? -->
-    <h2 class="section-header">3. Which Method Should I Use?</h2>
+    <h2 class="section-header" data-yt="GCSE Maths 3. Which Method Should I Use? revision explained">3. Which Method Should I Use?</h2>
 
     <div class="decision-guide">
-        <h3>The Decision Guide</h3>
+        <h3 data-yt="GCSE Maths The Decision Guide revision explained">The Decision Guide</h3>
         <div class="decision-flow">
             <div class="decision-row">
                 <div class="decision-q">Does it factorise easily?</div>
@@ -770,10 +770,10 @@
     </div>
 
     <!-- 4. SKETCHING GRAPHS -->
-    <h2 class="section-header">4. Sketching Quadratic Graphs</h2>
+    <h2 class="section-header" data-yt="GCSE Maths 4. Sketching Quadratic Graphs revision explained">4. Sketching Quadratic Graphs</h2>
 
     <div class="graph-card">
-        <h3>Four things to find, then sketch</h3>
+        <h3 data-yt="GCSE Maths Four things to find, then sketch revision explained">Four things to find, then sketch</h3>
         <div class="graph-steps">
             <div class="graph-step">
                 <div class="graph-step-num">1</div>
@@ -807,10 +807,10 @@
     </div>
 
     <!-- 5. COMMON MISTAKES -->
-    <h2 class="section-header">5. Common Mistakes</h2>
+    <h2 class="section-header" data-yt="GCSE Maths 5. Common Mistakes revision explained">5. Common Mistakes</h2>
 
     <div class="mistakes">
-        <h3>Don't lose marks on these</h3>
+        <h3 data-yt="GCSE Maths Don't lose marks on these revision explained">Don't lose marks on these</h3>
         <ul class="mistake-list">
             <li>Forgetting the <strong>&plusmn;</strong> in the quadratic formula &mdash; there are <strong>two</strong> solutions!</li>
             <li>Writing x = &minus;2, 3 instead of <strong>x = &minus;2 or x = 3</strong></li>
@@ -836,5 +836,26 @@
 
 </div>
 
+
+<script>
+(function() {
+    var btn = document.querySelector('.yt-link');
+    if (!btn) return;
+    var defaultHref = btn.href;
+    var sections = document.querySelectorAll('[data-yt]');
+    if (sections.length === 0) return;
+    var observer = new IntersectionObserver(function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+                var q = entries[i].target.getAttribute('data-yt');
+                btn.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+            }
+        }
+    }, { threshold: 0.3 });
+    for (var i = 0; i < sections.length; i++) {
+        observer.observe(sections[i]);
+    }
+})();
+</script>
 </body>
 </html>

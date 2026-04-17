@@ -82,7 +82,7 @@
 <a class="yt-link" href="https://www.youtube.com/results?search_query=OCR+GCSE+Maths+Paper+6+Higher+revision" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>Watch</a>
 <div class="page">
 <div class="header">
-  <h1>OCR GCSE Maths — Paper 6 Higher (Calculator)</h1>
+  <h1 data-yt="GCSE Maths OCR GCSE Maths — Paper 6 Higher (Calculator) revision explained">OCR GCSE Maths — Paper 6 Higher (Calculator)</h1>
   <span>J560/06 · Calculator · Higher Tier</span>
 </div>
 
@@ -91,7 +91,7 @@
 
 <!-- ALGEBRA & PROOF -->
 <div class="box">
-<div class="box-head s1">Algebra &amp; Proof</div>
+<div data-yt="GCSE Maths Algebra & Proof revision explained" class="box-head s1">Algebra &amp; Proof</div>
 <div class="box-body">
 
 <div class="row"><div class="kw">Algebraic Fractions</div><div class="val">
@@ -132,7 +132,7 @@ Draw and shade regions satisfying linear inequalities on a coordinate grid.
 
 <!-- GEOMETRY & TRIGONOMETRY -->
 <div class="box">
-<div class="box-head s2">Geometry &amp; Trigonometry</div>
+<div data-yt="GCSE Maths Geometry & Trigonometry revision explained" class="box-head s2">Geometry &amp; Trigonometry</div>
 <div class="box-body">
 
 <div class="row"><div class="kw">Pythagoras' Theorem (2D)</div><div class="val">
@@ -203,7 +203,7 @@ Read the scale carefully (e.g. 1:25000 means 1cm = 250m). Convert units as neede
 
 <!-- NUMBER & RATIO -->
 <div class="box">
-<div class="box-head s4">Number &amp; Ratio</div>
+<div data-yt="GCSE Maths Number & Ratio revision explained" class="box-head s4">Number &amp; Ratio</div>
 <div class="box-body">
 
 <div class="row"><div class="kw">HCF &amp; LCM via Prime Factors</div><div class="val">
@@ -247,7 +247,7 @@ Construct equations where one variable is inversely proportional to another (or 
 
 <!-- GRAPHS & FUNCTIONS -->
 <div class="box">
-<div class="box-head s3">Graphs &amp; Functions</div>
+<div data-yt="GCSE Maths Graphs & Functions revision explained" class="box-head s3">Graphs &amp; Functions</div>
 <div class="box-body">
 
 <div class="row"><div class="kw">Cubic Function Graphs</div><div class="val">
@@ -284,7 +284,7 @@ Plot data points accurately and join with straight line segments (for discrete d
 
 <!-- STATISTICS & PROBABILITY -->
 <div class="box">
-<div class="box-head s5">Statistics &amp; Probability</div>
+<div data-yt="GCSE Maths Statistics & Probability revision explained" class="box-head s5">Statistics &amp; Probability</div>
 <div class="box-body">
 
 <div class="row"><div class="kw">Histograms (Unequal Widths)</div><div class="val">
@@ -331,5 +331,26 @@ Express probabilities as simplified fractions. Remember:
 </div>
 </div>
 </div>
+
+<script>
+(function() {
+    var btn = document.querySelector('.yt-link');
+    if (!btn) return;
+    var defaultHref = btn.href;
+    var sections = document.querySelectorAll('[data-yt]');
+    if (sections.length === 0) return;
+    var observer = new IntersectionObserver(function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+                var q = entries[i].target.getAttribute('data-yt');
+                btn.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+            }
+        }
+    }, { threshold: 0.3 });
+    for (var i = 0; i < sections.length; i++) {
+        observer.observe(sections[i]);
+    }
+})();
+</script>
 </body>
 </html>

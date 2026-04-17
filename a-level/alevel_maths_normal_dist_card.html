@@ -597,14 +597,14 @@
 <div class="page">
 
     <div class="hero">
-        <h1>Normal Distribution</h1>
+        <h1 data-yt="A Level Maths Normal Distribution revision explained">Normal Distribution</h1>
         <div class="subtitle">The complete method &mdash; from X to Z to probability</div>
     </div>
 
     <!-- ============================================ -->
     <!-- 1. WHAT IT IS -->
     <!-- ============================================ -->
-    <h2 class="section-header">What It Is</h2>
+    <h2 class="section-header" data-yt="A Level Maths What It Is revision explained">What It Is</h2>
 
     <div class="bell-curve-container">
         <div class="notation"><span class="x-c">X</span> ~ N(&mu;, &sigma;&sup2;) &mdash; mean &mu;, variance &sigma;&sup2;</div>
@@ -664,7 +664,7 @@
     <!-- ============================================ -->
     <!-- 2. THE BIG CHAIN -->
     <!-- ============================================ -->
-    <h2 class="section-header">The Big Chain</h2>
+    <h2 class="section-header" data-yt="A Level Maths The Big Chain revision explained">The Big Chain</h2>
 
     <div class="chain">
         <div class="chain-box x-val">
@@ -708,7 +708,7 @@
     <!-- ============================================ -->
     <!-- 3. USING THE TABLE -->
     <!-- ============================================ -->
-    <h2 class="section-header">Using the Table</h2>
+    <h2 class="section-header" data-yt="A Level Maths Using the Table revision explained">Using the Table</h2>
 
     <div class="mini-bells">
         <!-- Case 1: P(Z < z) -->
@@ -769,7 +769,7 @@
     <!-- ============================================ -->
     <!-- 4. INVERSE NORMAL -->
     <!-- ============================================ -->
-    <h2 class="section-header">Inverse Normal &mdash; Going Backwards</h2>
+    <h2 class="section-header" data-yt="A Level Maths Inverse Normal Going Backwards revision explained">Inverse Normal &mdash; Going Backwards</h2>
 
     <div class="cards-grid full">
         <div class="info-card p-border">
@@ -814,7 +814,7 @@
     <!-- ============================================ -->
     <!-- 5. FINDING mu AND sigma -->
     <!-- ============================================ -->
-    <h2 class="section-header">Finding &mu; and &sigma; &mdash; Simultaneous Equations</h2>
+    <h2 class="section-header" data-yt="A Level Maths Finding and Simultaneous Equations revision explained">Finding &mu; and &sigma; &mdash; Simultaneous Equations</h2>
 
     <div class="cards-grid full">
         <div class="info-card z-border">
@@ -870,7 +870,7 @@
     <!-- ============================================ -->
     <!-- 6. NORMAL APPROXIMATION TO BINOMIAL -->
     <!-- ============================================ -->
-    <h2 class="section-header">Normal Approximation to Binomial</h2>
+    <h2 class="section-header" data-yt="A Level Maths Normal Approximation to Binomial revision explained">Normal Approximation to Binomial</h2>
 
     <div class="cards-grid">
         <div class="info-card z-border">
@@ -934,7 +934,7 @@
     <!-- ============================================ -->
     <!-- 7. COMMON MISTAKES -->
     <!-- ============================================ -->
-    <h2 class="section-header">Common Mistakes</h2>
+    <h2 class="section-header" data-yt="A Level Maths Common Mistakes revision explained">Common Mistakes</h2>
 
     <div class="mistakes-list">
         <div class="mistake-item">Using &sigma;&sup2; instead of &sigma; (or vice versa) in the standardising formula &mdash; z = (x &minus; &mu;) / <strong>&sigma;</strong>, not &sigma;&sup2;</div>
@@ -958,5 +958,26 @@
 
 </div>
 
+
+<script>
+(function() {
+    var btn = document.querySelector('.yt-link');
+    if (!btn) return;
+    var defaultHref = btn.href;
+    var sections = document.querySelectorAll('[data-yt]');
+    if (sections.length === 0) return;
+    var observer = new IntersectionObserver(function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+                var q = entries[i].target.getAttribute('data-yt');
+                btn.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+            }
+        }
+    }, { threshold: 0.3 });
+    for (var i = 0; i < sections.length; i++) {
+        observer.observe(sections[i]);
+    }
+})();
+</script>
 </body>
 </html>

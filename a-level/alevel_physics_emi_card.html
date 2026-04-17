@@ -509,14 +509,14 @@
 <div class="page">
 
     <div class="hero">
-        <h1>Electromagnetic Induction</h1>
+        <h1 data-yt="A Level Physics Electromagnetic Induction revision explained">Electromagnetic Induction</h1>
         <div class="subtitle">A-Level Physics &bull; Faraday's &amp; Lenz's Laws</div>
     </div>
 
     <!-- ======== 1. THE BIG IDEA ======== -->
     <div class="section-card big-idea">
         <div class="section-header">
-            <h2>The Big Idea</h2>
+            <h2 data-yt="A Level Physics The Big Idea revision explained">The Big Idea</h2>
             <span class="tag">THE WHOLE TOPIC IN THREE LINES</span>
         </div>
         <div class="section-body">
@@ -531,7 +531,7 @@
     <!-- ======== 2. MAGNETIC FLUX ======== -->
     <div class="section-card flux">
         <div class="section-header">
-            <h2>Magnetic Flux</h2>
+            <h2 data-yt="A Level Physics Magnetic Flux revision explained">Magnetic Flux</h2>
             <span class="tag">STEP BY STEP</span>
         </div>
         <div class="section-body">
@@ -565,7 +565,7 @@
     <!-- ======== 3. FLUX LINKAGE ======== -->
     <div class="section-card flux">
         <div class="section-header">
-            <h2>Flux Linkage</h2>
+            <h2 data-yt="A Level Physics Flux Linkage revision explained">Flux Linkage</h2>
             <span class="tag">N TURNS</span>
         </div>
         <div class="section-body">
@@ -579,7 +579,7 @@
     <!-- ======== 4. FARADAY'S LAW ======== -->
     <div class="section-card faraday">
         <div class="section-header">
-            <h2>Faraday's Law</h2>
+            <h2 data-yt="A Level Physics Faraday's Law revision explained">Faraday's Law</h2>
             <span class="tag">THE EQUATION</span>
         </div>
         <div class="section-body">
@@ -601,7 +601,7 @@
     <!-- ======== 5. LENZ'S LAW ======== -->
     <div class="section-card lenz">
         <div class="section-header">
-            <h2>Lenz's Law</h2>
+            <h2 data-yt="A Level Physics Lenz's Law revision explained">Lenz's Law</h2>
             <span class="tag">THE DIRECTION</span>
         </div>
         <div class="section-body">
@@ -636,13 +636,13 @@
     <!-- ======== 6. GENERATORS & TRANSFORMERS ======== -->
     <div class="section-card gen">
         <div class="section-header">
-            <h2>Generators &amp; Transformers</h2>
+            <h2 data-yt="A Level Physics Generators & Transformers revision explained">Generators &amp; Transformers</h2>
             <span class="tag">APPLICATIONS</span>
         </div>
         <div class="section-body">
             <div class="gt-grid">
                 <div class="gt-card">
-                    <h3>AC Generator</h3>
+                    <h3 data-yt="A Level Physics AC Generator revision explained">AC Generator</h3>
                     <div class="gt-sub">Coil rotating in a magnetic field</div>
                     <div class="gt-eq">&epsilon; = BAN&omega; sin(&omega;t)</div>
                     <div class="gt-point">EMF is <strong>sinusoidal</strong> &mdash; alternates positive and negative</div>
@@ -651,7 +651,7 @@
                     <div class="gt-point">&omega; = 2&pi;f = angular frequency</div>
                 </div>
                 <div class="gt-card">
-                    <h3>Transformers</h3>
+                    <h3 data-yt="A Level Physics Transformers revision explained">Transformers</h3>
                     <div class="gt-sub">Changing flux links two coils via an iron core</div>
                     <div class="gt-eq">V<sub>s</sub>/V<sub>p</sub> = N<sub>s</sub>/N<sub>p</sub> = I<sub>p</sub>/I<sub>s</sub></div>
                     <div class="gt-point">Assumes <strong>100% efficiency</strong> (ideal transformer)</div>
@@ -676,7 +676,7 @@
     <!-- ======== 7. COMMON MISTAKES ======== -->
     <div class="section-card warn">
         <div class="section-header">
-            <h2>The Mistakes</h2>
+            <h2 data-yt="A Level Physics The Mistakes revision explained">The Mistakes</h2>
             <span class="tag">AVOID THESE</span>
         </div>
         <div class="section-body">
@@ -703,5 +703,26 @@
 
 </div>
 
+
+<script>
+(function() {
+    var btn = document.querySelector('.yt-link');
+    if (!btn) return;
+    var defaultHref = btn.href;
+    var sections = document.querySelectorAll('[data-yt]');
+    if (sections.length === 0) return;
+    var observer = new IntersectionObserver(function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+                var q = entries[i].target.getAttribute('data-yt');
+                btn.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+            }
+        }
+    }, { threshold: 0.3 });
+    for (var i = 0; i < sections.length; i++) {
+        observer.observe(sections[i]);
+    }
+})();
+</script>
 </body>
 </html>

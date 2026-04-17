@@ -86,7 +86,7 @@
 <a class="yt-link" href="https://www.youtube.com/results?search_query=AQA+A+Level+Physics+Year+1+revision" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>Watch</a>
 <div class="page">
 <div class="header">
-  <h1>A-Level Physics — Year 1 Crib Sheet</h1>
+  <h1 data-yt="A Level Physics A-Level Physics — Year 1 Crib Sheet revision explained">A-Level Physics — Year 1 Crib Sheet</h1>
   <span>AQA 7408 · Year 1 · Core equations &amp; concepts</span>
 </div>
 
@@ -97,7 +97,7 @@
 <!-- MEASUREMENTS & ERRORS                              -->
 <!-- ═══════════════════════════════════════════════════ -->
 <div class="box">
-<div class="box-head s1">Measurements &amp; Errors <span class="marks">Topic 1</span></div>
+<div data-yt="A Level Physics Measurements & Errors Topic 1 revision explained" class="box-head s1">Measurements &amp; Errors <span class="marks">Topic 1</span></div>
 <div class="box-body">
 
 <div class="row"><div class="kw">SI base units</div><div class="val">
@@ -145,7 +145,7 @@ Final answer should match the least number of s.f. used in the calculation. Lead
 <!-- PARTICLES & RADIATION                              -->
 <!-- ═══════════════════════════════════════════════════ -->
 <div class="box">
-<div class="box-head s2">Particles &amp; Radiation <span class="marks">Topic 2</span></div>
+<div data-yt="A Level Physics Particles & Radiation Topic 2 revision explained" class="box-head s2">Particles &amp; Radiation <span class="marks">Topic 2</span></div>
 <div class="box-body">
 
 <div class="row"><div class="kw">The Standard Model</div><div class="val">
@@ -197,7 +197,7 @@ All matter has wave properties. Electrons diffract through crystal lattices, con
 <!-- WAVES                                              -->
 <!-- ═══════════════════════════════════════════════════ -->
 <div class="box">
-<div class="box-head s3">Waves <span class="marks">Topic 3</span></div>
+<div data-yt="A Level Physics Waves Topic 3 revision explained" class="box-head s3">Waves <span class="marks">Topic 3</span></div>
 <div class="box-body">
 
 <div class="row"><div class="kw">Progressive waves</div><div class="val">
@@ -258,7 +258,7 @@ Sharper maxima than double slit; used to measure &lambda; precisely.
 <!-- MECHANICS                                          -->
 <!-- ═══════════════════════════════════════════════════ -->
 <div class="box">
-<div class="box-head s4">Mechanics <span class="marks">Topic 4</span></div>
+<div data-yt="A Level Physics Mechanics Topic 4 revision explained" class="box-head s4">Mechanics <span class="marks">Topic 4</span></div>
 <div class="box-body">
 
 <div class="row"><div class="kw">SUVAT equations</div><div class="val">
@@ -317,7 +317,7 @@ Conservation of energy: total energy in a closed system is constant. Energy tran
 <!-- MATERIALS (AQA-specific Year 1 topic)              -->
 <!-- ═══════════════════════════════════════════════════ -->
 <div class="box">
-<div class="box-head s6">Materials <span class="marks">AQA 3.4</span></div>
+<div data-yt="A Level Physics Materials AQA 3.4 revision explained" class="box-head s6">Materials <span class="marks">AQA 3.4</span></div>
 <div class="box-body">
 
 <div class="row"><div class="kw">Density</div><div class="val">
@@ -386,7 +386,7 @@ Also called ultimate tensile strength (UTS). This is the maximum point on the st
 <!-- ELECTRICITY                                        -->
 <!-- ═══════════════════════════════════════════════════ -->
 <div class="box">
-<div class="box-head s5">Electricity <span class="marks">Topic 5</span></div>
+<div data-yt="A Level Physics Electricity Topic 5 revision explained" class="box-head s5">Electricity <span class="marks">Topic 5</span></div>
 <div class="box-body">
 
 <div class="row"><div class="kw">Current &amp; charge</div><div class="val">
@@ -456,5 +456,26 @@ Used with LDRs (resistance decreases with light) and thermistors (resistance dec
 </div>
 
 </div>
+
+<script>
+(function() {
+    var btn = document.querySelector('.yt-link');
+    if (!btn) return;
+    var defaultHref = btn.href;
+    var sections = document.querySelectorAll('[data-yt]');
+    if (sections.length === 0) return;
+    var observer = new IntersectionObserver(function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+                var q = entries[i].target.getAttribute('data-yt');
+                btn.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+            }
+        }
+    }, { threshold: 0.3 });
+    for (var i = 0; i < sections.length; i++) {
+        observer.observe(sections[i]);
+    }
+})();
+</script>
 </body>
 </html>
