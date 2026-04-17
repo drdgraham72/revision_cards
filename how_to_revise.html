@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Revise — The Evidence-Based Guide</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&family=Caveat:wght@600;700&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #f5f5f0;
+            --card: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #666;
+            --border: rgba(0,0,0,0.1);
+            --font: 'Barlow Condensed', sans-serif;
+            --mono: 'DM Mono', monospace;
+            --hand: 'Caveat', cursive;
+            --step1: #0958d9; --step1-bg: #e6f4ff;
+            --step2: #389e0d; --step2-bg: #f6ffed;
+            --step3: #d4380d; --step3-bg: #fff1f0;
+            --step4: #7c3aed; --step4-bg: #f5f3ff;
+            --step5: #854f0b; --step5-bg: #faeeda;
+            --step6: #0f6e56; --step6-bg: #e1f5ee;
+            --red: #d4380d; --green: #389e0d;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #141416; --card: #1e1e22;
+                --text: #e8e4dc; --text-light: #999;
+                --border: rgba(255,255,255,0.08);
+                --step1-bg: #0d2240; --step2-bg: #0d2a0d;
+                --step3-bg: #3a1a0d; --step4-bg: #1e1630;
+                --step5-bg: #2a1e0d; --step6-bg: #0d2a1a;
+            }
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 1.5rem 1rem;
+        }
+
+        .page { max-width: 800px; margin: 0 auto; }
+
+        .hero { text-align: center; margin-bottom: 2rem; }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            line-height: 1.1;
+            margin-bottom: 6px;
+        }
+
+        .hero .subtitle {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* ---- MYTH BUSTER ---- */
+        .myths {
+            background: var(--text);
+            color: #fff;
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 2rem;
+        }
+
+        .myths h2 {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .myth-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .myth {
+            padding: 12px 14px;
+            border-radius: 8px;
+        }
+
+        .myth.bad {
+            background: rgba(212,56,13,0.2);
+            border: 1px solid rgba(212,56,13,0.3);
+        }
+
+        .myth.good {
+            background: rgba(56,158,13,0.2);
+            border: 1px solid rgba(56,158,13,0.3);
+        }
+
+        .myth .myth-label {
+            font-family: var(--mono);
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 4px;
+        }
+
+        .myth.bad .myth-label { color: #ff7a45; }
+        .myth.good .myth-label { color: #73d13d; }
+
+        .myth .myth-text {
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        /* ---- THE 6 STEPS ---- */
+        .steps { margin-bottom: 2rem; }
+
+        .step-card {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 16px;
+            background: var(--card);
+            border-radius: 16px;
+            padding: 24px;
+            border-left: 6px solid;
+            align-items: flex-start;
+        }
+
+        .step-card.s1 { border-left-color: var(--step1); }
+        .step-card.s2 { border-left-color: var(--step2); }
+        .step-card.s3 { border-left-color: var(--step3); }
+        .step-card.s4 { border-left-color: var(--step4); }
+        .step-card.s5 { border-left-color: var(--step5); }
+        .step-card.s6 { border-left-color: var(--step6); }
+
+        .step-num {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 900;
+            flex-shrink: 0;
+            color: #fff;
+        }
+
+        .step-card.s1 .step-num { background: var(--step1); }
+        .step-card.s2 .step-num { background: var(--step2); }
+        .step-card.s3 .step-num { background: var(--step3); }
+        .step-card.s4 .step-num { background: var(--step4); }
+        .step-card.s5 .step-num { background: var(--step5); }
+        .step-card.s6 .step-num { background: var(--step6); }
+
+        .step-body { flex: 1; }
+
+        .step-body h3 {
+            font-size: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            margin-bottom: 6px;
+        }
+
+        .step-card.s1 .step-body h3 { color: var(--step1); }
+        .step-card.s2 .step-body h3 { color: var(--step2); }
+        .step-card.s3 .step-body h3 { color: var(--step3); }
+        .step-card.s4 .step-body h3 { color: var(--step4); }
+        .step-card.s5 .step-body h3 { color: var(--step5); }
+        .step-card.s6 .step-body h3 { color: var(--step6); }
+
+        .step-body .what {
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .step-body .why {
+            font-size: 12px;
+            line-height: 1.5;
+            color: var(--text-light);
+            padding: 8px 12px;
+            border-radius: 6px;
+            border-left: 3px solid;
+            font-style: italic;
+        }
+
+        .step-card.s1 .why { background: var(--step1-bg); border-left-color: var(--step1); }
+        .step-card.s2 .why { background: var(--step2-bg); border-left-color: var(--step2); }
+        .step-card.s3 .why { background: var(--step3-bg); border-left-color: var(--step3); }
+        .step-card.s4 .why { background: var(--step4-bg); border-left-color: var(--step4); }
+        .step-card.s5 .why { background: var(--step5-bg); border-left-color: var(--step5); }
+        .step-card.s6 .why { background: var(--step6-bg); border-left-color: var(--step6); }
+
+        .step-body .how {
+            margin-top: 10px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .step-body .how strong { font-weight: 700; }
+
+        .step-body .how ul {
+            margin-top: 4px;
+            padding-left: 18px;
+        }
+
+        .step-body .how li {
+            margin-bottom: 3px;
+        }
+
+        /* ---- TIMING ---- */
+        .timing {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 2rem;
+        }
+
+        .timing h2 {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .timing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+        }
+
+        .timing-block {
+            text-align: center;
+            padding: 16px;
+            border-radius: 10px;
+            border: 2px solid var(--border);
+        }
+
+        .timing-block .t-duration {
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 2px;
+        }
+
+        .timing-block .t-label {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-light);
+            margin-bottom: 6px;
+        }
+
+        .timing-block .t-desc {
+            font-size: 12px;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        .timing-block:nth-child(1) { background: var(--step1-bg); }
+        .timing-block:nth-child(1) .t-duration { color: var(--step1); }
+        .timing-block:nth-child(2) { background: var(--step2-bg); }
+        .timing-block:nth-child(2) .t-duration { color: var(--step2); }
+        .timing-block:nth-child(3) { background: var(--step3-bg); }
+        .timing-block:nth-child(3) .t-duration { color: var(--step3); }
+
+        /* ---- RAG RATING ---- */
+        .rag {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 2rem;
+        }
+
+        .rag h2 {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 6px;
+            text-align: center;
+        }
+
+        .rag .rag-sub {
+            font-size: 13px;
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .rag-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+        }
+
+        .rag-item {
+            text-align: center;
+            padding: 16px;
+            border-radius: 10px;
+            border: 2px solid;
+        }
+
+        .rag-item.red { background: #fff1f0; border-color: #d4380d; }
+        .rag-item.amber { background: #faeeda; border-color: #854f0b; }
+        .rag-item.green { background: #f6ffed; border-color: #389e0d; }
+
+        @media (prefers-color-scheme: dark) {
+            .rag-item.red { background: #3a1a0d; }
+            .rag-item.amber { background: #2a1e0d; }
+            .rag-item.green { background: #0d2a0d; }
+        }
+
+        .rag-item .rag-emoji { font-size: 28px; margin-bottom: 4px; }
+
+        .rag-item .rag-label {
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .rag-item.red .rag-label { color: #d4380d; }
+        .rag-item.amber .rag-label { color: #854f0b; }
+        .rag-item.green .rag-label { color: #389e0d; }
+
+        .rag-item .rag-desc {
+            font-size: 11px;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        .rag-item .rag-action {
+            font-size: 11px;
+            font-weight: 700;
+            margin-top: 6px;
+        }
+
+        /* ---- SESSION PLAN ---- */
+        .session {
+            background: var(--step4-bg);
+            border: 2px solid var(--step4);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 2rem;
+        }
+
+        .session h2 {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 16px;
+            text-align: center;
+            color: var(--step4);
+        }
+
+        .session-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .session-slot {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 14px;
+            border-radius: 8px;
+            background: var(--card);
+        }
+
+        .slot-time {
+            font-family: var(--mono);
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--step4);
+            width: 50px;
+            flex-shrink: 0;
+            text-align: right;
+        }
+
+        .slot-bar {
+            width: 4px;
+            border-radius: 2px;
+            flex-shrink: 0;
+            align-self: stretch;
+        }
+
+        .slot-bar.active { background: var(--step4); }
+        .slot-bar.break { background: var(--step2); }
+        .slot-bar.review { background: var(--step5); }
+
+        .slot-desc {
+            font-size: 13px;
+            line-height: 1.4;
+            flex: 1;
+        }
+
+        .slot-desc strong { font-weight: 700; }
+
+        /* ---- MANTRA ---- */
+        .mantra {
+            text-align: center;
+            padding: 32px 24px;
+            background: var(--text);
+            color: #fff;
+            border-radius: 16px;
+            margin-bottom: 1rem;
+        }
+
+        .mantra .big-text {
+            font-size: 28px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .mantra .big-text span { color: #69b1ff; }
+
+        .mantra .small-text {
+            font-family: var(--mono);
+            font-size: 11px;
+            opacity: 0.6;
+        }
+
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 28px; }
+            .myth-grid { grid-template-columns: 1fr; }
+            .timing-grid { grid-template-columns: 1fr; }
+            .rag-grid { grid-template-columns: 1fr; }
+            .step-card { flex-direction: column; gap: 12px; }
+            .step-num { width: 36px; height: 36px; font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <div class="hero">
+        <h1>How to Revise</h1>
+        <div class="subtitle">6 steps backed by cognitive science. No fluff.</div>
+    </div>
+
+    <!-- ---- MYTH BUSTER ---- -->
+    <div class="myths">
+        <h2>Stop Doing These &mdash; Start Doing These</h2>
+        <div class="myth-grid">
+            <div class="myth bad">
+                <div class="myth-label">Feels productive, isn't</div>
+                <div class="myth-text">Re-reading notes and highlighting</div>
+            </div>
+            <div class="myth good">
+                <div class="myth-label">Actually works</div>
+                <div class="myth-text">Testing yourself from memory (active recall)</div>
+            </div>
+            <div class="myth bad">
+                <div class="myth-label">Feels productive, isn't</div>
+                <div class="myth-text">Cramming everything the night before</div>
+            </div>
+            <div class="myth good">
+                <div class="myth-label">Actually works</div>
+                <div class="myth-text">Spreading revision over weeks (spaced practice)</div>
+            </div>
+            <div class="myth bad">
+                <div class="myth-label">Feels productive, isn't</div>
+                <div class="myth-text">Revising one subject for 3 hours straight</div>
+            </div>
+            <div class="myth good">
+                <div class="myth-label">Actually works</div>
+                <div class="myth-text">Short focused sessions with breaks (25 min blocks)</div>
+            </div>
+            <div class="myth bad">
+                <div class="myth-label">Feels productive, isn't</div>
+                <div class="myth-text">Copying out the textbook into pretty notes</div>
+            </div>
+            <div class="myth good">
+                <div class="myth-label">Actually works</div>
+                <div class="myth-text">Doing past papers under timed conditions</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ---- THE 6 STEPS ---- -->
+    <div class="steps">
+
+        <div class="step-card s1">
+            <div class="step-num">1</div>
+            <div class="step-body">
+                <h3>Know what you don't know</h3>
+                <div class="what">
+                    Before you revise anything, <strong>RAG-rate every topic</strong>. Red = don't understand it. Amber = get the basics but wouldn't ace an exam question. Green = confident. Be brutally honest.
+                </div>
+                <div class="why">
+                    Science says: students waste up to 60% of revision time re-studying things they already know. RAG-rating forces you to spend time where it actually matters.
+                </div>
+                <div class="how">
+                    <strong>How:</strong> Go through the specification topic list. For each topic, ask: "Could I answer a 6-mark question on this right now?" If no &rarr; Red or Amber.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-card s2">
+            <div class="step-num">2</div>
+            <div class="step-body">
+                <h3>Learn it (briefly)</h3>
+                <div class="what">
+                    For Red topics only: read the material, watch a video, look at a crib sheet. Spend <strong>no more than 10 minutes</strong> understanding the concept. Don't take notes yet.
+                </div>
+                <div class="why">
+                    Science says: you need something in your head before you can retrieve it. But passive reading has diminishing returns after a few minutes. Get the gist, then move to step 3.
+                </div>
+                <div class="how">
+                    <strong>How:</strong> Use these revision cards, a textbook, or a short video. Focus on understanding the <em>why</em>, not memorising the <em>what</em>.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-card s3">
+            <div class="step-num">3</div>
+            <div class="step-body">
+                <h3>Test yourself (active recall)</h3>
+                <div class="what">
+                    Close the book. Cover the notes. Now <strong>write down everything you can remember</strong> about the topic from memory. Use a blank piece of paper or a whiteboard. No peeking.
+                </div>
+                <div class="why">
+                    Science says: the act of retrieving information from memory is what makes it stick. Every time you successfully recall something, the memory gets stronger. This is the single most effective revision technique known to research.
+                </div>
+                <div class="how">
+                    <strong>Ways to do it:</strong>
+                    <ul>
+                        <li><strong>Brain dump:</strong> write everything you know about a topic on a blank page</li>
+                        <li><strong>Flashcards:</strong> read the question, say the answer BEFORE flipping</li>
+                        <li><strong>Past papers:</strong> do questions without notes, then mark yourself</li>
+                        <li><strong>Teach it:</strong> explain the topic out loud to someone (or an empty room)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-card s4">
+            <div class="step-num">4</div>
+            <div class="step-body">
+                <h3>Check and correct</h3>
+                <div class="what">
+                    Now open the book. Compare what you wrote with the actual material. <strong>Find the gaps</strong> &mdash; what did you miss? What did you get wrong? Mark those gaps clearly.
+                </div>
+                <div class="why">
+                    Science says: identifying errors is where the learning actually happens. The gap between what you thought you knew and what you actually know is the most valuable information in your revision.
+                </div>
+                <div class="how">
+                    <strong>How:</strong> Use a different colour pen to fill in what you missed. These gaps are your priority for next time. Update your RAG rating.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-card s5">
+            <div class="step-num">5</div>
+            <div class="step-body">
+                <h3>Space it out</h3>
+                <div class="what">
+                    Don't revise the same topic again today. Come back to it in <strong>2-3 days</strong>. Then again in a <strong>week</strong>. Then again in <strong>two weeks</strong>. Each time, repeat steps 3 and 4.
+                </div>
+                <div class="why">
+                    Science says: spacing out your practice is dramatically more effective than massing it together. Forgetting a little bit between sessions is actually good &mdash; it makes the re-learning stronger. This is called the "spacing effect" and it's one of the most robust findings in all of psychology.
+                </div>
+                <div class="how">
+                    <strong>How:</strong> Use a revision timetable. Rotate subjects. Monday: Chemistry topics 1-2. Tuesday: Physics topics 1-2. Wednesday: Maths. Thursday: back to Chemistry topics 1-2 again. The gaps between sessions are doing the work.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-card s6">
+            <div class="step-num">6</div>
+            <div class="step-body">
+                <h3>Do past papers properly</h3>
+                <div class="what">
+                    In the final weeks, do <strong>full past papers under timed exam conditions</strong>. No notes. No phone. Exact time limit. Then <strong>mark them using the mark scheme</strong>. Study what you got wrong.
+                </div>
+                <div class="why">
+                    Science says: practising under exam conditions trains your brain to perform under pressure. It also reveals topic gaps you didn't know you had. The mark scheme teaches you exactly what examiners are looking for &mdash; often specific phrases and keywords.
+                </div>
+                <div class="how">
+                    <strong>How:</strong>
+                    <ul>
+                        <li>Find past papers on the exam board website (they're free)</li>
+                        <li>Set a timer. No distractions. Do the whole paper</li>
+                        <li>Mark it honestly using the mark scheme</li>
+                        <li>For every wrong answer: understand WHY, then add that topic to your Red list</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ---- TIMING ---- -->
+    <div class="timing">
+        <h2>How Long? How Often?</h2>
+        <div class="timing-grid">
+            <div class="timing-block">
+                <div class="t-duration">25 min</div>
+                <div class="t-label">Focus block</div>
+                <div class="t-desc">One topic, one task. Phone off. Full attention. When the timer goes, stop.</div>
+            </div>
+            <div class="timing-block">
+                <div class="t-duration">5 min</div>
+                <div class="t-label">Break</div>
+                <div class="t-desc">Stand up. Move. Get water. Look at something far away. Don't check your phone.</div>
+            </div>
+            <div class="timing-block">
+                <div class="t-duration">3&ndash;4</div>
+                <div class="t-label">Blocks per session</div>
+                <div class="t-desc">Then take a longer break (20&ndash;30 min). Two sessions per day max. Quality over quantity.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ---- SAMPLE SESSION ---- -->
+    <div class="session">
+        <h2>What a Good 25-Minute Block Looks Like</h2>
+        <div class="session-timeline">
+            <div class="session-slot">
+                <div class="slot-time">0&ndash;2 min</div>
+                <div class="slot-bar review"></div>
+                <div class="slot-desc"><strong>Quick recall:</strong> What do I already know about this topic? Jot it down from memory.</div>
+            </div>
+            <div class="session-slot">
+                <div class="slot-time">2&ndash;7 min</div>
+                <div class="slot-bar active"></div>
+                <div class="slot-desc"><strong>Fill gaps:</strong> Read/watch only the bits you couldn't recall. Don't re-read what you already know.</div>
+            </div>
+            <div class="session-slot">
+                <div class="slot-time">7&ndash;20 min</div>
+                <div class="slot-bar active"></div>
+                <div class="slot-desc"><strong>Practice:</strong> Do exam questions, flashcards, or a brain dump on this topic. No notes open.</div>
+            </div>
+            <div class="session-slot">
+                <div class="slot-time">20&ndash;23 min</div>
+                <div class="slot-bar review"></div>
+                <div class="slot-desc"><strong>Mark and correct:</strong> Check your answers. Note what you got wrong. Update your RAG rating.</div>
+            </div>
+            <div class="session-slot">
+                <div class="slot-time">23&ndash;25 min</div>
+                <div class="slot-bar break"></div>
+                <div class="slot-desc"><strong>Plan:</strong> Write down what to revisit next time. Then stop. Take your break.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ---- RAG RATING ---- -->
+    <div class="rag">
+        <h2>RAG Rate Everything</h2>
+        <div class="rag-sub">Be honest. Green topics need the least time. Red topics need the most.</div>
+        <div class="rag-grid">
+            <div class="rag-item red">
+                <div class="rag-label">Red</div>
+                <div class="rag-desc">Don't understand it. Couldn't answer a basic question. Need to learn from scratch.</div>
+                <div class="rag-action">Action: Learn &rarr; Test &rarr; Repeat in 2 days</div>
+            </div>
+            <div class="rag-item amber">
+                <div class="rag-label">Amber</div>
+                <div class="rag-desc">Get the basics but would struggle with harder questions or multi-step problems.</div>
+                <div class="rag-action">Action: Practice questions &rarr; Repeat in 4 days</div>
+            </div>
+            <div class="rag-item green">
+                <div class="rag-label">Green</div>
+                <div class="rag-desc">Confident. Could explain it to someone else. Would get full marks on an exam question.</div>
+                <div class="rag-action">Action: Quick check once a week. Move on.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ---- MANTRA ---- -->
+    <div class="mantra">
+        <div class="big-text">
+            Don't re-read. <span>Recall.</span><br>
+            Don't cram. <span>Space.</span><br>
+            Don't guess. <span>Check.</span>
+        </div>
+        <div class="small-text">Three rules. That's the whole science of revision.</div>
+    </div>
+
+</div>
+
+</body>
+</html>

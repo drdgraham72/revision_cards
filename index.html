@@ -289,6 +289,41 @@
 
         .card.breakout:hover { background: #f0f0f0; }
 
+        /* Top-level guide card */
+        .guide-card {
+            display: block;
+            padding: 16px 24px;
+            border-radius: 8px;
+            background: #1a1a2e;
+            color: #fff;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .guide-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            background: #252547;
+        }
+
+        .guide-card .card-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #fff;
+        }
+
+        .guide-card .card-desc {
+            font-size: 12px;
+            color: #aaa;
+            line-height: 1.4;
+        }
+
         .card.disabled {
             opacity: 0.5;
             cursor: not-allowed;
@@ -328,6 +363,7 @@
     <div class="topbar-right">
         <select class="page-select" id="pageSelect" onchange="loadPage(this.value)">
             <option value="">-- Select a topic --</option>
+            <option value="how_to_revise.html">How to Revise — The 6-Step Guide</option>
             <optgroup label="English Language">
                 <option value="gcse_english_language_crib_sheet.html">English Language Crib Sheet</option>
             </optgroup>
@@ -387,6 +423,11 @@
             <div class="home-header">
                 <h2>GCSE Revision Cards</h2>
                 <p>Interactive study aids for GCSE examinations</p>
+            </div>
+
+            <div class="guide-card" onclick="loadPage('how_to_revise.html')">
+                <div class="card-title"><span class="icon">&#x1f3af;</span>How to Revise — The 6-Step Guide</div>
+                <div class="card-desc">Evidence-based revision techniques. Stop re-reading. Start recalling. The science of what actually works.</div>
             </div>
 
             <div class="grid">
