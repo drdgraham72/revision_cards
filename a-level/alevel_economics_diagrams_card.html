@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Economics — The Diagram Bank</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&family=Caveat:wght@600;700&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #f5f5f0;
+            --card: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #666;
+            --border: rgba(0,0,0,0.1);
+            --font: 'Barlow Condensed', sans-serif;
+            --mono: 'DM Mono', monospace;
+            --hand: 'Caveat', cursive;
+
+            /* Economics colour palette */
+            --demand-blue: #1d4ed8;
+            --demand-bg: #e8f0fe;
+            --supply-red: #dc2626;
+            --supply-bg: #fef2f2;
+            --social-green: #16a34a;
+            --social-bg: #e8faf0;
+            --mr-purple: #7c3aed;
+            --mr-bg: #f3f0ff;
+            --amber: #d97706;
+            --amber-bg: #fef9e7;
+            --macro-teal: #0891b2;
+            --macro-bg: #e6f7fb;
+            --global-indigo: #4338ca;
+            --global-bg: #eef2ff;
+
+            --micro-accent: #1d4ed8;
+            --micro-bg: #e8f0fe;
+            --macro-accent: #0891b2;
+            --macro-macro-bg: #e6f7fb;
+            --global-accent: #4338ca;
+            --global-global-bg: #eef2ff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #141416;
+                --card: #1e1e22;
+                --text: #e8e4dc;
+                --text-light: #999;
+                --border: rgba(255,255,255,0.08);
+
+                --demand-bg: #0d1f40;
+                --supply-bg: #2a0d0d;
+                --social-bg: #0d2a16;
+                --mr-bg: #1e1630;
+                --amber-bg: #2a1e0d;
+                --macro-bg: #0d2a30;
+                --global-bg: #1a1840;
+
+                --micro-bg: #0d1f40;
+                --macro-macro-bg: #0d2a30;
+                --global-global-bg: #1a1840;
+            }
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 1.5rem 1rem;
+        }
+
+        .page { max-width: 1100px; margin: 0 auto; }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            line-height: 1.1;
+            margin-bottom: 6px;
+        }
+
+        .hero .subtitle {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* Section headers */
+        .section-header {
+            text-align: center;
+            margin: 2.5rem 0 1.5rem;
+            padding: 14px 24px;
+            border-radius: 12px;
+            border: 2px solid;
+        }
+
+        .section-header h2 {
+            font-size: 22px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .section-header .section-count {
+            font-family: var(--mono);
+            font-size: 11px;
+            margin-top: 2px;
+        }
+
+        .section-header.micro { border-color: var(--micro-accent); background: var(--micro-bg); }
+        .section-header.micro h2 { color: var(--micro-accent); }
+        .section-header.micro .section-count { color: var(--micro-accent); }
+
+        .section-header.macro { border-color: var(--macro-accent); background: var(--macro-macro-bg); }
+        .section-header.macro h2 { color: var(--macro-accent); }
+        .section-header.macro .section-count { color: var(--macro-accent); }
+
+        .section-header.global { border-color: var(--global-accent); background: var(--global-global-bg); }
+        .section-header.global h2 { color: var(--global-accent); }
+        .section-header.global .section-count { color: var(--global-accent); }
+
+        /* Diagram grid */
+        .diagram-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .diagram-card {
+            background: var(--card);
+            border-radius: 14px;
+            border: 2px solid var(--border);
+            overflow: hidden;
+        }
+
+        .diagram-card-header {
+            padding: 14px 18px 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .diagram-card-header .diagram-number {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-light);
+        }
+
+        .diagram-card-header h3 {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            margin-top: 2px;
+        }
+
+        .diagram-card-header .use-for {
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--text-light);
+            margin-top: 4px;
+            line-height: 1.4;
+        }
+
+        .diagram-card-body {
+            padding: 12px 14px 14px;
+        }
+
+        .diagram-card-body svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .diagram-labels {
+            padding: 8px 18px 14px;
+            border-top: 1px solid var(--border);
+        }
+
+        .diagram-labels .label-title {
+            font-family: var(--mono);
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+
+        .diagram-labels .label-list {
+            font-size: 12px;
+            line-height: 1.5;
+            color: var(--text);
+        }
+
+        .diagram-labels .label-list span {
+            display: inline-block;
+            padding: 1px 6px;
+            border-radius: 3px;
+            font-weight: 700;
+            font-size: 11px;
+            margin: 1px 2px;
+        }
+
+        .label-list .lb { background: var(--demand-bg); color: var(--demand-blue); }
+        .label-list .lr { background: var(--supply-bg); color: var(--supply-red); }
+        .label-list .lg { background: var(--social-bg); color: var(--social-green); }
+        .label-list .lp { background: var(--mr-bg); color: var(--mr-purple); }
+        .label-list .la { background: var(--amber-bg); color: var(--amber); }
+
+        /* Wide card spanning full width */
+        .diagram-card.wide {
+            grid-column: 1 / -1;
+        }
+
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 26px; }
+            .diagram-grid { grid-template-columns: 1fr; }
+            .diagram-card.wide { grid-column: auto; }
+            .section-header h2 { font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <div class="hero">
+        <h1>The Diagram Bank &mdash; Every Diagram You Need</h1>
+        <div class="subtitle">18 key diagrams for A-Level Economics exams &bull; draw them clean, label them right</div>
+    </div>
+
+    <!-- ==================== MICROECONOMICS ==================== -->
+    <div class="section-header micro">
+        <h2>Microeconomics</h2>
+        <div class="section-count">8 diagrams</div>
+    </div>
+
+    <div class="diagram-grid">
+
+        <!-- 1. Supply & Demand -->
+        <div class="diagram-card">
+            <div class="diagram-card-header">
+                <div class="diagram-number">Diagram 01</div>
+                <h3>Supply &amp; Demand</h3>
+                <div class="use-for">Use for: market equilibrium, price mechanism, consumer/producer surplus</div>
+            </div>
+            <div class="diagram-card-body">
+                <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Axes -->
+                    <line x1="50" y1="10" x2="50" y2="175" stroke="currentColor" stroke-width="2"/>
+                    <line x1="50" y1="175" x2="305" y2="175" stroke="currentColor" stroke-width="2"/>
+                    <text x="20" y="95" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle" transform="rotate(-90,20,95)">Price</text>
+                    <text x="175" y="195" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle">Quantity</text>
+                    <!-- Consumer surplus (triangle above Pe, below D) -->
+                    <polygon points="165,90 50,90 50,25" fill="#1d4ed8" opacity="0.12"/>
+                    <!-- Producer surplus (triangle below Pe, above S) -->
+                    <polygon points="165,90 50,90 50,155" fill="#dc2626" opacity="0.12"/>
+                    <!-- Demand curve (blue) -->
+                    <line x1="50" y1="25" x2="290" y2="165" stroke="#1d4ed8" stroke-width="2.5"/>
+                    <text x="280" y="160" font-family="'Barlow Condensed',sans-serif" font-size="13" font-weight="700" fill="#1d4ed8">D</text>
+                    <!-- Supply curve (red) -->
+                    <line x1="50" y1="155" x2="290" y2="25" stroke="#dc2626" stroke-width="2.5"/>
+                    <text x="280" y="22" font-family="'Barlow Condensed',sans-serif" font-size="13" font-weight="700" fill="#dc2626">S</text>
+                    <!-- Equilibrium point -->
+                    <circle cx="165" cy="90" r="4" fill="#1a1a2e"/>
+                    <!-- Dashed lines to axes -->
+                    <line x1="50" y1="90" x2="165" y2="90" stroke="currentColor" stroke-width="1" stroke-dasharray="4,3"/>
+                    <line x1="165" y1="90" x2="165" y2="175" stroke="currentColor" stroke-width="1" stroke-dasharray="4,3"/>
+                    <!-- Labels -->
+                    <text x="38" y="93" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="currentColor" text-anchor="end">Pe</text>
+                    <text x="165" y="190" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="currentColor" text-anchor="middle">Qe</text>
+                    <!-- CS / PS labels -->
+                    <text x="85" y="70" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#1d4ed8">CS</text>
+                    <text x="85" y="118" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#dc2626">PS</text>
+                </svg>
+            </div>
+            <div class="diagram-labels">
+                <div class="label-title">Key labels</div>
+                <div class="label-list">
+                    <span class="lb">D = Demand</span>
+                    <span class="lr">S = Supply</span>
+                    <span class="lb">CS = Consumer Surplus</span>
+                    <span class="lr">PS = Producer Surplus</span>
+                    <span class="la">Pe, Qe = Equilibrium</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Negative Externality (production) -->
+        <div class="diagram-card">
+            <div class="diagram-card-header">
+                <div class="diagram-number">Diagram 02</div>
+                <h3>Negative Externality (Production)</h3>
+                <div class="use-for">Use for: market failure, pollution, government intervention, taxation</div>
+            </div>
+            <div class="diagram-card-body">
+                <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Axes -->
+                    <line x1="50" y1="10" x2="50" y2="175" stroke="currentColor" stroke-width="2"/>
+                    <line x1="50" y1="175" x2="305" y2="175" stroke="currentColor" stroke-width="2"/>
+                    <text x="20" y="95" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle" transform="rotate(-90,20,95)">Cost / Benefit</text>
+                    <text x="175" y="195" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle">Quantity</text>
+                    <!-- Welfare loss triangle -->
+                    <polygon points="190,65 190,90 145,78" fill="#dc2626" opacity="0.2"/>
+                    <!-- MPC (red, lower supply) -->
+                    <line x1="55" y1="155" x2="280" y2="45" stroke="#dc2626" stroke-width="2.5"/>
+                    <text x="272" y="40" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="#dc2626">MPC</text>
+                    <!-- MSC (green, above MPC) -->
+                    <line x1="55" y1="125" x2="280" y2="15" stroke="#16a34a" stroke-width="2.5"/>
+                    <text x="272" y="12" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="#16a34a">MSC</text>
+                    <!-- MPB = MSB (blue, demand) -->
+                    <line x1="55" y1="25" x2="280" y2="155" stroke="#1d4ed8" stroke-width="2.5"/>
+                    <text x="268" y="152" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="#1d4ed8">MPB=MSB</text>
+                    <!-- Free market equilibrium (MPC meets MPB) -->
+                    <circle cx="190" cy="65" r="3" fill="#dc2626"/>
+                    <line x1="190" y1="65" x2="190" y2="175" stroke="#dc2626" stroke-width="1" stroke-dasharray="4,3"/>
+                    <text x="190" y="190" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="600" fill="#dc2626" text-anchor="middle">Qfm</text>
+                    <!-- Social optimum (MSC meets MPB) -->
+                    <circle cx="145" cy="78" r="3" fill="#16a34a"/>
+                    <line x1="145" y1="78" x2="145" y2="175" stroke="#16a34a" stroke-width="1" stroke-dasharray="4,3"/>
+                    <text x="145" y="190" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="600" fill="#16a34a" text-anchor="middle">Qopt</text>
+                    <!-- Welfare loss label -->
+                    <text x="200" y="82" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#dc2626">Welfare</text>
+                    <text x="200" y="92" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#dc2626">Loss</text>
+                    <!-- Overproduction arrow -->
+                    <line x1="150" y1="168" x2="185" y2="168" stroke="#d97706" stroke-width="2" marker-end="url(#arrowAmber)"/>
+                    <text x="167" y="163" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="700" fill="#d97706" text-anchor="middle">Over-</text>
+                    <text x="167" y="172" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="700" fill="#d97706" text-anchor="middle">production</text>
+                    <defs><marker id="arrowAmber" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#d97706"/></marker></defs>
+                </svg>
+            </div>
+            <div class="diagram-labels">
+                <div class="label-title">Key labels</div>
+                <div class="label-list">
+                    <span class="lr">MPC = Marginal Private Cost</span>
+                    <span class="lg">MSC = Marginal Social Cost</span>
+                    <span class="lb">MPB = MSB</span>
+                    <span class="la">Overproduction at Qfm</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Positive Externality (consumption) -->
+        <div class="diagram-card">
+            <div class="diagram-card-header">
+                <div class="diagram-number">Diagram 03</div>
+                <h3>Positive Externality (Consumption)</h3>
+                <div class="use-for">Use for: merit goods, education, healthcare, subsidies</div>
+            </div>
+            <div class="diagram-card-body">
+                <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Axes -->
+                    <line x1="50" y1="10" x2="50" y2="175" stroke="currentColor" stroke-width="2"/>
+                    <line x1="50" y1="175" x2="305" y2="175" stroke="currentColor" stroke-width="2"/>
+                    <text x="20" y="95" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle" transform="rotate(-90,20,95)">Cost / Benefit</text>
+                    <text x="175" y="195" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle">Quantity</text>
+                    <!-- Welfare loss triangle -->
+                    <polygon points="155,88 200,75 200,55" fill="#16a34a" opacity="0.2"/>
+                    <!-- MSC = MPC (red, supply) -->
+                    <line x1="55" y1="155" x2="280" y2="25" stroke="#dc2626" stroke-width="2.5"/>
+                    <text x="268" y="22" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="#dc2626">MSC=MPC</text>
+                    <!-- MPB (blue, lower demand) -->
+                    <line x1="55" y1="30" x2="280" y2="160" stroke="#1d4ed8" stroke-width="2.5"/>
+                    <text x="272" y="157" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="#1d4ed8">MPB</text>
+                    <!-- MSB (green, above MPB) -->
+                    <line x1="55" y1="15" x2="280" y2="130" stroke="#16a34a" stroke-width="2.5"/>
+                    <text x="272" y="127" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="#16a34a">MSB</text>
+                    <!-- Free market equilibrium (MPC meets MPB) -->
+                    <circle cx="155" cy="88" r="3" fill="#1d4ed8"/>
+                    <line x1="155" y1="88" x2="155" y2="175" stroke="#1d4ed8" stroke-width="1" stroke-dasharray="4,3"/>
+                    <text x="155" y="190" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="600" fill="#1d4ed8" text-anchor="middle">Qfm</text>
+                    <!-- Social optimum (MPC meets MSB) -->
+                    <circle cx="200" cy="55" r="3" fill="#16a34a"/>
+                    <line x1="200" y1="55" x2="200" y2="175" stroke="#16a34a" stroke-width="1" stroke-dasharray="4,3"/>
+                    <text x="200" y="190" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="600" fill="#16a34a" text-anchor="middle">Qopt</text>
+                    <!-- Welfare loss label -->
+                    <text x="210" y="68" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#16a34a">Welfare</text>
+                    <text x="210" y="78" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#16a34a">Loss</text>
+                    <!-- Underproduction arrow -->
+                    <line x1="195" y1="168" x2="160" y2="168" stroke="#d97706" stroke-width="2" marker-end="url(#arrowAmber2)"/>
+                    <text x="178" y="163" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="700" fill="#d97706" text-anchor="middle">Under-</text>
+                    <text x="178" y="172" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="700" fill="#d97706" text-anchor="middle">production</text>
+                    <defs><marker id="arrowAmber2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#d97706"/></marker></defs>
+                </svg>
+            </div>
+            <div class="diagram-labels">
+                <div class="label-title">Key labels</div>
+                <div class="label-list">
+                    <span class="lr">MSC = MPC</span>
+                    <span class="lb">MPB = Marginal Private Benefit</span>
+                    <span class="lg">MSB = Marginal Social Benefit</span>
+                    <span class="la">Underproduction at Qfm</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Indirect Tax -->
+        <div class="diagram-card">
+            <div class="diagram-card-header">
+                <div class="diagram-number">Diagram 04</div>
+                <h3>Indirect Tax</h3>
+                <div class="use-for">Use for: government intervention, demerit goods, tax incidence, cigarettes/alcohol</div>
+            </div>
+            <div class="diagram-card-body">
+                <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Axes -->
+                    <line x1="50" y1="10" x2="50" y2="175" stroke="currentColor" stroke-width="2"/>
+                    <line x1="50" y1="175" x2="305" y2="175" stroke="currentColor" stroke-width="2"/>
+                    <text x="20" y="95" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle" transform="rotate(-90,20,95)">Price</text>
+                    <text x="175" y="195" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle">Quantity</text>
+                    <!-- Tax revenue rectangle -->
+                    <rect x="50" y="60" width="105" height="35" fill="#d97706" opacity="0.15"/>
+                    <!-- Original S (red) -->
+                    <line x1="55" y1="155" x2="280" y2="40" stroke="#dc2626" stroke-width="2.5"/>
+                    <text x="275" y="36" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="#dc2626">S</text>
+                    <!-- S + tax (red dashed, shifted up) -->
+                    <line x1="55" y1="120" x2="280" y2="5" stroke="#dc2626" stroke-width="2" stroke-dasharray="6,3"/>
+                    <text x="260" y="8" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="#dc2626">S+tax</text>
+                    <!-- Demand (blue) -->
+                    <line x1="55" y1="25" x2="280" y2="160" stroke="#1d4ed8" stroke-width="2.5"/>
+                    <text x="272" y="157" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="#1d4ed8">D</text>
+                    <!-- Original equilibrium -->
+                    <circle cx="170" cy="85" r="3" fill="currentColor" opacity="0.4"/>
+                    <line x1="170" y1="85" x2="170" y2="175" stroke="currentColor" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
+                    <line x1="50" y1="85" x2="170" y2="85" stroke="currentColor" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
+                    <text x="38" y="88" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="600" fill="currentColor" text-anchor="end" opacity="0.5">P1</text>
+                    <text x="170" y="190" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="600" fill="currentColor" text-anchor="middle" opacity="0.5">Q1</text>
+                    <!-- New equilibrium -->
+                    <circle cx="155" cy="60" r="3" fill="#dc2626"/>
+                    <line x1="155" y1="60" x2="155" y2="175" stroke="#dc2626" stroke-width="1" stroke-dasharray="4,3"/>
+                    <line x1="50" y1="60" x2="155" y2="60" stroke="#dc2626" stroke-width="1" stroke-dasharray="4,3"/>
+                    <text x="38" y="63" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#dc2626" text-anchor="end">P2</text>
+                    <text x="155" y="190" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#dc2626" text-anchor="middle">Q2</text>
+                    <!-- Producer receives line -->
+                    <line x1="50" y1="95" x2="155" y2="95" stroke="#16a34a" stroke-width="1" stroke-dasharray="4,3"/>
+                    <text x="38" y="98" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#16a34a" text-anchor="end">Pp</text>
+                    <!-- Tax bracket -->
+                    <line x1="42" y1="60" x2="42" y2="95" stroke="#d97706" stroke-width="2"/>
+                    <text x="32" y="80" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="700" fill="#d97706" text-anchor="end">Tax</text>
+                    <!-- Tax revenue label -->
+                    <text x="100" y="82" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#d97706" text-anchor="middle">Tax Revenue</text>
+                </svg>
+            </div>
+            <div class="diagram-labels">
+                <div class="label-title">Key labels</div>
+                <div class="label-list">
+                    <span class="lr">S+tax shifts up</span>
+                    <span class="la">Tax revenue = rectangle</span>
+                    <span class="lb">Consumer pays P1&rarr;P2</span>
+                    <span class="lg">Producer receives Pp</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Subsidy -->
+        <div class="diagram-card">
+            <div class="diagram-card-header">
+                <div class="diagram-number">Diagram 05</div>
+                <h3>Subsidy</h3>
+                <div class="use-for">Use for: merit goods, government intervention, reducing prices, increasing output</div>
+            </div>
+            <div class="diagram-card-body">
+                <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Axes -->
+                    <line x1="50" y1="10" x2="50" y2="175" stroke="currentColor" stroke-width="2"/>
+                    <line x1="50" y1="175" x2="305" y2="175" stroke="currentColor" stroke-width="2"/>
+                    <text x="20" y="95" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle" transform="rotate(-90,20,95)">Price</text>
+                    <text x="175" y="195" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle">Quantity</text>
+                    <!-- Cost to government rectangle -->
+                    <rect x="50" y="75" width="140" height="35" fill="#16a34a" opacity="0.12"/>
+                    <!-- Original S (red) -->
+                    <line x1="55" y1="150" x2="280" y2="25" stroke="#dc2626" stroke-width="2.5"/>
+                    <text x="275" y="22" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="#dc2626">S</text>
+                    <!-- S - subsidy (green dashed, shifted down/right) -->
+                    <line x1="55" y1="180" x2="280" y2="55" stroke="#16a34a" stroke-width="2" stroke-dasharray="6,3"/>
+                    <text x="250" y="52" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="#16a34a">S&minus;sub</text>
+                    <!-- Demand (blue) -->
+                    <line x1="55" y1="25" x2="280" y2="155" stroke="#1d4ed8" stroke-width="2.5"/>
+                    <text x="272" y="152" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="#1d4ed8">D</text>
+                    <!-- Original equilibrium -->
+                    <circle cx="160" cy="82" r="3" fill="currentColor" opacity="0.4"/>
+                    <line x1="160" y1="82" x2="160" y2="175" stroke="currentColor" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
+                    <line x1="50" y1="82" x2="160" y2="82" stroke="currentColor" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
+                    <text x="38" y="85" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="600" fill="currentColor" text-anchor="end" opacity="0.5">P1</text>
+                    <text x="160" y="190" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="600" fill="currentColor" text-anchor="middle" opacity="0.5">Q1</text>
+                    <!-- New equilibrium -->
+                    <circle cx="190" cy="97" r="3" fill="#16a34a"/>
+                    <line x1="190" y1="97" x2="190" y2="175" stroke="#16a34a" stroke-width="1" stroke-dasharray="4,3"/>
+                    <line x1="50" y1="97" x2="190" y2="97" stroke="#16a34a" stroke-width="1" stroke-dasharray="4,3"/>
+                    <text x="38" y="100" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#16a34a" text-anchor="end">P2</text>
+                    <text x="190" y="190" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#16a34a" text-anchor="middle">Q2</text>
+                    <!-- Producer receives -->
+                    <line x1="50" y1="75" x2="190" y2="75" stroke="#d97706" stroke-width="1" stroke-dasharray="4,3"/>
+                    <text x="38" y="78" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#d97706" text-anchor="end">Ps</text>
+                    <!-- Subsidy bracket -->
+                    <line x1="42" y1="75" x2="42" y2="110" stroke="#16a34a" stroke-width="2"/>
+                    <text x="32" y="95" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="700" fill="#16a34a" text-anchor="end">Sub</text>
+                    <!-- Cost label -->
+                    <text x="120" y="90" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#16a34a" text-anchor="middle">Cost to Gov't</text>
+                </svg>
+            </div>
+            <div class="diagram-labels">
+                <div class="label-title">Key labels</div>
+                <div class="label-list">
+                    <span class="lg">S&minus;sub shifts right/down</span>
+                    <span class="lb">Consumer pays P2 (lower)</span>
+                    <span class="la">Producer receives Ps (higher)</span>
+                    <span class="lg">Green area = cost to government</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. Monopoly -->
+        <div class="diagram-card">
+            <div class="diagram-card-header">
+                <div class="diagram-number">Diagram 06</div>
+                <h3>Monopoly</h3>
+                <div class="use-for">Use for: market structure, profit maximisation, efficiency, regulation</div>
+            </div>
+            <div class="diagram-card-body">
+                <svg viewBox="0 0 320 210" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Axes -->
+                    <line x1="50" y1="10" x2="50" y2="185" stroke="currentColor" stroke-width="2"/>
+                    <line x1="50" y1="185" x2="305" y2="185" stroke="currentColor" stroke-width="2"/>
+                    <text x="20" y="100" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle" transform="rotate(-90,20,100)">Revenue / Cost</text>
+                    <text x="175" y="205" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle">Quantity</text>
+                    <!-- Supernormal profit rectangle -->
+                    <rect x="50" y="55" width="110" height="40" fill="#d97706" opacity="0.15"/>
+                    <!-- AR (Demand, blue) -->
+                    <line x1="55" y1="30" x2="280" y2="170" stroke="#1d4ed8" stroke-width="2.5"/>
+                    <text x="270" y="167" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="#1d4ed8">AR(=D)</text>
+                    <!-- MR (purple, steeper) -->
+                    <line x1="55" y1="30" x2="170" y2="170" stroke="#7c3aed" stroke-width="2.5"/>
+                    <text x="173" y="167" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="#7c3aed">MR</text>
+                    <!-- AC curve (U-shape, amber) -->
+                    <path d="M65,60 Q120,100 160,95 Q200,90 260,110" fill="none" stroke="#d97706" stroke-width="2"/>
+                    <text x="262" y="107" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="#d97706">AC</text>
+                    <!-- MC curve (red, through AC minimum) -->
+                    <path d="M80,130 Q120,105 140,95 Q160,75 200,30" fill="none" stroke="#dc2626" stroke-width="2.5"/>
+                    <text x="202" y="27" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="#dc2626">MC</text>
+                    <!-- MC=MR intersection (profit max) -->
+                    <circle cx="130" cy="105" r="3" fill="#7c3aed"/>
+                    <!-- Vertical up to AR to get price -->
+                    <line x1="160" y1="55" x2="160" y2="185" stroke="currentColor" stroke-width="1" stroke-dasharray="4,3"/>
+                    <!-- Corrected: MC=MR quantity line -->
+                    <line x1="50" y1="55" x2="160" y2="55" stroke="currentColor" stroke-width="1" stroke-dasharray="4,3"/>
+                    <text x="38" y="58" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="currentColor" text-anchor="end">Pm</text>
+                    <text x="160" y="198" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="currentColor" text-anchor="middle">Qm</text>
+                    <!-- AC at Qm -->
+                    <line x1="50" y1="95" x2="160" y2="95" stroke="#d97706" stroke-width="1" stroke-dasharray="4,3"/>
+                    <text x="38" y="98" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#d97706" text-anchor="end">AC</text>
+                    <!-- Profit label -->
+                    <text x="105" y="80" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#d97706" text-anchor="middle">Supernormal</text>
+                    <text x="105" y="90" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#d97706" text-anchor="middle">Profit</text>
+                    <!-- MC=MR label -->
+                    <text x="115" y="120" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="700" fill="#7c3aed">MC=MR</text>
+                </svg>
+            </div>
+            <div class="diagram-labels">
+                <div class="label-title">Key labels</div>
+                <div class="label-list">
+                    <span class="lb">AR = Demand</span>
+                    <span class="lp">MR below AR</span>
+                    <span class="lr">MC through AC min</span>
+                    <span class="la">Profit = (Pm&minus;AC) &times; Qm</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. Perfect Competition (SR & LR) -->
+        <div class="diagram-card wide">
+            <div class="diagram-card-header">
+                <div class="diagram-number">Diagram 07</div>
+                <h3>Perfect Competition (Short Run &amp; Long Run)</h3>
+                <div class="use-for">Use for: market structure comparison, efficiency, normal vs supernormal profit</div>
+            </div>
+            <div class="diagram-card-body">
+                <svg viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Panel divider -->
+                    <line x1="320" y1="10" x2="320" y2="190" stroke="currentColor" stroke-width="1" stroke-dasharray="4,4" opacity="0.3"/>
+                    <!-- Panel labels -->
+                    <text x="170" y="18" font-family="'Barlow Condensed',sans-serif" font-size="13" font-weight="800" fill="currentColor" text-anchor="middle">SHORT RUN</text>
+                    <text x="490" y="18" font-family="'Barlow Condensed',sans-serif" font-size="13" font-weight="800" fill="currentColor" text-anchor="middle">LONG RUN</text>
+
+                    <!-- === SHORT RUN PANEL === -->
+                    <!-- Axes -->
+                    <line x1="50" y1="25" x2="50" y2="175" stroke="currentColor" stroke-width="2"/>
+                    <line x1="50" y1="175" x2="300" y2="175" stroke="currentColor" stroke-width="2"/>
+                    <text x="25" y="100" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="currentColor" text-anchor="middle" transform="rotate(-90,25,100)">Revenue / Cost</text>
+                    <text x="175" y="192" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="currentColor" text-anchor="middle">Quantity</text>
+                    <!-- Supernormal profit rectangle -->
+                    <rect x="50" y="60" width="120" height="30" fill="#d97706" opacity="0.15"/>
+                    <!-- AR=MR=D (blue, horizontal at P) -->
+                    <line x1="50" y1="60" x2="280" y2="60" stroke="#1d4ed8" stroke-width="2"/>
+                    <text x="282" y="57" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="#1d4ed8">AR=MR=D=P</text>
+                    <!-- AC curve (U-shape) -->
+                    <path d="M65,110 Q110,100 150,90 Q175,88 230,120" fill="none" stroke="#d97706" stroke-width="2"/>
+                    <text x="235" y="117" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="#d97706">AC</text>
+                    <!-- MC curve (red) -->
+                    <path d="M85,140 Q120,110 150,90 Q170,70 210,30" fill="none" stroke="#dc2626" stroke-width="2.5"/>
+                    <text x="212" y="28" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="#dc2626">MC</text>
+                    <!-- MC=MR at Q -->
+                    <circle cx="170" cy="60" r="3" fill="#dc2626"/>
+                    <line x1="170" y1="60" x2="170" y2="175" stroke="currentColor" stroke-width="1" stroke-dasharray="4,3"/>
+                    <text x="170" y="190" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="currentColor" text-anchor="middle">Q</text>
+                    <!-- AC at Q -->
+                    <line x1="50" y1="90" x2="170" y2="90" stroke="#d97706" stroke-width="1" stroke-dasharray="4,3"/>
+                    <!-- Profit label -->
+                    <text x="110" y="80" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#d97706" text-anchor="middle">Supernormal Profit</text>
+                    <text x="38" y="63" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="currentColor" text-anchor="end">P</text>
+
+                    <!-- === LONG RUN PANEL === -->
+                    <!-- Axes -->
+                    <line x1="370" y1="25" x2="370" y2="175" stroke="currentColor" stroke-width="2"/>
+                    <line x1="370" y1="175" x2="620" y2="175" stroke="currentColor" stroke-width="2"/>
+                    <text x="345" y="100" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="currentColor" text-anchor="middle" transform="rotate(-90,345,100)">Revenue / Cost</text>
+                    <text x="495" y="192" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="currentColor" text-anchor="middle">Quantity</text>
+                    <!-- AR=MR=D (blue, horizontal at P = AC min) -->
+                    <line x1="370" y1="85" x2="600" y2="85" stroke="#1d4ed8" stroke-width="2"/>
+                    <text x="602" y="82" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="#1d4ed8">AR=MR=D=P</text>
+                    <!-- AC curve (U-shape, touching P at minimum) -->
+                    <path d="M385,130 Q430,100 480,85 Q510,82 560,110" fill="none" stroke="#d97706" stroke-width="2"/>
+                    <text x="565" y="107" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="#d97706">AC</text>
+                    <!-- MC curve (red, through AC min, crosses AR at same point) -->
+                    <path d="M405,140 Q440,110 480,85 Q500,65 530,30" fill="none" stroke="#dc2626" stroke-width="2.5"/>
+                    <text x="532" y="28" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="#dc2626">MC</text>
+                    <!-- Tangent point: MC=MR=AC -->
+                    <circle cx="480" cy="85" r="4" fill="#16a34a"/>
+                    <line x1="480" y1="85" x2="480" y2="175" stroke="currentColor" stroke-width="1" stroke-dasharray="4,3"/>
+                    <text x="480" y="190" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="currentColor" text-anchor="middle">Q</text>
+                    <!-- Normal profit label -->
+                    <text x="480" y="76" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#16a34a" text-anchor="middle">Normal Profit Only</text>
+                    <text x="480" y="105" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="600" fill="#16a34a" text-anchor="middle">P = AC (min)</text>
+                </svg>
+            </div>
+            <div class="diagram-labels">
+                <div class="label-title">Key labels</div>
+                <div class="label-list">
+                    <span class="lb">AR = MR = D = P (horizontal, price taker)</span>
+                    <span class="lr">MC crosses AR at profit-max Q</span>
+                    <span class="la">SR: P &gt; AC = supernormal profit</span>
+                    <span class="lg">LR: P = AC(min) = normal profit only</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. Labour Market -->
+        <div class="diagram-card">
+            <div class="diagram-card-header">
+                <div class="diagram-number">Diagram 08</div>
+                <h3>Labour Market</h3>
+                <div class="use-for">Use for: wage determination, minimum wage, monopsony, trade unions</div>
+            </div>
+            <div class="diagram-card-body">
+                <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Axes -->
+                    <line x1="50" y1="10" x2="50" y2="175" stroke="currentColor" stroke-width="2"/>
+                    <line x1="50" y1="175" x2="305" y2="175" stroke="currentColor" stroke-width="2"/>
+                    <text x="20" y="95" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle" transform="rotate(-90,20,95)">Wage Rate (W)</text>
+                    <text x="175" y="195" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle">Quantity of Labour</text>
+                    <!-- DL = MRP (blue, downward) -->
+                    <line x1="55" y1="25" x2="270" y2="160" stroke="#1d4ed8" stroke-width="2.5"/>
+                    <text x="255" y="158" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="#1d4ed8">D<tspan font-size="9" dy="2">L</tspan><tspan dy="-2"> = MRP</tspan></text>
+                    <!-- SL (red, upward) -->
+                    <line x1="55" y1="155" x2="270" y2="30" stroke="#dc2626" stroke-width="2.5"/>
+                    <text x="260" y="27" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="#dc2626">S<tspan font-size="9" dy="2">L</tspan></text>
+                    <!-- Equilibrium -->
+                    <circle cx="160" cy="90" r="4" fill="#1a1a2e"/>
+                    <line x1="50" y1="90" x2="160" y2="90" stroke="currentColor" stroke-width="1" stroke-dasharray="4,3"/>
+                    <line x1="160" y1="90" x2="160" y2="175" stroke="currentColor" stroke-width="1" stroke-dasharray="4,3"/>
+                    <text x="38" y="93" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="currentColor" text-anchor="end">We</text>
+                    <text x="160" y="190" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="currentColor" text-anchor="middle">Qe</text>
+                </svg>
+            </div>
+            <div class="diagram-labels">
+                <div class="label-title">Key labels</div>
+                <div class="label-list">
+                    <span class="lb">DL = MRP (Marginal Revenue Product)</span>
+                    <span class="lr">SL = Labour Supply</span>
+                    <span class="la">We, Qe = Equilibrium wage &amp; employment</span>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /diagram-grid micro -->
+
+    <!-- ==================== MACROECONOMICS ==================== -->
+    <div class="section-header macro">
+        <h2>Macroeconomics</h2>
+        <div class="section-count">6 diagrams</div>
+    </div>
+
+    <div class="diagram-grid">
+
+        <!-- 9. AD/AS (Keynesian) -->
+        <div class="diagram-card">
+            <div class="diagram-card-header">
+                <div class="diagram-number">Diagram 09</div>
+                <h3>AD/AS (Keynesian)</h3>
+                <div class="use-for">Use for: spare capacity, recession, output gap, fiscal policy</div>
+            </div>
+            <div class="diagram-card-body">
+                <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Axes -->
+                    <line x1="50" y1="10" x2="50" y2="175" stroke="currentColor" stroke-width="2"/>
+                    <line x1="50" y1="175" x2="305" y2="175" stroke="currentColor" stroke-width="2"/>
+                    <text x="20" y="95" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle" transform="rotate(-90,20,95)">Price Level</text>
+                    <text x="175" y="195" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle">Real GDP</text>
+                    <!-- Keynesian LRAS (L-shaped: horizontal then curves up then vertical) -->
+                    <path d="M55,130 L180,130 Q220,128 240,100 Q255,60 260,15" fill="none" stroke="#dc2626" stroke-width="2.5"/>
+                    <text x="265" y="15" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="#dc2626">LRAS</text>
+                    <!-- AD curve (blue) -->
+                    <path d="M70,35 Q150,70 200,130 Q220,155 240,165" fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
+                    <text x="243" y="162" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="#1d4ed8">AD</text>
+                    <!-- Spare capacity annotation -->
+                    <line x1="60" y1="145" x2="175" y2="145" stroke="#16a34a" stroke-width="1.5" marker-start="url(#arrowGreenL)" marker-end="url(#arrowGreenR)"/>
+                    <text x="118" y="158" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#16a34a" text-anchor="middle">Spare Capacity</text>
+                    <!-- Full capacity line -->
+                    <line x1="260" y1="10" x2="260" y2="175" stroke="#d97706" stroke-width="1" stroke-dasharray="4,3"/>
+                    <text x="260" y="190" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#d97706" text-anchor="middle">Yf</text>
+                    <defs>
+                        <marker id="arrowGreenL" markerWidth="6" markerHeight="6" refX="1" refY="3" orient="auto"><path d="M6,0 L0,3 L6,6 Z" fill="#16a34a"/></marker>
+                        <marker id="arrowGreenR" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#16a34a"/></marker>
+                    </defs>
+                </svg>
+            </div>
+            <div class="diagram-labels">
+                <div class="label-title">Key labels</div>
+                <div class="label-list">
+                    <span class="lr">LRAS = horizontal then vertical</span>
+                    <span class="lb">AD = Aggregate Demand</span>
+                    <span class="lg">Spare capacity = no inflation zone</span>
+                    <span class="la">Yf = Full employment output</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. AD/AS (Classical) -->
+        <div class="diagram-card">
+            <div class="diagram-card-header">
+                <div class="diagram-number">Diagram 10</div>
+                <h3>AD/AS (Classical)</h3>
+                <div class="use-for">Use for: long-run equilibrium, supply-side policy, monetarist view</div>
+            </div>
+            <div class="diagram-card-body">
+                <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Axes -->
+                    <line x1="50" y1="10" x2="50" y2="175" stroke="currentColor" stroke-width="2"/>
+                    <line x1="50" y1="175" x2="305" y2="175" stroke="currentColor" stroke-width="2"/>
+                    <text x="20" y="95" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle" transform="rotate(-90,20,95)">Price Level</text>
+                    <text x="175" y="195" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle">Real GDP</text>
+                    <!-- LRAS (vertical, red) -->
+                    <line x1="200" y1="15" x2="200" y2="175" stroke="#dc2626" stroke-width="2.5"/>
+                    <text x="207" y="15" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="#dc2626">LRAS</text>
+                    <text x="200" y="190" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#dc2626" text-anchor="middle">Yf</text>
+                    <!-- SRAS (upward sloping, amber) -->
+                    <line x1="55" y1="155" x2="280" y2="30" stroke="#d97706" stroke-width="2.5"/>
+                    <text x="275" y="27" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="#d97706">SRAS</text>
+                    <!-- AD (blue) -->
+                    <path d="M60,30 Q140,50 200,95 Q240,125 275,160" fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
+                    <text x="270" y="157" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="#1d4ed8">AD</text>
+                    <!-- Equilibrium (all three meet) -->
+                    <circle cx="200" cy="88" r="4" fill="#1a1a2e"/>
+                    <line x1="50" y1="88" x2="200" y2="88" stroke="currentColor" stroke-width="1" stroke-dasharray="4,3"/>
+                    <text x="38" y="91" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="currentColor" text-anchor="end">PL</text>
+                </svg>
+            </div>
+            <div class="diagram-labels">
+                <div class="label-title">Key labels</div>
+                <div class="label-list">
+                    <span class="lr">LRAS = vertical at Yf</span>
+                    <span class="la">SRAS = upward sloping</span>
+                    <span class="lb">AD = Aggregate Demand</span>
+                    <span class="la">PL = Equilibrium price level</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 11. AD shift right -->
+        <div class="diagram-card">
+            <div class="diagram-card-header">
+                <div class="diagram-number">Diagram 11</div>
+                <h3>AD Shift Right (Demand-Pull Inflation)</h3>
+                <div class="use-for">Use for: economic growth, inflation, consumer confidence, fiscal stimulus</div>
+            </div>
+            <div class="diagram-card-body">
+                <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Axes -->
+                    <line x1="50" y1="10" x2="50" y2="175" stroke="currentColor" stroke-width="2"/>
+                    <line x1="50" y1="175" x2="305" y2="175" stroke="currentColor" stroke-width="2"/>
+                    <text x="20" y="95" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle" transform="rotate(-90,20,95)">Price Level</text>
+                    <text x="175" y="195" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle">Real GDP</text>
+                    <!-- SRAS (amber) -->
+                    <line x1="55" y1="155" x2="280" y2="30" stroke="#d97706" stroke-width="2.5"/>
+                    <text x="275" y="27" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="#d97706">SRAS</text>
+                    <!-- AD1 (blue) -->
+                    <path d="M60,40 Q130,55 170,90 Q200,115 240,155" fill="none" stroke="#1d4ed8" stroke-width="2"/>
+                    <text x="238" y="152" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="#1d4ed8">AD1</text>
+                    <!-- AD2 (blue, shifted right) -->
+                    <path d="M100,40 Q170,55 210,90 Q240,115 280,155" fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
+                    <text x="278" y="152" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="#1d4ed8">AD2</text>
+                    <!-- Shift arrow -->
+                    <line x1="148" y1="110" x2="188" y2="110" stroke="#1d4ed8" stroke-width="2" marker-end="url(#arrowBlue)"/>
+                    <!-- Old equilibrium -->
+                    <circle cx="165" cy="95" r="3" fill="currentColor" opacity="0.4"/>
+                    <line x1="50" y1="95" x2="165" y2="95" stroke="currentColor" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
+                    <line x1="165" y1="95" x2="165" y2="175" stroke="currentColor" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
+                    <text x="38" y="98" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="600" fill="currentColor" text-anchor="end" opacity="0.5">PL1</text>
+                    <text x="165" y="190" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="600" fill="currentColor" text-anchor="middle" opacity="0.5">Y1</text>
+                    <!-- New equilibrium -->
+                    <circle cx="205" cy="72" r="3" fill="#1d4ed8"/>
+                    <line x1="50" y1="72" x2="205" y2="72" stroke="#1d4ed8" stroke-width="1" stroke-dasharray="4,3"/>
+                    <line x1="205" y1="72" x2="205" y2="175" stroke="#1d4ed8" stroke-width="1" stroke-dasharray="4,3"/>
+                    <text x="38" y="75" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#1d4ed8" text-anchor="end">PL2</text>
+                    <text x="205" y="190" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#1d4ed8" text-anchor="middle">Y2</text>
+                    <defs><marker id="arrowBlue" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#1d4ed8"/></marker></defs>
+                </svg>
+            </div>
+            <div class="diagram-labels">
+                <div class="label-title">Key labels</div>
+                <div class="label-list">
+                    <span class="lb">AD1 &rarr; AD2 (shift right)</span>
+                    <span class="la">PL rises = demand-pull inflation</span>
+                    <span class="lg">Y rises = economic growth</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 12. LRAS shift right -->
+        <div class="diagram-card">
+            <div class="diagram-card-header">
+                <div class="diagram-number">Diagram 12</div>
+                <h3>LRAS Shift Right (Economic Growth)</h3>
+                <div class="use-for">Use for: supply-side policies, education, infrastructure, productivity gains</div>
+            </div>
+            <div class="diagram-card-body">
+                <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Axes -->
+                    <line x1="50" y1="10" x2="50" y2="175" stroke="currentColor" stroke-width="2"/>
+                    <line x1="50" y1="175" x2="305" y2="175" stroke="currentColor" stroke-width="2"/>
+                    <text x="20" y="95" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle" transform="rotate(-90,20,95)">Price Level</text>
+                    <text x="175" y="195" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle">Real GDP</text>
+                    <!-- LRAS1 (red, vertical) -->
+                    <line x1="170" y1="15" x2="170" y2="175" stroke="#dc2626" stroke-width="2" stroke-dasharray="6,3"/>
+                    <text x="164" y="15" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="#dc2626" text-anchor="end">LRAS1</text>
+                    <!-- LRAS2 (red, vertical, shifted right) -->
+                    <line x1="230" y1="15" x2="230" y2="175" stroke="#dc2626" stroke-width="2.5"/>
+                    <text x="237" y="15" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="#dc2626">LRAS2</text>
+                    <!-- Shift arrow -->
+                    <line x1="178" y1="30" x2="222" y2="30" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)"/>
+                    <!-- AD (blue) -->
+                    <path d="M60,30 Q140,55 190,90 Q220,115 265,155" fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
+                    <text x="260" y="152" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="#1d4ed8">AD</text>
+                    <!-- Old equilibrium -->
+                    <circle cx="170" cy="82" r="3" fill="currentColor" opacity="0.4"/>
+                    <line x1="50" y1="82" x2="170" y2="82" stroke="currentColor" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
+                    <text x="38" y="85" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="600" fill="currentColor" text-anchor="end" opacity="0.5">PL1</text>
+                    <text x="170" y="190" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="600" fill="currentColor" text-anchor="middle" opacity="0.5">Y1</text>
+                    <!-- New equilibrium (lower price, higher output) -->
+                    <circle cx="230" cy="105" r="3" fill="#dc2626"/>
+                    <line x1="50" y1="105" x2="230" y2="105" stroke="#dc2626" stroke-width="1" stroke-dasharray="4,3"/>
+                    <text x="38" y="108" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#dc2626" text-anchor="end">PL2</text>
+                    <text x="230" y="190" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#dc2626" text-anchor="middle">Y2</text>
+                    <defs><marker id="arrowRed" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#dc2626"/></marker></defs>
+                </svg>
+            </div>
+            <div class="diagram-labels">
+                <div class="label-title">Key labels</div>
+                <div class="label-list">
+                    <span class="lr">LRAS1 &rarr; LRAS2 (shift right)</span>
+                    <span class="lb">AD unchanged</span>
+                    <span class="lg">Output rises Y1&rarr;Y2, price falls</span>
+                    <span class="la">Non-inflationary growth</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 13. Multiplier effect -->
+        <div class="diagram-card">
+            <div class="diagram-card-header">
+                <div class="diagram-number">Diagram 13</div>
+                <h3>Multiplier Effect</h3>
+                <div class="use-for">Use for: fiscal policy, government spending, injections, MPC/MPS</div>
+            </div>
+            <div class="diagram-card-body">
+                <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Axes -->
+                    <line x1="50" y1="10" x2="50" y2="175" stroke="currentColor" stroke-width="2"/>
+                    <line x1="50" y1="175" x2="305" y2="175" stroke="currentColor" stroke-width="2"/>
+                    <text x="20" y="95" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle" transform="rotate(-90,20,95)">Price Level</text>
+                    <text x="175" y="195" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle">Real GDP</text>
+                    <!-- SRAS (amber) -->
+                    <line x1="55" y1="155" x2="280" y2="30" stroke="#d97706" stroke-width="2.5"/>
+                    <text x="275" y="27" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="#d97706">SRAS</text>
+                    <!-- AD1 (blue, lighter) -->
+                    <path d="M60,45 Q125,60 155,90 Q180,115 215,150" fill="none" stroke="#1d4ed8" stroke-width="2" opacity="0.5"/>
+                    <text x="213" y="147" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="#1d4ed8" opacity="0.5">AD1</text>
+                    <!-- AD2 (blue, bold, shifted much further right) -->
+                    <path d="M115,45 Q180,60 215,90 Q240,115 275,150" fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
+                    <text x="273" y="147" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="#1d4ed8">AD2</text>
+                    <!-- Initial injection arrow (small) -->
+                    <line x1="140" y1="115" x2="165" y2="115" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arrowGreen3)"/>
+                    <text x="152" y="128" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="700" fill="#16a34a" text-anchor="middle">&Delta;G</text>
+                    <!-- Multiplied shift arrow (large) -->
+                    <line x1="140" y1="100" x2="200" y2="100" stroke="#1d4ed8" stroke-width="2.5" marker-end="url(#arrowBlue2)"/>
+                    <text x="170" y="94" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="700" fill="#1d4ed8" text-anchor="middle">k &times; &Delta;G</text>
+                    <!-- Old Y -->
+                    <line x1="150" y1="97" x2="150" y2="175" stroke="currentColor" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
+                    <text x="150" y="190" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="600" fill="currentColor" text-anchor="middle" opacity="0.5">Y1</text>
+                    <!-- New Y -->
+                    <line x1="210" y1="75" x2="210" y2="175" stroke="#1d4ed8" stroke-width="1" stroke-dasharray="4,3"/>
+                    <text x="210" y="190" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#1d4ed8" text-anchor="middle">Y2</text>
+                    <!-- Annotation box -->
+                    <rect x="215" y="45" width="85" height="36" rx="6" fill="var(--demand-bg)" stroke="#1d4ed8" stroke-width="1"/>
+                    <text x="258" y="60" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#1d4ed8" text-anchor="middle">k = 1/(1&minus;MPC)</text>
+                    <text x="258" y="73" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="600" fill="#1d4ed8" text-anchor="middle">&Delta;Y &gt; &Delta;G</text>
+                    <defs>
+                        <marker id="arrowGreen3" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#16a34a"/></marker>
+                        <marker id="arrowBlue2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#1d4ed8"/></marker>
+                    </defs>
+                </svg>
+            </div>
+            <div class="diagram-labels">
+                <div class="label-title">Key labels</div>
+                <div class="label-list">
+                    <span class="lg">&Delta;G = initial injection</span>
+                    <span class="lb">k &times; &Delta;G = multiplied AD shift</span>
+                    <span class="lb">&Delta;Y &gt; &Delta;G (output rises by more)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 14. Phillips Curve -->
+        <div class="diagram-card">
+            <div class="diagram-card-header">
+                <div class="diagram-number">Diagram 14</div>
+                <h3>Phillips Curve</h3>
+                <div class="use-for">Use for: inflation vs unemployment trade-off, monetary/fiscal policy dilemma</div>
+            </div>
+            <div class="diagram-card-body">
+                <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Axes -->
+                    <line x1="50" y1="10" x2="50" y2="175" stroke="currentColor" stroke-width="2"/>
+                    <line x1="50" y1="175" x2="305" y2="175" stroke="currentColor" stroke-width="2"/>
+                    <text x="20" y="95" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle" transform="rotate(-90,20,95)">Inflation (%)</text>
+                    <text x="175" y="195" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle">Unemployment (%)</text>
+                    <!-- Phillips Curve (downward sloping, convex) -->
+                    <path d="M65,30 Q80,50 95,80 Q120,120 180,145 Q240,158 290,162" fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
+                    <text x="290" y="155" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="#1d4ed8">SRPC</text>
+                    <!-- Point A: low unemployment, high inflation -->
+                    <circle cx="85" cy="60" r="4" fill="#dc2626"/>
+                    <text x="95" y="53" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="#dc2626">A</text>
+                    <text x="95" y="44" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="600" fill="#dc2626">High inflation</text>
+                    <text x="95" y="66" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="600" fill="#dc2626">Low unemployment</text>
+                    <!-- Point B: high unemployment, low inflation -->
+                    <circle cx="220" cy="150" r="4" fill="#16a34a"/>
+                    <text x="230" y="145" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="#16a34a">B</text>
+                    <text x="230" y="136" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="600" fill="#16a34a">Low inflation</text>
+                    <text x="230" y="158" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="600" fill="#16a34a">High unemployment</text>
+                    <!-- Trade-off arrow -->
+                    <path d="M95,70 Q150,100 210,140" fill="none" stroke="#d97706" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowAmber3)"/>
+                    <text x="155" y="93" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#d97706" text-anchor="middle">Trade-off</text>
+                    <defs><marker id="arrowAmber3" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#d97706"/></marker></defs>
+                </svg>
+            </div>
+            <div class="diagram-labels">
+                <div class="label-title">Key labels</div>
+                <div class="label-list">
+                    <span class="lb">SRPC = Short-Run Phillips Curve</span>
+                    <span class="lr">A = low unemp, high inflation</span>
+                    <span class="lg">B = high unemp, low inflation</span>
+                    <span class="la">Inverse relationship (short run)</span>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /diagram-grid macro -->
+
+    <!-- ==================== GLOBAL / BUSINESS ==================== -->
+    <div class="section-header global">
+        <h2>Global &amp; Business Economics</h2>
+        <div class="section-count">4 diagrams</div>
+    </div>
+
+    <div class="diagram-grid">
+
+        <!-- 15. Tariff diagram -->
+        <div class="diagram-card wide">
+            <div class="diagram-card-header">
+                <div class="diagram-number">Diagram 15</div>
+                <h3>Tariff Diagram</h3>
+                <div class="use-for">Use for: protectionism, free trade, WTO, domestic industry, deadweight loss</div>
+            </div>
+            <div class="diagram-card-body">
+                <svg viewBox="0 0 520 220" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Axes -->
+                    <line x1="60" y1="10" x2="60" y2="185" stroke="currentColor" stroke-width="2"/>
+                    <line x1="60" y1="185" x2="500" y2="185" stroke="currentColor" stroke-width="2"/>
+                    <text x="25" y="100" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle" transform="rotate(-90,25,100)">Price</text>
+                    <text x="280" y="210" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle">Quantity</text>
+                    <!-- Domestic Supply (red, upward) -->
+                    <line x1="65" y1="170" x2="420" y2="25" stroke="#dc2626" stroke-width="2.5"/>
+                    <text x="415" y="22" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="#dc2626">S<tspan font-size="9" dy="2">dom</tspan></text>
+                    <!-- Domestic Demand (blue, downward) -->
+                    <line x1="65" y1="25" x2="480" y2="170" stroke="#1d4ed8" stroke-width="2.5"/>
+                    <text x="472" y="167" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="#1d4ed8">D</text>
+                    <!-- World price Pw (green, horizontal) -->
+                    <line x1="60" y1="130" x2="480" y2="130" stroke="#16a34a" stroke-width="2"/>
+                    <text x="485" y="133" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="#16a34a">Pw</text>
+                    <!-- Pw + tariff (amber, horizontal) -->
+                    <line x1="60" y1="105" x2="480" y2="105" stroke="#d97706" stroke-width="2"/>
+                    <text x="485" y="108" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="#d97706">Pw+t</text>
+                    <!-- DWL triangles -->
+                    <polygon points="155,105 155,130 200,105" fill="#dc2626" opacity="0.2"/>
+                    <polygon points="370,105 370,130 340,105" fill="#dc2626" opacity="0.2"/>
+                    <!-- Government revenue rectangle -->
+                    <rect x="200" y="105" width="140" height="25" fill="#d97706" opacity="0.15"/>
+                    <!-- Quantity lines at Pw -->
+                    <line x1="110" y1="130" x2="110" y2="185" stroke="#16a34a" stroke-width="1" stroke-dasharray="3,3"/>
+                    <text x="110" y="198" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="600" fill="#16a34a" text-anchor="middle">Q1</text>
+                    <line x1="400" y1="130" x2="400" y2="185" stroke="#16a34a" stroke-width="1" stroke-dasharray="3,3"/>
+                    <text x="400" y="198" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="600" fill="#16a34a" text-anchor="middle">Q4</text>
+                    <!-- Quantity lines at Pw+t -->
+                    <line x1="155" y1="105" x2="155" y2="185" stroke="#d97706" stroke-width="1" stroke-dasharray="3,3"/>
+                    <text x="155" y="198" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="600" fill="#d97706" text-anchor="middle">Q2</text>
+                    <line x1="370" y1="105" x2="370" y2="185" stroke="#d97706" stroke-width="1" stroke-dasharray="3,3"/>
+                    <text x="370" y="198" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="600" fill="#d97706" text-anchor="middle">Q3</text>
+                    <!-- Labels -->
+                    <text x="270" y="120" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#d97706" text-anchor="middle">Gov't Revenue</text>
+                    <text x="165" y="122" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="700" fill="#dc2626" text-anchor="middle">DWL</text>
+                    <text x="360" y="122" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="700" fill="#dc2626" text-anchor="middle">DWL</text>
+                    <!-- Tariff bracket -->
+                    <line x1="52" y1="105" x2="52" y2="130" stroke="#d97706" stroke-width="2"/>
+                    <text x="42" y="120" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="700" fill="#d97706" text-anchor="end">t</text>
+                </svg>
+            </div>
+            <div class="diagram-labels">
+                <div class="label-title">Key labels</div>
+                <div class="label-list">
+                    <span class="lg">Pw = World price</span>
+                    <span class="la">Pw+t = Price with tariff</span>
+                    <span class="lr">DWL = Deadweight loss triangles</span>
+                    <span class="la">Gov't revenue = rectangle Q2 to Q3</span>
+                    <span class="lb">Domestic production rises Q1&rarr;Q2, consumption falls Q4&rarr;Q3</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 16. Kinked Demand Curve -->
+        <div class="diagram-card">
+            <div class="diagram-card-header">
+                <div class="diagram-number">Diagram 16</div>
+                <h3>Kinked Demand Curve</h3>
+                <div class="use-for">Use for: oligopoly, price rigidity, interdependence, non-price competition</div>
+            </div>
+            <div class="diagram-card-body">
+                <svg viewBox="0 0 320 210" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Axes -->
+                    <line x1="50" y1="10" x2="50" y2="185" stroke="currentColor" stroke-width="2"/>
+                    <line x1="50" y1="185" x2="305" y2="185" stroke="currentColor" stroke-width="2"/>
+                    <text x="20" y="100" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle" transform="rotate(-90,20,100)">Price</text>
+                    <text x="175" y="205" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle">Quantity</text>
+                    <!-- Kinked Demand: elastic above kink, inelastic below -->
+                    <line x1="65" y1="30" x2="165" y2="85" stroke="#1d4ed8" stroke-width="2.5"/>
+                    <line x1="165" y1="85" x2="250" y2="170" stroke="#1d4ed8" stroke-width="2.5"/>
+                    <text x="252" y="167" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="#1d4ed8">D(AR)</text>
+                    <!-- MR: with discontinuity -->
+                    <line x1="65" y1="55" x2="165" y2="95" stroke="#7c3aed" stroke-width="2"/>
+                    <!-- MR gap (vertical dashed) -->
+                    <line x1="165" y1="95" x2="165" y2="140" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="4,3"/>
+                    <line x1="165" y1="140" x2="250" y2="185" stroke="#7c3aed" stroke-width="2"/>
+                    <text x="255" y="182" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="#7c3aed">MR</text>
+                    <!-- MC1 (red) -->
+                    <path d="M100,150 Q140,130 165,110" fill="none" stroke="#dc2626" stroke-width="2"/>
+                    <text x="95" y="155" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#dc2626">MC1</text>
+                    <!-- MC2 (red, shifted up but still in gap) -->
+                    <path d="M100,130 Q140,115 165,100" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="5,3"/>
+                    <text x="95" y="133" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#dc2626">MC2</text>
+                    <!-- Kink point -->
+                    <circle cx="165" cy="85" r="4" fill="#1a1a2e"/>
+                    <!-- Dashed lines to axes -->
+                    <line x1="50" y1="85" x2="165" y2="85" stroke="currentColor" stroke-width="1" stroke-dasharray="4,3"/>
+                    <line x1="165" y1="85" x2="165" y2="185" stroke="currentColor" stroke-width="1" stroke-dasharray="4,3"/>
+                    <text x="38" y="88" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="currentColor" text-anchor="end">P*</text>
+                    <text x="165" y="198" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="currentColor" text-anchor="middle">Q*</text>
+                    <!-- MR gap annotation -->
+                    <line x1="175" y1="97" x2="195" y2="97" stroke="#7c3aed" stroke-width="1"/>
+                    <line x1="175" y1="138" x2="195" y2="138" stroke="#7c3aed" stroke-width="1"/>
+                    <line x1="195" y1="97" x2="195" y2="138" stroke="#7c3aed" stroke-width="1.5" marker-start="url(#arrowPurpU)" marker-end="url(#arrowPurpD)"/>
+                    <text x="205" y="118" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="700" fill="#7c3aed">MR</text>
+                    <text x="205" y="127" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="700" fill="#7c3aed">gap</text>
+                    <defs>
+                        <marker id="arrowPurpU" markerWidth="5" markerHeight="5" refX="2.5" refY="0" orient="auto"><path d="M0,5 L2.5,0 L5,5 Z" fill="#7c3aed"/></marker>
+                        <marker id="arrowPurpD" markerWidth="5" markerHeight="5" refX="2.5" refY="5" orient="auto"><path d="M0,0 L2.5,5 L5,0 Z" fill="#7c3aed"/></marker>
+                    </defs>
+                </svg>
+            </div>
+            <div class="diagram-labels">
+                <div class="label-title">Key labels</div>
+                <div class="label-list">
+                    <span class="lb">Kinked D at current price P*</span>
+                    <span class="lp">MR has discontinuous gap</span>
+                    <span class="lr">MC can shift within gap &mdash; price stays at P*</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 17. J-Curve -->
+        <div class="diagram-card">
+            <div class="diagram-card-header">
+                <div class="diagram-number">Diagram 17</div>
+                <h3>J-Curve</h3>
+                <div class="use-for">Use for: depreciation, current account, Marshall-Lerner condition, exchange rates</div>
+            </div>
+            <div class="diagram-card-body">
+                <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Axes -->
+                    <line x1="50" y1="10" x2="50" y2="175" stroke="currentColor" stroke-width="2"/>
+                    <line x1="50" y1="175" x2="305" y2="175" stroke="currentColor" stroke-width="2"/>
+                    <text x="20" y="95" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle" transform="rotate(-90,20,95)">Current Account</text>
+                    <text x="175" y="195" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle">Time</text>
+                    <!-- Zero line -->
+                    <line x1="50" y1="90" x2="305" y2="90" stroke="currentColor" stroke-width="1" stroke-dasharray="4,3" opacity="0.3"/>
+                    <text x="308" y="93" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="600" fill="currentColor" opacity="0.5">0</text>
+                    <!-- J-Curve path: starts at deficit, worsens, then improves past zero -->
+                    <path d="M65,110 Q90,130 110,145 Q130,155 150,150 Q180,135 210,100 Q240,65 280,35" fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
+                    <!-- Depreciation event marker -->
+                    <line x1="65" y1="100" x2="65" y2="175" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="4,3"/>
+                    <text x="65" y="190" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#dc2626" text-anchor="middle">Depreciation</text>
+                    <!-- Starting point -->
+                    <circle cx="65" cy="110" r="3" fill="#dc2626"/>
+                    <!-- Worst point -->
+                    <circle cx="135" cy="152" r="3" fill="#dc2626"/>
+                    <text x="145" y="165" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="700" fill="#dc2626">Worsens first</text>
+                    <!-- Improvement label -->
+                    <text x="240" y="50" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#16a34a">Improves</text>
+                    <text x="240" y="62" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="600" fill="#16a34a">(volumes adjust)</text>
+                    <!-- Deficit / Surplus labels -->
+                    <text x="55" y="80" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="600" fill="#16a34a">Surplus</text>
+                    <text x="55" y="105" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="600" fill="#dc2626">Deficit</text>
+                </svg>
+            </div>
+            <div class="diagram-labels">
+                <div class="label-title">Key labels</div>
+                <div class="label-list">
+                    <span class="lr">Initial worsening (price effect)</span>
+                    <span class="lg">Later improvement (volume effect)</span>
+                    <span class="lb">Shaped like letter J</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 18. Lorenz Curve & Gini -->
+        <div class="diagram-card">
+            <div class="diagram-card-header">
+                <div class="diagram-number">Diagram 18</div>
+                <h3>Lorenz Curve &amp; Gini Coefficient</h3>
+                <div class="use-for">Use for: income inequality, wealth distribution, redistribution policy</div>
+            </div>
+            <div class="diagram-card-body">
+                <svg viewBox="0 0 320 210" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Axes -->
+                    <line x1="50" y1="10" x2="50" y2="185" stroke="currentColor" stroke-width="2"/>
+                    <line x1="50" y1="185" x2="305" y2="185" stroke="currentColor" stroke-width="2"/>
+                    <text x="20" y="100" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="currentColor" text-anchor="middle" transform="rotate(-90,20,100)">Cumulative % Income</text>
+                    <text x="175" y="205" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="currentColor" text-anchor="middle">Cumulative % Population</text>
+                    <!-- Axis labels -->
+                    <text x="50" y="198" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="600" fill="currentColor" text-anchor="middle">0</text>
+                    <text x="290" y="198" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="600" fill="currentColor" text-anchor="middle">100%</text>
+                    <text x="42" y="20" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="600" fill="currentColor" text-anchor="end">100%</text>
+                    <!-- Area A (between line of equality and Lorenz curve) -->
+                    <path d="M50,185 L290,15 L290,185 Q220,180 170,175 Q100,170 50,185 Z" fill="none"/>
+                    <path d="M50,185 L290,15 Q250,50 200,100 Q140,150 50,185 Z" fill="#1d4ed8" opacity="0.12"/>
+                    <!-- Line of equality (45-degree) -->
+                    <line x1="50" y1="185" x2="290" y2="15" stroke="#16a34a" stroke-width="2" stroke-dasharray="6,3"/>
+                    <text x="155" y="85" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#16a34a" transform="rotate(-35,155,85)">Line of Equality</text>
+                    <!-- Lorenz Curve (bowed below) -->
+                    <path d="M50,185 Q140,180 200,155 Q250,120 290,15" fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
+                    <text x="235" y="130" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="#1d4ed8">Lorenz Curve</text>
+                    <!-- Area labels -->
+                    <text x="185" y="105" font-family="'Barlow Condensed',sans-serif" font-size="13" font-weight="800" fill="#1d4ed8">A</text>
+                    <text x="230" y="160" font-family="'Barlow Condensed',sans-serif" font-size="13" font-weight="800" fill="#d97706">B</text>
+                    <!-- Gini formula box -->
+                    <rect x="60" y="20" width="100" height="30" rx="6" fill="var(--card)" stroke="#1d4ed8" stroke-width="1"/>
+                    <text x="110" y="35" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" fill="#1d4ed8" text-anchor="middle">Gini = A / (A+B)</text>
+                    <text x="110" y="46" font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="600" fill="#1d4ed8" text-anchor="middle">0 = equal, 1 = unequal</text>
+                </svg>
+            </div>
+            <div class="diagram-labels">
+                <div class="label-title">Key labels</div>
+                <div class="label-list">
+                    <span class="lg">Line of equality (perfect 45&deg;)</span>
+                    <span class="lb">Lorenz curve bows below</span>
+                    <span class="lb">A = area between curves</span>
+                    <span class="la">Gini = A/(A+B) &mdash; closer to 1 = more unequal</span>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /diagram-grid global -->
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Economics — Evaluation Deep Dive</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&family=Caveat:wght@600;700&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #f5f5f0;
+            --card: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #666;
+            --border: rgba(0,0,0,0.1);
+            --font: 'Barlow Condensed', sans-serif;
+            --mono: 'DM Mono', monospace;
+            --hand: 'Caveat', cursive;
+            --micro: #0958d9; --micro-bg: #e6f4ff;
+            --macro: #d4380d; --macro-bg: #fff1f0;
+            --business: #7c3aed; --business-bg: #f5f3ff;
+            --global: #0f6e56; --global-bg: #e1f5ee;
+            --green: #389e0d; --green-bg: #f6ffed;
+            --amber: #854f0b; --amber-bg: #faeeda;
+            --red: #cf1322; --red-bg: #fff1f0;
+            --gold: #d48806; --gold-bg: #fffbe6;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #141416; --card: #1e1e22;
+                --text: #e8e4dc; --text-light: #999;
+                --border: rgba(255,255,255,0.08);
+                --micro-bg: #0d2240; --macro-bg: #3a1a0d;
+                --business-bg: #1e1630; --global-bg: #0d2a1a;
+                --green-bg: #0d2a0d; --amber-bg: #2a1e0d;
+                --red-bg: #2a0d0d; --gold-bg: #2a220d;
+            }
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 1.5rem 1rem;
+        }
+
+        .page { max-width: 960px; margin: 0 auto; }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem 1rem;
+            background: var(--text);
+            color: #fff;
+            border-radius: 20px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+
+        .hero .subtitle {
+            font-family: var(--mono);
+            font-size: 13px;
+            opacity: 0.6;
+        }
+
+        /* Section headers */
+        .section-header {
+            font-size: 22px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            text-align: center;
+            padding: 14px 18px;
+            border-radius: 12px;
+            margin: 2.5rem 0 1rem;
+        }
+
+        .section-header.ladder { background: var(--business-bg); color: var(--business); }
+        .section-header.tools { background: var(--micro-bg); color: var(--micro); }
+        .section-header.chains { background: var(--macro-bg); color: var(--macro); }
+        .section-header.phrases { background: var(--amber-bg); color: var(--amber); }
+        .section-header.golden { background: var(--gold-bg); color: var(--gold); }
+
+        /* ===================== SECTION 1: EVALUATION LADDER ===================== */
+        .ladder-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .ladder-step {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 16px;
+            align-items: stretch;
+            padding: 16px 20px;
+            border-radius: 12px;
+            border: 2px solid var(--border);
+            position: relative;
+            margin-bottom: -1px;
+        }
+
+        .ladder-step:nth-child(1) {
+            background: var(--red-bg);
+            border-color: var(--red);
+        }
+        .ladder-step:nth-child(2) {
+            background: var(--amber-bg);
+            border-color: var(--amber);
+        }
+        .ladder-step:nth-child(3) {
+            background: var(--micro-bg);
+            border-color: var(--micro);
+        }
+        .ladder-step:nth-child(4) {
+            background: var(--green-bg);
+            border-color: var(--green);
+        }
+
+        .ladder-grade {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .ladder-grade .grade-letter {
+            font-size: 32px;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .ladder-step:nth-child(1) .grade-letter { color: var(--red); }
+        .ladder-step:nth-child(2) .grade-letter { color: var(--amber); }
+        .ladder-step:nth-child(3) .grade-letter { color: var(--micro); }
+        .ladder-step:nth-child(4) .grade-letter { color: var(--green); }
+
+        .ladder-grade .grade-level {
+            font-family: var(--mono);
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-top: 4px;
+        }
+
+        .ladder-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .ladder-content .ladder-label {
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 6px;
+        }
+
+        .ladder-content .ladder-quote {
+            font-family: var(--hand);
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        /* Arrow between steps */
+        .ladder-arrow {
+            text-align: center;
+            font-size: 24px;
+            color: var(--text-light);
+            margin: 4px 0;
+        }
+
+        /* ===================== SECTION 2: FIVE EVALUATION TOOLS ===================== */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .tools-grid .tool-card:last-child {
+            grid-column: 1 / -1;
+        }
+
+        .tool-card {
+            background: var(--card);
+            border-radius: 14px;
+            padding: 20px 22px;
+            border: 2px solid var(--border);
+        }
+
+        .tool-card .tool-num {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 4px;
+        }
+
+        .tool-card .tool-title {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .tool-card .tool-template {
+            font-family: var(--hand);
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .tool-card .tool-detail {
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--text-light);
+        }
+
+        .tool-card:nth-child(1) { border-color: var(--micro); }
+        .tool-card:nth-child(1) .tool-num,
+        .tool-card:nth-child(1) .tool-title { color: var(--micro); }
+
+        .tool-card:nth-child(2) { border-color: var(--macro); }
+        .tool-card:nth-child(2) .tool-num,
+        .tool-card:nth-child(2) .tool-title { color: var(--macro); }
+
+        .tool-card:nth-child(3) { border-color: var(--business); }
+        .tool-card:nth-child(3) .tool-num,
+        .tool-card:nth-child(3) .tool-title { color: var(--business); }
+
+        .tool-card:nth-child(4) { border-color: var(--global); }
+        .tool-card:nth-child(4) .tool-num,
+        .tool-card:nth-child(4) .tool-title { color: var(--global); }
+
+        .tool-card:nth-child(5) { border-color: var(--amber); }
+        .tool-card:nth-child(5) .tool-num,
+        .tool-card:nth-child(5) .tool-title { color: var(--amber); }
+
+        /* ===================== SECTION 3: WORKED EXAMPLES ===================== */
+        .chain-card {
+            background: var(--card);
+            border-radius: 14px;
+            padding: 20px 22px;
+            border: 1px solid var(--border);
+            margin-bottom: 12px;
+        }
+
+        .chain-card .chain-num {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--macro);
+            margin-bottom: 6px;
+        }
+
+        .chain-card .chain-topic {
+            font-size: 17px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .chain-bare {
+            background: var(--red-bg);
+            border-left: 4px solid var(--red);
+            padding: 10px 14px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 10px;
+        }
+
+        .chain-bare .chain-bare-label {
+            font-family: var(--mono);
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--red);
+            margin-bottom: 4px;
+        }
+
+        .chain-bare .chain-bare-text {
+            font-size: 13px;
+            font-style: italic;
+        }
+
+        .chain-full {
+            background: var(--green-bg);
+            border-left: 4px solid var(--green);
+            padding: 10px 14px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .chain-full .chain-full-label {
+            font-family: var(--mono);
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--green);
+            margin-bottom: 4px;
+        }
+
+        .chain-full .chain-full-text {
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .chain-flow {
+            font-family: var(--hand);
+            font-size: 18px;
+            font-weight: 600;
+            text-align: center;
+            margin: 8px 0;
+            color: var(--text-light);
+        }
+
+        /* ===================== SECTION 4: CONNECTIVE PHRASES ===================== */
+        .phrases-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 6px;
+        }
+
+        .phrases-table th {
+            font-family: var(--mono);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 10px 16px;
+            text-align: left;
+        }
+
+        .phrases-table th:first-child {
+            color: var(--red);
+            background: var(--red-bg);
+            border-radius: 8px 0 0 8px;
+        }
+
+        .phrases-table th:last-child {
+            color: var(--green);
+            background: var(--green-bg);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .phrases-table td {
+            padding: 10px 16px;
+            font-size: 14px;
+            line-height: 1.4;
+            background: var(--card);
+        }
+
+        .phrases-table td:first-child {
+            font-weight: 600;
+            color: var(--red);
+            border-radius: 8px 0 0 8px;
+            border-left: 3px solid var(--red);
+            width: 30%;
+        }
+
+        .phrases-table td:last-child {
+            font-weight: 600;
+            color: var(--green);
+            border-radius: 0 8px 8px 0;
+            border-right: 3px solid var(--green);
+        }
+
+        .phrases-arrow {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 18px;
+            padding: 0 8px;
+            background: var(--card);
+        }
+
+        /* ===================== SECTION 5: GOLDEN RULES ===================== */
+        .golden-rules {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .golden-rule {
+            display: grid;
+            grid-template-columns: 48px 1fr;
+            gap: 14px;
+            align-items: center;
+            background: var(--card);
+            border: 2px solid var(--gold);
+            border-radius: 12px;
+            padding: 16px 20px;
+        }
+
+        .golden-rule .rule-num {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--gold);
+            text-align: center;
+            line-height: 1;
+        }
+
+        .golden-rule .rule-text {
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        .golden-rule .rule-text strong {
+            color: var(--gold);
+        }
+
+        /* ===================== RESPONSIVE ===================== */
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 28px; }
+            .section-header { font-size: 18px; }
+            .ladder-step { grid-template-columns: 70px 1fr; padding: 12px 14px; }
+            .ladder-grade .grade-letter { font-size: 24px; }
+            .ladder-content .ladder-quote { font-size: 16px; }
+            .tools-grid { grid-template-columns: 1fr; }
+            .tools-grid .tool-card:last-child { grid-column: auto; }
+            .phrases-table td, .phrases-table th { padding: 8px 10px; font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <!-- HERO -->
+    <div class="hero">
+        <h1>Evaluation &mdash; The Difference Between B and A*</h1>
+        <div class="subtitle">How to build analytical depth &middot; not just "however" &middot; chain your reasoning</div>
+    </div>
+
+    <!-- ===== SECTION 1: THE EVALUATION LADDER ===== -->
+    <div class="section-header ladder">1. The Evaluation Ladder</div>
+
+    <div class="ladder-container">
+        <div class="ladder-step">
+            <div class="ladder-grade">
+                <div class="grade-letter">C</div>
+                <div class="grade-level">Level 1</div>
+            </div>
+            <div class="ladder-content">
+                <div class="ladder-label">Bare assertion &mdash; no marks</div>
+                <div class="ladder-quote">"However, this may not work."</div>
+            </div>
+        </div>
+        <div class="ladder-arrow">&darr;</div>
+        <div class="ladder-step">
+            <div class="ladder-grade">
+                <div class="grade-letter">B</div>
+                <div class="grade-level">Level 2</div>
+            </div>
+            <div class="ladder-content">
+                <div class="ladder-label">Identifies a factor</div>
+                <div class="ladder-quote">"However, this depends on PED."</div>
+            </div>
+        </div>
+        <div class="ladder-arrow">&darr;</div>
+        <div class="ladder-step">
+            <div class="ladder-grade">
+                <div class="grade-letter">A</div>
+                <div class="grade-level">Level 3</div>
+            </div>
+            <div class="ladder-content">
+                <div class="ladder-label">Explains the mechanism</div>
+                <div class="ladder-quote">"However, if demand is price inelastic, the tax will raise revenue but not significantly reduce consumption."</div>
+            </div>
+        </div>
+        <div class="ladder-arrow">&darr;</div>
+        <div class="ladder-step">
+            <div class="ladder-grade">
+                <div class="grade-letter">A*</div>
+                <div class="grade-level">Level 4</div>
+            </div>
+            <div class="ladder-content">
+                <div class="ladder-label">Explains, quantifies, offers alternative, links back</div>
+                <div class="ladder-quote">"However, if demand is price inelastic, as is typical for addictive goods like cigarettes (PED &asymp; -0.4), the tax will raise revenue but reduce consumption by only a small proportion. This means the externality persists, and alternative policies such as regulation or information provision may be more effective at reducing the welfare loss."</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SECTION 2: THE FIVE EVALUATION TOOLS ===== -->
+    <div class="section-header tools">2. The Five Evaluation Tools</div>
+
+    <div class="tools-grid">
+        <div class="tool-card">
+            <div class="tool-num">Tool 1</div>
+            <div class="tool-title">Short Run vs Long Run</div>
+            <div class="tool-template">"In the short run X, but in the long run Y because..."</div>
+            <div class="tool-detail">
+                <strong>Micro:</strong> Firms earn supernormal profit in SR, but LR entry erodes it (contestability).<br>
+                <strong>Macro:</strong> Fiscal stimulus boosts AD in SR, but may cause inflation in LR near full capacity.<br>
+                <strong>Labour:</strong> Minimum wage may cause unemployment in SR, but firms adjust via productivity gains in LR.
+            </div>
+        </div>
+
+        <div class="tool-card">
+            <div class="tool-num">Tool 2</div>
+            <div class="tool-title">Magnitude / Significance</div>
+            <div class="tool-template">"The impact depends on the size of..."</div>
+            <div class="tool-detail">
+                When a small change makes the theory irrelevant. A 1% tariff vs a 50% tariff. A minimum wage 5p above equilibrium vs &pound;3 above. The multiplier being 1.2 vs 2.5. Always ask: <strong>how big is the effect?</strong> If the shift is tiny, the theoretical impact may be negligible in practice.
+            </div>
+        </div>
+
+        <div class="tool-card">
+            <div class="tool-num">Tool 3</div>
+            <div class="tool-title">Assumptions</div>
+            <div class="tool-template">"This assumes... but in reality..."</div>
+            <div class="tool-detail">
+                Ceteris paribus breaking down &mdash; the real world doesn't hold other things equal. Rational economic agents not being rational (bounded rationality, habitual behaviour, herd mentality). Perfect information not existing. Factor mobility being limited. <strong>Every model has assumptions &mdash; challenge them.</strong>
+            </div>
+        </div>
+
+        <div class="tool-card">
+            <div class="tool-num">Tool 4</div>
+            <div class="tool-title">Context / It Depends On</div>
+            <div class="tool-template">"The effectiveness depends on the state of the economy / the elasticity / the market structure..."</div>
+            <div class="tool-detail">
+                A policy that works in a recession may cause inflation at full employment. Fiscal policy is more effective with a high multiplier (high MPC, closed economy). The impact of a tax depends on PED. Monopoly analysis changes if the market is contestable. <strong>Context is everything.</strong>
+            </div>
+        </div>
+
+        <div class="tool-card">
+            <div class="tool-num">Tool 5</div>
+            <div class="tool-title">Alternative Policies</div>
+            <div class="tool-template">"An alternative approach would be... which may be more effective because..."</div>
+            <div class="tool-detail">
+                Don't just critique &mdash; propose a better solution. If indirect tax doesn't reduce consumption of a demerit good, suggest regulation or information provision. If monetary policy hits the zero lower bound, suggest fiscal stimulus or QE. <strong>Examiners love students who can compare policy options and explain trade-offs.</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SECTION 3: EVALUATION CHAINS &mdash; 6 WORKED EXAMPLES ===== -->
+    <div class="section-header chains">3. Evaluation Chains &mdash; 6 Worked Examples</div>
+
+    <!-- Chain 1 -->
+    <div class="chain-card">
+        <div class="chain-num">Example 1</div>
+        <div class="chain-topic">Tax on Sugar</div>
+        <div class="chain-bare">
+            <div class="chain-bare-label">Bare Assertion (C grade)</div>
+            <div class="chain-bare-text">"However, the tax on sugar may not work."</div>
+        </div>
+        <div class="chain-flow">Tax on sugar &rarr; PED matters &rarr; addictive so inelastic &rarr; revenue but not behaviour change &rarr; need regulation too</div>
+        <div class="chain-full">
+            <div class="chain-full-label">Full Evaluation Chain (A*)</div>
+            <div class="chain-full-text">However, the effectiveness of a sugar tax depends critically on the price elasticity of demand. If sugary drinks are habitual or mildly addictive, demand is likely to be price inelastic, meaning the tax will raise significant government revenue but produce only a modest reduction in consumption. The UK Soft Drinks Industry Levy (2018) did reduce sugar content through reformulation, but this was because producers reformulated to avoid the tax &mdash; not because consumers switched away. This suggests that regulation (e.g. banning certain sugar levels) or information provision (clearer labelling) may be more effective at reducing the health externality than a tax alone.</div>
+        </div>
+    </div>
+
+    <!-- Chain 2 -->
+    <div class="chain-card">
+        <div class="chain-num">Example 2</div>
+        <div class="chain-topic">Interest Rate Cut</div>
+        <div class="chain-bare">
+            <div class="chain-bare-label">Bare Assertion (C grade)</div>
+            <div class="chain-bare-text">"However, cutting interest rates might not increase spending."</div>
+        </div>
+        <div class="chain-flow">Interest rate cut &rarr; depends on confidence &rarr; if confidence low, liquidity trap &rarr; consumers save not spend &rarr; QE as alternative</div>
+        <div class="chain-full">
+            <div class="chain-full-label">Full Evaluation Chain (A*)</div>
+            <div class="chain-full-text">However, the transmission mechanism from lower interest rates to higher AD depends heavily on consumer and business confidence. If the economy is in a deep recession and expectations are pessimistic, households may choose to save rather than spend despite cheaper borrowing &mdash; Keynes described this as a liquidity trap. Post-2008, the Bank of England cut rates to 0.5% yet lending and spending remained subdued, forcing the MPC to adopt quantitative easing (&pound;375bn by 2012) as an alternative. This demonstrates that monetary policy alone may be insufficient when confidence is the binding constraint, and fiscal stimulus may be required alongside it.</div>
+        </div>
+    </div>
+
+    <!-- Chain 3 -->
+    <div class="chain-card">
+        <div class="chain-num">Example 3</div>
+        <div class="chain-topic">Minimum Wage</div>
+        <div class="chain-bare">
+            <div class="chain-bare-label">Bare Assertion (C grade)</div>
+            <div class="chain-bare-text">"However, a minimum wage could cause unemployment."</div>
+        </div>
+        <div class="chain-flow">Minimum wage &rarr; depends on level relative to equilibrium &rarr; small rise = minimal unemployment &rarr; monopsony changes analysis entirely</div>
+        <div class="chain-full">
+            <div class="chain-full-label">Full Evaluation Chain (A*)</div>
+            <div class="chain-full-text">However, the employment effect of a minimum wage depends on its level relative to the market equilibrium wage and the structure of the labour market. A modest increase above equilibrium may cause only minimal unemployment, as firms absorb the cost through reduced profit margins or higher productivity. Crucially, if the employer is a monopsony (as is common in sectors like care work and retail), the firm is already paying below the competitive wage, and a minimum wage can simultaneously increase both wages and employment &mdash; moving the market towards the competitive outcome. Card and Krueger's (1994) study of New Jersey fast-food workers found no significant employment loss from a minimum wage rise, consistent with monopsony power in the labour market.</div>
+        </div>
+    </div>
+
+    <!-- Chain 4 -->
+    <div class="chain-card">
+        <div class="chain-num">Example 4</div>
+        <div class="chain-topic">Free Trade</div>
+        <div class="chain-bare">
+            <div class="chain-bare-label">Bare Assertion (C grade)</div>
+            <div class="chain-bare-text">"However, free trade doesn't always benefit everyone."</div>
+        </div>
+        <div class="chain-flow">Free trade &rarr; depends on comparative advantage &rarr; but assumes factor mobility &rarr; structural unemployment in transition &rarr; retraining needed</div>
+        <div class="chain-full">
+            <div class="chain-full-label">Full Evaluation Chain (A*)</div>
+            <div class="chain-full-text">However, the gains from free trade predicted by comparative advantage theory rest on the assumption of perfect factor mobility &mdash; that workers displaced from uncompetitive industries can smoothly transition into growing sectors. In practice, factor mobility is severely limited: a steelworker in Port Talbot cannot easily become a software developer in London. This creates structural unemployment during the transition period, concentrated in specific regions and demographics. The deindustrialisation of the US Rust Belt following NAFTA illustrates this clearly. This means free trade should be accompanied by substantial government investment in retraining, education, and regional development to ensure the gains are distributed more equitably.</div>
+        </div>
+    </div>
+
+    <!-- Chain 5 -->
+    <div class="chain-card">
+        <div class="chain-num">Example 5</div>
+        <div class="chain-topic">Monopoly</div>
+        <div class="chain-bare">
+            <div class="chain-bare-label">Bare Assertion (C grade)</div>
+            <div class="chain-bare-text">"However, monopoly isn't always bad."</div>
+        </div>
+        <div class="chain-flow">Monopoly is bad &rarr; but dynamic efficiency &rarr; supernormal profit funds R&amp;D &rarr; depends on contestability &rarr; regulation as alternative</div>
+        <div class="chain-full">
+            <div class="chain-full-label">Full Evaluation Chain (A*)</div>
+            <div class="chain-full-text">However, the static inefficiency argument against monopoly (P > MC, deadweight loss) overlooks dynamic efficiency. A monopolist earning supernormal profit has both the funds and the incentive to invest in R&amp;D, potentially leading to innovation that benefits consumers in the long run &mdash; Schumpeter's "creative destruction" argument. Whether this occurs depends on the contestability of the market: if barriers to entry are high and there is no competitive threat, the monopolist may simply extract rent without innovating (X-inefficiency). This suggests that the optimal policy is not necessarily to break up monopolies, but to ensure contestability through low barriers to entry, or to regulate conduct (e.g. CMA investigations, price caps) while preserving the scale needed for R&amp;D investment.</div>
+        </div>
+    </div>
+
+    <!-- Chain 6 -->
+    <div class="chain-card">
+        <div class="chain-num">Example 6</div>
+        <div class="chain-topic">Fiscal Expansion</div>
+        <div class="chain-bare">
+            <div class="chain-bare-label">Bare Assertion (C grade)</div>
+            <div class="chain-bare-text">"However, fiscal expansion might not work."</div>
+        </div>
+        <div class="chain-flow">Fiscal expansion &rarr; multiplier size depends on MPC &rarr; open economy = high leakages &rarr; crowding out if near capacity &rarr; time lags</div>
+        <div class="chain-full">
+            <div class="chain-full-label">Full Evaluation Chain (A*)</div>
+            <div class="chain-full-text">However, the effectiveness of fiscal expansion depends on the size of the multiplier, which is determined by the marginal propensity to consume and the level of leakages. In a small, open economy like the UK, a significant proportion of any increase in income leaks into imports (MPM), taxation (MPT), and savings (MPS), resulting in a multiplier potentially as low as 1.2&ndash;1.3. Furthermore, if the economy is already operating near full capacity, increased government borrowing may push up interest rates, crowding out private sector investment and negating the stimulus. There are also implementation time lags of 12&ndash;18 months between policy decision and economic impact. This suggests that fiscal expansion is most effective when there is a large negative output gap and spare capacity in the economy &mdash; precisely the conditions of a deep recession.</div>
+        </div>
+    </div>
+
+    <!-- ===== SECTION 4: CONNECTIVE PHRASES ===== -->
+    <div class="section-header phrases">4. Connective Phrases &mdash; The Vocabulary of Evaluation</div>
+
+    <table class="phrases-table">
+        <thead>
+            <tr>
+                <th>Basic (B grade)</th>
+                <th class="phrases-arrow"></th>
+                <th>Sophisticated (A* grade)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>"However"</td>
+                <td class="phrases-arrow">&rarr;</td>
+                <td>"This analysis rests on the assumption that..."</td>
+            </tr>
+            <tr>
+                <td>"On the other hand"</td>
+                <td class="phrases-arrow">&rarr;</td>
+                <td>"The magnitude of the effect is contingent upon..."</td>
+            </tr>
+            <tr>
+                <td>"But"</td>
+                <td class="phrases-arrow">&rarr;</td>
+                <td>"A critical limitation of this argument is that..."</td>
+            </tr>
+            <tr>
+                <td>"It depends"</td>
+                <td class="phrases-arrow">&rarr;</td>
+                <td>"The outcome is sensitive to the prevailing level of..."</td>
+            </tr>
+            <tr>
+                <td>"Also"</td>
+                <td class="phrases-arrow">&rarr;</td>
+                <td>"A further consideration, often overlooked, is..."</td>
+            </tr>
+            <tr>
+                <td>"In conclusion"</td>
+                <td class="phrases-arrow">&rarr;</td>
+                <td>"On balance, weighing the short-run costs against the long-run gains..."</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- ===== SECTION 5: THE GOLDEN RULES ===== -->
+    <div class="section-header golden">5. The Golden Rules</div>
+
+    <div class="golden-rules">
+        <div class="golden-rule">
+            <div class="rule-num">1</div>
+            <div class="rule-text">Always link evaluation back to the <strong>QUESTION</strong> &mdash; not generic evaluation. If the question asks about inflation, your evaluation must explain why the counter-argument matters <em>for inflation specifically</em>.</div>
+        </div>
+        <div class="golden-rule">
+            <div class="rule-num">2</div>
+            <div class="rule-text">Don't just list counter-arguments &mdash; explain <strong>WHY they matter</strong>. "PED is relevant" scores nothing. "If PED is inelastic, the tax raises revenue but fails to reduce consumption, meaning the policy objective is not achieved" scores highly.</div>
+        </div>
+        <div class="golden-rule">
+            <div class="rule-num">3</div>
+            <div class="rule-text">Use <strong>real-world examples</strong> to support evaluation &mdash; dates, figures, countries. "The UK sugar tax (2018)", "Bank of England cut rates to 0.1% in March 2020", "US unemployment fell to 3.5% pre-COVID". Specificity signals mastery.</div>
+        </div>
+        <div class="golden-rule">
+            <div class="rule-num">4</div>
+            <div class="rule-text">Don't sit on the fence in your conclusion &mdash; make a <strong>JUDGEMENT</strong>. "It depends" is not a conclusion. "On balance, the short-run costs are outweighed by the long-run benefits because..." <em>is</em> a conclusion.</div>
+        </div>
+        <div class="golden-rule">
+            <div class="rule-num">5</div>
+            <div class="rule-text">The best evaluation considers <strong>BOTH sides</strong> then explains which is more convincing and <strong>WHY</strong>. Show the examiner you can weigh evidence, not just list it. The student who judges wins; the student who lists draws.</div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

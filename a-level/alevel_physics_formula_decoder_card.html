@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQA Physics Formula Decoder — Which Equation Do I Need?</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&family=Caveat:wght@600;700&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            /* Mechanics = blue */
+            --mech-color: #0958d9;
+            --mech-bg: #e6f4ff;
+            /* Energy & Thermal = green */
+            --energy-color: #389e0d;
+            --energy-bg: #f6ffed;
+            /* Waves & Optics = purple */
+            --waves-color: #722ed1;
+            --waves-bg: #f9f0ff;
+            /* Electricity = amber */
+            --elec-color: #d48806;
+            --elec-bg: #fffbe6;
+            /* Fields = teal */
+            --fields-color: #08979c;
+            --fields-bg: #e6fffb;
+            /* Nuclear & Particles = red-pink */
+            --nuclear-color: #c41d7f;
+            --nuclear-bg: #fff0f6;
+            /* Accents */
+            --warn-color: #d4380d;
+            --warn-bg: #fff1f0;
+            --arrow-color: #1a1a2e;
+            --bg: #fafafa;
+            --card-bg: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #666;
+            --mono: 'DM Mono', monospace;
+            --font: 'Barlow Condensed', sans-serif;
+            --hand: 'Caveat', cursive;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --mech-color: #69b1ff;
+                --mech-bg: #0d2240;
+                --energy-color: #73d13d;
+                --energy-bg: #0d2a0d;
+                --waves-color: #b37feb;
+                --waves-bg: #1a0d2e;
+                --elec-color: #ffc53d;
+                --elec-bg: #2a2200;
+                --fields-color: #36cfc9;
+                --fields-bg: #002329;
+                --nuclear-color: #f759ab;
+                --nuclear-bg: #2a0d1e;
+                --warn-color: #ff7a45;
+                --warn-bg: #3a1a0d;
+                --arrow-color: #e8e4dc;
+                --bg: #141416;
+                --card-bg: #1e1e22;
+                --text: #e8e4dc;
+                --text-light: #999;
+            }
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 1.5rem 1rem;
+        }
+
+        .page { max-width: 1100px; margin: 0 auto; }
+
+        /* ---- HERO TITLE ---- */
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            line-height: 1.1;
+            margin-bottom: 6px;
+        }
+
+        .hero h1 .mech-c { color: var(--mech-color); }
+        .hero h1 .elec-c { color: var(--elec-color); }
+        .hero h1 .fields-c { color: var(--fields-color); }
+
+        .hero .subtitle {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--text-light);
+            letter-spacing: 0.03em;
+        }
+
+        .hero .tagline {
+            font-family: var(--hand);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--warn-color);
+            margin-top: 8px;
+        }
+
+        /* ---- SECTION HEADERS ---- */
+        .section-title {
+            font-size: 22px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin: 2.5rem 0 1rem;
+            text-align: center;
+            padding-bottom: 8px;
+            border-bottom: 3px solid var(--arrow-color);
+        }
+
+        .section-title.mech { color: var(--mech-color); border-bottom-color: var(--mech-color); }
+        .section-title.energy { color: var(--energy-color); border-bottom-color: var(--energy-color); }
+        .section-title.waves { color: var(--waves-color); border-bottom-color: var(--waves-color); }
+        .section-title.elec { color: var(--elec-color); border-bottom-color: var(--elec-color); }
+        .section-title.fields { color: var(--fields-color); border-bottom-color: var(--fields-color); }
+        .section-title.nuclear { color: var(--nuclear-color); border-bottom-color: var(--nuclear-color); }
+
+        /* ---- TOPIC GROUP LABEL ---- */
+        .topic-label {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 6px 14px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .topic-label.mech { background: var(--mech-bg); color: var(--mech-color); }
+        .topic-label.energy { background: var(--energy-bg); color: var(--energy-color); }
+        .topic-label.waves { background: var(--waves-bg); color: var(--waves-color); }
+        .topic-label.elec { background: var(--elec-bg); color: var(--elec-color); }
+        .topic-label.fields { background: var(--fields-bg); color: var(--fields-color); }
+        .topic-label.nuclear { background: var(--nuclear-bg); color: var(--nuclear-color); }
+
+        /* ---- FORMULA REFERENCE GRID ---- */
+        .formula-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .formula-item {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 12px 16px;
+            border-left: 4px solid;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .formula-item.mech { border-left-color: var(--mech-color); }
+        .formula-item.energy { border-left-color: var(--energy-color); }
+        .formula-item.waves { border-left-color: var(--waves-color); }
+        .formula-item.elec { border-left-color: var(--elec-color); }
+        .formula-item.fields { border-left-color: var(--fields-color); }
+        .formula-item.nuclear { border-left-color: var(--nuclear-color); }
+
+        .formula-item .f-eq {
+            font-family: var(--mono);
+            font-size: 14px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .formula-item.mech .f-eq { color: var(--mech-color); }
+        .formula-item.energy .f-eq { color: var(--energy-color); }
+        .formula-item.waves .f-eq { color: var(--waves-color); }
+        .formula-item.elec .f-eq { color: var(--elec-color); }
+        .formula-item.fields .f-eq { color: var(--fields-color); }
+        .formula-item.nuclear .f-eq { color: var(--nuclear-color); }
+
+        .formula-item .f-name {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .formula-item .memorise-tag {
+            font-size: 9px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            background: var(--warn-bg);
+            color: var(--warn-color);
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: auto;
+            white-space: nowrap;
+        }
+
+        /* ---- LOOKUP TABLE ---- */
+        .lookup-table-wrap {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 2rem;
+            overflow-x: auto;
+        }
+
+        .lookup-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .lookup-table th {
+            text-align: left;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-light);
+            padding: 8px 12px;
+            border-bottom: 2px solid var(--arrow-color);
+        }
+
+        .lookup-table td {
+            padding: 8px 12px;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            vertical-align: middle;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .lookup-table td { border-bottom-color: rgba(255,255,255,0.06); }
+        }
+
+        .lookup-table .gives { font-weight: 600; }
+        .lookup-table .use-eq {
+            font-family: var(--mono);
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .lookup-table .use-eq.mech-c { color: var(--mech-color); }
+        .lookup-table .use-eq.energy-c { color: var(--energy-color); }
+        .lookup-table .use-eq.waves-c { color: var(--waves-color); }
+        .lookup-table .use-eq.elec-c { color: var(--elec-color); }
+        .lookup-table .use-eq.fields-c { color: var(--fields-color); }
+        .lookup-table .use-eq.nuclear-c { color: var(--nuclear-color); }
+
+        .lookup-table .topic-tag {
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 2px 6px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lookup-table .topic-tag.mech { background: var(--mech-bg); color: var(--mech-color); }
+        .lookup-table .topic-tag.energy { background: var(--energy-bg); color: var(--energy-color); }
+        .lookup-table .topic-tag.waves { background: var(--waves-bg); color: var(--waves-color); }
+        .lookup-table .topic-tag.elec { background: var(--elec-bg); color: var(--elec-color); }
+        .lookup-table .topic-tag.fields { background: var(--fields-bg); color: var(--fields-color); }
+        .lookup-table .topic-tag.nuclear { background: var(--nuclear-bg); color: var(--nuclear-color); }
+
+        /* ---- SUVAT SECTION ---- */
+        .suvat-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .suvat-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 18px 14px;
+            text-align: center;
+            border: 2px solid var(--mech-color);
+        }
+
+        .suvat-card .missing-label {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--warn-color);
+            margin-bottom: 8px;
+        }
+
+        .suvat-card .suvat-eq {
+            font-family: var(--mono);
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--mech-color);
+            line-height: 1.4;
+        }
+
+        .suvat-card .suvat-vars {
+            font-size: 11px;
+            color: var(--text-light);
+            margin-top: 6px;
+            font-family: var(--mono);
+        }
+
+        .suvat-instruction {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 1rem;
+            text-align: center;
+            border: 2px dashed var(--mech-color);
+        }
+
+        .suvat-instruction .big {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 6px;
+            color: var(--mech-color);
+        }
+
+        .suvat-instruction .detail {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        /* ---- UNIT CHECKS ---- */
+        .warn-box {
+            background: var(--warn-bg);
+            border: 3px solid var(--warn-color);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 2rem;
+        }
+
+        .warn-box .warn-title {
+            font-size: 16px;
+            font-weight: 900;
+            color: var(--warn-color);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 10px;
+        }
+
+        .warn-box .warn-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 8px 24px;
+        }
+
+        .warn-item {
+            font-size: 14px;
+            line-height: 1.5;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .warn-item .conv {
+            font-family: var(--mono);
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--warn-color);
+        }
+
+        .sanity-check {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 1rem;
+            border-left: 5px solid var(--warn-color);
+        }
+
+        .sanity-check .sc-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--warn-color);
+            margin-bottom: 8px;
+        }
+
+        .sanity-check .sc-text {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* ---- GOLDEN RULE ---- */
+        .golden-rule {
+            background: var(--arrow-color);
+            color: #fff;
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .golden-rule .rule-title {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.6;
+            margin-bottom: 10px;
+        }
+
+        .golden-rule .rule-text {
+            font-size: 22px;
+            font-weight: 800;
+            line-height: 1.4;
+        }
+
+        .golden-rule .rule-sub {
+            font-family: var(--hand);
+            font-size: 22px;
+            font-weight: 700;
+            margin-top: 10px;
+            color: var(--warn-color);
+        }
+
+        /* ---- MANTRA / FOOTER ---- */
+        .mantra {
+            text-align: center;
+            padding: 32px 24px;
+            background: var(--arrow-color);
+            color: #fff;
+            border-radius: 16px;
+            margin-bottom: 1rem;
+        }
+
+        .mantra .big-text {
+            font-size: 26px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .mantra .big-text .mech-c { color: #69b1ff; }
+        .mantra .big-text .elec-c { color: #ffc53d; }
+        .mantra .big-text .fields-c { color: #36cfc9; }
+
+        .mantra .small-text {
+            font-family: var(--mono);
+            font-size: 11px;
+            opacity: 0.6;
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 900px) {
+            .formula-grid { grid-template-columns: 1fr 1fr; }
+            .suvat-grid { grid-template-columns: repeat(3, 1fr); }
+            .warn-box .warn-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            .formula-grid { grid-template-columns: 1fr; }
+            .suvat-grid { grid-template-columns: 1fr 1fr; }
+            .hero h1 { font-size: 26px; }
+            .warn-box .warn-grid { grid-template-columns: 1fr; }
+            .mantra .big-text { font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <!-- HERO -->
+    <div class="hero">
+        <h1>
+            <span class="mech-c">AQA Physics</span> Formula Decoder
+            <br>Which Equation Do I Need?
+        </h1>
+        <div class="subtitle">A-Level &bull; All topics &bull; The formula sheet tells you WHAT &mdash; this tells you WHEN</div>
+        <div class="tagline">You have the equations. This card tells you which one to pick.</div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SECTION 1: FORMULAS ON THE AQA DATA SHEET   -->
+    <!-- ============================================ -->
+
+    <h2 class="section-title">1. Formulas &mdash; Given vs Memorise</h2>
+
+    <!-- Mechanics -->
+    <span class="topic-label mech">Mechanics</span>
+    <div class="formula-grid">
+        <div class="formula-item mech">
+            <span class="f-eq">v = s/t</span>
+            <span class="f-name">Speed</span>
+            <span class="memorise-tag">Memorise</span>
+        </div>
+        <div class="formula-item mech">
+            <span class="f-eq">a = &Delta;v/&Delta;t</span>
+            <span class="f-name">Acceleration</span>
+            <span class="memorise-tag">Memorise</span>
+        </div>
+        <div class="formula-item mech">
+            <span class="f-eq">F = ma</span>
+            <span class="f-name">Newton&rsquo;s 2nd Law</span>
+            <span class="memorise-tag">Memorise</span>
+        </div>
+        <div class="formula-item mech">
+            <span class="f-eq">W = Fs cos&theta;</span>
+            <span class="f-name">Work done</span>
+            <span class="memorise-tag">Memorise</span>
+        </div>
+        <div class="formula-item mech">
+            <span class="f-eq">v = u + at</span>
+            <span class="f-name">SUVAT 1</span>
+        </div>
+        <div class="formula-item mech">
+            <span class="f-eq">s = ut + &frac12;at&sup2;</span>
+            <span class="f-name">SUVAT 2</span>
+        </div>
+        <div class="formula-item mech">
+            <span class="f-eq">v&sup2; = u&sup2; + 2as</span>
+            <span class="f-name">SUVAT 3</span>
+        </div>
+        <div class="formula-item mech">
+            <span class="f-eq">s = &frac12;(u+v)t</span>
+            <span class="f-name">SUVAT 4</span>
+        </div>
+        <div class="formula-item mech">
+            <span class="f-eq">s = vt - &frac12;at&sup2;</span>
+            <span class="f-name">SUVAT 5</span>
+        </div>
+        <div class="formula-item mech">
+            <span class="f-eq">p = mv</span>
+            <span class="f-name">Momentum</span>
+        </div>
+        <div class="formula-item mech">
+            <span class="f-eq">F = &Delta;p/&Delta;t</span>
+            <span class="f-name">Impulse</span>
+        </div>
+        <div class="formula-item mech">
+            <span class="f-eq">F = mv&sup2;/r</span>
+            <span class="f-name">Centripetal force</span>
+        </div>
+        <div class="formula-item mech">
+            <span class="f-eq">a = v&sup2;/r</span>
+            <span class="f-name">Centripetal accel.</span>
+        </div>
+        <div class="formula-item mech">
+            <span class="f-eq">&omega; = 2&pi;f</span>
+            <span class="f-name">Angular speed</span>
+        </div>
+    </div>
+
+    <!-- Energy & Materials -->
+    <span class="topic-label energy">Energy &amp; Materials</span>
+    <div class="formula-grid">
+        <div class="formula-item energy">
+            <span class="f-eq">KE = &frac12;mv&sup2;</span>
+            <span class="f-name">Kinetic energy</span>
+        </div>
+        <div class="formula-item energy">
+            <span class="f-eq">GPE = mgh</span>
+            <span class="f-name">Gravitational PE</span>
+        </div>
+        <div class="formula-item energy">
+            <span class="f-eq">P = E/t</span>
+            <span class="f-name">Power</span>
+            <span class="memorise-tag">Memorise</span>
+        </div>
+        <div class="formula-item energy">
+            <span class="f-eq">P = Fv</span>
+            <span class="f-name">Power (force)</span>
+        </div>
+        <div class="formula-item energy">
+            <span class="f-eq">eff = useful/total</span>
+            <span class="f-name">Efficiency</span>
+            <span class="memorise-tag">Memorise</span>
+        </div>
+        <div class="formula-item energy">
+            <span class="f-eq">F = kx</span>
+            <span class="f-name">Hooke&rsquo;s Law</span>
+        </div>
+        <div class="formula-item energy">
+            <span class="f-eq">E = &frac12;kx&sup2;</span>
+            <span class="f-name">Elastic PE</span>
+        </div>
+        <div class="formula-item energy">
+            <span class="f-eq">&sigma; = F/A</span>
+            <span class="f-name">Stress</span>
+        </div>
+        <div class="formula-item energy">
+            <span class="f-eq">&epsilon; = &Delta;L/L</span>
+            <span class="f-name">Strain</span>
+        </div>
+        <div class="formula-item energy">
+            <span class="f-eq">E = &sigma;/&epsilon;</span>
+            <span class="f-name">Young&rsquo;s modulus</span>
+        </div>
+    </div>
+
+    <!-- Waves -->
+    <span class="topic-label waves">Waves &amp; Optics</span>
+    <div class="formula-grid">
+        <div class="formula-item waves">
+            <span class="f-eq">v = f&lambda;</span>
+            <span class="f-name">Wave speed</span>
+            <span class="memorise-tag">Memorise</span>
+        </div>
+        <div class="formula-item waves">
+            <span class="f-eq">T = 1/f</span>
+            <span class="f-name">Period</span>
+        </div>
+        <div class="formula-item waves">
+            <span class="f-eq">d sin&theta; = n&lambda;</span>
+            <span class="f-name">Diffraction grating</span>
+        </div>
+        <div class="formula-item waves">
+            <span class="f-eq">&lambda; = ax/D</span>
+            <span class="f-name">Young&rsquo;s slits</span>
+        </div>
+        <div class="formula-item waves">
+            <span class="f-eq">n&sub1;sin&theta;&sub1; = n&sub2;sin&theta;&sub2;</span>
+            <span class="f-name">Snell&rsquo;s law</span>
+        </div>
+    </div>
+
+    <!-- Electricity -->
+    <span class="topic-label elec">Electricity</span>
+    <div class="formula-grid">
+        <div class="formula-item elec">
+            <span class="f-eq">I = &Delta;Q/&Delta;t</span>
+            <span class="f-name">Current</span>
+        </div>
+        <div class="formula-item elec">
+            <span class="f-eq">V = W/Q</span>
+            <span class="f-name">Potential difference</span>
+        </div>
+        <div class="formula-item elec">
+            <span class="f-eq">V = IR</span>
+            <span class="f-name">Ohm&rsquo;s law</span>
+        </div>
+        <div class="formula-item elec">
+            <span class="f-eq">R = &rho;L/A</span>
+            <span class="f-name">Resistivity</span>
+        </div>
+        <div class="formula-item elec">
+            <span class="f-eq">P = IV = I&sup2;R = V&sup2;/R</span>
+            <span class="f-name">Electrical power</span>
+        </div>
+        <div class="formula-item elec">
+            <span class="f-eq">&epsilon; = I(R+r)</span>
+            <span class="f-name">EMF &amp; internal resistance</span>
+        </div>
+        <div class="formula-item elec">
+            <span class="f-eq">V&sub2; = V&middot;R&sub2;/(R&sub1;+R&sub2;)</span>
+            <span class="f-name">Potential divider</span>
+        </div>
+    </div>
+
+    <!-- Fields -->
+    <span class="topic-label fields">Fields</span>
+    <div class="formula-grid">
+        <div class="formula-item fields">
+            <span class="f-eq">F = GMm/r&sup2;</span>
+            <span class="f-name">Gravitational force</span>
+        </div>
+        <div class="formula-item fields">
+            <span class="f-eq">g = GM/r&sup2;</span>
+            <span class="f-name">Grav. field strength</span>
+        </div>
+        <div class="formula-item fields">
+            <span class="f-eq">V = -GM/r</span>
+            <span class="f-name">Grav. potential</span>
+        </div>
+        <div class="formula-item fields">
+            <span class="f-eq">F = kQ&sub1;Q&sub2;/r&sup2;</span>
+            <span class="f-name">Coulomb&rsquo;s law</span>
+        </div>
+        <div class="formula-item fields">
+            <span class="f-eq">E = kQ/r&sup2;</span>
+            <span class="f-name">Electric field (point)</span>
+        </div>
+        <div class="formula-item fields">
+            <span class="f-eq">E = V/d</span>
+            <span class="f-name">Electric field (uniform)</span>
+        </div>
+        <div class="formula-item fields">
+            <span class="f-eq">C = Q/V</span>
+            <span class="f-name">Capacitance</span>
+        </div>
+        <div class="formula-item fields">
+            <span class="f-eq">E = &frac12;CV&sup2;</span>
+            <span class="f-name">Capacitor energy</span>
+        </div>
+        <div class="formula-item fields">
+            <span class="f-eq">Q = Q&sub0;e^(-t/RC)</span>
+            <span class="f-name">Capacitor discharge</span>
+        </div>
+        <div class="formula-item fields">
+            <span class="f-eq">F = BIl sin&theta;</span>
+            <span class="f-name">Force on wire</span>
+        </div>
+        <div class="formula-item fields">
+            <span class="f-eq">F = BQv sin&theta;</span>
+            <span class="f-name">Force on charge</span>
+        </div>
+        <div class="formula-item fields">
+            <span class="f-eq">&epsilon; = -Nd&Phi;/dt</span>
+            <span class="f-name">Faraday&rsquo;s law</span>
+        </div>
+        <div class="formula-item fields">
+            <span class="f-eq">V&sub;s;/V&sub;p; = N&sub;s;/N&sub;p;</span>
+            <span class="f-name">Transformer</span>
+        </div>
+        <div class="formula-item fields">
+            <span class="f-eq">x = Acos(&omega;t)</span>
+            <span class="f-name">SHM displacement</span>
+        </div>
+        <div class="formula-item fields">
+            <span class="f-eq">a = -&omega;&sup2;x</span>
+            <span class="f-name">SHM acceleration</span>
+        </div>
+    </div>
+
+    <!-- Nuclear -->
+    <span class="topic-label nuclear">Nuclear &amp; Thermal</span>
+    <div class="formula-grid">
+        <div class="formula-item nuclear">
+            <span class="f-eq">E = mc&sup2;</span>
+            <span class="f-name">Mass-energy</span>
+        </div>
+        <div class="formula-item nuclear">
+            <span class="f-eq">N = N&sub0;e^(-&lambda;t)</span>
+            <span class="f-name">Radioactive decay</span>
+        </div>
+        <div class="formula-item nuclear">
+            <span class="f-eq">t&frac12; = ln2/&lambda;</span>
+            <span class="f-name">Half-life</span>
+        </div>
+        <div class="formula-item nuclear">
+            <span class="f-eq">pV = nRT</span>
+            <span class="f-name">Ideal gas</span>
+        </div>
+        <div class="formula-item nuclear">
+            <span class="f-eq">&frac12;m&langle;c&sup2;&rangle; = 3/2 kT</span>
+            <span class="f-name">KE of gas molecules</span>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SECTION 2: THE BIG LOOKUP TABLE              -->
+    <!-- ============================================ -->
+
+    <h2 class="section-title">2. The Big Lookup Table &mdash; &ldquo;The question mentions&hellip;&rdquo;</h2>
+
+    <div class="lookup-table-wrap">
+        <table class="lookup-table">
+            <thead>
+                <tr>
+                    <th>The question mentions&hellip;</th>
+                    <th>And asks for&hellip;</th>
+                    <th>Use this equation</th>
+                    <th>Topic</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Mechanics -->
+                <tr>
+                    <td class="gives">distance, time</td>
+                    <td>speed</td>
+                    <td class="use-eq mech-c">v = s/t</td>
+                    <td><span class="topic-tag mech">Mech</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">velocity, time, acceleration</td>
+                    <td>any of the three</td>
+                    <td class="use-eq mech-c">SUVAT (3 knowns)</td>
+                    <td><span class="topic-tag mech">Mech</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">force, mass</td>
+                    <td>acceleration</td>
+                    <td class="use-eq mech-c">F = ma</td>
+                    <td><span class="topic-tag mech">Mech</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">work, force, distance</td>
+                    <td>any</td>
+                    <td class="use-eq mech-c">W = Fs cos&theta;</td>
+                    <td><span class="topic-tag mech">Mech</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">power, force, velocity</td>
+                    <td>any</td>
+                    <td class="use-eq energy-c">P = Fv</td>
+                    <td><span class="topic-tag energy">Energy</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">power, energy, time</td>
+                    <td>any</td>
+                    <td class="use-eq energy-c">P = E/t</td>
+                    <td><span class="topic-tag energy">Energy</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">kinetic energy, mass, speed</td>
+                    <td>any</td>
+                    <td class="use-eq energy-c">KE = &frac12;mv&sup2;</td>
+                    <td><span class="topic-tag energy">Energy</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">GPE, mass, height</td>
+                    <td>any</td>
+                    <td class="use-eq energy-c">GPE = mgh</td>
+                    <td><span class="topic-tag energy">Energy</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">momentum, mass, velocity</td>
+                    <td>any</td>
+                    <td class="use-eq mech-c">p = mv</td>
+                    <td><span class="topic-tag mech">Mech</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">impulse, force, time</td>
+                    <td>any</td>
+                    <td class="use-eq mech-c">F&Delta;t = &Delta;p</td>
+                    <td><span class="topic-tag mech">Mech</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">spring, extension, force</td>
+                    <td>any</td>
+                    <td class="use-eq energy-c">F = kx</td>
+                    <td><span class="topic-tag energy">Materials</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">stress, force, area</td>
+                    <td>any</td>
+                    <td class="use-eq energy-c">&sigma; = F/A</td>
+                    <td><span class="topic-tag energy">Materials</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">strain, extension, length</td>
+                    <td>any</td>
+                    <td class="use-eq energy-c">&epsilon; = &Delta;L/L</td>
+                    <td><span class="topic-tag energy">Materials</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">Young&rsquo;s modulus</td>
+                    <td>any</td>
+                    <td class="use-eq energy-c">E = &sigma;/&epsilon;</td>
+                    <td><span class="topic-tag energy">Materials</span></td>
+                </tr>
+                <!-- Waves -->
+                <tr>
+                    <td class="gives">wave speed, frequency, wavelength</td>
+                    <td>any</td>
+                    <td class="use-eq waves-c">v = f&lambda;</td>
+                    <td><span class="topic-tag waves">Waves</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">diffraction, slit spacing, angle</td>
+                    <td>any</td>
+                    <td class="use-eq waves-c">d sin&theta; = n&lambda;</td>
+                    <td><span class="topic-tag waves">Waves</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">Young&rsquo;s slits, fringe spacing</td>
+                    <td>any</td>
+                    <td class="use-eq waves-c">&lambda; = ax/D</td>
+                    <td><span class="topic-tag waves">Waves</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">Snell&rsquo;s law, refraction</td>
+                    <td>any</td>
+                    <td class="use-eq waves-c">n&#8321;sin&theta;&#8321; = n&#8322;sin&theta;&#8322;</td>
+                    <td><span class="topic-tag waves">Waves</span></td>
+                </tr>
+                <!-- Electricity -->
+                <tr>
+                    <td class="gives">current, charge, time</td>
+                    <td>any</td>
+                    <td class="use-eq elec-c">I = &Delta;Q/&Delta;t</td>
+                    <td><span class="topic-tag elec">Elec</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">voltage, energy, charge</td>
+                    <td>any</td>
+                    <td class="use-eq elec-c">V = W/Q</td>
+                    <td><span class="topic-tag elec">Elec</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">resistance, voltage, current</td>
+                    <td>any</td>
+                    <td class="use-eq elec-c">V = IR</td>
+                    <td><span class="topic-tag elec">Elec</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">resistivity, length, area</td>
+                    <td>any</td>
+                    <td class="use-eq elec-c">R = &rho;L/A</td>
+                    <td><span class="topic-tag elec">Elec</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">power (electrical)</td>
+                    <td>any</td>
+                    <td class="use-eq elec-c">P = IV = I&sup2;R = V&sup2;/R</td>
+                    <td><span class="topic-tag elec">Elec</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">EMF, internal resistance</td>
+                    <td>any</td>
+                    <td class="use-eq elec-c">&epsilon; = I(R+r)</td>
+                    <td><span class="topic-tag elec">Elec</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">potential divider</td>
+                    <td>output voltage</td>
+                    <td class="use-eq elec-c">V&#8322; = V&middot;R&#8322;/(R&#8321;+R&#8322;)</td>
+                    <td><span class="topic-tag elec">Elec</span></td>
+                </tr>
+                <!-- Fields -->
+                <tr>
+                    <td class="gives">circular motion, radius, speed</td>
+                    <td>any</td>
+                    <td class="use-eq fields-c">F = mv&sup2;/r, a = v&sup2;/r</td>
+                    <td><span class="topic-tag fields">Fields</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">SHM, displacement, time</td>
+                    <td>any</td>
+                    <td class="use-eq fields-c">x = Acos(&omega;t), a = -&omega;&sup2;x</td>
+                    <td><span class="topic-tag fields">Fields</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">gravitational force, masses, distance</td>
+                    <td>any</td>
+                    <td class="use-eq fields-c">F = GMm/r&sup2;</td>
+                    <td><span class="topic-tag fields">Fields</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">gravitational field strength</td>
+                    <td>any</td>
+                    <td class="use-eq fields-c">g = GM/r&sup2;</td>
+                    <td><span class="topic-tag fields">Fields</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">electric force, charges, distance</td>
+                    <td>any</td>
+                    <td class="use-eq fields-c">F = kQ&#8321;Q&#8322;/r&sup2;</td>
+                    <td><span class="topic-tag fields">Fields</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">capacitance, charge, voltage</td>
+                    <td>any</td>
+                    <td class="use-eq fields-c">C = Q/V</td>
+                    <td><span class="topic-tag fields">Fields</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">capacitor energy</td>
+                    <td>any</td>
+                    <td class="use-eq fields-c">E = &frac12;CV&sup2;</td>
+                    <td><span class="topic-tag fields">Fields</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">capacitor discharge</td>
+                    <td>any</td>
+                    <td class="use-eq fields-c">Q = Q&#8320;e^(-t/RC)</td>
+                    <td><span class="topic-tag fields">Fields</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">magnetic force on wire</td>
+                    <td>any</td>
+                    <td class="use-eq fields-c">F = BIl sin&theta;</td>
+                    <td><span class="topic-tag fields">Fields</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">magnetic force on charge</td>
+                    <td>any</td>
+                    <td class="use-eq fields-c">F = BQv sin&theta;</td>
+                    <td><span class="topic-tag fields">Fields</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">induced EMF, flux</td>
+                    <td>any</td>
+                    <td class="use-eq fields-c">&epsilon; = -Nd&Phi;/dt</td>
+                    <td><span class="topic-tag fields">Fields</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">transformer</td>
+                    <td>voltage / turns</td>
+                    <td class="use-eq fields-c">V&#8347;/V&#8346; = N&#8347;/N&#8346;</td>
+                    <td><span class="topic-tag fields">Fields</span></td>
+                </tr>
+                <!-- Nuclear -->
+                <tr>
+                    <td class="gives">radioactive decay</td>
+                    <td>any</td>
+                    <td class="use-eq nuclear-c">N = N&#8320;e^(-&lambda;t)</td>
+                    <td><span class="topic-tag nuclear">Nuclear</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">half-life</td>
+                    <td>any</td>
+                    <td class="use-eq nuclear-c">t&frac12; = ln2/&lambda;</td>
+                    <td><span class="topic-tag nuclear">Nuclear</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">mass-energy</td>
+                    <td>any</td>
+                    <td class="use-eq nuclear-c">E = mc&sup2;</td>
+                    <td><span class="topic-tag nuclear">Nuclear</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">ideal gas</td>
+                    <td>any</td>
+                    <td class="use-eq nuclear-c">pV = nRT</td>
+                    <td><span class="topic-tag nuclear">Thermal</span></td>
+                </tr>
+                <tr>
+                    <td class="gives">kinetic energy of gas</td>
+                    <td>any</td>
+                    <td class="use-eq nuclear-c">&frac12;m&langle;c&sup2;&rangle; = 3/2 kT</td>
+                    <td><span class="topic-tag nuclear">Thermal</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SECTION 3: SUVAT DECISION TREE              -->
+    <!-- ============================================ -->
+
+    <h2 class="section-title mech">3. SUVAT Decision Tree &mdash; Which of the 5 equations?</h2>
+
+    <div class="suvat-instruction">
+        <div class="big">Identify your 3 knowns and 1 unknown. Find the equation that contains all 4.</div>
+        <div class="detail">
+            Each SUVAT equation uses 4 of the 5 variables (s, u, v, a, t).<br>
+            The trick: find which variable you <strong>don&rsquo;t need</strong> &mdash; then use the equation that&rsquo;s missing it.
+        </div>
+    </div>
+
+    <div class="suvat-grid">
+        <div class="suvat-card">
+            <div class="missing-label">Missing s</div>
+            <div class="suvat-eq">v = u + at</div>
+            <div class="suvat-vars">has: u, v, a, t</div>
+        </div>
+        <div class="suvat-card">
+            <div class="missing-label">Missing v</div>
+            <div class="suvat-eq">s = ut + &frac12;at&sup2;</div>
+            <div class="suvat-vars">has: s, u, a, t</div>
+        </div>
+        <div class="suvat-card">
+            <div class="missing-label">Missing u</div>
+            <div class="suvat-eq">s = vt - &frac12;at&sup2;</div>
+            <div class="suvat-vars">has: s, v, a, t</div>
+        </div>
+        <div class="suvat-card">
+            <div class="missing-label">Missing a</div>
+            <div class="suvat-eq">s = &frac12;(u+v)t</div>
+            <div class="suvat-vars">has: s, u, v, t</div>
+        </div>
+        <div class="suvat-card">
+            <div class="missing-label">Missing t</div>
+            <div class="suvat-eq">v&sup2; = u&sup2; + 2as</div>
+            <div class="suvat-vars">has: s, u, v, a</div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SECTION 4: UNIT CHECKS                      -->
+    <!-- ============================================ -->
+
+    <h2 class="section-title">4. Unit Checks &mdash; The Quick Sanity Test</h2>
+
+    <div class="sanity-check">
+        <div class="sc-title">The Reality Check</div>
+        <div class="sc-text">
+            If your answer should be in metres and you got kg &mdash; something&rsquo;s wrong.<br>
+            If you got a negative speed &mdash; something&rsquo;s wrong.<br>
+            If an electron has the mass of a planet &mdash; something&rsquo;s <em>very</em> wrong.<br>
+            <strong>Always check: does my answer make physical sense?</strong>
+        </div>
+    </div>
+
+    <div class="warn-box">
+        <div class="warn-title">Common Unit Conversions</div>
+        <div class="warn-grid">
+            <div class="warn-item">
+                <span class="conv">mm &rarr; m</span>
+                <span>&divide; 1000</span>
+            </div>
+            <div class="warn-item">
+                <span class="conv">cm &rarr; m</span>
+                <span>&divide; 100</span>
+            </div>
+            <div class="warn-item">
+                <span class="conv">km &rarr; m</span>
+                <span>&times; 1000</span>
+            </div>
+            <div class="warn-item">
+                <span class="conv">g &rarr; kg</span>
+                <span>&divide; 1000</span>
+            </div>
+            <div class="warn-item">
+                <span class="conv">mA &rarr; A</span>
+                <span>&divide; 1000</span>
+            </div>
+            <div class="warn-item">
+                <span class="conv">kW &rarr; W</span>
+                <span>&times; 1000</span>
+            </div>
+            <div class="warn-item">
+                <span class="conv">MHz &rarr; Hz</span>
+                <span>&times; 10&sup6;</span>
+            </div>
+            <div class="warn-item">
+                <span class="conv">nm &rarr; m</span>
+                <span>&times; 10&#8315;&sup9;</span>
+            </div>
+            <div class="warn-item">
+                <span class="conv">&mu;m &rarr; m</span>
+                <span>&times; 10&#8315;&sup6;</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="sanity-check">
+        <div class="sc-title">Standard Form &mdash; Get Comfortable</div>
+        <div class="sc-text">
+            A-Level physics lives in standard form. Know your powers of 10 cold.<br>
+            Speed of light: 3.00 &times; 10&sup8; m/s &bull;
+            Electron charge: 1.60 &times; 10&#8315;&sup1;&sup9; C &bull;
+            Planck&rsquo;s constant: 6.63 &times; 10&#8315;&sup3;&sup4; J&middot;s<br>
+            <strong>Practise entering these on your calculator until it&rsquo;s automatic.</strong>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SECTION 5: THE GOLDEN RULE                  -->
+    <!-- ============================================ -->
+
+    <h2 class="section-title">5. The Golden Rule</h2>
+
+    <div class="golden-rule">
+        <div class="rule-title">The One Rule That Prevents Most Mistakes</div>
+        <div class="rule-text">
+            Write the equation.<br>
+            Substitute the numbers.<br>
+            THEN rearrange if needed.
+        </div>
+        <div class="rule-sub">Never rearrange first &mdash; you&rsquo;ll make sign errors.</div>
+    </div>
+
+    <!-- MANTRA -->
+    <div class="mantra">
+        <div class="big-text">
+            <span class="mech-c">Read</span> the question.
+            <span class="elec-c">Spot</span> the keywords.
+            <span class="fields-c">Pick</span> the equation.
+        </div>
+        <div class="big-text" style="font-size: 20px; margin-top: 4px;">
+            Write it. Substitute. Rearrange. Calculate. <span class="mech-c">Units.</span> Done.
+        </div>
+        <div class="small-text" style="margin-top: 12px;">The formula sheet is your friend &mdash; this card teaches you how to use it.</div>
+    </div>
+
+</div>
+
+</body>
+</html>

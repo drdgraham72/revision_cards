@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Maths — The Mistakes That Cost You Marks Every Year</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&family=Caveat:wght@600;700&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #f5f5f0;
+            --card: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #666;
+            --border: rgba(0,0,0,0.1);
+            --font: 'Barlow Condensed', sans-serif;
+            --mono: 'DM Mono', monospace;
+            --hand: 'Caveat', cursive;
+            --green: #389e0d;
+            --green-bg: #f6ffed;
+            --red: #d4380d;
+            --red-bg: #fff1f0;
+            --blue: #0958d9;
+            --blue-bg: #e6f4ff;
+            --purple: #7c3aed;
+            --purple-bg: #f5f3ff;
+            --amber: #854f0b;
+            --amber-bg: #faeeda;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #141416;
+                --card: #1e1e22;
+                --text: #e8e4dc;
+                --text-light: #999;
+                --border: rgba(255,255,255,0.08);
+                --green-bg: #0d2a0d;
+                --red-bg: #3a1a0d;
+                --blue-bg: #0d2240;
+                --purple-bg: #1e1630;
+                --amber-bg: #2a1e0d;
+            }
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 1.5rem 1rem;
+        }
+
+        .page { max-width: 900px; margin: 0 auto; }
+
+        /* ---- HERO ---- */
+        .hero { text-align: center; margin-bottom: 2rem; }
+
+        .hero h1 {
+            font-size: 36px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            line-height: 1.1;
+            margin-bottom: 6px;
+            color: var(--red);
+        }
+
+        .hero .subtitle {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* ---- SECTION CARDS ---- */
+        .section {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 2rem;
+        }
+
+        .section h2 {
+            font-size: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--border);
+        }
+
+        .section h2 .section-num {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-size: 14px;
+            color: #fff;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        .section.calculus h2 .section-num { background: var(--red); }
+        .section.algebra h2 .section-num { background: var(--blue); }
+        .section.trig h2 .section-num { background: var(--purple); }
+        .section.stats h2 .section-num { background: var(--amber); }
+        .section.mechanics h2 .section-num { background: var(--green); }
+        .section.technique h2 .section-num { background: #555; }
+
+        .section.calculus h2 { color: var(--red); }
+        .section.algebra h2 { color: var(--blue); }
+        .section.trig h2 { color: var(--purple); }
+        .section.stats h2 { color: var(--amber); }
+        .section.mechanics h2 { color: var(--green); }
+        .section.technique h2 { color: #555; }
+
+        @media (prefers-color-scheme: dark) {
+            .section.technique h2 { color: #aaa; }
+            .section.technique h2 .section-num { background: #888; }
+        }
+
+        /* ---- TRAP ITEMS ---- */
+        .trap {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 18px;
+            align-items: flex-start;
+            padding-bottom: 18px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .trap:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .trap-icon {
+            font-size: 20px;
+            font-weight: 900;
+            color: var(--red);
+            flex-shrink: 0;
+            width: 28px;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .trap-body {
+            flex: 1;
+        }
+
+        .trap-desc {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        .trap-example {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .wrong-box, .right-box {
+            padding: 10px 14px;
+            border-radius: 8px;
+        }
+
+        .wrong-box {
+            background: var(--red-bg);
+            border: 2px solid var(--red);
+        }
+
+        .right-box {
+            background: var(--green-bg);
+            border: 2px solid var(--green);
+        }
+
+        .box-label {
+            font-family: var(--mono);
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 4px;
+        }
+
+        .wrong-box .box-label { color: var(--red); }
+        .right-box .box-label { color: var(--green); }
+
+        .wrong-text {
+            font-family: var(--hand);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--red);
+            text-decoration: line-through;
+            text-decoration-thickness: 2.5px;
+        }
+
+        .right-text {
+            font-family: var(--hand);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--green);
+        }
+
+        .trap-why {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 6px;
+            line-height: 1.5;
+            font-style: italic;
+        }
+
+        /* ---- SPECIAL: LIATE BOX ---- */
+        .mnemonic-box {
+            background: var(--blue-bg);
+            border: 2px solid var(--blue);
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin-top: 8px;
+        }
+
+        .mnemonic-box .mnemonic-title {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--blue);
+            margin-bottom: 6px;
+        }
+
+        .mnemonic-box .mnemonic-content {
+            font-family: var(--hand);
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        /* ---- CAST DIAGRAM MINI ---- */
+        .cast-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            max-width: 180px;
+            margin: 8px auto 0;
+            text-align: center;
+            font-family: var(--mono);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .cast-grid div {
+            padding: 8px;
+            border-radius: 4px;
+            background: var(--purple-bg);
+            color: var(--purple);
+        }
+
+        /* ---- FOOTER BANNER ---- */
+        .wall-of-shame-banner {
+            background: var(--text);
+            color: #fff;
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .wall-of-shame-banner .big {
+            font-size: 24px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .wall-of-shame-banner .big .highlight { color: #73d13d; }
+
+        .wall-of-shame-banner .small {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 24px; }
+            .trap-example { grid-template-columns: 1fr; }
+            .wrong-text, .right-text { font-size: 18px; }
+            .section { padding: 20px 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <div class="hero">
+        <h1>A-Level Maths &mdash; The Mistakes That Cost You Marks Every Year</h1>
+        <div class="subtitle">The wall of shame. Learn these. Never lose these marks again.</div>
+    </div>
+
+    <!-- ========== 1. CALCULUS ========== -->
+    <div class="section calculus">
+        <h2><span class="section-num">1</span> Calculus Mistakes</h2>
+
+        <!-- +c -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">Forgetting +c on indefinite integrals</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">&int;2x dx = x&sup2;</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">&int;2x dx = x&sup2; + c</div>
+                    </div>
+                </div>
+                <div class="trap-why">Every indefinite integral has infinitely many solutions &mdash; the +c accounts for the vertical shift. One mark, every time.</div>
+            </div>
+        </div>
+
+        <!-- Chain rule -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">Chain rule forgotten &mdash; the inner derivative is missing</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">d/dx [sin(3x)] = cos(3x)</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">d/dx [sin(3x)] = 3cos(3x)</div>
+                    </div>
+                </div>
+                <div class="trap-why">Multiply by the derivative of the inner function. Always. The 3 comes from differentiating 3x.</div>
+            </div>
+        </div>
+
+        <!-- cos derivative sign -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">d/dx[cos(x)] &mdash; the minus sign that everyone forgets</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">d/dx [cos x] = sin x</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">d/dx [cos x] = &minus;sin x</div>
+                    </div>
+                </div>
+                <div class="trap-why">Differentiating cos gives MINUS sin. The minus sign is not optional &mdash; it changes the entire answer.</div>
+            </div>
+        </div>
+
+        <!-- Integrating sin(kx) -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">Integrating sin(kx) &mdash; forgetting the 1/k factor</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">&int;sin(kx) dx = &minus;cos(kx) + c</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">&int;sin(kx) dx = &minus;(1/k)cos(kx) + c</div>
+                    </div>
+                </div>
+                <div class="trap-why">Integration is the reverse of the chain rule &mdash; you must divide by the coefficient of x.</div>
+            </div>
+        </div>
+
+        <!-- Product rule -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">Product rule &mdash; only differentiating one part</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">d/dx [x&sup2;e&#x02E3;] = 2xe&#x02E3;</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">d/dx [x&sup2;e&#x02E3;] = 2xe&#x02E3; + x&sup2;e&#x02E3;</div>
+                    </div>
+                </div>
+                <div class="trap-why">Product rule: d/dx[uv] = u'v + uv'. You need BOTH terms. The wrong answer is just the first term.</div>
+            </div>
+        </div>
+
+        <!-- Integration by parts LIATE -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">Integration by parts &mdash; choosing wrong u and dv</div>
+                <div class="mnemonic-box">
+                    <div class="mnemonic-title">Remember LIATE for choosing u</div>
+                    <div class="mnemonic-content">
+                        <strong>L</strong>ogs &rarr; <strong>I</strong>nverse trig &rarr; <strong>A</strong>lgebra &rarr; <strong>T</strong>rig &rarr; <strong>E</strong>xponentials<br>
+                        Pick u from the LEFT of this list. Whatever is leftmost = u.
+                    </div>
+                </div>
+                <div class="trap-why">For &int;x&middot;e&#x02E3; dx: x is Algebra, e&#x02E3; is Exponential. A comes before E, so u = x.</div>
+            </div>
+        </div>
+
+        <!-- Definite integral substitution limits -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">Not changing limits when substituting in definite integrals</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">Sub u = 3x, keep limits as x = 1 to x = 4</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">Sub u = 3x, new limits: u = 3 to u = 12</div>
+                    </div>
+                </div>
+                <div class="trap-why">When you change variable, the limits change too. Either convert limits to the new variable, or substitute back to x before evaluating.</div>
+            </div>
+        </div>
+
+        <!-- e^x not a power rule -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">d/dx[e&#x02E3;] &mdash; treating it like a power rule</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">d/dx [e&#x02E3;] = xe&#x02E3;&minus;&sup1;</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">d/dx [e&#x02E3;] = e&#x02E3;</div>
+                    </div>
+                </div>
+                <div class="trap-why">e&#x02E3; differentiates to itself. The power rule x&#x207F; &rarr; nx&#x207F;&minus;&sup1; is for x as the BASE, not as the EXPONENT.</div>
+            </div>
+        </div>
+
+        <!-- ln x derivative -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">d/dx[ln x] &mdash; getting confused with ln in the result</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">d/dx [ln x] = ln(x)/x</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">d/dx [ln x] = 1/x</div>
+                    </div>
+                </div>
+                <div class="trap-why">The derivative of ln x is simply 1/x. The ln disappears completely. Don't mix this up with integration.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ========== 2. ALGEBRA ========== -->
+    <div class="section algebra">
+        <h2><span class="section-num">2</span> Algebra Mistakes</h2>
+
+        <!-- (a+b)^2 -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">Expanding (a+b)&sup2; &mdash; the missing middle term</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">(a+b)&sup2; = a&sup2; + b&sup2;</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">(a+b)&sup2; = a&sup2; + 2ab + b&sup2;</div>
+                    </div>
+                </div>
+                <div class="trap-why">Squaring a bracket means (a+b)(a+b). The 2ab cross term is unavoidable. Always expand in full.</div>
+            </div>
+        </div>
+
+        <!-- sqrt(a^2+b^2) -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">Square root does NOT distribute over addition</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">&radic;(a&sup2; + b&sup2;) = a + b</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">&radic;(a&sup2; + b&sup2;) &ne; a + b &mdash; leave it as is</div>
+                    </div>
+                </div>
+                <div class="trap-why">Try it: &radic;(9+16) = &radic;25 = 5, but 3+4 = 7. They are NOT the same. There is no simplification.</div>
+            </div>
+        </div>
+
+        <!-- Inequality sign flip -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">Dividing an inequality by a negative &mdash; the sign FLIPS</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">&minus;2x &gt; 6 &rArr; x &gt; &minus;3</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">&minus;2x &gt; 6 &rArr; x &lt; &minus;3</div>
+                    </div>
+                </div>
+                <div class="trap-why">Dividing or multiplying both sides by a negative number REVERSES the inequality. Always.</div>
+            </div>
+        </div>
+
+        <!-- Completing the square -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">Completing the square &mdash; sign error on the constant</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">x&sup2; + 6x = (x+3)&sup2; + 9</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">x&sup2; + 6x = (x+3)&sup2; &minus; 9</div>
+                    </div>
+                </div>
+                <div class="trap-why">(x+3)&sup2; = x&sup2; + 6x + 9. To get back to x&sup2; + 6x you must SUBTRACT 9. Check by expanding!</div>
+            </div>
+        </div>
+
+        <!-- Quadratic formula +/- -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">Forgetting &plusmn; in the quadratic formula &mdash; there are TWO solutions</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">x = (&minus;b + &radic;(b&sup2;&minus;4ac)) / 2a</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">x = (&minus;b &plusmn; &radic;(b&sup2;&minus;4ac)) / 2a</div>
+                    </div>
+                </div>
+                <div class="trap-why">A quadratic has up to 2 roots. The &plusmn; gives you both. Forgetting one solution = losing marks.</div>
+            </div>
+        </div>
+
+        <!-- Log rules -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">Log rules &mdash; log(a+b) is NOT log(a) + log(b)</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">log(a + b) = log a + log b</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">log(ab) = log a + log b</div>
+                    </div>
+                </div>
+                <div class="trap-why">log(a) + log(b) = log(ab), NOT log(a+b). The log of a sum cannot be simplified. Don't confuse addition with multiplication.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ========== 3. TRIGONOMETRY ========== -->
+    <div class="section trig">
+        <h2><span class="section-num">3</span> Trigonometry Mistakes</h2>
+
+        <!-- Calculator mode -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">Calculator in wrong mode &mdash; degrees vs radians</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">sin(90) = 0.8939... (radians mode!)</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">sin(90&deg;) = 1 (degrees mode)</div>
+                    </div>
+                </div>
+                <div class="trap-why">Check your calculator mode BEFORE every trig calculation. At A-Level, radians are used more often &mdash; but know which one the question wants.</div>
+            </div>
+        </div>
+
+        <!-- sin^-1 notation -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">sin&minus;&sup1;(x) means arcsin, NOT 1/sin(x)</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">sin&minus;&sup1;(x) = 1/sin(x)</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">sin&minus;&sup1;(x) = arcsin(x), 1/sin(x) = cosec(x)</div>
+                    </div>
+                </div>
+                <div class="trap-why">The &minus;1 superscript is confusing notation. sin&minus;&sup1; is the INVERSE function (arcsin). The reciprocal is cosec.</div>
+            </div>
+        </div>
+
+        <!-- Exact values -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">Exact values &mdash; using calculator in the wrong mode for known angles</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">sin(&pi;/6) typed as sin(30) in radians mode = &minus;0.988...</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">sin(&pi;/6) = sin(30&deg;) = 1/2</div>
+                    </div>
+                </div>
+                <div class="trap-why">Know your exact values: &pi;/6 = 30&deg;, &pi;/4 = 45&deg;, &pi;/3 = 60&deg;. If the question uses radians, TYPE radians.</div>
+            </div>
+        </div>
+
+        <!-- All solutions -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">Solving trig equations &mdash; forgetting ALL solutions in the range</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">sin x = 0.5, x = 30&deg; (only one solution!)</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">sin x = 0.5, x = 30&deg; and x = 150&deg;</div>
+                    </div>
+                </div>
+                <div class="trap-why">Use the CAST diagram to find all solutions in the given range. Trig functions repeat &mdash; there is almost always more than one answer.</div>
+                <div class="cast-grid">
+                    <div>S (sin+)</div>
+                    <div>A (all+)</div>
+                    <div>T (tan+)</div>
+                    <div>C (cos+)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- sin^2 notation -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">sin&sup2;x + cos&sup2;x = 1 &mdash; what the notation means</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">sin(x&sup2;) + cos(x&sup2;) = 1</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">(sin x)&sup2; + (cos x)&sup2; = 1</div>
+                    </div>
+                </div>
+                <div class="trap-why">sin&sup2;x means (sin x)&sup2; &mdash; square the result. sin(x&sup2;) means take the sine of x&sup2; &mdash; completely different.</div>
+            </div>
+        </div>
+
+        <!-- Radians/degrees conversion -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">Radians to degrees conversion &mdash; which way round?</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">Radians &rarr; degrees: multiply by &pi;/180</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">Radians &rarr; degrees: multiply by 180/&pi;</div>
+                    </div>
+                </div>
+                <div class="trap-why">&pi; rad = 180&deg;. To go from radians to degrees, multiply by 180/&pi;. To go from degrees to radians, multiply by &pi;/180. Remember: &pi; is small (~3.14), degrees are big (180).</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ========== 4. STATISTICS ========== -->
+    <div class="section stats">
+        <h2><span class="section-num">4</span> Statistics Mistakes</h2>
+
+        <!-- sigma^2 vs sigma -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">Normal distribution &mdash; using &sigma;&sup2; instead of &sigma; in the z-score</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">z = (x &minus; &mu;) / &sigma;&sup2;</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">z = (x &minus; &mu;) / &sigma;</div>
+                    </div>
+                </div>
+                <div class="trap-why">The z-score formula uses the standard deviation &sigma;, NOT the variance &sigma;&sup2;. If the question gives you variance, take the square root first.</div>
+            </div>
+        </div>
+
+        <!-- Continuity correction -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">Continuity correction forgotten when approximating binomial with normal</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">P(X &le; 10) &approx; P(Z &le; (10&minus;&mu;)/&sigma;)</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">P(X &le; 10) &approx; P(Z &le; (10.5&minus;&mu;)/&sigma;)</div>
+                    </div>
+                </div>
+                <div class="trap-why">Discrete &rarr; continuous approximation needs &plusmn;0.5 adjustment. &le; 10 becomes &le; 10.5, &ge; 10 becomes &ge; 9.5.</div>
+            </div>
+        </div>
+
+        <!-- Accept H0 -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">Hypothesis testing &mdash; NEVER write "accept H&#x2080;"</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">We accept H&#x2080;</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">Insufficient evidence to reject H&#x2080;</div>
+                    </div>
+                </div>
+                <div class="trap-why">You can never prove H&#x2080; is true &mdash; you can only fail to find evidence against it. The phrasing matters for marks.</div>
+            </div>
+        </div>
+
+        <!-- P(X<=k) vs P(X<k) -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">Confusing P(X &le; k) with P(X &lt; k) for discrete distributions</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">P(X &lt; 3) = P(X &le; 3) for binomial</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">P(X &lt; 3) = P(X &le; 2) for discrete</div>
+                    </div>
+                </div>
+                <div class="trap-why">For discrete distributions, P(X &lt; 3) = P(X &le; 2) because X can only take integer values. The boundary value matters.</div>
+            </div>
+        </div>
+
+        <!-- Binomial n or p -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">Binomial: wrong n or p in the calculator</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">P("at least 3 failures") using p = P(success)</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">Redefine: p = P(failure), or use 1&minus;P(X&le;2)</div>
+                    </div>
+                </div>
+                <div class="trap-why">Before using binomial tables or calculator: identify what counts as "success", what n is, and what p is. Double-check before pressing =.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ========== 5. MECHANICS ========== -->
+    <div class="section mechanics">
+        <h2><span class="section-num">5</span> Mechanics Mistakes</h2>
+
+        <!-- W = mg -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">Missing g &mdash; weight is NOT the same as mass</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">Weight of 5 kg object = 5 N</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">Weight = mg = 5 &times; 9.8 = 49 N</div>
+                    </div>
+                </div>
+                <div class="trap-why">Mass is in kg, weight is a force in N. W = mg. Always multiply by g (9.8 m/s&sup2;).</div>
+            </div>
+        </div>
+
+        <!-- Sign convention -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">Sign convention &mdash; not being consistent with positive direction</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">Mixing up: some forces positive up, some positive down</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">State direction: "Taking up as positive" &mdash; then stick to it</div>
+                    </div>
+                </div>
+                <div class="trap-why">Pick a positive direction, write it down, and use it CONSISTENTLY. If up is positive, g = &minus;9.8. Mixing signs = wrong answer.</div>
+            </div>
+        </div>
+
+        <!-- SUVAT when a isn't constant -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">SUVAT when acceleration is NOT constant</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">a = f(t), using v = u + at</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">a = f(t), use v = &int;a dt (calculus!)</div>
+                    </div>
+                </div>
+                <div class="trap-why">SUVAT equations ONLY work when acceleration is constant. If a varies with time, you must integrate or differentiate.</div>
+            </div>
+        </div>
+
+        <!-- sin vs cos on inclined planes -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">Resolving forces &mdash; sin vs cos on inclined planes</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">Component down the slope = mg cos&theta;</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">Component down the slope = mg sin&theta;</div>
+                    </div>
+                </div>
+                <div class="trap-why">Draw the triangle every time. The component parallel to the slope is mg sin&theta;. The component perpendicular (normal) is mg cos&theta;. Always sketch it.</div>
+            </div>
+        </div>
+
+        <!-- Projectile max height -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">Projectiles &mdash; v = 0 at max height applies to VERTICAL component only</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">At max height: total velocity = 0</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">At max height: v&#x2095; = 0, but v&#x2093; is unchanged</div>
+                    </div>
+                </div>
+                <div class="trap-why">At maximum height the vertical velocity is zero, but the horizontal velocity stays constant (no air resistance). The object is still moving!</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ========== 6. GENERAL EXAM TECHNIQUE ========== -->
+    <div class="section technique">
+        <h2><span class="section-num">6</span> General Exam Technique</h2>
+
+        <!-- Show that -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">"Show that" &mdash; you MUST show every step</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">Show that x = 5. Answer: "x = 5 &#x2714;"</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">Show every algebraic step leading to x = 5</div>
+                    </div>
+                </div>
+                <div class="trap-why">In "show that" questions, the answer is given. The marks are for the WORKING. Skip a step = lose a mark.</div>
+            </div>
+        </div>
+
+        <!-- Exact answer -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">"Give exact answer" &mdash; no decimals allowed</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">Area = 3.14159...</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">Area = &pi; (or 2&radic;3, or ln 5, etc.)</div>
+                    </div>
+                </div>
+                <div class="trap-why">"Exact" means leave in terms of &pi;, surds (&radic;), ln, fractions. The moment you reach for the calculator, you've gone wrong.</div>
+            </div>
+        </div>
+
+        <!-- Hence -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">"Hence" vs "Hence or otherwise" &mdash; they mean different things</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">"Hence find..." &rarr; starting from scratch</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">"Hence" = you MUST use your previous answer</div>
+                    </div>
+                </div>
+                <div class="trap-why">"Hence" = use the result you just found. "Hence or otherwise" = use it if you can, or find another method. Ignoring "hence" wastes time and may lose marks.</div>
+            </div>
+        </div>
+
+        <!-- Show working -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">Not showing working &mdash; even correct answers lose method marks</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">Answer: x = 7 (no working shown)</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">3x + 2 = 23, 3x = 21, x = 7</div>
+                    </div>
+                </div>
+                <div class="trap-why">A 4-mark question with just a final answer: 1 mark at best. Show your method = safety net even if the answer is wrong.</div>
+            </div>
+        </div>
+
+        <!-- Premature rounding -->
+        <div class="trap">
+            <div class="trap-icon">&times;</div>
+            <div class="trap-body">
+                <div class="trap-desc">Premature rounding &mdash; keep full precision until the final step</div>
+                <div class="trap-example">
+                    <div class="wrong-box">
+                        <div class="box-label">Wrong</div>
+                        <div class="wrong-text">Midway: z = 1.33, then use 1.33 in next step</div>
+                    </div>
+                    <div class="right-box">
+                        <div class="box-label">Right</div>
+                        <div class="right-text">Keep z = 1.33333... in calculator, round at the END</div>
+                    </div>
+                </div>
+                <div class="trap-why">Rounding too early accumulates errors. Use your calculator's ANS button to carry full precision through. Only round the FINAL answer to the requested d.p./s.f.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ---- CLOSING BANNER ---- -->
+    <div class="wall-of-shame-banner">
+        <div class="big">
+            Every mistake above is <span style="color:#ff7a45;">free marks thrown away</span>.<br>
+            Learn them. <span class="highlight">Never make them again.</span>
+        </div>
+        <div class="small">These are not hard maths mistakes &mdash; they are careless mistakes. And careless mistakes are the ones you CAN fix.</div>
+    </div>
+
+</div>
+
+</body>
+</html>
