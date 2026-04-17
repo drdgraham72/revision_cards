@@ -615,6 +615,10 @@
             .hero h1 { font-size: 24px; }
         }
     </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
 </head>
 <body>
 <a class="yt-link" href="https://www.youtube.com/results?search_query=A+Level+Maths+normal+distribution+standardising" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg><span class="yt-label">Watch</span></a>
@@ -632,7 +636,7 @@
     <h2 class="section-header" data-yt="A Level Maths What It Is revision explained" data-yt-label="Topic">What It Is</h2>
 
     <div class="bell-curve-container">
-        <div class="notation"><span class="x-c">X</span> ~ N(&mu;, &sigma;&sup2;) &mdash; mean &mu;, variance &sigma;&sup2;</div>
+        <div class="notation">\(X \sim N(\mu, \sigma^2)\) &mdash; mean \(\mu\), variance \(\sigma^2\)</div>
 
         <!-- SVG bell curve with shaded regions -->
         <svg class="bell-svg" viewBox="0 0 500 220" xmlns="http://www.w3.org/2000/svg">
@@ -680,9 +684,9 @@
         </svg>
 
         <div class="bell-stats">
-            <div class="bell-stat s1">68% within &plusmn;1&sigma;</div>
-            <div class="bell-stat s2">95% within &plusmn;2&sigma;</div>
-            <div class="bell-stat s3">99.7% within &plusmn;3&sigma;</div>
+            <div class="bell-stat s1">68% within \(\pm 1\sigma\)</div>
+            <div class="bell-stat s2">95% within \(\pm 2\sigma\)</div>
+            <div class="bell-stat s3">99.7% within \(\pm 3\sigma\)</div>
         </div>
     </div>
 
@@ -696,14 +700,14 @@
             <div class="chain-label x-c">X Value</div>
             <div class="chain-unit x-c">x</div>
             <div class="chain-desc">your raw data value</div>
-            <div class="chain-formula">X ~ N(&mu;, &sigma;&sup2;)</div>
+            <div class="chain-formula">\(X \sim N(\mu, \sigma^2)\)</div>
         </div>
 
         <div class="arrow-col">
             <div class="arrow-dir">
                 <div class="label">standardise</div>
                 <div class="arrow-glyph">&rarr;</div>
-                <div class="op">z = (x - &mu;) / &sigma;</div>
+                <div class="op">\(z = \dfrac{x - \mu}{\sigma}\)</div>
             </div>
         </div>
 
@@ -711,7 +715,7 @@
             <div class="chain-label z-c">Z Value</div>
             <div class="chain-unit z-c">z</div>
             <div class="chain-desc">standard normal score</div>
-            <div class="chain-formula">Z ~ N(0, 1)</div>
+            <div class="chain-formula">\(Z \sim N(0, 1)\)</div>
         </div>
 
         <div class="arrow-col">
@@ -726,7 +730,7 @@
             <div class="chain-label p-c">Probability</div>
             <div class="chain-unit p-c">P</div>
             <div class="chain-desc">area under curve</div>
-            <div class="chain-formula">0 &le; P &le; 1</div>
+            <div class="chain-formula">\(0 \le P \le 1\)</div>
         </div>
     </div>
 
@@ -738,7 +742,7 @@
     <div class="mini-bells">
         <!-- Case 1: P(Z < z) -->
         <div class="mini-bell">
-            <div class="case-name">P(Z &lt; z)</div>
+            <div class="case-name">\(P(Z &lt; z)\)</div>
             <svg class="mini-svg" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
                 <line class="axis-line" x1="10" y1="80" x2="190" y2="80"/>
                 <path class="shade" d="M10,80 Q20,79 35,77 Q50,70 65,55 Q80,30 95,12 Q100,10 105,12 Q115,20 125,35 L125,80 Z"/>
@@ -751,7 +755,7 @@
 
         <!-- Case 2: P(Z > z) -->
         <div class="mini-bell">
-            <div class="case-name">P(Z &gt; z)</div>
+            <div class="case-name">\(P(Z &gt; z)\)</div>
             <svg class="mini-svg" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
                 <line class="axis-line" x1="10" y1="80" x2="190" y2="80"/>
                 <path class="shade" d="M125,35 Q130,50 150,70 Q170,78 190,80 L125,80 Z"/>
@@ -759,12 +763,12 @@
                 <line x1="125" y1="35" x2="125" y2="82" stroke-dasharray="3,3" style="stroke: var(--z-color); stroke-width: 1.5;"/>
                 <text x="125" y="95" text-anchor="middle" style="font-size: 10px; fill: var(--z-color); font-weight: 700;">z</text>
             </svg>
-            <div class="case-formula">= 1 &minus; P(Z &lt; z)</div>
+            <div class="case-formula">\(= 1 - P(Z &lt; z)\)</div>
         </div>
 
         <!-- Case 3: P(Z < -z) -->
         <div class="mini-bell">
-            <div class="case-name">P(Z &lt; &minus;z)</div>
+            <div class="case-name">\(P(Z &lt; -z)\)</div>
             <svg class="mini-svg" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
                 <line class="axis-line" x1="10" y1="80" x2="190" y2="80"/>
                 <path class="shade" d="M10,80 Q20,79 35,77 Q50,70 60,58 Q68,48 75,35 L75,80 Z"/>
@@ -772,12 +776,12 @@
                 <line x1="75" y1="35" x2="75" y2="82" stroke-dasharray="3,3" style="stroke: var(--z-color); stroke-width: 1.5;"/>
                 <text x="75" y="95" text-anchor="middle" style="font-size: 10px; fill: var(--z-color); font-weight: 700;">-z</text>
             </svg>
-            <div class="case-formula">= 1 &minus; P(Z &lt; z) &nbsp;(symmetry)</div>
+            <div class="case-formula">\(= 1 - P(Z &lt; z)\) &nbsp;(symmetry)</div>
         </div>
 
         <!-- Case 4: P(a < Z < b) -->
         <div class="mini-bell">
-            <div class="case-name">P(a &lt; Z &lt; b)</div>
+            <div class="case-name">\(P(a &lt; Z &lt; b)\)</div>
             <svg class="mini-svg" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
                 <line class="axis-line" x1="10" y1="80" x2="190" y2="80"/>
                 <path class="shade" d="M75,35 Q80,30 85,25 Q95,12 100,10 Q105,12 115,25 Q120,32 125,35 L125,80 L75,80 Z"/>
@@ -787,7 +791,7 @@
                 <text x="75" y="95" text-anchor="middle" style="font-size: 10px; fill: var(--z-color); font-weight: 700;">a</text>
                 <text x="125" y="95" text-anchor="middle" style="font-size: 10px; fill: var(--z-color); font-weight: 700;">b</text>
             </svg>
-            <div class="case-formula">= P(Z &lt; b) &minus; P(Z &lt; a)</div>
+            <div class="case-formula">\(= P(Z &lt; b) - P(Z &lt; a)\)</div>
         </div>
     </div>
 
@@ -800,40 +804,40 @@
         <div class="info-card p-border">
             <div class="card-title p-c">Given a probability, find the value</div>
             <div class="explain" style="border: none; padding-top: 0; margin-top: 0;">
-                If P(X &lt; a) = p, then:
+                If \(P(X &lt; a) = p\), then:
             </div>
             <div class="formula-line" style="font-size: 18px; text-align: center; margin: 12px 0;">
-                1. Find z where P(Z &lt; z) = p &nbsp;&nbsp;(from tables, reading backwards)
+                1. Find \(z\) where \(P(Z &lt; z) = p\) &nbsp;&nbsp;(from tables, reading backwards)
             </div>
             <div class="formula-line" style="font-size: 18px; text-align: center; margin: 12px 0;">
-                2. Then <span style="color: var(--x-color);">a</span> = <span style="color: var(--z-color);">&mu; + z&sigma;</span>
+                2. Then \(a = \mu + z\sigma\)
             </div>
         </div>
     </div>
 
     <div class="example ex-p">
-        <div class="ex-title">Worked Example: X ~ N(50, 16). Find a such that P(X &lt; a) = 0.9</div>
+        <div class="ex-title">Worked Example: \(X \sim N(50, 16)\). Find \(a\) such that \(P(X &lt; a) = 0.9\)</div>
         <div class="step-row">
             <div class="step-num s-dark">1</div>
             <div class="step-content">
-                Identify: &mu; = 50, &sigma;&sup2; = 16, so &sigma; = 4
+                Identify: \(\mu = 50\), \(\sigma^2 = 16\), so \(\sigma = 4\)
             </div>
         </div>
         <div class="step-row">
             <div class="step-num s-z">2</div>
             <div class="step-content">
-                Find z where P(Z &lt; z) = 0.9 from tables
-                <span class="calc z-c">z = 1.2816</span>
+                Find \(z\) where \(P(Z &lt; z) = 0.9\) from tables
+                <span class="calc z-c">\(z = 1.2816\)</span>
             </div>
         </div>
         <div class="step-row">
             <div class="step-num s-x">3</div>
             <div class="step-content">
-                Convert back: a = &mu; + z&sigma;
-                <span class="calc x-c">a = 50 + 1.2816 &times; 4 = 55.13 (2 d.p.)</span>
+                Convert back: \(a = \mu + z\sigma\)
+                <span class="calc x-c">\(a = 50 + 1.2816 \times 4 = 55.13\) (2 d.p.)</span>
             </div>
         </div>
-        <div class="final-answer x-c">a = 55.13</div>
+        <div class="final-answer x-c">\(a = 55.13\)</div>
     </div>
 
     <!-- ============================================ -->
@@ -845,51 +849,51 @@
         <div class="info-card z-border">
             <div class="card-title z-c">The Method</div>
             <div class="explain" style="border: none; padding-top: 0; margin-top: 0;">
-                Given two probability statements about X ~ N(&mu;, &sigma;&sup2;):
+                Given two probability statements about \(X \sim N(\mu, \sigma^2)\):
             </div>
             <div class="formula-line" style="text-align: center; margin: 8px 0;">
-                P(X &lt; a) = p<sub>1</sub> &nbsp;&rArr;&nbsp; z<sub>1</sub> from tables &nbsp;&rArr;&nbsp; a = &mu; + z<sub>1</sub>&sigma; &nbsp;&hellip; <strong style="color: var(--x-color);">[1]</strong>
+                \(P(X &lt; a) = p_1 \Rightarrow z_1\) from tables \(\Rightarrow a = \mu + z_1 \sigma\) &nbsp;&hellip; <strong style="color: var(--x-color);">[1]</strong>
             </div>
             <div class="formula-line" style="text-align: center; margin: 8px 0;">
-                P(X &lt; b) = p<sub>2</sub> &nbsp;&rArr;&nbsp; z<sub>2</sub> from tables &nbsp;&rArr;&nbsp; b = &mu; + z<sub>2</sub>&sigma; &nbsp;&hellip; <strong style="color: var(--z-color);">[2]</strong>
+                \(P(X &lt; b) = p_2 \Rightarrow z_2\) from tables \(\Rightarrow b = \mu + z_2 \sigma\) &nbsp;&hellip; <strong style="color: var(--z-color);">[2]</strong>
             </div>
             <div class="explain">
-                Subtract one equation from the other to eliminate &mu; and find &sigma;, then substitute back to find &mu;.
+                Subtract one equation from the other to eliminate \(\mu\) and find \(\sigma\), then substitute back to find \(\mu\).
             </div>
         </div>
     </div>
 
     <div class="example ex-z">
-        <div class="ex-title">Worked Example: P(X &lt; 62) = 0.9 and P(X &lt; 38) = 0.1. Find &mu; and &sigma;.</div>
+        <div class="ex-title">Worked Example: \(P(X &lt; 62) = 0.9\) and \(P(X &lt; 38) = 0.1\). Find \(\mu\) and \(\sigma\).</div>
         <div class="step-row">
             <div class="step-num s-z">1</div>
             <div class="step-content">
-                From tables: P(Z &lt; z) = 0.9 gives z<sub>1</sub> = 1.2816
-                <span class="calc z-c">62 = &mu; + 1.2816&sigma; &hellip; [1]</span>
+                From tables: \(P(Z &lt; z) = 0.9\) gives \(z_1 = 1.2816\)
+                <span class="calc z-c">\(62 = \mu + 1.2816\sigma\) &hellip; [1]</span>
             </div>
         </div>
         <div class="step-row">
             <div class="step-num s-z">2</div>
             <div class="step-content">
-                P(Z &lt; z) = 0.1 &rArr; by symmetry z<sub>2</sub> = &minus;1.2816
-                <span class="calc z-c">38 = &mu; &minus; 1.2816&sigma; &hellip; [2]</span>
+                \(P(Z &lt; z) = 0.1 \Rightarrow\) by symmetry \(z_2 = -1.2816\)
+                <span class="calc z-c">\(38 = \mu - 1.2816\sigma\) &hellip; [2]</span>
             </div>
         </div>
         <div class="step-row">
             <div class="step-num s-x">3</div>
             <div class="step-content">
-                [1] &minus; [2]: 62 &minus; 38 = 2(1.2816)&sigma;
-                <span class="calc x-c">24 = 2.5632&sigma; &rArr; &sigma; = 9.365 (3 d.p.)</span>
+                [1] &minus; [2]: \(62 - 38 = 2(1.2816)\sigma\)
+                <span class="calc x-c">\(24 = 2.5632\sigma \Rightarrow \sigma = 9.365\) (3 d.p.)</span>
             </div>
         </div>
         <div class="step-row">
             <div class="step-num s-x">4</div>
             <div class="step-content">
-                Substitute into [1]: &mu; = 62 &minus; 1.2816 &times; 9.365
-                <span class="calc x-c">&mu; = 50</span>
+                Substitute into [1]: \(\mu = 62 - 1.2816 \times 9.365\)
+                <span class="calc x-c">\(\mu = 50\)</span>
             </div>
         </div>
-        <div class="final-answer x-c">&mu; = 50, &sigma; = 9.37 (3 s.f.)</div>
+        <div class="final-answer x-c">\(\mu = 50, \quad \sigma = 9.37\) (3 s.f.)</div>
     </div>
 
     <!-- ============================================ -->
@@ -901,18 +905,18 @@
         <div class="info-card z-border">
             <div class="card-title z-c">When to use it</div>
             <div class="formula-line">
-                n is large<br>
-                np &gt; 5<br>
-                n(1 &minus; p) &gt; 5
+                \(n\) is large<br>
+                \(np &gt; 5\)<br>
+                \(n(1 - p) &gt; 5\)
             </div>
         </div>
         <div class="info-card p-border">
             <div class="card-title p-c">The approximation</div>
             <div class="formula-line">
-                X ~ B(n, p)<br>
-                &asymp; Y ~ N(np, np(1&minus;p))
+                \(X \sim B(n, p)\)<br>
+                \(\approx Y \sim N(np,\; np(1-p))\)
             </div>
-            <div class="explain">Mean = np, Variance = np(1&minus;p)</div>
+            <div class="explain">Mean \(= np\), Variance \(= np(1-p)\)</div>
         </div>
     </div>
 
@@ -932,24 +936,24 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="discrete">P(X &le; n)</td>
-                        <td class="continuous">P(Y &lt; n + 0.5)</td>
+                        <td class="discrete">\(P(X \le n)\)</td>
+                        <td class="continuous">\(P(Y &lt; n + 0.5)\)</td>
                     </tr>
                     <tr>
-                        <td class="discrete">P(X &lt; n)</td>
-                        <td class="continuous">P(Y &lt; n &minus; 0.5)</td>
+                        <td class="discrete">\(P(X &lt; n)\)</td>
+                        <td class="continuous">\(P(Y &lt; n - 0.5)\)</td>
                     </tr>
                     <tr>
-                        <td class="discrete">P(X &ge; n)</td>
-                        <td class="continuous">P(Y &gt; n &minus; 0.5)</td>
+                        <td class="discrete">\(P(X \ge n)\)</td>
+                        <td class="continuous">\(P(Y &gt; n - 0.5)\)</td>
                     </tr>
                     <tr>
-                        <td class="discrete">P(X &gt; n)</td>
-                        <td class="continuous">P(Y &gt; n + 0.5)</td>
+                        <td class="discrete">\(P(X &gt; n)\)</td>
+                        <td class="continuous">\(P(Y &gt; n + 0.5)\)</td>
                     </tr>
                     <tr>
-                        <td class="discrete">P(X = n)</td>
-                        <td class="continuous">P(n &minus; 0.5 &lt; Y &lt; n + 0.5)</td>
+                        <td class="discrete">\(P(X = n)\)</td>
+                        <td class="continuous">\(P(n - 0.5 &lt; Y &lt; n + 0.5)\)</td>
                     </tr>
                 </tbody>
             </table>
@@ -962,7 +966,7 @@
     <h2 class="section-header" data-yt="A Level Maths Common Mistakes revision explained" data-yt-label="Traps">Common Mistakes</h2>
 
     <div class="mistakes-list">
-        <div class="mistake-item">Using &sigma;&sup2; instead of &sigma; (or vice versa) in the standardising formula &mdash; z = (x &minus; &mu;) / <strong>&sigma;</strong>, not &sigma;&sup2;</div>
+        <div class="mistake-item">Using \(\sigma^2\) instead of \(\sigma\) (or vice versa) in the standardising formula &mdash; \(z = \dfrac{x - \mu}{\sigma}\), not \(\sigma^2\)</div>
         <div class="mistake-item">Forgetting the continuity correction when approximating binomial with normal</div>
         <div class="mistake-item">Getting the inequality direction wrong after standardising &mdash; always redraw the bell curve</div>
         <div class="mistake-item">Not drawing a sketch &mdash; always shade the area you want on a bell curve first</div>
@@ -976,7 +980,7 @@
             <span class="p-c">probability</span>
         </div>
         <div class="big-text" style="font-size: 20px; margin-top: 4px;">
-            z = (x &minus; &mu;) / &sigma; &nbsp;&nbsp;&bull;&nbsp;&nbsp; always draw the curve
+            \(z = \dfrac{x - \mu}{\sigma}\) &nbsp;&nbsp;&bull;&nbsp;&nbsp; always draw the curve
         </div>
         <div class="small-text" style="margin-top: 12px;">Standardise, look up, done. Backwards? Inverse normal. Two unknowns? Simultaneous equations.</div>
     </div>

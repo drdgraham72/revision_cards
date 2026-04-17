@@ -684,6 +684,10 @@
             .hero h1 { font-size: 24px; }
         }
     </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
 </head>
 <body>
 <a class="yt-link" href="https://www.youtube.com/results?search_query=A+Level+Physics+simple+harmonic+motion+SHM" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg><span class="yt-label">Watch</span></a>
@@ -705,16 +709,16 @@
             Acceleration is <span class="def-highlight">proportional to displacement</span>
             AND <span class="def-highlight">directed towards the equilibrium position</span>
         </div>
-        <div class="def-formula">a = &minus;&omega;&sup2;x</div>
+        <div class="def-formula">\(a = -\omega^2 x\)</div>
         <div class="def-explain">
             The <strong>minus sign</strong> means the acceleration always points <strong>back towards equilibrium</strong>.<br>
             When x is positive, a is negative. When x is negative, a is positive. Always restoring.
         </div>
         <div class="omega-box">
-            &omega; = 2&pi;f = 2&pi;/T
+            \(\omega = 2\pi f = \dfrac{2\pi}{T}\)
         </div>
         <div class="def-explain" style="margin-top: 10px;">
-            &omega; is the angular frequency (rad/s). f is frequency (Hz). T is period (s).
+            \(\omega\) is the angular frequency (rad/s). \(f\) is frequency (Hz). \(T\) is period (s).
         </div>
     </div>
 
@@ -726,17 +730,17 @@
     <div class="equations-grid">
         <div class="eq-card disp">
             <div class="eq-label disp">Displacement</div>
-            <div class="eq-formula disp">x = A cos(&omega;t)</div>
+            <div class="eq-formula disp">\(x = A\cos(\omega t)\)</div>
             <div class="eq-note">Starts at maximum if released from rest (t=0, x=A)</div>
         </div>
         <div class="eq-card vel">
             <div class="eq-label vel">Velocity</div>
-            <div class="eq-formula vel">v = &minus;A&omega; sin(&omega;t)</div>
+            <div class="eq-formula vel">\(v = -A\omega\sin(\omega t)\)</div>
             <div class="eq-note">Zero at the extremes, maximum at the centre</div>
         </div>
         <div class="eq-card accel">
             <div class="eq-label accel">Acceleration</div>
-            <div class="eq-formula accel">a = &minus;A&omega;&sup2; cos(&omega;t)</div>
+            <div class="eq-formula accel">\(a = -A\omega^2\cos(\omega t)\)</div>
             <div class="eq-note">Maximum at the extremes, zero at the centre</div>
         </div>
     </div>
@@ -744,11 +748,11 @@
     <div class="max-strip">
         <div class="max-item">
             <div class="label">Max Speed</div>
-            <div class="value vel">v<sub>max</sub> = A&omega;</div>
+            <div class="value vel">\(v_{\max} = A\omega\)</div>
         </div>
         <div class="max-item">
             <div class="label">Max Acceleration</div>
-            <div class="value accel">a<sub>max</sub> = A&omega;&sup2;</div>
+            <div class="value accel">\(a_{\max} = A\omega^2\)</div>
         </div>
     </div>
 
@@ -834,17 +838,17 @@
     <h2 class="section-header" data-yt="A Level Physics The Velocity Equation They Always Forget revision explained" data-yt-label="SHM v">The Velocity Equation They Always Forget</h2>
 
     <div class="velocity-card">
-        <div class="big-formula">v = &plusmn;&omega;&radic;(A&sup2; &minus; x&sup2;)</div>
+        <div class="big-formula">\(v = \pm\omega\sqrt{A^2 - x^2}\)</div>
 
         <div class="cases">
             <div class="case-box at-centre">
                 <div class="case-label">At equilibrium (x = 0)</div>
-                <div class="case-formula vel-c">v = &plusmn;&omega;A</div>
+                <div class="case-formula vel-c">\(v = \pm\omega A\)</div>
                 <div class="case-why">Maximum speed &mdash; all energy is kinetic</div>
             </div>
             <div class="case-box at-extreme">
                 <div class="case-label">At extreme (x = A)</div>
-                <div class="case-formula disp-c">v = 0</div>
+                <div class="case-formula disp-c">\(v = 0\)</div>
                 <div class="case-why">Momentarily stationary &mdash; all energy is potential</div>
             </div>
         </div>
@@ -855,25 +859,25 @@
         <div class="step-row">
             <div class="step-num s-disp">1</div>
             <div class="step-content">
-                Find &omega;
-                <span class="calc disp-c">&omega; = 2&pi;/T = 2&pi;/2.0 = &pi; = 3.14 rad/s</span>
+                Find \(\omega\)
+                <span class="calc disp-c">\(\omega = \dfrac{2\pi}{T} = \dfrac{2\pi}{2.0} = \pi = 3.14\) rad/s</span>
             </div>
         </div>
         <div class="step-row">
             <div class="step-num s-vel">2</div>
             <div class="step-content">
-                Use v = &omega;&radic;(A&sup2; &minus; x&sup2;)
-                <span class="calc vel-c">v = 3.14 &times; &radic;(0.05&sup2; &minus; 0.03&sup2;)</span>
+                Use \(v = \omega\sqrt{A^2 - x^2}\)
+                <span class="calc vel-c">\(v = 3.14 \times \sqrt{0.05^2 - 0.03^2}\)</span>
             </div>
         </div>
         <div class="step-row">
             <div class="step-num s-vel">3</div>
             <div class="step-content">
                 Evaluate
-                <span class="calc vel-c">v = 3.14 &times; &radic;(0.0025 &minus; 0.0009) = 3.14 &times; 0.04 = 0.126 m/s</span>
+                <span class="calc vel-c">\(v = 3.14 \times \sqrt{0.0025 - 0.0009} = 3.14 \times 0.04 = 0.126\) m/s</span>
             </div>
         </div>
-        <div class="final-answer vel-c">v = 0.13 m/s (2 s.f.)</div>
+        <div class="final-answer vel-c">\(v = 0.13\) m/s (2 s.f.)</div>
     </div>
 
     <!-- ============================================= -->
@@ -884,17 +888,17 @@
     <div class="energy-equations">
         <div class="energy-box ke">
             <div class="e-label ke">Kinetic Energy</div>
-            <div class="e-formula ke">KE = &frac12;m&omega;&sup2;(A&sup2;&minus;x&sup2;)</div>
+            <div class="e-formula ke">\(KE = \frac{1}{2}m\omega^2(A^2 - x^2)\)</div>
             <div class="e-note">Max at centre, zero at extremes</div>
         </div>
         <div class="energy-box pe">
             <div class="e-label pe">Potential Energy</div>
-            <div class="e-formula pe">PE = &frac12;m&omega;&sup2;x&sup2;</div>
+            <div class="e-formula pe">\(PE = \frac{1}{2}m\omega^2 x^2\)</div>
             <div class="e-note">Zero at centre, max at extremes</div>
         </div>
         <div class="energy-box total">
             <div class="e-label total">Total Energy</div>
-            <div class="e-formula total">E = &frac12;m&omega;&sup2;A&sup2;</div>
+            <div class="e-formula total">\(E = \frac{1}{2}m\omega^2 A^2\)</div>
             <div class="e-note">CONSTANT &mdash; always the same</div>
         </div>
     </div>
@@ -982,7 +986,7 @@
 
     <div class="resonance-card">
         <div class="res-title">Resonance</div>
-        <div class="res-formula">f<sub>driving</sub> = f<sub>natural</sub> &rarr; maximum amplitude</div>
+        <div class="res-formula">\(f_{\text{driving}} = f_{\text{natural}}\) &rarr; maximum amplitude</div>
         <div class="res-detail">
             When the driving frequency matches the natural frequency, energy transfer is most efficient and amplitude reaches a maximum.<br>
             <strong>More damping = lower and broader resonance peak. Less damping = taller and sharper peak.</strong>
@@ -1002,7 +1006,7 @@
                 <div class="side-detail">
                     <strong>Constant</strong> acceleration.<br>
                     a does not change.<br>
-                    v = u + at, s = ut + &frac12;at&sup2;<br>
+                    \(v = u + at\), \(s = ut + \frac{1}{2}at^2\)<br>
                     Projectiles, free fall, linear motion.
                 </div>
             </div>
@@ -1010,8 +1014,8 @@
                 <div class="side-label">SHM</div>
                 <div class="side-detail">
                     Acceleration <strong>changes continuously</strong>.<br>
-                    a = &minus;&omega;&sup2;x (depends on position).<br>
-                    x = A cos(&omega;t), v = &minus;A&omega; sin(&omega;t)<br>
+                    \(a = -\omega^2 x\) (depends on position).<br>
+                    \(x = A\cos(\omega t)\), \(v = -A\omega\sin(\omega t)\)<br>
                     Pendulums, springs, oscillations.
                 </div>
             </div>
@@ -1022,15 +1026,15 @@
     <!-- ---- MANTRA ---- -->
     <div class="mantra">
         <div class="big-text">
-            <span class="acc-c">a = &minus;&omega;&sup2;x</span>
+            <span class="acc-c">\(a = -\omega^2 x\)</span>
         </div>
         <div class="big-text" style="font-size:22px;">
-            <span class="disp-c">x = Acos</span> &bull;
-            <span class="vel-c">v = &minus;A&omega;sin</span> &bull;
-            <span class="acc-c">a = &minus;A&omega;&sup2;cos</span>
+            <span class="disp-c">\(x = A\cos\)</span> &bull;
+            <span class="vel-c">\(v = -A\omega\sin\)</span> &bull;
+            <span class="acc-c">\(a = -A\omega^2\cos\)</span>
         </div>
         <div class="big-text" style="font-size:20px; margin-top:4px;">
-            <span class="vel-c">v = &plusmn;&omega;&radic;(A&sup2; &minus; x&sup2;)</span>
+            <span class="vel-c">\(v = \pm\omega\sqrt{A^2 - x^2}\)</span>
         </div>
         <div class="small-text" style="margin-top: 12px;">The definition, the three equations, and the velocity formula. That's SHM.</div>
     </div>

@@ -559,6 +559,10 @@
             .hero h1 { font-size: 24px; }
         }
     </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
 </head>
 <body>
 <a class="yt-link" href="https://www.youtube.com/results?search_query=A+Level+Maths+chain+rule+product+rule+quotient+rule" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg><span class="yt-label">Watch</span></a>
@@ -582,8 +586,8 @@
                     <div class="line"></div>
                 </div>
                 <div class="node answer power">
-                    Power Rule<br>nx<sup>n&minus;1</sup>
-                    <div class="example">x&sup3; &rarr; 3x&sup2;</div>
+                    Power Rule<br>\(nx^{n-1}\)
+                    <div class="example">\(x^3 \rightarrow 3x^2\)</div>
                 </div>
             </div>
             <div class="branch-arm">
@@ -593,8 +597,8 @@
                     <div class="line"></div>
                 </div>
                 <div class="node answer chain">
-                    Chain Rule<br>dy/du &times; du/dx
-                    <div class="example">sin(3x&sup2;)</div>
+                    Chain Rule<br>\(\dfrac{dy}{du} \times \dfrac{du}{dx}\)
+                    <div class="example">\(\sin(3x^2)\)</div>
                 </div>
             </div>
             <div class="branch-arm">
@@ -604,8 +608,8 @@
                     <div class="line"></div>
                 </div>
                 <div class="node answer product">
-                    Product Rule<br>u dv + v du
-                    <div class="example">x&sup2; &middot; e<sup>x</sup></div>
+                    Product Rule<br>\(u\,dv + v\,du\)
+                    <div class="example">\(x^2 \cdot e^x\)</div>
                 </div>
             </div>
             <div class="branch-arm">
@@ -615,8 +619,8 @@
                     <div class="line"></div>
                 </div>
                 <div class="node answer quotient">
-                    Quotient Rule<br>(v du &minus; u dv) / v&sup2;
-                    <div class="example">sin x / x&sup2;</div>
+                    Quotient Rule<br>\(\dfrac{v\,du - u\,dv}{v^2}\)
+                    <div class="example">\(\dfrac{\sin x}{x^2}\)</div>
                 </div>
             </div>
         </div>
@@ -644,7 +648,7 @@
     <div class="rules">
         <div class="rule-card chain">
             <div class="rule-name">The Chain Rule</div>
-            <div class="formula">dy/dx = dy/du &times; du/dx</div>
+            <div class="formula">\(\dfrac{dy}{dx} = \dfrac{dy}{du} \times \dfrac{du}{dx}\)</div>
             <div class="memory-aid">"Differentiate the outside, keep the inside, multiply by the derivative of the inside"</div>
             <div class="steps">
                 <div><span class="step-num">1</span> Identify the <strong>inner function</strong> u and the <strong>outer function</strong> y</div>
@@ -653,77 +657,77 @@
                 <div><span class="step-num">4</span> Multiply them together</div>
             </div>
             <div class="worked">
-                <h4>Example 1: sin(3x)</h4>
-                <div class="work-line">u = 3x, &nbsp; y = sin(u)</div>
-                <div class="work-line">dy/du = cos(u), &nbsp; du/dx = 3</div>
-                <div class="work-line">dy/dx = cos(3x) &times; 3 = 3cos(3x) &check;</div>
+                <h4>Example 1: \(\sin(3x)\)</h4>
+                <div class="work-line">\(u = 3x, \quad y = \sin(u)\)</div>
+                <div class="work-line">\(\dfrac{dy}{du} = \cos(u), \quad \dfrac{du}{dx} = 3\)</div>
+                <div class="work-line">\(\dfrac{dy}{dx} = \cos(3x) \times 3 = 3\cos(3x)\) &#10003;</div>
             </div>
             <div class="worked">
-                <h4>Example 2: (2x + 1)&sup5;</h4>
-                <div class="work-line">u = 2x + 1, &nbsp; y = u&sup5;</div>
-                <div class="work-line">dy/du = 5u&sup4;, &nbsp; du/dx = 2</div>
-                <div class="work-line">dy/dx = 5(2x+1)&sup4; &times; 2 = 10(2x+1)&sup4; &check;</div>
+                <h4>Example 2: \((2x + 1)^5\)</h4>
+                <div class="work-line">\(u = 2x + 1, \quad y = u^5\)</div>
+                <div class="work-line">\(\dfrac{dy}{du} = 5u^4, \quad \dfrac{du}{dx} = 2\)</div>
+                <div class="work-line">\(\dfrac{dy}{dx} = 5(2x+1)^4 \times 2 = 10(2x+1)^4\) &#10003;</div>
             </div>
             <div class="worked">
-                <h4>Example 3: e^(x&sup2;)</h4>
-                <div class="work-line">u = x&sup2;, &nbsp; y = e<sup>u</sup></div>
-                <div class="work-line">dy/du = e<sup>u</sup>, &nbsp; du/dx = 2x</div>
-                <div class="work-line">dy/dx = e<sup>x&sup2;</sup> &times; 2x = 2x&middot;e<sup>x&sup2;</sup> &check;</div>
+                <h4>Example 3: \(e^{x^2}\)</h4>
+                <div class="work-line">\(u = x^2, \quad y = e^u\)</div>
+                <div class="work-line">\(\dfrac{dy}{du} = e^u, \quad \dfrac{du}{dx} = 2x\)</div>
+                <div class="work-line">\(\dfrac{dy}{dx} = e^{x^2} \times 2x = 2x \cdot e^{x^2}\) &#10003;</div>
             </div>
         </div>
 
         <!-- ---- PRODUCT RULE ---- -->
         <div class="rule-card product">
             <div class="rule-name">The Product Rule</div>
-            <div class="formula">d(uv)/dx = u(dv/dx) + v(du/dx)</div>
+            <div class="formula">\(\dfrac{d(uv)}{dx} = u\dfrac{dv}{dx} + v\dfrac{du}{dx}\)</div>
             <div class="memory-aid">"first &times; d(second) + second &times; d(first)"</div>
             <div class="steps">
                 <div><span class="step-num">1</span> Label <strong>u</strong> and <strong>v</strong> (the two parts being multiplied)</div>
-                <div><span class="step-num">2</span> Find du/dx and dv/dx separately</div>
-                <div><span class="step-num">3</span> Apply the formula: u&middot;dv/dx + v&middot;du/dx</div>
+                <div><span class="step-num">2</span> Find \(\dfrac{du}{dx}\) and \(\dfrac{dv}{dx}\) separately</div>
+                <div><span class="step-num">3</span> Apply the formula: \(u \cdot \dfrac{dv}{dx} + v \cdot \dfrac{du}{dx}\)</div>
             </div>
             <div class="worked">
-                <h4>Example 1: x&sup2; &middot; sin(x)</h4>
-                <div class="work-line">u = x&sup2;, &nbsp; v = sin(x)</div>
-                <div class="work-line">du/dx = 2x, &nbsp; dv/dx = cos(x)</div>
-                <div class="work-line">dy/dx = x&sup2;&middot;cos(x) + sin(x)&middot;2x</div>
-                <div class="work-line">= x&sup2;cos(x) + 2x&middot;sin(x) &check;</div>
+                <h4>Example 1: \(x^2 \cdot \sin(x)\)</h4>
+                <div class="work-line">\(u = x^2, \quad v = \sin(x)\)</div>
+                <div class="work-line">\(\dfrac{du}{dx} = 2x, \quad \dfrac{dv}{dx} = \cos(x)\)</div>
+                <div class="work-line">\(\dfrac{dy}{dx} = x^2 \cdot \cos(x) + \sin(x) \cdot 2x\)</div>
+                <div class="work-line">\(= x^2\cos(x) + 2x\sin(x)\) &#10003;</div>
             </div>
             <div class="worked">
-                <h4>Example 2: e<sup>x</sup> &middot; ln(x)</h4>
-                <div class="work-line">u = e<sup>x</sup>, &nbsp; v = ln(x)</div>
-                <div class="work-line">du/dx = e<sup>x</sup>, &nbsp; dv/dx = 1/x</div>
-                <div class="work-line">dy/dx = e<sup>x</sup>&middot;(1/x) + ln(x)&middot;e<sup>x</sup></div>
-                <div class="work-line">= e<sup>x</sup>(1/x + ln(x)) &check;</div>
+                <h4>Example 2: \(e^x \cdot \ln(x)\)</h4>
+                <div class="work-line">\(u = e^x, \quad v = \ln(x)\)</div>
+                <div class="work-line">\(\dfrac{du}{dx} = e^x, \quad \dfrac{dv}{dx} = \frac{1}{x}\)</div>
+                <div class="work-line">\(\dfrac{dy}{dx} = e^x \cdot \frac{1}{x} + \ln(x) \cdot e^x\)</div>
+                <div class="work-line">\(= e^x\!\left(\frac{1}{x} + \ln(x)\right)\) &#10003;</div>
             </div>
         </div>
 
         <!-- ---- QUOTIENT RULE ---- -->
         <div class="rule-card quotient">
             <div class="rule-name">The Quotient Rule</div>
-            <div class="formula">d(u/v)/dx = [v(du/dx) &minus; u(dv/dx)] / v&sup2;</div>
+            <div class="formula">\(\dfrac{d(u/v)}{dx} = \dfrac{v\dfrac{du}{dx} - u\dfrac{dv}{dx}}{v^2}\)</div>
             <div class="memory-aid">"lo d-hi minus hi d-lo, over lo-lo"</div>
             <div style="font-size: 13px; color: var(--text-light); margin: 6px 0;">
-                Or rewrite u/v as u&middot;v<sup>&minus;1</sup> and use <strong>product + chain rule</strong> instead.
+                Or rewrite \(u/v\) as \(u \cdot v^{-1}\) and use <strong>product + chain rule</strong> instead.
             </div>
             <div class="steps">
                 <div><span class="step-num">1</span> Label <strong>u</strong> (top) and <strong>v</strong> (bottom)</div>
-                <div><span class="step-num">2</span> Find du/dx and dv/dx separately</div>
-                <div><span class="step-num">3</span> Apply: (v&middot;du/dx &minus; u&middot;dv/dx) / v&sup2;</div>
+                <div><span class="step-num">2</span> Find \(\dfrac{du}{dx}\) and \(\dfrac{dv}{dx}\) separately</div>
+                <div><span class="step-num">3</span> Apply: \(\dfrac{v \cdot \frac{du}{dx} - u \cdot \frac{dv}{dx}}{v^2}\)</div>
             </div>
             <div class="worked">
-                <h4>Example 1: sin(x) / x&sup2;</h4>
-                <div class="work-line">u = sin(x), &nbsp; v = x&sup2;</div>
-                <div class="work-line">du/dx = cos(x), &nbsp; dv/dx = 2x</div>
-                <div class="work-line">dy/dx = [x&sup2;&middot;cos(x) &minus; sin(x)&middot;2x] / x&sup4;</div>
-                <div class="work-line">= [x&middot;cos(x) &minus; 2sin(x)] / x&sup3; &check;</div>
+                <h4>Example 1: \(\dfrac{\sin(x)}{x^2}\)</h4>
+                <div class="work-line">\(u = \sin(x), \quad v = x^2\)</div>
+                <div class="work-line">\(\dfrac{du}{dx} = \cos(x), \quad \dfrac{dv}{dx} = 2x\)</div>
+                <div class="work-line">\(\dfrac{dy}{dx} = \dfrac{x^2 \cdot \cos(x) - \sin(x) \cdot 2x}{x^4}\)</div>
+                <div class="work-line">\(= \dfrac{x\cos(x) - 2\sin(x)}{x^3}\) &#10003;</div>
             </div>
             <div class="worked">
-                <h4>Example 2: (x+1) / (x&minus;1)</h4>
-                <div class="work-line">u = x+1, &nbsp; v = x&minus;1</div>
-                <div class="work-line">du/dx = 1, &nbsp; dv/dx = 1</div>
-                <div class="work-line">dy/dx = [(x&minus;1)&middot;1 &minus; (x+1)&middot;1] / (x&minus;1)&sup2;</div>
-                <div class="work-line">= [x&minus;1&minus;x&minus;1] / (x&minus;1)&sup2; = &minus;2/(x&minus;1)&sup2; &check;</div>
+                <h4>Example 2: \(\dfrac{x+1}{x-1}\)</h4>
+                <div class="work-line">\(u = x+1, \quad v = x-1\)</div>
+                <div class="work-line">\(\dfrac{du}{dx} = 1, \quad \dfrac{dv}{dx} = 1\)</div>
+                <div class="work-line">\(\dfrac{dy}{dx} = \dfrac{(x-1) \cdot 1 - (x+1) \cdot 1}{(x-1)^2}\)</div>
+                <div class="work-line">\(= \dfrac{x-1-x-1}{(x-1)^2} = \dfrac{-2}{(x-1)^2}\) &#10003;</div>
             </div>
         </div>
     </div>
@@ -733,44 +737,44 @@
         <h2 data-yt="A Level Maths Standard Results Must Know revision explained" data-yt-label="Results">Standard Results &mdash; Must Know</h2>
         <table class="ref-table">
             <tr>
-                <th>f(x)</th>
-                <th>f&prime;(x)</th>
+                <th>\(f(x)\)</th>
+                <th>\(f'(x)\)</th>
             </tr>
             <tr>
-                <td class="fx">x<sup>n</sup></td>
-                <td class="fpx">nx<sup>n&minus;1</sup></td>
+                <td class="fx">\(x^n\)</td>
+                <td class="fpx">\(nx^{n-1}\)</td>
             </tr>
             <tr>
-                <td class="fx">e<sup>x</sup></td>
-                <td class="fpx">e<sup>x</sup></td>
+                <td class="fx">\(e^x\)</td>
+                <td class="fpx">\(e^x\)</td>
             </tr>
             <tr>
-                <td class="fx">e<sup>kx</sup></td>
-                <td class="fpx">ke<sup>kx</sup></td>
+                <td class="fx">\(e^{kx}\)</td>
+                <td class="fpx">\(ke^{kx}\)</td>
             </tr>
             <tr>
-                <td class="fx">ln(x)</td>
-                <td class="fpx">1/x</td>
+                <td class="fx">\(\ln(x)\)</td>
+                <td class="fpx">\(\dfrac{1}{x}\)</td>
             </tr>
             <tr>
-                <td class="fx">sin(x)</td>
-                <td class="fpx">cos(x)</td>
+                <td class="fx">\(\sin(x)\)</td>
+                <td class="fpx">\(\cos(x)\)</td>
             </tr>
             <tr>
-                <td class="fx">cos(x)</td>
-                <td class="fpx">&minus;sin(x)</td>
+                <td class="fx">\(\cos(x)\)</td>
+                <td class="fpx">\(-\sin(x)\)</td>
             </tr>
             <tr>
-                <td class="fx">tan(x)</td>
-                <td class="fpx">sec&sup2;(x)</td>
+                <td class="fx">\(\tan(x)\)</td>
+                <td class="fpx">\(\sec^2(x)\)</td>
             </tr>
             <tr>
-                <td class="fx">sin(kx)</td>
-                <td class="fpx">k&middot;cos(kx)</td>
+                <td class="fx">\(\sin(kx)\)</td>
+                <td class="fpx">\(k\cos(kx)\)</td>
             </tr>
             <tr>
-                <td class="fx">cos(kx)</td>
-                <td class="fpx">&minus;k&middot;sin(kx)</td>
+                <td class="fx">\(\cos(kx)\)</td>
+                <td class="fpx">\(-k\sin(kx)\)</td>
             </tr>
         </table>
     </div>
@@ -781,11 +785,11 @@
         <ul>
             <li>
                 <strong>Forgetting the chain rule on composite functions:</strong><br>
-                d/dx[sin(3x)] = <span class="wrong">cos(3x)</span> &rarr; <span class="right">3cos(3x)</span>
+                \(\frac{d}{dx}[\sin(3x)]\) = <span class="wrong">\(\cos(3x)\)</span> &rarr; <span class="right">\(3\cos(3x)\)</span>
             </li>
             <li>
-                <strong>Sign errors with cos &rarr; &minus;sin:</strong><br>
-                d/dx[cos(x)] = <span class="wrong">sin(x)</span> &rarr; <span class="right">&minus;sin(x)</span>
+                <strong>Sign errors with \(\cos \rightarrow -\sin\):</strong><br>
+                \(\frac{d}{dx}[\cos(x)]\) = <span class="wrong">\(\sin(x)\)</span> &rarr; <span class="right">\(-\sin(x)\)</span>
             </li>
             <li>
                 <strong>Mixing up product and quotient rule formulas:</strong> product has a <strong>+</strong>, quotient has a <strong>&minus;</strong> (and the square on the bottom).

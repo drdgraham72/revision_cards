@@ -491,6 +491,10 @@
             .hero h1 { font-size: 24px; }
         }
     </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
 </head>
 <body>
 <a class="yt-link" href="https://www.youtube.com/results?search_query=A+Level+Physics+gravitational+electric+fields" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg><span class="yt-label">Watch</span></a>
@@ -514,28 +518,28 @@
             </tr>
             <tr>
                 <td>Force law</td>
-                <td class="grav-cell"><span class="eq">F = GMm/r&sup2;</span></td>
-                <td class="elec-cell"><span class="eq">F = kQ&sub1;Q&sub2;/r&sup2;</span><span class="unit">k = 1/4&pi;&epsilon;&sub0;</span></td>
+                <td class="grav-cell"><span class="eq">\(F = \dfrac{GMm}{r^2}\)</span></td>
+                <td class="elec-cell"><span class="eq">\(F = \dfrac{kQ_1 Q_2}{r^2}\)</span><span class="unit">\(k = \dfrac{1}{4\pi\epsilon_0}\)</span></td>
             </tr>
             <tr>
                 <td>Field strength</td>
-                <td class="grav-cell"><span class="eq">g = GM/r&sup2;</span><span class="unit">N/kg</span></td>
-                <td class="elec-cell"><span class="eq">E = kQ/r&sup2;</span><span class="unit">N/C or V/m</span></td>
+                <td class="grav-cell"><span class="eq">\(g = \dfrac{GM}{r^2}\)</span><span class="unit">N/kg</span></td>
+                <td class="elec-cell"><span class="eq">\(E = \dfrac{kQ}{r^2}\)</span><span class="unit">N/C or V/m</span></td>
             </tr>
             <tr>
                 <td>Field strength (test)</td>
-                <td class="grav-cell"><span class="eq">g = F/m</span></td>
-                <td class="elec-cell"><span class="eq">E = F/Q</span></td>
+                <td class="grav-cell"><span class="eq">\(g = \dfrac{F}{m}\)</span></td>
+                <td class="elec-cell"><span class="eq">\(E = \dfrac{F}{Q}\)</span></td>
             </tr>
             <tr>
                 <td>Potential</td>
-                <td class="grav-cell"><span class="eq">V = &minus;GM/r</span><span class="unit">J/kg</span></td>
-                <td class="elec-cell"><span class="eq">V = kQ/r</span><span class="unit">J/C = V</span></td>
+                <td class="grav-cell"><span class="eq">\(V = -\dfrac{GM}{r}\)</span><span class="unit">J/kg</span></td>
+                <td class="elec-cell"><span class="eq">\(V = \dfrac{kQ}{r}\)</span><span class="unit">J/C = V</span></td>
             </tr>
             <tr>
                 <td>Potential energy</td>
-                <td class="grav-cell"><span class="eq">E<sub>p</sub> = &minus;GMm/r</span></td>
-                <td class="elec-cell"><span class="eq">E<sub>p</sub> = kQ&sub1;Q&sub2;/r</span></td>
+                <td class="grav-cell"><span class="eq">\(E_p = -\dfrac{GMm}{r}\)</span></td>
+                <td class="elec-cell"><span class="eq">\(E_p = \dfrac{kQ_1 Q_2}{r}\)</span></td>
             </tr>
             <tr>
                 <td>Field lines</td>
@@ -544,8 +548,8 @@
             </tr>
             <tr>
                 <td>Uniform field</td>
-                <td class="grav-cell"><span class="eq">g</span> near Earth's surface<span class="unit">&asymp; 9.81 N/kg</span></td>
-                <td class="elec-cell"><span class="eq">E = V/d</span><span class="unit">Between parallel plates</span></td>
+                <td class="grav-cell"><span class="eq">\(g\)</span> near Earth's surface<span class="unit">&asymp; 9.81 N/kg</span></td>
+                <td class="elec-cell"><span class="eq">\(E = \dfrac{V}{d}\)</span><span class="unit">Between parallel plates</span></td>
             </tr>
         </table>
     </div>
@@ -562,17 +566,17 @@
                 <ul>
                     <li>Gravitational potential is <strong>ALWAYS negative</strong></li>
                     <li>Defined as <strong>zero at infinity</strong> &mdash; gets <strong>more negative</strong> as you approach the mass</li>
-                    <li><span class="eq">V = &minus;GM/r</span> &mdash; that minus sign is not optional</li>
+                    <li><span class="eq">\(V = -\dfrac{GM}{r}\)</span> &mdash; that minus sign is not optional</li>
                     <li><strong>Why?</strong> Gravitational force is always attractive &mdash; you must do work to move <strong>away</strong> from a mass</li>
                 </ul>
             </div>
-            <div class="big-equation grav">g = &minus;dV/dr &nbsp; &mdash; &nbsp; field strength is the negative gradient of potential</div>
+            <div class="big-equation grav">\(g = -\dfrac{dV}{dr}\) &nbsp; &mdash; &nbsp; field strength is the negative gradient of potential</div>
             <div class="callout elec">
                 <div class="callout-title">Electric Potential</div>
                 <ul>
                     <li><strong>Positive</strong> near a positive charge, <strong>negative</strong> near a negative charge</li>
                     <li>Can be zero, positive, or negative &mdash; unlike gravity</li>
-                    <li>Similarly: <span class="eq">E = &minus;dV/dr</span></li>
+                    <li>Similarly: <span class="eq">\(E = -\dfrac{dV}{dr}\)</span></li>
                 </ul>
             </div>
         </div>
@@ -685,15 +689,15 @@
             <div class="eq-steps">
                 <div class="eq-step orbit">
                     <div class="step-num">1</div>
-                    <div class="step-content">Set gravitational force = centripetal force: <span class="eq">GMm/r&sup2; = mv&sup2;/r</span></div>
+                    <div class="step-content">Set gravitational force = centripetal force: <span class="eq">\(\dfrac{GMm}{r^2} = \dfrac{mv^2}{r}\)</span></div>
                 </div>
                 <div class="eq-step orbit">
                     <div class="step-num">2</div>
-                    <div class="step-content">Cancel m and one r: <span class="eq">v = &radic;(GM/r)</span> &mdash; faster orbits are <strong>closer</strong> to the mass</div>
+                    <div class="step-content">Cancel \(m\) and one \(r\): <span class="eq">\(v = \sqrt{\dfrac{GM}{r}}\)</span> &mdash; faster orbits are <strong>closer</strong> to the mass</div>
                 </div>
                 <div class="eq-step orbit">
                     <div class="step-num">3</div>
-                    <div class="step-content">Substitute v = 2&pi;r/T and rearrange: <span class="eq">T&sup2; = (4&pi;&sup2;/GM)r&sup3;</span> &mdash; <strong>Kepler's third law</strong></div>
+                    <div class="step-content">Substitute \(v = \dfrac{2\pi r}{T}\) and rearrange: <span class="eq">\(T^2 = \dfrac{4\pi^2}{GM}\,r^3\)</span> &mdash; <strong>Kepler's third law</strong></div>
                 </div>
             </div>
 
@@ -717,24 +721,24 @@
             <span class="tag">ELECTRIC FIELD APPLICATION</span>
         </div>
         <div class="section-body">
-            <div class="big-equation cap">C = Q/V &nbsp; &bull; &nbsp; Energy = &frac12;CV&sup2; = &frac12;QV = &frac12;Q&sup2;/C</div>
+            <div class="big-equation cap">\(C = \dfrac{Q}{V}\) &nbsp; &bull; &nbsp; \(E = \frac{1}{2}CV^2 = \frac{1}{2}QV = \dfrac{Q^2}{2C}\)</div>
 
             <div class="eq-steps">
                 <div class="eq-step cap">
                     <div class="step-num">1</div>
-                    <div class="step-content"><strong>Parallel plates:</strong> <span class="eq">C = &epsilon;&sub0;A/d</span> &mdash; larger area or smaller gap = more capacitance</div>
+                    <div class="step-content"><strong>Parallel plates:</strong> <span class="eq">\(C = \dfrac{\epsilon_0 A}{d}\)</span> &mdash; larger area or smaller gap = more capacitance</div>
                 </div>
                 <div class="eq-step cap">
                     <div class="step-num">2</div>
-                    <div class="step-content"><strong>Charging:</strong> <span class="eq">Q = Q&sub0;(1 &minus; e<sup>&minus;t/RC</sup>)</span> &mdash; charge builds up, approaching Q&sub0;</div>
+                    <div class="step-content"><strong>Charging:</strong> <span class="eq">\(Q = Q_0\!\left(1 - e^{-t/RC}\right)\)</span> &mdash; charge builds up, approaching \(Q_0\)</div>
                 </div>
                 <div class="eq-step cap">
                     <div class="step-num">3</div>
-                    <div class="step-content"><strong>Discharging:</strong> <span class="eq">Q = Q&sub0;e<sup>&minus;t/RC</sup></span> &mdash; charge decays exponentially</div>
+                    <div class="step-content"><strong>Discharging:</strong> <span class="eq">\(Q = Q_0\, e^{-t/RC}\)</span> &mdash; charge decays exponentially</div>
                 </div>
                 <div class="eq-step cap">
                     <div class="step-num">4</div>
-                    <div class="step-content"><strong>Time constant:</strong> <span class="eq">&tau; = RC</span> &mdash; time to reach <strong>37%</strong> of original (discharging) or <strong>63%</strong> of final (charging)</div>
+                    <div class="step-content"><strong>Time constant:</strong> <span class="eq">\(\tau = RC\)</span> &mdash; time to reach <strong>37%</strong> of original (discharging) or <strong>63%</strong> of final (charging)</div>
                 </div>
             </div>
 
@@ -794,11 +798,11 @@
             <div class="mistakes-grid">
                 <div class="mistake-item">
                     <div class="wrong">Forgetting the negative sign in gravitational potential</div>
-                    <div class="right">V = <strong>&minus;</strong>GM/r is always negative. If your answer is positive, you've dropped the sign.</div>
+                    <div class="right">\(V = -\dfrac{GM}{r}\) is always negative. If your answer is positive, you've dropped the sign.</div>
                 </div>
                 <div class="mistake-item">
                     <div class="wrong">Using E = V/d for radial fields</div>
-                    <div class="right">E = V/d only works for <strong>uniform fields</strong> (parallel plates). For radial fields use E = kQ/r&sup2;.</div>
+                    <div class="right">\(E = \dfrac{V}{d}\) only works for <strong>uniform fields</strong> (parallel plates). For radial fields use \(E = \dfrac{kQ}{r^2}\).</div>
                 </div>
                 <div class="mistake-item">
                     <div class="wrong">Confusing field strength with potential</div>
@@ -806,7 +810,7 @@
                 </div>
                 <div class="mistake-item">
                     <div class="wrong">Mixing up capacitor charging &amp; discharging equations</div>
-                    <div class="right"><strong>Charging:</strong> Q = Q&sub0;(1 &minus; e<sup>&minus;t/RC</sup>) rises to Q&sub0;. <strong>Discharging:</strong> Q = Q&sub0;e<sup>&minus;t/RC</sup> falls from Q&sub0;. Look at the curve shape.</div>
+                    <div class="right"><strong>Charging:</strong> \(Q = Q_0(1 - e^{-t/RC})\) rises to \(Q_0\). <strong>Discharging:</strong> \(Q = Q_0\,e^{-t/RC}\) falls from \(Q_0\). Look at the curve shape.</div>
                 </div>
             </div>
         </div>

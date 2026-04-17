@@ -475,6 +475,10 @@
             .hero h1 { font-size: 24px; }
         }
     </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
 </head>
 <body>
 <a class="yt-link" href="https://www.youtube.com/results?search_query=A+Level+Maths+proof+by+contradiction+deduction" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg><span class="yt-label">Watch</span></a>
@@ -557,49 +561,49 @@
         <div class="step-row">
             <div class="step-num s-direct">1</div>
             <div class="step-content">
-                Let the two consecutive odd numbers be (2n &minus; 1) and (2n + 1) for some integer n
+                Let the two consecutive odd numbers be \((2n - 1)\) and \((2n + 1)\) for some integer \(n\)
             </div>
         </div>
         <div class="step-row">
             <div class="step-num s-direct">2</div>
             <div class="step-content">
                 Add them together:
-                <span class="calc direct-c">(2n &minus; 1) + (2n + 1) = 4n</span>
+                <span class="calc direct-c">\((2n - 1) + (2n + 1) = 4n\)</span>
             </div>
         </div>
         <div class="step-row">
             <div class="step-num s-direct">3</div>
             <div class="step-content">
-                4n = 4 &times; n, which is a multiple of 4 for any integer n
+                \(4n = 4 \times n\), which is a multiple of 4 for any integer \(n\)
             </div>
         </div>
         <div class="final-answer direct-c">Therefore the sum of two consecutive odd numbers is always divisible by 4 &square;</div>
     </div>
 
     <div class="worked-example direct-border">
-        <div class="ex-title">Example 2: Prove that (n+1)&sup2; &minus; n&sup2; = 2n + 1</div>
+        <div class="ex-title">Example 2: Prove that \((n+1)^2 - n^2 = 2n + 1\)</div>
         <div class="step-row">
             <div class="step-num s-direct">1</div>
             <div class="step-content">
                 Start from the left-hand side (LHS):
-                <span class="calc direct-c">(n+1)&sup2; &minus; n&sup2;</span>
+                <span class="calc direct-c">\((n+1)^2 - n^2\)</span>
             </div>
         </div>
         <div class="step-row">
             <div class="step-num s-direct">2</div>
             <div class="step-content">
-                Expand (n+1)&sup2;:
-                <span class="calc direct-c">= n&sup2; + 2n + 1 &minus; n&sup2;</span>
+                Expand \((n+1)^2\):
+                <span class="calc direct-c">\(= n^2 + 2n + 1 - n^2\)</span>
             </div>
         </div>
         <div class="step-row">
             <div class="step-num s-direct">3</div>
             <div class="step-content">
                 Simplify:
-                <span class="calc direct-c">= 2n + 1 = RHS</span>
+                <span class="calc direct-c">\(= 2n + 1 =\) RHS</span>
             </div>
         </div>
-        <div class="final-answer direct-c">LHS = RHS, therefore (n+1)&sup2; &minus; n&sup2; = 2n + 1 &square;</div>
+        <div class="final-answer direct-c">LHS = RHS, therefore \((n+1)^2 - n^2 = 2n + 1\) &square;</div>
     </div>
 
     <!-- ============================================ -->
@@ -631,36 +635,36 @@
     </div>
 
     <div class="worked-example exhaust-border">
-        <div class="ex-title">Example: Prove that n&sup2; + n is even for all integers n between 1 and 4</div>
+        <div class="ex-title">Example: Prove that \(n^2 + n\) is even for all integers \(n\) between 1 and 4</div>
         <div class="step-row">
             <div class="step-num s-exhaust">1</div>
             <div class="step-content">
-                n = 1: &nbsp;1&sup2; + 1 = 2
+                \(n = 1\): &nbsp;\(1^2 + 1 = 2\)
                 <span class="calc exhaust-c">2 is even &checkmark;</span>
             </div>
         </div>
         <div class="step-row">
             <div class="step-num s-exhaust">2</div>
             <div class="step-content">
-                n = 2: &nbsp;2&sup2; + 2 = 6
+                \(n = 2\): &nbsp;\(2^2 + 2 = 6\)
                 <span class="calc exhaust-c">6 is even &checkmark;</span>
             </div>
         </div>
         <div class="step-row">
             <div class="step-num s-exhaust">3</div>
             <div class="step-content">
-                n = 3: &nbsp;3&sup2; + 3 = 12
+                \(n = 3\): &nbsp;\(3^2 + 3 = 12\)
                 <span class="calc exhaust-c">12 is even &checkmark;</span>
             </div>
         </div>
         <div class="step-row">
             <div class="step-num s-exhaust">4</div>
             <div class="step-content">
-                n = 4: &nbsp;4&sup2; + 4 = 20
+                \(n = 4\): &nbsp;\(4^2 + 4 = 20\)
                 <span class="calc exhaust-c">20 is even &checkmark;</span>
             </div>
         </div>
-        <div class="final-answer exhaust-c">All cases checked. n&sup2; + n is even for n = 1, 2, 3, 4 &square;</div>
+        <div class="final-answer exhaust-c">All cases checked. \(n^2 + n\) is even for \(n = 1, 2, 3, 4\) &square;</div>
     </div>
 
     <!-- ============================================ -->
@@ -693,22 +697,22 @@
     </div>
 
     <div class="worked-example counter-border">
-        <div class="ex-title">Example: Disprove &mdash; "n&sup2; &gt; 3n for all positive integers n"</div>
+        <div class="ex-title">Example: Disprove &mdash; "\(n^2 &gt; 3n\) for all positive integers \(n\)"</div>
         <div class="step-row">
             <div class="step-num s-counter">1</div>
             <div class="step-content">
-                Consider n = 1:
-                <span class="calc counter-c">n&sup2; = 1&sup2; = 1</span>
+                Consider \(n = 1\):
+                <span class="calc counter-c">\(n^2 = 1^2 = 1\)</span>
             </div>
         </div>
         <div class="step-row">
             <div class="step-num s-counter">2</div>
             <div class="step-content">
-                Compare: is 1 &gt; 3(1)?
-                <span class="calc counter-c">1 &gt; 3? &mdash; No!</span>
+                Compare: is \(1 &gt; 3(1)\)?
+                <span class="calc counter-c">\(1 &gt; 3\)? &mdash; No!</span>
             </div>
         </div>
-        <div class="final-answer counter-c">n = 1 is a counter-example. The statement is false. &square;</div>
+        <div class="final-answer counter-c">\(n = 1\) is a counter-example. The statement is false. &square;</div>
     </div>
 
     <!-- ============================================ -->
@@ -747,36 +751,36 @@
     </div>
 
     <div class="worked-example contra-border">
-        <div class="ex-title">Example 1: Prove that &radic;2 is irrational</div>
+        <div class="ex-title">Example 1: Prove that \(\sqrt{2}\) is irrational</div>
         <div class="step-row">
             <div class="step-num s-contra">1</div>
             <div class="step-content">
-                Assume, for contradiction, that &radic;2 IS rational.
-                <span class="calc contra-c">Then &radic;2 = a/b where a, b are integers with no common factors</span>
+                Assume, for contradiction, that \(\sqrt{2}\) IS rational.
+                <span class="calc contra-c">Then \(\sqrt{2} = \dfrac{a}{b}\) where \(a, b\) are integers with no common factors</span>
             </div>
         </div>
         <div class="step-row">
             <div class="step-num s-contra">2</div>
             <div class="step-content">
-                Square both sides: 2 = a&sup2;/b&sup2;, so a&sup2; = 2b&sup2;
-                <span class="calc contra-c">a&sup2; is even, so a must be even. Write a = 2k.</span>
+                Square both sides: \(2 = \dfrac{a^2}{b^2}\), so \(a^2 = 2b^2\)
+                <span class="calc contra-c">\(a^2\) is even, so \(a\) must be even. Write \(a = 2k\).</span>
             </div>
         </div>
         <div class="step-row">
             <div class="step-num s-contra">3</div>
             <div class="step-content">
-                Substitute: (2k)&sup2; = 2b&sup2; &rArr; 4k&sup2; = 2b&sup2; &rArr; b&sup2; = 2k&sup2;
-                <span class="calc contra-c">b&sup2; is even, so b must also be even.</span>
+                Substitute: \((2k)^2 = 2b^2 \Rightarrow 4k^2 = 2b^2 \Rightarrow b^2 = 2k^2\)
+                <span class="calc contra-c">\(b^2\) is even, so \(b\) must also be even.</span>
             </div>
         </div>
         <div class="step-row">
             <div class="step-num s-contra">4</div>
             <div class="step-content">
-                But if both a and b are even, they share a common factor of 2.
-                <span class="calc contra-c">This contradicts our assumption that a/b has no common factors!</span>
+                But if both \(a\) and \(b\) are even, they share a common factor of 2.
+                <span class="calc contra-c">This contradicts our assumption that \(\dfrac{a}{b}\) has no common factors!</span>
             </div>
         </div>
-        <div class="final-answer contra-c">Contradiction! Therefore &radic;2 is irrational &square;</div>
+        <div class="final-answer contra-c">Contradiction! Therefore \(\sqrt{2}\) is irrational &square;</div>
     </div>
 
     <div class="worked-example contra-border">
@@ -785,20 +789,20 @@
             <div class="step-num s-contra">1</div>
             <div class="step-content">
                 Assume, for contradiction, that there are finitely many primes.
-                <span class="calc contra-c">List them all: p&sub1;, p&sub2;, p&sub3;, ..., p&#8345;</span>
+                <span class="calc contra-c">List them all: \(p_1, p_2, p_3, \ldots, p_n\)</span>
             </div>
         </div>
         <div class="step-row">
             <div class="step-num s-contra">2</div>
             <div class="step-content">
-                Construct the number N = p&sub1; &times; p&sub2; &times; p&sub3; &times; ... &times; p&#8345; + 1
+                Construct the number \(N = p_1 \times p_2 \times p_3 \times \ldots \times p_n + 1\)
             </div>
         </div>
         <div class="step-row">
             <div class="step-num s-contra">3</div>
             <div class="step-content">
-                N is not divisible by any prime in our list (dividing by any p&#7522; leaves remainder 1).
-                <span class="calc contra-c">So N is either prime itself, or has a prime factor not in our list.</span>
+                \(N\) is not divisible by any prime in our list (dividing by any \(p_i\) leaves remainder 1).
+                <span class="calc contra-c">So \(N\) is either prime itself, or has a prime factor not in our list.</span>
             </div>
         </div>
         <div class="step-row">
@@ -828,7 +832,7 @@
             <div class="step-marker trig-bg">2</div>
             <div class="step-text">
                 Use known identities:
-                <span class="phrase">sin&sup2;&theta; + cos&sup2;&theta; &equiv; 1 &nbsp;&nbsp;&bull;&nbsp;&nbsp; tan&theta; &equiv; sin&theta; / cos&theta;</span>
+                <span class="phrase">\(\sin^2\theta + \cos^2\theta \equiv 1\) &nbsp;&nbsp;&bull;&nbsp;&nbsp; \(\tan\theta \equiv \dfrac{\sin\theta}{\cos\theta}\)</span>
             </div>
         </div>
         <div class="template-step">
@@ -846,26 +850,26 @@
     </div>
 
     <div class="worked-example trig-border">
-        <div class="ex-title">Example: Prove that (1 &minus; cos&sup2;&theta;) / sin&theta; &equiv; sin&theta;</div>
+        <div class="ex-title">Example: Prove that \(\dfrac{1 - \cos^2\theta}{\sin\theta} \equiv \sin\theta\)</div>
         <div class="step-row">
             <div class="step-num s-trig">1</div>
             <div class="step-content">
                 Start from the LHS (the more complex side):
-                <span class="calc trig-c">(1 &minus; cos&sup2;&theta;) / sin&theta;</span>
+                <span class="calc trig-c">\(\dfrac{1 - \cos^2\theta}{\sin\theta}\)</span>
             </div>
         </div>
         <div class="step-row">
             <div class="step-num s-trig">2</div>
             <div class="step-content">
-                Use the identity sin&sup2;&theta; + cos&sup2;&theta; &equiv; 1, so 1 &minus; cos&sup2;&theta; = sin&sup2;&theta;:
-                <span class="calc trig-c">= sin&sup2;&theta; / sin&theta;</span>
+                Use the identity \(\sin^2\theta + \cos^2\theta \equiv 1\), so \(1 - \cos^2\theta = \sin^2\theta\):
+                <span class="calc trig-c">\(= \dfrac{\sin^2\theta}{\sin\theta}\)</span>
             </div>
         </div>
         <div class="step-row">
             <div class="step-num s-trig">3</div>
             <div class="step-content">
-                Cancel one sin&theta;:
-                <span class="calc trig-c">= sin&theta; = RHS</span>
+                Cancel one \(\sin\theta\):
+                <span class="calc trig-c">\(= \sin\theta =\) RHS</span>
             </div>
         </div>
         <div class="final-answer trig-c">LHS = RHS &mdash; identity proven &square;</div>
@@ -878,35 +882,35 @@
 
     <div class="tricks-grid">
         <div class="trick-item">
-            <div class="trick-symbol">2n</div>
+            <div class="trick-symbol">\(2n\)</div>
             <div class="trick-meaning">Even number</div>
         </div>
         <div class="trick-item">
-            <div class="trick-symbol">2n + 1</div>
+            <div class="trick-symbol">\(2n + 1\)</div>
             <div class="trick-meaning">Odd number</div>
         </div>
         <div class="trick-item">
-            <div class="trick-symbol">n, n+1, n+2</div>
+            <div class="trick-symbol">\(n,\; n+1,\; n+2\)</div>
             <div class="trick-meaning">Consecutive integers</div>
         </div>
         <div class="trick-item">
-            <div class="trick-symbol">2n, 2n+2</div>
+            <div class="trick-symbol">\(2n,\; 2n+2\)</div>
             <div class="trick-meaning">Consecutive even numbers</div>
         </div>
         <div class="trick-item">
-            <div class="trick-symbol">2n+1, 2n+3</div>
+            <div class="trick-symbol">\(2n+1,\; 2n+3\)</div>
             <div class="trick-meaning">Consecutive odd numbers</div>
         </div>
         <div class="trick-item">
-            <div class="trick-symbol">kn</div>
-            <div class="trick-meaning">"Divisible by k" = k &times; (something)</div>
+            <div class="trick-symbol">\(kn\)</div>
+            <div class="trick-meaning">"Divisible by \(k\)" = \(k \times\) (something)</div>
         </div>
         <div class="trick-item">
-            <div class="trick-symbol">3n</div>
+            <div class="trick-symbol">\(3n\)</div>
             <div class="trick-meaning">Multiple of 3</div>
         </div>
         <div class="trick-item">
-            <div class="trick-symbol">n&sup2;</div>
+            <div class="trick-symbol">\(n^2\)</div>
             <div class="trick-meaning">Square number</div>
         </div>
     </div>

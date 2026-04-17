@@ -503,6 +503,10 @@
             .hero h1 { font-size: 24px; }
         }
     </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
 </head>
 <body>
 <a class="yt-link" href="https://www.youtube.com/results?search_query=A+Level+Physics+uncertainties+percentage+combining" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg><span class="yt-label">Watch</span></a>
@@ -527,12 +531,12 @@
         </div>
         <div class="type-box fractional">
             <div class="type-label fractional">Fractional Uncertainty</div>
-            <div class="type-example fractional">0.5 / 50.0 = 0.01</div>
+            <div class="type-example fractional">\(\dfrac{0.5}{50.0} = 0.01\)</div>
             <div class="type-desc">No units. Just a ratio.<br>Uncertainty &divide; measured value.</div>
         </div>
         <div class="type-box percentage">
             <div class="type-label percentage">Percentage Uncertainty</div>
-            <div class="type-example percentage">0.01 &times; 100 = 1%</div>
+            <div class="type-example percentage">\(0.01 \times 100 = 1\%\)</div>
             <div class="type-desc">Fractional &times; 100.<br>The one you use most often.</div>
         </div>
     </div>
@@ -541,30 +545,30 @@
     <div class="conversion-strip">
         <h3 data-yt="A Level Physics Converting Between Them revision explained" data-yt-label="Convert">Converting Between Them</h3>
         <div class="conv-chain">
-            <div class="conv-box abs-c">&Delta;x = &plusmn;0.5 mm</div>
+            <div class="conv-box abs-c">\(\Delta x = \pm 0.5\) mm</div>
             <div class="conv-arrow">
                 <div class="dir">&rarr;</div>
                 &divide; value
             </div>
-            <div class="conv-box frac-c">0.5/50 = 0.01</div>
+            <div class="conv-box frac-c">\(\dfrac{0.5}{50} = 0.01\)</div>
             <div class="conv-arrow">
                 <div class="dir">&rarr;</div>
-                &times; 100
+                \(\times 100\)
             </div>
-            <div class="conv-box pct-c">1%</div>
+            <div class="conv-box pct-c">\(1\%\)</div>
         </div>
         <div class="conv-chain" style="margin-top: 10px;">
-            <div class="conv-box pct-c">1%</div>
+            <div class="conv-box pct-c">\(1\%\)</div>
             <div class="conv-arrow">
                 <div class="dir">&rarr;</div>
                 &divide; 100
             </div>
-            <div class="conv-box frac-c">0.01</div>
+            <div class="conv-box frac-c">\(0.01\)</div>
             <div class="conv-arrow">
                 <div class="dir">&rarr;</div>
-                &times; value
+                \(\times\) value
             </div>
-            <div class="conv-box abs-c">&plusmn;0.5 mm</div>
+            <div class="conv-box abs-c">\(\pm 0.5\) mm</div>
         </div>
     </div>
 
@@ -577,23 +581,23 @@
         <div class="combine-card add-rule">
             <div class="combine-when add-rule">Adding or Subtracting Quantities</div>
             <div class="combine-rule">ADD the absolute uncertainties</div>
-            <div class="combine-formula add-rule">&Delta;(A&plusmn;B) = &Delta;A + &Delta;B</div>
+            <div class="combine-formula add-rule">$$\Delta(A \pm B) = \Delta A + \Delta B$$</div>
             <div class="combine-example">
                 <strong>Example:</strong> Length = end &minus; start<br>
-                end = 84.0 &plusmn; 0.5 mm, start = 10.0 &plusmn; 0.5 mm
-                <span class="calc add-c">Length = 74.0 &plusmn; 1.0 mm</span>
-                Both absolute uncertainties add: 0.5 + 0.5 = 1.0 mm
+                end \(= 84.0 \pm 0.5\) mm, start \(= 10.0 \pm 0.5\) mm
+                <span class="calc add-c">\(\text{Length} = 74.0 \pm 1.0\) mm</span>
+                Both absolute uncertainties add: \(0.5 + 0.5 = 1.0\) mm
             </div>
         </div>
         <div class="combine-card mult-rule">
             <div class="combine-when mult-rule">Multiplying or Dividing Quantities</div>
             <div class="combine-rule">ADD the percentage uncertainties</div>
-            <div class="combine-formula mult-rule">%&Delta;(A&times;B) = %&Delta;A + %&Delta;B</div>
+            <div class="combine-formula mult-rule">$$\%\Delta(A \times B) = \%\Delta A + \%\Delta B$$</div>
             <div class="combine-example">
                 <strong>Example:</strong> Speed = distance / time<br>
-                d = 100 m &plusmn; 2%, t = 10 s &plusmn; 3%
-                <span class="calc mult-c">%&Delta;speed = 2% + 3% = 5%</span>
-                speed = 10 m/s &plusmn; 5% = 10 &plusmn; 0.5 m/s
+                \(d = 100\) m \(\pm 2\%\), \(t = 10\) s \(\pm 3\%\)
+                <span class="calc mult-c">\(\%\Delta\text{speed} = 2\% + 3\% = 5\%\)</span>
+                speed \(= 10\) m/s \(\pm 5\% = 10 \pm 0.5\) m/s
             </div>
         </div>
     </div>
@@ -601,11 +605,11 @@
     <div class="power-card">
         <div class="combine-when">Raising to a Power</div>
         <div class="combine-rule">MULTIPLY the percentage uncertainty by the power</div>
-        <div class="combine-formula">%&Delta;(A<sup>n</sup>) = n &times; %&Delta;A</div>
+        <div class="combine-formula">$$\%\Delta(A^n) = n \times \%\Delta A$$</div>
         <div class="combine-example" style="text-align:left;">
-            <strong>Example:</strong> Volume of a sphere: V = 4/3 &pi;r&sup3;<br>
-            If %&Delta;r = 2%, what is %&Delta;V?
-            <span class="calc" style="color: var(--power-color);">%&Delta;V = 3 &times; 2% = 6%</span>
+            <strong>Example:</strong> Volume of a sphere: \(V = \dfrac{4}{3}\pi r^3\)<br>
+            If \(\%\Delta r = 2\%\), what is \(\%\Delta V\)?
+            <span class="calc" style="color: var(--power-color);">\(\%\Delta V = 3 \times 2\% = 6\%\)</span>
             The power of 3 on r means you triple the percentage uncertainty.
         </div>
     </div>
@@ -633,8 +637,8 @@
         </div>
         <div class="instr-card">
             <div class="name">Multiple Readings</div>
-            <div class="uncertainty">range / 2</div>
-            <div class="why">Take the spread: uncertainty = (max &minus; min) / 2. This captures the random variation in your data.</div>
+            <div class="uncertainty">\(\text{range} / 2\)</div>
+            <div class="why">Take the spread: uncertainty \(= \dfrac{\text{max} - \text{min}}{2}\). This captures the random variation in your data.</div>
         </div>
     </div>
 
@@ -698,7 +702,7 @@
     <div class="graph-points">
         <div class="graph-card">
             <div class="point-title">Error Bars</div>
-            <div class="point-detail">Plot the absolute uncertainty as vertical (and/or horizontal) bars on each data point. The bar extends &plusmn;&Delta;y above and below the point.</div>
+            <div class="point-detail">Plot the absolute uncertainty as vertical (and/or horizontal) bars on each data point. The bar extends \(\pm\Delta y\) above and below the point.</div>
         </div>
         <div class="graph-card">
             <div class="point-title">Best Fit &amp; Worst Acceptable Lines</div>
@@ -710,7 +714,7 @@
         <div class="graph-card">
             <div class="point-title">Gradient Uncertainty</div>
             <div class="point-detail">
-                <span class="calc">&Delta;gradient = (max gradient &minus; min gradient) / 2</span>
+                <span class="calc">$$\Delta\text{gradient} = \dfrac{\text{max gradient} - \text{min gradient}}{2}$$</span>
                 Use the worst acceptable lines to find the steepest and shallowest gradients.
             </div>
         </div>
@@ -718,7 +722,7 @@
             <div class="point-title">Y-Intercept Uncertainty</div>
             <div class="point-detail">
                 Read the y-intercept from each worst acceptable line.
-                <span class="calc">&Delta;intercept = (max intercept &minus; min intercept) / 2</span>
+                <span class="calc">$$\Delta\text{intercept} = \dfrac{\text{max intercept} - \text{min intercept}}{2}$$</span>
             </div>
         </div>
     </div>
@@ -735,7 +739,7 @@
         </div>
         <div class="mistake-card">
             <div class="mistake-icon">&times;</div>
-            <div class="mistake-text">Forgetting to multiply the percentage uncertainty by the power &mdash; if r has 2% uncertainty, r&sup3; has 6%, not 2%.</div>
+            <div class="mistake-text">Forgetting to multiply the percentage uncertainty by the power &mdash; if \(r\) has 2% uncertainty, \(r^3\) has 6%, not 2%.</div>
         </div>
         <div class="mistake-card">
             <div class="mistake-icon">&times;</div>
@@ -743,7 +747,7 @@
         </div>
         <div class="mistake-card">
             <div class="mistake-icon">&times;</div>
-            <div class="mistake-text">Too many significant figures in the uncertainty &mdash; uncertainties should be 1 or 2 s.f. maximum. If your uncertainty is &plusmn;0.4732 mm, round it to &plusmn;0.5 mm.</div>
+            <div class="mistake-text">Too many significant figures in the uncertainty &mdash; uncertainties should be 1 or 2 s.f. maximum. If your uncertainty is \(\pm 0.4732\) mm, round it to \(\pm 0.5\) mm.</div>
         </div>
     </div>
 

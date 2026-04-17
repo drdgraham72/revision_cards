@@ -600,6 +600,10 @@
             .hero h1 { font-size: 24px; }
         }
     </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
 </head>
 <body>
 <a class="yt-link" href="https://www.youtube.com/results?search_query=A+Level+Maths+integration+by+parts+substitution" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg><span class="yt-label">Watch</span></a>
@@ -630,7 +634,7 @@
                 </div>
                 <div class="node answer standard">
                     Reverse Differentiate
-                    <div class="example">&int; x&sup3; dx, &int; cos(x) dx</div>
+                    <div class="example">\(\int x^3\,dx, \quad \int \cos(x)\,dx\)</div>
                 </div>
             </div>
             <div class="branch-arm">
@@ -640,8 +644,8 @@
                     <div class="line"></div>
                 </div>
                 <div class="node answer parts">
-                    By Parts<br>&int;u dv = uv &minus; &int;v du
-                    <div class="example">&int; x&middot;e<sup>x</sup> dx</div>
+                    By Parts<br>\(\int u\,dv = uv - \int v\,du\)
+                    <div class="example">\(\int x \cdot e^x\,dx\)</div>
                 </div>
             </div>
             <div class="branch-arm">
@@ -651,8 +655,8 @@
                     <div class="line"></div>
                 </div>
                 <div class="node answer subst">
-                    Substitution<br>u = inner function
-                    <div class="example">&int; 2x&middot;e<sup>x&sup2;</sup> dx</div>
+                    Substitution<br>\(u =\) inner function
+                    <div class="example">\(\int 2x \cdot e^{x^2}\,dx\)</div>
                 </div>
             </div>
             <div class="branch-arm">
@@ -662,8 +666,8 @@
                     <div class="line"></div>
                 </div>
                 <div class="node answer partial">
-                    Partial Fractions<br>A/(x&minus;a) + B/(x&minus;b)
-                    <div class="example">&int; 1/[(x&minus;1)(x+2)] dx</div>
+                    Partial Fractions<br>\(\dfrac{A}{x-a} + \dfrac{B}{x-b}\)
+                    <div class="example">\(\int \dfrac{1}{(x-1)(x+2)}\,dx\)</div>
                 </div>
             </div>
             <div class="branch-arm">
@@ -674,7 +678,7 @@
                 </div>
                 <div class="node answer trig">
                     Trig Identity /<br>Algebraic Trick
-                    <div class="example">&int; sin&sup2;(x) dx</div>
+                    <div class="example">\(\int \sin^2(x)\,dx\)</div>
                 </div>
             </div>
         </div>
@@ -703,44 +707,44 @@
         <h2 data-yt="A Level Maths Standard Results The Reverse of Differentiation revision explained" data-yt-label="Results">Standard Results &mdash; The Reverse of Differentiation</h2>
         <table class="ref-table">
             <tr>
-                <th>f(x)</th>
-                <th>&int; f(x) dx</th>
+                <th>\(f(x)\)</th>
+                <th>\(\int f(x)\,dx\)</th>
             </tr>
             <tr>
-                <td class="fx">x<sup>n</sup></td>
-                <td class="intx">x<sup>n+1</sup>/(n+1) + c <span style="font-size:11px; color:var(--text-light);">(n &ne; &minus;1)</span></td>
+                <td class="fx">\(x^n\)</td>
+                <td class="intx">\(\dfrac{x^{n+1}}{n+1} + c\) <span style="font-size:11px; color:var(--text-light);">\((n \ne -1)\)</span></td>
             </tr>
             <tr>
-                <td class="fx">1/x</td>
-                <td class="intx">ln|x| + c</td>
+                <td class="fx">\(\dfrac{1}{x}\)</td>
+                <td class="intx">\(\ln|x| + c\)</td>
             </tr>
             <tr>
-                <td class="fx">e<sup>x</sup></td>
-                <td class="intx">e<sup>x</sup> + c</td>
+                <td class="fx">\(e^x\)</td>
+                <td class="intx">\(e^x + c\)</td>
             </tr>
             <tr>
-                <td class="fx">e<sup>kx</sup></td>
-                <td class="intx">(1/k)e<sup>kx</sup> + c</td>
+                <td class="fx">\(e^{kx}\)</td>
+                <td class="intx">\(\dfrac{1}{k}e^{kx} + c\)</td>
             </tr>
             <tr>
-                <td class="fx">sin(x)</td>
-                <td class="intx">&minus;cos(x) + c</td>
+                <td class="fx">\(\sin(x)\)</td>
+                <td class="intx">\(-\cos(x) + c\)</td>
             </tr>
             <tr>
-                <td class="fx">cos(x)</td>
-                <td class="intx">sin(x) + c</td>
+                <td class="fx">\(\cos(x)\)</td>
+                <td class="intx">\(\sin(x) + c\)</td>
             </tr>
             <tr>
-                <td class="fx">sec&sup2;(x)</td>
-                <td class="intx">tan(x) + c</td>
+                <td class="fx">\(\sec^2(x)\)</td>
+                <td class="intx">\(\tan(x) + c\)</td>
             </tr>
             <tr>
-                <td class="fx">sin(kx)</td>
-                <td class="intx">&minus;(1/k)cos(kx) + c</td>
+                <td class="fx">\(\sin(kx)\)</td>
+                <td class="intx">\(-\dfrac{1}{k}\cos(kx) + c\)</td>
             </tr>
             <tr>
-                <td class="fx">cos(kx)</td>
-                <td class="intx">(1/k)sin(kx) + c</td>
+                <td class="fx">\(\cos(kx)\)</td>
+                <td class="intx">\(\dfrac{1}{k}\sin(kx) + c\)</td>
             </tr>
         </table>
     </div>
@@ -754,29 +758,29 @@
             <div class="memory-aid">"Spot the inner function whose derivative is also there"</div>
             <div class="steps">
                 <div><span class="step-num">1</span> Choose <strong>u</strong> (usually the inner function)</div>
-                <div><span class="step-num">2</span> Find du/dx, rearrange to get dx = ... du</div>
+                <div><span class="step-num">2</span> Find \(\dfrac{du}{dx}\), rearrange to get \(dx = \ldots\,du\)</div>
                 <div><span class="step-num">3</span> Replace everything in terms of u (no x left!)</div>
                 <div><span class="step-num">4</span> Integrate in terms of u</div>
                 <div><span class="step-num">5</span> Substitute back (or change limits if definite)</div>
             </div>
             <div class="worked">
-                <h4>Example 1: &int; 2x&middot;e<sup>x&sup2;</sup> dx</h4>
-                <div class="work-line">Let u = x&sup2;, &nbsp; du/dx = 2x, &nbsp; so du = 2x dx</div>
-                <div class="work-line">&int; e<sup>u</sup> du = e<sup>u</sup> + c</div>
-                <div class="work-line">= e<sup>x&sup2;</sup> + c &check;</div>
+                <h4>Example 1: \(\int 2x \cdot e^{x^2}\,dx\)</h4>
+                <div class="work-line">Let \(u = x^2, \quad \dfrac{du}{dx} = 2x, \quad \text{so } du = 2x\,dx\)</div>
+                <div class="work-line">\(\int e^u\,du = e^u + c\)</div>
+                <div class="work-line">\(= e^{x^2} + c\) &#10003;</div>
             </div>
             <div class="worked">
-                <h4>Example 2: &int; 3x&sup2;(x&sup3; + 1)&sup4; dx</h4>
-                <div class="work-line">Let u = x&sup3; + 1, &nbsp; du/dx = 3x&sup2;, &nbsp; so du = 3x&sup2; dx</div>
-                <div class="work-line">&int; u&sup4; du = u&sup5;/5 + c</div>
-                <div class="work-line">= (x&sup3; + 1)&sup5;/5 + c &check;</div>
+                <h4>Example 2: \(\int 3x^2(x^3 + 1)^4\,dx\)</h4>
+                <div class="work-line">Let \(u = x^3 + 1, \quad \dfrac{du}{dx} = 3x^2, \quad \text{so } du = 3x^2\,dx\)</div>
+                <div class="work-line">\(\int u^4\,du = \dfrac{u^5}{5} + c\)</div>
+                <div class="work-line">\(= \dfrac{(x^3 + 1)^5}{5} + c\) &#10003;</div>
             </div>
         </div>
 
         <!-- BY PARTS -->
         <div class="rule-card parts">
             <div class="rule-name">Integration by Parts</div>
-            <div class="formula">&int; u dv = uv &minus; &int; v du</div>
+            <div class="formula">\(\int u\,dv = uv - \int v\,du\)</div>
             <div class="memory-aid">"LIATE: Logs, Inverse trig, Algebraic, Trig, Exponentials"</div>
             <div style="font-size: 13px; color: var(--text-light); margin: 6px 0;">
                 Choose <strong>u</strong> from the left of LIATE (it simplifies when differentiated).<br>
@@ -785,23 +789,23 @@
             <div class="steps">
                 <div><span class="step-num">1</span> Label <strong>u</strong> and <strong>dv</strong> using LIATE</div>
                 <div><span class="step-num">2</span> Find <strong>du</strong> (differentiate u) and <strong>v</strong> (integrate dv)</div>
-                <div><span class="step-num">3</span> Apply the formula: uv &minus; &int; v du</div>
+                <div><span class="step-num">3</span> Apply the formula: \(uv - \int v\,du\)</div>
                 <div><span class="step-num">4</span> Integrate the remaining integral</div>
             </div>
             <div class="worked">
-                <h4>Example 1: &int; x&middot;e<sup>x</sup> dx</h4>
-                <div class="work-line">u = x, &nbsp; dv = e<sup>x</sup> dx</div>
-                <div class="work-line">du = dx, &nbsp; v = e<sup>x</sup></div>
-                <div class="work-line">= x&middot;e<sup>x</sup> &minus; &int; e<sup>x</sup> dx</div>
-                <div class="work-line">= x&middot;e<sup>x</sup> &minus; e<sup>x</sup> + c = e<sup>x</sup>(x &minus; 1) + c &check;</div>
+                <h4>Example 1: \(\int x \cdot e^x\,dx\)</h4>
+                <div class="work-line">\(u = x, \quad dv = e^x\,dx\)</div>
+                <div class="work-line">\(du = dx, \quad v = e^x\)</div>
+                <div class="work-line">\(= x \cdot e^x - \int e^x\,dx\)</div>
+                <div class="work-line">\(= xe^x - e^x + c = e^x(x - 1) + c\) &#10003;</div>
             </div>
             <div class="worked">
-                <h4>Example 2: &int; x&sup2;&middot;sin(x) dx &mdash; needs parts TWICE</h4>
-                <div class="work-line">u = x&sup2;, dv = sin(x) dx &rarr; du = 2x dx, v = &minus;cos(x)</div>
-                <div class="work-line">= &minus;x&sup2;cos(x) + &int; 2x&middot;cos(x) dx</div>
-                <div class="work-line">Now parts again: u = 2x, dv = cos(x) dx</div>
-                <div class="work-line">= &minus;x&sup2;cos(x) + 2x&middot;sin(x) &minus; &int; 2sin(x) dx</div>
-                <div class="work-line">= &minus;x&sup2;cos(x) + 2x&middot;sin(x) + 2cos(x) + c &check;</div>
+                <h4>Example 2: \(\int x^2 \sin(x)\,dx\) &mdash; needs parts TWICE</h4>
+                <div class="work-line">\(u = x^2,\; dv = \sin(x)\,dx \rightarrow du = 2x\,dx,\; v = -\cos(x)\)</div>
+                <div class="work-line">\(= -x^2\cos(x) + \int 2x\cos(x)\,dx\)</div>
+                <div class="work-line">Now parts again: \(u = 2x,\; dv = \cos(x)\,dx\)</div>
+                <div class="work-line">\(= -x^2\cos(x) + 2x\sin(x) - \int 2\sin(x)\,dx\)</div>
+                <div class="work-line">\(= -x^2\cos(x) + 2x\sin(x) + 2\cos(x) + c\) &#10003;</div>
             </div>
         </div>
 
@@ -814,16 +818,16 @@
             </div>
             <div class="steps">
                 <div><span class="step-num">1</span> Factor the denominator</div>
-                <div><span class="step-num">2</span> Split: A/(x&minus;a) + B/(x&minus;b)</div>
+                <div><span class="step-num">2</span> Split: \(\dfrac{A}{x-a} + \dfrac{B}{x-b}\)</div>
                 <div><span class="step-num">3</span> Find A and B (cover-up method or equate coefficients)</div>
-                <div><span class="step-num">4</span> Integrate each term: A&middot;ln|x&minus;a| + B&middot;ln|x&minus;b| + c</div>
+                <div><span class="step-num">4</span> Integrate each term: \(A\ln|x-a| + B\ln|x-b| + c\)</div>
             </div>
             <div class="worked">
-                <h4>Example: &int; 3/[(x&minus;1)(x+2)] dx</h4>
-                <div class="work-line">3/[(x&minus;1)(x+2)] = A/(x&minus;1) + B/(x+2)</div>
-                <div class="work-line">Cover-up: x=1 &rarr; A = 3/3 = 1, &nbsp; x=&minus;2 &rarr; B = 3/(&minus;3) = &minus;1</div>
-                <div class="work-line">&int; [1/(x&minus;1) &minus; 1/(x+2)] dx</div>
-                <div class="work-line">= ln|x&minus;1| &minus; ln|x+2| + c &check;</div>
+                <h4>Example: \(\int \dfrac{3}{(x-1)(x+2)}\,dx\)</h4>
+                <div class="work-line">\(\dfrac{3}{(x-1)(x+2)} = \dfrac{A}{x-1} + \dfrac{B}{x+2}\)</div>
+                <div class="work-line">Cover-up: \(x=1 \rightarrow A = \frac{3}{3} = 1, \quad x=-2 \rightarrow B = \frac{3}{-3} = -1\)</div>
+                <div class="work-line">\(\int \left[\dfrac{1}{x-1} - \dfrac{1}{x+2}\right] dx\)</div>
+                <div class="work-line">\(= \ln|x-1| - \ln|x+2| + c\) &#10003;</div>
             </div>
         </div>
 
@@ -831,14 +835,14 @@
         <div class="rule-card definite">
             <div class="rule-name">Definite Integrals &amp; Areas</div>
             <div class="steps">
-                <div><span class="step-num">1</span> <strong>Area under curve</strong> between a and b: &int;<sub>a</sub><sup>b</sup> f(x) dx</div>
-                <div><span class="step-num">2</span> <strong>Area between two curves:</strong> &int;<sub>a</sub><sup>b</sup> [f(x) &minus; g(x)] dx</div>
+                <div><span class="step-num">1</span> <strong>Area under curve</strong> between a and b: \(\int_a^b f(x)\,dx\)</div>
+                <div><span class="step-num">2</span> <strong>Area between two curves:</strong> \(\int_a^b [f(x) - g(x)]\,dx\)</div>
                 <div><span class="step-num">3</span> If curve goes <strong>below x-axis</strong>: the integral is negative &mdash; take the absolute value for area</div>
                 <div><span class="step-num">4</span> <strong>Trapezium rule</strong> (numerical approximation):</div>
             </div>
-            <div class="formula">h/2 &middot; [y<sub>0</sub> + 2(y<sub>1</sub> + y<sub>2</sub> + ... + y<sub>n&minus;1</sub>) + y<sub>n</sub>]</div>
+            <div class="formula">\(\dfrac{h}{2}\left[y_0 + 2(y_1 + y_2 + \ldots + y_{n-1}) + y_n\right]\)</div>
             <div style="font-size: 13px; color: var(--text-light); margin-top: 8px;">
-                where h = (b &minus; a)/n is the strip width. More strips = better approximation.
+                where \(h = \dfrac{b - a}{n}\) is the strip width. More strips = better approximation.
             </div>
         </div>
     </div>
@@ -852,13 +856,13 @@
             </li>
             <li>
                 <strong>Forgetting the 1/k factor:</strong><br>
-                &int; sin(3x) dx = <span class="wrong">&minus;cos(3x) + c</span> &rarr; <span class="right">&minus;(1/3)cos(3x) + c</span>
+                \(\int \sin(3x)\,dx\) = <span class="wrong">\(-\cos(3x) + c\)</span> &rarr; <span class="right">\(-\frac{1}{3}\cos(3x) + c\)</span>
             </li>
             <li>
                 <strong>Not changing limits when using substitution on a definite integral:</strong> if you substitute u, the limits must change from x-values to u-values. Otherwise substitute back to x before evaluating.
             </li>
             <li>
-                <strong>Choosing the wrong u in integration by parts:</strong> use LIATE. If u = e<sup>x</sup> and dv = x dx, you've made it harder, not easier.
+                <strong>Choosing the wrong u in integration by parts:</strong> use LIATE. If \(u = e^x\) and \(dv = x\,dx\), you've made it harder, not easier.
             </li>
         </ul>
     </div>
