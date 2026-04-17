@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Physics — Year 2 Crib Sheet</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+          --bg1: #ffffff; --bg2: #f4f6f2; --bg3: #eaf3de;
+          --t1: #1a1a18; --t2: #5f5e5a; --t3: #888780;
+          --bl: rgba(0,0,0,0.11); --bm: rgba(0,0,0,0.20);
+          --r: 8px; --rl: 12px;
+          --font: system-ui,-apple-system,sans-serif; --mono: 'Courier New', monospace;
+        }
+        @media(prefers-color-scheme:dark){
+          :root{
+            --bg1:#1e1e1c;--bg2:#252723;--bg3:#1a2a14;
+            --t1:#f0ece4;--t2:#a8a59e;--t3:#6e6d69;
+            --bl:rgba(255,255,255,0.09);--bm:rgba(255,255,255,0.18);
+          }
+        }
+        body{font-family:var(--font);background:var(--bg2);color:var(--t1);padding:1.75rem 1rem;min-height:100vh;}
+        .page { width: 100%; max-width: 1000px; margin: 0 auto; font-size: 12px; line-height: 1.4; }
+        h1 { font-size: 18px; font-weight: 600; margin-bottom: 0.25rem; }
+        .header { background: var(--bl); backdrop-filter: blur(8px); padding: 1rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-radius: var(--r); border: 0.5px solid var(--bm); }
+        .header h1 { font-size: 18px; font-weight: 600; margin: 0; }
+        .header span { font-size: 11px; color: var(--t2); font-family: var(--mono); letter-spacing: 0.05em; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .col { display: flex; flex-direction: column; gap: 8px; }
+        @media (max-width:768px) {
+          .grid { grid-template-columns: 1fr; }
+          .page { padding: 0; }
+        }
+        .box { background: var(--bg1); border: 0.5px solid var(--bl); border-radius: var(--r); overflow: hidden; }
+        .box-head { padding: 10px 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; background: var(--bl); }
+        .box-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; }
+        .row { display: grid; grid-template-columns: 28% 72%; gap: 8px; padding-bottom: 6px; border-bottom: 0.5px solid var(--bl); }
+        .row:last-child { border-bottom: none; }
+        .kw { font-weight: 650; color: var(--t2); font-size: 11px; font-family: var(--mono); }
+        .val { font-size: 11.5px; color: var(--t1); line-height: 1.35; }
+        .marks { font-family: var(--mono); font-size: 10px; color: var(--t2); background: var(--bg3); padding: 2px 5px; border-radius: 2px; }
+        .ex-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; border-left: 2px solid var(--t2); }
+        .ex-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--t2); display: block; margin-bottom: 2px; }
+        .formula-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; font-family: var(--mono); font-size: 10.5px; border-left: 2px solid #3b6d11; }
+        .board { font-size: 9px; font-weight: 600; display: inline-block; padding: 1px 5px; border-radius: 3px; background: var(--bl); color: var(--t1); margin: 2px 2px 0 0; }
+        .board.all { background: #eaf3de; color: #3b6d11; }
+        .board.h { background: #e6f1fb; color: #185fa5; }
+        .board.f { background: #faeeda; color: #854f0b; }
+        .warn { background: #faeeda; border-left: 2px solid #ef9f27; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #633806; margin: 4px 0; }
+        .tip { background: #eeedfe; border-left: 2px solid #7f77dd; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #3c3489; margin: 4px 0; }
+        .good { background: #eaf3de; border-left: 2px solid #639922; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #173404; margin: 4px 0; }
+        .s1 { background: #3b6d11; color: #eaf3de; }
+        .s2 { background: #185fa5; color: #e6f1fb; }
+        .s3 { background: #534ab7; color: #eeedfe; }
+        .s4 { background: #854f0b; color: #faeeda; }
+        .s5 { background: #a32d2d; color: #fcebeb; }
+        .s6 { background: #0f6e56; color: #e1f5ee; }
+    </style>
+</head>
+<body>
+<div class="page">
+<div class="header">
+  <h1>A-Level Physics — Year 2 Crib Sheet</h1>
+  <span>Edexcel · Topics 6-8+ · Equations &amp; concepts</span>
+</div>
+
+<div class="grid">
+<div class="col">
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- FURTHER MECHANICS                                  -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="box">
+<div class="box-head s1">Further Mechanics <span class="marks">Topic 6</span></div>
+<div class="box-body">
+
+<div class="row"><div class="kw">Circular motion</div><div class="val">
+<div class="formula-box">&omega; = 2&pi;f = 2&pi;/T</div>
+<div class="formula-box">v = r&omega;</div>
+<div class="formula-box">a = v&sup2;/r = r&omega;&sup2; &nbsp;(centripetal acceleration, always towards centre)</div>
+<div class="formula-box">F = mv&sup2;/r = mr&omega;&sup2; &nbsp;(centripetal force)</div>
+Centripetal force is not a separate force &mdash; it is provided by tension, gravity, friction, etc.
+</div></div>
+
+<div class="row"><div class="kw">Simple harmonic motion</div><div class="val">
+Definition: acceleration is proportional to displacement and directed towards the equilibrium position.
+<div class="formula-box">a = &minus;&omega;&sup2;x &nbsp;(defining equation of SHM)</div>
+<div class="formula-box">x = A cos(&omega;t) &nbsp;(displacement, if starting at max)</div>
+<div class="formula-box">v = &minus;A&omega; sin(&omega;t)</div>
+<div class="formula-box">v = &plusmn;&omega;&radic;(A&sup2; &minus; x&sup2;)</div>
+<div class="formula-box">v_max = A&omega; &nbsp;(at equilibrium, x = 0)</div>
+<div class="formula-box">a_max = A&omega;&sup2; &nbsp;(at extremes, x = &plusmn;A)</div>
+<div class="formula-box">T = 2&pi;/&omega; &nbsp;&nbsp;|&nbsp;&nbsp; f = 1/T = &omega;/2&pi;</div>
+</div></div>
+
+<div class="row"><div class="kw">SHM systems</div><div class="val">
+<div class="formula-box">Mass-spring: T = 2&pi;&radic;(m/k)</div>
+<div class="formula-box">Simple pendulum: T = 2&pi;&radic;(l/g)</div>
+Period is independent of amplitude (isochronous) for small oscillations.
+</div></div>
+
+<div class="row"><div class="kw">Energy in SHM</div><div class="val">
+<div class="formula-box">E_k = &frac12;m&omega;&sup2;(A&sup2; &minus; x&sup2;)</div>
+<div class="formula-box">E_p = &frac12;m&omega;&sup2;x&sup2;</div>
+<div class="formula-box">E_total = &frac12;m&omega;&sup2;A&sup2; = constant</div>
+KE is maximum at equilibrium (x = 0); PE is maximum at extremes (x = &plusmn;A). Total mechanical energy is constant throughout.
+</div></div>
+
+<div class="row"><div class="kw">Damping</div><div class="val">
+<strong>Light damping:</strong> amplitude decreases gradually, period barely changes.<br>
+<strong>Heavy damping:</strong> slow return to equilibrium, no oscillation.<br>
+<strong>Critical damping:</strong> fastest return to equilibrium without oscillating (e.g. car suspension).
+</div></div>
+
+<div class="row"><div class="kw">Forced oscillations &amp; resonance</div><div class="val">
+<strong>Forced oscillation:</strong> external periodic driving force applied.<br>
+<strong>Resonance:</strong> when driving frequency = natural frequency &rarr; maximum amplitude.<br>
+Damping reduces the resonance peak and shifts it slightly below the natural frequency.
+<div class="ex-box"><span class="ex-label">Examples</span>Tacoma Narrows Bridge, tuning forks, microwave ovens, MRI</div>
+</div></div>
+
+<div class="warn">Common mistake: saying centripetal force is a type of force. It is always provided by another force (gravity, tension, friction, normal contact).</div>
+<div class="warn">Common mistake: confusing a = &minus;&omega;&sup2;x (SHM defining equation) with the SUVAT equations. SHM acceleration is NOT constant &mdash; never use SUVAT.</div>
+<div class="tip">Exam tip: always check whether the question starts at maximum displacement (use cos) or equilibrium (use sin) for x = A cos(&omega;t) or x = A sin(&omega;t).</div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- GRAVITATIONAL FIELDS                               -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="box">
+<div class="box-head s2">Gravitational Fields <span class="marks">Topic 7</span></div>
+<div class="box-body">
+
+<div class="row"><div class="kw">Newton's law of gravitation</div><div class="val">
+<div class="formula-box">F = GMm/r&sup2;</div>
+G = 6.67 &times; 10⁻&sup1;&sup1; N m&sup2; kg⁻&sup2;. Force is always attractive. r is measured centre-to-centre.
+</div></div>
+
+<div class="row"><div class="kw">Gravitational field strength</div><div class="val">
+<div class="formula-box">g = F/m = GM/r&sup2;</div>
+Units: N kg⁻&sup1; or m s⁻&sup2;. At the Earth's surface g &asymp; 9.81 m s⁻&sup2;. Field lines point towards the mass (attractive field).
+</div></div>
+
+<div class="row"><div class="kw">Gravitational potential</div><div class="val">
+<div class="formula-box">V = &minus;GM/r</div>
+Units: J kg⁻&sup1;. Always negative (zero at infinity). Work done to move unit mass from infinity to that point.
+<div class="formula-box">g = &minus;dV/dr &nbsp;(field strength = negative potential gradient)</div>
+</div></div>
+
+<div class="row"><div class="kw">Gravitational potential energy</div><div class="val">
+<div class="formula-box">E_p = &minus;GMm/r</div>
+The &Delta;GPE between two points: &Delta;E_p = m&Delta;V.
+</div></div>
+
+<div class="row"><div class="kw">Orbital mechanics</div><div class="val">
+For a circular orbit, gravity provides centripetal force:
+<div class="formula-box">GMm/r&sup2; = mv&sup2;/r &nbsp;&rarr;&nbsp; v = &radic;(GM/r)</div>
+<div class="formula-box">T&sup2; = (4&pi;&sup2;/GM) r&sup3; &nbsp;(Kepler's third law: T&sup2; &prop; r&sup3;)</div>
+Geostationary orbit: T = 24 h, equatorial plane, same direction as Earth's rotation.
+</div></div>
+
+<div class="row"><div class="kw">Escape velocity</div><div class="val">
+Minimum speed to escape gravitational field (KE = |GPE|):
+<div class="formula-box">&frac12;mv&sup2; = GMm/r &nbsp;&rarr;&nbsp; v_esc = &radic;(2GM/r)</div>
+</div></div>
+
+<div class="warn">Common mistake: forgetting that r is from the CENTRE of the mass, not from the surface. For Earth's surface, r = R_Earth.</div>
+<div class="warn">Common mistake: dropping the negative sign in V = &minus;GM/r. Gravitational potential is always negative.</div>
+<div class="tip">Exam tip: the g vs r graph has a 1/r&sup2; relationship outside the planet and a linear relationship inside (assuming uniform density).</div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- THERMAL PHYSICS                                    -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="box">
+<div class="box-head s6">Thermal Physics <span class="marks">Topic 11</span></div>
+<div class="box-body">
+
+<div class="row"><div class="kw">Internal energy</div><div class="val">
+Internal energy = sum of random kinetic energies + potential energies of all molecules in a system. Increasing temperature increases KE; changing state changes PE (bonds broken/formed).
+</div></div>
+
+<div class="row"><div class="kw">First law of thermodynamics</div><div class="val">
+<div class="formula-box">&Delta;U = Q + W</div>
+&Delta;U = change in internal energy, Q = heat supplied to system, W = work done on system.<br>
+<span style="font-size:10px;">Sign convention varies &mdash; check whether W is work done ON or BY the system in the question.</span>
+</div></div>
+
+<div class="row"><div class="kw">Ideal gas laws</div><div class="val">
+<div class="formula-box">pV = nRT &nbsp;(n = number of moles, R = 8.31 J mol⁻&sup1; K⁻&sup1;)</div>
+<div class="formula-box">pV = NkT &nbsp;(N = number of molecules, k = 1.38 &times; 10⁻&sup2;&sup3; J K⁻&sup1;)</div>
+<div class="formula-box">Boyle's law: pV = const &nbsp;(at constant T)</div>
+<div class="formula-box">Charles's law: V/T = const &nbsp;(at constant p)</div>
+<div class="formula-box">Pressure law: p/T = const &nbsp;(at constant V)</div>
+T must always be in kelvin: T(K) = T(&deg;C) + 273.
+</div></div>
+
+<div class="row"><div class="kw">Kinetic theory</div><div class="val">
+<div class="formula-box">pV = &frac13;Nm&lt;c&sup2;&gt;</div>
+<div class="formula-box">&frac12;m&lt;c&sup2;&gt; = &frac32;kT</div>
+&lt;c&sup2;&gt; = mean square speed. Root mean square speed: c_rms = &radic;&lt;c&sup2;&gt;. Average KE of a molecule is proportional to absolute temperature.
+</div></div>
+
+<div class="row"><div class="kw">Specific heat capacity</div><div class="val">
+<div class="formula-box">Q = mc&Delta;&theta;</div>
+c = energy needed to raise 1 kg by 1 K. Units: J kg⁻&sup1; K⁻&sup1;.
+</div></div>
+
+<div class="row"><div class="kw">Specific latent heat</div><div class="val">
+<div class="formula-box">Q = mL</div>
+L = energy needed to change state of 1 kg at constant temperature.<br>
+L_f = specific latent heat of fusion (solid &harr; liquid).<br>
+L_v = specific latent heat of vaporisation (liquid &harr; gas).
+</div></div>
+
+<div class="warn">Common mistake: using &deg;C instead of kelvin in pV = nRT. Temperature MUST be in kelvin for gas law calculations.</div>
+<div class="tip">Exam tip: in specific heat capacity experiments, account for energy losses to surroundings &mdash; the calculated value will differ from the accepted value. Discuss this in 6-mark questions.</div>
+</div>
+</div>
+
+</div>
+
+<div class="col">
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- ELECTRIC FIELDS                                    -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="box">
+<div class="box-head s3">Electric Fields <span class="marks">Topic 8</span></div>
+<div class="box-body">
+
+<div class="row"><div class="kw">Coulomb's law</div><div class="val">
+<div class="formula-box">F = kQ₁Q₂/r&sup2; &nbsp;&nbsp;where k = 1/(4&pi;&epsilon;₀)</div>
+<div class="formula-box">&epsilon;₀ = 8.85 &times; 10⁻&sup1;&sup2; F m⁻&sup1; &nbsp;&nbsp;|&nbsp;&nbsp; k = 8.99 &times; 10⁹ N m&sup2; C⁻&sup2;</div>
+Force is attractive for unlike charges, repulsive for like charges. r is centre-to-centre.
+</div></div>
+
+<div class="row"><div class="kw">Electric field strength</div><div class="val">
+<div class="formula-box">E = F/Q &nbsp;(definition, units: N C⁻&sup1; or V m⁻&sup1;)</div>
+<div class="formula-box">Uniform field: E = V/d &nbsp;(between parallel plates)</div>
+<div class="formula-box">Radial field: E = kQ/r&sup2; = Q/(4&pi;&epsilon;₀r&sup2;)</div>
+Field lines point from positive to negative. Closer lines = stronger field.
+</div></div>
+
+<div class="row"><div class="kw">Electric potential</div><div class="val">
+<div class="formula-box">V = kQ/r = Q/(4&pi;&epsilon;₀r)</div>
+Units: V (volts) = J C⁻&sup1;. Can be positive or negative depending on sign of Q (unlike gravity, which is always negative).
+<div class="formula-box">E = &minus;dV/dr &nbsp;(field strength = negative potential gradient)</div>
+</div></div>
+
+<div class="row"><div class="kw">Comparison: gravity vs electric</div><div class="val">
+Both are inverse-square-law fields. Key difference: gravity is always attractive (one type of mass); electric force can attract or repel (two types of charge). Gravitational potential is always negative; electric potential can be positive or negative.
+</div></div>
+
+<div class="row"><div class="kw">Capacitance</div><div class="val">
+<div class="formula-box">C = Q/V &nbsp;(units: farads, F)</div>
+<div class="formula-box">C = &epsilon;₀A/d &nbsp;(parallel plate capacitor)</div>
+<div class="formula-box">C = &epsilon;₀&epsilon;_r A/d &nbsp;(with dielectric, &epsilon;_r = relative permittivity)</div>
+</div></div>
+
+<div class="row"><div class="kw">Energy stored</div><div class="val">
+<div class="formula-box">E = &frac12;CV&sup2; = &frac12;QV = &frac12;Q&sup2;/C</div>
+Energy = area under Q-V graph (straight line through origin for a capacitor).
+</div></div>
+
+<div class="row"><div class="kw">Capacitor combinations</div><div class="val">
+<div class="formula-box">Parallel: C_total = C₁ + C₂ + ... &nbsp;(capacitances add)</div>
+<div class="formula-box">Series: 1/C_total = 1/C₁ + 1/C₂ + ...</div>
+Note: opposite to resistors! Parallel capacitors share charge; series capacitors share voltage.
+</div></div>
+
+<div class="row"><div class="kw">Charging &amp; discharging</div><div class="val">
+<div class="formula-box">Discharging: Q = Q₀e^(&minus;t/RC)</div>
+<div class="formula-box">V = V₀e^(&minus;t/RC) &nbsp;&nbsp;|&nbsp;&nbsp; I = I₀e^(&minus;t/RC)</div>
+<div class="formula-box">Charging: Q = Q₀(1 &minus; e^(&minus;t/RC))</div>
+<div class="formula-box">Time constant: &tau; = RC &nbsp;(time for Q to fall to 37% of Q₀)</div>
+<div class="formula-box">ln(Q) = ln(Q₀) &minus; t/RC &nbsp;(linearise: plot ln Q vs t, gradient = &minus;1/RC)</div>
+</div></div>
+
+<div class="warn">Common mistake: confusing capacitor series/parallel rules with resistor rules &mdash; they are the opposite way round.</div>
+<div class="warn">Common mistake: forgetting that during charging, current and voltage across the capacitor change exponentially but in opposite directions.</div>
+<div class="tip">Exam tip: to find time constant from a graph, read off the time at which the value has fallen to 0.37 (i.e. 1/e) of its initial value.</div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- MAGNETIC FIELDS                                    -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="box">
+<div class="box-head s4">Magnetic Fields <span class="marks">Topic 9</span></div>
+<div class="box-body">
+
+<div class="row"><div class="kw">Force on a current-carrying wire</div><div class="val">
+<div class="formula-box">F = BIl sin&theta;</div>
+B = magnetic flux density (T), I = current (A), l = length of wire in field (m), &theta; = angle between wire and field. Use Fleming's left-hand rule to find direction.
+</div></div>
+
+<div class="row"><div class="kw">Force on a moving charge</div><div class="val">
+<div class="formula-box">F = BQv sin&theta;</div>
+Q = charge (C), v = velocity (m s⁻&sup1;). Force is always perpendicular to velocity &rarr; circular path in uniform B field.
+<div class="formula-box">r = mv/(BQ) &nbsp;(radius of circular motion in a magnetic field)</div>
+</div></div>
+
+<div class="row"><div class="kw">Magnetic flux</div><div class="val">
+<div class="formula-box">&Phi; = BA cos&theta; &nbsp;(units: weber, Wb = T m&sup2;)</div>
+&theta; = angle between field and normal to the area. When field is perpendicular to the surface, &theta; = 0, &Phi; = BA.
+<div class="formula-box">Flux linkage = N&Phi; = BAN cos&theta; &nbsp;(units: Wb turns)</div>
+</div></div>
+
+<div class="row"><div class="kw">Faraday's law</div><div class="val">
+<div class="formula-box">&epsilon; = &minus;N d&Phi;/dt &nbsp;(induced EMF = rate of change of flux linkage)</div>
+The magnitude of the induced EMF is proportional to the rate of change of flux linkage through the circuit.
+</div></div>
+
+<div class="row"><div class="kw">Lenz's law</div><div class="val">
+The induced EMF always acts in a direction to oppose the change producing it. This is the reason for the negative sign in Faraday's law. It is a consequence of conservation of energy.
+</div></div>
+
+<div class="row"><div class="kw">Transformers</div><div class="val">
+<div class="formula-box">V_s/V_p = N_s/N_p &nbsp;(turns ratio)</div>
+<div class="formula-box">For 100% efficiency: V_p I_p = V_s I_s</div>
+Step-up: N_s &gt; N_p (increases voltage, decreases current).<br>
+Step-down: N_s &lt; N_p (decreases voltage, increases current).<br>
+Only works with AC (changing flux needed for induction). Eddy currents cause energy losses &mdash; reduced by laminated core.
+</div></div>
+
+<div class="warn">Common mistake: applying Fleming's left-hand rule to electromagnetic induction problems. LHR is for motor effect (force on a conductor). Use the right-hand rule or Lenz's law for generator/induction problems.</div>
+<div class="tip">Exam tip: for Faraday's law calculations, sketch the flux linkage vs time graph &mdash; the gradient at any point gives the induced EMF at that instant.</div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- NUCLEAR PHYSICS                                    -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="box">
+<div class="box-head s5">Nuclear Physics <span class="marks">Topic 10</span></div>
+<div class="box-body">
+
+<div class="row"><div class="kw">Radioactive decay</div><div class="val">
+Decay is random and spontaneous. Cannot be predicted for individual nuclei but can be described statistically for large numbers.
+<div class="formula-box">N = N₀e^(&minus;&lambda;t) &nbsp;(number of undecayed nuclei)</div>
+<div class="formula-box">A = &lambda;N = A₀e^(&minus;&lambda;t) &nbsp;(activity, units: Bq = decays s⁻&sup1;)</div>
+&lambda; = decay constant (probability of decay per unit time, s⁻&sup1;).
+</div></div>
+
+<div class="row"><div class="kw">Half-life</div><div class="val">
+<div class="formula-box">t&frac12; = ln 2 / &lambda; = 0.693 / &lambda;</div>
+Time for half the undecayed nuclei to decay (or for activity to halve). After n half-lives: N = N₀ / 2ⁿ.
+<div class="ex-box"><span class="ex-label">Finding &lambda; from graph</span>Plot ln N (or ln A) vs t: gradient = &minus;&lambda;</div>
+</div></div>
+
+<div class="row"><div class="kw">Mass-energy equivalence</div><div class="val">
+<div class="formula-box">E = mc&sup2;</div>
+<div class="formula-box">&Delta;E = &Delta;mc&sup2; &nbsp;(energy released = mass defect &times; c&sup2;)</div>
+<div class="formula-box">1 u = 1.661 &times; 10⁻&sup2;⁷ kg = 931.5 MeV/c&sup2;</div>
+Mass defect = mass of individual nucleons &minus; mass of assembled nucleus.
+</div></div>
+
+<div class="row"><div class="kw">Binding energy</div><div class="val">
+Energy required to completely separate all nucleons in a nucleus. Higher binding energy per nucleon = more stable.
+<div class="formula-box">BE per nucleon peaks at Fe-56 (&asymp; 8.8 MeV per nucleon)</div>
+Nuclei lighter than Fe can release energy by <strong>fusion</strong>; nuclei heavier than Fe can release energy by <strong>fission</strong>. Both move towards higher BE per nucleon.
+</div></div>
+
+<div class="row"><div class="kw">Nuclear fission</div><div class="val">
+A heavy nucleus splits into two smaller nuclei (+ neutrons + energy).<br>
+<div class="formula-box">e.g. ²³⁵U + n &rarr; ¹⁴¹Ba + ⁹²Kr + 3n + energy</div>
+Chain reaction: released neutrons cause further fissions. Controlled in reactors using moderator (slows neutrons) and control rods (absorb neutrons).
+</div></div>
+
+<div class="row"><div class="kw">Nuclear fusion</div><div class="val">
+Two light nuclei combine to form a heavier nucleus (+ energy).<br>
+<div class="formula-box">e.g. ²H + ³H &rarr; ⁴He + n + energy</div>
+Requires extremely high temperatures (&gt; 10⁷ K) to overcome electrostatic repulsion. Powers stars; difficult to sustain on Earth (plasma confinement).
+</div></div>
+
+<div class="row"><div class="kw">Inverse square law</div><div class="val">
+<div class="formula-box">I = k/r&sup2; &nbsp;(intensity &prop; 1/r&sup2; for &gamma; radiation)</div>
+Applies to gamma radiation in a vacuum / air (no absorption). Alpha and beta are absorbed too quickly for the law to apply meaningfully over distance.
+<div class="formula-box">Corrected count rate = measured rate &minus; background count rate</div>
+</div></div>
+
+<div class="warn">Common mistake: forgetting to subtract background radiation from measured count rates before performing calculations.</div>
+<div class="warn">Common mistake: using N = N₀ / 2ⁿ when t is not an exact multiple of the half-life. Use N = N₀e^(&minus;&lambda;t) for general calculations.</div>
+<div class="tip">Exam tip: be prepared to interpret and sketch the binding energy per nucleon curve. Know where Fe sits and why both fission and fusion release energy.</div>
+<div class="good">Remember: in decay equations, always check conservation of mass number (top) AND atomic number (bottom).</div>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</body>
+</html>

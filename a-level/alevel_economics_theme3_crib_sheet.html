@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Economics — Theme 3 Crib Sheet</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+          --bg1: #ffffff; --bg2: #f4f6f2; --bg3: #eaf3de;
+          --t1: #1a1a18; --t2: #5f5e5a; --t3: #888780;
+          --bl: rgba(0,0,0,0.11); --bm: rgba(0,0,0,0.20);
+          --r: 8px; --rl: 12px;
+          --font: system-ui,-apple-system,sans-serif; --mono: 'Courier New', monospace;
+        }
+        @media(prefers-color-scheme:dark){
+          :root{
+            --bg1:#1e1e1c;--bg2:#252723;--bg3:#1a2a14;
+            --t1:#f0ece4;--t2:#a8a59e;--t3:#6e6d69;
+            --bl:rgba(255,255,255,0.09);--bm:rgba(255,255,255,0.18);
+          }
+        }
+        body{font-family:var(--font);background:var(--bg2);color:var(--t1);padding:1.75rem 1rem;min-height:100vh;}
+        .page { width: 100%; max-width: 1000px; margin: 0 auto; font-size: 12px; line-height: 1.4; }
+        h1 { font-size: 18px; font-weight: 600; margin-bottom: 0.25rem; }
+        .header { background: var(--bl); backdrop-filter: blur(8px); padding: 1rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-radius: var(--r); border: 0.5px solid var(--bm); }
+        .header h1 { font-size: 18px; font-weight: 600; margin: 0; }
+        .header span { font-size: 11px; color: var(--t2); font-family: var(--mono); letter-spacing: 0.05em; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .col { display: flex; flex-direction: column; gap: 8px; }
+        @media (max-width:768px) {
+          .grid { grid-template-columns: 1fr; }
+          .page { padding: 0; }
+        }
+        .box { background: var(--bg1); border: 0.5px solid var(--bl); border-radius: var(--r); overflow: hidden; }
+        .box-head { padding: 10px 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; background: var(--bl); }
+        .box-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; }
+        .row { display: grid; grid-template-columns: 28% 72%; gap: 8px; padding-bottom: 6px; border-bottom: 0.5px solid var(--bl); }
+        .row:last-child { border-bottom: none; }
+        .kw { font-weight: 650; color: var(--t2); font-size: 11px; font-family: var(--mono); }
+        .val { font-size: 11.5px; color: var(--t1); line-height: 1.35; }
+        .marks { font-family: var(--mono); font-size: 10px; color: var(--t2); background: var(--bg3); padding: 2px 5px; border-radius: 2px; }
+        .ex-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; border-left: 2px solid var(--t2); }
+        .ex-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--t2); display: block; margin-bottom: 2px; }
+        .formula-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; font-family: var(--mono); font-size: 10.5px; border-left: 2px solid #3b6d11; }
+        .board { font-size: 9px; font-weight: 600; display: inline-block; padding: 1px 5px; border-radius: 3px; background: var(--bl); color: var(--t1); margin: 2px 2px 0 0; }
+        .board.all { background: #eaf3de; color: #3b6d11; }
+        .board.h { background: #e6f1fb; color: #185fa5; }
+        .board.f { background: #faeeda; color: #854f0b; }
+        .warn { background: #faeeda; border-left: 2px solid #ef9f27; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #633806; margin: 4px 0; }
+        .tip { background: #eeedfe; border-left: 2px solid #7f77dd; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #3c3489; margin: 4px 0; }
+        .good { background: #eaf3de; border-left: 2px solid #639922; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #173404; margin: 4px 0; }
+        .s1 { background: #3b6d11; color: #eaf3de; }
+        .s2 { background: #185fa5; color: #e6f1fb; }
+        .s3 { background: #534ab7; color: #eeedfe; }
+        .s4 { background: #854f0b; color: #faeeda; }
+        .s5 { background: #a32d2d; color: #fcebeb; }
+        .s6 { background: #0f6e56; color: #e1f5ee; }
+    </style>
+</head>
+<body>
+<div class="page">
+<div class="header">
+  <h1>A-Level Economics — Theme 3 Crib Sheet</h1>
+  <span>Edexcel Theme 3 · Business Behaviour &amp; the Labour Market</span>
+</div>
+
+<div class="grid">
+<div class="col">
+
+<div class="box">
+<div class="box-head s1">Business Objectives <span class="marks">3.1</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Profit Maximisation</div><div class="val"><div class="good">Profit maximisation: the output level where MC = MR (marginal cost equals marginal revenue). The traditional assumption of firm behaviour in neoclassical economics.</div>
+<div class="formula-box">Profit maximised where MC = MR (and MC cuts MR from below)</div>
+At this point, the firm cannot increase profit by producing one more or one fewer unit. Applies in all market structures.
+<div class="warn">MC must cut MR from below for it to be a maximum. If MC cuts MR from above, it is a loss-maximising point — examiners check you know this.</div></div></div>
+<div class="row"><div class="kw">Revenue Maximisation</div><div class="val"><div class="formula-box">Revenue maximised where MR = 0</div>
+<div class="good">Revenue maximisation: the output level where MR = 0 — total revenue is at its highest. Beyond this point, extra units reduce TR.</div>
+Occurs at the midpoint of a linear demand curve. A firm may pursue this to grow market share or drive out competitors. Output is higher and price lower than under profit maximisation.</div></div>
+<div class="row"><div class="kw">Sales Maximisation</div><div class="val"><div class="formula-box">Sales maximised where AC = AR (normal profit constraint)</div>
+The firm sells as many units as possible while still covering all costs (making normal profit). Output is even higher than revenue maximisation.
+<div class="tip">Evaluation: sales maximisation assumes a normal profit constraint. Without it, the firm would produce even more but make a loss. This objective may be pursued by managers seeking growth or market dominance.</div></div></div>
+<div class="row"><div class="kw">Satisficing</div><div class="val"><div class="good">Satisficing: achieving a satisfactory level of profit rather than the maximum. Reflects the divorce of ownership and control (principal-agent problem).</div>
+Managers may pursue their own goals (perks, quiet life, empire building) rather than maximising shareholder profit. Shareholders lack perfect information to monitor managers fully.
+<div class="ex-box"><span class="ex-label">Key link</span>Satisficing explains why real-world firms rarely operate at MC=MR — managers satisfice because they have different incentives from owners.</div></div></div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s2">Revenue, Costs &amp; Profit <span class="marks">3.1</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Revenue Curves</div><div class="val">
+<div class="formula-box">Total Revenue (TR) = Price × Quantity = AR × Q</div>
+<div class="formula-box">Average Revenue (AR) = TR ÷ Q = the demand curve</div>
+<div class="formula-box">Marginal Revenue (MR) = change in TR from selling one more unit</div>
+In perfect competition: AR = MR (horizontal demand curve — price taker). In imperfect competition: MR falls faster than AR (MR has twice the gradient of a linear demand curve).
+<div class="warn">AR is always the demand curve. MR lies below AR in imperfect competition because to sell one more unit the firm must lower price on ALL units.</div></div></div>
+<div class="row"><div class="kw">Cost Curves</div><div class="val">
+<div class="formula-box">Total Cost (TC) = Fixed Costs (FC) + Variable Costs (VC)</div>
+<div class="formula-box">Average Cost (AC) = TC ÷ Q</div>
+<div class="formula-box">Marginal Cost (MC) = change in TC from producing one more unit</div>
+<strong>Fixed costs:</strong> do not vary with output (rent, salaries, insurance). <strong>Variable costs:</strong> vary directly with output (raw materials, wages for hourly workers).
+<strong>Short run:</strong> at least one factor of production is fixed. <strong>Long run:</strong> all factors are variable.
+MC always cuts AC at the minimum point of AC (if MC &lt; AC, AC is falling; if MC &gt; AC, AC is rising).</div></div>
+<div class="row"><div class="kw">Economies of Scale</div><div class="val"><div class="good">Economies of scale: falling long-run average costs as output increases. Diseconomies of scale: rising LRAC as output grows beyond optimal.</div>
+<strong>Internal EoS:</strong> technical (larger machines), managerial (specialist managers), financial (lower interest rates), purchasing (bulk buying), marketing (spread ad costs), risk-bearing (diversification).
+<strong>External EoS:</strong> benefits from industry concentration — skilled labour pool, supplier networks, shared infrastructure.
+<strong>Diseconomies:</strong> communication problems, coordination difficulties, loss of motivation, bureaucracy.
+<div class="formula-box">LRAC curve is U-shaped: falling (EoS) → minimum (MES) → rising (diseconomies)</div>
+<div class="good">Minimum Efficient Scale (MES): the lowest level of output at which LRAC is minimised. Determines how many firms the market can support.</div></div></div>
+<div class="row"><div class="kw">Normal vs Supernormal Profit</div><div class="val">
+<div class="formula-box">Normal profit: TR = TC (AC = AR). The minimum return to keep the entrepreneur in the industry — an opportunity cost included in AC.</div>
+<div class="formula-box">Supernormal profit: TR &gt; TC (AR &gt; AC). Profit above normal — the shaded area between AR and AC × quantity.</div>
+<div class="formula-box">Subnormal (loss): TR &lt; TC (AR &lt; AC). Firm may continue in short run if AR &gt; AVC (covering variable costs).</div>
+<div class="tip">Evaluation: in the long run, supernormal profit attracts new entrants (in contestable markets), driving profit back to normal. Barriers to entry explain why monopolies sustain supernormal profit.</div></div></div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s5">Government Intervention in Markets <span class="marks">3.4</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Competition Policy</div><div class="val"><div class="good">Competition policy: government measures to promote competition and prevent abuse of market power. In the UK, enforced by the CMA (Competition and Markets Authority).</div>
+<strong>Merger control:</strong> CMA can block mergers that substantially lessen competition. <strong>Cartels:</strong> illegal agreements between firms to fix prices or restrict output. <strong>Abuse of dominance:</strong> firms with &gt;40% market share must not engage in predatory pricing, exclusive dealing, or tying.
+<div class="tip">Evaluation: competition policy may be difficult to enforce — firms can collude tacitly. Also, some monopoly power may be beneficial (dynamic efficiency, R&amp;D investment). Regulators face information asymmetry.</div></div></div>
+<div class="row"><div class="kw">Regulation &amp; Deregulation</div><div class="val"><strong>Regulation:</strong> rules imposed on firms (e.g. price caps, quality standards, environmental rules). In UK utilities: Ofgem, Ofwat, Ofcom use RPI-X price cap formula.
+<div class="formula-box">RPI − X price cap: prices can rise by inflation minus an efficiency factor (X). Incentivises cost cutting.</div>
+<strong>Deregulation:</strong> removing barriers to entry and red tape to increase competition. E.g. bus deregulation, opening postal services to competitors.
+<div class="warn">Deregulation can lead to worse outcomes if natural monopoly exists — duplicating infrastructure (e.g. rail tracks) is wasteful. The market may not deliver universal service.</div></div></div>
+<div class="row"><div class="kw">Privatisation &amp; Nationalisation</div><div class="val"><strong>Privatisation:</strong> transfer of ownership from public to private sector. E.g. BT, British Gas, rail franchises.
+<strong>Arguments for:</strong> profit motive → efficiency, access to capital markets, reduced political interference, shareholder accountability.
+<strong>Arguments against:</strong> natural monopoly → private monopoly (may need regulation anyway), short-termism, job losses, cherry-picking profitable routes/services.
+<strong>Nationalisation:</strong> transfer from private to public sector. Arguments: control of natural monopolies, universal service, long-term investment, no profit extraction.
+<div class="tip">Evaluation: the key question is whether ownership matters or whether regulation is sufficient. Many privatised firms still require heavy regulation (water, energy), which undermines the efficiency argument.</div></div></div>
+</div>
+</div>
+
+</div>
+
+<div class="col">
+
+<div class="box">
+<div class="box-head s3">Market Structures <span class="marks">3.2</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Perfect Competition</div><div class="val"><div class="good">Perfect competition: many firms, identical products, perfect information, no barriers to entry/exit, firms are price takers (AR = MR = horizontal demand curve).</div>
+<strong>Short run:</strong> firms can earn supernormal profit (AR &gt; AC) or make losses (AR &lt; AC). <strong>Long run:</strong> supernormal profit attracts entry → supply increases → price falls → only normal profit survives (AR = AC at minimum AC).
+<div class="formula-box">Long-run equilibrium: P = MC = AC (min). Both allocative and productive efficiency achieved.</div>
+<div class="warn">Perfect competition is a theoretical benchmark — no real market meets all conditions. Use it as a comparison point for evaluating other structures.</div></div></div>
+<div class="row"><div class="kw">Monopolistic Competition</div><div class="val"><div class="good">Monopolistic competition: many firms, differentiated products (branding, quality, location), low barriers to entry, each firm has some price-setting power.</div>
+<strong>Short run:</strong> can earn supernormal profit (like a mini-monopoly for its differentiated product). <strong>Long run:</strong> entry of new firms → demand shifts left → only normal profit (AR tangent to AC but NOT at minimum AC).
+<strong>Key result:</strong> productively inefficient (not at min AC) and allocatively inefficient (P &gt; MC) in long run. But consumers benefit from variety and choice.
+<div class="ex-box"><span class="ex-label">Examples</span>Restaurants, hairdressers, clothing retailers — many firms, differentiated but substitutable products.</div></div></div>
+<div class="row"><div class="kw">Oligopoly</div><div class="val"><div class="good">Oligopoly: a market dominated by a few large firms, high barriers to entry, interdependence between firms (each firm considers rivals' reactions).</div>
+<div class="formula-box">Concentration ratio: the market share of the top N firms (e.g. 5-firm CR = 60% means top 5 firms hold 60% of market).</div>
+<strong>Kinked demand curve:</strong> if a firm raises price, rivals don't follow (elastic above kink → loses customers). If it cuts price, rivals match (inelastic below kink → little gain). Result: prices are sticky/rigid.
+<strong>Collusion:</strong> firms agree to act together. <strong>Overt/formal:</strong> cartels (illegal in UK). <strong>Tacit:</strong> price leadership, parallel pricing (harder to prove/prosecute).
+<strong>Non-price competition:</strong> branding, advertising, loyalty schemes, quality, innovation — common in oligopoly because price wars are destructive.
+<div class="tip">Evaluation: oligopolies may be dynamically efficient (supernormal profit funds R&amp;D) but allocatively inefficient (P &gt; MC). Interdependence makes outcomes unpredictable — game theory helps analyse this.</div></div></div>
+<div class="row"><div class="kw">Monopoly</div><div class="val"><div class="good">Monopoly: a single firm dominates the market (pure monopoly = 100% share; legal definition in UK = 25%+ market share).</div>
+<strong>Features:</strong> high barriers to entry (legal, economies of scale, branding, patents), price maker, downward-sloping demand curve, can sustain supernormal profit in long run.
+<strong>Barriers to entry:</strong> economies of scale, patents, brand loyalty, legal barriers, control of resources, high start-up costs, predatory pricing.
+<div class="formula-box">Deadweight loss: monopoly restricts output below competitive level (Qm &lt; Qc) and charges higher price (Pm &gt; Pc). Triangle of welfare loss between MC and demand curve.</div>
+<strong>Efficiency:</strong> allocatively inefficient (P &gt; MC), productively inefficient (not at min AC), but potentially dynamically efficient (Schumpeter: supernormal profit → innovation).
+<strong>Natural monopoly:</strong> where LRAC is still falling at the level of market demand — one firm can supply the whole market more cheaply than two or more. E.g. water pipes, rail tracks.
+<div class="warn">Don't automatically assume monopoly is bad. Evaluate case by case: natural monopolies, dynamic efficiency, cross-subsidisation, and contestability all matter.</div></div></div>
+<div class="row"><div class="kw">Contestable Markets</div><div class="val"><div class="good">Contestable market: a market with low barriers to entry and exit, where the threat of potential competition constrains incumbent firms' behaviour (even if few firms exist).</div>
+<strong>Key condition:</strong> no sunk costs (costs irrecoverable on exit). Hit-and-run entry is possible — new firms enter if supernormal profit exists, exit if it disappears.
+Result: even a monopoly or oligopoly behaves competitively if the market is contestable (prices close to AC, normal profit).
+<div class="tip">Evaluation: true contestability is rare — most markets have some sunk costs (advertising, specialised equipment). But the degree of contestability matters more than whether it is perfect.</div></div></div>
+<div class="row"><div class="kw">Game Theory &amp; Prisoner's Dilemma</div><div class="val"><strong>Game theory:</strong> analyses strategic decision-making where outcomes depend on the actions of other players (firms).
+<div class="ex-box"><span class="ex-label">Prisoner's Dilemma (basic)</span>Two firms choose to collude (high price) or cheat (low price). If both collude → best joint outcome. If one cheats while the other colludes → cheater gains most. If both cheat → worst joint outcome. The dominant strategy is to cheat (Nash equilibrium), even though mutual collusion would be better for both.</div>
+<div class="formula-box">Nash equilibrium: an outcome where no player can improve their payoff by unilaterally changing strategy.</div>
+<div class="warn">In one-shot games, cheating dominates. In repeated games, tit-for-tat and reputation effects can sustain collusion — examiners reward this distinction.</div></div></div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s6">The Labour Market <span class="marks">3.3</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Demand for Labour (MRP)</div><div class="val"><div class="good">Demand for labour is a derived demand — firms hire workers not for their own sake but for the output they produce.</div>
+<div class="formula-box">MRP = MPP × MR (Marginal Revenue Product = Marginal Physical Product × Marginal Revenue)</div>
+A profit-maximising firm hires workers up to the point where MRP = wage (MC of labour). The MRP curve is the firm's demand curve for labour.
+<strong>Shifts in labour demand:</strong> changes in product demand, productivity, price of capital (substitute/complement), technology.
+<div class="warn">MRP falls due to diminishing marginal returns (in short run, adding workers to fixed capital eventually yields smaller output gains).</div></div></div>
+<div class="row"><div class="kw">Supply of Labour</div><div class="val"><strong>Individual supply:</strong> backward-bending — at high wages, income effect (prefer leisure) dominates substitution effect (work more).
+<strong>Market supply:</strong> upward-sloping — higher wages attract more workers to an occupation/industry.
+<strong>Factors affecting supply:</strong> wage rate, non-monetary benefits, qualifications/training required, barriers to entry (e.g. professional exams), geographical/occupational mobility, migration, population size.
+<div class="tip">Evaluation: wage differentials persist because of differences in skills, training costs, risk, unpleasantness, talent scarcity, and labour market imperfections (e.g. discrimination, imperfect information).</div></div></div>
+<div class="row"><div class="kw">Wage Determination</div><div class="val"><strong>Competitive labour market:</strong> wage = intersection of labour supply and demand (MRP). At equilibrium, no shortage or surplus of workers.
+<div class="formula-box">Equilibrium wage: where D(L) = S(L), i.e. MRP = W at market level.</div>
+Wages differ between occupations due to: skill level, compensating differentials (danger, unsocial hours), trade unions, monopsony power, discrimination, elasticity of demand/supply.</div></div>
+<div class="row"><div class="kw">Trade Unions</div><div class="val"><div class="good">Trade union: an organisation of workers that collectively bargains with employers over wages, conditions, and employment rights.</div>
+<strong>Effect on wages:</strong> union bargains wage above equilibrium → higher wage but potentially lower employment (excess supply of labour). <strong>Bilateral monopoly:</strong> trade union (monopoly seller) vs monopsony employer — wage outcome depends on relative bargaining power.
+<div class="tip">Evaluation: unions can raise wages AND employment if they counteract monopsony power (pushing wage from below competitive level back toward it). Don't assume unions always cause unemployment.</div></div></div>
+<div class="row"><div class="kw">Minimum Wage</div><div class="val">A price floor in the labour market set above the equilibrium wage.
+<strong>Competitive market:</strong> minimum wage above equilibrium → excess supply of labour (unemployment). Higher paid workers benefit, but some lose jobs.
+<strong>Monopsony:</strong> minimum wage can increase BOTH wages and employment (up to the competitive equilibrium point).
+<div class="warn">Impact depends on: level set relative to equilibrium, elasticity of labour demand, degree of monopsony power, enforcement. Small increases may have negligible disemployment effects — empirical evidence is mixed.</div></div></div>
+<div class="row"><div class="kw">Monopsony Employer</div><div class="val"><div class="good">Monopsony: a single (or dominant) buyer of labour. To hire more workers, it must raise the wage for ALL workers — so MC of labour &gt; AC of labour (the supply curve).</div>
+<div class="formula-box">Monopsony hires where MC(L) = MRP, but pays the wage on the supply curve (below MRP). Result: lower wage AND fewer workers than competitive equilibrium.</div>
+<div class="warn">Monopsony is a key reason why minimum wages and trade unions can improve outcomes — they counteract the monopsony's power to suppress wages.</div></div></div>
+<div class="row"><div class="kw">Discrimination</div><div class="val"><strong>Wage discrimination:</strong> paying different wages for equal productivity based on gender, race, age, etc. Illegal under Equality Act 2010 but persists.
+<strong>Causes:</strong> employer prejudice, statistical discrimination (using group averages), occupational segregation (horizontal and vertical), monopsony power exploiting less mobile workers.
+<strong>Gender pay gap:</strong> partly explained by occupational choice, part-time work, career breaks — but unexplained residual suggests discrimination.
+<div class="tip">Evaluation: legislation alone is insufficient — enforcement is difficult and cultural/structural barriers persist. Policies include transparency requirements, quotas, education, and addressing occupational segregation.</div></div></div>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</body></html>

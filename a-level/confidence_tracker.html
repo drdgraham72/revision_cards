@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Confidence Tracker</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #f5f5f0;
+            --card: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #666;
+            --border: rgba(0,0,0,0.1);
+            --font: 'Barlow Condensed', sans-serif;
+            --mono: 'DM Mono', monospace;
+            --red: #d4380d; --red-bg: #fff1f0;
+            --amber: #854f0b; --amber-bg: #faeeda;
+            --green: #389e0d; --green-bg: #f6ffed;
+            --grey: #999; --grey-bg: #f5f5f5;
+            --maths: #3b6d11;
+            --physics: #185fa5;
+            --economics: #854f0b;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #141416; --card: #1e1e22;
+                --text: #e8e4dc; --text-light: #999;
+                --border: rgba(255,255,255,0.08);
+                --red-bg: #3a1a0d; --amber-bg: #2a1e0d;
+                --green-bg: #0d2a0d; --grey-bg: #252528;
+            }
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 1.5rem 1rem;
+        }
+
+        .page { max-width: 900px; margin: 0 auto; }
+
+        .hero { text-align: center; margin-bottom: 1.5rem; }
+
+        .hero h1 {
+            font-size: 36px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            margin-bottom: 6px;
+        }
+
+        .hero .subtitle {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        /* Summary bar */
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .summary-box {
+            text-align: center;
+            padding: 14px 10px;
+            border-radius: 10px;
+            border: 2px solid;
+        }
+
+        .summary-box.s-red { background: var(--red-bg); border-color: var(--red); }
+        .summary-box.s-amber { background: var(--amber-bg); border-color: var(--amber); }
+        .summary-box.s-green { background: var(--green-bg); border-color: var(--green); }
+        .summary-box.s-unrated { background: var(--grey-bg); border-color: var(--grey); }
+
+        .summary-box .s-count {
+            font-size: 32px;
+            font-weight: 900;
+        }
+
+        .summary-box.s-red .s-count { color: var(--red); }
+        .summary-box.s-amber .s-count { color: var(--amber); }
+        .summary-box.s-green .s-count { color: var(--green); }
+        .summary-box.s-unrated .s-count { color: var(--grey); }
+
+        .summary-box .s-label {
+            font-family: var(--mono);
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-light);
+        }
+
+        /* Progress bar */
+        .progress-wrap {
+            margin-bottom: 1.5rem;
+        }
+
+        .progress-bar {
+            height: 12px;
+            border-radius: 6px;
+            background: var(--grey-bg);
+            overflow: hidden;
+            display: flex;
+            border: 1px solid var(--border);
+        }
+
+        .progress-bar .seg-green { background: var(--green); }
+        .progress-bar .seg-amber { background: var(--amber); }
+        .progress-bar .seg-red { background: var(--red); }
+        .progress-bar .seg-grey { background: #ddd; }
+
+        @media (prefers-color-scheme: dark) {
+            .progress-bar .seg-grey { background: #444; }
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        /* Subject sections */
+        .subject {
+            margin-bottom: 1.5rem;
+        }
+
+        .subject-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            border-radius: 10px 10px 0 0;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.2s;
+        }
+
+        .subject-header.maths { background: #eaf3de; }
+        .subject-header.physics { background: #e6f1fb; }
+        .subject-header.economics { background: #faeeda; }
+
+        @media (prefers-color-scheme: dark) {
+            .subject-header.maths { background: #1a2a14; }
+            .subject-header.physics { background: #0d2240; }
+            .subject-header.economics { background: #2a1e0d; }
+        }
+
+        .subject-header:hover { filter: brightness(0.95); }
+
+        .subject-header h2 {
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .subject-header.maths h2 { color: var(--maths); }
+        .subject-header.physics h2 { color: var(--physics); }
+        .subject-header.economics h2 { color: var(--economics); }
+
+        .subject-header .subject-score {
+            font-family: var(--mono);
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .subject-header .chevron {
+            font-size: 14px;
+            transition: transform 0.2s;
+            margin-left: 8px;
+        }
+
+        .subject-header .chevron.open { transform: rotate(180deg); }
+
+        .subject-body {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-top: none;
+            border-radius: 0 0 10px 10px;
+            overflow: hidden;
+        }
+
+        .subject-body.collapsed { display: none; }
+
+        /* Theme group */
+        .theme-label {
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-light);
+            padding: 10px 16px 4px;
+            background: var(--grey-bg);
+        }
+
+        /* Topic rows */
+        .topic-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-bottom: 1px solid var(--border);
+            transition: background 0.15s;
+        }
+
+        .topic-row:last-child { border-bottom: none; }
+        .topic-row:hover { background: var(--grey-bg); }
+
+        .topic-name {
+            flex: 1;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .rag-btns {
+            display: flex;
+            gap: 4px;
+        }
+
+        .rag-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 4px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s;
+            font-family: var(--font);
+        }
+
+        .rag-btn.r { background: var(--red-bg); color: var(--red); }
+        .rag-btn.a { background: var(--amber-bg); color: var(--amber); }
+        .rag-btn.g { background: var(--green-bg); color: var(--green); }
+
+        .rag-btn.r:hover, .rag-btn.r.active { background: var(--red); color: #fff; border-color: var(--red); }
+        .rag-btn.a:hover, .rag-btn.a.active { background: var(--amber); color: #fff; border-color: var(--amber); }
+        .rag-btn.g:hover, .rag-btn.g.active { background: var(--green); color: #fff; border-color: var(--green); }
+
+        /* Suggestions */
+        .suggestions {
+            background: var(--card);
+            border: 2px solid var(--text);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 1rem;
+        }
+
+        .suggestions h2 {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 12px;
+        }
+
+        .suggestions .sug-empty {
+            font-size: 13px;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .sug-item {
+            padding: 10px 14px;
+            border-radius: 6px;
+            margin-bottom: 6px;
+            font-size: 13px;
+            line-height: 1.5;
+            border-left: 4px solid;
+        }
+
+        .sug-item.priority { background: var(--red-bg); border-left-color: var(--red); }
+        .sug-item.attention { background: var(--amber-bg); border-left-color: var(--amber); }
+        .sug-item.positive { background: var(--green-bg); border-left-color: var(--green); }
+
+        .sug-item strong { font-weight: 700; }
+
+        /* Controls */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .ctrl-btn {
+            padding: 6px 14px;
+            border: 1.5px solid var(--border);
+            border-radius: 4px;
+            background: var(--card);
+            color: var(--text);
+            font-family: var(--font);
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .ctrl-btn:hover { border-color: var(--text); }
+        .ctrl-btn.danger { color: var(--red); border-color: var(--red); }
+        .ctrl-btn.danger:hover { background: var(--red); color: #fff; }
+
+        .last-saved {
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--text-light);
+        }
+
+        @media (max-width: 600px) {
+            .summary { grid-template-columns: repeat(2, 1fr); }
+            .hero h1 { font-size: 26px; }
+            .topic-name { font-size: 12px; }
+            .rag-btn { width: 24px; height: 24px; font-size: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <div class="hero">
+        <h1>Confidence Tracker</h1>
+        <div class="subtitle">RAG-rate every topic. Be honest. Red first, green last.</div>
+    </div>
+
+    <div class="summary" id="summary"></div>
+
+    <div class="progress-wrap">
+        <div class="progress-bar" id="progressBar"></div>
+        <div class="progress-label">
+            <span>Needs work</span>
+            <span>Exam ready</span>
+        </div>
+    </div>
+
+    <div class="controls">
+        <div class="last-saved" id="lastSaved"></div>
+        <div>
+            <button class="ctrl-btn" onclick="expandAll()">Expand All</button>
+            <button class="ctrl-btn" onclick="collapseAll()">Collapse All</button>
+            <button class="ctrl-btn danger" onclick="resetAll()">Reset</button>
+        </div>
+    </div>
+
+    <div id="subjects"></div>
+
+    <div class="suggestions" id="suggestions">
+        <h2>Revision Suggestions</h2>
+        <div id="sugContent"></div>
+    </div>
+
+</div>
+
+<script>
+var syllabus = {
+    "Mathematics": {
+        color: "maths",
+        themes: {
+            "Pure Year 1": [
+                "Algebra: indices, surds, quadratics",
+                "Coordinate geometry: lines, circles",
+                "Differentiation: power rule, tangents, stationary points",
+                "Integration: areas, definite integrals",
+                "Exponentials & logarithms",
+                "Trigonometry: identities, equations, radians",
+                "Proof: deduction, exhaustion, counter-example"
+            ],
+            "Pure Year 2": [
+                "Further trig: sec/cosec/cot, compound angles, R-formula",
+                "Chain, product & quotient rules",
+                "Implicit & parametric differentiation",
+                "Integration: substitution, by parts, partial fractions",
+                "Sequences & series: arithmetic, geometric, binomial",
+                "Numerical methods: iteration, Newton-Raphson",
+                "Vectors: 3D, scalar product",
+                "Differential equations"
+            ],
+            "Statistics Year 1": [
+                "Sampling methods",
+                "Data presentation & interpretation",
+                "Probability: rules, trees, Venn diagrams",
+                "Binomial distribution",
+                "Hypothesis testing (binomial)"
+            ],
+            "Statistics Year 2": [
+                "Normal distribution",
+                "Normal approximation to binomial",
+                "Regression & correlation (PMCC, Spearman's)",
+                "Hypothesis testing (normal)"
+            ],
+            "Mechanics Year 1": [
+                "SUVAT equations & kinematics",
+                "Forces & Newton's laws",
+                "Connected particles & pulleys",
+                "Moments & equilibrium"
+            ],
+            "Mechanics Year 2": [
+                "Calculus-based kinematics",
+                "Projectiles (advanced)",
+                "Further dynamics & impulse",
+                "Friction & statics",
+                "Elastic strings & springs (Hooke's law)"
+            ]
+        }
+    },
+    "Physics": {
+        color: "physics",
+        themes: {
+            "Measurements & Particles (Y1)": [
+                "SI units, prefixes & dimensions",
+                "Errors: random, systematic, uncertainties",
+                "Standard Model: quarks, leptons, bosons",
+                "Conservation laws: charge, baryon, lepton, strangeness",
+                "Photoelectric effect",
+                "Wave-particle duality"
+            ],
+            "Waves (Y1)": [
+                "Progressive waves: v = f\u03bb",
+                "Superposition & interference",
+                "Standing waves & harmonics",
+                "Young's double slit & diffraction gratings",
+                "Refraction: Snell's law, TIR, critical angle"
+            ],
+            "Mechanics & Electricity (Y1)": [
+                "SUVAT & projectile motion",
+                "Newton's laws & F = ma",
+                "Work, energy, power",
+                "Momentum & impulse",
+                "Circuits: V=IR, series/parallel, Kirchhoff's laws",
+                "EMF & internal resistance",
+                "Potential dividers",
+                "Resistivity & I-V characteristics"
+            ],
+            "Further Mechanics (Y2)": [
+                "Circular motion: \u03c9, centripetal force",
+                "Simple harmonic motion (SHM)",
+                "Forced oscillations, resonance, damping"
+            ],
+            "Fields (Y2)": [
+                "Gravitational fields: F = GMm/r\u00b2, orbits",
+                "Electric fields: Coulomb's law, field strength, potential",
+                "Capacitors: C = Q/V, charging/discharging, RC circuits",
+                "Magnetic fields: F = BIl, F = BQv, flux",
+                "Electromagnetic induction: Faraday's & Lenz's laws",
+                "Transformers"
+            ],
+            "Nuclear & Thermal (Y2)": [
+                "Radioactive decay: N = N\u2080e^(-\u03bbt), half-life",
+                "E = mc\u00b2 & binding energy",
+                "Nuclear fission & fusion",
+                "Ideal gas law: pV = nRT",
+                "Kinetic theory & molecular KE",
+                "Specific heat capacity & latent heat",
+                "First law of thermodynamics"
+            ]
+        }
+    },
+    "Economics": {
+        color: "economics",
+        themes: {
+            "Theme 1: Markets (Y1)": [
+                "Scarcity, opportunity cost, PPF",
+                "Supply & demand: shifts, equilibrium, price mechanism",
+                "Elasticity: PED, YED, XED, PES",
+                "Market failure: externalities, public goods, info gaps",
+                "Government intervention: taxes, subsidies, price controls"
+            ],
+            "Theme 2: UK Economy (Y1)": [
+                "GDP, inflation, unemployment, balance of payments",
+                "Aggregate demand: AD = C+I+G+(X-M)",
+                "Aggregate supply: SRAS, LRAS, shifts",
+                "Multiplier effect",
+                "Fiscal policy",
+                "Monetary policy & Bank of England",
+                "Supply-side policies"
+            ],
+            "Theme 3: Business & Labour (Y2)": [
+                "Business objectives: profit max, revenue max, satisficing",
+                "Revenue & cost curves: TR, AR, MR, TC, AC, MC",
+                "Economies & diseconomies of scale",
+                "Perfect competition",
+                "Monopoly & monopolistic competition",
+                "Oligopoly: kinked demand, game theory",
+                "Contestable markets",
+                "Labour market: MRP, wages, unions, monopsony",
+                "Competition policy & regulation"
+            ],
+            "Theme 4: Global Economy (Y2)": [
+                "Globalisation & TNCs",
+                "Comparative advantage & terms of trade",
+                "Trading blocs, WTO, protectionism",
+                "Balance of payments: causes & correction",
+                "Exchange rates: floating, fixed, Marshall-Lerner, J-curve",
+                "Poverty & inequality: Gini, Lorenz curve",
+                "Developing economies: HDI, barriers, strategies",
+                "Financial markets & regulation"
+            ]
+        }
+    }
+};
+
+var STORAGE_KEY = "alevel_confidence_tracker";
+var ratings = {};
+
+function loadRatings() {
+    try {
+        var stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) {
+            var parsed = JSON.parse(stored);
+            ratings = parsed.ratings || {};
+            return parsed.timestamp || null;
+        }
+    } catch(e) {}
+    ratings = {};
+    return null;
+}
+
+function saveRatings() {
+    var data = { ratings: ratings, timestamp: new Date().toISOString() };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    updateLastSaved();
+}
+
+function updateLastSaved() {
+    try {
+        var stored = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        if (stored && stored.timestamp) {
+            var d = new Date(stored.timestamp);
+            document.getElementById('lastSaved').textContent = 'Saved: ' + d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+        }
+    } catch(e) {}
+}
+
+function topicKey(subject, theme, topic) {
+    return subject + "|" + theme + "|" + topic;
+}
+
+function setRating(key, value) {
+    if (ratings[key] === value) {
+        delete ratings[key];
+    } else {
+        ratings[key] = value;
+    }
+    saveRatings();
+    updateUI();
+}
+
+function getCounts() {
+    var counts = { red: 0, amber: 0, green: 0, unrated: 0, total: 0 };
+    for (var subj in syllabus) {
+        for (var theme in syllabus[subj].themes) {
+            var topics = syllabus[subj].themes[theme];
+            for (var i = 0; i < topics.length; i++) {
+                counts.total++;
+                var key = topicKey(subj, theme, topics[i]);
+                var r = ratings[key];
+                if (r === 'red') counts.red++;
+                else if (r === 'amber') counts.amber++;
+                else if (r === 'green') counts.green++;
+                else counts.unrated++;
+            }
+        }
+    }
+    return counts;
+}
+
+function getSubjectCounts(subj) {
+    var counts = { red: 0, amber: 0, green: 0, unrated: 0, total: 0 };
+    for (var theme in syllabus[subj].themes) {
+        var topics = syllabus[subj].themes[theme];
+        for (var i = 0; i < topics.length; i++) {
+            counts.total++;
+            var key = topicKey(subj, theme, topics[i]);
+            var r = ratings[key];
+            if (r === 'red') counts.red++;
+            else if (r === 'amber') counts.amber++;
+            else if (r === 'green') counts.green++;
+            else counts.unrated++;
+        }
+    }
+    return counts;
+}
+
+function renderSubjects() {
+    var container = document.getElementById('subjects');
+    container.innerHTML = '';
+
+    for (var subj in syllabus) {
+        var data = syllabus[subj];
+        var section = document.createElement('div');
+        section.className = 'subject';
+
+        var header = document.createElement('div');
+        header.className = 'subject-header ' + data.color;
+        header.setAttribute('data-subj', subj);
+        header.onclick = function() {
+            var s = this.getAttribute('data-subj');
+            var body = this.nextElementSibling;
+            var chev = this.querySelector('.chevron');
+            body.classList.toggle('collapsed');
+            chev.classList.toggle('open');
+        };
+
+        var h2 = document.createElement('h2');
+        h2.textContent = subj;
+
+        var scoreSpan = document.createElement('span');
+        scoreSpan.className = 'subject-score';
+        scoreSpan.id = 'score-' + subj;
+
+        var chevron = document.createElement('span');
+        chevron.className = 'chevron open';
+        chevron.textContent = '\u25BC';
+
+        var right = document.createElement('span');
+        right.style.display = 'flex';
+        right.style.alignItems = 'center';
+        right.style.gap = '8px';
+        right.appendChild(scoreSpan);
+        right.appendChild(chevron);
+
+        header.appendChild(h2);
+        header.appendChild(right);
+        section.appendChild(header);
+
+        var body = document.createElement('div');
+        body.className = 'subject-body';
+
+        for (var theme in data.themes) {
+            var label = document.createElement('div');
+            label.className = 'theme-label';
+            label.textContent = theme;
+            body.appendChild(label);
+
+            var topics = data.themes[theme];
+            for (var i = 0; i < topics.length; i++) {
+                var key = topicKey(subj, theme, topics[i]);
+                var row = document.createElement('div');
+                row.className = 'topic-row';
+
+                var name = document.createElement('span');
+                name.className = 'topic-name';
+                name.textContent = topics[i];
+
+                var btns = document.createElement('div');
+                btns.className = 'rag-btns';
+
+                ['red', 'amber', 'green'].forEach(function(val) {
+                    var btn = document.createElement('button');
+                    btn.className = 'rag-btn ' + val[0];
+                    btn.textContent = val[0].toUpperCase();
+                    btn.setAttribute('data-key', key);
+                    btn.setAttribute('data-val', val);
+                    btn.id = 'btn-' + key + '-' + val;
+                    btn.onclick = function() {
+                        setRating(this.getAttribute('data-key'), this.getAttribute('data-val'));
+                    };
+                    btns.appendChild(btn);
+                });
+
+                row.appendChild(name);
+                row.appendChild(btns);
+                body.appendChild(row);
+            }
+        }
+
+        section.appendChild(body);
+        container.appendChild(section);
+    }
+}
+
+function updateUI() {
+    // Update button states
+    for (var key in ratings) {
+        ['red', 'amber', 'green'].forEach(function(val) {
+            var btn = document.getElementById('btn-' + key + '-' + val);
+            if (btn) {
+                if (ratings[key] === val) btn.classList.add('active');
+                else btn.classList.remove('active');
+            }
+        });
+    }
+
+    // Also clear buttons for unrated
+    var allBtns = document.querySelectorAll('.rag-btn');
+    for (var i = 0; i < allBtns.length; i++) {
+        var bKey = allBtns[i].getAttribute('data-key');
+        var bVal = allBtns[i].getAttribute('data-val');
+        if (!ratings[bKey]) {
+            allBtns[i].classList.remove('active');
+        } else if (ratings[bKey] !== bVal) {
+            allBtns[i].classList.remove('active');
+        } else {
+            allBtns[i].classList.add('active');
+        }
+    }
+
+    var counts = getCounts();
+
+    // Summary boxes
+    var sumHtml = '';
+    sumHtml += '<div class="summary-box s-red"><div class="s-count">' + counts.red + '</div><div class="s-label">Red</div></div>';
+    sumHtml += '<div class="summary-box s-amber"><div class="s-count">' + counts.amber + '</div><div class="s-label">Amber</div></div>';
+    sumHtml += '<div class="summary-box s-green"><div class="s-count">' + counts.green + '</div><div class="s-label">Green</div></div>';
+    sumHtml += '<div class="summary-box s-unrated"><div class="s-count">' + counts.unrated + '</div><div class="s-label">Not rated</div></div>';
+    document.getElementById('summary').innerHTML = sumHtml;
+
+    // Progress bar
+    var bar = document.getElementById('progressBar');
+    var t = counts.total || 1;
+    bar.innerHTML = '<div class="seg-green" style="width:' + (counts.green/t*100) + '%"></div>' +
+        '<div class="seg-amber" style="width:' + (counts.amber/t*100) + '%"></div>' +
+        '<div class="seg-red" style="width:' + (counts.red/t*100) + '%"></div>' +
+        '<div class="seg-grey" style="width:' + (counts.unrated/t*100) + '%"></div>';
+
+    // Subject scores
+    for (var subj in syllabus) {
+        var sc = getSubjectCounts(subj);
+        var el = document.getElementById('score-' + subj);
+        if (el) {
+            var rated = sc.total - sc.unrated;
+            if (rated === 0) {
+                el.textContent = 'Not started';
+                el.style.color = 'var(--text-light)';
+            } else {
+                var pct = Math.round(sc.green / sc.total * 100);
+                el.textContent = sc.green + '/' + sc.total + ' green (' + pct + '%)';
+                if (pct >= 70) el.style.color = 'var(--green)';
+                else if (pct >= 40) el.style.color = 'var(--amber)';
+                else el.style.color = 'var(--red)';
+            }
+        }
+    }
+
+    // Suggestions
+    generateSuggestions(counts);
+}
+
+function generateSuggestions(counts) {
+    var container = document.getElementById('sugContent');
+    var items = [];
+
+    if (counts.unrated > counts.total * 0.5) {
+        items.push({ type: 'attention', text: '<strong>Step 1:</strong> You haven\'t rated most topics yet. Go through each subject and honestly rate every topic before you start revising. Knowing what you don\'t know is half the battle.' });
+    }
+
+    // Find red topics by subject
+    var redBySubject = {};
+    var amberBySubject = {};
+    for (var subj in syllabus) {
+        redBySubject[subj] = [];
+        amberBySubject[subj] = [];
+        for (var theme in syllabus[subj].themes) {
+            var topics = syllabus[subj].themes[theme];
+            for (var i = 0; i < topics.length; i++) {
+                var key = topicKey(subj, theme, topics[i]);
+                if (ratings[key] === 'red') redBySubject[subj].push(topics[i]);
+                if (ratings[key] === 'amber') amberBySubject[subj].push(topics[i]);
+            }
+        }
+    }
+
+    for (var subj in redBySubject) {
+        if (redBySubject[subj].length > 0) {
+            var list = redBySubject[subj].slice(0, 5).join(', ');
+            var more = redBySubject[subj].length > 5 ? ' (+' + (redBySubject[subj].length - 5) + ' more)' : '';
+            items.push({ type: 'priority', text: '<strong>' + subj + ' \u2014 ' + redBySubject[subj].length + ' red topic' + (redBySubject[subj].length > 1 ? 's' : '') + ':</strong> ' + list + more + '. These need learning from scratch. Use the crib sheets, then test yourself.' });
+        }
+    }
+
+    for (var subj in amberBySubject) {
+        if (amberBySubject[subj].length > 0) {
+            var list = amberBySubject[subj].slice(0, 5).join(', ');
+            var more = amberBySubject[subj].length > 5 ? ' (+' + (amberBySubject[subj].length - 5) + ' more)' : '';
+            items.push({ type: 'attention', text: '<strong>' + subj + ' \u2014 ' + amberBySubject[subj].length + ' amber topic' + (amberBySubject[subj].length > 1 ? 's' : '') + ':</strong> ' + list + more + '. You know the basics \u2014 do past paper questions on these to push them to green.' });
+        }
+    }
+
+    if (counts.red === 0 && counts.amber === 0 && counts.unrated === 0) {
+        items.push({ type: 'positive', text: '<strong>Everything is green.</strong> You\'re in great shape. Focus on timed past papers under exam conditions. Practice speed and accuracy, not content.' });
+    } else if (counts.red === 0 && counts.unrated === 0) {
+        items.push({ type: 'positive', text: '<strong>No red topics!</strong> Good foundation. Focus your energy on turning those ambers green with targeted practice questions. Past papers are your best tool now.' });
+    }
+
+    if (counts.red > 0 && counts.green > 0) {
+        var greenPct = Math.round(counts.green / counts.total * 100);
+        var redPct = Math.round(counts.red / counts.total * 100);
+        items.push({ type: 'attention', text: '<strong>Time allocation:</strong> Spend roughly ' + Math.max(redPct, 10) + '% of revision time on red topics (learn), ' + Math.max(100 - greenPct - redPct, 10) + '% on amber (practice), and only ' + Math.min(greenPct, 20) + '% on green (quick checks). Don\'t waste time re-studying what you already know.' });
+    }
+
+    if (items.length === 0) {
+        container.innerHTML = '<div class="sug-empty">Rate some topics to get personalised suggestions.</div>';
+    } else {
+        container.innerHTML = items.map(function(item) {
+            return '<div class="sug-item ' + item.type + '">' + item.text + '</div>';
+        }).join('');
+    }
+}
+
+function expandAll() {
+    var bodies = document.querySelectorAll('.subject-body');
+    var chevs = document.querySelectorAll('.chevron');
+    for (var i = 0; i < bodies.length; i++) bodies[i].classList.remove('collapsed');
+    for (var i = 0; i < chevs.length; i++) chevs[i].classList.add('open');
+}
+
+function collapseAll() {
+    var bodies = document.querySelectorAll('.subject-body');
+    var chevs = document.querySelectorAll('.chevron');
+    for (var i = 0; i < bodies.length; i++) bodies[i].classList.add('collapsed');
+    for (var i = 0; i < chevs.length; i++) chevs[i].classList.remove('open');
+}
+
+function resetAll() {
+    if (confirm('Reset all ratings? This cannot be undone.')) {
+        ratings = {};
+        localStorage.removeItem(STORAGE_KEY);
+        updateUI();
+    }
+}
+
+// Init
+loadRatings();
+renderSubjects();
+updateUI();
+updateLastSaved();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Economics — Theme 4 Crib Sheet</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+          --bg1: #ffffff; --bg2: #f4f6f2; --bg3: #eaf3de;
+          --t1: #1a1a18; --t2: #5f5e5a; --t3: #888780;
+          --bl: rgba(0,0,0,0.11); --bm: rgba(0,0,0,0.20);
+          --r: 8px; --rl: 12px;
+          --font: system-ui,-apple-system,sans-serif; --mono: 'Courier New', monospace;
+        }
+        @media(prefers-color-scheme:dark){
+          :root{
+            --bg1:#1e1e1c;--bg2:#252723;--bg3:#1a2a14;
+            --t1:#f0ece4;--t2:#a8a59e;--t3:#6e6d69;
+            --bl:rgba(255,255,255,0.09);--bm:rgba(255,255,255,0.18);
+          }
+        }
+        body{font-family:var(--font);background:var(--bg2);color:var(--t1);padding:1.75rem 1rem;min-height:100vh;}
+        .page { width: 100%; max-width: 1000px; margin: 0 auto; font-size: 12px; line-height: 1.4; }
+        h1 { font-size: 18px; font-weight: 600; margin-bottom: 0.25rem; }
+        .header { background: var(--bl); backdrop-filter: blur(8px); padding: 1rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-radius: var(--r); border: 0.5px solid var(--bm); }
+        .header h1 { font-size: 18px; font-weight: 600; margin: 0; }
+        .header span { font-size: 11px; color: var(--t2); font-family: var(--mono); letter-spacing: 0.05em; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .col { display: flex; flex-direction: column; gap: 8px; }
+        @media (max-width:768px) {
+          .grid { grid-template-columns: 1fr; }
+          .page { padding: 0; }
+        }
+        .box { background: var(--bg1); border: 0.5px solid var(--bl); border-radius: var(--r); overflow: hidden; }
+        .box-head { padding: 10px 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; background: var(--bl); }
+        .box-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; }
+        .row { display: grid; grid-template-columns: 28% 72%; gap: 8px; padding-bottom: 6px; border-bottom: 0.5px solid var(--bl); }
+        .row:last-child { border-bottom: none; }
+        .kw { font-weight: 650; color: var(--t2); font-size: 11px; font-family: var(--mono); }
+        .val { font-size: 11.5px; color: var(--t1); line-height: 1.35; }
+        .marks { font-family: var(--mono); font-size: 10px; color: var(--t2); background: var(--bg3); padding: 2px 5px; border-radius: 2px; }
+        .ex-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; border-left: 2px solid var(--t2); }
+        .ex-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--t2); display: block; margin-bottom: 2px; }
+        .formula-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; font-family: var(--mono); font-size: 10.5px; border-left: 2px solid #3b6d11; }
+        .board { font-size: 9px; font-weight: 600; display: inline-block; padding: 1px 5px; border-radius: 3px; background: var(--bl); color: var(--t1); margin: 2px 2px 0 0; }
+        .board.all { background: #eaf3de; color: #3b6d11; }
+        .board.h { background: #e6f1fb; color: #185fa5; }
+        .board.f { background: #faeeda; color: #854f0b; }
+        .warn { background: #faeeda; border-left: 2px solid #ef9f27; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #633806; margin: 4px 0; }
+        .tip { background: #eeedfe; border-left: 2px solid #7f77dd; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #3c3489; margin: 4px 0; }
+        .good { background: #eaf3de; border-left: 2px solid #639922; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #173404; margin: 4px 0; }
+        .s1 { background: #3b6d11; color: #eaf3de; }
+        .s2 { background: #185fa5; color: #e6f1fb; }
+        .s3 { background: #534ab7; color: #eeedfe; }
+        .s4 { background: #854f0b; color: #faeeda; }
+        .s5 { background: #a32d2d; color: #fcebeb; }
+        .s6 { background: #0f6e56; color: #e1f5ee; }
+    </style>
+</head>
+<body>
+<div class="page">
+<div class="header">
+  <h1>A-Level Economics — Theme 4 Crib Sheet</h1>
+  <span>Edexcel Theme 4 · A Global Perspective</span>
+</div>
+
+<div class="grid">
+<div class="col">
+
+<div class="box">
+<div class="box-head s1">Globalisation <span class="marks">4.1</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Causes</div><div class="val"><div class="good">Globalisation: the increasing integration and interdependence of world economies through trade, capital flows, migration, and the spread of technology.</div>
+<strong>Causes:</strong> trade liberalisation (reduced tariffs via WTO), improved transport (containerisation, air freight), advances in ICT (internet, instant communication), deregulation of financial markets, growth of TNCs, fall of communism (opened new markets).
+<div class="tip">Evaluation: globalisation is not inevitable or irreversible — protectionism has resurged (e.g. US-China trade tensions, Brexit). Always consider whether the trend is accelerating or fragmenting.</div></div></div>
+<div class="row"><div class="kw">Consequences</div><div class="val"><strong>Benefits:</strong> lower prices (comparative advantage), greater consumer choice, economies of scale, technology transfer, faster economic growth, job creation in developing economies.
+<strong>Costs:</strong> structural unemployment in deindustrialised regions, widening inequality (within and between countries), environmental degradation, cultural homogenisation, tax avoidance by TNCs, over-dependence on global supply chains.
+<div class="warn">Globalisation creates winners and losers within countries — low-skilled workers in developed nations may lose out while consumers and skilled workers gain. Distribution matters as much as aggregate gains.</div></div></div>
+<div class="row"><div class="kw">Role of TNCs</div><div class="val"><div class="good">Transnational corporations (TNCs): firms that operate in more than one country, with headquarters in the home country and subsidiaries abroad.</div>
+<strong>Benefits to host countries:</strong> FDI, job creation, technology/skills transfer, tax revenue, infrastructure development. <strong>Costs:</strong> profit repatriation, exploitation of weak regulations, environmental damage, crowding out domestic firms, transfer pricing to avoid tax.
+<div class="tip">Evaluation: the impact of TNCs depends on the bargaining power of the host government. Countries with strong institutions and regulations capture more benefit.</div></div></div>
+<div class="row"><div class="kw">Cultural Impact</div><div class="val">Spread of Western consumer culture, language (English as lingua franca), media, and brands. Loss of local traditions, languages, and cultural diversity.
+<strong>Counter-argument:</strong> globalisation can also spread cultural exchange both ways (e.g. global popularity of K-pop, Bollywood, sushi). Glocalisation — TNCs adapt products to local tastes.</div></div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s2">Trade &amp; the Global Economy <span class="marks">4.1</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Comparative Advantage</div><div class="val"><div class="good">Comparative advantage: a country has a comparative advantage in producing a good if it can produce it at a lower opportunity cost than another country. The basis for mutually beneficial trade.</div>
+<div class="formula-box">Opportunity cost = units of good Y given up ÷ units of good X produced</div>
+<div class="ex-box"><span class="ex-label">Calculation method</span>Country A produces 10 wheat or 5 cloth. OC of 1 wheat = 5/10 = 0.5 cloth. Country B produces 8 wheat or 8 cloth. OC of 1 wheat = 8/8 = 1 cloth. Country A has CA in wheat (lower OC). Country B has CA in cloth.</div>
+<strong>Assumptions:</strong> no transport costs, constant returns, perfect factor mobility within countries, no externalities. These rarely hold — limits the model's real-world applicability.
+<div class="warn">Comparative advantage explains WHY countries trade, not that free trade is always optimal. Infant industries, strategic trade policy, and terms of trade effects all qualify the conclusion.</div></div></div>
+<div class="row"><div class="kw">Terms of Trade</div><div class="val"><div class="formula-box">Terms of trade index = (export price index ÷ import price index) × 100</div>
+<strong>Improvement:</strong> index rises — can buy more imports per unit of exports. <strong>Deterioration:</strong> index falls — need to export more to buy the same imports.
+<strong>Causes of change:</strong> exchange rate movements, relative inflation rates, commodity price changes, changes in productivity, changes in world demand.
+<div class="tip">Evaluation: improving terms of trade is not always good — if export prices rise because of lost competitiveness, export volumes fall. The effect on the current account depends on price elasticities.</div></div></div>
+<div class="row"><div class="kw">WTO &amp; Trade Liberalisation</div><div class="val"><strong>WTO:</strong> promotes free trade through multilateral negotiations, dispute resolution, and rules-based trading. Principles: most-favoured nation (equal treatment), reciprocity, transparency.
+<strong>Protectionism:</strong> tariffs (tax on imports), quotas (quantity limits), subsidies to domestic producers, embargoes, administrative barriers, regulations.
+<div class="formula-box">Tariff diagram: shifts world supply curve up by tariff amount. Domestic production rises, imports fall, consumer surplus falls, government gains tariff revenue, net welfare loss (two deadweight triangles).</div>
+<div class="warn">Know the tariff diagram inside out — it appears frequently. The two welfare loss triangles represent production inefficiency (domestic firms produce at higher cost than world price) and consumption inefficiency (consumers priced out).</div></div></div>
+<div class="row"><div class="kw">Trading Blocs</div><div class="val"><strong>Free trade area (FTA):</strong> members remove tariffs between themselves but keep individual external tariffs (e.g. USMCA, EFTA).
+<strong>Customs union:</strong> FTA + common external tariff (e.g. EU customs union). <strong>Single/common market:</strong> customs union + free movement of factors (labour, capital). <strong>Economic/monetary union:</strong> single market + common currency/policy (e.g. eurozone).
+<div class="good">Trade creation: bloc membership shifts production to lower-cost member countries — welfare gain. Trade diversion: bloc shifts production from efficient non-members to less efficient members — welfare loss.</div>
+<div class="tip">Evaluation: whether a trading bloc is welfare-enhancing depends on the balance of trade creation vs trade diversion. Larger blocs with diverse economies tend to create more trade.</div></div></div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s5">Poverty &amp; Inequality <span class="marks">4.2</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Absolute vs Relative Poverty</div><div class="val"><div class="good">Absolute poverty: income below the level needed to afford basic necessities (food, shelter, clean water). World Bank threshold: $2.15/day (2022 PPP). Relative poverty: income below a percentage of the median income in a specific country (e.g. below 60% of UK median).</div>
+A country can reduce absolute poverty while relative poverty rises (if growth is unevenly distributed).
+<div class="warn">Don't confuse the two — a country like the UK has virtually no absolute poverty but significant relative poverty. Developing countries focus on absolute; developed countries on relative.</div></div></div>
+<div class="row"><div class="kw">Gini Coefficient &amp; Lorenz Curve</div><div class="val"><div class="formula-box">Gini coefficient = Area between Lorenz curve and line of equality ÷ Total area under line of equality. Ranges from 0 (perfect equality) to 1 (perfect inequality).</div>
+<strong>Lorenz curve:</strong> plots cumulative % of income against cumulative % of population. The further the curve bows from the 45-degree line of equality, the greater the inequality.
+<div class="tip">Evaluation: the Gini coefficient is a single number and can mask different patterns of inequality (e.g. two countries with the same Gini may have very different distributions). Use alongside other measures.</div></div></div>
+<div class="row"><div class="kw">Causes &amp; Policies</div><div class="val"><strong>Causes of inequality:</strong> wage differentials, unemployment, wealth inheritance, tax system, globalisation (skilled vs unskilled), education access, discrimination, regional disparities.
+<strong>Policies:</strong> progressive taxation, transfer payments (benefits), minimum wage, education/training investment, inheritance tax, universal basic services, anti-discrimination legislation.
+<div class="tip">Evaluation: redistribution faces trade-offs — high taxes may reduce incentives (Laffer curve), generous benefits may create dependency (poverty trap). The equity-efficiency trade-off is central to this topic.</div></div></div>
+</div>
+</div>
+
+</div>
+
+<div class="col">
+
+<div class="box">
+<div class="box-head s3">Balance of Payments <span class="marks">4.2</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Structure</div><div class="val"><div class="good">Balance of payments: a record of all financial transactions between a country and the rest of the world over a period. It must always balance (current account + capital/financial account + errors &amp; omissions = 0).</div>
+<strong>Current account:</strong> trade in goods, trade in services, primary income (investment income, wages), secondary income (transfers, aid).
+<strong>Capital account:</strong> capital transfers (e.g. debt forgiveness, migrant transfers). Small in practice.
+<strong>Financial account:</strong> FDI, portfolio investment, reserve assets, other investment (bank loans).</div></div>
+<div class="row"><div class="kw">Current Account Deficit/Surplus</div><div class="val"><div class="formula-box">Current account balance = exports − imports + net primary income + net secondary income</div>
+<strong>Causes of deficit:</strong> strong exchange rate (makes exports expensive, imports cheap), high consumer spending on imports, low productivity/competitiveness, deindustrialisation, high relative inflation.
+<strong>Causes of surplus:</strong> weak exchange rate, competitive exports, high savings rate (low import demand), natural resource exports.
+<div class="warn">A current account deficit is not automatically "bad" — it may reflect strong domestic demand and investment. A persistent structural deficit is more concerning than a cyclical one.</div></div></div>
+<div class="row"><div class="kw">Policies to Correct Deficit</div><div class="val"><strong>Expenditure-reducing:</strong> deflationary fiscal/monetary policy — reduces national income → reduces import spending. But costs: unemployment, lower growth.
+<strong>Expenditure-switching:</strong> devaluation/depreciation of exchange rate — makes exports cheaper, imports dearer. But: depends on Marshall-Lerner condition and J-curve effect (see exchange rates).
+<strong>Supply-side:</strong> improve competitiveness through education, training, infrastructure, R&amp;D, deregulation. Long-term but addresses root causes.
+<div class="tip">Evaluation: expenditure-reducing policies work but cause recession. Expenditure-switching depends on elasticities. Supply-side policies are slow. There is no painless solution to a structural deficit.</div></div></div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s4">Exchange Rates <span class="marks">4.2</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Exchange Rate Systems</div><div class="val"><div class="good">Exchange rate: the price of one currency in terms of another. Determines the cost of imports and the revenue from exports in domestic currency terms.</div>
+<strong>Floating:</strong> determined by market forces of supply and demand for the currency (e.g. GBP, USD). No government intervention.
+<strong>Fixed:</strong> government/central bank pegs the rate to another currency and intervenes to maintain it (buying/selling reserves, adjusting interest rates).
+<strong>Managed float:</strong> primarily market-determined but central bank intervenes to smooth fluctuations or prevent excessive volatility.
+<div class="warn">Know the trade-offs: floating gives monetary policy independence but creates uncertainty. Fixed gives stability but requires large reserves and sacrifices independent monetary policy.</div></div></div>
+<div class="row"><div class="kw">Factors Affecting Exchange Rates</div><div class="val"><strong>Interest rates:</strong> higher rates → hot money inflows → demand for currency rises → appreciation.
+<strong>Inflation:</strong> higher relative inflation → exports less competitive → demand for currency falls → depreciation.
+<strong>Current account:</strong> surplus → demand for currency from exports → appreciation.
+<strong>FDI/capital flows:</strong> inward investment → demand for currency → appreciation.
+<strong>Speculation:</strong> if markets expect depreciation → sell currency → self-fulfilling prophecy.
+<strong>Quantitative easing:</strong> increases money supply → depreciation.</div></div>
+<div class="row"><div class="kw">Marshall-Lerner &amp; J-Curve</div><div class="val"><div class="formula-box">Marshall-Lerner condition: a depreciation improves the current account ONLY IF |PED(X)| + |PED(M)| &gt; 1 (sum of export and import price elasticities exceeds 1).</div>
+<div class="formula-box">J-curve: in the short run after depreciation, the current account worsens (contracts already priced, demand inelastic) before improving in the long run as volumes adjust.</div>
+<div class="ex-box"><span class="ex-label">Why the J-curve happens</span>Immediately after depreciation: import prices rise but volumes haven't adjusted (contracts, habits) → import bill rises. Export volumes take time to respond. Over time, demand adjusts → current account improves.</div>
+<div class="tip">Evaluation: Marshall-Lerner is a long-run condition. In practice, most economies meet it eventually, but the J-curve means policymakers need patience. The short-term worsening can be politically difficult.</div></div></div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s6">Emerging &amp; Developing Economies <span class="marks">4.3</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Indicators of Development</div><div class="val"><div class="good">Economic growth (rising real GDP) is not the same as economic development (improving living standards, health, education, freedom, and well-being).</div>
+<div class="formula-box">HDI = geometric mean of: life expectancy index, education index (mean + expected years of schooling), GNI per capita index (PPP $). Ranges from 0 to 1.</div>
+<strong>Other indicators:</strong> GDP per capita (PPP), literacy rate, infant mortality, access to clean water, Gini coefficient, gender inequality index, multidimensional poverty index.
+<div class="warn">GDP per capita alone is a poor measure of development — it ignores distribution, non-market activity, environmental costs, and quality of life. Always use multiple indicators.</div></div></div>
+<div class="row"><div class="kw">Barriers to Growth</div><div class="val"><strong>Primary product dependency:</strong> volatile commodity prices, declining terms of trade, Dutch disease.
+<strong>Savings gap:</strong> low incomes → low savings → low investment → low growth (Harrod-Domar model).
+<div class="formula-box">Harrod-Domar: Growth = savings ratio ÷ capital-output ratio. Low savings → low growth (without external finance).</div>
+<strong>Other barriers:</strong> corruption, weak institutions/governance, debt burden, conflict/political instability, geography (landlocked, disease), brain drain, population growth outstripping economic growth, inadequate infrastructure.</div></div>
+<div class="row"><div class="kw">Strategies for Development</div><div class="val"><strong>Aid:</strong> bilateral/multilateral/NGO. Can fill savings gap but risks: dependency, corruption, tied aid, crowding out domestic enterprise.
+<strong>Trade liberalisation:</strong> opens markets but infant industries may be destroyed. Need fair trade rules.
+<strong>FDI:</strong> brings capital, technology, jobs. Risks: profit repatriation, exploitation, environmental damage.
+<strong>Microfinance:</strong> small loans to entrepreneurs (e.g. Grameen Bank). Empowers women, creates local enterprise. But: high interest rates, limited scale, over-indebtedness.
+<strong>Debt relief:</strong> e.g. HIPC initiative. Frees government revenue for development spending. But: moral hazard (encourages future borrowing).
+<div class="tip">Evaluation: no single strategy is sufficient — development requires a combination of aid, trade, investment, good governance, and institutional reform. Context matters: what works in one country may fail in another.</div></div></div>
+</div>
+</div>
+
+<div class="box">
+<div class="box-head s1">Financial Markets <span class="marks">4.4</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Role of Financial Markets</div><div class="val"><div class="good">Financial markets channel funds from savers to borrowers, enabling investment, consumption smoothing, and risk management. They facilitate economic growth by allocating capital to its most productive uses.</div>
+<strong>Functions:</strong> facilitate saving, lend to businesses and individuals, facilitate exchange of goods/services (payments), provide forward markets (hedging risk), provide a market for equities (shares — raising capital).
+<strong>Types:</strong> money markets (short-term, &lt;1 year — e.g. Treasury bills), capital markets (long-term — e.g. bonds, equities), foreign exchange markets, derivatives markets.</div></div>
+<div class="row"><div class="kw">Market Failure in Financial Markets</div><div class="val"><strong>Asymmetric information:</strong> borrowers know more about their risk than lenders → adverse selection (risky borrowers seek loans) and moral hazard (borrowers take excessive risk after getting the loan).
+<strong>Externalities:</strong> bank failure creates systemic risk — contagion spreads to other banks and the real economy. Too big to fail: implicit government guarantee → moral hazard (banks take excessive risk knowing they'll be bailed out).
+<strong>Speculation and bubbles:</strong> herd behaviour, irrational exuberance → asset price bubbles → crash → recession. E.g. 2007-08 financial crisis: subprime mortgages, securitisation, lack of regulation.
+<div class="warn">The 2007-08 crisis is the key case study — know the chain: subprime lending → securitisation (CDOs) → credit rating failure → bank insolvency → credit crunch → recession. Examiners expect specific knowledge.</div></div></div>
+<div class="row"><div class="kw">Role of Central Banks</div><div class="val"><div class="good">Central bank (Bank of England): sets monetary policy, acts as lender of last resort, regulates financial system, manages exchange rate, issues currency.</div>
+<strong>Monetary Policy Committee (MPC):</strong> sets Bank Rate to meet the 2% CPI inflation target. Transmission mechanism: Bank Rate → market interest rates → borrowing/saving/spending → aggregate demand → inflation.
+<strong>Quantitative easing (QE):</strong> central bank creates money to buy government bonds → increases money supply, lowers long-term interest rates, boosts asset prices, stimulates spending. Used when Bank Rate is near zero (lower bound).
+<strong>Lender of last resort:</strong> provides emergency liquidity to solvent but illiquid banks — prevents bank runs and systemic collapse. But: creates moral hazard if banks expect to always be rescued.
+<div class="tip">Evaluation: central bank independence is crucial for credibility — politically motivated monetary policy leads to higher inflation expectations. But independence creates democratic accountability concerns.</div></div></div>
+<div class="row"><div class="kw">Financial Regulation</div><div class="val"><strong>Macroprudential regulation:</strong> systemic stability — e.g. capital requirements (Basel III), stress testing, leverage ratios, countercyclical capital buffers.
+<strong>Microprudential regulation:</strong> individual firm stability — e.g. liquidity requirements, conduct regulation, consumer protection.
+<strong>Post-2008 reforms:</strong> higher capital ratios, ring-fencing (separating retail and investment banking), Financial Conduct Authority (FCA) and Prudential Regulation Authority (PRA) in UK.
+<div class="formula-box">Capital adequacy ratio = bank's capital ÷ risk-weighted assets. Basel III requires minimum 8% (with additional buffers).</div>
+<div class="warn">Regulation faces trade-offs: too little → financial crises; too much → restricts lending, reduces economic growth, drives activity to unregulated shadow banking sector. Regulators are always fighting the last crisis.</div></div></div>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</body></html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Statistics — Year 13 Crib Sheet</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+          --bg1: #ffffff; --bg2: #f4f6f2; --bg3: #eaf3de;
+          --t1: #1a1a18; --t2: #5f5e5a; --t3: #888780;
+          --bl: rgba(0,0,0,0.11); --bm: rgba(0,0,0,0.20);
+          --r: 8px; --rl: 12px;
+          --font: system-ui,-apple-system,sans-serif; --mono: 'Courier New', monospace;
+        }
+        @media(prefers-color-scheme:dark){
+          :root{
+            --bg1:#1e1e1c;--bg2:#252723;--bg3:#1a2a14;
+            --t1:#f0ece4;--t2:#a8a59e;--t3:#6e6d69;
+            --bl:rgba(255,255,255,0.09);--bm:rgba(255,255,255,0.18);
+          }
+        }
+        body{font-family:var(--font);background:var(--bg2);color:var(--t1);padding:1.75rem 1rem;min-height:100vh;}
+        .page { width: 100%; max-width: 1000px; margin: 0 auto; font-size: 12px; line-height: 1.4; }
+        h1 { font-size: 18px; font-weight: 600; margin-bottom: 0.25rem; }
+        .header { background: var(--bl); backdrop-filter: blur(8px); padding: 1rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-radius: var(--r); border: 0.5px solid var(--bm); }
+        .header h1 { font-size: 18px; font-weight: 600; margin: 0; }
+        .header span { font-size: 11px; color: var(--t2); font-family: var(--mono); letter-spacing: 0.05em; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .col { display: flex; flex-direction: column; gap: 8px; }
+        @media (max-width:768px) {
+          .grid { grid-template-columns: 1fr; }
+          .page { padding: 0; }
+        }
+        .box { background: var(--bg1); border: 0.5px solid var(--bl); border-radius: var(--r); overflow: hidden; }
+        .box-head { padding: 10px 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; background: var(--bl); }
+        .box-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; }
+        .row { display: grid; grid-template-columns: 28% 72%; gap: 8px; padding-bottom: 6px; border-bottom: 0.5px solid var(--bl); }
+        .row:last-child { border-bottom: none; }
+        .kw { font-weight: 650; color: var(--t2); font-size: 11px; font-family: var(--mono); }
+        .val { font-size: 11.5px; color: var(--t1); line-height: 1.35; }
+        .marks { font-family: var(--mono); font-size: 10px; color: var(--t2); background: var(--bg3); padding: 2px 5px; border-radius: 2px; }
+        .ex-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; border-left: 2px solid var(--t2); }
+        .ex-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--t2); display: block; margin-bottom: 2px; }
+        .formula-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; font-family: var(--mono); font-size: 10.5px; border-left: 2px solid #3b6d11; }
+        .board { font-size: 9px; font-weight: 600; display: inline-block; padding: 1px 5px; border-radius: 3px; background: var(--bl); color: var(--t1); margin: 2px 2px 0 0; }
+        .board.all { background: #eaf3de; color: #3b6d11; }
+        .board.h { background: #e6f1fb; color: #185fa5; }
+        .board.f { background: #faeeda; color: #854f0b; }
+        .warn { background: #faeeda; border-left: 2px solid #ef9f27; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #633806; margin: 4px 0; }
+        .tip { background: #eeedfe; border-left: 2px solid #7f77dd; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #3c3489; margin: 4px 0; }
+        .good { background: #eaf3de; border-left: 2px solid #639922; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #173404; margin: 4px 0; }
+        .s1 { background: #3b6d11; color: #eaf3de; }
+        .s2 { background: #185fa5; color: #e6f1fb; }
+        .s3 { background: #534ab7; color: #eeedfe; }
+        .s4 { background: #854f0b; color: #faeeda; }
+        .s5 { background: #a32d2d; color: #fcebeb; }
+        .s6 { background: #0f6e56; color: #e1f5ee; }
+    </style>
+</head>
+<body>
+<div class="page">
+<div class="header">
+  <h1>A-Level Statistics — Year 13 Crib Sheet</h1>
+  <span>Edexcel · Year 2/A2 · Statistics</span>
+</div>
+
+<div class="grid">
+<div class="col">
+
+<!-- NORMAL DISTRIBUTION -->
+<div class="box">
+<div class="box-head s1">Normal Distribution <span class="marks">Ch 3</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">N(μ, σ²) notation</div><div class="val">X ~ N(μ, σ²) means X is normally distributed with mean μ and variance σ². The distribution is symmetric, bell-shaped, centred on μ. Total area under the curve = 1.<div class="formula-box">About 68% within μ ± σ<br>About 95% within μ ± 2σ<br>About 99.7% within μ ± 3σ</div></div></div>
+<div class="row"><div class="kw">Standardising</div><div class="val">Convert X ~ N(μ, σ²) to Z ~ N(0, 1) using:<div class="formula-box">Z = (X − μ) / σ</div>This lets you use the standard normal table. Z tells you how many standard deviations X is from the mean.</div></div>
+<div class="row"><div class="kw">Using tables</div><div class="val">Tables give P(Z &lt; z) for positive z values. For negative z, use symmetry:<div class="formula-box">P(Z &lt; −a) = 1 − P(Z &lt; a)<br>P(Z &gt; a) = 1 − P(Z &lt; a)</div>For P(a &lt; Z &lt; b): compute P(Z &lt; b) − P(Z &lt; a).</div></div>
+<div class="row"><div class="kw">Inverse normal</div><div class="val">Given P(X &lt; k) = p, find k. Steps:<br>1. Look up p in the body of the table to find z<br>2. Use k = μ + zσ<div class="formula-box">If P(X &lt; k) = p, find z such that Φ(z) = p<br>Then k = μ + zσ</div></div></div>
+<div class="row"><div class="kw">Finding μ or σ</div><div class="val">Set up simultaneous equations when given two probability conditions. Standardise each to get two equations in μ and σ, then solve.<div class="ex-box"><span class="ex-label">Example</span>P(X &lt; 20) = 0.2 → (20 − μ)/σ = −0.8416<br>P(X &lt; 50) = 0.9 → (50 − μ)/σ = 1.2816<br>Solve simultaneously for μ and σ.</div></div></div>
+<div class="warn">The parameter in N(μ, σ²) is the VARIANCE, not the standard deviation. If given σ = 3, then X ~ N(μ, 9). When standardising, divide by σ (standard deviation), not σ².</div>
+<div class="tip">Sketch the normal curve, shade the required area, and mark z-values before using tables. This prevents sign errors and helps you see whether to subtract from 1.</div>
+</div>
+</div>
+
+<!-- APPROXIMATING BINOMIAL WITH NORMAL -->
+<div class="box">
+<div class="box-head s2">Normal Approximation to Binomial <span class="marks">Ch 4</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">When to use</div><div class="val">If X ~ B(n, p) and n is large with np &gt; 5 and n(1−p) &gt; 5, then X can be approximated by:<div class="formula-box">X ≈ N(np, np(1−p))<br>Mean = np, Variance = np(1−p)</div></div></div>
+<div class="row"><div class="kw">Continuity correction</div><div class="val">The binomial is discrete; the normal is continuous. Apply a continuity correction of ±0.5:<div class="formula-box">P(X ≤ n) → P(Y &lt; n + 0.5)<br>P(X &lt; n) → P(Y &lt; n − 0.5)<br>P(X ≥ n) → P(Y &gt; n − 0.5)<br>P(X &gt; n) → P(Y &gt; n + 0.5)<br>P(X = n) → P(n − 0.5 &lt; Y &lt; n + 0.5)</div></div></div>
+<div class="row"><div class="kw">Method</div><div class="val">1. Verify conditions: n large, np &gt; 5, n(1−p) &gt; 5<br>2. Calculate mean μ = np and variance σ² = np(1−p)<br>3. Apply continuity correction<br>4. Standardise: Z = (X − μ)/σ<br>5. Use normal tables</div></div>
+<div class="warn">Forgetting the continuity correction is the single most common error on this topic. Always adjust by 0.5 in the direction that makes the interval wider (includes the boundary value).</div>
+<div class="tip">Think: "≤ means I want to include that value, so I go 0.5 beyond it" — the correction always moves the boundary away from the mean to capture the discrete value.</div>
+</div>
+</div>
+
+<!-- CONDITIONAL PROBABILITY (ADVANCED) -->
+<div class="box">
+<div class="box-head s3">Conditional Probability (Advanced) <span class="marks">Ch 2</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Formula</div><div class="val"><div class="formula-box">P(A|B) = P(A ∩ B) / P(B)</div>Rearranges to: P(A ∩ B) = P(A|B) × P(B). This is the multiplication rule for dependent events.</div></div>
+<div class="row"><div class="kw">Tree diagrams</div><div class="val">For sequential events with conditional probabilities, tree diagrams are essential. Second branches show P(B|A) and P(B|A').<div class="formula-box">P(B) = P(B|A)P(A) + P(B|A')P(A')</div>This is the law of total probability — sum over all branches that lead to B.</div></div>
+<div class="row"><div class="kw">Bayes-style problems</div><div class="val">To find P(A|B) when given P(B|A), use a tree diagram or the formula directly:<div class="formula-box">P(A|B) = P(B|A) × P(A) / P(B)<br>where P(B) = P(B|A)P(A) + P(B|A')P(A')</div><div class="ex-box"><span class="ex-label">Example</span>1% have a disease. Test is 95% accurate for positives, 98% accurate for negatives. Given a positive test, find P(actually has disease).<br>P(D|+) = (0.95 × 0.01) / (0.95 × 0.01 + 0.02 × 0.99) = 0.324</div></div></div>
+<div class="row"><div class="kw">Two-way tables</div><div class="val">Organise data into rows and columns with totals. Read conditional probabilities by restricting to one row or column:<div class="formula-box">P(A|B) = count in (A ∩ B) / count in B</div></div></div>
+<div class="warn">When the question says "given that", you MUST use conditional probability. Restricting the sample space is the key idea — your denominator changes.</div>
+<div class="tip">For complex problems, always draw the tree diagram first. Label every branch with its probability, then identify which end-branches you need and apply the appropriate formula.</div>
+</div>
+</div>
+
+</div>
+
+<div class="col">
+
+<!-- REGRESSION & CORRELATION -->
+<div class="box">
+<div class="box-head s4">Regression &amp; Correlation <span class="marks">Ch 1</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">PMCC (r)</div><div class="val">The product moment correlation coefficient measures the strength and direction of the linear relationship between two variables. Calculated from:<div class="formula-box">r = S_xy / √(S_xx × S_yy)<br><br>S_xx = Σx² − (Σx)²/n<br>S_yy = Σy² − (Σy)²/n<br>S_xy = Σxy − (Σx)(Σy)/n</div>r = 1: perfect positive linear; r = −1: perfect negative linear; r = 0: no linear correlation.</div></div>
+<div class="row"><div class="kw">Spearman's rank (r_s)</div><div class="val">Rank the data for each variable, then calculate:<div class="formula-box">r_s = 1 − (6Σd²) / (n(n² − 1))<br>where d = difference in ranks</div>Use when data is not linear, or for ordinal data. Values between −1 and 1. For tied ranks, assign the average rank.</div></div>
+<div class="row"><div class="kw">Regression line y on x</div><div class="val"><div class="formula-box">y = a + bx<br>b = S_xy / S_xx<br>a = ȳ − bx̄</div>The regression line always passes through (x̄, ȳ). Use only to predict y from x.</div></div>
+<div class="row"><div class="kw">Interpolation vs extrapolation</div><div class="val"><strong>Interpolation:</strong> predicting within the range of the data — reliable.<br><strong>Extrapolation:</strong> predicting beyond the range — unreliable because the linear relationship may not hold outside the observed data.<div class="ex-box"><span class="ex-label">Exam phrasing</span>"This is extrapolation as the value lies outside the range of the data, so the prediction may be unreliable."</div></div></div>
+<div class="row"><div class="kw">Interpreting r</div><div class="val">Always interpret in context: "There is a strong positive correlation between [x variable] and [y variable], suggesting that as [x] increases, [y] tends to increase."<br>Correlation does not imply causation.</div></div>
+<div class="warn">You can only use the regression line y on x to predict y from a given x. Never use it to predict x from y — that requires the x on y regression line (which has a different equation).</div>
+<div class="tip">For Spearman's rank with tied values: if two items share rank 3 and 4, give both rank 3.5. Then continue numbering from 5. The formula still works with averaged ranks.</div>
+</div>
+</div>
+
+<!-- HYPOTHESIS TESTING WITH NORMAL -->
+<div class="box">
+<div class="box-head s5">Hypothesis Testing with Normal <span class="marks">Ch 5</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Testing a mean</div><div class="val">When X ~ N(μ, σ²) with σ known, and you take a sample of size n with sample mean X̄:<div class="formula-box">X̄ ~ N(μ, σ²/n)<br><br>Test statistic: Z = (X̄ − μ₀) / (σ/√n)</div>where μ₀ is the value of μ under H₀.</div></div>
+<div class="row"><div class="kw">Hypotheses</div><div class="val"><div class="formula-box">H₀: μ = μ₀<br>H₁: μ &lt; μ₀ (one-tail, lower)<br>H₁: μ &gt; μ₀ (one-tail, upper)<br>H₁: μ ≠ μ₀ (two-tail)</div></div></div>
+<div class="row"><div class="kw">Critical values</div><div class="val">Common z critical values:<div class="formula-box">5% one-tail: z = 1.6449<br>5% two-tail: z = ±1.9600<br>1% one-tail: z = 2.3263<br>1% two-tail: z = ±2.5758</div>Reject H₀ if the test statistic falls in the critical region.</div></div>
+<div class="row"><div class="kw">Full method</div><div class="val">1. State H₀ and H₁<br>2. State significance level<br>3. Identify distribution of X̄ under H₀: X̄ ~ N(μ₀, σ²/n)<br>4. Calculate test statistic z = (x̄ − μ₀)/(σ/√n)<br>5. Compare with critical value<br>6. State conclusion: reject or do not reject H₀<br>7. Interpret in context</div></div>
+<div class="row"><div class="kw">Linking to Year 12</div><div class="val">This extends the binomial hypothesis test from Year 12. Instead of testing a proportion p using binomial, you test a mean μ using the normal distribution. The logic (H₀, H₁, critical region, conclusion) is identical.</div></div>
+<div class="warn">The variance of X̄ is σ²/n, NOT σ². Dividing by n reflects that sample means have less variability than individual observations. Forgetting to divide by √n when standardising is a very common error.</div>
+<div class="tip">If the question gives σ² (variance), remember to take the square root when standardising. The denominator of the test statistic is σ/√n, not σ²/n.</div>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</body>
+</html>

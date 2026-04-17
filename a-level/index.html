@@ -258,6 +258,40 @@
 
         .card.disabled { opacity: 0.5; cursor: not-allowed; pointer-events: none; }
 
+        .guide-card {
+            display: block;
+            padding: 16px 24px;
+            border-radius: 8px;
+            background: #1a1a2e;
+            color: #fff;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .guide-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            background: #252547;
+        }
+
+        .guide-card .card-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #fff;
+        }
+
+        .guide-card .card-desc {
+            font-size: 12px;
+            color: #aaa;
+            line-height: 1.4;
+        }
+
         .wip-banner {
             text-align: center;
             padding: 16px;
@@ -302,17 +336,24 @@
     <div class="topbar-right">
         <select class="page-select" id="pageSelect" onchange="loadPage(this.value)">
             <option value="">-- Select a topic --</option>
+            <option value="confidence_tracker.html">Confidence Tracker</option>
             <optgroup label="Mathematics">
-                <option value="alevel_maths_pure_crib_sheet.html">Pure Maths — Crib Sheet</option>
-                <option value="alevel_maths_stats_crib_sheet.html">Statistics — Crib Sheet</option>
-                <option value="alevel_maths_mechanics_crib_sheet.html">Mechanics — Crib Sheet</option>
+                <option value="alevel_maths_pure_crib_sheet.html">Pure Maths Y1 — Crib Sheet</option>
+                <option value="alevel_maths_pure_y2_crib_sheet.html">Pure Maths Y2 — Crib Sheet</option>
+                <option value="alevel_maths_stats_crib_sheet.html">Statistics Y1 — Crib Sheet</option>
+                <option value="alevel_maths_stats_y2_crib_sheet.html">Statistics Y2 — Crib Sheet</option>
+                <option value="alevel_maths_mechanics_crib_sheet.html">Mechanics Y1 — Crib Sheet</option>
+                <option value="alevel_maths_mechanics_y2_crib_sheet.html">Mechanics Y2 — Crib Sheet</option>
             </optgroup>
             <optgroup label="Physics">
                 <option value="alevel_physics_year1_crib_sheet.html">Physics Year 1 — Crib Sheet</option>
+                <option value="alevel_physics_year2_crib_sheet.html">Physics Year 2 — Crib Sheet</option>
             </optgroup>
             <optgroup label="Economics">
                 <option value="alevel_economics_micro_crib_sheet.html">Microeconomics — Crib Sheet</option>
                 <option value="alevel_economics_macro_crib_sheet.html">Macroeconomics — Crib Sheet</option>
+                <option value="alevel_economics_theme3_crib_sheet.html">Theme 3: Business &amp; Labour</option>
+                <option value="alevel_economics_theme4_crib_sheet.html">Theme 4: Global Economy</option>
             </optgroup>
         </select>
     </div>
@@ -327,7 +368,10 @@
                 <p>Year 12 &amp; 13 — Maths, Physics, Economics</p>
             </div>
 
-            <div class="wip-banner">Building out — core content first, deep dives to follow. Same approach as GCSE: crib sheets, exam technique, then breakout cards.</div>
+            <div class="guide-card" onclick="loadPage('confidence_tracker.html')">
+                <div class="card-title"><span class="icon">&#x1f3af;</span>Confidence Tracker — RAG Rate Every Topic</div>
+                <div class="card-desc">Rate every topic Red/Amber/Green. See your overall readiness. Get personalised revision suggestions. Saves progress locally.</div>
+            </div>
 
             <div class="grid">
                 <!-- Mathematics -->
@@ -335,18 +379,30 @@
                     <div class="category-title">Mathematics</div>
                     <div class="sub-title pure">Pure Maths</div>
                     <div class="card maths" onclick="loadPage('alevel_maths_pure_crib_sheet.html')">
-                        <div class="card-title"><span class="icon">&#x1f4d0;</span>Pure Maths — Crib Sheet</div>
-                        <div class="card-desc">Algebra, coordinate geometry, calculus, exponentials, trig — Year 12 essentials</div>
+                        <div class="card-title"><span class="icon">&#x1f4d0;</span>Pure Maths Year 1 — Crib Sheet</div>
+                        <div class="card-desc">Algebra, coordinate geometry, calculus, exponentials, trig — AS essentials</div>
+                    </div>
+                    <div class="card maths" onclick="loadPage('alevel_maths_pure_y2_crib_sheet.html')">
+                        <div class="card-title"><span class="icon">&#x1f4d0;</span>Pure Maths Year 2 — Crib Sheet</div>
+                        <div class="card-desc">Further trig, chain/product/quotient rules, sequences, numerical methods, vectors, diff equations</div>
                     </div>
                     <div class="sub-title stats">Statistics</div>
                     <div class="card maths" onclick="loadPage('alevel_maths_stats_crib_sheet.html')">
-                        <div class="card-title"><span class="icon">&#x1f4ca;</span>Statistics — Crib Sheet</div>
-                        <div class="card-desc">Data, probability, distributions, hypothesis testing</div>
+                        <div class="card-title"><span class="icon">&#x1f4ca;</span>Statistics Year 1 — Crib Sheet</div>
+                        <div class="card-desc">Sampling, data, probability, binomial distribution, hypothesis testing</div>
+                    </div>
+                    <div class="card maths" onclick="loadPage('alevel_maths_stats_y2_crib_sheet.html')">
+                        <div class="card-title"><span class="icon">&#x1f4ca;</span>Statistics Year 2 — Crib Sheet</div>
+                        <div class="card-desc">Normal distribution, regression, correlation, hypothesis testing with normal</div>
                     </div>
                     <div class="sub-title mechanics">Mechanics</div>
                     <div class="card maths" onclick="loadPage('alevel_maths_mechanics_crib_sheet.html')">
-                        <div class="card-title"><span class="icon">&#x2699;&#xfe0f;</span>Mechanics — Crib Sheet</div>
-                        <div class="card-desc">Kinematics, forces, moments, Newton's laws — the SUVAT equations and beyond</div>
+                        <div class="card-title"><span class="icon">&#x2699;&#xfe0f;</span>Mechanics Year 1 — Crib Sheet</div>
+                        <div class="card-desc">SUVAT, forces, Newton's laws, connected particles, moments</div>
+                    </div>
+                    <div class="card maths" onclick="loadPage('alevel_maths_mechanics_y2_crib_sheet.html')">
+                        <div class="card-title"><span class="icon">&#x2699;&#xfe0f;</span>Mechanics Year 2 — Crib Sheet</div>
+                        <div class="card-desc">Calculus kinematics, projectiles, friction, statics, Hooke's law</div>
                     </div>
                 </div>
 
@@ -357,20 +413,32 @@
                         <div class="card-title"><span class="icon">&#x26a1;</span>Physics Year 1 — Crib Sheet</div>
                         <div class="card-desc">Measurements, particles, waves, mechanics, electricity</div>
                     </div>
+                    <div class="card physics" onclick="loadPage('alevel_physics_year2_crib_sheet.html')">
+                        <div class="card-title"><span class="icon">&#x26a1;</span>Physics Year 2 — Crib Sheet</div>
+                        <div class="card-desc">Circular motion, SHM, fields, capacitors, magnetic induction, nuclear, thermal</div>
+                    </div>
                 </div>
 
                 <!-- Economics -->
                 <div class="category">
                     <div class="category-title">Economics</div>
-                    <div class="sub-title micro">Microeconomics</div>
+                    <div class="sub-title micro">Year 1</div>
                     <div class="card economics" onclick="loadPage('alevel_economics_micro_crib_sheet.html')">
-                        <div class="card-title"><span class="icon">&#x1f4b0;</span>Microeconomics — Crib Sheet</div>
-                        <div class="card-desc">Supply &amp; demand, elasticity, market failure, government intervention</div>
+                        <div class="card-title"><span class="icon">&#x1f4b0;</span>Theme 1: Markets &amp; Market Failure</div>
+                        <div class="card-desc">Supply &amp; demand, elasticity, externalities, government intervention</div>
                     </div>
-                    <div class="sub-title macro">Macroeconomics</div>
                     <div class="card economics" onclick="loadPage('alevel_economics_macro_crib_sheet.html')">
-                        <div class="card-title"><span class="icon">&#x1f310;</span>Macroeconomics — Crib Sheet</div>
-                        <div class="card-desc">GDP, inflation, unemployment, fiscal &amp; monetary policy, trade</div>
+                        <div class="card-title"><span class="icon">&#x1f310;</span>Theme 2: The UK Economy</div>
+                        <div class="card-desc">AD/AS, fiscal &amp; monetary policy, multiplier, supply-side policies</div>
+                    </div>
+                    <div class="sub-title macro">Year 2</div>
+                    <div class="card economics" onclick="loadPage('alevel_economics_theme3_crib_sheet.html')">
+                        <div class="card-title"><span class="icon">&#x1f3ed;</span>Theme 3: Business &amp; Labour Market</div>
+                        <div class="card-desc">Costs, revenues, market structures, oligopoly, labour market, competition policy</div>
+                    </div>
+                    <div class="card economics" onclick="loadPage('alevel_economics_theme4_crib_sheet.html')">
+                        <div class="card-title"><span class="icon">&#x1f30d;</span>Theme 4: A Global Perspective</div>
+                        <div class="card-desc">Globalisation, trade, exchange rates, poverty, development, financial markets</div>
                     </div>
                 </div>
             </div>

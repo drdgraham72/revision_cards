@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Pure Maths — Year 13 Crib Sheet</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+          --bg1: #ffffff; --bg2: #f4f6f2; --bg3: #eaf3de;
+          --t1: #1a1a18; --t2: #5f5e5a; --t3: #888780;
+          --bl: rgba(0,0,0,0.11); --bm: rgba(0,0,0,0.20);
+          --r: 8px; --rl: 12px;
+          --font: system-ui,-apple-system,sans-serif; --mono: 'Courier New', monospace;
+        }
+        @media(prefers-color-scheme:dark){
+          :root{
+            --bg1:#1e1e1c;--bg2:#252723;--bg3:#1a2a14;
+            --t1:#f0ece4;--t2:#a8a59e;--t3:#6e6d69;
+            --bl:rgba(255,255,255,0.09);--bm:rgba(255,255,255,0.18);
+          }
+        }
+        body{font-family:var(--font);background:var(--bg2);color:var(--t1);padding:1.75rem 1rem;min-height:100vh;}
+        .page { width: 100%; max-width: 1000px; margin: 0 auto; font-size: 12px; line-height: 1.4; }
+        h1 { font-size: 18px; font-weight: 600; margin-bottom: 0.25rem; }
+        .header { background: var(--bl); backdrop-filter: blur(8px); padding: 1rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-radius: var(--r); border: 0.5px solid var(--bm); }
+        .header h1 { font-size: 18px; font-weight: 600; margin: 0; }
+        .header span { font-size: 11px; color: var(--t2); font-family: var(--mono); letter-spacing: 0.05em; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .col { display: flex; flex-direction: column; gap: 8px; }
+        @media (max-width:768px) {
+          .grid { grid-template-columns: 1fr; }
+          .page { padding: 0; }
+        }
+        .box { background: var(--bg1); border: 0.5px solid var(--bl); border-radius: var(--r); overflow: hidden; }
+        .box-head { padding: 10px 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; background: var(--bl); }
+        .box-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; }
+        .row { display: grid; grid-template-columns: 28% 72%; gap: 8px; padding-bottom: 6px; border-bottom: 0.5px solid var(--bl); }
+        .row:last-child { border-bottom: none; }
+        .kw { font-weight: 650; color: var(--t2); font-size: 11px; font-family: var(--mono); }
+        .val { font-size: 11.5px; color: var(--t1); line-height: 1.35; }
+        .marks { font-family: var(--mono); font-size: 10px; color: var(--t2); background: var(--bg3); padding: 2px 5px; border-radius: 2px; }
+        .ex-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; border-left: 2px solid var(--t2); }
+        .ex-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--t2); display: block; margin-bottom: 2px; }
+        .formula-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; font-family: var(--mono); font-size: 10.5px; border-left: 2px solid #3b6d11; }
+        .board { font-size: 9px; font-weight: 600; display: inline-block; padding: 1px 5px; border-radius: 3px; background: var(--bl); color: var(--t1); margin: 2px 2px 0 0; }
+        .board.all { background: #eaf3de; color: #3b6d11; }
+        .board.h { background: #e6f1fb; color: #185fa5; }
+        .board.f { background: #faeeda; color: #854f0b; }
+        .warn { background: #faeeda; border-left: 2px solid #ef9f27; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #633806; margin: 4px 0; }
+        .tip { background: #eeedfe; border-left: 2px solid #7f77dd; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #3c3489; margin: 4px 0; }
+        .good { background: #eaf3de; border-left: 2px solid #639922; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #173404; margin: 4px 0; }
+        .s1 { background: #3b6d11; color: #eaf3de; }
+        .s2 { background: #185fa5; color: #e6f1fb; }
+        .s3 { background: #534ab7; color: #eeedfe; }
+        .s4 { background: #854f0b; color: #faeeda; }
+        .s5 { background: #a32d2d; color: #fcebeb; }
+        .s6 { background: #0f6e56; color: #e1f5ee; }
+    </style>
+</head>
+<body>
+<div class="page">
+<div class="header">
+  <h1>A-Level Pure Maths — Year 13 Crib Sheet</h1>
+  <span>Edexcel · Year 2/A2 · Advanced Pure Topics</span>
+</div>
+
+<div class="grid">
+<div class="col">
+
+<!-- FURTHER TRIGONOMETRY -->
+<div class="box">
+<div class="box-head s1">Further Trigonometry <span class="marks">Ch 6–7</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Reciprocal trig functions</div><div class="val"><div class="formula-box">secθ = 1/cosθ &nbsp;·&nbsp; cosecθ = 1/sinθ &nbsp;·&nbsp; cotθ = 1/tanθ = cosθ/sinθ</div>sec is undefined where cosθ = 0, cosec where sinθ = 0, cot where tanθ = 0. Graphs are reflections/reciprocals of the standard trig curves with vertical asymptotes at the zeros.</div></div>
+<div class="row"><div class="kw">Pythagorean identities</div><div class="val"><div class="formula-box">sin²θ + cos²θ ≡ 1<br>sec²θ ≡ 1 + tan²θ &nbsp;&nbsp;(divide by cos²θ)<br>cosec²θ ≡ 1 + cot²θ &nbsp;&nbsp;(divide by sin²θ)</div>The second and third identities are obtained by dividing the first by cos²θ and sin²θ respectively.</div></div>
+<div class="row"><div class="kw">Compound angle formulas</div><div class="val"><div class="formula-box">sin(A ± B) = sinA cosB ± cosA sinB<br>cos(A ± B) = cosA cosB ∓ sinA sinB<br>tan(A ± B) = (tanA ± tanB) / (1 ∓ tanA tanB)</div></div></div>
+<div class="row"><div class="kw">Double angle formulas</div><div class="val"><div class="formula-box">sin2A = 2sinA cosA<br>cos2A = cos²A − sin²A = 2cos²A − 1 = 1 − 2sin²A<br>tan2A = 2tanA / (1 − tan²A)</div>The cos2A forms rearrange to give half-angle substitutions for integration:<div class="formula-box">cos²A = ½(1 + cos2A)<br>sin²A = ½(1 − cos2A)</div></div></div>
+<div class="row"><div class="kw">R-formula (harmonic form)</div><div class="val"><div class="formula-box">a sinθ + b cosθ = R sin(θ + α)<br>a cosθ + b sinθ = R cos(θ − α)<br>where R = √(a² + b²), tanα = b/a</div>Used to solve equations of the form a sinθ + b cosθ = c, and to find max/min values of trig expressions.<div class="ex-box"><span class="ex-label">Example</span>3sinθ + 4cosθ = R sin(θ+α) → R = √(9+16) = 5, tanα = 4/3 → α ≈ 53.1°</div></div></div>
+<div class="row"><div class="kw">Small angle approximations</div><div class="val"><div class="formula-box">sinθ ≈ θ &nbsp;&nbsp;·&nbsp;&nbsp; cosθ ≈ 1 − θ²/2 &nbsp;&nbsp;·&nbsp;&nbsp; tanθ ≈ θ</div>Valid when θ is small and measured in radians. Used for limits and approximations.</div></div>
+<div class="warn">cos(A ± B): the sign FLIPS — cos(A+B) uses minus, cos(A−B) uses plus. The opposite of what you might expect.</div>
+<div class="tip">For R-formula questions: always state R and α, then rewrite the expression before solving. Max value of R sin(θ+α) is R, occurring when sin(θ+α) = 1.</div>
+</div>
+</div>
+
+<!-- FURTHER DIFFERENTIATION -->
+<div class="box">
+<div class="box-head s3">Further Differentiation <span class="marks">Ch 9–10</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Chain rule</div><div class="val"><div class="formula-box">dy/dx = dy/du × du/dx</div>For composite functions y = f(g(x)): differentiate the outer function, multiply by the derivative of the inner.<div class="ex-box"><span class="ex-label">Example</span>y = (3x+1)⁵ → dy/dx = 5(3x+1)⁴ × 3 = 15(3x+1)⁴</div></div></div>
+<div class="row"><div class="kw">Product rule</div><div class="val"><div class="formula-box">d(uv)/dx = u(dv/dx) + v(du/dx)</div><div class="ex-box"><span class="ex-label">Example</span>y = x²sinx → dy/dx = x²cosx + 2x sinx</div></div></div>
+<div class="row"><div class="kw">Quotient rule</div><div class="val"><div class="formula-box">d(u/v)/dx = [v(du/dx) − u(dv/dx)] / v²</div>Remember: "low d-high minus high d-low, over the square of what's below."</div></div>
+<div class="row"><div class="kw">Trig derivatives</div><div class="val"><div class="formula-box">d/dx(sinx) = cosx<br>d/dx(cosx) = −sinx<br>d/dx(tanx) = sec²x</div>Combined with chain rule: d/dx(sin(kx)) = k cos(kx), etc.</div></div>
+<div class="row"><div class="kw">Exponential &amp; log</div><div class="val"><div class="formula-box">d/dx(eˣ) = eˣ &nbsp;·&nbsp; d/dx(e^(kx)) = ke^(kx)<br>d/dx(ln x) = 1/x &nbsp;·&nbsp; d/dx(ln(f(x))) = f′(x)/f(x)</div></div></div>
+<div class="row"><div class="kw">Implicit differentiation</div><div class="val">Differentiate both sides with respect to x. When differentiating a y-term, multiply by dy/dx (chain rule).<div class="formula-box">d/dx(y²) = 2y · dy/dx<br>d/dx(xy) = x · dy/dx + y &nbsp;(product rule)</div>Then rearrange to isolate dy/dx.</div></div>
+<div class="row"><div class="kw">Parametric differentiation</div><div class="val"><div class="formula-box">dy/dx = (dy/dt) / (dx/dt)</div>For curves defined as x = f(t), y = g(t). Differentiate each with respect to t, then divide.</div></div>
+<div class="row"><div class="kw">Connected rates</div><div class="val"><div class="formula-box">dA/dt = dA/dr × dr/dt</div>Chain rule applied to real-world rates. Identify which rate you know, which you want, and find the connecting variable.</div></div>
+<div class="warn">Quotient rule: the order matters — it is v(du/dx) MINUS u(dv/dx), not the other way round. Getting this backwards is the most common mistake.</div>
+<div class="tip">For implicit differentiation: collect all dy/dx terms on one side, factor out dy/dx, then divide. Treat dy/dx as a single object you are solving for.</div>
+</div>
+</div>
+
+<!-- DIFFERENTIAL EQUATIONS -->
+<div class="box">
+<div class="box-head s4">Differential Equations <span class="marks">Ch 11</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Separable variables</div><div class="val">If dy/dx = f(x)g(y), separate and integrate:<div class="formula-box">∫ 1/g(y) dy = ∫ f(x) dx</div><div class="ex-box"><span class="ex-label">Example</span>dy/dx = xy → ∫(1/y)dy = ∫x dx → ln|y| = x²/2 + c → y = Ae^(x²/2)</div></div></div>
+<div class="row"><div class="kw">Particular solutions</div><div class="val">Use boundary/initial conditions to find the constant of integration. Substitute the given point (x₀, y₀) into the general solution and solve for c (or A).</div></div>
+<div class="row"><div class="kw">Modelling</div><div class="val"><div class="formula-box">dP/dt = kP → P = P₀eᵏᵗ &nbsp;(exponential growth/decay)<br>dT/dt = −k(T − T₀) → Newton's cooling</div>Set up the differential equation from the word problem, solve by separation, then apply conditions.</div></div>
+<div class="warn">When separating variables, do not forget to integrate BOTH sides. And always include +c on one side (not both).</div>
+<div class="tip">After solving, always substitute back to check your solution satisfies the original DE and the boundary conditions.</div>
+</div>
+</div>
+
+</div>
+
+<div class="col">
+
+<!-- FURTHER INTEGRATION -->
+<div class="box">
+<div class="box-head s5">Further Integration <span class="marks">Ch 11</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Standard results</div><div class="val"><div class="formula-box">∫ eˣ dx = eˣ + c &nbsp;·&nbsp; ∫ e^(kx) dx = (1/k)e^(kx) + c<br>∫ 1/x dx = ln|x| + c<br>∫ sinx dx = −cosx + c &nbsp;·&nbsp; ∫ cosx dx = sinx + c<br>∫ sec²x dx = tanx + c</div></div></div>
+<div class="row"><div class="kw">Integration by substitution</div><div class="val">Replace a complicated part with u, find du/dx, substitute everything including dx:<div class="formula-box">∫ f(g(x)) · g′(x) dx → let u = g(x), du = g′(x)dx → ∫ f(u) du</div>For definite integrals: change the limits to u-values, or convert back to x at the end.<div class="ex-box"><span class="ex-label">Example</span>∫ 2x(x²+1)³ dx, let u = x²+1, du = 2x dx → ∫ u³ du = u⁴/4 + c = (x²+1)⁴/4 + c</div></div></div>
+<div class="row"><div class="kw">Integration by parts</div><div class="val"><div class="formula-box">∫ u dv = uv − ∫ v du</div>Choose u using LIATE priority: Logs, Inverse trig, Algebraic, Trig, Exponential.<div class="ex-box"><span class="ex-label">Example</span>∫ x eˣ dx: u = x, dv = eˣ dx → du = dx, v = eˣ → xeˣ − ∫eˣ dx = xeˣ − eˣ + c</div>Sometimes need to apply twice (e.g. ∫ x²eˣ dx) or use the "cycling" trick for ∫ eˣsinx dx.</div></div>
+<div class="row"><div class="kw">Partial fractions</div><div class="val">Split rational functions before integrating:<div class="formula-box">A/(x−a) integrates to A ln|x−a| + c<br>A/(x−a)² integrates to −A/(x−a) + c</div><div class="ex-box"><span class="ex-label">Example</span>∫ (3x+5)/((x+1)(x+2)) dx → ∫ [2/(x+1) + 1/(x+2)] dx = 2ln|x+1| + ln|x+2| + c</div></div></div>
+<div class="row"><div class="kw">Trapezium rule</div><div class="val"><div class="formula-box">∫ₐᵇ y dx ≈ h/2 [y₀ + 2(y₁+y₂+...+yₙ₋₁) + yₙ]<br>where h = (b−a)/n</div>More strips (larger n) gives a better approximation. Overestimates for convex curves, underestimates for concave.</div></div>
+<div class="row"><div class="kw">Parametric integration</div><div class="val"><div class="formula-box">∫ y dx = ∫ y · (dx/dt) dt</div>Substitute x = f(t), y = g(t), and change limits to t-values. The dx becomes (dx/dt)dt.</div></div>
+<div class="warn">By parts: choosing the wrong u and dv makes the integral harder, not easier. If it gets more complicated, swap your choice.</div>
+<div class="tip">For ∫ sin²x dx or ∫ cos²x dx, use the double angle identity: sin²x = ½(1 − cos2x), cos²x = ½(1 + cos2x).</div>
+</div>
+</div>
+
+<!-- SEQUENCES & SERIES -->
+<div class="box">
+<div class="box-head s2">Sequences &amp; Series <span class="marks">Ch 3–4</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Arithmetic sequences</div><div class="val"><div class="formula-box">uₙ = a + (n−1)d<br>Sₙ = n/2 · (2a + (n−1)d) = n/2 · (a + l)</div>a = first term, d = common difference, l = last term. Sum formula: average of first and last, times n.</div></div>
+<div class="row"><div class="kw">Geometric sequences</div><div class="val"><div class="formula-box">uₙ = arⁿ⁻¹<br>Sₙ = a(1 − rⁿ) / (1 − r) &nbsp;&nbsp;(r ≠ 1)</div>a = first term, r = common ratio. Find r by dividing consecutive terms: r = u₂/u₁.</div></div>
+<div class="row"><div class="kw">Sum to infinity</div><div class="val"><div class="formula-box">S∞ = a / (1 − r) &nbsp;&nbsp;when |r| &lt; 1</div>Converges only when |r| &lt; 1. If |r| ≥ 1, the series diverges and has no finite sum.</div></div>
+<div class="row"><div class="kw">Binomial expansion (rational n)</div><div class="val"><div class="formula-box">(1+x)ⁿ = 1 + nx + n(n−1)x²/2! + n(n−1)(n−2)x³/3! + ...<br>Valid when |x| &lt; 1</div>For (a+bx)ⁿ: factor out aⁿ first → aⁿ(1 + bx/a)ⁿ, then expand with |bx/a| &lt; 1.<div class="ex-box"><span class="ex-label">Example</span>(1+x)⁻¹ = 1 − x + x² − x³ + ... &nbsp;&nbsp;(|x| &lt; 1)</div></div></div>
+<div class="row"><div class="kw">Sigma notation</div><div class="val"><div class="formula-box">∑ᵣ₌₁ⁿ f(r) = f(1) + f(2) + ... + f(n)</div>Useful sums: ∑r = n(n+1)/2, ∑r² = n(n+1)(2n+1)/6.</div></div>
+<div class="warn">Binomial expansion for rational n is an INFINITE series, not finite. You must state the validity condition |x| &lt; 1 (or equivalent) — marks are lost without it.</div>
+<div class="tip">For geometric series: always check |r| &lt; 1 before using S∞. In proof questions, show that rⁿ → 0 as n → ∞.</div>
+</div>
+</div>
+
+<!-- NUMERICAL METHODS -->
+<div class="box">
+<div class="box-head s6">Numerical Methods <span class="marks">Ch 8</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Sign change method</div><div class="val">If f(a) and f(b) have opposite signs AND f is continuous on [a,b], then there is a root in (a,b).<div class="formula-box">f(a) &gt; 0 and f(b) &lt; 0 (or vice versa) → root exists in (a, b)</div></div></div>
+<div class="row"><div class="kw">Iteration</div><div class="val">Rearrange f(x) = 0 into x = g(x), then iterate:<div class="formula-box">xₙ₊₁ = g(xₙ)</div>Converges when |g′(x)| &lt; 1 near the root. Different rearrangements may converge to different roots or diverge.<div class="ex-box"><span class="ex-label">Example</span>x³ = 5x + 1 → x = (5x+1)^(1/3), start x₀ = 2: x₁ = ∛11 ≈ 2.224...</div></div></div>
+<div class="row"><div class="kw">Newton-Raphson</div><div class="val"><div class="formula-box">xₙ₊₁ = xₙ − f(xₙ) / f′(xₙ)</div>Usually converges much faster than simple iteration. Can fail if f′(xₙ) ≈ 0 or if the starting point is poor (near a turning point).</div></div>
+<div class="row"><div class="kw">Trapezium rule</div><div class="val"><div class="formula-box">∫ₐᵇ y dx ≈ h/2 [y₀ + 2(y₁+...+yₙ₋₁) + yₙ]<br>h = (b−a)/n</div>Increasing n (more strips) improves accuracy. State whether the estimate is an overestimate or underestimate by considering the curve's concavity.</div></div>
+<div class="warn">Newton-Raphson can diverge or oscillate if the starting value is near a stationary point — always check that f′(xₙ) is not close to zero.</div>
+<div class="tip">In exams, show each iteration step and give values to the required decimal places. State convergence by showing two consecutive iterates agree to the required accuracy.</div>
+</div>
+</div>
+
+<!-- VECTORS (3D) -->
+<div class="box">
+<div class="box-head s3">Vectors (3D) <span class="marks">Ch 12</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">3D vectors</div><div class="val">Position vectors in 3D: r = xi + yj + zk or as column vectors.<div class="formula-box">|a| = √(x² + y² + z²)</div>Unit vector: â = a / |a|. Direction ratios give the relative components.</div></div>
+<div class="row"><div class="kw">Scalar (dot) product</div><div class="val"><div class="formula-box">a · b = a₁b₁ + a₂b₂ + a₃b₃ = |a||b|cosθ</div>If a · b = 0, the vectors are perpendicular. Rearrange to find the angle:<div class="formula-box">cosθ = (a · b) / (|a||b|)</div></div></div>
+<div class="row"><div class="kw">Angle between vectors</div><div class="val">Use the scalar product formula. Always give the acute angle unless told otherwise — if cosθ is negative, the acute angle is 180° − θ.</div></div>
+<div class="row"><div class="kw">Vector equation of a line</div><div class="val"><div class="formula-box">r = a + λd</div>a = position vector of a known point on the line, d = direction vector, λ = parameter.<div class="ex-box"><span class="ex-label">Example</span>Line through (1,2,3) in direction (4,−1,2): r = (1,2,3) + λ(4,−1,2)</div>To find if a point lies on the line: substitute and check all three components give the same λ.</div></div>
+<div class="warn">When finding angles between lines, use the direction vectors — not position vectors. Take |cosθ| if you need the acute angle.</div>
+<div class="tip">To find the intersection of two lines in 3D, set them equal and solve the simultaneous equations. Check the third equation for consistency — in 3D, lines may be skew (non-intersecting and non-parallel).</div>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</body>
+</html>

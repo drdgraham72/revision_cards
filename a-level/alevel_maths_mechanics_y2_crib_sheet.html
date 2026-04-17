@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Mechanics — Year 13 Crib Sheet</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+          --bg1: #ffffff; --bg2: #f4f6f2; --bg3: #eaf3de;
+          --t1: #1a1a18; --t2: #5f5e5a; --t3: #888780;
+          --bl: rgba(0,0,0,0.11); --bm: rgba(0,0,0,0.20);
+          --r: 8px; --rl: 12px;
+          --font: system-ui,-apple-system,sans-serif; --mono: 'Courier New', monospace;
+        }
+        @media(prefers-color-scheme:dark){
+          :root{
+            --bg1:#1e1e1c;--bg2:#252723;--bg3:#1a2a14;
+            --t1:#f0ece4;--t2:#a8a59e;--t3:#6e6d69;
+            --bl:rgba(255,255,255,0.09);--bm:rgba(255,255,255,0.18);
+          }
+        }
+        body{font-family:var(--font);background:var(--bg2);color:var(--t1);padding:1.75rem 1rem;min-height:100vh;}
+        .page { width: 100%; max-width: 1000px; margin: 0 auto; font-size: 12px; line-height: 1.4; }
+        h1 { font-size: 18px; font-weight: 600; margin-bottom: 0.25rem; }
+        .header { background: var(--bl); backdrop-filter: blur(8px); padding: 1rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-radius: var(--r); border: 0.5px solid var(--bm); }
+        .header h1 { font-size: 18px; font-weight: 600; margin: 0; }
+        .header span { font-size: 11px; color: var(--t2); font-family: var(--mono); letter-spacing: 0.05em; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .col { display: flex; flex-direction: column; gap: 8px; }
+        @media (max-width:768px) {
+          .grid { grid-template-columns: 1fr; }
+          .page { padding: 0; }
+        }
+        .box { background: var(--bg1); border: 0.5px solid var(--bl); border-radius: var(--r); overflow: hidden; }
+        .box-head { padding: 10px 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; background: var(--bl); }
+        .box-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; }
+        .row { display: grid; grid-template-columns: 28% 72%; gap: 8px; padding-bottom: 6px; border-bottom: 0.5px solid var(--bl); }
+        .row:last-child { border-bottom: none; }
+        .kw { font-weight: 650; color: var(--t2); font-size: 11px; font-family: var(--mono); }
+        .val { font-size: 11.5px; color: var(--t1); line-height: 1.35; }
+        .marks { font-family: var(--mono); font-size: 10px; color: var(--t2); background: var(--bg3); padding: 2px 5px; border-radius: 2px; }
+        .ex-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; border-left: 2px solid var(--t2); }
+        .ex-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--t2); display: block; margin-bottom: 2px; }
+        .formula-box { background: var(--bg3); padding: 6px 8px; border-radius: 2px; margin: 3px 0; font-family: var(--mono); font-size: 10.5px; border-left: 2px solid #3b6d11; }
+        .board { font-size: 9px; font-weight: 600; display: inline-block; padding: 1px 5px; border-radius: 3px; background: var(--bl); color: var(--t1); margin: 2px 2px 0 0; }
+        .board.all { background: #eaf3de; color: #3b6d11; }
+        .board.h { background: #e6f1fb; color: #185fa5; }
+        .board.f { background: #faeeda; color: #854f0b; }
+        .warn { background: #faeeda; border-left: 2px solid #ef9f27; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #633806; margin: 4px 0; }
+        .tip { background: #eeedfe; border-left: 2px solid #7f77dd; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #3c3489; margin: 4px 0; }
+        .good { background: #eaf3de; border-left: 2px solid #639922; border-radius: 0 2px 2px 0; padding: 4px 8px; font-size: 11px; color: #173404; margin: 4px 0; }
+        .s1 { background: #3b6d11; color: #eaf3de; }
+        .s2 { background: #185fa5; color: #e6f1fb; }
+        .s3 { background: #534ab7; color: #eeedfe; }
+        .s4 { background: #854f0b; color: #faeeda; }
+        .s5 { background: #a32d2d; color: #fcebeb; }
+        .s6 { background: #0f6e56; color: #e1f5ee; }
+    </style>
+</head>
+<body>
+<div class="page">
+<div class="header">
+  <h1>A-Level Mechanics — Year 13 Crib Sheet</h1>
+  <span>Edexcel · Year 2/A2 · Mechanics</span>
+</div>
+
+<div class="grid">
+<div class="col">
+
+<!-- FURTHER KINEMATICS (CALCULUS) -->
+<div class="box">
+<div class="box-head s1">Further Kinematics (Calculus) <span class="marks">Ch 6</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Calculus relationships</div><div class="val">For motion with variable acceleration, the suvat equations do not apply. Use calculus instead:<div class="formula-box">v = ds/dt &nbsp;(differentiate displacement)<br>a = dv/dt = d²s/dt² &nbsp;(differentiate velocity)<br>s = ∫v dt &nbsp;(integrate velocity)<br>v = ∫a dt &nbsp;(integrate acceleration)</div></div></div>
+<div class="row"><div class="kw">Vector form (i, j)</div><div class="val">Position, velocity and acceleration can be given as vectors:<div class="formula-box">r = x<strong>i</strong> + y<strong>j</strong><br>v = ẋ<strong>i</strong> + ẏ<strong>j</strong> = dr/dt<br>a = ẍ<strong>i</strong> + ÿ<strong>j</strong> = dv/dt</div>Differentiate and integrate each component separately.</div></div>
+<div class="row"><div class="kw">Finding displacement</div><div class="val">Integrate velocity and use initial conditions to find the constant of integration:<div class="formula-box">s = ∫v dt + C<br>Use s(0) = s₀ to find C</div><div class="ex-box"><span class="ex-label">Example</span>If v = 3t² − 2t + 1 and s = 4 when t = 0:<br>s = t³ − t² + t + C → 4 = 0 + C → s = t³ − t² + t + 4</div></div></div>
+<div class="row"><div class="kw">Maximum / minimum</div><div class="val">Maximum displacement: set v = ds/dt = 0 and check the sign changes.<br>Maximum velocity: set a = dv/dt = 0 and verify it is a maximum using d²v/dt².<div class="formula-box">At rest: v = 0<br>At max speed: a = 0 (and a changes sign)</div></div></div>
+<div class="row"><div class="kw">Speed &amp; magnitude</div><div class="val">Speed is the magnitude of velocity:<div class="formula-box">|v| = √(ẋ² + ẏ²)<br>Distance from origin: |r| = √(x² + y²)</div></div></div>
+<div class="warn">When integrating to find displacement or velocity, you MUST include the constant of integration and use initial conditions to find it. Forgetting +C is a guaranteed mark loss.</div>
+<div class="tip">If the question says "variable acceleration" or gives acceleration as a function of t, that is your cue to use calculus, not suvat. Read carefully — suvat only works for constant acceleration.</div>
+</div>
+</div>
+
+<!-- PROJECTILES (ADVANCED) -->
+<div class="box">
+<div class="box-head s2">Projectiles (Advanced) <span class="marks">Ch 7</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Resolving at angle θ</div><div class="val">For a projectile launched at speed u at angle θ to the horizontal:<div class="formula-box">Horizontal: u_x = u cos θ &nbsp;(constant, no acceleration)<br>Vertical: u_y = u sin θ &nbsp;(acceleration = −g)</div></div></div>
+<div class="row"><div class="kw">Key equations</div><div class="val"><div class="formula-box">Horizontal: x = (u cos θ)t<br>Vertical: y = (u sin θ)t − ½gt²<br>Vertical velocity: v_y = u sin θ − gt</div>Treat horizontal and vertical components independently. There is no horizontal acceleration (ignoring air resistance).</div></div>
+<div class="row"><div class="kw">Maximum height</div><div class="val">At the highest point, the vertical velocity is zero:<div class="formula-box">v_y = 0 → t = (u sin θ)/g<br>Max height H = u²sin²θ / (2g)</div></div></div>
+<div class="row"><div class="kw">Time of flight</div><div class="val">Time for the projectile to return to the same vertical level:<div class="formula-box">T = 2u sin θ / g</div>This is twice the time to reach maximum height (by symmetry).</div></div>
+<div class="row"><div class="kw">Range</div><div class="val">Horizontal distance when the projectile returns to launch height:<div class="formula-box">R = u²sin 2θ / g</div>Maximum range occurs when θ = 45°.</div></div>
+<div class="row"><div class="kw">Trajectory equation</div><div class="val">Eliminate t to get y as a function of x:<div class="formula-box">y = x tan θ − gx² / (2u²cos²θ)</div>Useful when you need to find the height at a given horizontal distance, or vice versa.</div></div>
+<div class="warn">Always resolve initial velocity into components FIRST. Using the full speed u in vertical equations is the most common projectile error. Horizontal: u cos θ. Vertical: u sin θ.</div>
+<div class="tip">At maximum height, only v_y = 0. The horizontal velocity u cos θ never changes. The speed at the top is u cos θ, not zero (unless launched vertically).</div>
+</div>
+</div>
+
+<!-- ELASTIC STRINGS & SPRINGS -->
+<div class="box">
+<div class="box-head s6">Elastic Strings &amp; Springs <span class="marks">Ch 10</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Hooke's law</div><div class="val">The tension in an elastic string or spring is proportional to the extension:<div class="formula-box">T = kx = λx / l<br><br>k = spring constant (stiffness)<br>λ = modulus of elasticity<br>l = natural length<br>x = extension (or compression for springs)</div>Strings can only be in tension (T ≥ 0). Springs can be in tension or compression.</div></div>
+<div class="row"><div class="kw">Elastic potential energy</div><div class="val"><div class="formula-box">EPE = ½kx² = λx² / (2l)</div>This is the energy stored in a stretched (or compressed) elastic string or spring. Used in energy conservation problems.</div></div>
+<div class="row"><div class="kw">Energy conservation</div><div class="val">For problems involving elastic strings/springs, apply conservation of energy:<div class="formula-box">KE₁ + PE₁ + EPE₁ = KE₂ + PE₂ + EPE₂<br><br>½mv² + mgh + ½kx² = constant (if no external forces do work)</div></div></div>
+<div class="row"><div class="kw">Beyond natural length</div><div class="val">A string becomes slack when its length ≤ natural length (x ≤ 0). Once slack, T = 0 and the string has no effect. A spring can compress below its natural length — extension becomes negative and the force reverses direction.</div></div>
+<div class="warn">Strings can only pull, never push. If your working gives a negative extension for a string, it means the string is slack and T = 0. Springs can do both — check whether the question specifies a string or a spring.</div>
+<div class="tip">In energy problems, always identify your reference level for GPE at the start. Include ALL forms of energy: kinetic, gravitational PE, and elastic PE. Draw a clear before-and-after diagram.</div>
+</div>
+</div>
+
+</div>
+
+<div class="col">
+
+<!-- FURTHER DYNAMICS -->
+<div class="box">
+<div class="box-head s3">Further Dynamics <span class="marks">Ch 8</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">F = ma (variable forces)</div><div class="val">Newton's second law still applies when forces vary with time or position:<div class="formula-box">F(t) = ma = m(dv/dt)<br>F(x) = ma = mv(dv/dx)</div>Solve by integrating or using calculus techniques from kinematics.</div></div>
+<div class="row"><div class="kw">Momentum</div><div class="val"><div class="formula-box">Momentum: p = mv<br>Conservation: m₁u₁ + m₂u₂ = m₁v₁ + m₂v₂</div>Momentum is conserved when no external forces act on the system. Always define a positive direction first.</div></div>
+<div class="row"><div class="kw">Impulse</div><div class="val"><div class="formula-box">Impulse = change in momentum<br>I = mv − mu = Ft &nbsp;(for constant force)<br>I = ∫F dt &nbsp;(for variable force)</div>Impulse is a vector. The direction matters — a force in the negative direction produces negative impulse.</div></div>
+<div class="row"><div class="kw">Collisions</div><div class="val">In a collision, momentum is conserved. For the impulse on each object:<div class="formula-box">Impulse on A = −(Impulse on B)</div>Newton's third law: equal and opposite impulses.<div class="ex-box"><span class="ex-label">Example</span>A 2 kg ball at 5 m/s hits a 3 kg ball at rest. After: 2 kg ball moves at 1 m/s.<br>2(5) + 3(0) = 2(1) + 3v → v = 8/3 m/s</div></div></div>
+<div class="row"><div class="kw">Newton's experimental law</div><div class="val">For direct collisions, the coefficient of restitution e relates the speeds:<div class="formula-box">e = (speed of separation) / (speed of approach)<br>0 ≤ e ≤ 1</div>e = 1: perfectly elastic (KE conserved). e = 0: perfectly inelastic (objects coalesce).</div></div>
+<div class="warn">Always define your positive direction clearly and stick to it. Sign errors in momentum problems are extremely common. Draw a diagram showing velocities before and after the collision.</div>
+<div class="tip">When using impulse with a variable force, you must integrate F with respect to t. The integral ∫F dt gives the total impulse, which equals the total change in momentum.</div>
+</div>
+</div>
+
+<!-- STATICS -->
+<div class="box">
+<div class="box-head s4">Statics <span class="marks">Ch 9</span></div>
+<div class="box-body">
+<div class="row"><div class="kw">Equilibrium conditions</div><div class="val">A body is in equilibrium when:<div class="formula-box">ΣF = 0 &nbsp;(net force is zero)<br>ΣM = 0 &nbsp;(net moment about any point is zero)</div>Resolve forces horizontally and vertically, and take moments about a suitable point.</div></div>
+<div class="row"><div class="kw">Moments</div><div class="val"><div class="formula-box">Moment = Force × perpendicular distance from pivot<br>M = Fd</div>Take moments about a point where an unknown force acts — this eliminates that unknown from the equation. Clockwise and anticlockwise moments must balance.</div></div>
+<div class="row"><div class="kw">Friction</div><div class="val"><div class="formula-box">F ≤ μR<br><br>F = frictional force<br>μ = coefficient of friction<br>R = normal reaction</div>Friction acts to oppose motion (or the tendency to move). It is a passive force: it takes whatever value is needed up to the limiting value μR.</div></div>
+<div class="row"><div class="kw">Limiting friction</div><div class="val">When the body is "on the point of sliding" or "about to move", friction is at its maximum:<div class="formula-box">F = μR &nbsp;(limiting equilibrium)</div>In limiting equilibrium, the body is still stationary but any increase in the applied force would cause motion.</div></div>
+<div class="row"><div class="kw">Rigid bodies</div><div class="val">For a rigid body (e.g., a ladder, beam, plank), consider:<br>1. Weight acting at the centre of mass<br>2. Normal reactions at supports/contacts<br>3. Friction at rough surfaces<br>4. Applied forces and their points of action<div class="ex-box"><span class="ex-label">Ladder problem</span>Ladder against a smooth wall, rough ground: resolve horizontally (wall reaction = friction), resolve vertically (ground reaction = weight), take moments about the base to find the wall reaction.</div></div></div>
+<div class="row"><div class="kw">Tilting &amp; sliding</div><div class="val">A body on the point of tilting: reaction at the tilting edge, zero reaction at the other support.<br>A body on the point of sliding: F = μR at the sliding surface.<br>To determine which happens first, find the critical force for each and compare.</div></div>
+<div class="warn">When taking moments, always use the PERPENDICULAR distance from the line of action of the force to the pivot point. If the force is at an angle, resolve it first or use Fd sin θ.</div>
+<div class="tip">Choose your pivot point wisely. Taking moments about a point where unknown forces meet eliminates them from the equation, giving you a single equation with one unknown.</div>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</body>
+</html>
