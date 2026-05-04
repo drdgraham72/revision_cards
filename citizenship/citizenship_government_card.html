@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Life in the UK — UK Government Deep Dive</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f0;
+    --text-primary: #1a1a18;
+    --text-secondary: #5f5e5a;
+    --text-tertiary: #888780;
+    --border-light: rgba(0,0,0,0.12);
+    --border-mid: rgba(0,0,0,0.22);
+    --gov-blue: #012169;
+    --commons-green: #006853;
+    --lords-red: #a32d2d;
+    --gold: #c8a951;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --font: system-ui, -apple-system, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-primary: #1e1e1c;
+      --bg-secondary: #2a2a28;
+      --text-primary: #f0ece4;
+      --text-secondary: #a8a59e;
+      --text-tertiary: #807d76;
+      --border-light: rgba(255,255,255,0.10);
+      --border-mid: rgba(255,255,255,0.20);
+    }
+  }
+  body { font-family: var(--font); background: var(--bg-secondary); color: var(--text-primary); padding: 2rem 1rem 4rem; min-height: 100vh; }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+
+  h1 { font-size: 22px; font-weight: 600; margin-bottom: 0.2rem; }
+  .subtitle { font-size: 14px; color: var(--text-secondary); margin-bottom: 1.6rem; }
+
+  .section { margin-bottom: 2rem; }
+  .section-title {
+    font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--text-tertiary); margin-bottom: 12px;
+    padding-bottom: 6px; border-bottom: 1px solid var(--border-light);
+  }
+
+  .diagram-wrap {
+    background: var(--bg-primary); border: 0.5px solid var(--border-light); border-radius: var(--radius-lg);
+    padding: 18px; overflow-x: auto;
+  }
+  .diagram-wrap svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+
+  .lozenges { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+  .loz {
+    background: var(--bg-primary); border: 0.5px solid var(--border-light);
+    border-radius: var(--radius-md); padding: 1rem 1.1rem; border-left: 4px solid var(--gov-blue);
+  }
+  .loz.commons { border-left-color: var(--commons-green); }
+  .loz.lords { border-left-color: var(--lords-red); }
+  .loz.crown { border-left-color: var(--gold); }
+  .loz.dev { border-left-color: #534ab7; }
+  .loz h3 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+  .loz p { font-size: 13px; color: var(--text-secondary); line-height: 1.55; }
+  .loz .meta { font-size: 11px; color: var(--text-tertiary); margin-top: 8px; padding-top: 8px; border-top: 0.5px dashed var(--border-light); font-family: 'DM Mono', monospace; letter-spacing: 0.03em; }
+
+  .compare-table {
+    width: 100%; border-collapse: collapse; background: var(--bg-primary);
+    border: 0.5px solid var(--border-light); border-radius: var(--radius-md); overflow: hidden;
+  }
+  .compare-table th, .compare-table td { padding: 10px 12px; font-size: 13px; text-align: left; border-bottom: 0.5px solid var(--border-light); }
+  .compare-table th { background: var(--bg-secondary); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-tertiary); }
+  .compare-table td:first-child { font-weight: 600; color: var(--text-primary); white-space: nowrap; }
+  .compare-table td { color: var(--text-secondary); line-height: 1.5; }
+
+  .role-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 700px) { .role-grid { grid-template-columns: 1fr; } }
+  .role-card {
+    background: var(--bg-primary); border: 0.5px solid var(--border-light); border-radius: var(--radius-md);
+    padding: 1rem 1.1rem;
+  }
+  .role-card h3 { font-size: 14px; font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .role-card .icon { font-size: 18px; }
+  .role-card ul { list-style: none; padding: 0; }
+  .role-card li { font-size: 13px; color: var(--text-secondary); line-height: 1.55; padding: 4px 0 4px 18px; position: relative; }
+  .role-card li::before { content: '▸'; position: absolute; left: 4px; top: 4px; color: var(--gov-blue); }
+
+  .exam-box {
+    background: #fff8e1; color: #5d4a00; border-left: 4px solid var(--gold);
+    border-radius: var(--radius-md); padding: 12px 14px; font-size: 13px; line-height: 1.55;
+    margin-top: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    .exam-box { background: rgba(200,169,81,0.1); color: #e0d199; }
+  }
+  .exam-box strong { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+
+  .key-numbers { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+  .knum {
+    background: var(--bg-primary); border: 0.5px solid var(--border-light); border-radius: var(--radius-md);
+    padding: 12px; text-align: center;
+  }
+  .knum .n { font-size: 26px; font-weight: 700; color: var(--gov-blue); }
+  .knum .l { font-size: 11px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 4px; }
+
+  @media (max-width: 768px) {
+    body { font-size: 15px; padding: 1rem 0.7rem 3rem; }
+    .compare-table th, .compare-table td { padding: 8px; font-size: 13px; }
+  }
+</style>
+<link rel="stylesheet" href="../shared/youtube-button.css">
+<script src="../shared/katex.js" defer></script>
+</head>
+<body>
+<a class="yt-link" href="https://www.youtube.com/results?search_query=UK+government+structure+explained+Life+in+the+UK" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg><span class="yt-label">Watch</span></a>
+
+<div class="wrap">
+  <h1 data-yt="UK Parliament Cabinet Monarchy explained" data-yt-label="Govt">UK Government &mdash; Deep Dive</h1>
+  <p class="subtitle">Constitutional monarchy + parliamentary democracy &mdash; how the pieces fit together</p>
+
+  <div class="section">
+    <div class="section-title">The Whole System at a Glance</div>
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 880 540" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, sans-serif">
+        <!-- Crown / Monarch top -->
+        <rect x="350" y="20" width="180" height="60" rx="8" fill="#012169" stroke="#c8a951" stroke-width="2"/>
+        <text x="440" y="48" text-anchor="middle" fill="#c8a951" font-size="13" font-weight="600">THE CROWN</text>
+        <text x="440" y="66" text-anchor="middle" fill="#fff" font-size="11">King Charles III &mdash; head of state</text>
+
+        <!-- Parliament container -->
+        <rect x="60" y="120" width="760" height="180" rx="10" fill="none" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="80" y="140" fill="#888" font-size="11" font-weight="600" letter-spacing="1">PARLIAMENT (WESTMINSTER)</text>
+
+        <!-- House of Commons -->
+        <rect x="100" y="160" width="320" height="120" rx="8" fill="#006853" stroke="#005a48"/>
+        <text x="260" y="186" text-anchor="middle" fill="#fff" font-size="14" font-weight="600">HOUSE OF COMMONS</text>
+        <text x="260" y="206" text-anchor="middle" fill="#cce6dc" font-size="11">650 elected MPs</text>
+        <text x="260" y="224" text-anchor="middle" fill="#cce6dc" font-size="11">Voted in by the public</text>
+        <text x="260" y="242" text-anchor="middle" fill="#cce6dc" font-size="11">Speaker chairs debates</text>
+        <text x="260" y="262" text-anchor="middle" fill="#fff" font-size="10" font-style="italic">"The People's House" &mdash; supreme</text>
+
+        <!-- House of Lords -->
+        <rect x="460" y="160" width="320" height="120" rx="8" fill="#a32d2d" stroke="#871b1b"/>
+        <text x="620" y="186" text-anchor="middle" fill="#fff" font-size="14" font-weight="600">HOUSE OF LORDS</text>
+        <text x="620" y="206" text-anchor="middle" fill="#fce4e4" font-size="11">~800 members &mdash; not elected</text>
+        <text x="620" y="224" text-anchor="middle" fill="#fce4e4" font-size="11">Life peers + bishops + (some) hereditary</text>
+        <text x="620" y="242" text-anchor="middle" fill="#fce4e4" font-size="11">Reviews and revises legislation</text>
+        <text x="620" y="262" text-anchor="middle" fill="#fff" font-size="10" font-style="italic">Lord Speaker chairs</text>
+
+        <!-- Crown to Parliament arrow -->
+        <line x1="440" y1="80" x2="440" y2="120" stroke="#888" stroke-width="1.5"/>
+        <text x="455" y="105" fill="#888" font-size="10">approves laws (Royal Assent)</text>
+
+        <!-- Government / Cabinet -->
+        <rect x="180" y="340" width="240" height="100" rx="8" fill="#1a1a2e" stroke="#888"/>
+        <text x="300" y="365" text-anchor="middle" fill="#c8a951" font-size="13" font-weight="600">PRIME MINISTER &amp; CABINET</text>
+        <text x="300" y="385" text-anchor="middle" fill="#fff" font-size="11">~20 senior ministers</text>
+        <text x="300" y="402" text-anchor="middle" fill="#fff" font-size="11">PM = leader of largest Commons party</text>
+        <text x="300" y="420" text-anchor="middle" fill="#fff" font-size="11">Lives at 10 Downing Street</text>
+
+        <!-- Opposition -->
+        <rect x="460" y="340" width="240" height="100" rx="8" fill="#fff" stroke="#888" stroke-width="1.5"/>
+        <text x="580" y="365" text-anchor="middle" fill="#1a1a2e" font-size="13" font-weight="600">THE OPPOSITION</text>
+        <text x="580" y="385" text-anchor="middle" fill="#5f5e5a" font-size="11">Second-largest Commons party</text>
+        <text x="580" y="402" text-anchor="middle" fill="#5f5e5a" font-size="11">Leader = Leader of the Opposition</text>
+        <text x="580" y="420" text-anchor="middle" fill="#5f5e5a" font-size="11">Has its own "Shadow Cabinet"</text>
+
+        <!-- Commons → Government arrow -->
+        <line x1="260" y1="280" x2="260" y2="340" stroke="#006853" stroke-width="1.5" marker-end="url(#a)"/>
+        <text x="40" y="312" fill="#006853" font-size="10">PM drawn from Commons</text>
+
+        <!-- Commons → Opposition arrow -->
+        <line x1="370" y1="280" x2="540" y2="340" stroke="#888" stroke-width="1" stroke-dasharray="3,3"/>
+
+        <!-- Voters -->
+        <rect x="180" y="470" width="540" height="50" rx="8" fill="#c8a951" stroke="#a08a3e"/>
+        <text x="450" y="495" text-anchor="middle" fill="#1a1a2e" font-size="13" font-weight="600">THE ELECTORATE — UK voters aged 18+</text>
+        <text x="450" y="512" text-anchor="middle" fill="#1a1a2e" font-size="10">General election at least every 5 years &mdash; first-past-the-post</text>
+
+        <!-- Voters → Commons arrow -->
+        <line x1="260" y1="470" x2="260" y2="280" stroke="#c8a951" stroke-width="2" marker-end="url(#g)"/>
+        <text x="105" y="395" fill="#c8a951" font-size="10" font-weight="600">elect</text>
+
+        <defs>
+          <marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <path d="M0,0 L6,4 L0,8 Z" fill="#006853"/>
+          </marker>
+          <marker id="g" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <path d="M0,0 L6,4 L0,8 Z" fill="#c8a951"/>
+          </marker>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="exam-box">
+      <strong>The one-line summary</strong>
+      The UK is a <em>constitutional monarchy</em> and a <em>parliamentary democracy</em>. Voters elect MPs to the Commons; the leader of the largest party becomes PM and forms a government. The monarch is head of state but does not run the government.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Key Numbers to Memorise</div>
+    <div class="key-numbers">
+      <div class="knum"><div class="n">650</div><div class="l">MPs in the Commons</div></div>
+      <div class="knum"><div class="n">~800</div><div class="l">Members of the Lords</div></div>
+      <div class="knum"><div class="n">5</div><div class="l">Years &mdash; max between general elections</div></div>
+      <div class="knum"><div class="n">18</div><div class="l">Voting age (UK general)</div></div>
+      <div class="knum"><div class="n">21</div><div class="l">Min age to stand for Parliament</div></div>
+      <div class="knum"><div class="n">10</div><div class="l">Downing Street &mdash; PM's residence</div></div>
+      <div class="knum"><div class="n">11</div><div class="l">Downing Street &mdash; Chancellor's residence</div></div>
+      <div class="knum"><div class="n">1</div><div class="l">House of Commons constituency per MP</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Parliament — The Two Houses</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th></th><th>House of Commons</th><th>House of Lords</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Members</td><td>650 Members of Parliament (MPs)</td><td>~800 peers (no fixed number)</td></tr>
+        <tr><td>How appointed</td><td>Elected by the public in constituencies</td><td>Appointed (life peers, plus 92 hereditary peers and 26 bishops of the Church of England)</td></tr>
+        <tr><td>Term</td><td>Up to 5 years until next general election</td><td>For life (life peers) &mdash; not subject to elections</td></tr>
+        <tr><td>Chair</td><td>The Speaker (politically neutral once elected)</td><td>The Lord Speaker</td></tr>
+        <tr><td>Powers</td><td>Makes and passes laws; raises and spends taxes; supreme over Lords on money matters</td><td>Reviews, amends and can delay laws; cannot block money bills</td></tr>
+        <tr><td>Government drawn from</td><td>Yes &mdash; PM and most ministers are MPs</td><td>A few ministers may be peers</td></tr>
+      </tbody>
+    </table>
+    <div class="exam-box">
+      <strong>Common trap</strong>
+      The Commons is <em>elected</em>; the Lords is <em>appointed</em>. The Commons is <em>supreme</em> &mdash; it can ultimately override the Lords using the Parliament Acts.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">The Government — Who Does What</div>
+    <div class="role-grid">
+      <div class="role-card">
+        <h3><span class="icon">&#x1f3db;&#xFE0F;</span>Prime Minister</h3>
+        <ul>
+          <li>Leader of the political party with most seats in the Commons</li>
+          <li>Appointed by the monarch &mdash; but in practice the role goes to the largest-party leader automatically</li>
+          <li>Heads the government &mdash; chooses Cabinet ministers</li>
+          <li>Lives and works at <strong>10 Downing Street</strong></li>
+          <li>Has a country residence at <strong>Chequers</strong></li>
+          <li>Can resign or be replaced if loses party support</li>
+        </ul>
+      </div>
+      <div class="role-card">
+        <h3><span class="icon">&#x1f4bc;</span>The Cabinet</h3>
+        <ul>
+          <li>~20 senior ministers chosen by the PM</li>
+          <li>Each runs a government department (Treasury, Foreign Office, Health, etc.)</li>
+          <li>Meets weekly &mdash; takes the most important decisions</li>
+          <li>Notable cabinet roles: <strong>Chancellor of the Exchequer</strong> (finance, lives at 11 Downing Street), <strong>Home Secretary</strong> (immigration, police, security), <strong>Foreign Secretary</strong>, <strong>Defence Secretary</strong></li>
+        </ul>
+      </div>
+      <div class="role-card">
+        <h3><span class="icon">&#x1f3a4;</span>The Speaker</h3>
+        <ul>
+          <li>Chairs debates in the House of Commons</li>
+          <li>Politically neutral once in the role</li>
+          <li>Elected by other MPs from among their own number</li>
+          <li>Responsible for keeping order &mdash; can suspend MPs</li>
+          <li>Decides which MPs speak; calls votes</li>
+        </ul>
+      </div>
+      <div class="role-card">
+        <h3><span class="icon">&#x1f4e2;</span>Leader of the Opposition</h3>
+        <ul>
+          <li>Leads the second-largest Commons party</li>
+          <li>Heads the official Opposition in challenging government policy</li>
+          <li>Appoints a Shadow Cabinet to mirror government roles</li>
+          <li>Receives a salary specifically for this role</li>
+          <li>Faces the PM at <strong>Prime Minister's Questions (PMQs)</strong> &mdash; Wednesdays at noon</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">The Monarchy — The Crown's Role</div>
+    <div class="role-card" style="border-left: 4px solid var(--gold);">
+      <h3><span class="icon">&#x1f451;</span>King Charles III &mdash; Head of State (since 8 September 2022)</h3>
+      <ul>
+        <li><strong>Reigns but does not rule.</strong> Constitutional monarch &mdash; symbolic, not political.</li>
+        <li>Opens new sessions of Parliament with the <strong>King's Speech</strong> (set by the government)</li>
+        <li>Signs every Act of Parliament into law &mdash; <strong>Royal Assent</strong> (last refusal: Queen Anne, 1708)</li>
+        <li>Officially appoints the Prime Minister</li>
+        <li>Head of the armed forces and the Church of England</li>
+        <li>Head of the Commonwealth (54 nations) and head of state of 14 other realms (Canada, Australia, NZ, Jamaica, etc.)</li>
+        <li>Heir apparent: <strong>Prince William</strong> (Prince of Wales since 9 September 2022)</li>
+      </ul>
+    </div>
+    <div class="exam-box">
+      <strong>Test fact</strong>
+      The national anthem is <em>'God Save the King'</em> (it was 'God Save the Queen' until September 2022). The royal house is the <em>House of Windsor</em>.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Devolution — Beyond Westminster</div>
+    <div class="lozenges">
+      <div class="loz dev">
+        <h3>Scottish Parliament</h3>
+        <p>At Holyrood, Edinburgh. 129 MSPs (Members of the Scottish Parliament). Elected every 5 years by a mixed system (constituency + regional list).</p>
+        <div class="meta">Powers: education, health, justice, transport, environment, much taxation.</div>
+      </div>
+      <div class="loz dev">
+        <h3>Senedd Cymru / Welsh Parliament</h3>
+        <p>In Cardiff. 60 Members of the Senedd (MSs). Originally the Welsh Assembly &mdash; renamed Senedd in 2020. Got primary law-making powers in 2011.</p>
+        <div class="meta">Powers: education, health, transport, environment, Welsh language.</div>
+      </div>
+      <div class="loz dev">
+        <h3>Northern Ireland Assembly</h3>
+        <p>At Stormont, Belfast. 90 Members (MLAs). Established by the 1998 Good Friday Agreement. Power-sharing executive between unionists and nationalists.</p>
+        <div class="meta">Powers: education, health, agriculture, justice (since 2010).</div>
+      </div>
+      <div class="loz dev">
+        <h3>UK Parliament — Reserved Powers</h3>
+        <p>Westminster keeps full control of: defence, foreign affairs, immigration, the constitution, most tax law, broadcasting, social security.</p>
+        <div class="meta">Devolution = transferred not given away &mdash; Parliament remains sovereign.</div>
+      </div>
+    </div>
+    <div class="exam-box">
+      <strong>Easy mnemonic</strong>
+      <em>Holyrood &mdash; Senedd &mdash; Stormont</em>: Scotland — Wales — Northern Ireland. England has no devolved parliament &mdash; it is governed directly by Westminster.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Elections &amp; Voting</div>
+    <table class="compare-table">
+      <tbody>
+        <tr><td>General election</td><td>Every 5 years at most. Voters elect 1 MP per constituency. Largest-party leader becomes PM.</td></tr>
+        <tr><td>Voting system</td><td><strong>First-past-the-post</strong> &mdash; the candidate with most votes in each constituency wins. (Devolved bodies use mixed systems.)</td></tr>
+        <tr><td>Voting age</td><td>18 (16 in Scottish and Welsh elections)</td></tr>
+        <tr><td>Polling stations</td><td>Open 7am to 10pm. Held in schools, halls, churches, etc.</td></tr>
+        <tr><td>Postal vote</td><td>Available to anyone &mdash; no reason needed</td></tr>
+        <tr><td>Local elections</td><td>For local councils &mdash; usually held in May</td></tr>
+        <tr><td>Police &amp; Crime Commissioners</td><td>Elected for each police area in England and Wales</td></tr>
+        <tr><td>Mayors</td><td>Some cities (London, Manchester, Liverpool) directly elect a mayor</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Political Parties</div>
+    <table class="compare-table">
+      <thead><tr><th>Party</th><th>Position</th></tr></thead>
+      <tbody>
+        <tr><td>Conservative ("Tories")</td><td>Centre-right. Traditionally pro-business, pro-low-tax.</td></tr>
+        <tr><td>Labour</td><td>Centre-left. Founded by trade unions; pro-workers, pro-public services.</td></tr>
+        <tr><td>Liberal Democrats</td><td>Centre. Pro-EU; civil liberties; reform-oriented.</td></tr>
+        <tr><td>Scottish National Party (SNP)</td><td>Pro-Scottish independence; centre-left. Dominant in Scotland's devolved politics.</td></tr>
+        <tr><td>Plaid Cymru</td><td>Welsh nationalist; centre-left.</td></tr>
+        <tr><td>Green Party</td><td>Environmental; left of centre.</td></tr>
+        <tr><td>Reform UK</td><td>Right-wing, pro-low-immigration.</td></tr>
+        <tr><td>DUP / Sinn Féin / SDLP / UUP / Alliance</td><td>Northern Ireland parties (unionist or nationalist).</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Civil Service &amp; Other Institutions</div>
+    <div class="role-grid">
+      <div class="role-card">
+        <h3><span class="icon">&#x1f4cb;</span>The Civil Service</h3>
+        <ul>
+          <li>Politically neutral &mdash; serves whichever government is in power</li>
+          <li>Implements government decisions; gives advice to ministers</li>
+          <li>Civil servants are not political appointees and don't change with the government</li>
+          <li>Standards: integrity, honesty, objectivity, impartiality</li>
+        </ul>
+      </div>
+      <div class="role-card">
+        <h3><span class="icon">&#x1f1ec;&#x1f1e7;</span>Local Government</h3>
+        <ul>
+          <li>County councils, district / borough / city councils</li>
+          <li>Responsible for: schools, social services, rubbish collection, planning, libraries, local roads</li>
+          <li>Funded by Council Tax (paid by residents) plus central government grants</li>
+          <li>Councillors elected by local residents</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="../shared/youtube-button.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Life in the UK — Law, Courts &amp; Your Role</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f0;
+    --text-primary: #1a1a18;
+    --text-secondary: #5f5e5a;
+    --text-tertiary: #888780;
+    --border-light: rgba(0,0,0,0.12);
+    --border-mid: rgba(0,0,0,0.22);
+    --crim: #a32d2d;
+    --civ: #185fa5;
+    --gold: #c8a951;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --font: system-ui, -apple-system, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-primary: #1e1e1c;
+      --bg-secondary: #2a2a28;
+      --text-primary: #f0ece4;
+      --text-secondary: #a8a59e;
+      --text-tertiary: #807d76;
+      --border-light: rgba(255,255,255,0.10);
+      --border-mid: rgba(255,255,255,0.20);
+    }
+  }
+  body { font-family: var(--font); background: var(--bg-secondary); color: var(--text-primary); padding: 2rem 1rem 4rem; min-height: 100vh; }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+  h1 { font-size: 22px; font-weight: 600; margin-bottom: 0.2rem; }
+  .subtitle { font-size: 14px; color: var(--text-secondary); margin-bottom: 1.6rem; }
+
+  .section { margin-bottom: 2rem; }
+  .section-title {
+    font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--text-tertiary); margin-bottom: 12px;
+    padding-bottom: 6px; border-bottom: 1px solid var(--border-light);
+  }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
+  .col {
+    background: var(--bg-primary); border: 0.5px solid var(--border-light); border-radius: var(--radius-md);
+    padding: 1rem 1.2rem;
+  }
+  .col.crim { border-top: 4px solid var(--crim); }
+  .col.civ { border-top: 4px solid var(--civ); }
+  .col h3 { font-size: 14px; font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .col h3 .pip { font-size: 10px; padding: 2px 8px; border-radius: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+  .col.crim h3 .pip { background: #FCEBEB; color: var(--crim); }
+  .col.civ h3 .pip  { background: #E6F1FB; color: var(--civ); }
+  .col p { font-size: 13px; color: var(--text-secondary); line-height: 1.55; }
+  .col ul { list-style: none; padding: 0; margin-top: 8px; }
+  .col li { font-size: 13px; color: var(--text-secondary); line-height: 1.55; padding: 4px 0 4px 18px; position: relative; border-bottom: 0.5px dashed var(--border-light); }
+  .col li:last-child { border-bottom: 0; }
+  .col.crim li::before { content: '◆'; position: absolute; left: 0; top: 4px; color: var(--crim); font-size: 10px; }
+  .col.civ li::before  { content: '◆'; position: absolute; left: 0; top: 4px; color: var(--civ); font-size: 10px; }
+
+  .court-tree {
+    background: var(--bg-primary); border: 0.5px solid var(--border-light); border-radius: var(--radius-md);
+    padding: 18px; overflow-x: auto;
+  }
+  .court-tree svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+
+  .age-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; }
+  .age {
+    background: var(--bg-primary); border: 0.5px solid var(--border-light); border-radius: var(--radius-md);
+    padding: 12px 10px; text-align: center;
+  }
+  .age .n { font-size: 26px; font-weight: 700; color: var(--civ); }
+  .age .l { font-size: 11px; color: var(--text-tertiary); margin-top: 4px; line-height: 1.4; }
+
+  .duty-card {
+    background: var(--bg-primary); border: 0.5px solid var(--border-light); border-left: 4px solid var(--gold);
+    border-radius: var(--radius-md); padding: 1rem 1.2rem; margin-bottom: 12px;
+  }
+  .duty-card h3 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+  .duty-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.55; }
+  .duty-card .meta { font-size: 11px; color: var(--text-tertiary); margin-top: 6px; font-family: 'DM Mono', monospace; }
+
+  .exam-box {
+    background: #fff8e1; color: #5d4a00; border-left: 4px solid var(--gold);
+    border-radius: var(--radius-md); padding: 12px 14px; font-size: 13px; line-height: 1.55;
+    margin-top: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    .exam-box { background: rgba(200,169,81,0.1); color: #e0d199; }
+  }
+  .exam-box strong { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+
+  table.rights {
+    width: 100%; border-collapse: collapse; background: var(--bg-primary);
+    border: 0.5px solid var(--border-light); border-radius: var(--radius-md); overflow: hidden;
+  }
+  table.rights th, table.rights td { padding: 10px 12px; font-size: 13px; text-align: left; border-bottom: 0.5px solid var(--border-light); }
+  table.rights th { background: var(--bg-secondary); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-tertiary); }
+  table.rights td:first-child { font-weight: 600; color: var(--text-primary); white-space: nowrap; vertical-align: top; }
+  table.rights td { color: var(--text-secondary); line-height: 1.5; }
+
+  @media (max-width: 768px) {
+    body { font-size: 15px; padding: 1rem 0.7rem 3rem; }
+  }
+</style>
+<link rel="stylesheet" href="../shared/youtube-button.css">
+<script src="../shared/katex.js" defer></script>
+</head>
+<body>
+<a class="yt-link" href="https://www.youtube.com/results?search_query=UK+law+courts+jury+citizenship+test" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg><span class="yt-label">Watch</span></a>
+
+<div class="wrap">
+  <h1 data-yt="UK courts criminal civil law explained" data-yt-label="Law">Law, Courts &amp; Your Role</h1>
+  <p class="subtitle">The legal system, the courts, your rights and your duties as a UK resident</p>
+
+  <div class="section">
+    <div class="section-title">Criminal vs Civil — The Big Distinction</div>
+    <div class="two-col">
+      <div class="col crim">
+        <h3><span class="pip">Criminal</span> Crimes against society</h3>
+        <p>The state prosecutes a defendant who has broken the law. If guilty, the defendant is punished &mdash; fine, community service, prison.</p>
+        <ul>
+          <li><strong>Burden:</strong> the prosecution must prove guilt 'beyond reasonable doubt'</li>
+          <li><strong>Examples:</strong> theft, assault, drug offences, drink-driving, murder</li>
+          <li><strong>Brought by:</strong> the Crown Prosecution Service (CPS) on behalf of the state</li>
+          <li><strong>Possible outcomes:</strong> fine, community order, imprisonment, suspended sentence</li>
+        </ul>
+      </div>
+      <div class="col civ">
+        <h3><span class="pip">Civil</span> Disputes between people</h3>
+        <p>One party (the claimant) sues another (the defendant) for damages or a remedy. The losing side may have to pay compensation but is not punished by the state.</p>
+        <ul>
+          <li><strong>Burden:</strong> 'on the balance of probabilities' (lower than criminal)</li>
+          <li><strong>Examples:</strong> divorce, debt, contract disputes, personal injury, defamation, employment</li>
+          <li><strong>Brought by:</strong> the claimant (the person bringing the case)</li>
+          <li><strong>Possible outcomes:</strong> compensation (damages), injunction, court order</li>
+        </ul>
+      </div>
+    </div>
+    <div class="exam-box">
+      <strong>The one-sentence test</strong>
+      Crime = wrong against society, prosecuted by the state, punishment. Civil = dispute between two parties, brought by one of them, compensation. Test questions often pose a scenario and ask which type it is.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">The Court Hierarchy (England &amp; Wales)</div>
+    <div class="court-tree">
+      <svg viewBox="0 0 880 460" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, sans-serif">
+        <!-- Supreme Court at top -->
+        <rect x="320" y="20" width="240" height="60" rx="8" fill="#012169"/>
+        <text x="440" y="46" text-anchor="middle" fill="#c8a951" font-size="13" font-weight="600">SUPREME COURT</text>
+        <text x="440" y="64" text-anchor="middle" fill="#fff" font-size="10">Final court of appeal &mdash; UK-wide</text>
+
+        <!-- Court of Appeal -->
+        <rect x="320" y="120" width="240" height="60" rx="8" fill="#1a1a2e" stroke="#888"/>
+        <text x="440" y="146" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">COURT OF APPEAL</text>
+        <text x="440" y="164" text-anchor="middle" fill="#aaa" font-size="10">Civil &amp; Criminal Divisions</text>
+
+        <line x1="440" y1="80" x2="440" y2="120" stroke="#888" stroke-width="1.5"/>
+
+        <!-- Criminal stream -->
+        <rect x="100" y="220" width="200" height="60" rx="8" fill="#fff" stroke="#a32d2d" stroke-width="2"/>
+        <text x="200" y="246" text-anchor="middle" fill="#a32d2d" font-size="12" font-weight="600">CROWN COURT</text>
+        <text x="200" y="264" text-anchor="middle" fill="#5f5e5a" font-size="10">Serious crime &mdash; jury trials</text>
+
+        <rect x="100" y="320" width="200" height="60" rx="8" fill="#fff" stroke="#a32d2d" stroke-width="2"/>
+        <text x="200" y="346" text-anchor="middle" fill="#a32d2d" font-size="12" font-weight="600">MAGISTRATES' COURT</text>
+        <text x="200" y="364" text-anchor="middle" fill="#5f5e5a" font-size="10">Minor crime, no jury</text>
+
+        <line x1="200" y1="320" x2="200" y2="280" stroke="#a32d2d" stroke-width="1.5" stroke-dasharray="3,3"/>
+        <line x1="320" y1="180" x2="200" y2="220" stroke="#a32d2d" stroke-width="1.5" stroke-dasharray="3,3"/>
+
+        <text x="50" y="200" fill="#a32d2d" font-size="11" font-weight="600" letter-spacing="0.5">CRIMINAL STREAM</text>
+
+        <!-- Civil stream -->
+        <rect x="580" y="220" width="200" height="60" rx="8" fill="#fff" stroke="#185fa5" stroke-width="2"/>
+        <text x="680" y="246" text-anchor="middle" fill="#185fa5" font-size="12" font-weight="600">HIGH COURT</text>
+        <text x="680" y="264" text-anchor="middle" fill="#5f5e5a" font-size="10">Major civil cases</text>
+
+        <rect x="580" y="320" width="200" height="60" rx="8" fill="#fff" stroke="#185fa5" stroke-width="2"/>
+        <text x="680" y="346" text-anchor="middle" fill="#185fa5" font-size="12" font-weight="600">COUNTY COURT</text>
+        <text x="680" y="364" text-anchor="middle" fill="#5f5e5a" font-size="10">Smaller civil disputes</text>
+
+        <line x1="680" y1="320" x2="680" y2="280" stroke="#185fa5" stroke-width="1.5" stroke-dasharray="3,3"/>
+        <line x1="560" y1="180" x2="680" y2="220" stroke="#185fa5" stroke-width="1.5" stroke-dasharray="3,3"/>
+
+        <text x="600" y="200" fill="#185fa5" font-size="11" font-weight="600" letter-spacing="0.5">CIVIL STREAM</text>
+
+        <!-- Tribunals -->
+        <rect x="100" y="420" width="200" height="30" rx="6" fill="#fff" stroke="#888"/>
+        <text x="200" y="440" text-anchor="middle" fill="#5f5e5a" font-size="10">Youth Court (10–17)</text>
+        <line x1="200" y1="420" x2="200" y2="380" stroke="#888" stroke-width="1" stroke-dasharray="2,2"/>
+
+        <rect x="580" y="420" width="200" height="30" rx="6" fill="#fff" stroke="#888"/>
+        <text x="680" y="440" text-anchor="middle" fill="#5f5e5a" font-size="10">Tribunals (employment, tax)</text>
+        <line x1="680" y1="420" x2="680" y2="380" stroke="#888" stroke-width="1" stroke-dasharray="2,2"/>
+
+        <!-- Direction note -->
+        <text x="440" y="450" text-anchor="middle" fill="#888" font-size="10" font-style="italic">↑ Appeals move upward; the Supreme Court is the final court of appeal in the UK</text>
+      </svg>
+    </div>
+
+    <div class="exam-box">
+      <strong>The flow</strong>
+      Most crimes start in the <em>Magistrates' Court</em>. Serious crimes (murder, rape, robbery) go up to the <em>Crown Court</em> for a jury trial. Civil disputes start in the <em>County Court</em>; bigger civil cases in the <em>High Court</em>. Appeals go to the <em>Court of Appeal</em>, then ultimately the <em>Supreme Court</em>.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Juries</div>
+    <table class="rights">
+      <tbody>
+        <tr><td>Where</td><td>The Crown Court (and serious civil cases such as fraud or defamation)</td></tr>
+        <tr><td>Number of jurors</td><td><strong>12 in England, Wales and Northern Ireland.</strong> 15 in Scotland.</td></tr>
+        <tr><td>Eligibility</td><td>Aged 18–75, on the electoral register, and a UK resident for at least 5 years since age 13. People with serious criminal convictions may be disqualified.</td></tr>
+        <tr><td>Selection</td><td>Random selection from the electoral register. You receive a summons in the post.</td></tr>
+        <tr><td>Civic duty</td><td>Jury service is compulsory unless you have a valid reason to be excused. Most people serve for about 10 working days.</td></tr>
+        <tr><td>Verdict</td><td>England: ideally unanimous; majority verdicts allowed (e.g. 10–2) after deliberation. Scotland: simple majority of 15. Three Scottish verdicts: Guilty, Not Guilty, Not Proven.</td></tr>
+      </tbody>
+    </table>
+    <div class="exam-box">
+      <strong>Quick fact</strong>
+      Scotland's legal system is separate from England's. The "Not Proven" verdict (a third option meaning 'we suspect but can't be sure') is unique to Scotland.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Police, Lawyers and Other Officials</div>
+    <table class="rights">
+      <tbody>
+        <tr><td>Police</td><td>Independent of government. Each force has a Chief Constable (or Commissioner in London). Police &amp; Crime Commissioners are elected by the public in England and Wales (since 2012).</td></tr>
+        <tr><td>Solicitor</td><td>A lawyer you go to first &mdash; gives advice, prepares documents, deals with most legal matters. Can represent you in lower courts.</td></tr>
+        <tr><td>Barrister</td><td>A specialist court advocate. Argues cases in higher courts. Usually instructed via a solicitor.</td></tr>
+        <tr><td>Magistrate / JP</td><td>Volunteer, unpaid. Sits in the Magistrates' Court. Usually three lay magistrates hear minor cases.</td></tr>
+        <tr><td>Judge</td><td>Trained lawyer; presides over the Crown Court and higher courts. Decides points of law and (in non-jury cases) the verdict and sentence.</td></tr>
+        <tr><td>Coroner</td><td>Investigates unexpected, violent or unexplained deaths.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Your Rights — and How They Are Protected</div>
+    <table class="rights">
+      <thead><tr><th>Right</th><th>What it means</th></tr></thead>
+      <tbody>
+        <tr><td>Equality</td><td>The Equality Act 2010 protects against discrimination on grounds of: age, disability, gender reassignment, marriage / civil partnership, pregnancy, race, religion, sex, sexual orientation. These are the <strong>nine protected characteristics</strong>.</td></tr>
+        <tr><td>Free expression</td><td>Freedom of speech &mdash; you may criticise the government, the law, religion, public figures &mdash; subject to laws against incitement, defamation and hate speech.</td></tr>
+        <tr><td>Free association</td><td>Right to join a political party, trade union, faith group, or any lawful organisation.</td></tr>
+        <tr><td>Fair trial</td><td>Right to be presumed innocent until proven guilty; right to legal representation; right to silence; right to a public hearing.</td></tr>
+        <tr><td>Privacy</td><td>Protected by the Human Rights Act 1998 and the Data Protection Act 2018 / UK GDPR.</td></tr>
+        <tr><td>Vote</td><td>Citizens 18+ may vote in UK elections. Resident Commonwealth and Irish citizens can also vote in many UK elections.</td></tr>
+      </tbody>
+    </table>
+    <div class="exam-box">
+      <strong>Test fact &mdash; Equality Act 2010</strong>
+      The handbook expects you to know that the Equality Act protects certain characteristics. The key ones to remember: age, disability, race, religion, sex, sexual orientation. You don't need to recite all nine, but recognise them as protected.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Key Ages — A Quick Reference</div>
+    <div class="age-grid">
+      <div class="age"><div class="n">10</div><div class="l">Age of criminal responsibility (England, Wales, NI). Scotland: 12.</div></div>
+      <div class="age"><div class="n">16</div><div class="l">Marry / enter a civil partnership (consent rules vary). Drive a moped (also leave school full-time). Buy a Lottery ticket.</div></div>
+      <div class="age"><div class="n">17</div><div class="l">Drive a car (with a provisional or full licence)</div></div>
+      <div class="age"><div class="n">18</div><div class="l">Vote. Buy alcohol or tobacco. Stand on a jury. Get married without parental consent.</div></div>
+      <div class="age"><div class="n">21</div><div class="l">Stand for election as an MP</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Your Duties &amp; Civic Responsibilities</div>
+    <div class="duty-card">
+      <h3>Obey the law</h3>
+      <p>Including obscure ones &mdash; ignorance of the law is not a defence. The law applies equally to everyone, including the monarch (in principle).</p>
+    </div>
+    <div class="duty-card">
+      <h3>Pay taxes</h3>
+      <p>Income tax (PAYE through your employer, or self-assessment if self-employed). National Insurance contributions. Council tax for local services. VAT (20% on most goods and services).</p>
+      <div class="meta">Tax year: 6 April → 5 April</div>
+    </div>
+    <div class="duty-card">
+      <h3>Serve on a jury</h3>
+      <p>If summoned, you must serve. Excuse yourself only with good reason (medical, conflict, etc.). Employers are required to release you for jury service.</p>
+    </div>
+    <div class="duty-card">
+      <h3>Register to vote</h3>
+      <p>You can register at gov.uk. Compulsory in the sense that you can be fined for refusing to provide details to your local council, although you don't have to actually vote.</p>
+    </div>
+    <div class="duty-card">
+      <h3>Respect &amp; tolerance</h3>
+      <p>Treat others fairly regardless of their faith, race, gender or sexuality. The principles of mutual respect and tolerance are listed as fundamental British values.</p>
+    </div>
+    <div class="duty-card">
+      <h3>Look after the environment</h3>
+      <p>Recycle waste, follow planning rules, do not litter or dump rubbish (fly-tipping is a crime), respect public spaces and parks.</p>
+    </div>
+    <div class="duty-card">
+      <h3>Help your community</h3>
+      <p>Volunteering, school governorship, charity work, helping neighbours, becoming a magistrate (you can apply with no legal training), or standing for local council. The handbook treats these as expected, not optional, ways of being a good citizen.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Driving — Quick Facts</div>
+    <table class="rights">
+      <tbody>
+        <tr><td>Minimum age</td><td>17 (car); 16 (moped)</td></tr>
+        <tr><td>Test</td><td>Theory + practical. Pass both before driving alone.</td></tr>
+        <tr><td>MOT</td><td>Annual roadworthiness test, required for cars over 3 years old.</td></tr>
+        <tr><td>Insurance</td><td>Compulsory; minimum third-party cover.</td></tr>
+        <tr><td>Tax / VED</td><td>Vehicle Excise Duty must be paid (or vehicle declared off-road, SORN).</td></tr>
+        <tr><td>Licence renewal</td><td>Photo card every 10 years; medical check at 70.</td></tr>
+        <tr><td>Driving on the</td><td>Left side of the road</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<script src="../shared/youtube-button.js" defer></script>
+</body>
+</html>

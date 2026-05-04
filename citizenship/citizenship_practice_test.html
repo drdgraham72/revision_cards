@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Life in the UK — Practice Test</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f0;
+    --text-primary: #1a1a18;
+    --text-secondary: #5f5e5a;
+    --text-tertiary: #888780;
+    --border-light: rgba(0,0,0,0.12);
+    --border-mid: rgba(0,0,0,0.22);
+    --gov-blue: #012169;
+    --good: #15803d;
+    --bad: #b91c1c;
+    --gold: #c8a951;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --font: system-ui, -apple-system, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-primary: #1e1e1c;
+      --bg-secondary: #2a2a28;
+      --text-primary: #f0ece4;
+      --text-secondary: #a8a59e;
+      --text-tertiary: #807d76;
+      --border-light: rgba(255,255,255,0.10);
+      --border-mid: rgba(255,255,255,0.20);
+      --good: #4ade80;
+      --bad: #f87171;
+    }
+  }
+
+  body { font-family: var(--font); background: var(--bg-secondary); color: var(--text-primary); padding: 1rem; min-height: 100vh; }
+  .wrap { max-width: 760px; margin: 0 auto; }
+
+  .top {
+    background: var(--gov-blue); color: #fff; border-radius: var(--radius-lg);
+    padding: 14px 18px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap;
+  }
+  .top h1 { font-size: 17px; font-weight: 600; letter-spacing: 0.04em; }
+  .timer { font-family: 'DM Mono', monospace; font-size: 22px; font-weight: 600; color: var(--gold); }
+  .timer.warn { color: #fbbf24; }
+  .timer.danger { color: #fca5a5; }
+
+  .progress-bar { height: 4px; background: var(--bg-primary); border-radius: 2px; overflow: hidden; margin-bottom: 16px; border: 0.5px solid var(--border-light); }
+  .progress-fill { height: 100%; background: var(--gold); transition: width 0.3s; }
+
+  .panel {
+    background: var(--bg-primary); border: 0.5px solid var(--border-light);
+    border-radius: var(--radius-lg); padding: 22px 24px;
+  }
+
+  /* START */
+  .start-panel { text-align: center; padding: 36px 28px; }
+  .start-panel h2 { font-size: 22px; font-weight: 600; margin-bottom: 10px; }
+  .start-panel p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px; }
+  .start-panel .rules { background: var(--bg-secondary); border-radius: var(--radius-md); padding: 14px 18px; text-align: left; max-width: 480px; margin: 0 auto 24px; }
+  .start-panel .rules h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-tertiary); margin-bottom: 8px; }
+  .start-panel .rules ul { list-style: none; }
+  .start-panel .rules li { font-size: 13px; color: var(--text-secondary); padding: 4px 0 4px 18px; position: relative; }
+  .start-panel .rules li::before { content: '◆'; position: absolute; left: 0; top: 4px; color: var(--gov-blue); font-size: 10px; }
+
+  .btn {
+    display: inline-block; padding: 10px 22px; font-size: 14px; font-weight: 600;
+    background: var(--gov-blue); color: #fff; border: none; border-radius: var(--radius-md);
+    cursor: pointer; transition: all 0.2s; font-family: inherit; letter-spacing: 0.04em;
+  }
+  .btn:hover { background: #001a52; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+  .btn.secondary { background: transparent; color: var(--gov-blue); border: 1px solid var(--gov-blue); }
+  .btn.secondary:hover { background: var(--gov-blue); color: #fff; }
+  @media (prefers-color-scheme: dark) {
+    .btn.secondary { color: var(--gold); border-color: var(--gold); }
+    .btn.secondary:hover { background: var(--gold); color: #1a1a2e; }
+  }
+
+  /* QUESTION */
+  .q-num { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-tertiary); margin-bottom: 10px; font-family: 'DM Mono', monospace; }
+  .q-text { font-size: 16px; line-height: 1.6; margin-bottom: 6px; }
+  .q-help { font-size: 12px; color: var(--text-tertiary); margin-bottom: 16px; font-style: italic; }
+  .options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
+  .opt {
+    display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px;
+    background: var(--bg-secondary); border: 1px solid transparent; border-radius: var(--radius-md);
+    cursor: pointer; transition: all 0.15s; font-size: 14px; line-height: 1.5;
+  }
+  .opt:hover { border-color: var(--border-mid); }
+  .opt.selected { background: rgba(1,33,105,0.1); border-color: var(--gov-blue); }
+  @media (prefers-color-scheme: dark) {
+    .opt.selected { background: rgba(200,169,81,0.15); border-color: var(--gold); }
+  }
+  .opt input { margin-top: 4px; flex-shrink: 0; }
+  .opt-text { flex: 1; }
+
+  .nav { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 8px; flex-wrap: wrap; }
+  .nav .left, .nav .right { display: flex; gap: 8px; }
+  .grid-jump {
+    display: grid; grid-template-columns: repeat(12, 1fr); gap: 4px; margin-bottom: 16px;
+  }
+  .jump-cell {
+    width: 100%; aspect-ratio: 1; font-size: 11px; font-weight: 600;
+    border: 0.5px solid var(--border-mid); background: var(--bg-primary);
+    color: var(--text-secondary); border-radius: 4px; cursor: pointer; transition: all 0.1s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .jump-cell.answered { background: var(--gov-blue); color: #fff; border-color: var(--gov-blue); }
+  .jump-cell.current { outline: 2px solid var(--gold); outline-offset: 1px; }
+
+  /* RESULT */
+  .result { text-align: center; padding: 32px 24px; }
+  .result-score { font-size: 56px; font-weight: 700; margin-bottom: 6px; line-height: 1; font-family: 'DM Mono', monospace; }
+  .result-score.pass { color: var(--good); }
+  .result-score.fail { color: var(--bad); }
+  .result-of { font-size: 14px; color: var(--text-tertiary); margin-bottom: 12px; }
+  .result-verdict { font-size: 22px; font-weight: 600; margin-bottom: 10px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .result-msg { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px; max-width: 480px; margin-left: auto; margin-right: auto; }
+
+  .review { margin-top: 24px; text-align: left; }
+  .review-q {
+    background: var(--bg-secondary); border: 0.5px solid var(--border-light); border-radius: var(--radius-md);
+    padding: 14px 16px; margin-bottom: 10px; border-left: 4px solid var(--good);
+  }
+  .review-q.wrong { border-left-color: var(--bad); }
+  .review-q .num { font-size: 11px; color: var(--text-tertiary); font-family: 'DM Mono', monospace; }
+  .review-q .qq { font-size: 14px; font-weight: 500; margin: 4px 0 8px; }
+  .review-q .answers { font-size: 13px; line-height: 1.6; }
+  .review-q .your { color: var(--bad); }
+  .review-q.right .your { color: var(--good); }
+  .review-q .correct { color: var(--good); font-weight: 500; }
+  .review-q .explain { font-size: 12px; color: var(--text-secondary); margin-top: 8px; padding-top: 8px; border-top: 0.5px dashed var(--border-light); font-style: italic; }
+
+  @media (max-width: 768px) {
+    body { font-size: 15px; padding: 0.5rem; }
+    .panel { padding: 18px; }
+    .q-text { font-size: 16px; }
+    .opt { font-size: 14px; }
+    .grid-jump { grid-template-columns: repeat(8, 1fr); }
+    .top h1 { font-size: 14px; }
+    .timer { font-size: 18px; }
+  }
+</style>
+<link rel="stylesheet" href="../shared/youtube-button.css">
+</head>
+<body>
+<a class="yt-link" href="https://www.youtube.com/results?search_query=Life+in+the+UK+test+practice+questions" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg><span class="yt-label">Watch</span></a>
+
+<div class="wrap">
+  <div class="top">
+    <h1>&#x1F451; Life in the UK &mdash; Practice Test</h1>
+    <div class="timer" id="timer">45:00</div>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="progress" style="width:0"></div></div>
+
+  <div id="panel"></div>
+</div>
+
+<script>
+const QUESTIONS = [
+  {
+    q: "Which of the following is a fundamental British value?",
+    options: ["Loyalty to the monarch", "The rule of law", "Military service", "Speaking English"],
+    correct: [1],
+    explain: "The five fundamental British values are democracy, the rule of law, individual liberty, tolerance of others, and participation in community life."
+  },
+  {
+    q: "When did Britain become an island?",
+    options: ["About 6500 BC", "About 1066 AD", "About 410 AD", "About 2500 BC"],
+    correct: [0],
+    explain: "Around 6500 BC the land bridge to mainland Europe was flooded, separating Britain from the continent."
+  },
+  {
+    q: "Who led the Roman conquest of Britain in AD 43?",
+    options: ["Julius Caesar", "Hadrian", "Claudius", "Boudicca"],
+    correct: [2],
+    explain: "Caesar invaded in 55 BC but didn't stay. Emperor Claudius led the conquest in AD 43. Boudicca was a British queen who rebelled. Hadrian built the wall."
+  },
+  {
+    q: "Is the following statement TRUE or FALSE? The Battle of Hastings (1066) was the last successful foreign invasion of Britain.",
+    options: ["TRUE", "FALSE"],
+    correct: [0],
+    explain: "True. William of Normandy's victory at Hastings was the last successful foreign invasion of England."
+  },
+  {
+    q: "What is the Magna Carta?",
+    options: [
+      "A treaty between England and Scotland",
+      "A document signed by King John in 1215 limiting the king's power",
+      "The first English Bible",
+      "An act of Parliament from 1707"
+    ],
+    correct: [1],
+    explain: "The Magna Carta (1215) established that the king was subject to the law &mdash; a foundation of British constitutional government."
+  },
+  {
+    q: "Which TWO are fundamental British values? (Select TWO)",
+    options: [
+      "Democracy",
+      "Patriotism",
+      "Tolerance of those with different faiths and beliefs",
+      "Free healthcare"
+    ],
+    correct: [0, 2],
+    explain: "Democracy and tolerance of those with different faiths and beliefs are both on the official list of British values."
+  },
+  {
+    q: "Who was the first Prime Minister?",
+    options: ["William Pitt", "Sir Robert Walpole", "Winston Churchill", "Tony Blair"],
+    correct: [1],
+    explain: "Sir Robert Walpole, who served from 1721 to 1742, is regarded as the first British Prime Minister."
+  },
+  {
+    q: "Which of the following is NOT one of the four nations of the UK?",
+    options: ["England", "Scotland", "Republic of Ireland", "Wales"],
+    correct: [2],
+    explain: "The Republic of Ireland is a separate, sovereign country. The four UK nations are England, Scotland, Wales, and Northern Ireland."
+  },
+  {
+    q: "What is celebrated on 5 November?",
+    options: [
+      "St George's Day",
+      "Bonfire Night (Guy Fawkes Night)",
+      "Remembrance Day",
+      "May Day"
+    ],
+    correct: [1],
+    explain: "Bonfire Night marks the failure of the Gunpowder Plot of 1605, when Guy Fawkes tried to blow up Parliament."
+  },
+  {
+    q: "Who is the patron saint of Wales, and on what date is his day celebrated?",
+    options: [
+      "St Andrew &mdash; 30 November",
+      "St David &mdash; 1 March",
+      "St George &mdash; 23 April",
+      "St Patrick &mdash; 17 March"
+    ],
+    correct: [1],
+    explain: "St David is the patron saint of Wales; his day is 1 March."
+  },
+  {
+    q: "Is the following statement TRUE or FALSE? The monarch is elected by Parliament.",
+    options: ["TRUE", "FALSE"],
+    correct: [1],
+    explain: "False. The monarch inherits the throne. The UK is a constitutional monarchy."
+  },
+  {
+    q: "How many MPs are there in the House of Commons?",
+    options: ["650", "800", "100", "300"],
+    correct: [0],
+    explain: "There are 650 elected Members of Parliament (MPs) in the House of Commons, one per constituency."
+  },
+  {
+    q: "What is the name of the Scottish Parliament's home?",
+    options: ["Stormont", "Senedd", "Westminster", "Holyrood"],
+    correct: [3],
+    explain: "Holyrood (Edinburgh) is the home of the Scottish Parliament. Stormont = Northern Ireland; Senedd = Wales; Westminster = UK Parliament."
+  },
+  {
+    q: "Who founded the Church of England?",
+    options: ["Henry VII", "Henry VIII", "Elizabeth I", "James I"],
+    correct: [1],
+    explain: "Henry VIII broke from the Roman Catholic Church in 1534 (Act of Supremacy) and made himself head of the Church of England."
+  },
+  {
+    q: "When was the National Health Service (NHS) founded?",
+    options: ["1918", "1948", "1971", "1997"],
+    correct: [1],
+    explain: "The NHS was founded in 1948 by Aneurin Bevan, Health Minister in Clement Attlee's post-war Labour government."
+  },
+  {
+    q: "Which of these inventions is associated with Sir Tim Berners-Lee?",
+    options: [
+      "Penicillin",
+      "The jet engine",
+      "The World Wide Web",
+      "The telephone"
+    ],
+    correct: [2],
+    explain: "Sir Tim Berners-Lee invented the World Wide Web in 1989. Penicillin = Fleming. Jet engine = Whittle. Telephone = Bell."
+  },
+  {
+    q: "Is the following statement TRUE or FALSE? Wales is represented on the Union Flag.",
+    options: ["TRUE", "FALSE"],
+    correct: [1],
+    explain: "False. The Union Flag combines the crosses of St George (England), St Andrew (Scotland) and St Patrick (Ireland). Wales is not represented."
+  },
+  {
+    q: "How many jurors are there in a Crown Court trial in England?",
+    options: ["6", "10", "12", "15"],
+    correct: [2],
+    explain: "12 in England, Wales and Northern Ireland. Scotland uses 15."
+  },
+  {
+    q: "What is the minimum age to vote in a UK general election?",
+    options: ["16", "17", "18", "21"],
+    correct: [2],
+    explain: "18. (Note: 16 in Scottish and Welsh devolved elections.) The minimum age to STAND for election is 21."
+  },
+  {
+    q: "Which TWO of the following are Christian festivals widely celebrated in the UK? (Select TWO)",
+    options: ["Diwali", "Christmas", "Easter", "Hanukkah"],
+    correct: [1, 2],
+    explain: "Christmas (25 December) and Easter (a Sunday in March or April) are the major Christian festivals. Diwali is Hindu/Sikh; Hanukkah is Jewish."
+  },
+  {
+    q: "When did women first get the vote in the UK on equal terms with men?",
+    options: ["1918", "1928", "1948", "1970"],
+    correct: [1],
+    explain: "1928. The 1918 Act gave the vote to some women aged 30+; the 1928 Equal Franchise Act gave women the vote on the same terms as men."
+  },
+  {
+    q: "What is the home of British cricket?",
+    options: ["Wembley", "Twickenham", "Lord's", "Old Trafford"],
+    correct: [2],
+    explain: "Lord's Cricket Ground in London is widely known as 'the home of cricket'. Wembley = football; Twickenham = rugby."
+  },
+  {
+    q: "Who is the current monarch of the UK?",
+    options: ["Queen Elizabeth II", "King Charles III", "King William V", "Prince George"],
+    correct: [1],
+    explain: "King Charles III, who became monarch on 8 September 2022 following the death of Queen Elizabeth II. His coronation was on 6 May 2023."
+  },
+  {
+    q: "Is the following statement TRUE or FALSE? The Speaker of the House of Commons is politically neutral.",
+    options: ["TRUE", "FALSE"],
+    correct: [0],
+    explain: "True. Once elected, the Speaker is politically neutral and is responsible for keeping order in the House of Commons."
+  }
+];
+
+const TIME_LIMIT = 45 * 60; // 45 minutes in seconds
+let answers = QUESTIONS.map(() => []);
+let current = 0;
+let timerInterval = null;
+let timeLeft = TIME_LIMIT;
+let started = false;
+let finished = false;
+
+const panel = document.getElementById('panel');
+const timerEl = document.getElementById('timer');
+const progressEl = document.getElementById('progress');
+
+function fmt(t) {
+  const m = Math.floor(t / 60);
+  const s = t % 60;
+  return m + ':' + (s < 10 ? '0' + s : s);
+}
+
+function tick() {
+  if (finished) return;
+  timeLeft--;
+  timerEl.textContent = fmt(timeLeft);
+  if (timeLeft <= 60) timerEl.classList.add('danger');
+  else if (timeLeft <= 5 * 60) timerEl.classList.add('warn');
+  if (timeLeft <= 0) {
+    finish(true);
+  }
+}
+
+function startQuiz() {
+  started = true;
+  current = 0;
+  timeLeft = TIME_LIMIT;
+  timerEl.textContent = fmt(timeLeft);
+  timerEl.classList.remove('warn', 'danger');
+  timerInterval = setInterval(tick, 1000);
+  renderQuestion();
+}
+
+function selectOpt(i, isMulti) {
+  const sel = answers[current];
+  if (isMulti) {
+    const idx = sel.indexOf(i);
+    if (idx >= 0) sel.splice(idx, 1);
+    else if (sel.length < 2) sel.push(i);
+    else { sel.shift(); sel.push(i); } // keep last two
+  } else {
+    answers[current] = [i];
+  }
+  renderQuestion();
+}
+
+function renderStart() {
+  panel.innerHTML = `
+    <div class="panel start-panel">
+      <h2>Life in the UK &mdash; Mock Test</h2>
+      <p>Same format as the real exam: 24 questions, 45 minutes, pass at 75% (18 of 24).</p>
+      <div class="rules">
+        <h3>Rules</h3>
+        <ul>
+          <li>Answer all 24 questions before the timer expires</li>
+          <li>You can move forwards and backwards using Next / Previous</li>
+          <li>Some questions ask for ONE answer; some for TWO &mdash; read carefully</li>
+          <li>You can change your answer at any time before submitting</li>
+          <li>The test will auto-submit when the timer reaches zero</li>
+        </ul>
+      </div>
+      <button class="btn" onclick="startQuiz()">Start the test</button>
+    </div>
+  `;
+  progressEl.style.width = '0%';
+}
+
+function renderQuestion() {
+  const q = QUESTIONS[current];
+  const isMulti = q.correct.length > 1;
+  const sel = answers[current];
+
+  const optsHtml = q.options.map((opt, i) => `
+    <label class="opt ${sel.includes(i) ? 'selected' : ''}">
+      <input type="${isMulti ? 'checkbox' : 'radio'}" name="opt" ${sel.includes(i) ? 'checked' : ''} onchange="selectOpt(${i}, ${isMulti})">
+      <span class="opt-text">${opt}</span>
+    </label>
+  `).join('');
+
+  const jumpCells = QUESTIONS.map((_, i) => `
+    <div class="jump-cell ${answers[i].length > 0 ? 'answered' : ''} ${i === current ? 'current' : ''}" onclick="goTo(${i})">${i + 1}</div>
+  `).join('');
+
+  const answeredCount = answers.filter(a => a.length > 0).length;
+
+  panel.innerHTML = `
+    <div class="panel">
+      <div class="grid-jump">${jumpCells}</div>
+      <div class="q-num">Question ${current + 1} of ${QUESTIONS.length} &middot; ${answeredCount} answered</div>
+      <div class="q-text">${q.q}</div>
+      ${isMulti ? '<div class="q-help">Choose TWO answers</div>' : ''}
+      <div class="options">${optsHtml}</div>
+      <div class="nav">
+        <div class="left">
+          <button class="btn secondary" onclick="prev()" ${current === 0 ? 'disabled' : ''}>Previous</button>
+        </div>
+        <div class="right">
+          ${current < QUESTIONS.length - 1 ? '<button class="btn" onclick="next()">Next</button>' : '<button class="btn" onclick="finish(false)">Submit answers</button>'}
+        </div>
+      </div>
+    </div>
+  `;
+  progressEl.style.width = ((current + 1) / QUESTIONS.length * 100) + '%';
+}
+
+function next() { if (current < QUESTIONS.length - 1) { current++; renderQuestion(); } }
+function prev() { if (current > 0) { current--; renderQuestion(); } }
+function goTo(i) { current = i; renderQuestion(); }
+
+function arraysEqual(a, b) {
+  if (a.length !== b.length) return false;
+  const as = a.slice().sort();
+  const bs = b.slice().sort();
+  return as.every((v, i) => v === bs[i]);
+}
+
+function finish(timedOut) {
+  finished = true;
+  clearInterval(timerInterval);
+  let correct = 0;
+  const results = QUESTIONS.map((q, i) => {
+    const right = arraysEqual(answers[i], q.correct);
+    if (right) correct++;
+    return { q, given: answers[i], right };
+  });
+  const passed = correct >= 18;
+
+  const reviewHtml = results.map((r, i) => {
+    const givenText = r.given.length === 0 ? '<em>(no answer)</em>' : r.given.map(idx => r.q.options[idx]).join(' &amp; ');
+    const correctText = r.q.correct.map(idx => r.q.options[idx]).join(' &amp; ');
+    return `
+      <div class="review-q ${r.right ? 'right' : 'wrong'}">
+        <div class="num">Q${i + 1} &middot; ${r.right ? '✓ correct' : '✗ wrong'}</div>
+        <div class="qq">${r.q.q}</div>
+        <div class="answers">
+          <div>Your answer: <span class="your">${givenText}</span></div>
+          ${r.right ? '' : '<div>Correct answer: <span class="correct">' + correctText + '</span></div>'}
+        </div>
+        <div class="explain">${r.q.explain}</div>
+      </div>
+    `;
+  }).join('');
+
+  panel.innerHTML = `
+    <div class="panel result">
+      ${timedOut ? '<div style="font-size:12px;color:var(--bad);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.08em;">Time expired &mdash; auto-submitted</div>' : ''}
+      <div class="result-score ${passed ? 'pass' : 'fail'}">${correct} / ${QUESTIONS.length}</div>
+      <div class="result-of">${Math.round(correct / QUESTIONS.length * 100)}% &middot; pass mark 75% (18/24)</div>
+      <div class="result-verdict ${passed ? 'pass' : 'fail'}" style="color:${passed ? 'var(--good)' : 'var(--bad)'}">${passed ? 'Pass' : 'Not yet'}</div>
+      <div class="result-msg">${passed ? "On this score you'd pass the official Life in the UK Test. Keep practising to lock it in." : "Keep going. The pass mark is 75% (18 of 24). Review the questions you got wrong below, then try again."}</div>
+      <button class="btn" onclick="retry()">Try again</button>
+      <div class="review">
+        <h3 style="font-size:14px;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-tertiary);margin-bottom:14px;">Review every question</h3>
+        ${reviewHtml}
+      </div>
+    </div>
+  `;
+  progressEl.style.width = '100%';
+}
+
+function retry() {
+  finished = false;
+  answers = QUESTIONS.map(() => []);
+  current = 0;
+  timeLeft = TIME_LIMIT;
+  timerEl.textContent = fmt(timeLeft);
+  timerEl.classList.remove('warn', 'danger');
+  startQuiz();
+}
+
+renderStart();
+</script>
+
+<script src="../shared/youtube-button.js" defer></script>
+</body>
+</html>

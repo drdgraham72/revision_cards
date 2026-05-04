@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Life in the UK — A Modern, Thriving Society</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f0;
+    --text-primary: #1a1a18;
+    --text-secondary: #5f5e5a;
+    --text-tertiary: #888780;
+    --border-light: rgba(0,0,0,0.12);
+    --border-mid: rgba(0,0,0,0.22);
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --font: system-ui, -apple-system, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-primary: #1e1e1c;
+      --bg-secondary: #2a2a28;
+      --text-primary: #f0ece4;
+      --text-secondary: #a8a59e;
+      --text-tertiary: #807d76;
+      --border-light: rgba(255,255,255,0.10);
+      --border-mid: rgba(255,255,255,0.20);
+    }
+  }
+  body { font-family: var(--font); background: var(--bg-secondary); color: var(--text-primary); padding: 2rem 1rem; min-height: 100vh; }
+  .wrap { max-width: 1280px; margin: 0 auto; }
+  h1 { font-size: 22px; font-weight: 600; margin-bottom: 0.2rem; }
+  .subtitle { font-size: 14px; color: var(--text-secondary); margin-bottom: 1.4rem; }
+
+  .filter-row { margin-bottom: 0.9rem; }
+  .filter-label { font-size: 11px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 5px; }
+  .btn-row { display: flex; gap: 6px; flex-wrap: wrap; }
+  .fbtn { font-size: 12px; padding: 4px 11px; border-radius: 20px; border: 0.5px solid var(--border-mid); background: var(--bg-primary); color: var(--text-secondary); cursor: pointer; transition: all 0.15s; white-space: nowrap; }
+  .fbtn.active { border-color: transparent; color: #fff; }
+
+  .fbtn[data-cat="All"].active        { background: #444441; }
+  .fbtn[data-cat="Customs"].active    { background: #C8102E; }
+  .fbtn[data-cat="Religion"].active   { background: #534AB7; }
+  .fbtn[data-cat="Sport"].active      { background: #185FA5; }
+  .fbtn[data-cat="Arts"].active       { background: #854F0B; }
+  .fbtn[data-cat="Geography"].active  { background: #3B6D11; }
+  .fbtn[data-cat="People"].active     { background: #993556; }
+  .fbtn[data-cat="Holidays"].active   { background: #0f6e56; }
+
+  .counter { font-size: 13px; color: var(--text-secondary); margin: 0.9rem 0 1rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 12px; }
+
+  .card { background: var(--bg-primary); border: 0.5px solid var(--border-light); border-radius: var(--radius-lg); padding: 1rem 1.2rem; cursor: pointer; user-select: none; min-height: 200px; display: flex; flex-direction: column; gap: 7px; transition: border-color 0.15s; }
+  .card:hover { border-color: var(--border-mid); }
+
+  .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+  .cat-badge { font-size: 10px; font-weight: 500; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+  .badge-Customs   { background: #FCEBEB; color: #C8102E; }
+  .badge-Religion  { background: #eeedfe; color: #534AB7; }
+  .badge-Sport     { background: #E6F1FB; color: #185FA5; }
+  .badge-Arts      { background: #faeeda; color: #854F0B; }
+  .badge-Geography { background: #EAF3DE; color: #3B6D11; }
+  .badge-People    { background: #fbeaf0; color: #993556; }
+  .badge-Holidays  { background: #e1f5ee; color: #0f6e56; }
+
+  .term { font-size: 14px; font-weight: 500; color: var(--text-primary); line-height: 1.35; }
+  .mnemonic { font-size: 12px; color: var(--text-secondary); border-left: 2px solid var(--border-mid); padding-left: 8px; }
+  .summary { font-size: 13px; color: var(--text-secondary); line-height: 1.55; flex-grow: 1; }
+  .back { display: none; flex-direction: column; gap: 8px; margin-top: 2px; }
+  .card.flipped .back { display: flex; }
+  .card.flipped .summary { font-size: 12px; color: var(--text-tertiary); }
+  .detail { font-size: 13px; color: var(--text-secondary); line-height: 1.6; border-top: 0.5px solid var(--border-light); padding-top: 8px; }
+  .exam-box { background: var(--bg-secondary); border-radius: var(--radius-md); padding: 7px 10px; font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
+  .exam-label { font-size: 10px; font-weight: 500; color: #185FA5; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 3px; }
+  .tap-hint { font-size: 11px; color: var(--text-tertiary); text-align: right; margin-top: auto; }
+
+  @media (max-width: 768px) {
+    body { font-size: 16px; padding: 1rem 0.7rem 3rem; }
+    .term { font-size: 15px; }
+    .summary { font-size: 14px; }
+    .detail { font-size: 14px; }
+  }
+</style>
+<link rel="stylesheet" href="../shared/youtube-button.css">
+<script src="../shared/katex.js" defer></script>
+</head>
+<body>
+<a class="yt-link" href="https://www.youtube.com/results?search_query=Life+in+the+UK+test+culture+sport+religion" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg><span class="yt-label">Watch</span></a>
+
+<div class="wrap">
+<h1 data-yt="UK culture customs traditions explained" data-yt-label="Society">A Modern, Thriving Society</h1>
+<p class="subtitle">Customs, religion, sport, arts, holidays and famous Britons &mdash; the cultural facts the test loves</p>
+
+<div class="filter-row">
+  <div class="filter-label">Category</div>
+  <div class="btn-row" id="cat-filters"></div>
+</div>
+
+<div class="counter" id="counter"></div>
+<div class="grid" id="grid"></div>
+</div>
+
+<script>
+const CATS = ["All","Customs","Religion","Sport","Arts","Geography","People","Holidays"];
+
+const cards = [
+/* CUSTOMS / PATRON SAINTS */
+{ cat:"Customs",
+  term:"The Four Patron Saints",
+  mnemonic:"GAPD — George, Andrew, Patrick, David",
+  summary:"England: St George (23 April). Scotland: St Andrew (30 November). Wales: St David (1 March). Northern Ireland: St Patrick (17 March).",
+  detail:"Each saint's day is a day of national identity. St Patrick's Day is widely celebrated worldwide due to the Irish diaspora. St Andrew's Day and St David's Day are public bank holidays in their nations. St George's Day is not a UK bank holiday but is widely flagged.",
+  exam:"Exam angle: Test loves to swap the dates around. Strongly recommended: memorise these four exactly. Mnemonic: 'Wales is in March (1st), N.Ireland is later in March (17th), England in April (23rd), Scotland in November (30th).'"
+},
+{ cat:"Customs",
+  term:"The Union Flag",
+  mnemonic:"UNION JACK — three crosses combined",
+  summary:"The UK flag combines: the cross of St George (England, red on white), the cross of St Andrew (Scotland, white diagonal on blue), and the cross of St Patrick (Ireland, red diagonal on white). Wales is not represented on the Union Flag.",
+  detail:"It is correctly called the 'Union Flag' &mdash; the term 'Union Jack' is technically only correct when flown on a ship, though commonly used everywhere. Wales' red dragon flag (Y Ddraig Goch) is separate.",
+  exam:"Exam angle: 'Which country is NOT on the Union Flag?' &mdash; answer: Wales. Frequently tested."
+},
+{ cat:"Customs",
+  term:"Bonfire Night / Guy Fawkes Night",
+  mnemonic:"5 NOV — Remember, remember, the fifth of November",
+  summary:"On 5 November every year, people light bonfires and let off fireworks to commemorate the failure of the 1605 Gunpowder Plot, when Guy Fawkes was caught trying to blow up Parliament.",
+  detail:"An effigy of Guy Fawkes ('the Guy') is traditionally burned on the bonfire. Public firework displays are common. The rhyme 'Remember, remember, the fifth of November / Gunpowder, treason and plot' is well known.",
+  exam:"Exam angle: 5 November is the date. Connect to 1605 Gunpowder Plot, James I, Guy Fawkes."
+},
+{ cat:"Customs",
+  term:"Remembrance Day",
+  mnemonic:"11 NOV / 11 AM — two minutes' silence; red poppies",
+  summary:"Remembrance Day on 11 November marks the moment WWI ended in 1918 (11am, 11th day, 11th month). People wear red poppies, and a two-minute silence is observed.",
+  detail:"Remembrance Sunday (the second Sunday of November) sees ceremonies at the Cenotaph in Whitehall, London, attended by the monarch, the PM, and military leaders. Red poppies (sold by the Royal British Legion) commemorate poppies that grew on the battlefields of Flanders. White poppies are an alternative pacifist symbol.",
+  exam:"Exam angle: 11/11 at 11am is a high-value test fact. The Cenotaph is named in the handbook."
+},
+
+/* RELIGION */
+{ cat:"Religion",
+  term:"Religion in the UK",
+  mnemonic:"DIVERSE — UK is multi-faith, with Christianity the largest single tradition",
+  summary:"In the 2011 census, 59% of people identified as Christian, 25% had no religion, 5% Muslim, 1.5% Hindu, 0.8% Sikh, 0.5% Jewish, 0.5% Buddhist. The 2021 census saw further declines in religious affiliation in England and Wales.",
+  detail:"Everyone has the legal right to practise any religion or none. Discrimination on religious grounds is illegal. Religious diversity is celebrated; major non-Christian festivals (Eid, Diwali, Hanukkah, Vesak) are widely observed by communities.",
+  exam:"Exam angle: The handbook still cites 2011 figures. Christian = largest, but no-religion is rising fast. The order of size after Christianity is: no religion, Muslim, Hindu, Sikh, Jewish, Buddhist."
+},
+{ cat:"Religion",
+  term:"The Church of England",
+  mnemonic:"ANGLICAN — the established church; monarch is its head",
+  summary:"The Church of England is the established (state) church in England. The monarch is the Supreme Governor. The Archbishop of Canterbury is its spiritual leader. Founded by Henry VIII in 1534.",
+  detail:"In Scotland, the established church is the Church of Scotland (Presbyterian, not Anglican). Wales and Northern Ireland have no established church. The Church of England has 26 bishops who sit in the House of Lords ('Lords Spiritual'). Charles III is, like all monarchs since Henry VIII, the Church's Supreme Governor.",
+  exam:"Exam angle: 'Which is the established church in England?' &mdash; Church of England. 'Who is its head?' &mdash; the monarch. Scotland has its own established church."
+},
+{ cat:"Religion",
+  term:"Christmas &amp; Easter",
+  mnemonic:"CHRISTIAN — biggest two Christian festivals",
+  summary:"Christmas Day (25 December) celebrates the birth of Jesus. Easter (a Sunday in March or April) celebrates his resurrection. Both are public holidays and central to British annual life.",
+  detail:"Easter is preceded by Lent (40 days of fasting, ending on Easter Sunday). Pancake Day (Shrove Tuesday) starts Lent. Easter weekend has Good Friday and Easter Monday as bank holidays. Christmas customs: tree, Christmas dinner (turkey), carols, Father Christmas.",
+  exam:"Exam angle: Christmas Day = 25 December (always). Boxing Day = 26 December. Easter dates change each year &mdash; the test won't ask the date."
+},
+
+/* SPORT */
+{ cat:"Sport",
+  term:"Football (Soccer)",
+  mnemonic:"BEAUTIFUL GAME — most popular sport; FA founded 1863",
+  summary:"The most popular sport in the UK. The Football Association (FA), founded in 1863, is the oldest national football association in the world. Each home nation has its own team. The FA Cup (founded 1871) is the oldest national football competition.",
+  detail:"Top professional league: the Premier League (founded 1992). Famous clubs: Manchester United, Liverpool, Arsenal, Chelsea, Manchester City. England won the World Cup in 1966 (only time). The Lionesses (England women) won Euro 2022.",
+  exam:"Exam angle: 1863 (FA founded) and 1966 (World Cup won) are testable dates. 'The home of football' = England."
+},
+{ cat:"Sport",
+  term:"Cricket",
+  mnemonic:"ENGLISH GAME — invented in England; Lord's is the home; Test matches and the Ashes",
+  summary:"Cricket originated in England and is closely associated with English national identity. Lord's Cricket Ground in London is widely called 'the home of cricket'. The Ashes is the famous Test cricket rivalry between England and Australia.",
+  detail:"Test cricket: 5-day international matches. T20 and One Day Internationals are shorter formats. England men's team won the 2019 Cricket World Cup. The expression 'It's just not cricket' has entered the language to mean 'not fair'.",
+  exam:"Exam angle: Lord's = home of cricket. The Ashes = England vs Australia. Both are commonly tested."
+},
+{ cat:"Sport",
+  term:"Rugby",
+  mnemonic:"RUGBY — born at Rugby School in Warwickshire; two codes (Union, League)",
+  summary:"Rugby originated at Rugby School in Warwickshire (1823, William Webb Ellis legend). Two codes: Rugby Union (15-a-side, more popular in the home nations) and Rugby League (13-a-side, big in Northern England).",
+  detail:"The Six Nations Championship (England, Scotland, Wales, Ireland, France, Italy) is the annual European tournament. England won the Rugby Union World Cup in 2003 (only home nation to do so).",
+  exam:"Exam angle: Rugby School / Warwickshire / William Webb Ellis. Six Nations is named in the handbook."
+},
+{ cat:"Sport",
+  term:"Tennis &amp; Wimbledon",
+  mnemonic:"WIMBLEDON — oldest tennis tournament; held every June/July",
+  summary:"Modern tennis evolved in England in the 19th century. The Wimbledon Championships (since 1877) are the oldest tennis tournament in the world and one of the four Grand Slams. Held in late June and early July.",
+  detail:"Strawberries and cream are a Wimbledon tradition. Andy Murray (Scottish) won Wimbledon men's singles in 2013 and 2016 &mdash; the first British man to win since Fred Perry in 1936. Virginia Wade was the last British woman to win (1977).",
+  exam:"Exam angle: Wimbledon is one of the few specific dates the handbook ties to a sport &mdash; 'Late June / early July'."
+},
+{ cat:"Sport",
+  term:"Other Notable UK Sports",
+  mnemonic:"GOLF / GP / HORSES — golf invented in Scotland; F1 strong; horse racing royal",
+  summary:"Golf: invented in Scotland, oldest courses at St Andrews. Horse racing: Royal Ascot, the Grand National, the Derby. Formula 1: Silverstone hosts the British Grand Prix. Boxing, rowing (Henley Royal Regatta), and athletics are also major.",
+  detail:"The Boat Race (Oxford vs Cambridge, late March / early April) is a famous annual rowing fixture on the Thames. The Grand National (Aintree) is the most famous steeplechase. The Open Championship (golf) is one of the four Major championships.",
+  exam:"Exam angle: 'Where was golf invented?' &mdash; Scotland. The Boat Race is named in the handbook."
+},
+
+/* ARTS */
+{ cat:"Arts",
+  term:"British Literature — The Greats",
+  mnemonic:"SHAKESPEARE — the giant; plus Austen, Dickens, Conan Doyle, Tolkien, Rowling",
+  summary:"William Shakespeare (1564–1616, Stratford-upon-Avon): the most influential English-language writer. Other handbook-named writers: Geoffrey Chaucer (Canterbury Tales), Robert Burns (Scottish poet), Jane Austen (Pride and Prejudice), Charles Dickens (Oliver Twist, A Christmas Carol), Sir Arthur Conan Doyle (Sherlock Holmes), J.R.R. Tolkien (The Hobbit), Roald Dahl (children's books), Ian Rankin (crime).",
+  detail:"Famous British poets: William Wordsworth, Lord Byron, William Blake, Robert Burns, Dylan Thomas, T.S. Eliot. The Booker Prize is awarded annually for the best fiction novel. The Last Night of the Proms (in the Royal Albert Hall) is a celebrated music event.",
+  exam:"Exam angle: Match-the-author-to-the-work questions. Memorising 5–6 author/work pairs is enough."
+},
+{ cat:"Arts",
+  term:"British Music",
+  mnemonic:"BEATLES — pop royalty; plus classical, brass bands, the Proms",
+  summary:"Britain has produced major composers (Henry Purcell, Edward Elgar, Gustav Holst, Benjamin Britten, Andrew Lloyd Webber) and global pop acts (The Beatles, Rolling Stones, Queen, David Bowie, Adele, Ed Sheeran).",
+  detail:"The Proms: 8-week classical music festival every summer at the Royal Albert Hall in London &mdash; the Last Night is famous. The Mercury Prize (best UK album) and Brit Awards are major industry awards. 'Auld Lang Syne' (Robert Burns) is sung at New Year.",
+  exam:"Exam angle: 'Auld Lang Syne' / Robert Burns / New Year is a clean factual triplet that comes up. The Proms / Royal Albert Hall is also tested."
+},
+{ cat:"Arts",
+  term:"British Architecture &amp; Art",
+  mnemonic:"WREN / TURNER / CONSTABLE — classic architects and painters",
+  summary:"Sir Christopher Wren designed St Paul's Cathedral after the Great Fire of London (1666). J.M.W. Turner and John Constable are England's most famous landscape painters. Modern: Henry Moore (sculpture), David Hockney, Lucian Freud, Tracey Emin.",
+  detail:"Famous UK landmarks: Tower of London, Edinburgh Castle, Stonehenge, Snowdonia, Lake District, Giant's Causeway (Northern Ireland), the Eden Project (Cornwall), Big Ben (the Elizabeth Tower at Westminster).",
+  exam:"Exam angle: Wren / St Paul's / Great Fire 1666 is a likely combination. Constable and Turner are named pairings."
+},
+{ cat:"Arts",
+  term:"British Theatre &amp; Film",
+  mnemonic:"WEST END — London's theatre district; rivals Broadway",
+  summary:"London's West End is a global theatre capital. The Royal Shakespeare Company (RSC) is based in Stratford-upon-Avon. British film history: Alfred Hitchcock, David Lean (Lawrence of Arabia), Sir Laurence Olivier, Sir Anthony Hopkins, Dame Judi Dench, James Bond films.",
+  detail:"The British Academy Film Awards (BAFTAs) are the UK equivalent of the Oscars. The British Film Institute (BFI) preserves and promotes British cinema. Major film studios at Pinewood, Shepperton.",
+  exam:"Exam angle: West End / Royal Shakespeare Company / BAFTAs are named in the handbook."
+},
+
+/* GEOGRAPHY */
+{ cat:"Geography",
+  term:"The Four Countries of the UK",
+  mnemonic:"E-S-W-NI — England, Scotland, Wales, Northern Ireland",
+  summary:"The United Kingdom is made up of four countries: England (capital London), Scotland (capital Edinburgh), Wales (capital Cardiff), and Northern Ireland (capital Belfast). 'Great Britain' = England + Scotland + Wales (the island, not NI).",
+  detail:"Population: ~67 million across the UK. England is by far the largest (~56 million). The currency is the pound sterling (£). The Republic of Ireland is a separate country, NOT part of the UK.",
+  exam:"Exam angle: Common trap question: 'Is the Republic of Ireland part of the UK?' &mdash; NO. 'What is Great Britain?' = three countries on the largest island."
+},
+{ cat:"Geography",
+  term:"London",
+  mnemonic:"CAPITAL — UK capital; biggest city; financial centre",
+  summary:"London is the capital of the UK and of England. It is the largest city, home to the Houses of Parliament, Buckingham Palace, Tower of London, Westminster Abbey, and the financial district (the City).",
+  detail:"The River Thames flows through London. London Underground ('the Tube') is the world's oldest underground railway (1863). Heathrow is one of the world's busiest airports. London hosted the Summer Olympics three times: 1908, 1948 and 2012.",
+  exam:"Exam angle: London / Thames / Tube / 1908+1948+2012 are factual hooks the test uses."
+},
+{ cat:"Geography",
+  term:"Famous Landmarks",
+  mnemonic:"STONEHENGE / EDINBURGH / CAUSEWAY — across all four nations",
+  summary:"Stonehenge (Wiltshire, England). Tower of London. Snowdonia (Wales) &mdash; mountainous national park. Lake District (England). Loch Lomond and Loch Ness (Scotland). Edinburgh Castle. Giant's Causeway (Northern Ireland) &mdash; basalt columns. The Eden Project (Cornwall).",
+  detail:"The highest mountain in each country: Ben Nevis (Scotland, 1345m) is the highest in the UK. Snowdon / Yr Wyddfa (Wales). Scafell Pike (England). Slieve Donard (Northern Ireland).",
+  exam:"Exam angle: Ben Nevis = highest in UK. Giant's Causeway is in Northern Ireland (not Scotland or Wales &mdash; common trap)."
+},
+
+/* PEOPLE */
+{ cat:"People",
+  term:"Sir Isaac Newton",
+  mnemonic:"GRAVITY — laws of motion; calculus; the apple",
+  summary:"Sir Isaac Newton (1643–1727), one of the greatest scientists ever. Discovered the laws of motion and universal gravitation. Invented calculus (with Leibniz). His Principia Mathematica (1687) reshaped science.",
+  detail:"Newton was born in Lincolnshire and worked at Cambridge. He was Master of the Royal Mint and President of the Royal Society. Buried in Westminster Abbey.",
+  exam:"Exam angle: 'Who discovered the laws of gravity?' &mdash; Sir Isaac Newton. Almost certain to feature."
+},
+{ cat:"People",
+  term:"Charles Darwin",
+  mnemonic:"EVOLUTION — On the Origin of Species, 1859",
+  summary:"Charles Darwin (1809–1882) developed the theory of evolution by natural selection, set out in 'On the Origin of Species' (1859). Voyaged on HMS Beagle to the Galápagos Islands.",
+  detail:"Darwin's theory was controversial because it challenged the literal biblical account of creation. He is buried in Westminster Abbey near Newton.",
+  exam:"Exam angle: Darwin / 1859 / On the Origin of Species is the standard testable triplet."
+},
+{ cat:"People",
+  term:"Alexander Fleming",
+  mnemonic:"PENICILLIN — discovered the first antibiotic, 1928",
+  summary:"Sir Alexander Fleming (1881–1955), Scottish bacteriologist. Discovered penicillin in 1928 &mdash; the first antibiotic, which has saved tens of millions of lives. Awarded the Nobel Prize in 1945.",
+  detail:"Other notable British scientists in the handbook: Robert Watson-Watt (radar), Sir Frank Whittle (jet engine), Sir Tim Berners-Lee (invented the World Wide Web, 1989), Stephen Hawking (theoretical physics, A Brief History of Time).",
+  exam:"Exam angle: Fleming / penicillin / 1928. Berners-Lee / WWW is a modern equivalent."
+},
+{ cat:"People",
+  term:"Florence Nightingale",
+  mnemonic:"LADY OF THE LAMP — modern nursing; Crimean War",
+  summary:"Florence Nightingale (1820–1910) is the founder of modern nursing. She organised nurses during the Crimean War (1853–1856), dramatically reducing deaths from infection. Established the first secular nursing school at St Thomas' Hospital in London.",
+  detail:"Other Victorian pioneers in the handbook: Isambard Kingdom Brunel (engineer), Emmeline Pankhurst (Suffragette leader, founded WSPU 1903).",
+  exam:"Exam angle: 'Who founded modern nursing?' &mdash; Florence Nightingale. Crimean War is the named context."
+},
+{ cat:"People",
+  term:"Sir Tim Berners-Lee &amp; Modern Britons",
+  mnemonic:"WWW — invented the World Wide Web in 1989",
+  summary:"Sir Tim Berners-Lee invented the World Wide Web in 1989 while at CERN. Other named modern figures: Sir Alan Turing (computing pioneer, broke the Enigma code), Sir Roger Bannister (first sub-4-minute mile, 1954), Sir Mo Farah (long-distance runner).",
+  detail:"Alan Turing's work at Bletchley Park during WWII is credited with shortening the war by years. He is now on the £50 note. Roger Bannister ran the mile in 3:59.4 at Iffley Road, Oxford, in 1954 &mdash; previously thought impossible.",
+  exam:"Exam angle: WWW + 1989 + Berners-Lee. Bannister + sub-4-minute mile + 1954."
+},
+
+/* HOLIDAYS */
+{ cat:"Holidays",
+  term:"UK Public &amp; Bank Holidays",
+  mnemonic:"BANK — holidays when banks close; vary slightly by nation",
+  summary:"UK-wide bank holidays: New Year's Day (1 Jan), Good Friday, Easter Monday, Early May Bank Holiday (first Mon in May), Spring Bank Holiday (last Mon in May), Summer Bank Holiday (last Mon in August), Christmas Day (25 Dec), Boxing Day (26 Dec).",
+  detail:"Scotland has its own holidays: 2 January, St Andrew's Day (30 November). Northern Ireland has St Patrick's Day (17 March) and Battle of the Boyne (12 July, 'Orangemen's Day'). Wales does not have St David's Day as a bank holiday but it is widely observed.",
+  exam:"Exam angle: Christmas Day, Boxing Day and New Year's Day are 'safe' &mdash; UK-wide. The test may ask which holidays are in Scotland or N.Ireland specifically."
+},
+{ cat:"Holidays",
+  term:"Other Annual Customs",
+  mnemonic:"PANCAKE / VALENTINE / MOTHERS / HALLOWEEN — through the year",
+  summary:"Valentine's Day (14 Feb): cards and flowers between sweethearts. Pancake Day / Shrove Tuesday: pancakes the day before Lent. Mother's Day (4th Sunday of Lent). April Fools' Day (1 April): pranks until midday. Father's Day (3rd Sunday in June). Halloween (31 October).",
+  detail:"Hogmanay (Scottish New Year, 31 Dec / 1 Jan) is celebrated with particular vigour in Scotland. 'Auld Lang Syne' is sung at midnight. Burns Night (25 January, Scotland) celebrates the poet Robert Burns with haggis and recitation.",
+  exam:"Exam angle: Valentine's Day, April Fools (until midday is the cut-off!), and Halloween are commonly tested. Burns Night = 25 January."
+}
+];
+
+const catBadgeClass = {
+  "Customs":"badge-Customs",
+  "Religion":"badge-Religion",
+  "Sport":"badge-Sport",
+  "Arts":"badge-Arts",
+  "Geography":"badge-Geography",
+  "People":"badge-People",
+  "Holidays":"badge-Holidays"
+};
+
+const catBar = document.getElementById('cat-filters');
+const counterEl = document.getElementById('counter');
+const gridEl = document.getElementById('grid');
+let activeCat = 'All';
+
+CATS.forEach(c => {
+  const b = document.createElement('button');
+  b.className = 'fbtn' + (c==='All' ? ' active' : '');
+  b.dataset.cat = c;
+  b.textContent = c;
+  b.onclick = () => { activeCat = c; document.querySelectorAll('.fbtn[data-cat]').forEach(x => x.classList.toggle('active', x.dataset.cat===c)); render(); };
+  catBar.appendChild(b);
+});
+
+function render() {
+  gridEl.innerHTML = '';
+  let filtered = cards.slice();
+  if (activeCat !== 'All') filtered = filtered.filter(c => c.cat === activeCat);
+  counterEl.textContent = filtered.length + ' card' + (filtered.length !== 1 ? 's' : '');
+  filtered.forEach(c => {
+    const badgeClass = catBadgeClass[c.cat] || '';
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <div class="card-top">
+        <div><span class="cat-badge ${badgeClass}">${c.cat}</span></div>
+      </div>
+      <div class="term">${c.term}</div>
+      <div class="mnemonic">&#9670; ${c.mnemonic}</div>
+      <div class="summary">${c.summary}</div>
+      <div class="back">
+        <div class="detail">${c.detail}</div>
+        <div class="exam-box">
+          <div class="exam-label">Exam angle</div>
+          ${c.exam}
+        </div>
+      </div>
+      <div class="tap-hint">tap to reveal detail + exam angle</div>
+    `;
+    card.onclick = () => { card.classList.toggle('flipped'); card.querySelector('.tap-hint').textContent = card.classList.contains('flipped') ? 'tap to hide' : 'tap to reveal detail + exam angle'; };
+    gridEl.appendChild(card);
+  });
+}
+render();
+</script>
+
+<script src="../shared/youtube-button.js" defer></script>
+</body>
+</html>

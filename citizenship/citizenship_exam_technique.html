@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Life in the UK — Exam Technique &amp; Top Tips</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f0;
+    --text-primary: #1a1a18;
+    --text-secondary: #5f5e5a;
+    --text-tertiary: #888780;
+    --border-light: rgba(0,0,0,0.12);
+    --border-mid: rgba(0,0,0,0.22);
+    --gov-blue: #012169;
+    --good: #15803d;
+    --bad: #b91c1c;
+    --gold: #c8a951;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --font: system-ui, -apple-system, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-primary: #1e1e1c;
+      --bg-secondary: #2a2a28;
+      --text-primary: #f0ece4;
+      --text-secondary: #a8a59e;
+      --text-tertiary: #807d76;
+      --border-light: rgba(255,255,255,0.10);
+      --border-mid: rgba(255,255,255,0.20);
+      --good: #4ade80;
+      --bad: #f87171;
+    }
+  }
+  body { font-family: var(--font); background: var(--bg-secondary); color: var(--text-primary); padding: 2rem 1rem 4rem; min-height: 100vh; }
+  .wrap { max-width: 920px; margin: 0 auto; }
+  h1 { font-size: 22px; font-weight: 600; margin-bottom: 0.2rem; }
+  .subtitle { font-size: 14px; color: var(--text-secondary); margin-bottom: 1.6rem; }
+
+  .hero {
+    background: linear-gradient(135deg, var(--gov-blue) 0%, #1a1a2e 100%); color: #fff;
+    border-radius: var(--radius-lg); padding: 1.4rem 1.6rem; margin-bottom: 1.4rem; border-left: 4px solid var(--gold);
+  }
+  .hero-eyebrow { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; font-weight: 600; }
+  .hero h2 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+  .hero p { font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.85); }
+
+  .section { margin-bottom: 2rem; }
+  .section-title {
+    font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--text-tertiary); margin-bottom: 12px;
+    padding-bottom: 6px; border-bottom: 1px solid var(--border-light);
+  }
+
+  .step-row {
+    display: flex; gap: 14px; padding: 14px; background: var(--bg-primary);
+    border: 0.5px solid var(--border-light); border-radius: var(--radius-md); margin-bottom: 10px;
+  }
+  .step-num {
+    flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%; background: var(--gov-blue);
+    color: var(--gold); display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 700; font-family: 'DM Mono', monospace;
+  }
+  .step-content h3 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .step-content p { font-size: 13px; color: var(--text-secondary); line-height: 1.55; }
+
+  .tip-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 700px) { .tip-grid { grid-template-columns: 1fr; } }
+  .tip-card {
+    background: var(--bg-primary); border: 0.5px solid var(--border-light);
+    border-radius: var(--radius-md); padding: 14px 16px;
+  }
+  .tip-card.do { border-left: 4px solid var(--good); }
+  .tip-card.dont { border-left: 4px solid var(--bad); }
+  .tip-card h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; font-weight: 700; }
+  .tip-card.do h3 { color: var(--good); }
+  .tip-card.dont h3 { color: var(--bad); }
+  .tip-card ul { list-style: none; padding: 0; }
+  .tip-card li { font-size: 13px; color: var(--text-secondary); padding: 5px 0 5px 18px; line-height: 1.5; position: relative; border-bottom: 0.5px dashed var(--border-light); }
+  .tip-card li:last-child { border-bottom: 0; }
+  .tip-card.do li::before { content: '✓'; position: absolute; left: 0; top: 5px; color: var(--good); font-weight: 700; }
+  .tip-card.dont li::before { content: '✗'; position: absolute; left: 0; top: 5px; color: var(--bad); font-weight: 700; }
+
+  .top25 {
+    background: var(--bg-primary); border: 0.5px solid var(--border-light);
+    border-radius: var(--radius-md); padding: 14px 16px;
+  }
+  .top25-row {
+    display: flex; gap: 12px; padding: 8px 0; border-bottom: 0.5px solid var(--border-light);
+  }
+  .top25-row:last-child { border-bottom: 0; }
+  .top25-num {
+    flex-shrink: 0; font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 600;
+    color: var(--gold); width: 28px;
+  }
+  .top25-fact {
+    flex: 1; font-size: 13px; color: var(--text-primary); line-height: 1.55;
+  }
+  .top25-fact strong { color: var(--gov-blue); }
+  @media (prefers-color-scheme: dark) {
+    .top25-fact strong { color: var(--gold); }
+  }
+
+  .question-box {
+    background: var(--bg-primary); border: 0.5px solid var(--border-light);
+    border-radius: var(--radius-md); padding: 14px 16px; margin-bottom: 12px;
+  }
+  .question-box .qq { font-size: 14px; font-weight: 500; margin-bottom: 8px; }
+  .question-box .a { font-size: 13px; color: var(--text-secondary); line-height: 1.55; }
+  .question-box .a strong { color: var(--good); }
+
+  .timeline { position: relative; padding-left: 18px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 6px; top: 0; bottom: 0; width: 2px; background: var(--border-mid);
+  }
+  .ev { position: relative; padding-bottom: 14px; }
+  .ev::before {
+    content: ''; position: absolute; left: -16px; top: 4px; width: 10px; height: 10px;
+    border-radius: 50%; background: var(--gov-blue); border: 2px solid var(--bg-secondary);
+  }
+  .ev .when { font-size: 12px; font-weight: 600; color: var(--gov-blue); font-family: 'DM Mono', monospace; }
+  .ev .what { font-size: 13px; color: var(--text-secondary); line-height: 1.55; }
+
+  @media (max-width: 768px) {
+    body { font-size: 15px; padding: 1rem 0.7rem 3rem; }
+    .step-num { width: 32px; height: 32px; font-size: 14px; }
+  }
+</style>
+<link rel="stylesheet" href="../shared/youtube-button.css">
+<script src="../shared/katex.js" defer></script>
+</head>
+<body>
+<a class="yt-link" href="https://www.youtube.com/results?search_query=Life+in+the+UK+test+pass+tips+exam+technique" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg><span class="yt-label">Watch</span></a>
+
+<div class="wrap">
+  <h1 data-yt="Life in the UK test how to pass" data-yt-label="Strategy">Exam Technique &amp; Top Tips</h1>
+  <p class="subtitle">Read this first &mdash; what's on the test, how to revise, what trips people up</p>
+
+  <div class="hero">
+    <div class="hero-eyebrow">The whole thing in 5 lines</div>
+    <h2>Life in the UK Test &mdash; in summary</h2>
+    <p>24 multiple-choice questions &middot; 45 minutes &middot; 75% pass mark (18/24) &middot; £50 per attempt &middot; sat at one of ~30 official UK test centres &middot; based on the Home Office handbook <em>"Life in the United Kingdom: A Guide for New Residents"</em>.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title">A 6-Week Study Plan</div>
+
+    <div class="step-row">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h3>Week 1 — Read the official handbook</h3>
+        <p>Buy the Home Office book or read a summary. Don't try to memorise &mdash; just get the shape of it. Cover the five chapters once.</p>
+      </div>
+    </div>
+
+    <div class="step-row">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h3>Week 2 — Values &amp; History flashcards</h3>
+        <p>Use the Values card and the History flashcards on this site. Test yourself on dates and the four patron saints. Aim to recognise without prompting.</p>
+      </div>
+    </div>
+
+    <div class="step-row">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h3>Week 3 — Government &amp; Law</h3>
+        <p>Use the Government deep-dive and Law card. Memorise the names: Holyrood / Senedd / Stormont. Understand criminal vs civil. Get the court hierarchy clear.</p>
+      </div>
+    </div>
+
+    <div class="step-row">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h3>Week 4 — Society &amp; Culture</h3>
+        <p>Society flashcards. Sport, religion, holidays, famous Britons. Many test questions are pure recall &mdash; this is where you bank easy marks.</p>
+      </div>
+    </div>
+
+    <div class="step-row">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <h3>Week 5 — Mock tests</h3>
+        <p>Run the practice test on this site multiple times. Try other free mock tests online. Review every wrong answer immediately and re-read the relevant section.</p>
+      </div>
+    </div>
+
+    <div class="step-row">
+      <div class="step-num">6</div>
+      <div class="step-content">
+        <h3>Week 6 — Cram &amp; book the test</h3>
+        <p>Re-read the Top 25 facts (below) every day. Book the test for end of week 6 at gov.uk. The night before: light revision only and a good night's sleep.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Booking &amp; On The Day</div>
+
+    <div class="question-box">
+      <div class="qq">Where do I book?</div>
+      <div class="a">Only at <strong>gov.uk/life-in-the-uk-test</strong> &mdash; never use third-party sites. The official fee is <strong>£50</strong>. Book at least 3 days in advance.</div>
+    </div>
+    <div class="question-box">
+      <div class="qq">What ID do I need?</div>
+      <div class="a">Government-issued photo ID with your <strong>current address</strong> matching the booking. Acceptable: UK passport, BRP (Biometric Residence Permit), travel document, or photo driving licence. Bring two forms if possible.</div>
+    </div>
+    <div class="question-box">
+      <div class="qq">What if I fail?</div>
+      <div class="a">You can retake as many times as you like. You must wait at least <strong>7 days</strong> between attempts and pay the £50 fee each time.</div>
+    </div>
+    <div class="question-box">
+      <div class="qq">How long does the test result last?</div>
+      <div class="a">A pass is valid <strong>indefinitely</strong> &mdash; you only need to pass once. Use it for ILR, then later for citizenship.</div>
+    </div>
+    <div class="question-box">
+      <div class="qq">What does the test centre look like?</div>
+      <div class="a">A small computer room with up to 12 candidates. Each on their own screen. No talking, no phones, no notes. ID checked at the door. Test runs immediately. Result printed on the spot.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Question Format &amp; Common Traps</div>
+    <div class="tip-grid">
+      <div class="tip-card do">
+        <h3>Do</h3>
+        <ul>
+          <li>Read each question fully &mdash; some say "Select TWO answers"</li>
+          <li>Watch for "TRUE / FALSE" questions &mdash; only two options</li>
+          <li>Re-read the question, not just the answers</li>
+          <li>Answer every question &mdash; no negative marking</li>
+          <li>If unsure, eliminate obvious wrong answers first</li>
+          <li>Use the "Flag for review" button and come back at the end</li>
+          <li>Watch the timer &mdash; ~110 seconds per question on average</li>
+        </ul>
+      </div>
+      <div class="tip-card dont">
+        <h3>Don't</h3>
+        <ul>
+          <li>Don't pick the longest-looking answer just because it's longest</li>
+          <li>Don't change a confident first answer without good reason</li>
+          <li>Don't get stuck on one hard question &mdash; flag it, move on</li>
+          <li>Don't confuse 1707 (Scotland in), 1801 (Ireland in), 1922 (Ireland out)</li>
+          <li>Don't confuse Scotland's 'Holyrood' with Northern Ireland's 'Stormont'</li>
+          <li>Don't assume "Republic of Ireland" is part of the UK &mdash; it's not</li>
+          <li>Don't pick "patriotism" or "loyalty to the King" as a fundamental British value &mdash; they aren't on the official list</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Top 25 Facts to Memorise</div>
+    <p style="font-size:13px; color: var(--text-secondary); margin-bottom: 12px;">These come up <em>repeatedly</em> in past Life in the UK questions. If you only have an evening to revise, drill these.</p>
+    <div class="top25">
+      <div class="top25-row"><div class="top25-num">1</div><div class="top25-fact"><strong>5 fundamental British values:</strong> democracy, rule of law, individual liberty, tolerance, participation in community life.</div></div>
+      <div class="top25-row"><div class="top25-num">2</div><div class="top25-fact"><strong>Patron saints &amp; days:</strong> St David (1 Mar, Wales) &middot; St Patrick (17 Mar, NI) &middot; St George (23 Apr, England) &middot; St Andrew (30 Nov, Scotland).</div></div>
+      <div class="top25-row"><div class="top25-num">3</div><div class="top25-fact"><strong>1066:</strong> Battle of Hastings &mdash; William the Conqueror &mdash; last successful invasion of Britain.</div></div>
+      <div class="top25-row"><div class="top25-num">4</div><div class="top25-fact"><strong>1215:</strong> Magna Carta &mdash; King John &mdash; the king is not above the law.</div></div>
+      <div class="top25-row"><div class="top25-num">5</div><div class="top25-fact"><strong>1314:</strong> Bannockburn &mdash; Robert the Bruce &mdash; Scotland independent of England for centuries.</div></div>
+      <div class="top25-row"><div class="top25-num">6</div><div class="top25-fact"><strong>1485:</strong> Bosworth &mdash; Tudor dynasty starts &mdash; Henry VII.</div></div>
+      <div class="top25-row"><div class="top25-num">7</div><div class="top25-fact"><strong>1534:</strong> Henry VIII establishes the Church of England.</div></div>
+      <div class="top25-row"><div class="top25-num">8</div><div class="top25-fact"><strong>1588:</strong> Spanish Armada defeated under Elizabeth I.</div></div>
+      <div class="top25-row"><div class="top25-num">9</div><div class="top25-fact"><strong>1605:</strong> Gunpowder Plot &mdash; Guy Fawkes &mdash; 5 November / Bonfire Night.</div></div>
+      <div class="top25-row"><div class="top25-num">10</div><div class="top25-fact"><strong>1649:</strong> Charles I executed &mdash; Civil War &mdash; Cromwell.</div></div>
+      <div class="top25-row"><div class="top25-num">11</div><div class="top25-fact"><strong>1707:</strong> Acts of Union &mdash; England + Scotland = Great Britain.</div></div>
+      <div class="top25-row"><div class="top25-num">12</div><div class="top25-fact"><strong>1721:</strong> Sir Robert Walpole &mdash; first Prime Minister &mdash; 10 Downing Street.</div></div>
+      <div class="top25-row"><div class="top25-num">13</div><div class="top25-fact"><strong>1801:</strong> Acts of Union &mdash; Ireland joins &mdash; United Kingdom.</div></div>
+      <div class="top25-row"><div class="top25-num">14</div><div class="top25-fact"><strong>1807 / 1833:</strong> Slave trade abolished, then slavery itself &mdash; Wilberforce.</div></div>
+      <div class="top25-row"><div class="top25-num">15</div><div class="top25-fact"><strong>1837–1901:</strong> Queen Victoria &mdash; longest 19th-century reign &mdash; the Victorian era.</div></div>
+      <div class="top25-row"><div class="top25-num">16</div><div class="top25-fact"><strong>1859:</strong> Charles Darwin &mdash; On the Origin of Species &mdash; theory of evolution.</div></div>
+      <div class="top25-row"><div class="top25-num">17</div><div class="top25-fact"><strong>1922:</strong> Most of Ireland leaves the UK; Northern Ireland stays.</div></div>
+      <div class="top25-row"><div class="top25-num">18</div><div class="top25-fact"><strong>1928:</strong> Equal Franchise Act &mdash; women get the vote on the same terms as men.</div></div>
+      <div class="top25-row"><div class="top25-num">19</div><div class="top25-fact"><strong>1939–1945:</strong> WWII &mdash; Churchill PM 1940 &mdash; Greatest Briton 2002 poll.</div></div>
+      <div class="top25-row"><div class="top25-num">20</div><div class="top25-fact"><strong>1948:</strong> NHS founded &mdash; Bevan &mdash; free at the point of use.</div></div>
+      <div class="top25-row"><div class="top25-num">21</div><div class="top25-fact"><strong>1989:</strong> Sir Tim Berners-Lee invents the World Wide Web.</div></div>
+      <div class="top25-row"><div class="top25-num">22</div><div class="top25-fact"><strong>1998:</strong> Good Friday Agreement &mdash; ends Northern Ireland's Troubles &mdash; devolution.</div></div>
+      <div class="top25-row"><div class="top25-num">23</div><div class="top25-fact"><strong>2020:</strong> UK leaves the European Union (Brexit).</div></div>
+      <div class="top25-row"><div class="top25-num">24</div><div class="top25-fact"><strong>2022:</strong> King Charles III &mdash; succeeded Queen Elizabeth II on 8 September; coronation 6 May 2023.</div></div>
+      <div class="top25-row"><div class="top25-num">25</div><div class="top25-fact"><strong>Parliament:</strong> 650 MPs in the Commons &middot; ~800 peers in the Lords &middot; PM = leader of largest Commons party.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Headline Timeline (memorise this shape)</div>
+    <div class="timeline">
+      <div class="ev"><div class="when">~6500 BC</div><div class="what">Britain becomes an island.</div></div>
+      <div class="ev"><div class="when">AD 43 — 410</div><div class="what">Roman Britain &mdash; Hadrian's Wall, towns and roads.</div></div>
+      <div class="ev"><div class="when">~600</div><div class="what">Anglo-Saxons settle &mdash; English language born.</div></div>
+      <div class="ev"><div class="when">789–1066</div><div class="what">Viking age &mdash; Alfred the Great &mdash; ends with Norman Conquest.</div></div>
+      <div class="ev"><div class="when">1215</div><div class="what">Magna Carta &mdash; foundation of liberty.</div></div>
+      <div class="ev"><div class="when">1284–1314</div><div class="what">Wales annexed by Edward I; Scotland keeps independence at Bannockburn.</div></div>
+      <div class="ev"><div class="when">1455–1485</div><div class="what">Wars of the Roses end with the Tudors.</div></div>
+      <div class="ev"><div class="when">1509–1603</div><div class="what">Tudor century &mdash; Reformation, Spanish Armada, Shakespeare.</div></div>
+      <div class="ev"><div class="when">1642–1660</div><div class="what">Civil War, Cromwell's republic, Restoration of Charles II.</div></div>
+      <div class="ev"><div class="when">1688–1689</div><div class="what">Glorious Revolution &mdash; William &amp; Mary &mdash; Bill of Rights.</div></div>
+      <div class="ev"><div class="when">1707 → 1801</div><div class="what">Great Britain → United Kingdom.</div></div>
+      <div class="ev"><div class="when">1750–1850</div><div class="what">Industrial Revolution &mdash; Britain becomes the workshop of the world.</div></div>
+      <div class="ev"><div class="when">1837–1901</div><div class="what">Victorian Empire at its height.</div></div>
+      <div class="ev"><div class="when">1914–1918</div><div class="what">World War One &mdash; armistice 11/11/1918.</div></div>
+      <div class="ev"><div class="when">1928</div><div class="what">Women vote on equal terms with men.</div></div>
+      <div class="ev"><div class="when">1939–1945</div><div class="what">World War Two &mdash; Churchill &mdash; Battle of Britain &mdash; D-Day.</div></div>
+      <div class="ev"><div class="when">1948</div><div class="what">NHS &mdash; welfare state &mdash; Attlee.</div></div>
+      <div class="ev"><div class="when">1973 → 2020</div><div class="what">UK joins EEC &mdash; later leaves the EU.</div></div>
+      <div class="ev"><div class="when">1998</div><div class="what">Good Friday Agreement; devolution to Scotland, Wales, NI.</div></div>
+      <div class="ev"><div class="when">2022</div><div class="what">King Charles III becomes monarch.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Final Tips</div>
+    <div class="step-row">
+      <div class="step-num">&#x2713;</div>
+      <div class="step-content">
+        <h3>Take the official sample test before booking</h3>
+        <p>The Home Office publishes free official sample questions on gov.uk. Score them honestly. If you get 18+ on three different mocks, you're ready.</p>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">&#x2713;</div>
+      <div class="step-content">
+        <h3>Don't trust unofficial "leaked" question lists</h3>
+        <p>Many free sites copy slightly-wrong questions. The handbook is the only authoritative source. If a fact contradicts the handbook, the handbook wins.</p>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">&#x2713;</div>
+      <div class="step-content">
+        <h3>On test day &mdash; arrive 30 minutes early</h3>
+        <p>You need time to find the building, present ID, store your phone in a locker, and settle in. If you're late, they may refuse entry and you forfeit the £50.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="../shared/youtube-button.js" defer></script>
+</body>
+</html>

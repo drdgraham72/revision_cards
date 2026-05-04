@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Life in the UK — A Long &amp; Illustrious History</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f0;
+    --text-primary: #1a1a18;
+    --text-secondary: #5f5e5a;
+    --text-tertiary: #888780;
+    --border-light: rgba(0,0,0,0.12);
+    --border-mid: rgba(0,0,0,0.22);
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --font: system-ui, -apple-system, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-primary: #1e1e1c;
+      --bg-secondary: #2a2a28;
+      --text-primary: #f0ece4;
+      --text-secondary: #a8a59e;
+      --text-tertiary: #807d76;
+      --border-light: rgba(255,255,255,0.10);
+      --border-mid: rgba(255,255,255,0.20);
+    }
+  }
+  body { font-family: var(--font); background: var(--bg-secondary); color: var(--text-primary); padding: 2rem 1rem; min-height: 100vh; }
+  .wrap { max-width: 1280px; margin: 0 auto; }
+  h1 { font-size: 22px; font-weight: 600; margin-bottom: 0.2rem; }
+  .subtitle { font-size: 14px; color: var(--text-secondary); margin-bottom: 1.4rem; }
+
+  .filter-row { margin-bottom: 0.9rem; }
+  .filter-label { font-size: 11px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 5px; }
+  .btn-row { display: flex; gap: 6px; flex-wrap: wrap; }
+  .fbtn { font-size: 12px; padding: 4px 11px; border-radius: 20px; border: 0.5px solid var(--border-mid); background: var(--bg-primary); color: var(--text-secondary); cursor: pointer; transition: all 0.15s; white-space: nowrap; }
+  .fbtn.active { border-color: transparent; color: #fff; }
+
+  .fbtn[data-era="All"].active             { background: #444441; }
+  .fbtn[data-era="Early Britain"].active   { background: #6b3e0c; }
+  .fbtn[data-era="Middle Ages"].active     { background: #185FA5; }
+  .fbtn[data-era="Tudors & Stuarts"].active { background: #A32D2D; }
+  .fbtn[data-era="Empire & Industry"].active { background: #3B6D11; }
+  .fbtn[data-era="20th Century"].active    { background: #534AB7; }
+  .fbtn[data-era="Modern Britain"].active  { background: #0f6e56; }
+
+  .fbtn[data-type="All"].active     { background: #444441; }
+  .fbtn[data-type="event"].active   { background: #185FA5; }
+  .fbtn[data-type="person"].active  { background: #534AB7; }
+  .fbtn[data-type="document"].active { background: #854F0B; }
+  .fbtn[data-type="war"].active     { background: #993C1D; }
+  .fbtn[data-type="reform"].active  { background: #3B6D11; }
+
+  .counter { font-size: 13px; color: var(--text-secondary); margin: 0.9rem 0 1rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 12px; }
+
+  .card { background: var(--bg-primary); border: 0.5px solid var(--border-light); border-radius: var(--radius-lg); padding: 1rem 1.2rem; cursor: pointer; user-select: none; min-height: 220px; display: flex; flex-direction: column; gap: 7px; transition: border-color 0.15s; }
+  .card:hover { border-color: var(--border-mid); }
+
+  .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+  .era-badge { font-size: 10px; font-weight: 500; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+  .badge-Early   { background: #faeeda; color: #6b3e0c; }
+  .badge-Medieval { background: #E6F1FB; color: #185FA5; }
+  .badge-Tudor   { background: #FCEBEB; color: #A32D2D; }
+  .badge-Empire  { background: #EAF3DE; color: #3B6D11; }
+  .badge-20C     { background: #eeedfe; color: #534AB7; }
+  .badge-Modern  { background: #e1f5ee; color: #0f6e56; }
+
+  .type-tag { font-size: 10px; color: var(--text-tertiary); }
+  .date-tag { font-size: 11px; color: var(--text-tertiary); font-weight: 500; }
+  .term { font-size: 14px; font-weight: 500; color: var(--text-primary); line-height: 1.35; }
+  .mnemonic { font-size: 12px; color: var(--text-secondary); border-left: 2px solid var(--border-mid); padding-left: 8px; letter-spacing: 0.02em; }
+  .summary { font-size: 13px; color: var(--text-secondary); line-height: 1.55; flex-grow: 1; }
+
+  .back { display: none; flex-direction: column; gap: 8px; margin-top: 2px; }
+  .card.flipped .back { display: flex; }
+  .card.flipped .summary { font-size: 12px; color: var(--text-tertiary); }
+
+  .detail { font-size: 13px; color: var(--text-secondary); line-height: 1.6; border-top: 0.5px solid var(--border-light); padding-top: 8px; }
+  .exam-box { background: var(--bg-secondary); border-radius: var(--radius-md); padding: 7px 10px; font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
+  .exam-label { font-size: 10px; font-weight: 500; color: #185FA5; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 3px; }
+  .tap-hint { font-size: 11px; color: var(--text-tertiary); text-align: right; margin-top: auto; }
+
+  @media (max-width: 768px) {
+    body { font-size: 16px; padding: 1rem 0.7rem 3rem; }
+    .term { font-size: 15px; }
+    .summary { font-size: 14px; }
+    .detail { font-size: 14px; }
+  }
+</style>
+<link rel="stylesheet" href="../shared/youtube-button.css">
+<script src="../shared/katex.js" defer></script>
+</head>
+<body>
+<a class="yt-link" href="https://www.youtube.com/results?search_query=Life+in+the+UK+test+history+revision" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.8 1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.8-1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg><span class="yt-label">Watch</span></a>
+
+<div class="wrap">
+<h1 data-yt="Life in the UK history dates revision" data-yt-label="History">A Long &amp; Illustrious History</h1>
+<p class="subtitle">Romans to Brexit &mdash; tap a card to reveal full detail and the exam angle</p>
+
+<div class="filter-row">
+  <div class="filter-label">Era</div>
+  <div class="btn-row" id="era-filters"></div>
+</div>
+<div class="filter-row">
+  <div class="filter-label">Type</div>
+  <div class="btn-row" id="type-filters"></div>
+</div>
+
+<div class="counter" id="counter"></div>
+<div class="grid" id="grid"></div>
+</div>
+
+<script>
+const ERAS  = ["All","Early Britain","Middle Ages","Tudors & Stuarts","Empire & Industry","20th Century","Modern Britain"];
+const TYPES = ["All","event","person","document","war","reform"];
+
+const cards = [
+
+/* ─── EARLY BRITAIN ─── */
+{ era:"Early Britain", type:"event", date:"6500 BC",
+  term:"Britain becomes an island",
+  mnemonic:"CHANNEL — sea cuts Britain off from mainland Europe",
+  summary:"The land bridge to continental Europe was flooded around 6500 BC, separating Britain from the rest of Europe. The first humans arrived during the Stone Age via this lost connection.",
+  detail:"Stone-Age people were hunter-gatherers, then began farming. Stonehenge (c. 2500 BC), still standing on Salisbury Plain, was probably a place of worship and seasonal ceremony. Skara Brae in Orkney is the best-preserved prehistoric village in northern Europe.",
+  exam:"Exam angle: Stonehenge and Skara Brae are the two named prehistoric sites. The handbook stresses they pre-date the Romans by thousands of years."
+},
+{ era:"Early Britain", type:"event", date:"55 BC / AD 43",
+  term:"The Romans Conquer Britain",
+  mnemonic:"CAESAR–CLAUDIUS — Caesar invaded but didn't stay; Claudius came back and conquered",
+  summary:"Julius Caesar led a Roman invasion in 55 BC but didn't establish lasting rule. Emperor Claudius led the conquest in AD 43. Most of Britain (south of Hadrian's Wall) became part of the Roman Empire for nearly 400 years.",
+  detail:"Boudicca, queen of the Iceni in eastern England, led a famous revolt against the Romans and is remembered as a British folk hero. Hadrian's Wall (AD 122) marked the northern frontier &mdash; never permanently extended into Scotland. Romans built towns, roads, and brought Christianity.",
+  exam:"Exam angle: Boudicca and Hadrian's Wall are the two facts most likely tested. Note: the Romans built Hadrian's Wall to keep out the Picts of what is now Scotland."
+},
+{ era:"Early Britain", type:"event", date:"AD 410",
+  term:"Romans Leave Britain",
+  mnemonic:"COLLAPSE — empire crumbles; troops withdrawn to defend Rome",
+  summary:"Roman troops left Britain in AD 410 to defend Rome from barbarian invasions. The country broke into smaller kingdoms.",
+  detail:"After the Romans, Anglo-Saxons (from northern Germany, Denmark, the Netherlands) settled in England. By AD 600 most of England was Anglo-Saxon. The Anglo-Saxon language is the basis of modern English. Christianity arrived through missionaries (St Augustine in 597 AD; St Columba in Scotland).",
+  exam:"Exam angle: AD 410 is a date worth remembering. The Anglo-Saxons gave us the English language and the kingdom names (Wessex, Mercia, Northumbria etc.)."
+},
+{ era:"Early Britain", type:"war", date:"From AD 789",
+  term:"The Vikings",
+  mnemonic:"DANELAW — Vikings raid, then settle; eventually Alfred holds them in the north and east",
+  summary:"Vikings from Denmark and Norway began raiding Britain in 789 AD. Alfred the Great, King of Wessex, defeated them in battle and pushed them back, although they kept the north and east (the 'Danelaw').",
+  detail:"Alfred the Great (reigned 871–899) is the only English monarch to be called 'the Great'. Some Vikings stayed and integrated. Their language influenced English (sky, leg, knife). Eventually the Anglo-Saxon kings re-conquered the Danelaw, but in 1016 Cnut (Canute), a Dane, became King of England.",
+  exam:"Exam angle: Alfred the Great is the only English monarch with that title &mdash; a small but reliable test fact."
+},
+{ era:"Early Britain", type:"event", date:"1066",
+  term:"Norman Conquest — Battle of Hastings",
+  mnemonic:"HASTINGS — William of Normandy defeats Harold; arrow in the eye; everything changes",
+  summary:"William, Duke of Normandy, defeated the English king Harold at the Battle of Hastings on 14 October 1066. William became King William I (William the Conqueror). The last successful foreign invasion of Britain.",
+  detail:"The Bayeux Tapestry (made in France, displayed in Bayeux) shows the conquest. William introduced feudalism: he owned all the land and granted parts to nobles in exchange for service. The Domesday Book (1086) was a survey of who owned what land. Norman French became the language of the ruling classes for centuries &mdash; which is why English has so many French-derived words for law, government and food.",
+  exam:"Exam angle: 1066 is THE most-tested historical date in the entire test. Examiners reward knowing the date AND that this was the LAST successful foreign invasion."
+},
+
+/* ─── MIDDLE AGES ─── */
+{ era:"Middle Ages", type:"document", date:"1215",
+  term:"Magna Carta",
+  mnemonic:"GREAT CHARTER — King John forced to sign; 'no one above the law'; foundation of liberty",
+  summary:"In 1215, King John was forced by his barons to sign the Magna Carta ('Great Charter') at Runnymede. It established that the king was subject to the law &mdash; the foundation of British constitutional government.",
+  detail:"The barons rebelled because John had raised heavy taxes for unsuccessful French wars. Magna Carta limited the monarch's power, protected the rights of the Church, and established that free men could not be imprisoned without lawful judgement. Although primarily for nobles, its principle (the king is under the law) became the cornerstone of British liberty.",
+  exam:"Exam angle: The single sentence to memorise: 'Magna Carta &mdash; 1215 &mdash; King John &mdash; the king is not above the law.' Multiple test questions hinge on this."
+},
+{ era:"Middle Ages", type:"war", date:"1337–1453",
+  term:"Hundred Years' War",
+  mnemonic:"AGINCOURT — England and France fight for over a century; Henry V's longbows triumph at Agincourt 1415",
+  summary:"A long series of conflicts between England and France over the French throne and territory. Famous English victories included Crécy (1346) and Agincourt (1415, under Henry V). England eventually lost almost all its French lands.",
+  detail:"The English longbow gave decisive battlefield advantage. Joan of Arc's intervention turned the tide for France. By 1453, England held only Calais (lost in 1558). The war fostered a stronger sense of English national identity, distinct from French.",
+  exam:"Exam angle: Agincourt 1415 (Henry V) is the named battle. The handbook stresses it as a defining moment of English military history."
+},
+{ era:"Middle Ages", type:"event", date:"1348",
+  term:"The Black Death",
+  mnemonic:"PLAGUE — bubonic plague kills a third of England; labour shortages reshape society",
+  summary:"The Black Death (bubonic plague) reached England in 1348 and killed an estimated one-third of the population. The resulting labour shortage gave surviving peasants more bargaining power and helped end serfdom.",
+  detail:"The Peasants' Revolt (1381), led by Wat Tyler, was sparked partly by a poll tax and lingering grievances after the plague. Although suppressed, it accelerated the decline of feudalism. Wages rose; tenant farming replaced serfdom.",
+  exam:"Exam angle: Connect Black Death (1348) → labour shortage → Peasants' Revolt (1381) → end of feudalism. Test questions rarely require both dates but may ask the consequence."
+},
+{ era:"Middle Ages", type:"event", date:"1284",
+  term:"Wales Annexed by England",
+  mnemonic:"EDWARD I — conquers Wales; builds castles; first Prince of Wales is his son",
+  summary:"King Edward I of England defeated the Welsh princes and annexed Wales in 1284 under the Statute of Rhuddlan. Edward built a ring of castles (Caernarfon, Conwy, Harlech, Beaumaris) to enforce English rule.",
+  detail:"Edward I made his son the first English Prince of Wales &mdash; a tradition continued today (Prince William holds the title since 2022). Wales was formally united with England by the Acts of Union 1536 and 1543 under Henry VIII.",
+  exam:"Exam angle: 1284 (annexation) and 1536/1543 (full union) are the two Welsh dates. The 'Prince of Wales' tradition started here."
+},
+{ era:"Middle Ages", type:"event", date:"1314",
+  term:"Battle of Bannockburn — Scottish Independence",
+  mnemonic:"BANNOCKBURN — Robert the Bruce defeats Edward II; Scotland stays independent for centuries",
+  summary:"Robert the Bruce, King of Scotland, defeated the army of Edward II of England at Bannockburn in 1314, securing Scottish independence for the next four centuries.",
+  detail:"The Declaration of Arbroath (1320) asserted Scotland's right to independence. Scotland remained a separate kingdom until the Union of the Crowns (1603) and political union (1707).",
+  exam:"Exam angle: Bannockburn (1314, Robert the Bruce) is the most-tested Scottish history fact. Pair with the Acts of Union 1707."
+},
+{ era:"Middle Ages", type:"war", date:"1455–1485",
+  term:"Wars of the Roses",
+  mnemonic:"ROSES — Lancaster (red) vs York (white); Henry Tudor wins at Bosworth and unites them",
+  summary:"Civil war between the houses of Lancaster (red rose) and York (white rose) for the English throne. Ended at the Battle of Bosworth Field (1485) when Henry Tudor (Lancaster) defeated Richard III (York) and became Henry VII, founding the Tudor dynasty.",
+  detail:"Henry VII married Elizabeth of York, uniting the two houses. The Tudor rose (red and white combined) symbolises this union and remains an English emblem today.",
+  exam:"Exam angle: 1485 marks the end of the Middle Ages in the English curriculum and the start of the Tudor period. Bosworth is the named battle."
+},
+
+/* ─── TUDORS & STUARTS ─── */
+{ era:"Tudors & Stuarts", type:"person", date:"1509–1547",
+  term:"Henry VIII",
+  mnemonic:"SIX WIVES — divorced, beheaded, died, divorced, beheaded, survived",
+  summary:"Henry VIII broke from the Roman Catholic Church to divorce Catherine of Aragon and married six wives in total. He established the Church of England with himself as its head &mdash; the Reformation.",
+  detail:"Six wives in order: Catherine of Aragon (divorced), Anne Boleyn (beheaded), Jane Seymour (died in childbirth), Anne of Cleves (divorced), Catherine Howard (beheaded), Catherine Parr (survived). The break with Rome (1534, Act of Supremacy) made the king the supreme head of the Church in England. The dissolution of the monasteries followed. Wales was united with England under Henry VIII (1536, 1543).",
+  exam:"Exam angle: Memorise the wives mnemonic AND that Henry VIII founded the Church of England. The Welsh union (1536) is also his."
+},
+{ era:"Tudors & Stuarts", type:"event", date:"1534",
+  term:"The English Reformation",
+  mnemonic:"BREAK WITH ROME — England becomes Protestant; monasteries dissolved",
+  summary:"Henry VIII's Act of Supremacy (1534) made the monarch head of the Church of England, breaking with Rome. Under Edward VI (Henry's son) the country became firmly Protestant. Mary I tried to restore Catholicism by force ('Bloody Mary'). Elizabeth I established a Protestant settlement that has endured.",
+  detail:"The Reformation reshaped religion, politics, art and society. Monasteries were dissolved (1536–41), their wealth seized by the Crown. The King James Bible (1611, under James I) made the Bible accessible in English. Religious tension between Catholics and Protestants drove much of the next 150 years of British politics.",
+  exam:"Exam angle: 'Henry VIII established the Church of England' is the simplest version. The handbook also names the King James Bible as a defining cultural achievement."
+},
+{ era:"Tudors & Stuarts", type:"person", date:"1558–1603",
+  term:"Elizabeth I",
+  mnemonic:"GLORIANA — Virgin Queen; Spanish Armada defeated; Shakespeare flourishes",
+  summary:"Elizabeth I was Henry VIII's Protestant daughter. She established a Protestant Church of England, defeated the Spanish Armada (1588), and presided over a golden age of English literature, exploration, and naval power.",
+  detail:"She never married &mdash; the 'Virgin Queen'. The Spanish Armada (1588), sent by Catholic Philip II of Spain to invade England, was defeated by the English navy and storms. Sir Francis Drake led English raids on Spanish shipping. Sir Walter Raleigh and others established England's first colonies in America. William Shakespeare wrote his plays during her reign and that of her successor James I.",
+  exam:"Exam angle: 1588 (Spanish Armada) is a high-value test date. Connect Elizabeth I → Shakespeare → Protestant settlement → naval power."
+},
+{ era:"Tudors & Stuarts", type:"person", date:"1564–1616",
+  term:"William Shakespeare",
+  mnemonic:"BARD — playwright and poet; Globe Theatre; Stratford-upon-Avon",
+  summary:"Born in Stratford-upon-Avon. Wrote ~37 plays and 154 sonnets. Plays performed at the Globe Theatre in London. The most influential writer in the English language and a key figure in English national identity.",
+  detail:"Famous plays: Hamlet, Macbeth, Romeo and Juliet, A Midsummer Night's Dream, Henry V. Famous lines often tested: 'To be, or not to be, that is the question' (Hamlet); 'All the world's a stage' (As You Like It); 'Once more unto the breach, dear friends' (Henry V).",
+  exam:"Exam angle: Stratford-upon-Avon as his birthplace is a likely fact-check question. Knowing two or three play titles is enough."
+},
+{ era:"Tudors & Stuarts", type:"event", date:"1603 / 1707",
+  term:"Union of the Crowns &amp; Acts of Union",
+  mnemonic:"JAMES VI & I — one king, two thrones (1603); Acts of Union (1707) merge Parliaments",
+  summary:"In 1603, James VI of Scotland inherited the English throne as James I &mdash; uniting the crowns but keeping the parliaments separate. In 1707, the Acts of Union merged the Scottish and English parliaments into the Parliament of Great Britain at Westminster.",
+  detail:"James I was the first Stuart king of England. The Gunpowder Plot (5 November 1605) was a failed Catholic conspiracy to blow up Parliament and kill James I &mdash; commemorated every year as Bonfire Night / Guy Fawkes Night. The 1707 union created 'Great Britain'. Ireland was added by a further Act of Union in 1801, creating the United Kingdom.",
+  exam:"Exam angle: 1603 (Crowns) vs 1707 (Acts of Union with Scotland) vs 1801 (Acts of Union with Ireland). Distinguishing all three is the trap."
+},
+{ era:"Tudors & Stuarts", type:"event", date:"1605",
+  term:"The Gunpowder Plot",
+  mnemonic:"GUY FAWKES — Catholic conspiracy; 5 November; bonfires every year",
+  summary:"On 5 November 1605, a group of English Catholics led by Robert Catesby attempted to blow up the Houses of Parliament and kill King James I. Guy Fawkes was caught guarding the gunpowder. The plot's failure is celebrated every year on Bonfire Night.",
+  detail:"Bonfire Night (Guy Fawkes Night, 5 November): bonfires, fireworks, an effigy of Guy Fawkes burned. One of the most distinctive British annual customs, alongside Christmas and Remembrance Day.",
+  exam:"Exam angle: 5 November / Guy Fawkes / James I / 1605 — all four facts are routinely tested. Bonfire Night appears as a 'British custom' question."
+},
+{ era:"Tudors & Stuarts", type:"war", date:"1642–1651",
+  term:"English Civil War",
+  mnemonic:"ROUNDHEADS vs CAVALIERS — Parliament defeats King; Charles I executed; brief republic",
+  summary:"Civil war between supporters of King Charles I (Cavaliers / Royalists) and Parliament (Roundheads). Parliament won. Charles I was executed in 1649. Britain became a republic (the 'Commonwealth') under Oliver Cromwell.",
+  detail:"Cromwell, a Puritan, ruled as Lord Protector 1653–58. He invaded Ireland brutally and abolished Christmas celebrations. After his death, his son couldn't hold power. Charles II returned in 1660 &mdash; the Restoration. The execution of Charles I (1649) is the only execution of a British monarch.",
+  exam:"Exam angle: 1649 (Charles I executed) is the date. Cromwell's name and the Restoration of Charles II in 1660 are the other named facts."
+},
+{ era:"Tudors & Stuarts", type:"event", date:"1688",
+  term:"The Glorious Revolution",
+  mnemonic:"WILLIAM & MARY — Catholic James II ousted; Protestant William of Orange invited; Bill of Rights 1689",
+  summary:"In 1688, the Catholic King James II was overthrown by his Protestant daughter Mary and her Dutch husband William of Orange, who was invited to rule by Parliament. The 'Glorious Revolution' was largely bloodless and established Parliament's supremacy over the monarchy.",
+  detail:"The Bill of Rights 1689 confirmed: no Catholic could be monarch; the monarch could not raise taxes or maintain an army without Parliament's consent; free elections; freedom of speech in Parliament. This is the foundation of the modern British constitutional monarchy.",
+  exam:"Exam angle: 1688 / William and Mary / Bill of Rights 1689. Examiners use this as the moment Parliament 'won' against the monarchy."
+},
+
+/* ─── EMPIRE & INDUSTRY ─── */
+{ era:"Empire & Industry", type:"person", date:"1721–1742",
+  term:"Sir Robert Walpole — First Prime Minister",
+  mnemonic:"FIRST PM — Walpole 1721; the role evolved, never invented",
+  summary:"Sir Robert Walpole is regarded as the first British Prime Minister. He served from 1721 to 1742 under Kings George I and George II. The role was not formally created &mdash; it evolved from the position of 'First Lord of the Treasury'.",
+  detail:"The Hanoverian kings (George I, George II) spoke poor English and relied on their leading minister. Walpole effectively ran the government, setting the precedent for the modern PM. 10 Downing Street has been the PM's official residence since Walpole.",
+  exam:"Exam angle: Walpole as the first PM (1721) is a frequent test fact. 10 Downing Street being his residence too."
+},
+{ era:"Empire & Industry", type:"event", date:"1707 / 1801",
+  term:"Acts of Union — Great Britain &amp; the UK",
+  mnemonic:"GB 1707, UK 1801 — Scotland in 1707; Ireland in 1801",
+  summary:"1707: Acts of Union merged the Parliaments of England (which already included Wales) and Scotland into the Parliament of Great Britain. 1801: A further Act of Union added Ireland, creating the United Kingdom of Great Britain and Ireland.",
+  detail:"In 1922, most of Ireland left the UK to become the Irish Free State (later the Republic of Ireland). Northern Ireland remained part of the UK. The current name &mdash; United Kingdom of Great Britain and Northern Ireland &mdash; dates from 1927.",
+  exam:"Exam angle: Three dates to keep apart: 1707 (Scotland in), 1801 (Ireland in), 1922 (most of Ireland out)."
+},
+{ era:"Empire & Industry", type:"event", date:"1750–1850",
+  term:"The Industrial Revolution",
+  mnemonic:"FACTORY — Britain becomes the workshop of the world; coal, iron, steam",
+  summary:"Britain was the first country to industrialise. New machinery, factories, canals and (from 1825) railways transformed the economy. Britain became the world's leading economic and military power.",
+  detail:"James Watt improved the steam engine. The first passenger railway opened between Stockton and Darlington in 1825. Britain led the world in textiles, iron, shipbuilding and coal mining. Working conditions in factories and mines were often appalling, leading later to reform laws.",
+  exam:"Exam angle: James Watt (steam engine) and the 1825 railway are common factual prompts."
+},
+{ era:"Empire & Industry", type:"event", date:"1800s",
+  term:"The British Empire",
+  mnemonic:"EMPIRE — covered a quarter of the world; 'the sun never sets'",
+  summary:"By 1900 the British Empire was the largest in history, covering about a quarter of the world's land surface and population. Key territories included India, Canada, Australia, New Zealand, parts of Africa, the Caribbean and much of South-East Asia.",
+  detail:"The empire spread English language, sport, law and parliamentary government. It was also built on the slave trade until abolition (slave trade abolished 1807; slavery in the empire abolished 1833). After WWII most colonies became independent. The Commonwealth of Nations (54 members today) is the empire's modern successor &mdash; a voluntary association.",
+  exam:"Exam angle: 1807 (slave trade abolished) and 1833 (slavery abolished in the empire) are the dates. William Wilberforce led the abolition movement."
+},
+{ era:"Empire & Industry", type:"reform", date:"1807 / 1833",
+  term:"Abolition of Slavery",
+  mnemonic:"WILBERFORCE — slave trade banned 1807; slavery itself ended 1833",
+  summary:"The slave trade was abolished throughout the British Empire in 1807. Slavery itself was abolished by the Slavery Abolition Act 1833. William Wilberforce, an Evangelical MP, led the parliamentary campaign for abolition for over 40 years.",
+  detail:"The Royal Navy was used to suppress the slave trade at sea. About £20 million (a vast sum) was paid to slave owners as compensation when slavery was abolished &mdash; not to the enslaved. The Quakers were key supporters of abolition.",
+  exam:"Exam angle: Wilberforce + 1807/1833 is the standard test combo."
+},
+{ era:"Empire & Industry", type:"reform", date:"1832 / 1867 / 1884",
+  term:"Reform Acts — Expanding the Vote",
+  mnemonic:"REFORM — three big steps; from rotten boroughs to universal male suffrage",
+  summary:"The Reform Act 1832 abolished 'rotten boroughs' and extended the vote modestly. The 1867 and 1884 Acts further extended voting to most working men. Women's suffrage came later (partial 1918, equal 1928).",
+  detail:"Before 1832, only ~5% of adult men could vote and many tiny villages had MPs while big new industrial cities like Manchester had none. The Reform Acts gradually fixed this. The Suffragettes (Emmeline Pankhurst, founded WSPU 1903) campaigned for women's votes.",
+  exam:"Exam angle: 1928 (Equal Franchise Act &mdash; women vote on equal terms with men at 21) is the headline date the test usually wants."
+},
+{ era:"Empire & Industry", type:"person", date:"1837–1901",
+  term:"Queen Victoria",
+  mnemonic:"VICTORIAN — longest reign of the 19th century; empire at its height",
+  summary:"Queen Victoria reigned for 64 years (1837–1901). Her reign saw the height of the British Empire, the Industrial Revolution's full effects, and great social and scientific change. The 'Victorian era' is named after her.",
+  detail:"She married her cousin Prince Albert; after his death (1861) she wore black for the rest of her life. Her descendants ruled most of Europe by 1900. The current royal family is descended from her. Charles Dickens, Brunel, Florence Nightingale and Charles Darwin were Victorians.",
+  exam:"Exam angle: Victoria's reign dates (1837–1901) and her status as the era's namesake are standard. Albert is also tested by name."
+},
+{ era:"Empire & Industry", type:"person", date:"19th century",
+  term:"Famous Victorian Britons",
+  mnemonic:"BRUNEL/DICKENS/DARWIN — engineers, writers, scientists",
+  summary:"Isambard Kingdom Brunel: railways, ships (SS Great Britain), bridges (Clifton Suspension Bridge). Charles Dickens: novelist (Oliver Twist, A Christmas Carol, Great Expectations). Charles Darwin: On the Origin of Species (1859) &mdash; theory of evolution. Florence Nightingale: founder of modern nursing.",
+  detail:"Sir Edward Elgar (composer of 'Land of Hope and Glory'), Robert Burns (Scottish poet, 'Auld Lang Syne'), and Sir Arthur Conan Doyle (Sherlock Holmes) are also handbook-named figures.",
+  exam:"Exam angle: Match-the-person-to-the-achievement questions are common. Memorise 3–4 of these."
+},
+
+/* ─── 20TH CENTURY ─── */
+{ era:"20th Century", type:"war", date:"1914–1918",
+  term:"World War One",
+  mnemonic:"GREAT WAR — Britain and Allies vs Germany; trenches; Armistice 11 Nov 1918",
+  summary:"Britain entered WWI in August 1914 after Germany invaded neutral Belgium. The 'Great War' lasted four years. About 1 million British and Empire soldiers were killed. The war ended at 11am on 11 November 1918.",
+  detail:"Remembrance Day / Armistice Day is observed on 11 November every year &mdash; two minutes' silence at 11am, red poppies worn. Remembrance Sunday (the nearest Sunday) features ceremonies at the Cenotaph in Whitehall, London. The poppy comes from the poem 'In Flanders Fields' by John McCrae.",
+  exam:"Exam angle: 11 November 1918 / 11am / poppy / Cenotaph &mdash; all four are routinely tested as 'British customs'."
+},
+{ era:"20th Century", type:"event", date:"1918 / 1928",
+  term:"Women Get the Vote",
+  mnemonic:"VOTES — 1918 (women over 30); 1928 (equal terms with men)",
+  summary:"In 1918, women aged 30+ who met a property qualification got the vote. In 1928 the Equal Franchise Act gave women the vote on the same terms as men &mdash; from age 21 (later lowered to 18 in 1969).",
+  detail:"The Suffragettes, led by Emmeline Pankhurst, had campaigned for decades using both peaceful and militant methods. Many women's role in WWI factories and services accelerated public acceptance.",
+  exam:"Exam angle: 1928 is the headline date for 'votes for women on equal terms'. 1918 was partial. The test loves this distinction."
+},
+{ era:"20th Century", type:"event", date:"1922",
+  term:"Partition of Ireland",
+  mnemonic:"PARTITION — 1922; Ireland leaves UK; Northern Ireland stays",
+  summary:"After centuries of struggle and the Irish War of Independence, most of Ireland left the UK in 1922 as the Irish Free State (later the Republic of Ireland, 1949). Six counties of the north (Northern Ireland) remained part of the UK.",
+  detail:"The 'Troubles' (late 1960s to 1998) were a violent conflict in Northern Ireland between mainly Protestant unionists (who wanted to stay in the UK) and mainly Catholic nationalists (who wanted to join the Republic). The Belfast / Good Friday Agreement (1998) ended the conflict and established the Northern Ireland Assembly.",
+  exam:"Exam angle: 1922 (most of Ireland leaves the UK) is the date. The Good Friday Agreement (1998) is the second major Northern Ireland fact."
+},
+{ era:"20th Century", type:"war", date:"1939–1945",
+  term:"World War Two",
+  mnemonic:"CHURCHILL — Britain stands alone in 1940; Battle of Britain; D-Day; victory 1945",
+  summary:"Britain declared war on Germany on 3 September 1939 after Germany invaded Poland. After the fall of France (1940), Britain stood alone against Nazi Germany under Prime Minister Winston Churchill. Germany surrendered in May 1945; Japan in August 1945.",
+  detail:"Battle of Britain (summer 1940): RAF defeats the Luftwaffe, Churchill says 'Never in the field of human conflict was so much owed by so many to so few.' D-Day (6 June 1944): Allied invasion of Normandy. VE Day = 8 May 1945; VJ Day = 15 August 1945. The UK's wartime allies included the USA (from Dec 1941), Soviet Union (from June 1941) and Commonwealth countries.",
+  exam:"Exam angle: Churchill, 1939–45, Battle of Britain, D-Day. Churchill's name comes up across multiple questions."
+},
+{ era:"20th Century", type:"person", date:"1874–1965",
+  term:"Sir Winston Churchill",
+  mnemonic:"BULLDOG — wartime PM; voted 'greatest Briton'; Nobel Prize for Literature",
+  summary:"Conservative politician, soldier, journalist and historian. Prime Minister 1940–45 (wartime) and again 1951–55. Inspired Britain through WWII with speeches and resolve. Voted 'Greatest Briton of all time' in a 2002 BBC poll.",
+  detail:"Famous speeches: 'We shall fight on the beaches' (1940); 'This was their finest hour' (1940); 'an iron curtain has descended' (1946 &mdash; coining the Cold War metaphor). He was awarded the Nobel Prize in Literature in 1953 for his historical writing.",
+  exam:"Exam angle: Two facts almost always tested &mdash; 'wartime PM' and 'Greatest Briton 2002 poll'."
+},
+{ era:"20th Century", type:"reform", date:"1945–1951",
+  term:"Birth of the Welfare State &amp; NHS",
+  mnemonic:"NHS 1948 — Beveridge Report; Attlee government; cradle to grave",
+  summary:"The 1942 Beveridge Report identified five 'giants' &mdash; want, disease, ignorance, squalor and idleness. The post-war Labour government under Clement Attlee (1945–51) created the welfare state. The National Health Service (NHS) was founded in 1948 by Aneurin (Nye) Bevan, Health Minister.",
+  detail:"NHS principle: free at the point of use, funded by general taxation. Attlee's government also nationalised key industries (coal, rail, steel) and expanded social housing. The 1944 Education Act (Butler Act) had introduced free secondary education for all.",
+  exam:"Exam angle: NHS 1948 / Bevan / Attlee. 'Free at the point of use' is the principle the test wants."
+},
+{ era:"20th Century", type:"reform", date:"1947 onwards",
+  term:"End of Empire — Decolonisation",
+  mnemonic:"COMMONWEALTH — empire dismantled; 1947 India independent; replaced by voluntary Commonwealth",
+  summary:"After WWII, Britain could no longer maintain its empire. India and Pakistan became independent in 1947. Most other colonies followed over the next 30 years. The Commonwealth of Nations (54 countries, ~2.5 billion people) succeeded the empire as a voluntary association.",
+  detail:"Commonwealth members share certain values (democracy, rule of law, human rights). The monarch is head of the Commonwealth (a separate role from being head of state of individual realms). Most Commonwealth countries are republics; 14 'Commonwealth realms' (e.g. Canada, Australia, New Zealand) keep King Charles III as their head of state.",
+  exam:"Exam angle: 1947 (India), Commonwealth, 54 members. 'Voluntary' association &mdash; this word is tested."
+},
+{ era:"20th Century", type:"person", date:"1925–2013",
+  term:"Margaret Thatcher",
+  mnemonic:"IRON LADY — first female PM; Conservative; 1979–90; Falklands War 1982",
+  summary:"Conservative PM from 1979 to 1990 &mdash; the longest-serving 20th-century PM and the first woman to hold the role. Reformed the economy through privatisation, reduced trade union power, and won the Falklands War (1982). Polarising figure.",
+  detail:"Other named PMs in the handbook: Clement Attlee (1945–51, Labour), Harold Macmillan (1957–63), Tony Blair (Labour, 1997–2007 &mdash; introduced devolution), David Cameron (2010–16 &mdash; Brexit referendum).",
+  exam:"Exam angle: 'First female PM' is the recurring question. Falklands 1982 is the named conflict."
+},
+
+/* ─── MODERN BRITAIN ─── */
+{ era:"Modern Britain", type:"reform", date:"1998",
+  term:"Devolution &amp; the Good Friday Agreement",
+  mnemonic:"DEVOLUTION — Scotland, Wales, NI get their own bodies; GFA ends Troubles",
+  summary:"Under Tony Blair's Labour government, devolution gave Scotland, Wales and Northern Ireland their own elected bodies in 1998–99. The Good Friday (Belfast) Agreement (1998) ended the Northern Ireland Troubles and established the Northern Ireland Assembly.",
+  detail:"Scottish Parliament (Holyrood, Edinburgh) opened 1999. Welsh Assembly (now Senedd, Cardiff) 1999, given law-making powers in 2011. Northern Ireland Assembly (Stormont, Belfast) 1998. Each has its own First Minister. The UK Parliament at Westminster retains 'reserved' powers (defence, foreign affairs, immigration).",
+  exam:"Exam angle: Holyrood / Senedd / Stormont &mdash; know which is which. 1998 GFA is a high-frequency test fact."
+},
+{ era:"Modern Britain", type:"event", date:"1973 / 2016 / 2020",
+  term:"UK and the European Union",
+  mnemonic:"EU IN AND OUT — joined EEC 1973; left EU 2020 after 2016 referendum",
+  summary:"The UK joined the European Economic Community (EEC) in 1973 under Edward Heath. A 1975 referendum confirmed membership. In a 2016 referendum, 52% voted to leave the EU. The UK formally left on 31 January 2020.",
+  detail:"The EU developed from the EEC. UK never adopted the euro &mdash; kept the pound. 'Brexit' = British exit. The transition period ended 31 December 2020. The UK now has a Trade and Cooperation Agreement with the EU.",
+  exam:"Exam angle: 1973 join, 2016 referendum, 2020 leave. The handbook is updated to reflect Brexit, so this is current test material."
+},
+{ era:"Modern Britain", type:"person", date:"From 2022",
+  term:"King Charles III",
+  mnemonic:"CHARLES III — became King 8 Sept 2022; coronation 6 May 2023",
+  summary:"Queen Elizabeth II died on 8 September 2022 after a 70-year reign &mdash; the longest in British history. Her son Charles became King Charles III immediately. His coronation was at Westminster Abbey on 6 May 2023.",
+  detail:"Charles III is head of state of the UK and 14 other Commonwealth realms, and head of the Commonwealth. His son William is now Prince of Wales and heir to the throne; William's son Prince George is second in line. The UK's Royal Family is officially the House of Windsor.",
+  exam:"Exam angle: Updated handbook content. 'Who is the current monarch?' &mdash; King Charles III. Date of accession (Sep 2022) and coronation (May 2023) may be tested."
+},
+{ era:"Modern Britain", type:"event", date:"2014",
+  term:"Scottish Independence Referendum",
+  mnemonic:"NO — Scotland votes to stay in UK by 55% to 45%",
+  summary:"On 18 September 2014, Scotland held a referendum on independence from the UK. Voters chose to remain part of the UK by 55% to 45%. Turnout was 85% &mdash; among the highest in UK political history.",
+  detail:"The referendum was authorised by the Edinburgh Agreement (2012) between the UK and Scottish governments. The Scottish National Party (SNP), led by Alex Salmond, campaigned for Yes. After the result, further powers were devolved to Scotland under the Smith Commission.",
+  exam:"Exam angle: Less commonly tested than 1707 / 1314, but it's modern handbook material."
+},
+{ era:"Modern Britain", type:"event", date:"2012",
+  term:"London Olympics &amp; Paralympics",
+  mnemonic:"LONDON 2012 — third time host; Mo Farah, Bradley Wiggins; Paralympics globally watched",
+  summary:"London hosted the Summer Olympic Games and Paralympic Games in 2012 &mdash; the third time London has hosted (also 1908 and 1948). The Paralympics in particular drew unprecedented global audiences and changed perceptions of disability sport.",
+  detail:"Britain finished third in the medal table. Memorable British medals: Mo Farah (5000m and 10000m gold), Bradley Wiggins (cycling), Jessica Ennis-Hill (heptathlon). Paralympic stars included Ellie Simmonds (swimming) and David Weir.",
+  exam:"Exam angle: 'How many times has London hosted the Olympics?' &mdash; answer: three (1908, 1948, 2012)."
+}
+
+];
+
+const eraBadgeClass = {
+  "Early Britain":"badge-Early",
+  "Middle Ages":"badge-Medieval",
+  "Tudors & Stuarts":"badge-Tudor",
+  "Empire & Industry":"badge-Empire",
+  "20th Century":"badge-20C",
+  "Modern Britain":"badge-Modern"
+};
+
+const eraBar = document.getElementById('era-filters');
+const typeBar = document.getElementById('type-filters');
+const counterEl = document.getElementById('counter');
+const gridEl = document.getElementById('grid');
+
+let activeEra = 'All';
+let activeType = 'All';
+
+ERAS.forEach(e => {
+  const b = document.createElement('button');
+  b.className = 'fbtn' + (e==='All' ? ' active' : '');
+  b.dataset.era = e;
+  b.textContent = e;
+  b.onclick = () => { activeEra = e; document.querySelectorAll('.fbtn[data-era]').forEach(x => x.classList.toggle('active', x.dataset.era===e)); render(); };
+  eraBar.appendChild(b);
+});
+TYPES.forEach(t => {
+  const b = document.createElement('button');
+  b.className = 'fbtn' + (t==='All' ? ' active' : '');
+  b.dataset.type = t;
+  b.textContent = t;
+  b.onclick = () => { activeType = t; document.querySelectorAll('.fbtn[data-type]').forEach(x => x.classList.toggle('active', x.dataset.type===t)); render(); };
+  typeBar.appendChild(b);
+});
+
+function render() {
+  gridEl.innerHTML = '';
+  let filtered = cards.slice();
+  if (activeEra !== 'All') filtered = filtered.filter(c => c.era === activeEra);
+  if (activeType !== 'All') filtered = filtered.filter(c => c.type === activeType);
+  counterEl.textContent = filtered.length + ' card' + (filtered.length !== 1 ? 's' : '');
+  filtered.forEach(c => {
+    const badgeClass = eraBadgeClass[c.era] || '';
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <div class="card-top">
+        <div><span class="era-badge ${badgeClass}">${c.era}</span></div>
+        <div style="text-align:right">
+          <div class="type-tag">${c.type}</div>
+          <div class="date-tag">${c.date}</div>
+        </div>
+      </div>
+      <div class="term">${c.term}</div>
+      <div class="mnemonic">&#9670; ${c.mnemonic}</div>
+      <div class="summary">${c.summary}</div>
+      <div class="back">
+        <div class="detail">${c.detail}</div>
+        <div class="exam-box">
+          <div class="exam-label">Exam angle</div>
+          ${c.exam}
+        </div>
+      </div>
+      <div class="tap-hint">tap to reveal detail + exam angle</div>
+    `;
+    card.onclick = () => { card.classList.toggle('flipped'); card.querySelector('.tap-hint').textContent = card.classList.contains('flipped') ? 'tap to hide' : 'tap to reveal detail + exam angle'; };
+    gridEl.appendChild(card);
+  });
+}
+render();
+</script>
+
+<script src="../shared/youtube-button.js" defer></script>
+</body>
+</html>
