@@ -1,0 +1,50 @@
+{
+  "id": "mcu-hard-1",
+  "topic": "mcu",
+  "title": "🦸 MCU Hard #1",
+  "desc": "Lore, casting and Easter-egg territory",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Who plays Vision?",
+      "a": "Paul Bettany"
+    },
+    {
+      "q": "In which realm is much of Thor: The Dark World set?",
+      "a": "Svartalfheim"
+    },
+    {
+      "q": "What was Hawkeye's vigilante alias during the Snap years?",
+      "a": "Ronin"
+    },
+    {
+      "q": "Who is the alien fleet that attacks New York in Avengers (2012)?",
+      "a": "The Chitauri"
+    },
+    {
+      "q": "Who is Star-Lord's father, the Living Planet?",
+      "a": "Ego"
+    },
+    {
+      "q": "What is Howard Stark's relation to Tony?",
+      "a": "His father"
+    },
+    {
+      "q": "Who plays young Nick Fury (de-aged) in Captain Marvel?",
+      "a": "Samuel L. Jackson"
+    },
+    {
+      "q": "What is the name of the airless prison planet in Thor: Ragnarok?",
+      "a": "Sakaar"
+    },
+    {
+      "q": "What is Wanda Maximoff's superhero alias?",
+      "a": "The Scarlet Witch"
+    },
+    {
+      "q": "Who voices Rocket in the Guardians films?",
+      "a": "Bradley Cooper"
+    }
+  ]
+}

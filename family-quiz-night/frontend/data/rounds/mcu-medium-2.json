@@ -1,0 +1,50 @@
+{
+  "id": "mcu-medium-2",
+  "topic": "mcu",
+  "title": "🦸 MCU Medium #2",
+  "desc": "Endgame, multiverse, and the Loki/WandaVision era",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Who replaces JARVIS as Tony's AI in Age of Ultron?",
+      "a": "FRIDAY"
+    },
+    {
+      "q": "Who kills Quicksilver in Age of Ultron?",
+      "a": "Ultron"
+    },
+    {
+      "q": "In WandaVision, what is the name of the false reality Wanda creates?",
+      "a": "The Hex (Westview anomaly)"
+    },
+    {
+      "q": "Who plays Loki in the MCU?",
+      "a": "Tom Hiddleston"
+    },
+    {
+      "q": "What is the time-policing organisation Loki ends up working with?",
+      "a": "The Time Variance Authority (TVA)"
+    },
+    {
+      "q": "Who plays the older Steve Rogers at the end of Endgame?",
+      "a": "Chris Evans (with prosthetics)"
+    },
+    {
+      "q": "What is the name of the Eternals' Celestial that emerges from Earth?",
+      "a": "Tiamut"
+    },
+    {
+      "q": "In what film does the Sokovia Accords storyline begin?",
+      "a": "Captain America: Civil War"
+    },
+    {
+      "q": "Who replaces Steve Rogers as Captain America?",
+      "a": "Sam Wilson (Falcon)"
+    },
+    {
+      "q": "Who is Yelena Belova to Natasha Romanoff?",
+      "a": "Her adoptive sister"
+    }
+  ]
+}

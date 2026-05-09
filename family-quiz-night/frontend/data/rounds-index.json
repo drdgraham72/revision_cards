@@ -955,6 +955,114 @@
       "type": "standard",
       "isNew": true,
       "count": 9
+    },
+    {
+      "id": "starwars-easy-1",
+      "topic": "starwars",
+      "title": "⚔️ Star Wars Easy #1",
+      "desc": "Galactic basics — ships, characters, classic phrases",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "starwars-easy-2",
+      "topic": "starwars",
+      "title": "⚔️ Star Wars Easy #2",
+      "desc": "Iconic moments and characters of the original trilogy",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "starwars-medium-1",
+      "topic": "starwars",
+      "title": "⚔️ Star Wars Medium #1",
+      "desc": "Prequel trilogy and the Clone Wars era",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "starwars-medium-2",
+      "topic": "starwars",
+      "title": "⚔️ Star Wars Medium #2",
+      "desc": "Sequels, Rogue One, Mandalorian and beyond",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "starwars-hard-1",
+      "topic": "starwars",
+      "title": "⚔️ Star Wars Hard #1",
+      "desc": "Behind the scenes, voice actors, and Star Destroyer trivia",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "starwars-hard-2",
+      "topic": "starwars",
+      "title": "⚔️ Star Wars Hard #2",
+      "desc": "Deep cuts — eras, expanded universe, animated canon",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "mcu-easy-1",
+      "topic": "mcu",
+      "title": "🦸 MCU Easy #1",
+      "desc": "Phase One foundations — origin stories",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "mcu-easy-2",
+      "topic": "mcu",
+      "title": "🦸 MCU Easy #2",
+      "desc": "Avengers, Guardians and headline heroes",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "mcu-medium-1",
+      "topic": "mcu",
+      "title": "🦸 MCU Medium #1",
+      "desc": "Phases 2 and 3 — the road to Infinity War",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "mcu-medium-2",
+      "topic": "mcu",
+      "title": "🦸 MCU Medium #2",
+      "desc": "Endgame, multiverse, and the Loki/WandaVision era",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "mcu-hard-1",
+      "topic": "mcu",
+      "title": "🦸 MCU Hard #1",
+      "desc": "Lore, casting and Easter-egg territory",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "mcu-hard-2",
+      "topic": "mcu",
+      "title": "🦸 MCU Hard #2",
+      "desc": "Phase 4-5 deep cuts and the multiverse",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
     }
   ]
 }

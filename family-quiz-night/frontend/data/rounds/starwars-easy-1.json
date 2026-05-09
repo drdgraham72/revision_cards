@@ -1,0 +1,50 @@
+{
+  "id": "starwars-easy-1",
+  "topic": "starwars",
+  "title": "⚔️ Star Wars Easy #1",
+  "desc": "Galactic basics — ships, characters, classic phrases",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "What is the name of Luke Skywalker's home planet?",
+      "a": "Tatooine"
+    },
+    {
+      "q": "What does Han Solo call his ship?",
+      "a": "The Millennium Falcon"
+    },
+    {
+      "q": "What species is Chewbacca?",
+      "a": "Wookiee"
+    },
+    {
+      "q": "What is the giant spherical Imperial superweapon called?",
+      "a": "The Death Star"
+    },
+    {
+      "q": "Who is Luke Skywalker's father?",
+      "a": "Darth Vader (Anakin Skywalker)"
+    },
+    {
+      "q": "What colour is Yoda's lightsaber?",
+      "a": "Green"
+    },
+    {
+      "q": "What planet was Princess Leia's home before its destruction?",
+      "a": "Alderaan"
+    },
+    {
+      "q": "Who is the bounty hunter who freezes Han Solo in carbonite?",
+      "a": "Boba Fett"
+    },
+    {
+      "q": "On which icy planet do the Rebels hide in The Empire Strikes Back?",
+      "a": "Hoth"
+    },
+    {
+      "q": "What kind of droid is R2-D2?",
+      "a": "An astromech droid"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "starwars-hard-1",
+  "topic": "starwars",
+  "title": "⚔️ Star Wars Hard #1",
+  "desc": "Behind the scenes, voice actors, and Star Destroyer trivia",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Who composed the Star Wars musical score?",
+      "a": "John Williams"
+    },
+    {
+      "q": "In what year was the original Star Wars (A New Hope) released?",
+      "a": "1977"
+    },
+    {
+      "q": "Who plays Anakin Skywalker as an adult in the prequel trilogy?",
+      "a": "Hayden Christensen"
+    },
+    {
+      "q": "Who is Boba Fett's father?",
+      "a": "Jango Fett"
+    },
+    {
+      "q": "What is the name of the Star Destroyer that pursues the Tantive IV at the start of A New Hope?",
+      "a": "Devastator"
+    },
+    {
+      "q": "Which director helmed The Empire Strikes Back?",
+      "a": "Irvin Kershner"
+    },
+    {
+      "q": "Who voices Yoda in the original trilogy?",
+      "a": "Frank Oz"
+    },
+    {
+      "q": "Captain Rex commands which Clone Wars-era legion?",
+      "a": "The 501st Legion"
+    },
+    {
+      "q": "Who plays Emperor Palpatine across both trilogies?",
+      "a": "Ian McDiarmid"
+    },
+    {
+      "q": "What is the name of Maul's brother introduced in The Clone Wars?",
+      "a": "Savage Opress"
+    }
+  ]
+}

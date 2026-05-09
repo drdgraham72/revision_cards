@@ -1,0 +1,50 @@
+{
+  "id": "mcu-easy-2",
+  "topic": "mcu",
+  "title": "🦸 MCU Easy #2",
+  "desc": "Avengers, Guardians and headline heroes",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Who leads the Guardians of the Galaxy?",
+      "a": "Star-Lord (Peter Quill)"
+    },
+    {
+      "q": "What is the name of Wakanda's king and superhero?",
+      "a": "T'Challa (Black Panther)"
+    },
+    {
+      "q": "What is Ant-Man's civilian name?",
+      "a": "Scott Lang"
+    },
+    {
+      "q": "What is the name of Doctor Strange's sentient cape?",
+      "a": "The Cloak of Levitation"
+    },
+    {
+      "q": "In which city does the climactic battle of The Avengers (2012) take place?",
+      "a": "New York City"
+    },
+    {
+      "q": "What does Thanos collect to wipe out half the universe?",
+      "a": "The Infinity Stones"
+    },
+    {
+      "q": "Who marries Pepper Potts?",
+      "a": "Tony Stark"
+    },
+    {
+      "q": "What is Black Widow's real name?",
+      "a": "Natasha Romanoff"
+    },
+    {
+      "q": "Who is Spider-Man's mentor in the MCU?",
+      "a": "Tony Stark / Iron Man"
+    },
+    {
+      "q": "What is Captain Marvel's real name?",
+      "a": "Carol Danvers"
+    }
+  ]
+}

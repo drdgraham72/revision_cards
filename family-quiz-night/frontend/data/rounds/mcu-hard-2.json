@@ -1,0 +1,50 @@
+{
+  "id": "mcu-hard-2",
+  "topic": "mcu",
+  "title": "🦸 MCU Hard #2",
+  "desc": "Phase 4-5 deep cuts and the multiverse",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "What are Wanda's twin children named?",
+      "a": "Tommy and Billy"
+    },
+    {
+      "q": "Who plays Adam Warlock in Guardians of the Galaxy Vol. 3?",
+      "a": "Will Poulter"
+    },
+    {
+      "q": "What is Jane Foster's superhero name in Thor: Love and Thunder?",
+      "a": "The Mighty Thor"
+    },
+    {
+      "q": "Who plays Doctor Strange's love interest, Christine Palmer?",
+      "a": "Rachel McAdams"
+    },
+    {
+      "q": "What is the microscopic dimension Ant-Man can shrink into?",
+      "a": "The Quantum Realm"
+    },
+    {
+      "q": "Which actor returns as the Sam Raimi-era Spider-Man in No Way Home?",
+      "a": "Tobey Maguire"
+    },
+    {
+      "q": "What are the names of Thor's space goats in Love and Thunder?",
+      "a": "Toothgnasher and Toothgrinder"
+    },
+    {
+      "q": "Who is the conqueror variant introduced as the new big bad in Quantumania?",
+      "a": "Kang the Conqueror"
+    },
+    {
+      "q": "What was the title of the very first MCU film?",
+      "a": "Iron Man (2008)"
+    },
+    {
+      "q": "Which character says \"I am Groot\" in nearly every line they speak?",
+      "a": "Groot"
+    }
+  ]
+}

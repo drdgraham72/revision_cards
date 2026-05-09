@@ -1,0 +1,50 @@
+{
+  "id": "starwars-medium-1",
+  "topic": "starwars",
+  "title": "⚔️ Star Wars Medium #1",
+  "desc": "Prequel trilogy and the Clone Wars era",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "What is Anakin Skywalker's mother's name?",
+      "a": "Shmi Skywalker"
+    },
+    {
+      "q": "Who trained Obi-Wan Kenobi?",
+      "a": "Qui-Gon Jinn"
+    },
+    {
+      "q": "Of which planet is Padmé Amidala the queen, then senator?",
+      "a": "Naboo"
+    },
+    {
+      "q": "What colour is Mace Windu's lightsaber?",
+      "a": "Purple"
+    },
+    {
+      "q": "On what planet are the clones grown?",
+      "a": "Kamino"
+    },
+    {
+      "q": "What species is Jar Jar Binks?",
+      "a": "Gungan"
+    },
+    {
+      "q": "Which Sith has red-and-black face tattoos and a double-bladed lightsaber?",
+      "a": "Darth Maul"
+    },
+    {
+      "q": "On which volcanic planet does Anakin lose his limbs to Obi-Wan?",
+      "a": "Mustafar"
+    },
+    {
+      "q": "What does Order 66 instruct the clones to do?",
+      "a": "Execute all Jedi"
+    },
+    {
+      "q": "What is Count Dooku's Sith name?",
+      "a": "Darth Tyranus"
+    }
+  ]
+}

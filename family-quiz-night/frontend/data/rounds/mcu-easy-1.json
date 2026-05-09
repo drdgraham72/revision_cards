@@ -1,0 +1,50 @@
+{
+  "id": "mcu-easy-1",
+  "topic": "mcu",
+  "title": "🦸 MCU Easy #1",
+  "desc": "Phase One foundations — origin stories",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Who plays Iron Man in the MCU?",
+      "a": "Robert Downey Jr."
+    },
+    {
+      "q": "What is Captain America's shield made of?",
+      "a": "Vibranium"
+    },
+    {
+      "q": "What is the name of Thor's hammer?",
+      "a": "Mjölnir"
+    },
+    {
+      "q": "What does S.H.I.E.L.D. stand for?",
+      "a": "Strategic Homeland Intervention, Enforcement and Logistics Division"
+    },
+    {
+      "q": "Who is the half-brother villain of Thor?",
+      "a": "Loki"
+    },
+    {
+      "q": "What colour is the Hulk?",
+      "a": "Green"
+    },
+    {
+      "q": "What gem powers Vision's forehead?",
+      "a": "The Mind Stone"
+    },
+    {
+      "q": "What is Tony Stark's loyal AI assistant called (before FRIDAY)?",
+      "a": "JARVIS"
+    },
+    {
+      "q": "What is Captain America's real name?",
+      "a": "Steve Rogers"
+    },
+    {
+      "q": "Who is the director of S.H.I.E.L.D. who recruits the Avengers?",
+      "a": "Nick Fury"
+    }
+  ]
+}

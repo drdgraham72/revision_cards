@@ -1,0 +1,50 @@
+{
+  "id": "mcu-medium-1",
+  "topic": "mcu",
+  "title": "🦸 MCU Medium #1",
+  "desc": "Phases 2 and 3 — the road to Infinity War",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "What is the name of the talking raccoon in the Guardians?",
+      "a": "Rocket"
+    },
+    {
+      "q": "What is the magical training sanctum in Doctor Strange called?",
+      "a": "Kamar-Taj"
+    },
+    {
+      "q": "What alien race does Ronan the Accuser belong to?",
+      "a": "Kree"
+    },
+    {
+      "q": "On which planet does Thanos kill Gamora to obtain the Soul Stone?",
+      "a": "Vormir"
+    },
+    {
+      "q": "Who plays Doctor Strange?",
+      "a": "Benedict Cumberbatch"
+    },
+    {
+      "q": "Who directed the first two Avengers films?",
+      "a": "Joss Whedon"
+    },
+    {
+      "q": "What is the leader of the Ten Rings called in Shang-Chi?",
+      "a": "Wenwu (the real Mandarin)"
+    },
+    {
+      "q": "How does Tony Stark deliver the snap that defeats Thanos in Endgame?",
+      "a": "Wearing a Stark-built Infinity Gauntlet"
+    },
+    {
+      "q": "What is the name of Captain America's WWII unit?",
+      "a": "The Howling Commandos"
+    },
+    {
+      "q": "In what decade is Captain Marvel set?",
+      "a": "The 1990s"
+    }
+  ]
+}

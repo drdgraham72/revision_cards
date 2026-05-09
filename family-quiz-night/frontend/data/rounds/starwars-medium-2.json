@@ -1,0 +1,50 @@
+{
+  "id": "starwars-medium-2",
+  "topic": "starwars",
+  "title": "⚔️ Star Wars Medium #2",
+  "desc": "Sequels, Rogue One, Mandalorian and beyond",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Who is revealed as Rey's grandfather in The Rise of Skywalker?",
+      "a": "Emperor Palpatine"
+    },
+    {
+      "q": "What is the planet-killing weapon in The Force Awakens called?",
+      "a": "Starkiller Base"
+    },
+    {
+      "q": "What was Finn's stormtrooper designation before he defected?",
+      "a": "FN-2187"
+    },
+    {
+      "q": "Who replaced Phil Lord and Chris Miller as director of Solo: A Star Wars Story?",
+      "a": "Ron Howard"
+    },
+    {
+      "q": "What is the name of Maz Kanata's planet?",
+      "a": "Takodana"
+    },
+    {
+      "q": "What is the name of the small spherical droid in the sequel trilogy?",
+      "a": "BB-8"
+    },
+    {
+      "q": "In Rogue One, what is the codename of the Death Star plans?",
+      "a": "Stardust"
+    },
+    {
+      "q": "What is The Mandalorian's real name?",
+      "a": "Din Djarin"
+    },
+    {
+      "q": "What near-extinct metal is Mandalorian armour forged from?",
+      "a": "Beskar"
+    },
+    {
+      "q": "What does Luke do with his old lightsaber when Rey hands it to him in The Last Jedi?",
+      "a": "Throws it over his shoulder"
+    }
+  ]
+}

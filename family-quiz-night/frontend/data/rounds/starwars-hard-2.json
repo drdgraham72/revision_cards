@@ -1,0 +1,50 @@
+{
+  "id": "starwars-hard-2",
+  "topic": "starwars",
+  "title": "⚔️ Star Wars Hard #2",
+  "desc": "Deep cuts — eras, expanded universe, animated canon",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "What was the working title of the original Star Wars before release?",
+      "a": "The Star Wars"
+    },
+    {
+      "q": "In what video game/era is Darth Revan the central Sith?",
+      "a": "Knights of the Old Republic (KOTOR)"
+    },
+    {
+      "q": "Which prison planet does Cassian Andor escape from in Andor?",
+      "a": "Narkina 5"
+    },
+    {
+      "q": "Who is Ahsoka Tano's master?",
+      "a": "Anakin Skywalker"
+    },
+    {
+      "q": "What is the name of Grogu's species (officially)?",
+      "a": "Unknown — never named on screen"
+    },
+    {
+      "q": "Which Force ghost trains Rey in The Rise of Skywalker?",
+      "a": "Luke Skywalker"
+    },
+    {
+      "q": "What is Kylo Ren's real name?",
+      "a": "Ben Solo"
+    },
+    {
+      "q": "Who created the Star Wars franchise?",
+      "a": "George Lucas"
+    },
+    {
+      "q": "What is the model name of Vader's signature TIE fighter?",
+      "a": "TIE Advanced x1"
+    },
+    {
+      "q": "Which 1980 sequel features the famous \"I am your father\" reveal?",
+      "a": "The Empire Strikes Back"
+    }
+  ]
+}

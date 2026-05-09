@@ -1,0 +1,50 @@
+{
+  "id": "starwars-easy-2",
+  "topic": "starwars",
+  "title": "⚔️ Star Wars Easy #2",
+  "desc": "Iconic moments and characters of the original trilogy",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Who is the small green Jedi master who trains Luke on Dagobah?",
+      "a": "Yoda"
+    },
+    {
+      "q": "What is C-3PO's primary function?",
+      "a": "Protocol droid (etiquette and translation)"
+    },
+    {
+      "q": "What furry creatures help defeat the Empire on Endor?",
+      "a": "Ewoks"
+    },
+    {
+      "q": "Who killed Obi-Wan Kenobi in A New Hope?",
+      "a": "Darth Vader"
+    },
+    {
+      "q": "What is the rebellion's main starfighter type in the original trilogy?",
+      "a": "X-wing"
+    },
+    {
+      "q": "What is Han Solo's reply to Leia's \"I love you\"?",
+      "a": "\"I know\""
+    },
+    {
+      "q": "What is the four-legged Imperial walker on Hoth called?",
+      "a": "AT-AT"
+    },
+    {
+      "q": "Who is the leader of the Galactic Empire?",
+      "a": "Emperor Palpatine (Darth Sidious)"
+    },
+    {
+      "q": "What does Luke discover about Leia near the end of Return of the Jedi?",
+      "a": "She is his sister"
+    },
+    {
+      "q": "Complete: \"Do or do not. There is ___\".",
+      "a": "no try"
+    }
+  ]
+}
