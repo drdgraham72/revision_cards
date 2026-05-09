@@ -1,0 +1,38 @@
+{
+  "id": "nature-online-2026-05-09-hard-1",
+  "topic": "nature",
+  "title": "🌐 Online: Nature Hard #1",
+  "desc": "Trivia from OpenTrivia DB — 7 hard questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "What is the Gray Wolf's scientific name?",
+      "a": "Canis Lupus"
+    },
+    {
+      "q": "Which species of Brown Bear is not extinct?",
+      "a": "Syrian Brown Bear"
+    },
+    {
+      "q": "What scientific family does the Aardwolf belong to?",
+      "a": "Hyaenidae"
+    },
+    {
+      "q": "What is the scientific name of the Budgerigar?",
+      "a": "Melopsittacus undulatus"
+    },
+    {
+      "q": "What is the average amount of chinchillas born into a single litter?",
+      "a": "2-3"
+    },
+    {
+      "q": "To which biological phylum do all mammals, birds and reptiles belong?",
+      "a": "Chordata"
+    },
+    {
+      "q": "Unlike on most salamanders, this part of a newt is flat?",
+      "a": "Tail"
+    }
+  ]
+}

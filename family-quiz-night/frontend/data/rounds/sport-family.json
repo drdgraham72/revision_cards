@@ -1,0 +1,50 @@
+{
+  "id": "sport-family",
+  "topic": "sport",
+  "title": "Halftime Teasers",
+  "desc": "Rules nobody reads, bizarre records & the stories behind the stats",
+  "type": "standard",
+  "isNew": false,
+  "questions": [
+    {
+      "q": "A regulation golf ball has how many dimples, roughly?",
+      "a": "Between 300 and 500 (most commonly 336)"
+    },
+    {
+      "q": "In the entire history of the modern Olympics, which country has won the most total medals?",
+      "a": "The United States"
+    },
+    {
+      "q": "What sport was played on the Moon, and who played it?",
+      "a": "Golf — Alan Shepard hit two balls during Apollo 14 in 1971"
+    },
+    {
+      "q": "A standard dartboard is divided into how many numbered sections?",
+      "a": "20"
+    },
+    {
+      "q": "In football, the 'Cruyff Turn' is named after Johan Cruyff — but in which World Cup did he first perform it on the world stage?",
+      "a": "1974 World Cup in West Germany (Netherlands vs Sweden)"
+    },
+    {
+      "q": "How many feathers are in a regulation badminton shuttlecock?",
+      "a": "16 feathers (always from the left wing of a goose)"
+    },
+    {
+      "q": "The fastest serve ever recorded in tennis was clocked at roughly what speed?",
+      "a": "About 263 km/h (163 mph) — by Sam Groth in 2012"
+    },
+    {
+      "q": "In sumo wrestling, what happens if both wrestlers touch the ground at exactly the same time?",
+      "a": "The heavier wrestler loses — it's called a 'simultaneous fall' and weight is the tiebreaker"
+    },
+    {
+      "q": "Which team sport has the largest pitch by area?",
+      "a": "Polo — a full-size polo field is roughly 300 yards long"
+    },
+    {
+      "q": "The Olympic rings represent what — the five continents, the five original sports, or something else?",
+      "a": "The five continents (Africa, Americas, Asia, Europe, Oceania) — with colours chosen because every nation's flag contains at least one of them"
+    }
+  ]
+}

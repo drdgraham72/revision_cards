@@ -1,0 +1,50 @@
+{
+  "id": "music-4",
+  "topic": "music",
+  "title": "Liner Notes",
+  "desc": "Buried in the credits, contractual absurdity & the instruments you've never heard of",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Max Martin has written more #1 Billboard hits than any songwriter since The Beatles. Name three artists he's written for.",
+      "a": "Britney Spears, Backstreet Boys, NSYNC, Katy Perry, Taylor Swift, The Weeknd, Ariana Grande — among many others"
+    },
+    {
+      "q": "What is a 'sample clearance' and which hip-hop lawsuit in the 1990s changed the rules forever?",
+      "a": "Legal permission to reuse another artist's recording. Grand Upright Music vs Warner Bros (1991) — Biz Markie used a Gilbert O'Sullivan sample without clearance and lost, making uncleared sampling legally dangerous"
+    },
+    {
+      "q": "The didgeridoo is one of the oldest instruments still played. How old is it estimated to be?",
+      "a": "At least 1,500 years, possibly up to 40,000 years — indigenous Australian rock art depicts it"
+    },
+    {
+      "q": "What is 'sidechain compression' and why does it make dance music pump?",
+      "a": "The kick drum signal triggers compression on the bass/synths, briefly ducking their volume on each beat — creating the signature 'breathing' effect in EDM"
+    },
+    {
+      "q": "Prince changed his name to a symbol in the 1990s. Why?",
+      "a": "A contract dispute with Warner Bros — he couldn't release music under 'Prince' due to his deal, so he became an unpronounceable symbol (Love Symbol) to work around it"
+    },
+    {
+      "q": "What are 'overtones' and why does a violin sound different from a flute playing the same note?",
+      "a": "Every instrument produces the fundamental frequency plus additional harmonic frequencies at different intensities — this unique blend is called 'timbre' and it's why each instrument has a distinct voice"
+    },
+    {
+      "q": "Which album has spent the most total weeks on the Billboard 200 chart?",
+      "a": "'The Dark Side of the Moon' by Pink Floyd — over 950 weeks (roughly 18 years on the chart, non-consecutively)"
+    },
+    {
+      "q": "What is a 'tritone' and why was it called 'the devil's interval' in medieval times?",
+      "a": "An interval of three whole tones (e.g. C to F#) — it sounds dissonant and unsettling. The Catholic Church reportedly discouraged its use, calling it 'diabolus in musica'"
+    },
+    {
+      "q": "Joni Mitchell's 'Both Sides Now' was recorded by her three times across how many years?",
+      "a": "About 33 years — the last version (2000) is dramatically different, reflecting decades of life experience in a slower, orchestral arrangement"
+    },
+    {
+      "q": "What physical format outsold vinyl for the first time in 1988?",
+      "a": "The CD — compact discs overtook vinyl records in sales, beginning vinyl's decline until its recent revival"
+    }
+  ]
+}

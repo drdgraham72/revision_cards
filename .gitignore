@@ -1,1 +1,7 @@
 .circle_theorems_revision_card.svg.swp
+
+# Family Quiz Night
+family-quiz-night.tar.gz
+family-quiz-night/backend/.env
+__pycache__/
+*.pyc

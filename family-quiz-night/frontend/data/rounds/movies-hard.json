@@ -1,0 +1,50 @@
+{
+  "id": "movies-hard",
+  "topic": "movies",
+  "title": "The Director's Commentary",
+  "desc": "Production disasters, method acting madness & industry deep lore",
+  "type": "standard",
+  "isNew": false,
+  "questions": [
+    {
+      "q": "Stanley Kubrick was so secretive about 'Eyes Wide Shut' that even the studio didn't see a final cut before what happened?",
+      "a": "He died — just six days after showing Warner Bros. his final cut, before it was released"
+    },
+    {
+      "q": "In 'Apocalypse Now', Martin Sheen suffered a real medical emergency during filming in the Philippines. What was it?",
+      "a": "A heart attack — he was 36 years old and had to crawl half a mile to get help"
+    },
+    {
+      "q": "Which film's production was so troubled it was nicknamed 'Kevin's Gate' after its director?",
+      "a": "Waterworld (1995) — director Kevin Reynolds clashed with Kevin Costner; it went massively over budget"
+    },
+    {
+      "q": "Tarkovsky's 'Stalker' (1979) was filmed near a chemical plant. What happened to several crew members years later?",
+      "a": "The director, his wife, and actor Anatoly Solonitsyn all died of cancers linked to the toxic shooting location"
+    },
+    {
+      "q": "Daniel Day-Lewis famously never broke character during 'My Left Foot'. What did the crew have to do for him throughout filming?",
+      "a": "Carry him around the set and spoon-feed him — he refused to leave his wheelchair or use his hands"
+    },
+    {
+      "q": "The infamous 'Cats' (2019) was so rushed that the initial theatrical release had a visible error. What was it?",
+      "a": "Judi Dench's human hand (with her wedding ring) was visible — they hadn't finished the CGI fur on it"
+    },
+    {
+      "q": "Which Kurosawa film was so influential that George Lucas directly adapted its plot for the original Star Wars?",
+      "a": "The Hidden Fortress (1958) — the story told through two bickering peasants became C-3PO and R2-D2's perspective"
+    },
+    {
+      "q": "The production of 'Jaws' was plagued by a malfunctioning mechanical shark. What did Spielberg name it?",
+      "a": "'Bruce' — after his lawyer, Bruce Ramer"
+    },
+    {
+      "q": "Werner Herzog ate his own shoe on stage after losing a bet with another filmmaker. Who was the filmmaker and what was the bet?",
+      "a": "Errol Morris — Herzog bet Morris would never finish his documentary 'Gates of Heaven'. Morris finished it."
+    },
+    {
+      "q": "In 'Come and See' (1985), the young lead actor's hair reportedly turned grey during production. The director used live ammunition in some scenes — true or false?",
+      "a": "True on both counts — real bullets were fired over the actors' heads, and Aleksei Kravchenko's hair greyed from stress"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": "history-online-2026-05-09-easy-2",
+  "topic": "history",
+  "title": "🌐 Online: History Easy #2",
+  "desc": "Trivia from OpenTrivia DB — 9 easy questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "In what year was the M1911 pistol designed?",
+      "a": "1911"
+    },
+    {
+      "q": "The Ottoman Empire was dissolved after their loss in which war?",
+      "a": "World War I"
+    },
+    {
+      "q": "The \"Trail of Tears\" was a result of which United States President's Indian Removal Policy?",
+      "a": "Andrew Jackson"
+    },
+    {
+      "q": "What year did World War I begin?",
+      "a": "1914"
+    },
+    {
+      "q": "Who discovered Penicillin?",
+      "a": "Alexander Flemming"
+    },
+    {
+      "q": "A collection of Sanskrit hymns and verses known as the Vedas are sacred texts in what religion?",
+      "a": "Hinduism"
+    },
+    {
+      "q": "In what year did the Wall Street Crash take place?",
+      "a": "1929"
+    },
+    {
+      "q": "Which modern day country is the region that was known as Phrygia in ancient times?",
+      "a": "Turkey"
+    },
+    {
+      "q": "Where did first known lesbian rights organization in the United States, Daughters of Bilitis, start?",
+      "a": "San Francisco"
+    }
+  ]
+}

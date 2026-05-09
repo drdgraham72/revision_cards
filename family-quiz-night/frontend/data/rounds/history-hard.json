@@ -1,0 +1,50 @@
+{
+  "id": "history-hard",
+  "topic": "history",
+  "title": "The Classified Files",
+  "desc": "Espionage, forgotten empires & the stories they left out of textbooks",
+  "type": "standard",
+  "isNew": false,
+  "questions": [
+    {
+      "q": "Operation Mincemeat was a WWII deception plan involving a dead body carrying fake documents. What was the corpse's fake identity?",
+      "a": "Major William Martin of the Royal Marines — the body was actually a Welsh tramp named Glyndwr Michael"
+    },
+    {
+      "q": "The Library of Alexandria's destruction is often blamed on a single fire. Why is that misleading?",
+      "a": "It declined gradually over centuries through multiple events — funding cuts, civil wars, and several fires, not one catastrophic moment"
+    },
+    {
+      "q": "Which empire at its peak controlled the largest contiguous land area in human history?",
+      "a": "The Mongol Empire under Genghis Khan and his successors — roughly 24 million km²"
+    },
+    {
+      "q": "The Voynich Manuscript, written in an unknown script, has never been deciphered. What century does it date from?",
+      "a": "Early 15th century (carbon-dated to between 1404 and 1438)"
+    },
+    {
+      "q": "During the Cold War, the CIA spent millions on a programme to use cats as listening devices. What was it called?",
+      "a": "Acoustic Kitty — it was abandoned after the first cat was reportedly hit by a taxi"
+    },
+    {
+      "q": "The Rosetta Stone was key to decoding Egyptian hieroglyphics. But what three scripts does it actually contain?",
+      "a": "Hieroglyphic, Demotic, and Ancient Greek"
+    },
+    {
+      "q": "Which 14th-century African emperor is considered the wealthiest person in history, adjusted for inflation?",
+      "a": "Mansa Musa of the Mali Empire — his hajj to Mecca in 1324 crashed gold prices across North Africa and the Middle East"
+    },
+    {
+      "q": "The 'Defenestration of Prague' triggered the Thirty Years' War. What does 'defenestration' literally mean?",
+      "a": "Throwing someone out of a window — Catholic officials were thrown from a Prague Castle window in 1618"
+    },
+    {
+      "q": "Project MKUltra was a real CIA programme. What was its purpose?",
+      "a": "Mind control experimentation — including dosing unwitting subjects with LSD (ran from the 1950s to 1973)"
+    },
+    {
+      "q": "The Doomsday Book, commissioned by William the Conqueror in 1086, was essentially what?",
+      "a": "A comprehensive survey and census of England's land, resources, and livestock — the first national audit"
+    }
+  ]
+}

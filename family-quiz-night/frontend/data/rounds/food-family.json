@@ -1,0 +1,50 @@
+{
+  "id": "food-family",
+  "topic": "food",
+  "title": "Sunday Roast",
+  "desc": "Cooking myths, surprise origins & drinks you thought you knew",
+  "type": "standard",
+  "isNew": false,
+  "questions": [
+    {
+      "q": "Most 'wasabi' served outside Japan is actually made from what?",
+      "a": "Horseradish dyed green"
+    },
+    {
+      "q": "Peanuts grow underground — are they nuts, seeds, or legumes?",
+      "a": "Legumes (same family as lentils and chickpeas)"
+    },
+    {
+      "q": "What was tomato ketchup originally sold as in the 1830s?",
+      "a": "Medicine — marketed as a cure for diarrhoea"
+    },
+    {
+      "q": "Which country consumes the most coffee per person?",
+      "a": "Finland (roughly 12kg per person per year)"
+    },
+    {
+      "q": "A 'baker's dozen' is 13 — but why?",
+      "a": "Medieval bakers added an extra to avoid harsh penalties for selling underweight loaves"
+    },
+    {
+      "q": "White chocolate doesn't contain which ingredient that all other chocolate does?",
+      "a": "Cocoa solids — it's only cocoa butter, sugar, and milk"
+    },
+    {
+      "q": "Honey found in Egyptian tombs over 3,000 years old was still edible — true or false?",
+      "a": "True — honey essentially never spoils"
+    },
+    {
+      "q": "Strawberries, raspberries, and blackberries aren't actually berries. Name a fruit that IS a true berry.",
+      "a": "Bananas, grapes, avocados, tomatoes, or watermelons all qualify"
+    },
+    {
+      "q": "The spice saffron is worth more by weight than gold — what part of the flower is it?",
+      "a": "The stigma (thread-like strands inside a crocus flower)"
+    },
+    {
+      "q": "Fanta was invented in which country during WWII, and why?",
+      "a": "Nazi Germany — Coca-Cola couldn't import syrup ingredients due to a trade embargo"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": "music-online-2026-05-09-easy-1",
+  "topic": "music",
+  "title": "🌐 Online: Music Easy #1",
+  "desc": "Trivia from OpenTrivia DB — 9 easy questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Who is the frontman of the band 30 Seconds to Mars?",
+      "a": "Jared Leto"
+    },
+    {
+      "q": "Which famous rapper is featured in Jack Ü (Skrillex and Diplo)'s 2015 single called \"Febreze\"?",
+      "a": "2 Chainz"
+    },
+    {
+      "q": "Who released the song \"Photograph\" in 2005?",
+      "a": "Nickelback"
+    },
+    {
+      "q": "Which famous artist featured on Rowdy Rebel's 2015 song \"Computers\"?",
+      "a": "Bobby Shmurda"
+    },
+    {
+      "q": "What is the real name of American rapper Eminem, also known as Slim Shady?",
+      "a": "Marshall Mathers"
+    },
+    {
+      "q": "Finish these lyrics from the 2016 song \"Panda\" by Desiigner: \"I got broads in _______\".",
+      "a": "Atlanta"
+    },
+    {
+      "q": "What was the name of singer Frank Ocean's second studio album, which was released on August 20, 2016?",
+      "a": "Blonde"
+    },
+    {
+      "q": "In the words of his 1973 song, Bob Dylan is \"knock, knock, knockin\" on which door?",
+      "a": "Heaven's"
+    },
+    {
+      "q": "Which music publication is often abbreviated to NME?",
+      "a": "New Musical Express"
+    }
+  ]
+}

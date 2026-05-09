@@ -1,0 +1,50 @@
+{
+  "id": "nature-4",
+  "topic": "nature",
+  "title": "Deep Current",
+  "desc": "Ocean trenches, mass extinctions & the species we're only just discovering",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Scientists estimate we've only identified what percentage of all species on Earth?",
+      "a": "About 10-15% — roughly 8.7 million species are estimated to exist, and we've catalogued around 1.2 million"
+    },
+    {
+      "q": "What is a 'mass extinction event' and how many have there been?",
+      "a": "A period where at least 75% of species die off globally. There have been five major ones — some scientists argue we're in the sixth right now"
+    },
+    {
+      "q": "The giant squid wasn't filmed alive in its natural habitat until which year?",
+      "a": "2012 — despite centuries of sailor stories, the first footage was captured by a Japanese-led team in the Pacific"
+    },
+    {
+      "q": "What is 'bioluminescence' used for by deep-sea creatures?",
+      "a": "Hunting (luring prey), defence (blinding predators or triggering a 'burglar alarm'), camouflage (counter-illumination to hide their silhouette from below), and communication"
+    },
+    {
+      "q": "Why do trees in a forest often grow to roughly the same height?",
+      "a": "Competition for light — growing taller than your neighbours costs energy. An equilibrium forms where going higher yields diminishing returns ('the crown shyness' effect also keeps canopies from touching)"
+    },
+    {
+      "q": "The Permian-Triassic extinction killed 96% of marine species. What's its nickname?",
+      "a": "The Great Dying — roughly 252 million years ago, likely triggered by volcanic eruptions in Siberia"
+    },
+    {
+      "q": "What is CRISPR's natural role in bacteria — before scientists co-opted it for gene editing?",
+      "a": "An immune system — bacteria store snippets of virus DNA so they can recognise and destroy that virus if it attacks again"
+    },
+    {
+      "q": "Coral reefs cover less than 1% of the ocean floor but support what percentage of marine species?",
+      "a": "About 25% — they're the most biodiverse marine ecosystems on Earth"
+    },
+    {
+      "q": "What is an 'extremophile' and where's the most extreme place we've found life on Earth?",
+      "a": "An organism thriving in extreme conditions. Candidates: 4km deep in gold mines (Desulforudis), superheated hydrothermal vents (121°C), or the Atacama Desert's hyperarid core"
+    },
+    {
+      "q": "Why do migratory birds fly in a V formation?",
+      "a": "Aerodynamic drafting — each bird flies in the upwash from the wingtip vortex of the bird ahead, reducing energy expenditure by up to 70%. They rotate the lead position to share the effort"
+    }
+  ]
+}

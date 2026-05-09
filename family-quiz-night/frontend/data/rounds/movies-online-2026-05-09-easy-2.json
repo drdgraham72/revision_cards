@@ -1,0 +1,46 @@
+{
+  "id": "movies-online-2026-05-09-easy-2",
+  "topic": "movies",
+  "title": "🌐 Online: Movies Easy #2",
+  "desc": "Trivia from OpenTrivia DB — 9 easy questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Which James Bond film had the theme song written and performed by English singer-songwriter Adele?",
+      "a": "Skyfall"
+    },
+    {
+      "q": "Who wrote and directed the 1986 film 'Platoon'?",
+      "a": "Oliver Stone"
+    },
+    {
+      "q": "Which movie includes a giant bunny-like spirit who has magic powers including growing trees?",
+      "a": "My Neighbor Totoro"
+    },
+    {
+      "q": "Which actress danced the twist with John Travolta in 'Pulp Fiction'?",
+      "a": "Uma Thurman"
+    },
+    {
+      "q": "Which Batman villain is Mark Hamill known for having voiced?",
+      "a": "The Joker"
+    },
+    {
+      "q": "When does \"Rogue One: A Star Wars Story\" take place chronologically in the series?",
+      "a": "Between Episode 3 and 4"
+    },
+    {
+      "q": "Who directed the movies \"Pulp Fiction\", \"Reservoir Dogs\" and \"Django Unchained\"?",
+      "a": "Quentin Tarantino"
+    },
+    {
+      "q": "What was the first monster to appear alongside Godzilla?",
+      "a": "Anguirus"
+    },
+    {
+      "q": "In the Lord of the Rings: The Two Towers, where are the party of orcs taking the hobbits?",
+      "a": "Isengard"
+    }
+  ]
+}

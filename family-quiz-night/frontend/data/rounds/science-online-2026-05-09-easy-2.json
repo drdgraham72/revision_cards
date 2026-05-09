@@ -1,0 +1,50 @@
+{
+  "id": "science-online-2026-05-09-easy-2",
+  "topic": "science",
+  "title": "🌐 Online: Science Easy #2",
+  "desc": "Trivia from OpenTrivia DB — 10 easy questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "What lies at the center of our galaxy?",
+      "a": "A black hole"
+    },
+    {
+      "q": "71% of the Earth's surface is made up of",
+      "a": "Water"
+    },
+    {
+      "q": "Which type of rock is created by intense heat AND pressure?",
+      "a": "Metamorphic"
+    },
+    {
+      "q": "What is the chemical symbol for Helium?",
+      "a": "He"
+    },
+    {
+      "q": "What is the standard SI unit for mass?",
+      "a": "Kilogram"
+    },
+    {
+      "q": "What is the standard SI unit for temperature?",
+      "a": "Kelvin"
+    },
+    {
+      "q": "What is the elemental symbol for mercury?",
+      "a": "Hg"
+    },
+    {
+      "q": "How many bones are in the human body?",
+      "a": "206"
+    },
+    {
+      "q": "What is the hottest planet in the solar system",
+      "a": "Venus"
+    },
+    {
+      "q": "What is the standard SI unit for time?",
+      "a": "Second"
+    }
+  ]
+}

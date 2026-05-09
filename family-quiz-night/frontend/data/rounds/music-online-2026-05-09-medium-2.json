@@ -1,0 +1,38 @@
+{
+  "id": "music-online-2026-05-09-medium-2",
+  "topic": "music",
+  "title": "🌐 Online: Music Medium #2",
+  "desc": "Trivia from OpenTrivia DB — 7 medium questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Which French duo had UK hits in 1998 with the songs 'Sexy Boy', 'Kelly Watch The Stars' & 'All I Need'?",
+      "a": "Air"
+    },
+    {
+      "q": "Where does \"Gasolina\" rapper Daddy Yankee originate from?",
+      "a": "Puerto Rico"
+    },
+    {
+      "q": "Which alternative rock band released the critically-acclaimed album \"OK Computer\"?",
+      "a": "Radiohead"
+    },
+    {
+      "q": "What is the first track on Kanye West's 808s & Heartbreak?",
+      "a": "Say You Will"
+    },
+    {
+      "q": "Irish musician Hozier released a music track in 2013 titled, \"Take Me to ______\"",
+      "a": "Church"
+    },
+    {
+      "q": "Which country does the electronic music duo \"The Knife\" originate from?",
+      "a": "Sweden"
+    },
+    {
+      "q": "Which popular jazz standard begins with the line \"Someday, when I'm awfully low\"?",
+      "a": "The Way You Look Tonight"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "food-online-2026-05-09-medium-1",
+  "topic": "food",
+  "title": "🌐 Online: Food Medium #1",
+  "desc": "Trivia from OpenTrivia DB — 8 medium questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Bob and Mike Bryan were well known brothers in which sport?",
+      "a": "Tennis"
+    },
+    {
+      "q": "Who is a co-founder of music streaming service Spotify?",
+      "a": "Daniel Ek"
+    },
+    {
+      "q": "Who invented Pastafarianism?",
+      "a": "Bobby Henderson"
+    },
+    {
+      "q": "What are the three starter Pokemon available in Pokemon Black and White?",
+      "a": "Snivy, Tepig, Oshawott"
+    },
+    {
+      "q": "What does a milliner make and sell?",
+      "a": "Hats"
+    },
+    {
+      "q": "What is the star sign of someone born on Valentines day?",
+      "a": "Aquarius"
+    },
+    {
+      "q": "According to the BBPA, what is the most common pub name in the UK?",
+      "a": "Red Lion"
+    },
+    {
+      "q": "Coleslaw originated from which European country?",
+      "a": "The Netherlands"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "science-online-2026-05-09-hard-1",
+  "topic": "science",
+  "title": "🌐 Online: Science Hard #1",
+  "desc": "Trivia from OpenTrivia DB — 8 hard questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "What is the scientific name of the red fox?",
+      "a": "Vulpes Vulpes"
+    },
+    {
+      "q": "What physics principle relates the net electric flux out of a closed surface to the charge enclosed by that surface?",
+      "a": "Gauss's Law"
+    },
+    {
+      "q": "What nucleotide pairs with guanine?",
+      "a": "Cytosine"
+    },
+    {
+      "q": "What is the scientific name of the knee cap?",
+      "a": "Patella"
+    },
+    {
+      "q": "What causes the sound of a heartbeat?",
+      "a": "Closure of the heart valves"
+    },
+    {
+      "q": "Muscle fiber is constructed of bundles small long organelles called what?",
+      "a": "Myofibrils"
+    },
+    {
+      "q": "What is the same in Celsius and Fahrenheit?",
+      "a": "-40"
+    },
+    {
+      "q": "In the Scoville scale, what is the hottest chemical?",
+      "a": "Resiniferatoxin"
+    }
+  ]
+}

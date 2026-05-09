@@ -1,0 +1,38 @@
+{
+  "id": "science-online-2026-05-09-hard-2",
+  "topic": "science",
+  "title": "🌐 Online: Science Hard #2",
+  "desc": "Trivia from OpenTrivia DB — 7 hard questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "What is the standard SI unit for luminous intensity?",
+      "a": "Candela"
+    },
+    {
+      "q": "What is the name for the auditory illusion of a note that seems to be rising infinitely?",
+      "a": "Shepard Tone"
+    },
+    {
+      "q": "What is the scientific name for the extinct hominin known as \"Lucy\"?",
+      "a": "Australopithecus Afarensis"
+    },
+    {
+      "q": "What is the molecular formula of Ozone?",
+      "a": "O3"
+    },
+    {
+      "q": "What is considered the rarest form of color blindness?",
+      "a": "Blue"
+    },
+    {
+      "q": "Which horizon in a soil profile consists of bedrock?",
+      "a": "R"
+    },
+    {
+      "q": "What is the scientific name of the red fox?",
+      "a": "Vulpes Vulpes"
+    }
+  ]
+}

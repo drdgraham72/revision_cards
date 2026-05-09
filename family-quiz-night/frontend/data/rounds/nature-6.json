@@ -1,0 +1,50 @@
+{
+  "id": "nature-6",
+  "topic": "nature",
+  "title": "🎨 Picture Round: What Am I?",
+  "desc": "ASCII art creatures — identify the animal from the sketch",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Name the animal:<pre>         .--.\n        /    \\\n   ____/  ..  \\____\n  /    | (  ) |    \\\n |     \\  --  /     |\n  \\     '----'     /\n   \\   8 ARMS    /\n    \\  ~~~~~~~~ /\n     \\________/\n   Three hearts.\n   Blue blood.  </pre>",
+      "a": "Octopus"
+    },
+    {
+      "q": "Name the animal:<pre>        /\\_/\\\n       ( o.o )\n        > ^ <\n       /|   |\\\n      (_|   |_)\n     Purrs.\n     Rules the\n     internet.\n     Liquid in\n     a box.</pre>",
+      "a": "Cat (domestic cat)"
+    },
+    {
+      "q": "Name the animal:<pre>     .-\"\"\"\"-.  \n    /  ____  \\ \n   |  / oo \\  |\n   | |  \\/  | |\n    \\  \\__/  / \n     '-....-'  \n      |    |   \n     POUCH     \n   Hops. Joey. \n   Only in Oz. </pre>",
+      "a": "Kangaroo"
+    },
+    {
+      "q": "Name the animal:<pre>   \\       /   \n    \\     /    \n     \\   /     \n      \\ /      \n     [===]     \n      | |      \n     / | \\     \n    /  |  \\    \n   /   |   \\   \n  Webs. 8 legs.\n  Not an insect.</pre>",
+      "a": "Spider"
+    },
+    {
+      "q": "Name the animal:<pre>      ___\n     /   \\___\n    |  ^  ^  |\n    |   __   |\n     \\_/  \\_/\n      |SHELL|\n      |____|\n     /      \\\n   Slow. Very.\n   Carries home.\n   Can live 200yrs.</pre>",
+      "a": "Tortoise (or turtle)"
+    },
+    {
+      "q": "Name the animal:<pre>        .^\n       / |\n      /  |\n     /   |\n    /    |\n   |  .  |\n   | / \\ |\n   |/   \\|\n   NECK\n   NECK\n   NECK\n   NECK\n   |body|\n  /|    |\\\n / |    | \\\n/  |    |  \\\n   Tallest.</pre>",
+      "a": "Giraffe"
+    },
+    {
+      "q": "Name the creature — not an animal but alive:<pre>    .---.\n   / ... \\\n  | ..... |\n  | ..... |\n   \\ ... /\n    '---'\n     |||\n   STALK\n     |||\n   -----\n  MYCELIUM\n  ~~~~~~~~\n  Not a plant.\n  Decomposes.\n  Network.</pre>",
+      "a": "Mushroom (fungus)"
+    },
+    {
+      "q": "Name the animal:<pre>  ~~~~~~~~~~~~~~~~~\n  ~~~~ .__. ~~~~~~\n  ~~~ / .. \\ ~~~~~\n  ~~ | \\__/ | ~~~~\n  ~~~ \\    / ~~~~~\n  ~~~~|    |~~~~~~\n  ~~~~ \\  / ~~~~~~\n  BLOWHOLE  ~~~~~~\n  ~~~~~~~~~~~~~~~~~\n  Biggest ever.\n  Louder than a\n  jet engine.</pre>",
+      "a": "Blue whale"
+    },
+    {
+      "q": "Name the animal:<pre>    /\\_____/\\\n   /  o   o  \\\n  |  \\  Y  /  |\n  |   \\___/   |\n   \\  STRIPES /\n    \\_______/\n   /|       |\\\n  / |       | \\\n    Big cat.\n    Endangered.\n    Solitary.</pre>",
+      "a": "Tiger"
+    },
+    {
+      "q": "Name the animal:<pre>   ( )  ( )\n    \\\\  //\n     \\\\//\n    [====]\n    | .. |\n    | \\/ |\n    |    |\n    '----'\n   BLACK &\n   WHITE.\n   Bamboo.\n   China.\n   Lazy.</pre>",
+      "a": "Giant panda"
+    }
+  ]
+}

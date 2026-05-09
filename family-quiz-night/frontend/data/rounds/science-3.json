@@ -1,0 +1,50 @@
+{
+  "id": "science-3",
+  "topic": "science",
+  "title": "Lab Rats",
+  "desc": "Failed experiments that changed everything, medical oddities & space junk",
+  "type": "standard",
+  "isNew": false,
+  "questions": [
+    {
+      "q": "Penicillin was discovered because Alexander Fleming did what?",
+      "a": "Left a petri dish uncovered before going on holiday — mould grew and killed the bacteria around it"
+    },
+    {
+      "q": "How many satellites are currently orbiting Earth — roughly?",
+      "a": "Over 10,000 active satellites (and millions of pieces of debris)"
+    },
+    {
+      "q": "What is the 'overview effect' experienced by astronauts?",
+      "a": "A cognitive shift in awareness — seeing Earth from space triggers a profound sense of the planet's fragility and unity"
+    },
+    {
+      "q": "Why do hospital doors open outward?",
+      "a": "So they can be pushed open by someone in a hurry or carrying a patient — and to aid evacuation during emergencies"
+    },
+    {
+      "q": "What common material expands when it freezes, unlike almost every other substance?",
+      "a": "Water — ice is less dense than liquid water, which is why it floats"
+    },
+    {
+      "q": "The Voyager 1 probe is the farthest human-made object from Earth. What's on its golden record?",
+      "a": "Sounds and images of Earth — music, greetings in 55 languages, nature sounds, and diagrams showing our location"
+    },
+    {
+      "q": "Why can't you burp in space?",
+      "a": "Without gravity, gas and liquid in your stomach don't separate — you'd get a wet burp (essentially vomit)"
+    },
+    {
+      "q": "What does the 'half-life' of a radioactive element actually measure?",
+      "a": "The time for half of the atoms in a sample to decay — not when it becomes safe"
+    },
+    {
+      "q": "Microwaves heat food by exciting which type of molecule?",
+      "a": "Water molecules — they vibrate at the microwave frequency, generating heat through friction"
+    },
+    {
+      "q": "What is 'proprioception' — the sense most people forget they have?",
+      "a": "Your body's sense of its own position in space — it's how you can touch your nose with your eyes closed"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "geography-6",
+  "topic": "geography",
+  "title": "Connections: Atlas",
+  "desc": "Find the geographical thread linking each set",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "What connects: Iceland, Madagascar, Cuba, and Sri Lanka?",
+      "a": "They're all island nations that are also the largest island in their respective regions — and none of them touch a continental mainland"
+    },
+    {
+      "q": "Odd one out: Amazon, Nile, Yangtze, Danube. Which and why?",
+      "a": "Danube — it's the only one that flows through more than 4 countries (10 countries). Also the shortest. But the intended answer: it's the only one entirely in Europe"
+    },
+    {
+      "q": "What connects: Chile, Norway, New Zealand, and Japan?",
+      "a": "They're all long, narrow countries running roughly north-south, with mountainous spines and significant coastlines"
+    },
+    {
+      "q": "Put these deserts in order of size, smallest to largest: Gobi, Sahara, Arabian, Kalahari",
+      "a": "Kalahari (900k km²) → Arabian (2.3M km²) → Gobi (1.3M km²)... actually: Kalahari → Gobi → Arabian → Sahara (9.2M km²)"
+    },
+    {
+      "q": "What connects: The Strait of Gibraltar, the Bosphorus, and the Strait of Malacca?",
+      "a": "They're all narrow waterways connecting two larger bodies of water AND separating two landmasses — and all are strategically vital chokepoints for global shipping"
+    },
+    {
+      "q": "What connects: Timbuktu, El Dorado, and Shangri-La?",
+      "a": "All are 'legendary' places — Timbuktu is real (in Mali) but became a byword for remoteness; El Dorado and Shangri-La are fictional but inspired real expeditions"
+    },
+    {
+      "q": "True, false, or it depends: 'Africa is a country'",
+      "a": "False — Africa is a continent with 54 recognised countries. This is worth saying because surveys show a troubling number of people genuinely believe it's one country"
+    },
+    {
+      "q": "What connects: Mount Kilimanjaro, Mount Elbrus, and Denali?",
+      "a": "They're each the highest peak on their respective continent — Africa, Europe, and North America"
+    },
+    {
+      "q": "Two of these capitals are on the 'wrong' side of their country (e.g. not centrally located). Which? Washington DC, Canberra, Brasília, Ottawa",
+      "a": "Washington DC and Ottawa — both are on the eastern edge. Canberra and Brasília were specifically built to be more central"
+    },
+    {
+      "q": "What connects: Panama hats, Turkish baths, and Chinese checkers?",
+      "a": "None of them come from the place in their name — Panama hats are from Ecuador, Turkish baths originated in Rome, and Chinese checkers were invented in Germany"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "sport-online-2026-05-09-medium-1",
+  "topic": "sport",
+  "title": "🌐 Online: Sport Medium #1",
+  "desc": "Trivia from OpenTrivia DB — 8 medium questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Which darts player has won the most World Championship titles?",
+      "a": "Phil Taylor"
+    },
+    {
+      "q": "In 2016, who won the Formula 1 World Constructor's Championship for the third time in a row?",
+      "a": "Mercedes-AMG Petronas"
+    },
+    {
+      "q": "What is the nickname of Northampton town's rugby union club?",
+      "a": "Saints"
+    },
+    {
+      "q": "Which nation hosted the FIFA World Cup in 2006?",
+      "a": "Germany"
+    },
+    {
+      "q": "Which team was the 2015-2016 NBA Champions?",
+      "a": "Cleveland Cavaliers"
+    },
+    {
+      "q": "Why was The Green Monster at Fenway Park was originally built?",
+      "a": "To prevent viewing games from outside the park."
+    },
+    {
+      "q": "Which team was the 2014-2015 NBA Champions?",
+      "a": "Golden State Warriors"
+    },
+    {
+      "q": "Which portuguese island is soccer player Cristiano Ronaldo from?",
+      "a": "Madeira"
+    }
+  ]
+}

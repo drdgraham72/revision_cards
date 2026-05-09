@@ -1,0 +1,50 @@
+{
+  "id": "food-6",
+  "topic": "food",
+  "title": "Speed Round: True or Rubbish?",
+  "desc": "Ten rapid-fire food claims — call true or rubbish on each",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "True or rubbish: Carrots improve your night vision",
+      "a": "Rubbish — WWII British propaganda to hide the invention of radar. Vitamin A helps general eye health, but won't give you night vision"
+    },
+    {
+      "q": "True or rubbish: Twinkies last forever",
+      "a": "Rubbish — they last about 45 days. The myth comes from their lack of dairy, but they do go stale"
+    },
+    {
+      "q": "True or rubbish: Goldfish crackers contain real cheese",
+      "a": "True — cheddar cheese is listed as an ingredient in the original flavour"
+    },
+    {
+      "q": "True or rubbish: Coffee is a fruit",
+      "a": "True — coffee beans are the seeds of a cherry-like fruit called a coffee cherry"
+    },
+    {
+      "q": "True or rubbish: Lobster used to be prison food",
+      "a": "True — in colonial America, lobster was so abundant it was considered poverty food and fed to servants and prisoners"
+    },
+    {
+      "q": "True or rubbish: Nutmeg can be hallucinogenic in large doses",
+      "a": "True — myristicin in nutmeg can cause hallucinations, but the amount needed also causes severe nausea, so nobody enjoys the experience"
+    },
+    {
+      "q": "True or rubbish: A coconut is a nut",
+      "a": "Rubbish — it's a drupe (a fruit with a fleshy outer layer and a hard shell containing a seed). Same category as peaches and plums"
+    },
+    {
+      "q": "True or rubbish: The hole in a pasta spoon measures one serving of spaghetti",
+      "a": "True — most pasta spoon holes are designed to hold roughly one portion of dry spaghetti"
+    },
+    {
+      "q": "True or rubbish: Chocolate was once used as currency",
+      "a": "True — the Aztecs used cacao beans as money. You could buy a turkey for about 100 beans"
+    },
+    {
+      "q": "True or rubbish: Bananas are radioactive enough to set off airport security",
+      "a": "Rubbish — they contain potassium-40 but the amount is far too tiny to trigger any detector"
+    }
+  ]
+}

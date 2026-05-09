@@ -1,0 +1,42 @@
+{
+  "id": "geography-online-2026-05-09-easy-2",
+  "topic": "geography",
+  "title": "🌐 Online: Geography Easy #2",
+  "desc": "Trivia from OpenTrivia DB — 8 easy questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "What is the largest country, by area, that has only one time zone?",
+      "a": "China"
+    },
+    {
+      "q": "Which nation claims ownership of Antarctica?",
+      "a": "No one, but there are claims."
+    },
+    {
+      "q": "Which European city is known as the \"City of Light\"?",
+      "a": "Paris"
+    },
+    {
+      "q": "What is the capital of Spain?",
+      "a": "Madrid"
+    },
+    {
+      "q": "Which US state has the highest population?",
+      "a": "California"
+    },
+    {
+      "q": "Which US state is nicknamed \"The Golden State\"?",
+      "a": "California"
+    },
+    {
+      "q": "Which US state is furthest north east?",
+      "a": "Maine"
+    },
+    {
+      "q": "In which ocean is the Réunion island?",
+      "a": "Indian Ocean"
+    }
+  ]
+}

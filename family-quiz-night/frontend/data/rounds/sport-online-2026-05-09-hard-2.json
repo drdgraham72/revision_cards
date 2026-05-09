@@ -1,0 +1,46 @@
+{
+  "id": "sport-online-2026-05-09-hard-2",
+  "topic": "sport",
+  "title": "🌐 Online: Sport Hard #2",
+  "desc": "Trivia from OpenTrivia DB — 9 hard questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Who scored the injury time winning goal in the 1999 UEFA Champions League final between Manchester United and Bayern Munich?",
+      "a": "Ole Gunnar Solskjær"
+    },
+    {
+      "q": "Which city features all of their professional sports teams' jersey's with the same color scheme?",
+      "a": "Pittsburgh"
+    },
+    {
+      "q": "Which year was the third Super Bowl held?",
+      "a": "1969"
+    },
+    {
+      "q": "How many times did Martina Navratilova win the Wimbledon Singles Championship?",
+      "a": "Nine"
+    },
+    {
+      "q": "The AHL affiliate team of the Boston Bruins is named what?",
+      "a": "Providence Bruins"
+    },
+    {
+      "q": "In Canadian football, scoring a rouge is worth how many points?",
+      "a": "1"
+    },
+    {
+      "q": "Where was the Games of the XXII Olympiad held?",
+      "a": "Moscow"
+    },
+    {
+      "q": "Who won the 1998 Daytona 500?",
+      "a": "Dale Earnhardt"
+    },
+    {
+      "q": "Which English football team is nicknamed 'The Tigers'?",
+      "a": "Hull City"
+    }
+  ]
+}

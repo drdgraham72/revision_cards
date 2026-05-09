@@ -1,0 +1,50 @@
+{
+  "id": "food-hard",
+  "topic": "food",
+  "title": "The Sommelier's Nightmare",
+  "desc": "Obscure origins, chemistry in the kitchen & drinks that fool experts",
+  "type": "standard",
+  "isNew": false,
+  "questions": [
+    {
+      "q": "Capsaicin makes chillies hot — but where in the pepper is it actually concentrated?",
+      "a": "The white pith (placenta), not the seeds as most people think"
+    },
+    {
+      "q": "In a famous 1976 wine tasting called 'The Judgment of Paris', what happened that shocked the world?",
+      "a": "Californian wines beat French wines in a blind tasting judged by French experts"
+    },
+    {
+      "q": "Maillard reaction is responsible for browning when you sear meat — but it's technically not caramelisation. What's the key difference?",
+      "a": "Maillard requires amino acids (proteins) reacting with sugars; caramelisation is sugars alone breaking down"
+    },
+    {
+      "q": "What common food is technically classified as a 'modified stem' by botanists — not a root?",
+      "a": "A potato (it's a tuber, which is a swollen underground stem)"
+    },
+    {
+      "q": "MSG was isolated in 1908 by a Japanese chemist from what specific food?",
+      "a": "Kombu seaweed (kelp broth) — by Kikunae Ikeda"
+    },
+    {
+      "q": "Which spirit must legally be aged in new charred oak barrels?",
+      "a": "Bourbon (not Scotch — Scotch typically uses second-hand bourbon barrels)"
+    },
+    {
+      "q": "The 'French Paradox' refers to the puzzling observation that the French have low heart disease rates despite what?",
+      "a": "A diet high in saturated fats — red wine consumption was proposed as the explanation"
+    },
+    {
+      "q": "Vanilla is the second most expensive spice after saffron. What plant family does it belong to?",
+      "a": "Orchids — vanilla comes from a species of orchid (Vanilla planifolia)"
+    },
+    {
+      "q": "What happens chemically when you 'cook' fish in lime juice to make ceviche?",
+      "a": "The citric acid denatures the proteins — same structural change as heat, but without raising the temperature"
+    },
+    {
+      "q": "Blue cheese gets its distinctive veins from what being physically introduced during the aging process?",
+      "a": "Metal rods or needles are poked through the cheese to create air channels where Penicillium mould can grow"
+    }
+  ]
+}

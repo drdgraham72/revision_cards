@@ -1,0 +1,50 @@
+{
+  "id": "food-3",
+  "topic": "food",
+  "title": "Midnight Snack",
+  "desc": "Street food origins, fermentation mysteries & flavour combos that shouldn't work",
+  "type": "standard",
+  "isNew": false,
+  "questions": [
+    {
+      "q": "Fish and chips was brought to England by immigrants from which two countries?",
+      "a": "Jewish refugees from Portugal and Spain — fried fish was a Sephardic Jewish tradition"
+    },
+    {
+      "q": "What common kitchen ingredient is chemically almost identical to TNT?",
+      "a": "Trinitrotoluene and sugar both contain carbon, hydrogen, and oxygen — but the real answer is that baking soda and vinegar's violent reaction is often confused with this. The actual answer: nothing common is close to TNT. Trick question!"
+    },
+    {
+      "q": "Korma, tikka masala, and balti were all invented in which country?",
+      "a": "Britain — they're British-Indian dishes, not traditional Indian cuisine"
+    },
+    {
+      "q": "What fruit smells so terrible it's banned on public transport in Singapore?",
+      "a": "Durian"
+    },
+    {
+      "q": "Ranch dressing was invented on an actual ranch. Where?",
+      "a": "Sweetwater Ranch in Santa Barbara, California — by Steve Henson in the 1950s"
+    },
+    {
+      "q": "Processed cheese was invented in Switzerland — true or false?",
+      "a": "True — Walter Gerber created it in 1911 to prevent cheese from spoiling during export"
+    },
+    {
+      "q": "What popular drink was accidentally invented by a pharmacist trying to cure headaches?",
+      "a": "Coca-Cola — by John Pemberton in 1886"
+    },
+    {
+      "q": "Why does pineapple make your mouth tingle and sting?",
+      "a": "It contains bromelain, an enzyme that literally digests the proteins in your mouth — the pineapple is eating you back"
+    },
+    {
+      "q": "Which country eats the most cheese per capita?",
+      "a": "Denmark (though France and Iceland are close behind)"
+    },
+    {
+      "q": "Worcestershire sauce takes how long to ferment before bottling?",
+      "a": "18 months"
+    }
+  ]
+}

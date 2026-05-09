@@ -1,0 +1,46 @@
+{
+  "id": "movies-online-2026-05-09-easy-1",
+  "topic": "movies",
+  "title": "🌐 Online: Movies Easy #1",
+  "desc": "Trivia from OpenTrivia DB — 9 easy questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "In the 1992 film \"Army of Darkness\", what name does Ash give to his double-barreled shotgun?",
+      "a": "Boomstick"
+    },
+    {
+      "q": "\"The first rule is: you don't talk about it\" is a reference to which movie?",
+      "a": "Fight Club"
+    },
+    {
+      "q": "What is the oldest Disney film?",
+      "a": "Snow White and the Seven Dwarfs"
+    },
+    {
+      "q": "In Avengers: Infinity War, the Reality Stone (aka the Aether) was kept under safe possession by who?",
+      "a": "The Collector"
+    },
+    {
+      "q": "This movie contains the quote, \"I feel the need ... the need for speed!\"",
+      "a": "Top Gun"
+    },
+    {
+      "q": "The 2016 Disney animated film 'Moana' is based on which culture?",
+      "a": "Polynesian"
+    },
+    {
+      "q": "What was Bruce Campbell's iconic one-liner after getting a chainsaw hand in Evil Dead 2?",
+      "a": "Groovy."
+    },
+    {
+      "q": "In the 1951 movie \"The Day The Earth Stood Still\" which US city did the alien spaceship land in?",
+      "a": "Washington D.C."
+    },
+    {
+      "q": "Who in Pulp Fiction says \"No, they got the metric system there, they wouldn't know what the f*** a Quarter Pounder is.\"",
+      "a": "Vincent Vega"
+    }
+  ]
+}

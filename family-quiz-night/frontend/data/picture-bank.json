@@ -1,0 +1,2413 @@
+{
+  "version": 1,
+  "generated": "2026-05-09",
+  "items": [
+    {
+      "id": "albert-einstein",
+      "filename": "albert-einstein.jpg",
+      "answer": "Albert Einstein",
+      "alternatives": [
+        "Albert Einstein",
+        "Einstein"
+      ],
+      "hint": "[?] was a German-born theoretical physicist best known for developing the theory of relativity.",
+      "category": "scientist"
+    },
+    {
+      "id": "isaac-newton",
+      "filename": "isaac-newton.jpg",
+      "answer": "Isaac Newton",
+      "alternatives": [
+        "Isaac Newton",
+        "Newton"
+      ],
+      "hint": "Sir [?] was an English polymath who was a mathematician, physicist, astronomer, alchemist, theologian, author and inventor.",
+      "category": "scientist"
+    },
+    {
+      "id": "marie-curie",
+      "filename": "marie-curie.jpg",
+      "answer": "Marie Curie",
+      "alternatives": [
+        "Marie Curie",
+        "Curie"
+      ],
+      "hint": "Maria Salomea Skłodowska [?], better known as [?], was a Polish and naturalised-French physicist and chemist.",
+      "category": "scientist"
+    },
+    {
+      "id": "charles-darwin",
+      "filename": "charles-darwin.jpg",
+      "answer": "Charles Darwin",
+      "alternatives": [
+        "Charles Darwin",
+        "Darwin"
+      ],
+      "hint": "[?] Robert [?] was an English naturalist, geologist, and biologist, widely known for his contributions to evolutionary biology.",
+      "category": "scientist"
+    },
+    {
+      "id": "stephen-hawking",
+      "filename": "stephen-hawking.jpg",
+      "answer": "Stephen Hawking",
+      "alternatives": [
+        "Stephen Hawking",
+        "Hawking"
+      ],
+      "hint": "[?] William [?] was an English theoretical astrophysicist, cosmologist, and author who was director of research at the Centre for Theoretical Cosmology at the University of Cambridge.",
+      "category": "scientist"
+    },
+    {
+      "id": "nikola-tesla",
+      "filename": "nikola-tesla.jpg",
+      "answer": "Nikola Tesla",
+      "alternatives": [
+        "Nikola Tesla",
+        "Tesla"
+      ],
+      "hint": "[?] was a Serbian-American engineer, futurist, and inventor.",
+      "category": "scientist"
+    },
+    {
+      "id": "thomas-edison",
+      "filename": "thomas-edison.jpg",
+      "answer": "Thomas Edison",
+      "alternatives": [
+        "Thomas Edison",
+        "Edison"
+      ],
+      "hint": "[?] Alva [?] was an American inventor and businessman.",
+      "category": "scientist"
+    },
+    {
+      "id": "galileo-galilei",
+      "filename": "galileo-galilei.jpg",
+      "answer": "Galileo Galilei",
+      "alternatives": [
+        "Galileo Galilei",
+        "Galilei"
+      ],
+      "hint": "[?] di Vincenzo Bonaiuti de' [?], commonly referred to as [?], was an Italian astronomer, physicist, and engineer, sometimes described as a polymath.",
+      "category": "scientist"
+    },
+    {
+      "id": "nicolaus-copernicus",
+      "filename": "nicolaus-copernicus.jpg",
+      "answer": "Nicolaus Copernicus",
+      "alternatives": [
+        "Nicolaus Copernicus",
+        "Copernicus"
+      ],
+      "hint": "[?] was a Renaissance polymath who formulated a model of the universe that placed the Sun rather than Earth at its center.",
+      "category": "scientist"
+    },
+    {
+      "id": "johannes-kepler",
+      "filename": "johannes-kepler.jpg",
+      "answer": "Johannes Kepler",
+      "alternatives": [
+        "Johannes Kepler",
+        "Kepler"
+      ],
+      "hint": "[?] was a German polymath who was an astronomer, mathematician, astrologer, natural philosopher and music theorist.",
+      "category": "scientist"
+    },
+    {
+      "id": "louis-pasteur",
+      "filename": "louis-pasteur.jpg",
+      "answer": "Louis Pasteur",
+      "alternatives": [
+        "Louis Pasteur",
+        "Pasteur"
+      ],
+      "hint": "[?] was a French chemist, pharmacist, and microbiologist renowned for his discoveries of the principles of vaccination, microbial fermentation, and pasteurization, the last of which was named after him.",
+      "category": "scientist"
+    },
+    {
+      "id": "alexander-fleming",
+      "filename": "alexander-fleming.jpg",
+      "answer": "Alexander Fleming",
+      "alternatives": [
+        "Alexander Fleming",
+        "Fleming"
+      ],
+      "hint": "Sir [?] was a Scottish physician and microbiologist.",
+      "category": "scientist"
+    },
+    {
+      "id": "alan-turing",
+      "filename": "alan-turing.jpg",
+      "answer": "Alan Turing",
+      "alternatives": [
+        "Alan Turing",
+        "Turing"
+      ],
+      "hint": "[?] Mathison [?] was an English mathematician, computer scientist, logician, cryptanalyst, philosopher and theoretical biologist.",
+      "category": "scientist"
+    },
+    {
+      "id": "ada-lovelace",
+      "filename": "ada-lovelace.jpg",
+      "answer": "Ada Lovelace",
+      "alternatives": [
+        "Ada Lovelace",
+        "Lovelace"
+      ],
+      "hint": "Augusta [?] King, Countess of [?], also known as [?], was an English mathematician and writer chiefly known for work on Charles Babbage's proposed mechanical general-purpose computer, the analytical engine.",
+      "category": "scientist"
+    },
+    {
+      "id": "rosalind-franklin",
+      "filename": "rosalind-franklin.jpg",
+      "answer": "Rosalind Franklin",
+      "alternatives": [
+        "Rosalind Franklin",
+        "Franklin"
+      ],
+      "hint": "[?] Elsie [?] was an English chemist and X-ray crystallographer.",
+      "category": "scientist"
+    },
+    {
+      "id": "james-clerk-maxwell",
+      "filename": "james-clerk-maxwell.jpg",
+      "answer": "James Clerk Maxwell",
+      "alternatives": [
+        "James Clerk Maxwell",
+        "Maxwell"
+      ],
+      "hint": "[?] was a Scottish physicist and mathematician who was responsible for the classical theory of electromagnetic radiation, which was the first theory to describe electricity, magnetism and light as different manifestations of the same phenomenon.",
+      "category": "scientist"
+    },
+    {
+      "id": "michael-faraday",
+      "filename": "michael-faraday.jpg",
+      "answer": "Michael Faraday",
+      "alternatives": [
+        "Michael Faraday",
+        "Faraday"
+      ],
+      "hint": "[?] was an English chemist and physicist who contributed vastly to the study of electrochemistry and electromagnetism.",
+      "category": "scientist"
+    },
+    {
+      "id": "werner-heisenberg",
+      "filename": "werner-heisenberg.jpg",
+      "answer": "Werner Heisenberg",
+      "alternatives": [
+        "Werner Heisenberg",
+        "Heisenberg"
+      ],
+      "hint": "[?] Karl [?] was a German theoretical physicist, one of the main pioneers of the theory of quantum mechanics, and a principal scientist in the German nuclear program during World War II.",
+      "category": "scientist"
+    },
+    {
+      "id": "niels-bohr",
+      "filename": "niels-bohr.jpg",
+      "answer": "Niels Bohr",
+      "alternatives": [
+        "Niels Bohr",
+        "Bohr"
+      ],
+      "hint": "[?] Henrik David [?] was a Danish theoretical physicist who made foundational contributions to understanding atomic structure and quantum theory, for which he received the Nobel Prize in Physics in 1922.",
+      "category": "scientist"
+    },
+    {
+      "id": "erwin-schr-dinger",
+      "filename": "erwin-schr-dinger.jpg",
+      "answer": "Erwin Schrödinger",
+      "alternatives": [
+        "Erwin Schrödinger",
+        "Schrödinger"
+      ],
+      "hint": "[?] Rudolf Josef Alexander [?] was an Austrian–Irish theoretical physicist who developed fundamental results in quantum theory.",
+      "category": "scientist"
+    },
+    {
+      "id": "max-planck",
+      "filename": "max-planck.jpg",
+      "answer": "Max Planck",
+      "alternatives": [
+        "Max Planck",
+        "Planck"
+      ],
+      "hint": "[?] Karl Ernst Ludwig [?] was a German theoretical physicist.",
+      "category": "scientist"
+    },
+    {
+      "id": "richard-feynman",
+      "filename": "richard-feynman.jpg",
+      "answer": "Richard Feynman",
+      "alternatives": [
+        "Richard Feynman",
+        "Feynman"
+      ],
+      "hint": "[?] Phillips [?] was an American theoretical physicist.",
+      "category": "scientist"
+    },
+    {
+      "id": "carl-sagan",
+      "filename": "carl-sagan.jpg",
+      "answer": "Carl Sagan",
+      "alternatives": [
+        "Carl Sagan",
+        "Sagan"
+      ],
+      "hint": "[?] Edward [?] was an American astronomer, planetary scientist and science communicator.",
+      "category": "scientist"
+    },
+    {
+      "id": "edwin-hubble",
+      "filename": "edwin-hubble.jpg",
+      "answer": "Edwin Hubble",
+      "alternatives": [
+        "Edwin Hubble",
+        "Hubble"
+      ],
+      "hint": "[?] Powell [?] was an American astronomer.",
+      "category": "scientist"
+    },
+    {
+      "id": "linus-pauling",
+      "filename": "linus-pauling.jpg",
+      "answer": "Linus Pauling",
+      "alternatives": [
+        "Linus Pauling",
+        "Pauling"
+      ],
+      "hint": "[?] Carl [?] was an American chemist and peace activist.",
+      "category": "scientist"
+    },
+    {
+      "id": "gregor-mendel",
+      "filename": "gregor-mendel.jpg",
+      "answer": "Gregor Mendel",
+      "alternatives": [
+        "Gregor Mendel",
+        "Mendel"
+      ],
+      "hint": "[?] Johann [?] was an Austrian biologist, meteorologist, mathematician, Augustinian friar and abbot of St.",
+      "category": "scientist"
+    },
+    {
+      "id": "dmitri-mendeleev",
+      "filename": "dmitri-mendeleev.jpg",
+      "answer": "Dmitri Mendeleev",
+      "alternatives": [
+        "Dmitri Mendeleev",
+        "Mendeleev"
+      ],
+      "hint": "[?] Ivanovich [?] was a Russian chemist known for formulating the periodic law and creating a version of the periodic table of elements.",
+      "category": "scientist"
+    },
+    {
+      "id": "sigmund-freud",
+      "filename": "sigmund-freud.jpg",
+      "answer": "Sigmund Freud",
+      "alternatives": [
+        "Sigmund Freud",
+        "Freud"
+      ],
+      "hint": "[?] was an Austrian neurologist and the founder of psychoanalysis, a clinical method for evaluating and treating pathologies arising from conflicts in the psyche through dialogue between patient and psychoanalyst, and the distinct",
+      "category": "scientist"
+    },
+    {
+      "id": "carl-jung",
+      "filename": "carl-jung.jpg",
+      "answer": "Carl Jung",
+      "alternatives": [
+        "Carl Jung",
+        "Jung"
+      ],
+      "hint": "[?] Gustav [?] was a Swiss psychiatrist, psychotherapist, and psychologist who founded the school of analytical psychology.",
+      "category": "scientist"
+    },
+    {
+      "id": "jane-goodall",
+      "filename": "jane-goodall.jpg",
+      "answer": "Jane Goodall",
+      "alternatives": [
+        "Jane Goodall",
+        "Goodall"
+      ],
+      "hint": "Dame Valerie [?] Morris [?] was an English primatologist and anthropologist.",
+      "category": "scientist"
+    },
+    {
+      "id": "david-attenborough",
+      "filename": "david-attenborough.jpg",
+      "answer": "David Attenborough",
+      "alternatives": [
+        "David Attenborough",
+        "Attenborough"
+      ],
+      "hint": "Sir [?] Frederick [?] is an English broadcaster, natural historian, conservationist, writer, producer and narrator.",
+      "category": "scientist"
+    },
+    {
+      "id": "tim-berners-lee",
+      "filename": "tim-berners-lee.jpg",
+      "answer": "Tim Berners-Lee",
+      "alternatives": [
+        "Tim Berners-Lee",
+        "Berners-Lee"
+      ],
+      "hint": "Sir Timothy John [?], also known as TimBL, is an English computer scientist best known as the inventor of the World Wide Web, HTML, the URL system, and HTTP.",
+      "category": "scientist"
+    },
+    {
+      "id": "grace-hopper",
+      "filename": "grace-hopper.jpg",
+      "answer": "Grace Hopper",
+      "alternatives": [
+        "Grace Hopper",
+        "Hopper"
+      ],
+      "hint": "[?] Brewster [?] was an American computer scientist, mathematician, and United States Navy rear admiral.",
+      "category": "scientist"
+    },
+    {
+      "id": "wolfgang-amadeus-mozart",
+      "filename": "wolfgang-amadeus-mozart.jpg",
+      "answer": "Wolfgang Amadeus Mozart",
+      "alternatives": [
+        "Wolfgang Amadeus Mozart",
+        "Mozart"
+      ],
+      "hint": "[?] was a Classical composer and musician.",
+      "category": "musician"
+    },
+    {
+      "id": "ludwig-van-beethoven",
+      "filename": "ludwig-van-beethoven.jpg",
+      "answer": "Ludwig van Beethoven",
+      "alternatives": [
+        "Ludwig van Beethoven",
+        "Beethoven"
+      ],
+      "hint": "[?] was a German composer and pianist.",
+      "category": "musician"
+    },
+    {
+      "id": "johann-sebastian-bach",
+      "filename": "johann-sebastian-bach.jpg",
+      "answer": "Johann Sebastian Bach",
+      "alternatives": [
+        "Johann Sebastian Bach",
+        "Bach"
+      ],
+      "hint": "[?] was a German composer and musician of the late Baroque period.",
+      "category": "musician"
+    },
+    {
+      "id": "fr-d-ric-chopin",
+      "filename": "fr-d-ric-chopin.jpg",
+      "answer": "Frédéric Chopin",
+      "alternatives": [
+        "Frédéric Chopin",
+        "Chopin"
+      ],
+      "hint": "[?] François [?] was a Polish composer and virtuoso pianist of the Romantic period who wrote primarily for solo piano.",
+      "category": "musician"
+    },
+    {
+      "id": "pyotr-ilyich-tchaikovsky",
+      "filename": "pyotr-ilyich-tchaikovsky.jpg",
+      "answer": "Pyotr Ilyich Tchaikovsky",
+      "alternatives": [
+        "Pyotr Ilyich Tchaikovsky",
+        "Tchaikovsky"
+      ],
+      "hint": "[?] was a Russian composer of the Romantic period.",
+      "category": "musician"
+    },
+    {
+      "id": "elvis-presley",
+      "filename": "elvis-presley.jpg",
+      "answer": "Elvis Presley",
+      "alternatives": [
+        "Elvis Presley",
+        "Presley"
+      ],
+      "hint": "[?] Aaron [?] was an American singer and actor.",
+      "category": "musician"
+    },
+    {
+      "id": "bob-dylan",
+      "filename": "bob-dylan.jpg",
+      "answer": "Bob Dylan",
+      "alternatives": [
+        "Bob Dylan",
+        "Dylan"
+      ],
+      "hint": "[?] is an American singer-songwriter.",
+      "category": "musician"
+    },
+    {
+      "id": "jimi-hendrix",
+      "filename": "jimi-hendrix.jpg",
+      "answer": "Jimi Hendrix",
+      "alternatives": [
+        "Jimi Hendrix",
+        "Hendrix"
+      ],
+      "hint": "James Marshall \"[?]\" [?] was an American guitarist, singer, and songwriter.",
+      "category": "musician"
+    },
+    {
+      "id": "frank-sinatra",
+      "filename": "frank-sinatra.jpg",
+      "answer": "Frank Sinatra",
+      "alternatives": [
+        "Frank Sinatra",
+        "Sinatra"
+      ],
+      "hint": "Francis Albert [?] was an American singer and actor.",
+      "category": "musician"
+    },
+    {
+      "id": "aretha-franklin",
+      "filename": "aretha-franklin.jpg",
+      "answer": "Aretha Franklin",
+      "alternatives": [
+        "Aretha Franklin",
+        "Franklin"
+      ],
+      "hint": "[?] Louise [?] was an American singer, songwriter and pianist.",
+      "category": "musician"
+    },
+    {
+      "id": "stevie-wonder",
+      "filename": "stevie-wonder.jpg",
+      "answer": "Stevie Wonder",
+      "alternatives": [
+        "Stevie Wonder",
+        "Wonder"
+      ],
+      "hint": "Stevland Hardaway Morris, known professionally as [?], is an American singer-songwriter, musician, and record producer.",
+      "category": "musician"
+    },
+    {
+      "id": "prince-musician",
+      "filename": "prince-musician.jpg",
+      "answer": "Prince",
+      "alternatives": [
+        "Prince"
+      ],
+      "hint": "[?] Rogers Nelson, known mononymously as [?], was an American singer, songwriter, musician, dancer, actor, and filmmaker.",
+      "category": "musician"
+    },
+    {
+      "id": "michael-jackson",
+      "filename": "michael-jackson.jpg",
+      "answer": "Michael Jackson",
+      "alternatives": [
+        "Michael Jackson",
+        "Jackson"
+      ],
+      "hint": "[?] Joseph [?] was an American singer, songwriter, dancer, and philanthropist.",
+      "category": "musician"
+    },
+    {
+      "id": "whitney-houston",
+      "filename": "whitney-houston.jpg",
+      "answer": "Whitney Houston",
+      "alternatives": [
+        "Whitney Houston",
+        "Houston"
+      ],
+      "hint": "[?] Elizabeth [?] was an American singer, actress, film producer, and record producer.",
+      "category": "musician"
+    },
+    {
+      "id": "david-bowie",
+      "filename": "david-bowie.jpg",
+      "answer": "David Bowie",
+      "alternatives": [
+        "David Bowie",
+        "Bowie"
+      ],
+      "hint": "[?] Robert Jones, known as [?], was an English singer, songwriter and actor.",
+      "category": "musician"
+    },
+    {
+      "id": "freddie-mercury",
+      "filename": "freddie-mercury.jpg",
+      "answer": "Freddie Mercury",
+      "alternatives": [
+        "Freddie Mercury",
+        "Mercury"
+      ],
+      "hint": "[?] was a British singer and songwriter who achieved global fame as the lead vocalist and pianist of the rock band Queen.",
+      "category": "musician"
+    },
+    {
+      "id": "mick-jagger",
+      "filename": "mick-jagger.jpg",
+      "answer": "Mick Jagger",
+      "alternatives": [
+        "Mick Jagger",
+        "Jagger"
+      ],
+      "hint": "Sir Michael Philip [?] is an English musician, songwriter, and film producer known as the lead singer and founder members of the Rolling Stones.",
+      "category": "musician"
+    },
+    {
+      "id": "john-lennon",
+      "filename": "john-lennon.jpg",
+      "answer": "John Lennon",
+      "alternatives": [
+        "John Lennon",
+        "Lennon"
+      ],
+      "hint": "[?] Winston Ono [?] was an English musician, songwriter and activist.",
+      "category": "musician"
+    },
+    {
+      "id": "paul-mccartney",
+      "filename": "paul-mccartney.jpg",
+      "answer": "Paul McCartney",
+      "alternatives": [
+        "Paul McCartney",
+        "McCartney"
+      ],
+      "hint": "Sir James [?] is an English musician, singer and songwriter.",
+      "category": "musician"
+    },
+    {
+      "id": "bob-marley",
+      "filename": "bob-marley.jpg",
+      "answer": "Bob Marley",
+      "alternatives": [
+        "Bob Marley",
+        "Marley"
+      ],
+      "hint": "Robert Nesta [?] was a Jamaican singer, songwriter, and guitarist.",
+      "category": "musician"
+    },
+    {
+      "id": "bruce-springsteen",
+      "filename": "bruce-springsteen.jpg",
+      "answer": "Bruce Springsteen",
+      "alternatives": [
+        "Bruce Springsteen",
+        "Springsteen"
+      ],
+      "hint": "[?] Frederick Joseph [?] is an American singer, songwriter, and musician.",
+      "category": "musician"
+    },
+    {
+      "id": "madonna",
+      "filename": "madonna.jpg",
+      "answer": "Madonna",
+      "alternatives": [
+        "Madonna"
+      ],
+      "hint": "[?] Louise Ciccone is an American singer, songwriter, record producer, and actress.",
+      "category": "musician"
+    },
+    {
+      "id": "beyonc",
+      "filename": "beyonc.jpg",
+      "answer": "Beyoncé",
+      "alternatives": [
+        "Beyoncé"
+      ],
+      "hint": "[?] Giselle Knowles-Carter is an American singer, songwriter, actress, and businesswoman.",
+      "category": "musician"
+    },
+    {
+      "id": "taylor-swift",
+      "filename": "taylor-swift.jpg",
+      "answer": "Taylor Swift",
+      "alternatives": [
+        "Taylor Swift",
+        "Swift"
+      ],
+      "hint": "[?] Alison [?] is an American singer-songwriter.",
+      "category": "musician"
+    },
+    {
+      "id": "adele",
+      "filename": "adele.jpg",
+      "answer": "Adele",
+      "alternatives": [
+        "Adele"
+      ],
+      "hint": "[?] Laurie Blue Adkins is an English singer, songwriter, and actress.",
+      "category": "musician"
+    },
+    {
+      "id": "ed-sheeran",
+      "filename": "ed-sheeran.jpg",
+      "answer": "Ed Sheeran",
+      "alternatives": [
+        "Ed Sheeran",
+        "Sheeran"
+      ],
+      "hint": "Edward Christopher [?] is an English singer-songwriter and musician.",
+      "category": "musician"
+    },
+    {
+      "id": "rihanna",
+      "filename": "rihanna.jpg",
+      "answer": "Rihanna",
+      "alternatives": [
+        "Rihanna"
+      ],
+      "hint": "Robyn [?] Fenty is a Barbadian singer, businesswoman, and actress.",
+      "category": "musician"
+    },
+    {
+      "id": "lady-gaga",
+      "filename": "lady-gaga.jpg",
+      "answer": "Lady Gaga",
+      "alternatives": [
+        "Lady Gaga",
+        "Gaga"
+      ],
+      "hint": "Stefani Joanne Angelina Germanotta, known professionally as [?], is an American singer, songwriter, and actress.",
+      "category": "musician"
+    },
+    {
+      "id": "dolly-parton",
+      "filename": "dolly-parton.jpg",
+      "answer": "Dolly Parton",
+      "alternatives": [
+        "Dolly Parton",
+        "Parton"
+      ],
+      "hint": "[?] Rebecca [?] is an American singer, songwriter, actress, philanthropist, and businesswoman.",
+      "category": "musician"
+    },
+    {
+      "id": "johnny-cash",
+      "filename": "johnny-cash.jpg",
+      "answer": "Johnny Cash",
+      "alternatives": [
+        "Johnny Cash",
+        "Cash"
+      ],
+      "hint": "John R. [?] was an American singer-songwriter.",
+      "category": "musician"
+    },
+    {
+      "id": "kurt-cobain",
+      "filename": "kurt-cobain.jpg",
+      "answer": "Kurt Cobain",
+      "alternatives": [
+        "Kurt Cobain",
+        "Cobain"
+      ],
+      "hint": "[?] Donald [?] was an American musician.",
+      "category": "musician"
+    },
+    {
+      "id": "tupac-shakur",
+      "filename": "tupac-shakur.jpg",
+      "answer": "Tupac Shakur",
+      "alternatives": [
+        "Tupac Shakur",
+        "Shakur"
+      ],
+      "hint": "[?] Amaru [?], also known by his stage names 2Pac and Makaveli, was an American rapper and actor.",
+      "category": "musician"
+    },
+    {
+      "id": "eminem",
+      "filename": "eminem.jpg",
+      "answer": "Eminem",
+      "alternatives": [
+        "Eminem"
+      ],
+      "hint": "Marshall Bruce Mathers III, known professionally as [?], is an American rapper, songwriter, record producer, and record executive.",
+      "category": "musician"
+    },
+    {
+      "id": "billie-eilish",
+      "filename": "billie-eilish.jpg",
+      "answer": "Billie Eilish",
+      "alternatives": [
+        "Billie Eilish",
+        "Eilish"
+      ],
+      "hint": "[?] Pirate Baird O'Connell is an American singer-songwriter.",
+      "category": "musician"
+    },
+    {
+      "id": "charlie-chaplin",
+      "filename": "charlie-chaplin.jpg",
+      "answer": "Charlie Chaplin",
+      "alternatives": [
+        "Charlie Chaplin",
+        "Chaplin"
+      ],
+      "hint": "Sir Charles Spencer [?] Jr.",
+      "category": "actor"
+    },
+    {
+      "id": "buster-keaton",
+      "filename": "buster-keaton.jpg",
+      "answer": "Buster Keaton",
+      "alternatives": [
+        "Buster Keaton",
+        "Keaton"
+      ],
+      "hint": "Joseph Frank \"[?]\" [?] was an American actor, comedian and filmmaker.",
+      "category": "actor"
+    },
+    {
+      "id": "marilyn-monroe",
+      "filename": "marilyn-monroe.jpg",
+      "answer": "Marilyn Monroe",
+      "alternatives": [
+        "Marilyn Monroe",
+        "Monroe"
+      ],
+      "hint": "[?] was an American actress and model.",
+      "category": "actor"
+    },
+    {
+      "id": "audrey-hepburn",
+      "filename": "audrey-hepburn.jpg",
+      "answer": "Audrey Hepburn",
+      "alternatives": [
+        "Audrey Hepburn",
+        "Hepburn"
+      ],
+      "hint": "[?] Kathleen [?] was a British actress and humanitarian.",
+      "category": "actor"
+    },
+    {
+      "id": "humphrey-bogart",
+      "filename": "humphrey-bogart.jpg",
+      "answer": "Humphrey Bogart",
+      "alternatives": [
+        "Humphrey Bogart",
+        "Bogart"
+      ],
+      "hint": "[?] DeForest [?], nicknamed Bogie, was an American actor.",
+      "category": "actor"
+    },
+    {
+      "id": "james-stewart",
+      "filename": "james-stewart.jpg",
+      "answer": "James Stewart",
+      "alternatives": [
+        "James Stewart",
+        "Stewart"
+      ],
+      "hint": "[?] Maitland [?] was an American actor and military aviator.",
+      "category": "actor"
+    },
+    {
+      "id": "marlon-brando",
+      "filename": "marlon-brando.jpg",
+      "answer": "Marlon Brando",
+      "alternatives": [
+        "Marlon Brando",
+        "Brando"
+      ],
+      "hint": "[?] Jr. was an American actor.",
+      "category": "actor"
+    },
+    {
+      "id": "robert-de-niro",
+      "filename": "robert-de-niro.jpg",
+      "answer": "Robert De Niro",
+      "alternatives": [
+        "Robert De Niro",
+        "Niro"
+      ],
+      "hint": "[?] Anthony De [?] is an American actor, director, film producer, and restaurateur.",
+      "category": "actor"
+    },
+    {
+      "id": "al-pacino",
+      "filename": "al-pacino.jpg",
+      "answer": "Al Pacino",
+      "alternatives": [
+        "Al Pacino",
+        "Pacino"
+      ],
+      "hint": "Alfredo James [?] is an American actor.",
+      "category": "actor"
+    },
+    {
+      "id": "meryl-streep",
+      "filename": "meryl-streep.jpg",
+      "answer": "Meryl Streep",
+      "alternatives": [
+        "Meryl Streep",
+        "Streep"
+      ],
+      "hint": "Mary Louise \"[?]\" [?] is an American actress.",
+      "category": "actor"
+    },
+    {
+      "id": "tom-hanks",
+      "filename": "tom-hanks.jpg",
+      "answer": "Tom Hanks",
+      "alternatives": [
+        "Tom Hanks",
+        "Hanks"
+      ],
+      "hint": "Thomas Jeffrey [?] is an American actor and filmmaker.",
+      "category": "actor"
+    },
+    {
+      "id": "tom-cruise",
+      "filename": "tom-cruise.jpg",
+      "answer": "Tom Cruise",
+      "alternatives": [
+        "Tom Cruise",
+        "Cruise"
+      ],
+      "hint": "Thomas [?] Mapother IV is an American actor and film producer.",
+      "category": "actor"
+    },
+    {
+      "id": "brad-pitt",
+      "filename": "brad-pitt.jpg",
+      "answer": "Brad Pitt",
+      "alternatives": [
+        "Brad Pitt",
+        "Pitt"
+      ],
+      "hint": "William Bradley [?] is an American actor and film producer.",
+      "category": "actor"
+    },
+    {
+      "id": "george-clooney",
+      "filename": "george-clooney.jpg",
+      "answer": "George Clooney",
+      "alternatives": [
+        "George Clooney",
+        "Clooney"
+      ],
+      "hint": "[?] Timothy [?] is an American actor and filmmaker.",
+      "category": "actor"
+    },
+    {
+      "id": "leonardo-dicaprio",
+      "filename": "leonardo-dicaprio.jpg",
+      "answer": "Leonardo DiCaprio",
+      "alternatives": [
+        "Leonardo DiCaprio",
+        "DiCaprio"
+      ],
+      "hint": "[?] Wilhelm [?] is an American actor and film producer.",
+      "category": "actor"
+    },
+    {
+      "id": "will-smith",
+      "filename": "will-smith.jpg",
+      "answer": "Will Smith",
+      "alternatives": [
+        "Will Smith",
+        "Smith"
+      ],
+      "hint": "Willard Carroll [?] II is an American actor, rapper, and film producer.",
+      "category": "actor"
+    },
+    {
+      "id": "denzel-washington",
+      "filename": "denzel-washington.jpg",
+      "answer": "Denzel Washington",
+      "alternatives": [
+        "Denzel Washington",
+        "Washington"
+      ],
+      "hint": "[?] Hayes [?] Jr. is an American actor, producer, and director.",
+      "category": "actor"
+    },
+    {
+      "id": "morgan-freeman",
+      "filename": "morgan-freeman.jpg",
+      "answer": "Morgan Freeman",
+      "alternatives": [
+        "Morgan Freeman",
+        "Freeman"
+      ],
+      "hint": "[?] is an American actor, producer, and narrator.",
+      "category": "actor"
+    },
+    {
+      "id": "anthony-hopkins",
+      "filename": "anthony-hopkins.jpg",
+      "answer": "Anthony Hopkins",
+      "alternatives": [
+        "Anthony Hopkins",
+        "Hopkins"
+      ],
+      "hint": "Sir Philip [?] is a Welsh actor.",
+      "category": "actor"
+    },
+    {
+      "id": "judi-dench",
+      "filename": "judi-dench.jpg",
+      "answer": "Judi Dench",
+      "alternatives": [
+        "Judi Dench",
+        "Dench"
+      ],
+      "hint": "Dame Judith Olivia [?] is a retired English actress.",
+      "category": "actor"
+    },
+    {
+      "id": "helen-mirren",
+      "filename": "helen-mirren.jpg",
+      "answer": "Helen Mirren",
+      "alternatives": [
+        "Helen Mirren",
+        "Mirren"
+      ],
+      "hint": "Dame [?] is an English actor.",
+      "category": "actor"
+    },
+    {
+      "id": "cate-blanchett",
+      "filename": "cate-blanchett.jpg",
+      "answer": "Cate Blanchett",
+      "alternatives": [
+        "Cate Blanchett",
+        "Blanchett"
+      ],
+      "hint": "Catherine Élise [?] is an Australian actor and producer.",
+      "category": "actor"
+    },
+    {
+      "id": "nicole-kidman",
+      "filename": "nicole-kidman.jpg",
+      "answer": "Nicole Kidman",
+      "alternatives": [
+        "Nicole Kidman",
+        "Kidman"
+      ],
+      "hint": "[?] Mary [?] is an Australian and American actress and producer.",
+      "category": "actor"
+    },
+    {
+      "id": "julia-roberts",
+      "filename": "julia-roberts.jpg",
+      "answer": "Julia Roberts",
+      "alternatives": [
+        "Julia Roberts",
+        "Roberts"
+      ],
+      "hint": "[?] Fiona [?] is an American actress.",
+      "category": "actor"
+    },
+    {
+      "id": "jennifer-lawrence",
+      "filename": "jennifer-lawrence.jpg",
+      "answer": "Jennifer Lawrence",
+      "alternatives": [
+        "Jennifer Lawrence",
+        "Lawrence"
+      ],
+      "hint": "[?] Shrader Maroney is an American actress and producer.",
+      "category": "actor"
+    },
+    {
+      "id": "emma-stone",
+      "filename": "emma-stone.jpg",
+      "answer": "Emma Stone",
+      "alternatives": [
+        "Emma Stone",
+        "Stone"
+      ],
+      "hint": "Emily Jean \"[?]\" [?] is an American actress and film producer.",
+      "category": "actor"
+    },
+    {
+      "id": "margot-robbie",
+      "filename": "margot-robbie.jpg",
+      "answer": "Margot Robbie",
+      "alternatives": [
+        "Margot Robbie",
+        "Robbie"
+      ],
+      "hint": "[?] Elise [?] is an Australian actress and producer.",
+      "category": "actor"
+    },
+    {
+      "id": "idris-elba",
+      "filename": "idris-elba.jpg",
+      "answer": "Idris Elba",
+      "alternatives": [
+        "Idris Elba",
+        "Elba"
+      ],
+      "hint": "Sir Idrissa Akuna [?] is an English actor, DJ, and rapper.",
+      "category": "actor"
+    },
+    {
+      "id": "daniel-day-lewis",
+      "filename": "daniel-day-lewis.jpg",
+      "answer": "Daniel Day-Lewis",
+      "alternatives": [
+        "Daniel Day-Lewis",
+        "Day-Lewis"
+      ],
+      "hint": "Sir [?] Michael Blake [?] is an English actor.",
+      "category": "actor"
+    },
+    {
+      "id": "alfred-hitchcock",
+      "filename": "alfred-hitchcock.jpg",
+      "answer": "Alfred Hitchcock",
+      "alternatives": [
+        "Alfred Hitchcock",
+        "Hitchcock"
+      ],
+      "hint": "Sir [?] Joseph [?] was an English filmmaker.",
+      "category": "actor"
+    },
+    {
+      "id": "stanley-kubrick",
+      "filename": "stanley-kubrick.jpg",
+      "answer": "Stanley Kubrick",
+      "alternatives": [
+        "Stanley Kubrick",
+        "Kubrick"
+      ],
+      "hint": "[?] was an American filmmaker and photographer.",
+      "category": "actor"
+    },
+    {
+      "id": "steven-spielberg",
+      "filename": "steven-spielberg.jpg",
+      "answer": "Steven Spielberg",
+      "alternatives": [
+        "Steven Spielberg",
+        "Spielberg"
+      ],
+      "hint": "[?] Allan [?] is an American filmmaker.",
+      "category": "actor"
+    },
+    {
+      "id": "martin-scorsese",
+      "filename": "martin-scorsese.jpg",
+      "answer": "Martin Scorsese",
+      "alternatives": [
+        "Martin Scorsese",
+        "Scorsese"
+      ],
+      "hint": "[?] Charles [?] is an American filmmaker.",
+      "category": "actor"
+    },
+    {
+      "id": "quentin-tarantino",
+      "filename": "quentin-tarantino.jpg",
+      "answer": "Quentin Tarantino",
+      "alternatives": [
+        "Quentin Tarantino",
+        "Tarantino"
+      ],
+      "hint": "[?] Jerome [?] is an American filmmaker, actor, and author.",
+      "category": "actor"
+    },
+    {
+      "id": "akira-kurosawa",
+      "filename": "akira-kurosawa.jpg",
+      "answer": "Akira Kurosawa",
+      "alternatives": [
+        "Akira Kurosawa",
+        "Kurosawa"
+      ],
+      "hint": "[?] was a Japanese filmmaker who directed 30 feature films in a career spanning six decades.",
+      "category": "actor"
+    },
+    {
+      "id": "christopher-nolan",
+      "filename": "christopher-nolan.jpg",
+      "answer": "Christopher Nolan",
+      "alternatives": [
+        "Christopher Nolan",
+        "Nolan"
+      ],
+      "hint": "Sir [?] Edward [?] is a British and American filmmaker.",
+      "category": "actor"
+    },
+    {
+      "id": "abraham-lincoln",
+      "filename": "abraham-lincoln.jpg",
+      "answer": "Abraham Lincoln",
+      "alternatives": [
+        "Abraham Lincoln",
+        "Lincoln"
+      ],
+      "hint": "[?] was the 16th president of the United States, serving from 1861 until his assassination in 1865.",
+      "category": "leader"
+    },
+    {
+      "id": "george-washington",
+      "filename": "george-washington.jpg",
+      "answer": "George Washington",
+      "alternatives": [
+        "George Washington",
+        "Washington"
+      ],
+      "hint": "[?] was a Founding Father and the first president of the United States, serving from 1789 to 1797.",
+      "category": "leader"
+    },
+    {
+      "id": "theodore-roosevelt",
+      "filename": "theodore-roosevelt.jpg",
+      "answer": "Theodore Roosevelt",
+      "alternatives": [
+        "Theodore Roosevelt",
+        "Roosevelt"
+      ],
+      "hint": "[?] Jr. was the 26th president of the United States, serving from 1901 to 1909.",
+      "category": "leader"
+    },
+    {
+      "id": "franklin-d-roosevelt",
+      "filename": "franklin-d-roosevelt.jpg",
+      "answer": "Franklin D. Roosevelt",
+      "alternatives": [
+        "Franklin D. Roosevelt"
+      ],
+      "hint": "[?] Delano [?], also known as FDR, was the 32nd president of the United States, serving from 1933 until his death in 1945.",
+      "category": "leader"
+    },
+    {
+      "id": "john-f-kennedy",
+      "filename": "john-f-kennedy.jpg",
+      "answer": "John F. Kennedy",
+      "alternatives": [
+        "John F. Kennedy"
+      ],
+      "hint": "[?] Fitzgerald [?], also known as JFK, was the 35th president of the United States, serving from 1961 until his assassination in 1963.",
+      "category": "leader"
+    },
+    {
+      "id": "richard-nixon",
+      "filename": "richard-nixon.jpg",
+      "answer": "Richard Nixon",
+      "alternatives": [
+        "Richard Nixon",
+        "Nixon"
+      ],
+      "hint": "[?] Milhous [?] was the 37th president of the United States, serving from 1969 until his resignation in 1974.",
+      "category": "leader"
+    },
+    {
+      "id": "ronald-reagan",
+      "filename": "ronald-reagan.jpg",
+      "answer": "Ronald Reagan",
+      "alternatives": [
+        "Ronald Reagan",
+        "Reagan"
+      ],
+      "hint": "[?] Wilson [?] was an American politician and actor who served as the 40th president of the United States from 1981 to 1989.",
+      "category": "leader"
+    },
+    {
+      "id": "barack-obama",
+      "filename": "barack-obama.jpg",
+      "answer": "Barack Obama",
+      "alternatives": [
+        "Barack Obama",
+        "Obama"
+      ],
+      "hint": "[?] Hussein [?] II is an American politician who served as the 44th president of the United States from 2009 to 2017.",
+      "category": "leader"
+    },
+    {
+      "id": "donald-trump",
+      "filename": "donald-trump.jpg",
+      "answer": "Donald Trump",
+      "alternatives": [
+        "Donald Trump",
+        "Trump"
+      ],
+      "hint": "[?] John [?] is an American politician, media personality, and businessman who is the 47th president of the United States.",
+      "category": "leader"
+    },
+    {
+      "id": "winston-churchill",
+      "filename": "winston-churchill.jpg",
+      "answer": "Winston Churchill",
+      "alternatives": [
+        "Winston Churchill",
+        "Churchill"
+      ],
+      "hint": "Sir [?] Leonard Spencer [?] was a British statesman, military officer, and writer who was Prime Minister of the United Kingdom from 1940 to 1945, during the Second World War, and again from 1951 to 1955.",
+      "category": "leader"
+    },
+    {
+      "id": "margaret-thatcher",
+      "filename": "margaret-thatcher.jpg",
+      "answer": "Margaret Thatcher",
+      "alternatives": [
+        "Margaret Thatcher",
+        "Thatcher"
+      ],
+      "hint": "[?] Hilda [?], Baroness [?], was a British stateswoman who served as Prime Minister of the United Kingdom from 1979 to 1990 and Leader of the Conservative Party from 1975 to 1990.",
+      "category": "leader"
+    },
+    {
+      "id": "tony-blair",
+      "filename": "tony-blair.jpg",
+      "answer": "Tony Blair",
+      "alternatives": [
+        "Tony Blair",
+        "Blair"
+      ],
+      "hint": "Sir Anthony Charles Lynton [?] is a British politician who served as Prime Minister of the United Kingdom from 1997 to 2007 and Leader of the Labour Party from 1994 to 2007.",
+      "category": "leader"
+    },
+    {
+      "id": "queen-elizabeth-ii",
+      "filename": "queen-elizabeth-ii.jpg",
+      "answer": "Elizabeth II",
+      "alternatives": [
+        "Elizabeth II",
+        "II"
+      ],
+      "hint": "[?] was Queen of the United Kingdom and other Commonwealth realms from 6 February 1952 until her death in 2022.",
+      "category": "leader"
+    },
+    {
+      "id": "queen-victoria",
+      "filename": "queen-victoria.jpg",
+      "answer": "Queen Victoria",
+      "alternatives": [
+        "Queen Victoria",
+        "Victoria"
+      ],
+      "hint": "[?] was [?] of the United Kingdom of Great Britain and Ireland from 20 June 1837 until her death in 1901.",
+      "category": "leader"
+    },
+    {
+      "id": "henry-viii",
+      "filename": "henry-viii.jpg",
+      "answer": "Henry VIII",
+      "alternatives": [
+        "Henry VIII",
+        "VIII"
+      ],
+      "hint": "[?] was King of England from 22 April 1509 until his death in 1547.",
+      "category": "leader"
+    },
+    {
+      "id": "elizabeth-i",
+      "filename": "elizabeth-i.jpg",
+      "answer": "Elizabeth I",
+      "alternatives": [
+        "Elizabeth I",
+        "I"
+      ],
+      "hint": "[?] was Queen of England and Ireland from 17 November 1558 until her death in 1603.",
+      "category": "leader"
+    },
+    {
+      "id": "charles-de-gaulle",
+      "filename": "charles-de-gaulle.jpg",
+      "answer": "Charles de Gaulle",
+      "alternatives": [
+        "Charles de Gaulle",
+        "Gaulle"
+      ],
+      "hint": "[?] André Joseph Marie de [?] was a French general and statesman who led the Free French Forces against Nazi Germany and Vichy France in World War II and chaired the Provisional Government of the French Republic from 1944 to 1946 to",
+      "category": "leader"
+    },
+    {
+      "id": "angela-merkel",
+      "filename": "angela-merkel.jpg",
+      "answer": "Angela Merkel",
+      "alternatives": [
+        "Angela Merkel",
+        "Merkel"
+      ],
+      "hint": "[?] Dorothea [?] is a German stateswoman and retired politician who served as Chancellor of Germany from 2005 to 2021.",
+      "category": "leader"
+    },
+    {
+      "id": "vladimir-putin",
+      "filename": "vladimir-putin.jpg",
+      "answer": "Vladimir Putin",
+      "alternatives": [
+        "Vladimir Putin",
+        "Putin"
+      ],
+      "hint": "[?] Vladimirovich [?] is a Russian politician and former intelligence officer who has served as President of Russia since 2012, having previously served from 2000 to 2008.",
+      "category": "leader"
+    },
+    {
+      "id": "xi-jinping",
+      "filename": "xi-jinping.jpg",
+      "answer": "Xi Jinping",
+      "alternatives": [
+        "Xi Jinping",
+        "Jinping"
+      ],
+      "hint": "[?] is a Chinese politician who is the fifth paramount leader of the People's Republic of China.",
+      "category": "leader"
+    },
+    {
+      "id": "mahatma-gandhi",
+      "filename": "mahatma-gandhi.jpg",
+      "answer": "Mahatma Gandhi",
+      "alternatives": [
+        "Mahatma Gandhi",
+        "Gandhi"
+      ],
+      "hint": "Mohandas Karamchand [?] was an Indian lawyer, anti-colonial nationalist and political ethicist who employed nonviolent resistance to lead the successful campaign for India's independence from British rule, and to later inspire movements",
+      "category": "leader"
+    },
+    {
+      "id": "nelson-mandela",
+      "filename": "nelson-mandela.jpg",
+      "answer": "Nelson Mandela",
+      "alternatives": [
+        "Nelson Mandela",
+        "Mandela"
+      ],
+      "hint": "[?] Rolihlahla [?] was a South African anti-apartheid activist and statesman who was the first president of South Africa from 1994 to 1999.",
+      "category": "leader"
+    },
+    {
+      "id": "martin-luther-king-jr",
+      "filename": "martin-luther-king-jr.jpg",
+      "answer": "Martin Luther King Jr.",
+      "alternatives": [
+        "Martin Luther King Jr."
+      ],
+      "hint": "[?] Luther King Jr. was an American civil rights activist and Baptist minister who was a prominent leader of the civil rights movement from 1955 until his assassination in 1968.",
+      "category": "leader"
+    },
+    {
+      "id": "malcolm-x",
+      "filename": "malcolm-x.jpg",
+      "answer": "Malcolm X",
+      "alternatives": [
+        "Malcolm X",
+        "X"
+      ],
+      "hint": "[?] was an African American revolutionary and Black nationalist leader, coming from a background of poverty, family disruption, and criminal activity, to a prominent figure during the civil rights movement until his assassination in 1965.",
+      "category": "leader"
+    },
+    {
+      "id": "mikhail-gorbachev",
+      "filename": "mikhail-gorbachev.jpg",
+      "answer": "Mikhail Gorbachev",
+      "alternatives": [
+        "Mikhail Gorbachev",
+        "Gorbachev"
+      ],
+      "hint": "[?] Sergeyevich [?] was a Soviet and Russian politician who was the last leader of the Soviet Union from 1985 until the country's dissolution in 1991.",
+      "category": "leader"
+    },
+    {
+      "id": "joseph-stalin",
+      "filename": "joseph-stalin.jpg",
+      "answer": "Joseph Stalin",
+      "alternatives": [
+        "Joseph Stalin",
+        "Stalin"
+      ],
+      "hint": "[?] Vissarionovich [?] was a Soviet revolutionary and politician who led the Soviet Union from 1924 until his death in 1953.",
+      "category": "leader"
+    },
+    {
+      "id": "adolf-hitler",
+      "filename": "adolf-hitler.jpg",
+      "answer": "Adolf Hitler",
+      "alternatives": [
+        "Adolf Hitler",
+        "Hitler"
+      ],
+      "hint": "[?] was an Austrian-born German politician who was the dictator of Germany during the Nazi era from 1933 until his suicide in 1945.",
+      "category": "leader"
+    },
+    {
+      "id": "benito-mussolini",
+      "filename": "benito-mussolini.jpg",
+      "answer": "Benito Mussolini",
+      "alternatives": [
+        "Benito Mussolini",
+        "Mussolini"
+      ],
+      "hint": "[?] Amilcare Andrea [?] was an Italian politician, journalist, and dictator who led Italy as Il Duce from 1922 until his overthrow in 1943.",
+      "category": "leader"
+    },
+    {
+      "id": "mao-zedong",
+      "filename": "mao-zedong.jpg",
+      "answer": "Mao Zedong",
+      "alternatives": [
+        "Mao Zedong",
+        "Zedong"
+      ],
+      "hint": "[?] was a Chinese revolutionary, politician, writer, political theorist and the founder of the People's Republic of China.",
+      "category": "leader"
+    },
+    {
+      "id": "fidel-castro",
+      "filename": "fidel-castro.jpg",
+      "answer": "Fidel Castro",
+      "alternatives": [
+        "Fidel Castro",
+        "Castro"
+      ],
+      "hint": "[?] Alejandro [?] Ruz was a Cuban politician and revolutionary who was the leader of Cuba from 1959 to 2008, serving as prime minister from 1959 to 1976 and president from 1976 to 2008.",
+      "category": "leader"
+    },
+    {
+      "id": "che-guevara",
+      "filename": "che-guevara.jpg",
+      "answer": "Che Guevara",
+      "alternatives": [
+        "Che Guevara",
+        "Guevara"
+      ],
+      "hint": "Ernesto \"[?]\" [?] de la Serna was an Argentine Marxist revolutionary, author, guerrilla leader, diplomat, politician, and military theorist.",
+      "category": "leader"
+    },
+    {
+      "id": "napoleon",
+      "filename": "napoleon.jpg",
+      "answer": "Napoleon",
+      "alternatives": [
+        "Napoleon"
+      ],
+      "hint": "[?] Bonaparte, later known by his regnal name [?] I, was Emperor of the French from 18 May 1804 until his first abdication in 1814, with a brief restoration during the Hundred Days in 1815.",
+      "category": "leader"
+    },
+    {
+      "id": "julius-caesar",
+      "filename": "julius-caesar.jpg",
+      "answer": "Julius Caesar",
+      "alternatives": [
+        "Julius Caesar",
+        "Caesar"
+      ],
+      "hint": "Gaius [?] was a Roman general, statesman, and author who was the dictator of the Roman Republic almost continuously from 49 BC until his assassination in 44 BC.",
+      "category": "leader"
+    },
+    {
+      "id": "cleopatra",
+      "filename": "cleopatra.jpg",
+      "answer": "Cleopatra",
+      "alternatives": [
+        "Cleopatra"
+      ],
+      "hint": "[?] VII Thea Philopator was Queen of the Ptolemaic Kingdom of Egypt from 51 to 30 BC, and the last active Hellenistic pharaoh.",
+      "category": "leader"
+    },
+    {
+      "id": "genghis-khan",
+      "filename": "genghis-khan.jpg",
+      "answer": "Genghis Khan",
+      "alternatives": [
+        "Genghis Khan",
+        "Khan"
+      ],
+      "hint": "[?], also known as Chinggis [?], was the founder and first khan of the Mongol Empire.",
+      "category": "leader"
+    },
+    {
+      "id": "alexander-the-great",
+      "filename": "alexander-the-great.jpg",
+      "answer": "Alexander the Great",
+      "alternatives": [
+        "Alexander the Great",
+        "Great"
+      ],
+      "hint": "[?] III of Macedon, most commonly known as [?], was king of the ancient Greek kingdom of Macedon.",
+      "category": "leader"
+    },
+    {
+      "id": "pel",
+      "filename": "pel.jpg",
+      "answer": "Pelé",
+      "alternatives": [
+        "Pelé"
+      ],
+      "hint": "Edson Arantes do Nascimento, better known by his nickname [?], was a Brazilian professional footballer who played as a forward.",
+      "category": "athlete"
+    },
+    {
+      "id": "diego-maradona",
+      "filename": "diego-maradona.jpg",
+      "answer": "Diego Maradona",
+      "alternatives": [
+        "Diego Maradona",
+        "Maradona"
+      ],
+      "hint": "[?] Armando [?] was an Argentine professional football player and manager.",
+      "category": "athlete"
+    },
+    {
+      "id": "lionel-messi",
+      "filename": "lionel-messi.jpg",
+      "answer": "Lionel Messi",
+      "alternatives": [
+        "Lionel Messi",
+        "Messi"
+      ],
+      "hint": "[?] Andrés \"Leo\" [?] is an Argentine professional footballer who plays as a forward for and captains both the Major League Soccer club Inter Miami and the Argentina national team.",
+      "category": "athlete"
+    },
+    {
+      "id": "cristiano-ronaldo",
+      "filename": "cristiano-ronaldo.jpg",
+      "answer": "Cristiano Ronaldo",
+      "alternatives": [
+        "Cristiano Ronaldo",
+        "Ronaldo"
+      ],
+      "hint": "[?] dos Santos Aveiro, nicknamed CR7, is a Portuguese professional footballer who plays as a forward for and captains both Saudi Pro League club Al-Nassr and the Portugal national team.",
+      "category": "athlete"
+    },
+    {
+      "id": "david-beckham",
+      "filename": "david-beckham.jpg",
+      "answer": "David Beckham",
+      "alternatives": [
+        "David Beckham",
+        "Beckham"
+      ],
+      "hint": "Sir [?] Robert Joseph [?] is an English former professional footballer, the president and co-owner of Inter Miami CF and co-owner of Salford City F.C..",
+      "category": "athlete"
+    },
+    {
+      "id": "roger-federer",
+      "filename": "roger-federer.jpg",
+      "answer": "Roger Federer",
+      "alternatives": [
+        "Roger Federer",
+        "Federer"
+      ],
+      "hint": "[?] is a Swiss former professional tennis player.",
+      "category": "athlete"
+    },
+    {
+      "id": "rafael-nadal",
+      "filename": "rafael-nadal.jpg",
+      "answer": "Rafael Nadal",
+      "alternatives": [
+        "Rafael Nadal",
+        "Nadal"
+      ],
+      "hint": "[?] \"Rafa\" [?] Parera, 1st Marquess of Llevant de Mallorca is a Spanish former professional tennis player.",
+      "category": "athlete"
+    },
+    {
+      "id": "novak-djokovic",
+      "filename": "novak-djokovic.jpg",
+      "answer": "Novak Djokovic",
+      "alternatives": [
+        "Novak Djokovic",
+        "Djokovic"
+      ],
+      "hint": "[?] is a Serbian professional tennis player.",
+      "category": "athlete"
+    },
+    {
+      "id": "serena-williams",
+      "filename": "serena-williams.jpg",
+      "answer": "Serena Williams",
+      "alternatives": [
+        "Serena Williams",
+        "Williams"
+      ],
+      "hint": "[?] Jameka [?] is an American former professional tennis player.",
+      "category": "athlete"
+    },
+    {
+      "id": "venus-williams",
+      "filename": "venus-williams.jpg",
+      "answer": "Venus Williams",
+      "alternatives": [
+        "Venus Williams",
+        "Williams"
+      ],
+      "hint": "[?] Ebony Starr [?] is an American professional tennis player.",
+      "category": "athlete"
+    },
+    {
+      "id": "michael-jordan",
+      "filename": "michael-jordan.jpg",
+      "answer": "Michael Jordan",
+      "alternatives": [
+        "Michael Jordan",
+        "Jordan"
+      ],
+      "hint": "[?] Jeffrey [?], also known by his initials MJ, is an American businessman and retired professional basketball player who is a minority owner of the Charlotte Hornets of the National Basketball Association.",
+      "category": "athlete"
+    },
+    {
+      "id": "lebron-james",
+      "filename": "lebron-james.jpg",
+      "answer": "LeBron James",
+      "alternatives": [
+        "LeBron James",
+        "James"
+      ],
+      "hint": "[?] Raymone [?] is an American professional basketball player for the Los Angeles Lakers of the National Basketball Association.",
+      "category": "athlete"
+    },
+    {
+      "id": "kobe-bryant",
+      "filename": "kobe-bryant.jpg",
+      "answer": "Kobe Bryant",
+      "alternatives": [
+        "Kobe Bryant",
+        "Bryant"
+      ],
+      "hint": "[?] Bean [?] was an American professional basketball player.",
+      "category": "athlete"
+    },
+    {
+      "id": "tiger-woods",
+      "filename": "tiger-woods.jpg",
+      "answer": "Tiger Woods",
+      "alternatives": [
+        "Tiger Woods",
+        "Woods"
+      ],
+      "hint": "Eldrick Tont \"[?]\" [?] is an American professional golfer.",
+      "category": "athlete"
+    },
+    {
+      "id": "muhammad-ali",
+      "filename": "muhammad-ali.jpg",
+      "answer": "Muhammad Ali",
+      "alternatives": [
+        "Muhammad Ali",
+        "Ali"
+      ],
+      "hint": "[?] was an American professional boxer and activist.",
+      "category": "athlete"
+    },
+    {
+      "id": "mike-tyson",
+      "filename": "mike-tyson.jpg",
+      "answer": "Mike Tyson",
+      "alternatives": [
+        "Mike Tyson",
+        "Tyson"
+      ],
+      "hint": "Michael Gerard [?] is an American former professional boxer and cannabis entrepreneur who competed from 1985 to 2005, and again in 2024.",
+      "category": "athlete"
+    },
+    {
+      "id": "usain-bolt",
+      "filename": "usain-bolt.jpg",
+      "answer": "Usain Bolt",
+      "alternatives": [
+        "Usain Bolt",
+        "Bolt"
+      ],
+      "hint": "[?] St. Leo [?] is a Jamaican retired sprinter.",
+      "category": "athlete"
+    },
+    {
+      "id": "michael-phelps",
+      "filename": "michael-phelps.jpg",
+      "answer": "Michael Phelps",
+      "alternatives": [
+        "Michael Phelps",
+        "Phelps"
+      ],
+      "hint": "[?] Fred [?] II is an American former competitive swimmer.",
+      "category": "athlete"
+    },
+    {
+      "id": "tom-brady",
+      "filename": "tom-brady.jpg",
+      "answer": "Tom Brady",
+      "alternatives": [
+        "Tom Brady",
+        "Brady"
+      ],
+      "hint": "Thomas Edward Patrick [?] Jr.",
+      "category": "athlete"
+    },
+    {
+      "id": "lewis-hamilton",
+      "filename": "lewis-hamilton.jpg",
+      "answer": "Lewis Hamilton",
+      "alternatives": [
+        "Lewis Hamilton",
+        "Hamilton"
+      ],
+      "hint": "Sir [?] Carl Davidson [?] is a British racing driver who competes in Formula One for Ferrari.",
+      "category": "athlete"
+    },
+    {
+      "id": "ayrton-senna",
+      "filename": "ayrton-senna.jpg",
+      "answer": "Ayrton Senna",
+      "alternatives": [
+        "Ayrton Senna",
+        "Senna"
+      ],
+      "hint": "[?] da Silva was a Brazilian racing driver who competed in Formula One from 1984 to 1994.",
+      "category": "athlete"
+    },
+    {
+      "id": "michael-schumacher",
+      "filename": "michael-schumacher.jpg",
+      "answer": "Michael Schumacher",
+      "alternatives": [
+        "Michael Schumacher",
+        "Schumacher"
+      ],
+      "hint": "[?] is a German former racing driver who competed in Formula One from 1991 to 2006 and from 2010 to 2012.",
+      "category": "athlete"
+    },
+    {
+      "id": "wayne-gretzky",
+      "filename": "wayne-gretzky.jpg",
+      "answer": "Wayne Gretzky",
+      "alternatives": [
+        "Wayne Gretzky",
+        "Gretzky"
+      ],
+      "hint": "[?] Douglas [?] is a Canadian former professional ice hockey player and former head coach.",
+      "category": "athlete"
+    },
+    {
+      "id": "babe-ruth",
+      "filename": "babe-ruth.jpg",
+      "answer": "Babe Ruth",
+      "alternatives": [
+        "Babe Ruth",
+        "Ruth"
+      ],
+      "hint": "George Herman \"[?]\" [?] was an American professional baseball player whose career in Major League Baseball spanned 22 seasons, from 1914 through 1935.",
+      "category": "athlete"
+    },
+    {
+      "id": "jesse-owens",
+      "filename": "jesse-owens.jpg",
+      "answer": "Jesse Owens",
+      "alternatives": [
+        "Jesse Owens",
+        "Owens"
+      ],
+      "hint": "James Cleveland \"[?]\" [?] was an American track and field athlete who made history at the 1936 Olympic Games by winning four gold medals, setting Olympic records in each event.",
+      "category": "athlete"
+    },
+    {
+      "id": "eiffel-tower",
+      "filename": "eiffel-tower.jpg",
+      "answer": "Eiffel Tower",
+      "alternatives": [
+        "Eiffel Tower",
+        "Tower"
+      ],
+      "hint": "The [?] is a lattice tower on the Champ de Mars in Paris, France.",
+      "category": "landmark"
+    },
+    {
+      "id": "big-ben",
+      "filename": "big-ben.jpg",
+      "answer": "Big Ben",
+      "alternatives": [
+        "Big Ben",
+        "Ben"
+      ],
+      "hint": "[?] is the nickname for the Great Bell of the Great Clock of Westminster, and, by extension, for the clock tower which stands at the north end of the Palace of Westminster in London, England.",
+      "category": "landmark"
+    },
+    {
+      "id": "statue-of-liberty",
+      "filename": "statue-of-liberty.jpg",
+      "answer": "Statue of Liberty",
+      "alternatives": [
+        "Statue of Liberty",
+        "Liberty"
+      ],
+      "hint": "The [?] is a colossal neoclassical sculpture of a robed and crowned woman on [?] Island, part of New York City, in New York Harbor.",
+      "category": "landmark"
+    },
+    {
+      "id": "taj-mahal",
+      "filename": "taj-mahal.jpg",
+      "answer": "Taj Mahal",
+      "alternatives": [
+        "Taj Mahal",
+        "Mahal"
+      ],
+      "hint": "The [?] is an ivory-white marble mausoleum on the right bank of the river Yamuna in Agra, Uttar Pradesh, India.",
+      "category": "landmark"
+    },
+    {
+      "id": "great-wall-of-china",
+      "filename": "great-wall-of-china.jpg",
+      "answer": "Great Wall of China",
+      "alternatives": [
+        "Great Wall of China",
+        "China"
+      ],
+      "hint": "The [?] is a series of fortifications in [?].",
+      "category": "landmark"
+    },
+    {
+      "id": "machu-picchu",
+      "filename": "machu-picchu.jpg",
+      "answer": "Machu Picchu",
+      "alternatives": [
+        "Machu Picchu",
+        "Picchu"
+      ],
+      "hint": "[?] is a 15th-century Inca citadel located in the Eastern Cordillera of southern Peru on a mountain ridge at 2,430 meters.",
+      "category": "landmark"
+    },
+    {
+      "id": "great-pyramid-of-giza",
+      "filename": "great-pyramid-of-giza.jpg",
+      "answer": "Great Pyramid of Giza",
+      "alternatives": [
+        "Great Pyramid of Giza",
+        "Giza"
+      ],
+      "hint": "The [?] is the largest of the Egyptian pyramids and the most famous landmark of the [?] pyramid complex in [?], Egypt.",
+      "category": "landmark"
+    },
+    {
+      "id": "great-sphinx-of-giza",
+      "filename": "great-sphinx-of-giza.jpg",
+      "answer": "Great Sphinx of Giza",
+      "alternatives": [
+        "Great Sphinx of Giza",
+        "Giza"
+      ],
+      "hint": "The [?] is a limestone statue of a reclining sphinx, a mythical creature with the head of a human and the body of a lion.",
+      "category": "landmark"
+    },
+    {
+      "id": "colosseum",
+      "filename": "colosseum.jpg",
+      "answer": "Colosseum",
+      "alternatives": [
+        "Colosseum"
+      ],
+      "hint": "The [?] is an elliptical amphitheatre in the centre of the city of Rome, Italy, just east of the Roman Forum.",
+      "category": "landmark"
+    },
+    {
+      "id": "acropolis-of-athens",
+      "filename": "acropolis-of-athens.jpg",
+      "answer": "Acropolis of Athens",
+      "alternatives": [
+        "Acropolis of Athens",
+        "Athens"
+      ],
+      "hint": "The [?] is an ancient citadel located on a rocky outcrop above the city of [?], Greece, and contains the remains of several ancient buildings of great architectural and historical significance, the most famous being the Parthenon.",
+      "category": "landmark"
+    },
+    {
+      "id": "petra",
+      "filename": "petra.jpg",
+      "answer": "Petra",
+      "alternatives": [
+        "Petra"
+      ],
+      "hint": "[?], originally known to its inhabitants as Raqmu, is an ancient city and archaeological site in southern Jordan.",
+      "category": "landmark"
+    },
+    {
+      "id": "stonehenge",
+      "filename": "stonehenge.jpg",
+      "answer": "Stonehenge",
+      "alternatives": [
+        "Stonehenge"
+      ],
+      "hint": "[?] is a prehistoric megalithic structure on Salisbury Plain in Wiltshire, England, two miles west of Amesbury.",
+      "category": "landmark"
+    },
+    {
+      "id": "sydney-opera-house",
+      "filename": "sydney-opera-house.jpg",
+      "answer": "Sydney Opera House",
+      "alternatives": [
+        "Sydney Opera House",
+        "House"
+      ],
+      "hint": "The [?] is a multi-venue performing arts centre in [?], New South Wales, Australia.",
+      "category": "landmark"
+    },
+    {
+      "id": "burj-khalifa",
+      "filename": "burj-khalifa.jpg",
+      "answer": "Burj Khalifa",
+      "alternatives": [
+        "Burj Khalifa",
+        "Khalifa"
+      ],
+      "hint": "The [?] is a megatall skyscraper in Dubai, United Arab Emirates.",
+      "category": "landmark"
+    },
+    {
+      "id": "empire-state-building",
+      "filename": "empire-state-building.jpg",
+      "answer": "Empire State Building",
+      "alternatives": [
+        "Empire State Building",
+        "Building"
+      ],
+      "hint": "The [?] is a 102-story, supertall skyscraper in the Midtown South neighborhood of Manhattan, New York City, United States.",
+      "category": "landmark"
+    },
+    {
+      "id": "golden-gate-bridge",
+      "filename": "golden-gate-bridge.jpg",
+      "answer": "Golden Gate Bridge",
+      "alternatives": [
+        "Golden Gate Bridge",
+        "Bridge"
+      ],
+      "hint": "The [?] is a suspension bridge spanning the [?] Gate, the one-mile-wide strait connecting San Francisco Bay and the Pacific Ocean in California, United States.",
+      "category": "landmark"
+    },
+    {
+      "id": "tower-bridge",
+      "filename": "tower-bridge.jpg",
+      "answer": "Tower Bridge",
+      "alternatives": [
+        "Tower Bridge",
+        "Bridge"
+      ],
+      "hint": "[?] is a Grade I listed combined bascule, suspension, and, until 1960, cantilever bridge in London, built between 1886 and 1894, designed by Horace Jones and engineered by John Wolfe Barry with the help of Henry Marc Brunel.",
+      "category": "landmark"
+    },
+    {
+      "id": "christ-the-redeemer-statue",
+      "filename": "christ-the-redeemer-statue.jpg",
+      "answer": "Christ the Redeemer",
+      "alternatives": [
+        "Christ the Redeemer",
+        "Redeemer"
+      ],
+      "hint": "[?] is an Art Deco statue of Jesus in Rio de Janeiro, Brazil, created by French-Polish sculptor Paul Landowski and built by Brazilian engineer Heitor da Silva Costa, in collaboration with French engineer Albert Caquot.",
+      "category": "landmark"
+    },
+    {
+      "id": "mount-rushmore",
+      "filename": "mount-rushmore.jpg",
+      "answer": "Mount Rushmore",
+      "alternatives": [
+        "Mount Rushmore",
+        "Rushmore"
+      ],
+      "hint": "The [?] National Memorial is a national memorial centered on a colossal sculpture carved into the granite face of [?] in the Black Hills near Keystone, South Dakota, United States.",
+      "category": "landmark"
+    },
+    {
+      "id": "mount-everest",
+      "filename": "mount-everest.jpg",
+      "answer": "Mount Everest",
+      "alternatives": [
+        "Mount Everest",
+        "Everest"
+      ],
+      "hint": "[?] is the highest mountain on Earth above sea level.",
+      "category": "landmark"
+    },
+    {
+      "id": "mount-fuji",
+      "filename": "mount-fuji.jpg",
+      "answer": "Mount Fuji",
+      "alternatives": [
+        "Mount Fuji",
+        "Fuji"
+      ],
+      "hint": "[?] is an active stratovolcano located on the Japanese island of Honshu, with a summit elevation of 3,776.24 m.",
+      "category": "landmark"
+    },
+    {
+      "id": "niagara-falls",
+      "filename": "niagara-falls.jpg",
+      "answer": "Niagara Falls",
+      "alternatives": [
+        "Niagara Falls",
+        "Falls"
+      ],
+      "hint": "[?] is a group of three waterfalls at the southern end of [?] Gorge, spanning the border between the Canadian province of Ontario and the U.S.",
+      "category": "landmark"
+    },
+    {
+      "id": "grand-canyon",
+      "filename": "grand-canyon.jpg",
+      "answer": "Grand Canyon",
+      "alternatives": [
+        "Grand Canyon",
+        "Canyon"
+      ],
+      "hint": "The [?] is a steep-sided canyon carved by the Colorado River in Arizona, United States.",
+      "category": "landmark"
+    },
+    {
+      "id": "sagrada-fam-lia",
+      "filename": "sagrada-fam-lia.jpg",
+      "answer": "Sagrada Família",
+      "alternatives": [
+        "Sagrada Família",
+        "Família"
+      ],
+      "hint": "Basílica i Temple Expiatori de la [?], or simply [?], is a church under construction in the Eixample district of Barcelona, Catalonia, Spain.",
+      "category": "landmark"
+    },
+    {
+      "id": "notre-dame-de-paris",
+      "filename": "notre-dame-de-paris.jpg",
+      "answer": "Notre-Dame de Paris",
+      "alternatives": [
+        "Notre-Dame de Paris",
+        "Paris"
+      ],
+      "hint": "[?], often referred to simply as [?], is a medieval Catholic cathedral on the Île de la Cité, in the 4th arrondissement of [?], France.",
+      "category": "landmark"
+    },
+    {
+      "id": "brandenburg-gate",
+      "filename": "brandenburg-gate.jpg",
+      "answer": "Brandenburg Gate",
+      "alternatives": [
+        "Brandenburg Gate",
+        "Gate"
+      ],
+      "hint": "The [?] is an 18th-century neoclassical monument in Berlin, Germany.",
+      "category": "landmark"
+    },
+    {
+      "id": "mona-lisa",
+      "filename": "mona-lisa.jpg",
+      "answer": "Mona Lisa",
+      "alternatives": [
+        "Mona Lisa",
+        "Lisa"
+      ],
+      "hint": "The [?] is a half-length portrait painting by the Italian artist Leonardo da Vinci.",
+      "category": "artwork"
+    },
+    {
+      "id": "the-starry-night",
+      "filename": "the-starry-night.jpg",
+      "answer": "The Starry Night",
+      "alternatives": [
+        "The Starry Night",
+        "Night"
+      ],
+      "hint": "[?], is an oil-on-canvas painting by the Dutch Post-Impressionist painter Vincent van Gogh.",
+      "category": "artwork"
+    },
+    {
+      "id": "the-scream",
+      "filename": "the-scream.jpg",
+      "answer": "The Scream",
+      "alternatives": [
+        "The Scream",
+        "Scream"
+      ],
+      "hint": "[?] is an art composition created by Norwegian artist Edvard Munch in 1893.",
+      "category": "artwork"
+    },
+    {
+      "id": "the-last-supper-leonardo",
+      "filename": "the-last-supper-leonardo.jpg",
+      "answer": "The Last Supper",
+      "alternatives": [
+        "The Last Supper",
+        "Supper"
+      ],
+      "hint": "[?] is a mural painting by the Italian High Renaissance artist Leonardo da Vinci, dated to c.",
+      "category": "artwork"
+    },
+    {
+      "id": "sistine-chapel-ceiling",
+      "filename": "sistine-chapel-ceiling.jpg",
+      "answer": "Sistine Chapel ceiling",
+      "alternatives": [
+        "Sistine Chapel ceiling",
+        "ceiling"
+      ],
+      "hint": "The [?], painted in fresco by Michelangelo between 1508 and 1512, is a cornerstone work of High Renaissance art.",
+      "category": "artwork"
+    },
+    {
+      "id": "the-birth-of-venus",
+      "filename": "the-birth-of-venus.jpg",
+      "answer": "The Birth of Venus",
+      "alternatives": [
+        "The Birth of Venus",
+        "Venus"
+      ],
+      "hint": "[?] is a painting by the Italian artist Sandro Botticelli, probably executed in the mid-1480s.",
+      "category": "artwork"
+    },
+    {
+      "id": "girl-with-a-pearl-earring",
+      "filename": "girl-with-a-pearl-earring.jpg",
+      "answer": "Girl with a Pearl Earring",
+      "alternatives": [
+        "Girl with a Pearl Earring"
+      ],
+      "hint": "[?] is an oil painting by Dutch Golden Age painter Johannes Vermeer, dated c.",
+      "category": "artwork"
+    },
+    {
+      "id": "american-gothic",
+      "filename": "american-gothic.jpg",
+      "answer": "American Gothic",
+      "alternatives": [
+        "American Gothic",
+        "Gothic"
+      ],
+      "hint": "[?] is a 1930 oil painting on beaverboard by the [?] Regionalist artist Grant Wood, depicting a Midwestern farmer and his wife or daughter standing in front of their Carpenter [?] style home.",
+      "category": "artwork"
+    },
+    {
+      "id": "sunflowers-van-gogh-series",
+      "filename": "sunflowers-van-gogh-series.jpg",
+      "answer": "Sunflowers",
+      "alternatives": [
+        "Sunflowers"
+      ],
+      "hint": "[?] is the title of two series of still life paintings by the Dutch painter Vincent van Gogh.",
+      "category": "artwork"
+    },
+    {
+      "id": "the-kiss-klimt",
+      "filename": "the-kiss-klimt.jpg",
+      "answer": "The Kiss",
+      "alternatives": [
+        "The Kiss",
+        "Kiss"
+      ],
+      "hint": "[?] is an oil-on-canvas painting with added gold leaf, silver and platinum by the Austrian Symbolist painter Gustav Klimt.",
+      "category": "artwork"
+    },
+    {
+      "id": "the-great-wave-off-kanagawa",
+      "filename": "the-great-wave-off-kanagawa.jpg",
+      "answer": "The Great Wave off Kanagawa",
+      "alternatives": [
+        "The Great Wave off Kanagawa"
+      ],
+      "hint": "[?] is a woodblock print by the Japanese ukiyo-e artist Hokusai, created in late 1831 during the Edo period of Japanese history.",
+      "category": "artwork"
+    },
+    {
+      "id": "whistler-s-mother",
+      "filename": "whistler-s-mother.jpg",
+      "answer": "Whistler's Mother",
+      "alternatives": [
+        "Whistler's Mother",
+        "Mother"
+      ],
+      "hint": "Arrangement in Grey and Black No.",
+      "category": "artwork"
+    },
+    {
+      "id": "lion",
+      "filename": "lion.jpg",
+      "answer": "Lion",
+      "alternatives": [
+        "Lion"
+      ],
+      "hint": "The lion is a large cat of the genus Panthera, currently ranging only in Sub-Saharan Africa and India.",
+      "category": "animal"
+    },
+    {
+      "id": "african-elephant",
+      "filename": "african-elephant.jpg",
+      "answer": "African elephant",
+      "alternatives": [
+        "African elephant",
+        "elephant"
+      ],
+      "hint": "[?] elephants are members of the genus Loxodonta comprising two living [?] species, the [?] bush [?] and the smaller [?] forest [?].",
+      "category": "animal"
+    },
+    {
+      "id": "giraffe",
+      "filename": "giraffe.jpg",
+      "answer": "Giraffe",
+      "alternatives": [
+        "Giraffe"
+      ],
+      "hint": "Giraffes are large African hoofed mammals.",
+      "category": "animal"
+    },
+    {
+      "id": "cheetah",
+      "filename": "cheetah.jpg",
+      "answer": "Cheetah",
+      "alternatives": [
+        "Cheetah"
+      ],
+      "hint": "The cheetah is a species of large feline and the only living member of the genus Acinonyx.",
+      "category": "animal"
+    },
+    {
+      "id": "tiger",
+      "filename": "tiger.jpg",
+      "answer": "Tiger",
+      "alternatives": [
+        "Tiger"
+      ],
+      "hint": "The tiger is a large cat and a member of the genus Panthera native to Asia.",
+      "category": "animal"
+    },
+    {
+      "id": "giant-panda",
+      "filename": "giant-panda.jpg",
+      "answer": "Giant panda",
+      "alternatives": [
+        "Giant panda",
+        "panda"
+      ],
+      "hint": "The giant [?], also known as the [?] bear or simply [?], is a bear species endemic to China.",
+      "category": "animal"
+    },
+    {
+      "id": "koala",
+      "filename": "koala.jpg",
+      "answer": "Koala",
+      "alternatives": [
+        "Koala"
+      ],
+      "hint": "The koala, sometimes inaccurately called the koala bear, is an arboreal herbivorous marsupial native to Australia.",
+      "category": "animal"
+    },
+    {
+      "id": "red-kangaroo",
+      "filename": "red-kangaroo.jpg",
+      "answer": "Red kangaroo",
+      "alternatives": [
+        "Red kangaroo",
+        "kangaroo"
+      ],
+      "hint": "The red [?] is the largest of all kangaroos, the largest terrestrial mammal native to Australia, and the largest extant marsupial.",
+      "category": "animal"
+    },
+    {
+      "id": "emperor-penguin",
+      "filename": "emperor-penguin.jpg",
+      "answer": "Emperor penguin",
+      "alternatives": [
+        "Emperor penguin",
+        "penguin"
+      ],
+      "hint": "The emperor [?] is the tallest and heaviest of all living [?] species and lives exclusively in Antarctica.",
+      "category": "animal"
+    },
+    {
+      "id": "common-octopus",
+      "filename": "common-octopus.jpg",
+      "answer": "Common octopus",
+      "alternatives": [
+        "Common octopus",
+        "octopus"
+      ],
+      "hint": "The common [?] is a mollusk belonging to the class Cephalopoda.",
+      "category": "animal"
+    },
+    {
+      "id": "bottlenose-dolphin",
+      "filename": "bottlenose-dolphin.jpg",
+      "answer": "Bottlenose dolphin",
+      "alternatives": [
+        "Bottlenose dolphin",
+        "dolphin"
+      ],
+      "hint": "The bottlenose [?] is a toothed whale in the genus Tursiops.",
+      "category": "animal"
+    },
+    {
+      "id": "blue-whale",
+      "filename": "blue-whale.jpg",
+      "answer": "Blue whale",
+      "alternatives": [
+        "Blue whale",
+        "whale"
+      ],
+      "hint": "The blue [?] is a species of baleen [?] and the largest marine mammal in the rorqual family Balaenopteridae.",
+      "category": "animal"
+    },
+    {
+      "id": "great-white-shark",
+      "filename": "great-white-shark.jpg",
+      "answer": "Great white shark",
+      "alternatives": [
+        "Great white shark",
+        "shark"
+      ],
+      "hint": "The great white [?], also known as the white [?], white pointer, or great white, is a large [?].",
+      "category": "animal"
+    },
+    {
+      "id": "bald-eagle",
+      "filename": "bald-eagle.jpg",
+      "answer": "Bald eagle",
+      "alternatives": [
+        "Bald eagle",
+        "eagle"
+      ],
+      "hint": "The bald [?] is a bird of prey found in North America.",
+      "category": "animal"
+    },
+    {
+      "id": "snowy-owl",
+      "filename": "snowy-owl.jpg",
+      "answer": "Snowy owl",
+      "alternatives": [
+        "Snowy owl",
+        "owl"
+      ],
+      "hint": "The snowy [?], also known as the polar [?], the white [?] and the Arctic [?], is a large, white [?] of the true [?] family.",
+      "category": "animal"
+    },
+    {
+      "id": "bee-hummingbird",
+      "filename": "bee-hummingbird.jpg",
+      "answer": "Bee hummingbird",
+      "alternatives": [
+        "Bee hummingbird",
+        "hummingbird"
+      ],
+      "hint": "The bee [?], zunzuncito or Helena [?] is a species of [?], native to the island of Cuba in the Caribbean.",
+      "category": "animal"
+    },
+    {
+      "id": "veiled-chameleon",
+      "filename": "veiled-chameleon.jpg",
+      "answer": "Veiled chameleon",
+      "alternatives": [
+        "Veiled chameleon",
+        "chameleon"
+      ],
+      "hint": "The veiled [?] is a species of [?] native to the Arabian Peninsula in Yemen and Saudi Arabia.",
+      "category": "animal"
+    },
+    {
+      "id": "monarch-butterfly",
+      "filename": "monarch-butterfly.jpg",
+      "answer": "Monarch butterfly",
+      "alternatives": [
+        "Monarch butterfly",
+        "butterfly"
+      ],
+      "hint": "The monarch [?] or simply monarch is a milkweed [?] in the family Nymphalidae.",
+      "category": "animal"
+    },
+    {
+      "id": "goldfish",
+      "filename": "goldfish.jpg",
+      "answer": "Goldfish",
+      "alternatives": [
+        "Goldfish"
+      ],
+      "hint": "The goldfish is a freshwater fish in the family Cyprinidae of the order Cypriniformes.",
+      "category": "animal"
+    }
+  ]
+}

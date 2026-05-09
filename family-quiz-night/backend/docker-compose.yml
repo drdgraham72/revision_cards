@@ -1,0 +1,39 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: quiz
+      POSTGRES_PASSWORD: quiz
+      POSTGRES_DB: quiznight
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U quiz"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      QUIZ_DATABASE_URL: postgresql+asyncpg://quiz:quiz@db:5432/quiznight
+      QUIZ_DEBUG: "true"
+      QUIZ_SECRET_KEY: dev-secret-change-in-prod
+      QUIZ_OMDB_API_KEY: ${OMDB_API_KEY:-}
+      QUIZ_ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./app:/app/app
+      - ./scripts:/app/scripts
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+volumes:
+  pgdata:

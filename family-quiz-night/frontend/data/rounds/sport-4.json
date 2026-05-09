@@ -1,0 +1,50 @@
+{
+  "id": "sport-4",
+  "topic": "sport",
+  "title": "Golden Boot",
+  "desc": "Underdogs, disqualifications & the moments that defined eras",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Greg LeMond won the 1989 Tour de France by the smallest margin ever. How small?",
+      "a": "8 seconds — after three weeks and over 3,000 km of racing"
+    },
+    {
+      "q": "In which sport can you legally score a 'safety' — and what is it?",
+      "a": "American football — when the defence tackles the ball carrier in their own end zone, scoring 2 points for the defensive team"
+    },
+    {
+      "q": "Ben Johnson won the 100m at the 1988 Olympics in a world record time, then what happened?",
+      "a": "Stripped of the gold medal after testing positive for steroids — Carl Lewis was promoted to first"
+    },
+    {
+      "q": "Why is the marathon exactly 42.195 km (26 miles 385 yards)?",
+      "a": "The distance was standardised at the 1908 London Olympics to start at Windsor Castle and finish in front of the Royal Box — the extra 385 yards was for the royals' convenience"
+    },
+    {
+      "q": "What is a 'hat-trick' in cricket specifically — not football?",
+      "a": "A bowler taking a wicket on three consecutive deliveries. The name comes from the tradition of awarding the bowler a hat"
+    },
+    {
+      "q": "Eddie 'The Eagle' Edwards became a national hero at the 1988 Winter Olympics. What was his actual result?",
+      "a": "Dead last in both ski jumping events — by an enormous margin. But he was Britain's first Olympic ski jumper since 1929"
+    },
+    {
+      "q": "In baseball, what is a 'perfect game' and how many have there been in MLB history?",
+      "a": "A pitcher faces the minimum 27 batters and retires them all — no hits, walks, errors, or hit batters. Only 24 in over 150 years of MLB"
+    },
+    {
+      "q": "What is the 'offside trap' in football and why is it risky?",
+      "a": "Defenders deliberately step forward in unison to catch attackers offside — risky because if one defender is late, the attacker is through on goal with acres of space"
+    },
+    {
+      "q": "Nadia Comăneci scored the first perfect 10 in Olympic gymnastics in 1976. The scoreboard couldn't display it — what did it show?",
+      "a": "1.00 — the Omega scoreboard only went to 9.99 and couldn't handle a 10.0"
+    },
+    {
+      "q": "Why is the Ryder Cup so emotionally intense compared to other golf tournaments?",
+      "a": "It's the only major team event in a traditionally individual sport — professionals who normally compete alone suddenly have to play for their continent with national pride at stake"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "movies-3",
+  "topic": "movies",
+  "title": "Cutting Room Floor",
+  "desc": "Deleted scenes, box office disasters & the films nobody expected to work",
+  "type": "standard",
+  "isNew": false,
+  "questions": [
+    {
+      "q": "'Blade Runner' (1982) flopped at the box office. How many different official cuts of the film now exist?",
+      "a": "Seven — including the Original, International, Director's Cut, and Final Cut"
+    },
+    {
+      "q": "Which animated Disney film took 38 years to make, starting and stopping production multiple times?",
+      "a": "The Black Cauldron? No — 'Tangled' (Rapunzel) holds the record at about 14 years. But the intended answer is likely 'Fantasia 2000' or 'The Thief and the Cobbler' (not Disney but often cited). Trick territory — 'Tangled' is the safe answer for Disney proper"
+    },
+    {
+      "q": "What was the first film to earn $1 billion at the worldwide box office?",
+      "a": "Titanic (1997)"
+    },
+    {
+      "q": "'The Room' (2003) is considered one of the worst films ever made. How much did Tommy Wiseau spend making it?",
+      "a": "$6 million — he inexplicably bought cameras instead of renting them, and shot on both film and digital simultaneously"
+    },
+    {
+      "q": "Which Pixar film started as a sequel but was so good they promoted it to an original story?",
+      "a": "Coco was always original — but 'Inside Out' and 'Up' both went through radical story overhauls. The actual answer most people cite: 'Toy Story 2' was planned as direct-to-video before they realised it was too good"
+    },
+    {
+      "q": "Harrison Ford's famous 'I know' line in 'The Empire Strikes Back' was improvised. What was the scripted line?",
+      "a": "'I love you too' — Ford thought it was out of character for Han Solo"
+    },
+    {
+      "q": "Which horror film had audiences fainting in theatres and was banned in several countries on release?",
+      "a": "The Exorcist (1973)"
+    },
+    {
+      "q": "What is the 'Kuleshov Effect' in filmmaking?",
+      "a": "A viewer's interpretation of a face changes depending on what shot is placed next to it — the same expression reads as hunger, grief, or desire based on context"
+    },
+    {
+      "q": "'Mad Max' (1979) held the Guinness record for most profitable film based on budget-to-earnings ratio for years. What was its budget?",
+      "a": "About $400,000 AUD — it earned over $100 million worldwide"
+    },
+    {
+      "q": "Which film was Quentin Tarantino working in a video store when he wrote it?",
+      "a": "True Romance (1993) — and also Natural Born Killers, though Oliver Stone heavily rewrote that one"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "mystery-songs",
+  "topic": "music",
+  "title": "🎵 Mystery Songs",
+  "desc": "30s clips from the music bank — guess the song before the reveal",
+  "type": "music",
+  "isNew": true,
+  "questions": []
+}

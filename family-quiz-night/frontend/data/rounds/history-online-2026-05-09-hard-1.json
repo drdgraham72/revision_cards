@@ -1,0 +1,46 @@
+{
+  "id": "history-online-2026-05-09-hard-1",
+  "topic": "history",
+  "title": "🌐 Online: History Hard #1",
+  "desc": "Trivia from OpenTrivia DB — 9 hard questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "The assassination of which royal led to the start of World War I?",
+      "a": "Archduke Franz Ferdinand"
+    },
+    {
+      "q": "What was the code name for the Allied invasion of Southern France on August 15th, 1944?",
+      "a": "Operation Dragoon"
+    },
+    {
+      "q": "The ancient city of Chichén Itzá was built by which civilization?",
+      "a": "Mayans"
+    },
+    {
+      "q": "The son of which pope supposedly held a lecherous fête involving 50 courtesans in the papal palace?",
+      "a": "Alexander VI"
+    },
+    {
+      "q": "In which year did the Tokyo Subway Sarin Attack occur?",
+      "a": "1995"
+    },
+    {
+      "q": "During the Wars of the Roses (1455 - 1487) which Englishman was dubbed \"the Kingmaker\"?",
+      "a": "Richard Neville"
+    },
+    {
+      "q": "The Second Boer War in 1899 was fought where?",
+      "a": "South Africa"
+    },
+    {
+      "q": "Which English king was married to Eleanor of Aquitaine?",
+      "a": "Henry II"
+    },
+    {
+      "q": "The main objective of the German operation \"Case Blue\" during World War II was originally to capture what?",
+      "a": "Caucasus"
+    }
+  ]
+}

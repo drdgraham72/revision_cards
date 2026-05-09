@@ -1,0 +1,50 @@
+{
+  "id": "music-6",
+  "topic": "music",
+  "title": "Connections: Backstage",
+  "desc": "Find the musical thread linking each set of clues",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "What connects: David Bowie, Lady Gaga, and Madonna?",
+      "a": "All are known for radical reinvention — constantly changing their visual identity, musical style, and persona across eras"
+    },
+    {
+      "q": "Odd one out: drums, guitar, bass, DJ decks. Which and why in a traditional rock context?",
+      "a": "DJ decks — the other three form a standard rock rhythm section. But in hip-hop and electronic music, decks are foundational, so this is genre-dependent"
+    },
+    {
+      "q": "What connects: 'Bohemian Rhapsody', 'Stairway to Heaven', and 'Hotel California'?",
+      "a": "All are 1970s rock epics over 5 minutes that radio stations were told were too long — all became among the most played songs in history regardless"
+    },
+    {
+      "q": "What connects the number 27, a crossroads in Mississippi, and the words 'I hope I die before I get old'?",
+      "a": "Rock and roll mythology — the 27 Club (musicians who died at 27), Robert Johnson's deal with the devil, and The Who's lyric from 'My Generation'"
+    },
+    {
+      "q": "Put these in order of first release: vinyl record, cassette tape, compact disc, MP3",
+      "a": "Vinyl (~1948 for LP) → cassette (1963) → CD (1982) → MP3 (1993 format, Napster 1999)"
+    },
+    {
+      "q": "What connects: Auto-Tune, drum machines, and sampling?",
+      "a": "All were initially controversial 'cheating' in music that became defining creative tools — each one fundamentally changed what music could sound like"
+    },
+    {
+      "q": "Two of these won Album of the Year at the Grammys. Which two? Adele '21', Beyoncé 'Lemonade', Kendrick 'DAMN.', Taylor 'Fearless'",
+      "a": "Adele '21' (2012) and Taylor Swift 'Fearless' (2010). Beyoncé and Kendrick were famously snubbed, sparking major Grammy credibility debates"
+    },
+    {
+      "q": "What connects: Woodstock (1969), Live Aid (1985), and Coachella (2018)?",
+      "a": "Landmark festival moments — Hendrix's anthem at Woodstock, Queen's legendary Live Aid set, and Beyoncé's 'Beychella' performance that redefined what a headliner show could be"
+    },
+    {
+      "q": "What connects: Phil Collins, Peter Gabriel, and Mike Rutherford?",
+      "a": "All were members of Genesis — Collins took over as lead singer when Gabriel left, Rutherford formed Mike + The Mechanics"
+    },
+    {
+      "q": "Name the connection: a piano has 88, a guitar has 6, and a violin has 4",
+      "a": "Keys / strings — the standard number on each instrument. A piano technically has strings too (about 230), making the question slightly tricky"
+    }
+  ]
+}

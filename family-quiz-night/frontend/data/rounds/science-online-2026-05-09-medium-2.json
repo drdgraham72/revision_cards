@@ -1,0 +1,46 @@
+{
+  "id": "science-online-2026-05-09-medium-2",
+  "topic": "science",
+  "title": "🌐 Online: Science Medium #2",
+  "desc": "Trivia from OpenTrivia DB — 9 medium questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Which psychological term refers to the stress of holding contrasting beliefs?",
+      "a": "Cognitive Dissonance"
+    },
+    {
+      "q": "Which chemical element was originally known as Alabamine?",
+      "a": "Astatine"
+    },
+    {
+      "q": "When was the first mammal successfully cloned?",
+      "a": "1996"
+    },
+    {
+      "q": "What is the name of the cognitive bias wherein a person with low ability in a particular skill mistake themselves as being superior?",
+      "a": "Dunning-Kruger effect"
+    },
+    {
+      "q": "How many teeth does the average adult mouth have (except for wisdom teeth)?",
+      "a": "32"
+    },
+    {
+      "q": "Who developed the first successful polio vaccine in the 1950s?",
+      "a": "Jonas Salk"
+    },
+    {
+      "q": "In Psychology, which need appears highest in the \"Maslow's hierarchy of needs\" pyramid?",
+      "a": "Esteem"
+    },
+    {
+      "q": "Myopia is the scientific term for which condition?",
+      "a": "Shortsightedness"
+    },
+    {
+      "q": "Which Swiss psychologist is synonymous with the concepts of introvert and extrovert personalities?",
+      "a": "Carl Jung"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "science-family",
+  "topic": "science",
+  "title": "Kitchen Table Physics",
+  "desc": "Counter-intuitive facts your kids will love arguing about",
+  "type": "standard",
+  "isNew": false,
+  "questions": [
+    {
+      "q": "If you fold a piece of paper in half 42 times, how far would it reach?",
+      "a": "Past the Moon — about 440,000 km (each fold doubles thickness)"
+    },
+    {
+      "q": "What percentage of the universe is made of the stuff we can actually see?",
+      "a": "About 5% — the rest is dark matter and dark energy"
+    },
+    {
+      "q": "Which planet has a day that's longer than its year?",
+      "a": "Venus — one rotation takes 243 Earth days, one orbit takes 225"
+    },
+    {
+      "q": "Humans share roughly what percentage of DNA with a banana?",
+      "a": "About 60%"
+    },
+    {
+      "q": "Is glass a solid, a liquid, or something else?",
+      "a": "An amorphous solid — the 'glass is a slow liquid' thing is a myth"
+    },
+    {
+      "q": "What colour is a mirror, technically speaking?",
+      "a": "Slightly green — mirrors reflect green wavelengths most efficiently"
+    },
+    {
+      "q": "Sound travels faster through air, water, or steel?",
+      "a": "Steel — about 15 times faster than through air"
+    },
+    {
+      "q": "What happens to your height in space?",
+      "a": "You grow up to 5cm taller — your spine decompresses without gravity"
+    },
+    {
+      "q": "Can you see the Great Wall of China from space with the naked eye?",
+      "a": "No — it's too narrow. You can see cities, but not the Wall"
+    },
+    {
+      "q": "Your brain uses roughly what percentage of your body's energy?",
+      "a": "About 20% — despite being only 2% of your body weight"
+    }
+  ]
+}

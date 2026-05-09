@@ -1,0 +1,50 @@
+{
+  "id": "emoji-music",
+  "topic": "picture",
+  "title": "🎵 Emoji Jukebox",
+  "desc": "Name the song or artist from the emojis",
+  "type": "emoji",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "🎤 👸 💅 — Born this way",
+      "a": "Lady Gaga"
+    },
+    {
+      "q": "☔ 🟣 🎸 🕺",
+      "a": "Purple Rain — Prince"
+    },
+    {
+      "q": "🔔 🎄 ❤️ — All I want for…",
+      "a": "All I Want for Christmas Is You — Mariah Carey"
+    },
+    {
+      "q": "👨‍🚀 ⭐ 🌌 — ground control to…",
+      "a": "Space Oddity — David Bowie"
+    },
+    {
+      "q": "🍓 🏠 4️⃣ ever",
+      "a": "Strawberry Fields Forever — The Beatles"
+    },
+    {
+      "q": "💃 💃 💃 — put a ring on it",
+      "a": "Single Ladies — Beyoncé"
+    },
+    {
+      "q": "🏨 🦅 🌴 — you can check out any time",
+      "a": "Hotel California — Eagles"
+    },
+    {
+      "q": "🌈 🌧️ — somewhere over the…",
+      "a": "Over the Rainbow — Judy Garland"
+    },
+    {
+      "q": "🧊 🧊 👶 — under pressure collaborator",
+      "a": "Ice Ice Baby — Vanilla Ice"
+    },
+    {
+      "q": "🎹 🐊 🎶 — see you later…",
+      "a": "Crocodile Rock — Elton John"
+    }
+  ]
+}

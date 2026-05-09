@@ -1,0 +1,42 @@
+{
+  "id": "science-online-2026-05-09-medium-1",
+  "topic": "science",
+  "title": "🌐 Online: Science Medium #1",
+  "desc": "Trivia from OpenTrivia DB — 8 medium questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Gannymede is the largest moon of which planet?",
+      "a": "Jupiter"
+    },
+    {
+      "q": "What mineral has the lowest number on the Mohs scale?",
+      "a": "Talc"
+    },
+    {
+      "q": "What was the first living creature in space?",
+      "a": "Fruit Flies"
+    },
+    {
+      "q": "How many hearts does an octopus have?",
+      "a": "Three"
+    },
+    {
+      "q": "Tetsuya Fujita was a scientist that developed the scale for which natural disaster?",
+      "a": "Tornadoes"
+    },
+    {
+      "q": "What do you study if you are studying entomology?",
+      "a": "Insects"
+    },
+    {
+      "q": "How many degrees Fahrenheit is 100 degrees Celsius?",
+      "a": "212"
+    },
+    {
+      "q": "On which mission did the Space Shuttle Columbia break up upon re-entry?",
+      "a": "STS-107"
+    }
+  ]
+}

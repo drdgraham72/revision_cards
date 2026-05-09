@@ -1,0 +1,50 @@
+{
+  "id": "sport-online-2026-05-09-hard-1",
+  "topic": "sport",
+  "title": "🌐 Online: Sport Hard #1",
+  "desc": "Trivia from OpenTrivia DB — 10 hard questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Who won the 1998 Daytona 500?",
+      "a": "Dale Earnhardt"
+    },
+    {
+      "q": "Where was the Games of the XXII Olympiad held?",
+      "a": "Moscow"
+    },
+    {
+      "q": "At which race was the 2018 F1 Drivers Championship won?",
+      "a": "Mexico"
+    },
+    {
+      "q": "Which player \"kung-fu kicked\" a Crystal Palace fan in January 1995?",
+      "a": "Eric Cantona"
+    },
+    {
+      "q": "Which male player won the gold medal of table tennis singles in 2016 Olympics Games?",
+      "a": "Ma Long (China)"
+    },
+    {
+      "q": "With which doubles partner did John McEnroe have most success?",
+      "a": "Peter Fleming"
+    },
+    {
+      "q": "Which English football team is nicknamed 'The Tigers'?",
+      "a": "Hull City"
+    },
+    {
+      "q": "Who is Manchester United's leading appearance maker?",
+      "a": "Ryan Giggs"
+    },
+    {
+      "q": "What is the full name of the footballer \"Cristiano Ronaldo\"?",
+      "a": "Cristiano Ronaldo dos Santos Aveiro"
+    },
+    {
+      "q": "What tool lends it's name to a last-stone advantage in an end in Curling?",
+      "a": "Hammer"
+    }
+  ]
+}

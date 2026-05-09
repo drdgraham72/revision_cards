@@ -1,0 +1,50 @@
+{
+  "id": "science-6",
+  "topic": "science",
+  "title": "Connections: Lab Partners",
+  "desc": "Find the scientific thread linking each set of clues",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "What connects: GPS satellites, airplane altimeters, and your ageing process?",
+      "a": "Einstein's relativity — GPS corrects for time dilation, altimeters use atmospheric pressure (affected by gravity), and you age faster on a mountaintop than at sea level (by nanoseconds)"
+    },
+    {
+      "q": "What connects: a frog in boiling water, the 10% brain myth, and lemmings jumping off cliffs?",
+      "a": "They're all scientific myths — frogs do jump out, we use all our brain, and lemmings don't mass-suicide (that was faked for a Disney documentary)"
+    },
+    {
+      "q": "Odd one out: Helium, Neon, Argon, Nitrogen. Which and why?",
+      "a": "Nitrogen — the other three are noble gases (Group 18, very unreactive). Nitrogen is in Group 15 and bonds readily"
+    },
+    {
+      "q": "What connects: Dolly the Sheep, Henrietta Lacks, and Rosalind Franklin?",
+      "a": "Groundbreaking contributions to genetics — Dolly (first cloned mammal), Lacks (her cells revolutionised medical research), Franklin (her X-ray crystallography was key to discovering DNA's structure)"
+    },
+    {
+      "q": "Put these in order from smallest to largest: atom, molecule, cell, virus",
+      "a": "Atom → molecule → virus → cell (viruses are smaller than cells but larger than most molecules)"
+    },
+    {
+      "q": "What connects: the Haber process, Agent Orange, and leaded petrol?",
+      "a": "Scientific innovations that caused massive environmental or human harm — nitrogen fixation enabled explosives, Agent Orange defoliated Vietnam, and leaded petrol poisoned generations"
+    },
+    {
+      "q": "Name that element: it's in your bones, your phone screen, in matches, and is essential for DNA",
+      "a": "Phosphorus"
+    },
+    {
+      "q": "What connects: a black hole, the bottom of the ocean, and the centre of the Earth?",
+      "a": "We've never directly observed any of them — we infer their properties indirectly through measurements, imaging, and theory"
+    },
+    {
+      "q": "True, false, or it depends: 'We evolved from monkeys'",
+      "a": "It depends on what you mean — we share a common ancestor with modern apes (not monkeys), but we didn't descend from any species alive today"
+    },
+    {
+      "q": "What connects: butterfly wings, soap bubbles, and oil slicks?",
+      "a": "Structural colour / thin-film interference — the colours come from light wave interference, not pigment"
+    }
+  ]
+}

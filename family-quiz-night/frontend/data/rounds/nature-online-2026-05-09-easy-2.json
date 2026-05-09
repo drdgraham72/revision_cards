@@ -1,0 +1,50 @@
+{
+  "id": "nature-online-2026-05-09-easy-2",
+  "topic": "nature",
+  "title": "🌐 Online: Nature Easy #2",
+  "desc": "Trivia from OpenTrivia DB — 10 easy questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Which is the national animal of India?",
+      "a": "Tiger"
+    },
+    {
+      "q": "Wombats are native to which Country?",
+      "a": "Australia"
+    },
+    {
+      "q": "What do you call a baby bat?",
+      "a": "Pup"
+    },
+    {
+      "q": "By definition, where does an abyssopelagic animal live?",
+      "a": "At the bottom of the ocean"
+    },
+    {
+      "q": "What is the collective noun for a group of crows?",
+      "a": "Murder"
+    },
+    {
+      "q": "What is Grumpy Cat's real name?",
+      "a": "Tardar Sauce"
+    },
+    {
+      "q": "Which breed of dog is traditionally associated with firefighters?",
+      "a": "Dalmatians"
+    },
+    {
+      "q": "How many teeth does an adult rabbit have?",
+      "a": "28"
+    },
+    {
+      "q": "What is the scientific name for modern day humans?",
+      "a": "Homo Sapiens"
+    },
+    {
+      "q": "Hippocampus is the Latin name for which marine creature?",
+      "a": "Seahorse"
+    }
+  ]
+}

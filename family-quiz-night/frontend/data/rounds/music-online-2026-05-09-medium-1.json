@@ -1,0 +1,42 @@
+{
+  "id": "music-online-2026-05-09-medium-1",
+  "topic": "music",
+  "title": "🌐 Online: Music Medium #1",
+  "desc": "Trivia from OpenTrivia DB — 8 medium questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Which musical instrument is nicknamed 'the clown of the orchestra'?",
+      "a": "Bassoon"
+    },
+    {
+      "q": "The song \"Twin Size Mattress\" was written by which band?",
+      "a": "The Front Bottoms"
+    },
+    {
+      "q": "Who is the vocalist and frontman of rock band \"Guns N' Roses\"?",
+      "a": "Axl Rose"
+    },
+    {
+      "q": "Which American family band had a 1986 top 10 hit with the song 'Crush On You'?",
+      "a": "The Jets"
+    },
+    {
+      "q": "Prior to going solo in 1982, Lionel Richie was a member of which Motown group?",
+      "a": "The Commodores"
+    },
+    {
+      "q": "'74–'75 is a 1993 single from the album Ring by what American band?",
+      "a": "The Connells"
+    },
+    {
+      "q": "What song by Tina Turner is the theme for Mad Max Beyond Thunderdome?",
+      "a": "We Don't Need Another Hero"
+    },
+    {
+      "q": "What is the name of the second studio album released by American rapper Post Malone in 2018?",
+      "a": "Beerbongs & Bentleys"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "nature-3",
+  "topic": "nature",
+  "title": "Tooth & Claw",
+  "desc": "Predator tactics, survival extremes & the weirdest mating rituals on Earth",
+  "type": "standard",
+  "isNew": false,
+  "questions": [
+    {
+      "q": "The anglerfish has one of the most disturbing mating strategies in nature. What does the male do?",
+      "a": "He bites the female, fuses into her body, and slowly dissolves until he's nothing but a pair of gonads she can use when needed"
+    },
+    {
+      "q": "What is a 'zombie deer' and should we be worried?",
+      "a": "Deer infected with Chronic Wasting Disease (CWD) — a prion disease causing drooling, stumbling, and aggression. It hasn't jumped to humans yet, but scientists are watching it closely"
+    },
+    {
+      "q": "Why do some species of gecko lick their own eyeballs?",
+      "a": "They don't have eyelids — the tongue is their windscreen wiper, keeping the eye moist and clean"
+    },
+    {
+      "q": "The bombardier beetle defends itself by doing what?",
+      "a": "Firing a boiling chemical spray from its abdomen at 100°C — mixed internally from two separate chambers right before ejection"
+    },
+    {
+      "q": "What is the 'bloop' — the mysterious underwater sound detected by NOAA in 1997?",
+      "a": "Originally thought to be a massive unknown sea creature, it was later attributed to an icequake (ice cracking off an Antarctic glacier)"
+    },
+    {
+      "q": "Honey badgers are famously fearless. What's their actual defence mechanism that makes them so hard to kill?",
+      "a": "Extremely loose, thick skin — a predator that grabs them can't get a proper grip, and the badger can twist around inside its own skin to bite back"
+    },
+    {
+      "q": "Why do whales beach themselves?",
+      "a": "Still debated — theories include sonar interference from military exercises, magnetic navigation errors, illness, social bonds (following a sick leader), and parasitic brain infections"
+    },
+    {
+      "q": "The duck-billed platypus is venomous. Where is the venom delivered from?",
+      "a": "Spurs on the hind legs of males — the venom is excruciatingly painful to humans but not lethal"
+    },
+    {
+      "q": "What is 'biomimicry' and name one real-world invention inspired by nature?",
+      "a": "Designing technology by copying nature — Velcro (from burrs), bullet trains (from kingfisher beaks), wind turbines (from humpback whale fins)"
+    },
+    {
+      "q": "Trees in a forest cooperate through underground fungal networks — but they also wage chemical warfare against rivals. How?",
+      "a": "Some species release allelopathic chemicals from roots or falling leaves that inhibit competing plants' growth — black walnut trees are a classic example"
+    }
+  ]
+}

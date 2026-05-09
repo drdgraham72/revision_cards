@@ -1,0 +1,50 @@
+{
+  "id": "history-5",
+  "topic": "history",
+  "title": "The Trenches",
+  "desc": "World War One — the war that shaped the modern world",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "What event triggered WWI and in which city did it happen?",
+      "a": "The assassination of Archduke Franz Ferdinand in Sarajevo, 28 June 1914"
+    },
+    {
+      "q": "The Christmas Truce of 1914 — what actually happened, and did they really play football?",
+      "a": "German and British soldiers emerged from trenches, exchanged gifts, sang carols, and yes — informal football matches were played in no man's land. Commanders were furious and ensured it never happened at scale again"
+    },
+    {
+      "q": "What was 'shell shock' and what do we call it today?",
+      "a": "Psychological trauma from sustained combat — now known as PTSD (Post-Traumatic Stress Disorder). In WWI many sufferers were accused of cowardice"
+    },
+    {
+      "q": "Tanks were first used in which WWI battle, and why were they called 'tanks'?",
+      "a": "The Battle of the Somme (1916). They were called 'tanks' as a cover story — workers were told they were building mobile water tanks for Mesopotamia"
+    },
+    {
+      "q": "How many soldiers died on the first day of the Battle of the Somme alone?",
+      "a": "About 19,240 British soldiers killed — the bloodiest day in British military history. Total casualties (killed, wounded, missing) were around 57,000"
+    },
+    {
+      "q": "The Red Baron was the war's most famous fighter pilot. What was his real name and how many confirmed kills did he have?",
+      "a": "Manfred von Richthofen — 80 confirmed aerial victories before being shot down in April 1918"
+    },
+    {
+      "q": "What was the Gallipoli Campaign and why is it so important to Australia and New Zealand?",
+      "a": "A failed Allied attempt to capture Constantinople via the Dardanelles (1915-16). The devastating losses at ANZAC Cove became foundational to Australian and New Zealand national identity — ANZAC Day is still commemorated on 25 April"
+    },
+    {
+      "q": "Mustard gas was first used in WWI. Why was it called 'mustard' gas?",
+      "a": "Its smell — described as resembling mustard, garlic, or horseradish. Chemically it's dichlorodiethyl sulfide, a blistering agent that caused horrific burns"
+    },
+    {
+      "q": "The war ended at the 11th hour of the 11th day of the 11th month — but soldiers were still being ordered to attack that morning. Why?",
+      "a": "Some commanders wanted to capture final objectives before the ceasefire. Roughly 2,700 soldiers were killed on the last day, including some in the final minutes"
+    },
+    {
+      "q": "What did the Treaty of Versailles demand from Germany that many historians believe contributed to WWII?",
+      "a": "Crippling war reparations (132 billion gold marks), loss of territory, military restrictions, and the 'war guilt clause' — the humiliation and economic devastation fuelled the rise of extremism"
+    }
+  ]
+}

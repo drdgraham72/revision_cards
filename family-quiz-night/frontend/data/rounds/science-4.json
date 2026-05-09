@@ -1,0 +1,50 @@
+{
+  "id": "science-4",
+  "topic": "science",
+  "title": "Thought Experiments",
+  "desc": "Paradoxes, probability traps & the experiments that broke physics",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Schrödinger's cat is both alive and dead — but what was Schrödinger actually trying to prove with the thought experiment?",
+      "a": "That the Copenhagen interpretation of quantum mechanics was absurd — it was a criticism, not a celebration of the idea"
+    },
+    {
+      "q": "The 'Monty Hall problem': you pick door 1, the host opens door 3 (a goat). Should you switch to door 2?",
+      "a": "Yes — switching gives you a 2/3 chance of winning. Staying is only 1/3. Even professional mathematicians argued about this"
+    },
+    {
+      "q": "What is an 'island of stability' in nuclear physics?",
+      "a": "A predicted group of superheavy elements that might be stable enough to exist for more than fractions of a second — we haven't confirmed any yet"
+    },
+    {
+      "q": "The twin paradox: if one twin travels near light speed and returns, what happens?",
+      "a": "The travelling twin ages less — this isn't a paradox, it's confirmed by special relativity. GPS satellites experience this daily and must correct for it"
+    },
+    {
+      "q": "What is 'quantum entanglement' in plain English?",
+      "a": "Two particles become linked so that measuring one instantly determines the state of the other, regardless of distance — Einstein called it 'spooky action at a distance'"
+    },
+    {
+      "q": "The Bechdel test is used for films — but which scientific field has an equivalent test for research papers?",
+      "a": "There isn't a direct equivalent — this is a trick question. The Bechdel test is purely a film/media metric"
+    },
+    {
+      "q": "What is a 'quasar' and why can we see them from billions of light-years away?",
+      "a": "An extremely luminous core of a distant galaxy powered by a supermassive black hole consuming matter — they can outshine their entire host galaxy"
+    },
+    {
+      "q": "Why is a year on Mercury only 88 Earth days, but a single day on Mercury lasts 59 Earth days?",
+      "a": "Mercury rotates very slowly on its axis but orbits the Sun quickly — so a Mercurian day is about 2/3 of its year"
+    },
+    {
+      "q": "The 'ship of Theseus' asks: if you replace every plank of a ship, is it the same ship? Which modern technology faces this exact philosophical problem?",
+      "a": "Your own body — nearly every cell is replaced over 7-10 years. Also: software that's been entirely rewritten over time"
+    },
+    {
+      "q": "What is 'dark matter' and what's the best evidence for it?",
+      "a": "Invisible matter that doesn't interact with light but exerts gravitational pull — galaxies rotate too fast to be held together by visible matter alone"
+    }
+  ]
+}

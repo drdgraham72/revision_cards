@@ -1,0 +1,50 @@
+{
+  "id": "history-online-2026-05-09-easy-1",
+  "topic": "history",
+  "title": "🌐 Online: History Easy #1",
+  "desc": "Trivia from OpenTrivia DB — 10 easy questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "What year did World War II end?",
+      "a": "1945"
+    },
+    {
+      "q": "Which South American country fought Great Britain over the Falkland Islands in 1982?",
+      "a": "Argentina"
+    },
+    {
+      "q": "How long did World War II last?",
+      "a": "6 years"
+    },
+    {
+      "q": "What was William Frederick Cody better known as?",
+      "a": "Buffalo Bill"
+    },
+    {
+      "q": "In what year did the Great Northern War, between Russia and Sweden, end?",
+      "a": "1721"
+    },
+    {
+      "q": "What country joined the EU in 2013?",
+      "a": "Croatia"
+    },
+    {
+      "q": "Who was the first president of Kenya?",
+      "a": "Jomo Kenyatta"
+    },
+    {
+      "q": "When is the Ides of March?",
+      "a": "March 15"
+    },
+    {
+      "q": "In which war did the atomic bombings of Hiroshima and Nagasaki occur?",
+      "a": "World War II"
+    },
+    {
+      "q": "Who rode on horseback to warn the Minutemen that the British were coming during the U.S. Revolutionary War?",
+      "a": "Paul Revere"
+    }
+  ]
+}

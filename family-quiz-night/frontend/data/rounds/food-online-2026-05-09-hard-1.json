@@ -1,0 +1,42 @@
+{
+  "id": "food-online-2026-05-09-hard-1",
+  "topic": "food",
+  "title": "🌐 Online: Food Hard #1",
+  "desc": "Trivia from OpenTrivia DB — 8 hard questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Originally another word for poppy, coquelicot is a shade of what?",
+      "a": "Red"
+    },
+    {
+      "q": "How many notes are there on a standard grand piano?",
+      "a": "88"
+    },
+    {
+      "q": "Before the 19th Century, the \"Living Room\" was originally called the...",
+      "a": "Parlor"
+    },
+    {
+      "q": "According to Fair Works Australia, how long do you have to work to get Long Service Leave?",
+      "a": "7 years"
+    },
+    {
+      "q": "In the fictional SCP universe what “Object Class” is given to SCP’s that cannot be contained.",
+      "a": "Apollyon"
+    },
+    {
+      "q": "What is the weight of a Gold Bar in Fallout: New Vegas?",
+      "a": "35 Pounds"
+    },
+    {
+      "q": "Electronic music producer Kygo's popularity skyrocketed after a certain remix. Which song did he remix?",
+      "a": "Ed Sheeran - I See Fire"
+    },
+    {
+      "q": "Which film star has his statue in Leicester Square?",
+      "a": "Charlie Chaplin"
+    }
+  ]
+}

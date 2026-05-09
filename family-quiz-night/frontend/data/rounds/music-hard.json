@@ -1,0 +1,50 @@
+{
+  "id": "music-hard",
+  "topic": "music",
+  "title": "The Analog Vault",
+  "desc": "Lost recordings, contract wars, sampling lawsuits & studio mythology",
+  "type": "standard",
+  "isNew": false,
+  "questions": [
+    {
+      "q": "The 'loudness war' in music mastering peaked in 2008 with which Metallica album that fans petitioned to have remastered?",
+      "a": "Death Magnetic — the Guitar Hero version actually sounded better because it hadn't been brick-wall compressed"
+    },
+    {
+      "q": "Brian Wilson spent years and millions recording an album that was shelved as 'too ahead of its time'. What was it called and when did it finally get released?",
+      "a": "SMiLE — recorded 1966-67, officially released in 2011 (44 years later)"
+    },
+    {
+      "q": "The 'Amen break' is a 6-second drum loop from a 1969 B-side that became the backbone of jungle, drum & bass, and hip-hop. Who played it?",
+      "a": "Gregory Coleman of The Winstons, on the track 'Amen, Brother' — he died homeless and never received royalties"
+    },
+    {
+      "q": "Which rapper's debut album was recorded entirely on a prison-issued JPay tablet while serving time?",
+      "a": "This is a trick — while several rappers have recorded in prison, no major debut was made entirely on a JPay tablet. The question tests if you'll guess confidently"
+    },
+    {
+      "q": "Robert Johnson allegedly sold his soul to the devil at a crossroads in exchange for guitar mastery. Where is this crossroads supposedly located?",
+      "a": "The intersection of Highways 61 and 49 in Clarksdale, Mississippi (though historians debate the exact spot)"
+    },
+    {
+      "q": "Phil Spector's 'Wall of Sound' technique involved doing what unusual thing with the recording process?",
+      "a": "Having multiple musicians play the same parts simultaneously in a small echo chamber — layering identical performances for density"
+    },
+    {
+      "q": "What is 'brickwalling' in audio mastering, and why do audiophiles hate it?",
+      "a": "Compressing the dynamic range so everything is equally loud — it removes the quiet-to-loud contrast that gives music emotional impact"
+    },
+    {
+      "q": "Radiohead's 'Kid A' (2000) baffled fans by abandoning guitar rock. Which electronic artist was the primary influence Thom Yorke cited?",
+      "a": "Aphex Twin (Richard D. James) — Yorke also cited Warp Records and Autechre"
+    },
+    {
+      "q": "Which legendary Motown songwriter and producer was blind from birth and signed to the label at age 11?",
+      "a": "Stevie Wonder (Stevland Hardaway Judkins) — he signed in 1961"
+    },
+    {
+      "q": "The original master tapes for thousands of classic recordings were destroyed in a 2008 fire at Universal Studios. Name one artist whose masters were confirmed lost.",
+      "a": "Nirvana, Tupac, Elton John, Snoop Dogg, R.E.M., Sonic Youth, Beck, Nine Inch Nails — among many others"
+    }
+  ]
+}

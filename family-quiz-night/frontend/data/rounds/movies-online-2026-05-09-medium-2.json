@@ -1,0 +1,46 @@
+{
+  "id": "movies-online-2026-05-09-medium-2",
+  "topic": "movies",
+  "title": "🌐 Online: Movies Medium #2",
+  "desc": "Trivia from OpenTrivia DB — 9 medium questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "What character in the Winnie the Pooh films was added by Disney and does not appear in the original books?",
+      "a": "Gopher"
+    },
+    {
+      "q": "Who plays the Nemesis in the Resident Evil movies?",
+      "a": "Matthew Taylor"
+    },
+    {
+      "q": "In \"The Hobbit,\" who was head of the White Council?",
+      "a": "Saruman"
+    },
+    {
+      "q": "What is the name of the robot in the 1951 science fiction film classic 'The Day the Earth Stood Still'?",
+      "a": "Gort"
+    },
+    {
+      "q": "What is the name of the first \"Star Wars\" film by release order?",
+      "a": "A New Hope"
+    },
+    {
+      "q": "In which 1973 film does Yul Brynner play a robotic cowboy who malfunctions and goes on a killing spree?",
+      "a": "Westworld"
+    },
+    {
+      "q": "Who voiced the character Draco in the 1996 movie 'DragonHeart'?",
+      "a": "Sean Connery"
+    },
+    {
+      "q": "In what year was the movie \"Police Academy\" released?",
+      "a": "1984"
+    },
+    {
+      "q": "Johnny Depp made his big-screen acting debut in which film?",
+      "a": "A Nightmare on Elm Street"
+    }
+  ]
+}

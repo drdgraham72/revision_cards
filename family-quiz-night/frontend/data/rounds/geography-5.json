@@ -1,0 +1,50 @@
+{
+  "id": "geography-5",
+  "topic": "geography",
+  "title": "Street View Showdown",
+  "desc": "Clues from landscapes, languages & road signs — name the country",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "The road signs are in both Arabic and French, the landscape is arid with date palms, and the currency is the dinar. Where are you?",
+      "a": "Tunisia, Algeria, or Morocco — but the dinar specifically narrows it to Tunisia or Algeria"
+    },
+    {
+      "q": "You see Cyrillic text, mountains in every direction, and the world's deepest lake is nearby. Where?",
+      "a": "Siberia, Russia — near Lake Baikal"
+    },
+    {
+      "q": "The cars drive on the left, the street food is roti canai, and the skyscrapers include the Petronas Towers. Where?",
+      "a": "Kuala Lumpur, Malaysia"
+    },
+    {
+      "q": "You're in a European capital. The trams are yellow, the river has a famous chain bridge, and the city is actually two cities joined together. Where?",
+      "a": "Budapest, Hungary (Buda + Pest, joined in 1873, the Chain Bridge crosses the Danube)"
+    },
+    {
+      "q": "The language on signs looks like Thai but isn't. The country is landlocked, Communist, and shares a border with Vietnam and China. Where?",
+      "a": "Laos — the Lao script is closely related to Thai but distinct"
+    },
+    {
+      "q": "You see penguins, British-style red phone boxes, and minefields left over from a 1982 war. Where?",
+      "a": "The Falkland Islands (Islas Malvinas)"
+    },
+    {
+      "q": "The road is dead straight through flat desert. Signs are in Spanish. You pass a roadside shrine to a folk saint not recognised by the Catholic Church. Where?",
+      "a": "Argentina — likely Patagonia or the northwest. The folk saint is probably Gauchito Gil or Difunta Correa"
+    },
+    {
+      "q": "Volcanic black sand beaches, geysers, no trees, and the language has barely changed since medieval times. Where?",
+      "a": "Iceland"
+    },
+    {
+      "q": "The buildings have Dutch colonial architecture, the food is rijsttafel, and the traffic is chaotic motorcycles. Where?",
+      "a": "Indonesia — likely Jakarta or Yogyakarta"
+    },
+    {
+      "q": "Snow-capped peaks, prayer flags, yak butter tea, and the world's highest capital city (disputed). Where?",
+      "a": "La Paz, Bolivia — or if you count Lhasa, Tibet. La Paz at 3,640m is the highest administrative capital"
+    }
+  ]
+}

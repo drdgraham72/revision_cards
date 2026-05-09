@@ -1,0 +1,42 @@
+{
+  "id": "history-online-2026-05-09-medium-1",
+  "topic": "history",
+  "title": "🌐 Online: History Medium #1",
+  "desc": "Trivia from OpenTrivia DB — 8 medium questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "In what year was the video game company Electronic Arts founded?",
+      "a": "1982"
+    },
+    {
+      "q": "Which Louis was known as 'The Sun King of France'?",
+      "a": "Louis XIV"
+    },
+    {
+      "q": "In what year did the Berlin Wall fall?",
+      "a": "1989"
+    },
+    {
+      "q": "Who assassinated Archduke Franz Ferdinand?",
+      "a": "Gavrilo Princip"
+    },
+    {
+      "q": "Who famously coined the phrase \"I think, therefore I am\"?",
+      "a": "Descartes"
+    },
+    {
+      "q": "What was the name of the African-American cultural explosion centered in upper Manhattan during the 1920s and 1930s?",
+      "a": "Harlem Renaissance"
+    },
+    {
+      "q": "When was \"The Gadget\", the first nuclear device to be detonated, tested?",
+      "a": "July 16, 1945"
+    },
+    {
+      "q": "What was the name of the national hero of the Philippines who inspired and lead the Philippine Revolution against colonial Spain?",
+      "a": "José Rizal"
+    }
+  ]
+}

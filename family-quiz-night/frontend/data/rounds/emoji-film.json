@@ -1,0 +1,50 @@
+{
+  "id": "emoji-film",
+  "topic": "picture",
+  "title": "🎬 Emoji Cinema",
+  "desc": "Name the film from the emojis alone",
+  "type": "emoji",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "🦈 🏖️ 🩸 🚤",
+      "a": "Jaws"
+    },
+    {
+      "q": "🧙‍♂️ 💍 🌋 🧝",
+      "a": "The Lord of the Rings"
+    },
+    {
+      "q": "🦁 👑 🌍 🐗 🐦",
+      "a": "The Lion King"
+    },
+    {
+      "q": "👻 📞 🔪 😱",
+      "a": "Scream"
+    },
+    {
+      "q": "🚢 ❄️ 💑 🎻",
+      "a": "Titanic"
+    },
+    {
+      "q": "🤖 👍 🔥 🏍️",
+      "a": "Terminator 2: Judgment Day"
+    },
+    {
+      "q": "🐀 👨‍🍳 🇫🇷 ⭐",
+      "a": "Ratatouille"
+    },
+    {
+      "q": "💊 🔴 🔵 🕶️ 🥋",
+      "a": "The Matrix"
+    },
+    {
+      "q": "🏠 ⬆️ 🎈🎈🎈 👴 👦",
+      "a": "Up"
+    },
+    {
+      "q": "🧊 ❄️ 👸 ⛄ 🎶",
+      "a": "Frozen"
+    }
+  ]
+}

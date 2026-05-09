@@ -1,0 +1,50 @@
+{
+  "id": "food-online-2026-05-09-easy-2",
+  "topic": "food",
+  "title": "🌐 Online: Food Easy #2",
+  "desc": "Trivia from OpenTrivia DB — 10 easy questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "The Flag of the European Union has how many stars on it?",
+      "a": "12"
+    },
+    {
+      "q": "When was the website reddit founded ?",
+      "a": "2005"
+    },
+    {
+      "q": "Where is the train station \"Llanfair­pwllgwyngyll­gogery­chwyrn­drobwll­llan­tysilio­gogo­goch\"?",
+      "a": "Wales"
+    },
+    {
+      "q": "What is the name of the main Character from the Series: Dead Space?",
+      "a": "Isaac Clarke"
+    },
+    {
+      "q": "How would one say goodbye in Spanish?",
+      "a": "Adiós"
+    },
+    {
+      "q": "What technology is named after a tenth-century ruler of Denmark and Norway?",
+      "a": "Bluetooth"
+    },
+    {
+      "q": "According to the nursery rhyme, what fruit did Little Jack Horner pull out of his Christmas pie?",
+      "a": "Plum"
+    },
+    {
+      "q": "Which American-owned brewery led the country in sales by volume in 2015?",
+      "a": "D. G. Yuengling and Son, Inc"
+    },
+    {
+      "q": "What fruit is a traditional ingredient of a Black Forest Gateau?",
+      "a": "Cherries"
+    },
+    {
+      "q": "Which of the three astronauts of the Apollo 11 spaceflight did NOT walk on the moon?",
+      "a": "Michael Collins"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "geography-hard",
+  "topic": "geography",
+  "title": "Cartographer's Revenge",
+  "desc": "Phantom islands, geopolitical absurdities & places the GPS forgot",
+  "type": "standard",
+  "isNew": false,
+  "questions": [
+    {
+      "q": "Null Island is at coordinates 0°N 0°E. What's actually there?",
+      "a": "A weather buoy in the Gulf of Guinea — the coordinates exist where the equator meets the prime meridian, in open ocean"
+    },
+    {
+      "q": "The Danakil Depression in Ethiopia is one of the hottest inhabited places on Earth. What's the average annual temperature?",
+      "a": "About 34.4°C (94°F) — with peaks above 50°C"
+    },
+    {
+      "q": "What is an 'exclave' and which European country has one completely surrounded by Switzerland?",
+      "a": "An exclave is territory separated from the main body. Büsingen am Hochrhein is a German exclave entirely within Switzerland"
+    },
+    {
+      "q": "Sandy Island appeared on maps and Google Earth near New Caledonia for over a century. What happened when scientists went to find it in 2012?",
+      "a": "It didn't exist — it was a phantom island, likely from a 19th-century cartographic error"
+    },
+    {
+      "q": "The Dead Sea is shrinking by roughly how much per year?",
+      "a": "About 1 metre (3.3 feet) per year — it's lost roughly a third of its surface area since the 1960s"
+    },
+    {
+      "q": "Bir Tawil is a region between Egypt and Sudan that neither country claims. Why?",
+      "a": "Both countries claim the adjacent, larger Hala'ib Triangle instead — claiming Bir Tawil would mean giving up Hala'ib"
+    },
+    {
+      "q": "Which country has the most UNESCO World Heritage Sites?",
+      "a": "Italy (59 as of 2024), followed closely by China"
+    },
+    {
+      "q": "The Mariana Trench is the deepest point in the ocean. More people have walked on the Moon than have visited the bottom — true or false?",
+      "a": "True — 12 people have walked on the Moon, while only a handful have reached Challenger Deep"
+    },
+    {
+      "q": "What is a 'tripoint' and where do three European countries meet at a single bench?",
+      "a": "A tripoint is where three borders meet. The Dreiländereck bench sits at the junction of Germany, France, and Switzerland near Basel"
+    },
+    {
+      "q": "Lesotho is entirely surrounded by South Africa. But which country is the world's largest 'country within a country' by area?",
+      "a": "Trick question — Lesotho is the only country entirely enclosed by a single other country. San Marino and Vatican City are enclosed by Italy, but they're smaller"
+    }
+  ]
+}

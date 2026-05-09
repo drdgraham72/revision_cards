@@ -1,0 +1,9 @@
+{
+  "id": "mystery-pictures",
+  "topic": "picture",
+  "title": "🎲 Mystery Pictures",
+  "desc": "Random images from the bank, randomly distorted (blur · ASCII · pixelate · scramble). Tap reveal for the answer.",
+  "type": "picture",
+  "isNew": true,
+  "questions": []
+}

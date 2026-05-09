@@ -1,0 +1,2550 @@
+{
+  "version": 1,
+  "generated": "2026-05-09",
+  "items": [
+    {
+      "id": "the-beatles-hey-jude",
+      "filename": "the-beatles-hey-jude.mp3",
+      "title": "Hey Jude",
+      "artist": "The Beatles",
+      "album": "1 (Remastered)",
+      "duration": 429,
+      "genre": "Rock",
+      "hint": "Rock track",
+      "alternatives": [
+        "Hey Jude",
+        "The Beatles",
+        "Hey Jude — The Beatles"
+      ],
+      "category": "60s"
+    },
+    {
+      "id": "the-beatles-yesterday",
+      "filename": "the-beatles-yesterday.mp3",
+      "title": "Yesterday",
+      "artist": "The Beatles",
+      "album": "1 (Remastered)",
+      "duration": 123,
+      "genre": "Rock",
+      "hint": "Rock track",
+      "alternatives": [
+        "Yesterday",
+        "The Beatles",
+        "Yesterday — The Beatles"
+      ],
+      "category": "60s"
+    },
+    {
+      "id": "the-beatles-let-it-be",
+      "filename": "the-beatles-let-it-be.mp3",
+      "title": "Let It Be",
+      "artist": "The Beatles",
+      "album": "Let It Be (Remastered)",
+      "duration": 243,
+      "genre": "Rock",
+      "hint": "Rock track",
+      "alternatives": [
+        "Let It Be",
+        "The Beatles",
+        "Let It Be — The Beatles"
+      ],
+      "category": "60s"
+    },
+    {
+      "id": "the-beatles-here-comes-the-sun",
+      "filename": "the-beatles-here-comes-the-sun.mp3",
+      "title": "Here Comes The Sun",
+      "artist": "The Beatles",
+      "album": "Abbey Road (Remastered)",
+      "duration": 184,
+      "genre": "Rock",
+      "hint": "Rock track from the album 'Abbey Road'",
+      "alternatives": [
+        "Here Comes The Sun",
+        "The Beatles",
+        "Here Comes The Sun — The Beatles"
+      ],
+      "category": "60s"
+    },
+    {
+      "id": "the-beatles-twist-and-shout",
+      "filename": "the-beatles-twist-and-shout.mp3",
+      "title": "Twist And Shout",
+      "artist": "The Beatles",
+      "album": "Please Please Me (Remastered)",
+      "duration": 153,
+      "genre": "Rock",
+      "hint": "Rock track from the album 'Please Please Me'",
+      "alternatives": [
+        "Twist And Shout",
+        "The Beatles",
+        "Twist And Shout — The Beatles"
+      ],
+      "category": "60s"
+    },
+    {
+      "id": "the-rolling-stones-i-can-t-get-no-satisfaction",
+      "filename": "the-rolling-stones-i-can-t-get-no-satisfaction.mp3",
+      "title": "(I Can't Get No) Satisfaction",
+      "artist": "The Rolling Stones",
+      "album": "Singles 1965-1967",
+      "duration": 224,
+      "genre": "Rock",
+      "hint": "Rock track from the album 'Singles 1965-1967'",
+      "alternatives": [
+        "(I Can't Get No) Satisfaction",
+        "The Rolling Stones",
+        "(I Can't Get No) Satisfaction — The Rolling Stones"
+      ],
+      "category": "60s"
+    },
+    {
+      "id": "the-rolling-stones-paint-it-black",
+      "filename": "the-rolling-stones-paint-it-black.mp3",
+      "title": "Paint It, Black",
+      "artist": "The Rolling Stones",
+      "album": "Big Hits (High Tide and Green Grass)",
+      "duration": 202,
+      "genre": "Rock",
+      "hint": "Rock track from the album 'Big Hits'",
+      "alternatives": [
+        "Paint It, Black",
+        "The Rolling Stones",
+        "Paint It, Black — The Rolling Stones"
+      ],
+      "category": "60s"
+    },
+    {
+      "id": "bob-dylan-like-a-rolling-stone",
+      "filename": "bob-dylan-like-a-rolling-stone.mp3",
+      "title": "Like a Rolling Stone",
+      "artist": "Bob Dylan",
+      "album": "Highway 61 Revisited",
+      "duration": 369,
+      "genre": "Rock",
+      "hint": "Rock track from the album 'Highway 61 Revisited'",
+      "alternatives": [
+        "Like a Rolling Stone",
+        "Bob Dylan",
+        "Like a Rolling Stone — Bob Dylan"
+      ],
+      "category": "60s"
+    },
+    {
+      "id": "bob-dylan-blowin-in-the-wind",
+      "filename": "bob-dylan-blowin-in-the-wind.mp3",
+      "title": "Blowin' in the Wind",
+      "artist": "Bob Dylan",
+      "album": "The Essential Bob Dylan",
+      "duration": 167,
+      "genre": "Rock",
+      "hint": "Rock track",
+      "alternatives": [
+        "Blowin' in the Wind",
+        "Bob Dylan",
+        "Blowin' in the Wind — Bob Dylan"
+      ],
+      "category": "60s"
+    },
+    {
+      "id": "the-beach-boys-good-vibrations",
+      "filename": "the-beach-boys-good-vibrations.mp3",
+      "title": "Good Vibrations",
+      "artist": "The Beach Boys",
+      "album": "The Very Best Of The Beach Boys: Sounds Of Summer",
+      "duration": 215,
+      "genre": "Rock",
+      "hint": "Rock track",
+      "alternatives": [
+        "Good Vibrations",
+        "The Beach Boys",
+        "Good Vibrations — The Beach Boys"
+      ],
+      "category": "60s"
+    },
+    {
+      "id": "the-beach-boys-california-girls",
+      "filename": "the-beach-boys-california-girls.mp3",
+      "title": "California Girls",
+      "artist": "The Beach Boys",
+      "album": "The Very Best Of The Beach Boys: Sounds Of Summer (Expanded Edition Super Deluxe)",
+      "duration": 165,
+      "genre": "Rock",
+      "hint": "Rock track",
+      "alternatives": [
+        "California Girls",
+        "The Beach Boys",
+        "California Girls — The Beach Boys"
+      ],
+      "category": "60s"
+    },
+    {
+      "id": "aretha-franklin-respect",
+      "filename": "aretha-franklin-respect.mp3",
+      "title": "Respect",
+      "artist": "Aretha Franklin",
+      "album": "I Never Loved a Man the Way I Love You",
+      "duration": 147,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'I Never Loved a Man the Way I Love You'",
+      "alternatives": [
+        "Respect",
+        "Aretha Franklin",
+        "Respect — Aretha Franklin"
+      ],
+      "category": "60s"
+    },
+    {
+      "id": "louis-armstrong-what-a-wonderful-world",
+      "filename": "louis-armstrong-what-a-wonderful-world.mp3",
+      "title": "What A Wonderful World",
+      "artist": "Louis Armstrong",
+      "album": "Jazz #1's",
+      "duration": 137,
+      "genre": "Jazz",
+      "hint": "Jazz track from the album 'Jazz #1's'",
+      "alternatives": [
+        "What A Wonderful World",
+        "Louis Armstrong",
+        "What A Wonderful World — Louis Armstrong"
+      ],
+      "category": "60s"
+    },
+    {
+      "id": "the-animals-house-of-the-rising-sun",
+      "filename": "the-animals-house-of-the-rising-sun.mp3",
+      "title": "House of the Rising Sun",
+      "artist": "The Animals",
+      "album": "The Best of the Animals",
+      "duration": 269,
+      "genre": "Rock",
+      "hint": "Rock track",
+      "alternatives": [
+        "House of the Rising Sun",
+        "The Animals",
+        "House of the Rising Sun — The Animals"
+      ],
+      "category": "60s"
+    },
+    {
+      "id": "the-doors-light-my-fire",
+      "filename": "the-doors-light-my-fire.mp3",
+      "title": "Light My Fire",
+      "artist": "The Doors",
+      "album": "The Doors",
+      "duration": 429,
+      "genre": "Rock",
+      "hint": "Rock track",
+      "alternatives": [
+        "Light My Fire",
+        "The Doors",
+        "Light My Fire — The Doors"
+      ],
+      "category": "60s"
+    },
+    {
+      "id": "procol-harum-a-whiter-shade-of-pale",
+      "filename": "procol-harum-a-whiter-shade-of-pale.mp3",
+      "title": "A Whiter Shade of Pale",
+      "artist": "Procol Harum",
+      "album": "A Whiter Shade of Pale (Original Single Version)",
+      "duration": 249,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "A Whiter Shade of Pale",
+        "Procol Harum",
+        "A Whiter Shade of Pale — Procol Harum"
+      ],
+      "category": "60s"
+    },
+    {
+      "id": "the-mamas-the-papas-california-dreamin",
+      "filename": "the-mamas-the-papas-california-dreamin.mp3",
+      "title": "California Dreamin'",
+      "artist": "The Mamas & The Papas",
+      "album": "If You Can Believe Your Eyes & Ears",
+      "duration": 160,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'If You Can Believe Your Eyes & Ears'",
+      "alternatives": [
+        "California Dreamin'",
+        "The Mamas & The Papas",
+        "California Dreamin' — The Mamas & The Papas"
+      ],
+      "category": "60s"
+    },
+    {
+      "id": "the-who-my-generation",
+      "filename": "the-who-my-generation.mp3",
+      "title": "My Generation",
+      "artist": "The Who",
+      "album": "My Generation (50th Anniversary / Super Deluxe)",
+      "duration": 197,
+      "genre": "Rock",
+      "hint": "Rock track",
+      "alternatives": [
+        "My Generation",
+        "The Who",
+        "My Generation — The Who"
+      ],
+      "category": "60s"
+    },
+    {
+      "id": "marvin-gaye-i-heard-it-through-the-grapevine",
+      "filename": "marvin-gaye-i-heard-it-through-the-grapevine.mp3",
+      "title": "I Heard It Through The Grapevine",
+      "artist": "Marvin Gaye",
+      "album": "Bridget Jones’s Baby (Original Motion Picture Soundtrack)",
+      "duration": 190,
+      "genre": "Films/Games",
+      "hint": "Films/Games track from the album 'Bridget Jones’s Baby'",
+      "alternatives": [
+        "I Heard It Through The Grapevine",
+        "Marvin Gaye",
+        "I Heard It Through The Grapevine — Marvin Gaye"
+      ],
+      "category": "60s"
+    },
+    {
+      "id": "frank-sinatra-my-way",
+      "filename": "frank-sinatra-my-way.mp3",
+      "title": "My Way",
+      "artist": "Frank Sinatra",
+      "album": "My Way (Expanded Edition)",
+      "duration": 274,
+      "genre": "Jazz",
+      "hint": "Jazz track",
+      "alternatives": [
+        "My Way",
+        "Frank Sinatra",
+        "My Way — Frank Sinatra"
+      ],
+      "category": "60s"
+    },
+    {
+      "id": "queen-bohemian-rhapsody",
+      "filename": "queen-bohemian-rhapsody.mp3",
+      "title": "Bohemian Rhapsody",
+      "artist": "Queen",
+      "album": "A Night At The Opera (2011 Remaster)",
+      "duration": 354,
+      "genre": "Rock",
+      "hint": "Rock track from the album 'A Night At The Opera'",
+      "alternatives": [
+        "Bohemian Rhapsody",
+        "Queen",
+        "Bohemian Rhapsody — Queen"
+      ],
+      "category": "70s"
+    },
+    {
+      "id": "queen-don-t-stop-me-now",
+      "filename": "queen-don-t-stop-me-now.mp3",
+      "title": "Don't Stop Me Now",
+      "artist": "Queen",
+      "album": "Jazz (2011 Remaster)",
+      "duration": 212,
+      "genre": "Rock",
+      "hint": "Rock track from the album 'Jazz'",
+      "alternatives": [
+        "Don't Stop Me Now",
+        "Queen",
+        "Don't Stop Me Now — Queen"
+      ],
+      "category": "70s"
+    },
+    {
+      "id": "queen-we-will-rock-you",
+      "filename": "queen-we-will-rock-you.mp3",
+      "title": "We Will Rock You",
+      "artist": "Queen",
+      "album": "News Of The World (2011 Remaster)",
+      "duration": 123,
+      "genre": "Rock",
+      "hint": "Rock track from the album 'News Of The World'",
+      "alternatives": [
+        "We Will Rock You",
+        "Queen",
+        "We Will Rock You — Queen"
+      ],
+      "category": "70s"
+    },
+    {
+      "id": "queen-we-are-the-champions",
+      "filename": "queen-we-are-the-champions.mp3",
+      "title": "We Are The Champions",
+      "artist": "Queen",
+      "album": "Greatest Hits (Remastered)",
+      "duration": 181,
+      "genre": "Rock",
+      "hint": "Rock track from the album 'Greatest Hits'",
+      "alternatives": [
+        "We Are The Champions",
+        "Queen",
+        "We Are The Champions — Queen"
+      ],
+      "category": "70s"
+    },
+    {
+      "id": "queen-killer-queen",
+      "filename": "queen-killer-queen.mp3",
+      "title": "Killer Queen",
+      "artist": "Queen",
+      "album": "Bohemian Rhapsody (The Original Soundtrack)",
+      "duration": 182,
+      "genre": "Films/Games",
+      "hint": "Films/Games track from the album 'Bohemian Rhapsody'",
+      "alternatives": [
+        "Killer Queen",
+        "Queen",
+        "Killer Queen — Queen"
+      ],
+      "category": "70s"
+    },
+    {
+      "id": "led-zeppelin-stairway-to-heaven",
+      "filename": "led-zeppelin-stairway-to-heaven.mp3",
+      "title": "Stairway to Heaven",
+      "artist": "Led Zeppelin",
+      "album": "Led Zeppelin IV (Deluxe Edition)",
+      "duration": 482,
+      "genre": "Rock",
+      "hint": "Rock track",
+      "alternatives": [
+        "Stairway to Heaven",
+        "Led Zeppelin",
+        "Stairway to Heaven — Led Zeppelin"
+      ],
+      "category": "70s"
+    },
+    {
+      "id": "led-zeppelin-whole-lotta-love",
+      "filename": "led-zeppelin-whole-lotta-love.mp3",
+      "title": "Whole Lotta Love",
+      "artist": "Led Zeppelin",
+      "album": "Led Zeppelin II (Deluxe Edition)",
+      "duration": 334,
+      "genre": "Rock",
+      "hint": "Rock track",
+      "alternatives": [
+        "Whole Lotta Love",
+        "Led Zeppelin",
+        "Whole Lotta Love — Led Zeppelin"
+      ],
+      "category": "70s"
+    },
+    {
+      "id": "eagles-hotel-california",
+      "filename": "eagles-hotel-california.mp3",
+      "title": "Hotel California",
+      "artist": "Eagles",
+      "album": "Hotel California (40th Anniversary Expanded Edition)",
+      "duration": 391,
+      "genre": "Rock",
+      "hint": "Rock track",
+      "alternatives": [
+        "Hotel California",
+        "Eagles",
+        "Hotel California — Eagles"
+      ],
+      "category": "70s"
+    },
+    {
+      "id": "eagles-take-it-easy",
+      "filename": "eagles-take-it-easy.mp3",
+      "title": "Take It Easy",
+      "artist": "Eagles",
+      "album": "The Complete Greatest Hits (2013 Remaster)",
+      "duration": 211,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'The Complete Greatest Hits'",
+      "alternatives": [
+        "Take It Easy",
+        "Eagles",
+        "Take It Easy — Eagles"
+      ],
+      "category": "70s"
+    },
+    {
+      "id": "don-mclean-american-pie",
+      "filename": "don-mclean-american-pie.mp3",
+      "title": "American Pie",
+      "artist": "Don McLean",
+      "album": "American Pie (Expanded Edition)",
+      "duration": 517,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "American Pie",
+        "Don McLean",
+        "American Pie — Don McLean"
+      ],
+      "category": "70s"
+    },
+    {
+      "id": "elton-john-tiny-dancer",
+      "filename": "elton-john-tiny-dancer.mp3",
+      "title": "Tiny Dancer",
+      "artist": "Elton John",
+      "album": "Madman Across The Water",
+      "duration": 377,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'Madman Across The Water'",
+      "alternatives": [
+        "Tiny Dancer",
+        "Elton John",
+        "Tiny Dancer — Elton John"
+      ],
+      "category": "70s"
+    },
+    {
+      "id": "elton-john-rocket-man",
+      "filename": "elton-john-rocket-man.mp3",
+      "title": "Rocket Man (I Think It's Going To Be A Long, Long Time)",
+      "artist": "Elton John",
+      "album": "Honky Chateau",
+      "duration": 283,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'Honky Chateau'",
+      "alternatives": [
+        "Rocket Man (I Think It's Going To Be A Long, Long Time)",
+        "Elton John",
+        "Rocket Man (I Think It's Going To Be A Long, Long Time) — Elton John"
+      ],
+      "category": "70s"
+    },
+    {
+      "id": "elton-john-crocodile-rock",
+      "filename": "elton-john-crocodile-rock.mp3",
+      "title": "Crocodile Rock",
+      "artist": "Elton John",
+      "album": "Don't Shoot Me I'm Only The Piano Player",
+      "duration": 236,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'Don't Shoot Me I'm Only The Piano Player'",
+      "alternatives": [
+        "Crocodile Rock",
+        "Elton John",
+        "Crocodile Rock — Elton John"
+      ],
+      "category": "70s"
+    },
+    {
+      "id": "john-lennon-imagine",
+      "filename": "john-lennon-imagine.mp3",
+      "title": "Imagine",
+      "artist": "John Lennon",
+      "album": "Imagine",
+      "duration": 184,
+      "genre": "Rock",
+      "hint": "Rock track",
+      "alternatives": [
+        "Imagine",
+        "John Lennon",
+        "Imagine — John Lennon"
+      ],
+      "category": "70s"
+    },
+    {
+      "id": "pink-floyd-wish-you-were-here",
+      "filename": "pink-floyd-wish-you-were-here.mp3",
+      "title": "Wish You Were Here",
+      "artist": "Pink Floyd",
+      "album": "Wish You Were Here",
+      "duration": 334,
+      "genre": "Rock",
+      "hint": "Rock track",
+      "alternatives": [
+        "Wish You Were Here",
+        "Pink Floyd",
+        "Wish You Were Here — Pink Floyd"
+      ],
+      "category": "70s"
+    },
+    {
+      "id": "pink-floyd-money",
+      "filename": "pink-floyd-money.mp3",
+      "title": "Money",
+      "artist": "Pink Floyd",
+      "album": "The Dark Side of the Moon",
+      "duration": 388,
+      "genre": "Rock",
+      "hint": "Rock track from the album 'The Dark Side of the Moon'",
+      "alternatives": [
+        "Money",
+        "Pink Floyd",
+        "Money — Pink Floyd"
+      ],
+      "category": "70s"
+    },
+    {
+      "id": "pink-floyd-comfortably-numb",
+      "filename": "pink-floyd-comfortably-numb.mp3",
+      "title": "Comfortably Numb",
+      "artist": "Pink Floyd",
+      "album": "The Wall",
+      "duration": 382,
+      "genre": "Rock",
+      "hint": "Rock track from the album 'The Wall'",
+      "alternatives": [
+        "Comfortably Numb",
+        "Pink Floyd",
+        "Comfortably Numb — Pink Floyd"
+      ],
+      "category": "70s"
+    },
+    {
+      "id": "bee-gees-stayin-alive",
+      "filename": "bee-gees-stayin-alive.mp3",
+      "title": "Stayin Alive",
+      "artist": "Bee Gees",
+      "album": "The Ultimate Bee Gees",
+      "duration": 284,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Stayin Alive",
+        "Bee Gees",
+        "Stayin Alive — Bee Gees"
+      ],
+      "category": "70s"
+    },
+    {
+      "id": "bee-gees-night-fever",
+      "filename": "bee-gees-night-fever.mp3",
+      "title": "Night Fever",
+      "artist": "Bee Gees",
+      "album": "The Ultimate Bee Gees",
+      "duration": 210,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Night Fever",
+        "Bee Gees",
+        "Night Fever — Bee Gees"
+      ],
+      "category": "70s"
+    },
+    {
+      "id": "abba-dancing-queen",
+      "filename": "abba-dancing-queen.mp3",
+      "title": "Dancing Queen",
+      "artist": "ABBA",
+      "album": "ABBA Gold",
+      "duration": 231,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Dancing Queen",
+        "ABBA",
+        "Dancing Queen — ABBA"
+      ],
+      "category": "70s"
+    },
+    {
+      "id": "abba-mamma-mia",
+      "filename": "abba-mamma-mia.mp3",
+      "title": "Mamma Mia",
+      "artist": "ABBA",
+      "album": "ABBA Gold",
+      "duration": 212,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Mamma Mia",
+        "ABBA",
+        "Mamma Mia — ABBA"
+      ],
+      "category": "70s"
+    },
+    {
+      "id": "abba-waterloo",
+      "filename": "abba-waterloo.mp3",
+      "title": "Waterloo",
+      "artist": "ABBA",
+      "album": "Abba Gold Anniversary Edition",
+      "duration": 166,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Waterloo",
+        "ABBA",
+        "Waterloo — ABBA"
+      ],
+      "category": "70s"
+    },
+    {
+      "id": "gloria-gaynor-i-will-survive",
+      "filename": "gloria-gaynor-i-will-survive.mp3",
+      "title": "I Will Survive",
+      "artist": "Gloria Gaynor",
+      "album": "I Will Survive (Rerecorded)",
+      "duration": 250,
+      "genre": "R&B",
+      "hint": "R&B track",
+      "alternatives": [
+        "I Will Survive",
+        "Gloria Gaynor",
+        "I Will Survive — Gloria Gaynor"
+      ],
+      "category": "70s"
+    },
+    {
+      "id": "village-people-ymca",
+      "filename": "village-people-ymca.mp3",
+      "title": "YMCA (Original Version 1978)",
+      "artist": "Village People",
+      "album": "YMCA (Original Version 1978)",
+      "duration": 284,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'YMCA'",
+      "alternatives": [
+        "YMCA (Original Version 1978)",
+        "Village People",
+        "YMCA (Original Version 1978) — Village People"
+      ],
+      "category": "70s"
+    },
+    {
+      "id": "chic-le-freak",
+      "filename": "chic-le-freak.mp3",
+      "title": "Le Freak",
+      "artist": "Chic",
+      "album": "The Studio Album Collection 1977-1992",
+      "duration": 327,
+      "genre": "R&B",
+      "hint": "R&B track from the album 'The Studio Album Collection 1977-1992'",
+      "alternatives": [
+        "Le Freak",
+        "Chic",
+        "Le Freak — Chic"
+      ],
+      "category": "70s"
+    },
+    {
+      "id": "bruce-springsteen-born-to-run",
+      "filename": "bruce-springsteen-born-to-run.mp3",
+      "title": "Born to Run",
+      "artist": "Bruce Springsteen",
+      "album": "Chapter and Verse",
+      "duration": 270,
+      "genre": "Rock",
+      "hint": "Rock track from the album 'Chapter and Verse'",
+      "alternatives": [
+        "Born to Run",
+        "Bruce Springsteen",
+        "Born to Run — Bruce Springsteen"
+      ],
+      "category": "70s"
+    },
+    {
+      "id": "aerosmith-dream-on",
+      "filename": "aerosmith-dream-on.mp3",
+      "title": "Dream On",
+      "artist": "Aerosmith",
+      "album": "Greatest Hits (Deluxe)",
+      "duration": 265,
+      "genre": "Rock",
+      "hint": "Rock track from the album 'Greatest Hits'",
+      "alternatives": [
+        "Dream On",
+        "Aerosmith",
+        "Dream On — Aerosmith"
+      ],
+      "category": "70s"
+    },
+    {
+      "id": "michael-jackson-thriller",
+      "filename": "michael-jackson-thriller.mp3",
+      "title": "Thriller",
+      "artist": "Michael Jackson",
+      "album": "Thriller 25 Super Deluxe Edition",
+      "duration": 358,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Thriller",
+        "Michael Jackson",
+        "Thriller — Michael Jackson"
+      ],
+      "category": "80s"
+    },
+    {
+      "id": "michael-jackson-billie-jean",
+      "filename": "michael-jackson-billie-jean.mp3",
+      "title": "Billie Jean",
+      "artist": "Michael Jackson",
+      "album": "Michael Jackson's This Is It",
+      "duration": 293,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Billie Jean",
+        "Michael Jackson",
+        "Billie Jean — Michael Jackson"
+      ],
+      "category": "80s"
+    },
+    {
+      "id": "michael-jackson-beat-it",
+      "filename": "michael-jackson-beat-it.mp3",
+      "title": "Beat It",
+      "artist": "Michael Jackson",
+      "album": "Michael Jackson's This Is It",
+      "duration": 258,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Beat It",
+        "Michael Jackson",
+        "Beat It — Michael Jackson"
+      ],
+      "category": "80s"
+    },
+    {
+      "id": "madonna-like-a-virgin",
+      "filename": "madonna-like-a-virgin.mp3",
+      "title": "Like a Virgin",
+      "artist": "Madonna",
+      "album": "Like a Virgin",
+      "duration": 218,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Like a Virgin",
+        "Madonna",
+        "Like a Virgin — Madonna"
+      ],
+      "category": "80s"
+    },
+    {
+      "id": "madonna-material-girl",
+      "filename": "madonna-material-girl.mp3",
+      "title": "Material Girl",
+      "artist": "Madonna",
+      "album": "The Immaculate Collection",
+      "duration": 233,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'The Immaculate Collection'",
+      "alternatives": [
+        "Material Girl",
+        "Madonna",
+        "Material Girl — Madonna"
+      ],
+      "category": "80s"
+    },
+    {
+      "id": "madonna-vogue",
+      "filename": "madonna-vogue.mp3",
+      "title": "Vogue",
+      "artist": "Madonna",
+      "album": "The Immaculate Collection",
+      "duration": 317,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'The Immaculate Collection'",
+      "alternatives": [
+        "Vogue",
+        "Madonna",
+        "Vogue — Madonna"
+      ],
+      "category": "80s"
+    },
+    {
+      "id": "a-ha-take-on-me",
+      "filename": "a-ha-take-on-me.mp3",
+      "title": "Take on Me",
+      "artist": "a-ha",
+      "album": "Hunting High and Low",
+      "duration": 227,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'Hunting High and Low'",
+      "alternatives": [
+        "Take on Me",
+        "a-ha",
+        "Take on Me — a-ha"
+      ],
+      "category": "80s"
+    },
+    {
+      "id": "toto-africa",
+      "filename": "toto-africa.mp3",
+      "title": "Africa",
+      "artist": "Toto",
+      "album": "Toto IV",
+      "duration": 296,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Africa",
+        "Toto",
+        "Africa — Toto"
+      ],
+      "category": "80s"
+    },
+    {
+      "id": "journey-don-t-stop-believin",
+      "filename": "journey-don-t-stop-believin.mp3",
+      "title": "Don't Stop Believin'",
+      "artist": "Journey",
+      "album": "The Essential Journey",
+      "duration": 249,
+      "genre": "Rock",
+      "hint": "Rock track",
+      "alternatives": [
+        "Don't Stop Believin'",
+        "Journey",
+        "Don't Stop Believin' — Journey"
+      ],
+      "category": "80s"
+    },
+    {
+      "id": "guns-n-roses-sweet-child-o-mine",
+      "filename": "guns-n-roses-sweet-child-o-mine.mp3",
+      "title": "Sweet Child O' Mine",
+      "artist": "Guns N' Roses",
+      "album": "Appetite For Destruction (Super Deluxe Edition)",
+      "duration": 355,
+      "genre": "Rock",
+      "hint": "Rock track from the album 'Appetite For Destruction'",
+      "alternatives": [
+        "Sweet Child O' Mine",
+        "Guns N' Roses",
+        "Sweet Child O' Mine — Guns N' Roses"
+      ],
+      "category": "80s"
+    },
+    {
+      "id": "guns-n-roses-welcome-to-the-jungle",
+      "filename": "guns-n-roses-welcome-to-the-jungle.mp3",
+      "title": "Welcome To The Jungle",
+      "artist": "Guns N' Roses",
+      "album": "Appetite For Destruction (Super Deluxe Edition)",
+      "duration": 271,
+      "genre": "Rock",
+      "hint": "Rock track from the album 'Appetite For Destruction'",
+      "alternatives": [
+        "Welcome To The Jungle",
+        "Guns N' Roses",
+        "Welcome To The Jungle — Guns N' Roses"
+      ],
+      "category": "80s"
+    },
+    {
+      "id": "bon-jovi-livin-on-a-prayer",
+      "filename": "bon-jovi-livin-on-a-prayer.mp3",
+      "title": "Livin' On A Prayer",
+      "artist": "Bon Jovi",
+      "album": "Slippery When Wet",
+      "duration": 249,
+      "genre": "Rock",
+      "hint": "Rock track from the album 'Slippery When Wet'",
+      "alternatives": [
+        "Livin' On A Prayer",
+        "Bon Jovi",
+        "Livin' On A Prayer — Bon Jovi"
+      ],
+      "category": "80s"
+    },
+    {
+      "id": "bon-jovi-you-give-love-a-bad-name",
+      "filename": "bon-jovi-you-give-love-a-bad-name.mp3",
+      "title": "You Give Love A Bad Name",
+      "artist": "Bon Jovi",
+      "album": "Bon Jovi Greatest Hits - The Ultimate Collection (Deluxe)",
+      "duration": 222,
+      "genre": "Rock",
+      "hint": "Rock track",
+      "alternatives": [
+        "You Give Love A Bad Name",
+        "Bon Jovi",
+        "You Give Love A Bad Name — Bon Jovi"
+      ],
+      "category": "80s"
+    },
+    {
+      "id": "survivor-eye-of-the-tiger",
+      "filename": "survivor-eye-of-the-tiger.mp3",
+      "title": "Eye of the Tiger",
+      "artist": "Survivor",
+      "album": "Rocky IV",
+      "duration": 245,
+      "genre": "Films/Games",
+      "hint": "Films/Games track from the album 'Rocky IV'",
+      "alternatives": [
+        "Eye of the Tiger",
+        "Survivor",
+        "Eye of the Tiger — Survivor"
+      ],
+      "category": "80s"
+    },
+    {
+      "id": "eurythmics-sweet-dreams-are-made-of-this",
+      "filename": "eurythmics-sweet-dreams-are-made-of-this.mp3",
+      "title": "Sweet Dreams (Are Made of This)",
+      "artist": "Eurythmics",
+      "album": "Sweet Dreams (Are Made Of This)",
+      "duration": 216,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'Sweet Dreams'",
+      "alternatives": [
+        "Sweet Dreams (Are Made of This)",
+        "Eurythmics",
+        "Sweet Dreams (Are Made of This) — Eurythmics"
+      ],
+      "category": "80s"
+    },
+    {
+      "id": "the-police-every-breath-you-take",
+      "filename": "the-police-every-breath-you-take.mp3",
+      "title": "Every Breath You Take",
+      "artist": "The Police",
+      "album": "The Very Best Of Sting And The Police",
+      "duration": 252,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Every Breath You Take",
+        "The Police",
+        "Every Breath You Take — The Police"
+      ],
+      "category": "80s"
+    },
+    {
+      "id": "the-police-roxanne",
+      "filename": "the-police-roxanne.mp3",
+      "title": "Roxanne",
+      "artist": "The Police",
+      "album": "The Very Best Of Sting And The Police",
+      "duration": 190,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Roxanne",
+        "The Police",
+        "Roxanne — The Police"
+      ],
+      "category": "80s"
+    },
+    {
+      "id": "u2-with-or-without-you",
+      "filename": "u2-with-or-without-you.mp3",
+      "title": "With Or Without You",
+      "artist": "U2",
+      "album": "The Joshua Tree",
+      "duration": 295,
+      "genre": "Rock",
+      "hint": "Rock track from the album 'The Joshua Tree'",
+      "alternatives": [
+        "With Or Without You",
+        "U2",
+        "With Or Without You — U2"
+      ],
+      "category": "80s"
+    },
+    {
+      "id": "u2-sunday-bloody-sunday",
+      "filename": "u2-sunday-bloody-sunday.mp3",
+      "title": "Sunday Bloody Sunday",
+      "artist": "U2",
+      "album": "War (Remastered)",
+      "duration": 279,
+      "genre": "Rock",
+      "hint": "Rock track from the album 'War'",
+      "alternatives": [
+        "Sunday Bloody Sunday",
+        "U2",
+        "Sunday Bloody Sunday — U2"
+      ],
+      "category": "80s"
+    },
+    {
+      "id": "wham-wake-me-up-before-you-go-go",
+      "filename": "wham-wake-me-up-before-you-go-go.mp3",
+      "title": "Wake Me Up Before You Go-Go",
+      "artist": "Wham!",
+      "album": "Make It Big",
+      "duration": 230,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'Make It Big'",
+      "alternatives": [
+        "Wake Me Up Before You Go-Go",
+        "Wham!",
+        "Wake Me Up Before You Go-Go — Wham!"
+      ],
+      "category": "80s"
+    },
+    {
+      "id": "george-michael-careless-whisper",
+      "filename": "george-michael-careless-whisper.mp3",
+      "title": "Careless Whisper",
+      "artist": "George Michael",
+      "album": "The Final",
+      "duration": 300,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'The Final'",
+      "alternatives": [
+        "Careless Whisper",
+        "George Michael",
+        "Careless Whisper — George Michael"
+      ],
+      "category": "80s"
+    },
+    {
+      "id": "madonna-like-a-prayer",
+      "filename": "madonna-like-a-prayer.mp3",
+      "title": "Like a Prayer",
+      "artist": "Madonna",
+      "album": "Like a Prayer",
+      "duration": 340,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Like a Prayer",
+        "Madonna",
+        "Like a Prayer — Madonna"
+      ],
+      "category": "80s"
+    },
+    {
+      "id": "soft-cell-tainted-love",
+      "filename": "soft-cell-tainted-love.mp3",
+      "title": "Tainted Love",
+      "artist": "Soft Cell",
+      "album": "The Very Best Of Soft Cell",
+      "duration": 160,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Tainted Love",
+        "Soft Cell",
+        "Tainted Love — Soft Cell"
+      ],
+      "category": "80s"
+    },
+    {
+      "id": "katrina-and-the-waves-walking-on-sunshine",
+      "filename": "katrina-and-the-waves-walking-on-sunshine.mp3",
+      "title": "Walking On Sunshine",
+      "artist": "Katrina & The Waves",
+      "album": "Katrina & The Waves",
+      "duration": 238,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Walking On Sunshine",
+        "Katrina & The Waves",
+        "Walking On Sunshine — Katrina & The Waves"
+      ],
+      "category": "80s"
+    },
+    {
+      "id": "bonnie-tyler-total-eclipse-of-the-heart",
+      "filename": "bonnie-tyler-total-eclipse-of-the-heart.mp3",
+      "title": "Total Eclipse of the Heart",
+      "artist": "Bonnie Tyler",
+      "album": "Heaven & Hell",
+      "duration": 267,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'Heaven & Hell'",
+      "alternatives": [
+        "Total Eclipse of the Heart",
+        "Bonnie Tyler",
+        "Total Eclipse of the Heart — Bonnie Tyler"
+      ],
+      "category": "80s"
+    },
+    {
+      "id": "nirvana-smells-like-teen-spirit",
+      "filename": "nirvana-smells-like-teen-spirit.mp3",
+      "title": "Smells Like Teen Spirit",
+      "artist": "Nirvana",
+      "album": "Nevermind (Remastered)",
+      "duration": 301,
+      "genre": "Rock",
+      "hint": "Rock track from the album 'Nevermind'",
+      "alternatives": [
+        "Smells Like Teen Spirit",
+        "Nirvana",
+        "Smells Like Teen Spirit — Nirvana"
+      ],
+      "category": "90s"
+    },
+    {
+      "id": "nirvana-come-as-you-are",
+      "filename": "nirvana-come-as-you-are.mp3",
+      "title": "Come As You Are",
+      "artist": "Nirvana",
+      "album": "Nevermind (Remastered)",
+      "duration": 218,
+      "genre": "Rock",
+      "hint": "Rock track from the album 'Nevermind'",
+      "alternatives": [
+        "Come As You Are",
+        "Nirvana",
+        "Come As You Are — Nirvana"
+      ],
+      "category": "90s"
+    },
+    {
+      "id": "oasis-wonderwall",
+      "filename": "oasis-wonderwall.mp3",
+      "title": "Wonderwall",
+      "artist": "Oasis",
+      "album": "(What's The Story) Morning Glory?",
+      "duration": 258,
+      "genre": "Alternative",
+      "hint": "Alternative track from the album 'Morning Glory?'",
+      "alternatives": [
+        "Wonderwall",
+        "Oasis",
+        "Wonderwall — Oasis"
+      ],
+      "category": "90s"
+    },
+    {
+      "id": "oasis-don-t-look-back-in-anger",
+      "filename": "oasis-don-t-look-back-in-anger.mp3",
+      "title": "Don't Look Back In Anger",
+      "artist": "Oasis",
+      "album": "Don't Look Back In Anger",
+      "duration": 287,
+      "genre": "Alternative",
+      "hint": "Alternative track",
+      "alternatives": [
+        "Don't Look Back In Anger",
+        "Oasis",
+        "Don't Look Back In Anger — Oasis"
+      ],
+      "category": "90s"
+    },
+    {
+      "id": "pulp-common-people",
+      "filename": "pulp-common-people.mp3",
+      "title": "Common People",
+      "artist": "Pulp",
+      "album": "Different Class / Deluxe Edition",
+      "duration": 348,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'Different Class / Deluxe Edition'",
+      "alternatives": [
+        "Common People",
+        "Pulp",
+        "Common People — Pulp"
+      ],
+      "category": "90s"
+    },
+    {
+      "id": "the-verve-bitter-sweet-symphony",
+      "filename": "the-verve-bitter-sweet-symphony.mp3",
+      "title": "Bitter Sweet Symphony",
+      "artist": "The Verve",
+      "album": "Urban Hymns (Remastered 2016)",
+      "duration": 357,
+      "genre": "Rock",
+      "hint": "Rock track from the album 'Urban Hymns'",
+      "alternatives": [
+        "Bitter Sweet Symphony",
+        "The Verve",
+        "Bitter Sweet Symphony — The Verve"
+      ],
+      "category": "90s"
+    },
+    {
+      "id": "soundgarden-black-hole-sun",
+      "filename": "soundgarden-black-hole-sun.mp3",
+      "title": "Black Hole Sun",
+      "artist": "Soundgarden",
+      "album": "Superunknown (Super Deluxe)",
+      "duration": 318,
+      "genre": "Rock",
+      "hint": "Rock track from the album 'Superunknown'",
+      "alternatives": [
+        "Black Hole Sun",
+        "Soundgarden",
+        "Black Hole Sun — Soundgarden"
+      ],
+      "category": "90s"
+    },
+    {
+      "id": "radiohead-creep",
+      "filename": "radiohead-creep.mp3",
+      "title": "Creep",
+      "artist": "Radiohead",
+      "album": "Pablo Honey",
+      "duration": 238,
+      "genre": "Alternative",
+      "hint": "Alternative track from the album 'Pablo Honey'",
+      "alternatives": [
+        "Creep",
+        "Radiohead",
+        "Creep — Radiohead"
+      ],
+      "category": "90s"
+    },
+    {
+      "id": "radiohead-karma-police",
+      "filename": "radiohead-karma-police.mp3",
+      "title": "Karma Police",
+      "artist": "Radiohead",
+      "album": "OK Computer",
+      "duration": 264,
+      "genre": "Alternative",
+      "hint": "Alternative track from the album 'OK Computer'",
+      "alternatives": [
+        "Karma Police",
+        "Radiohead",
+        "Karma Police — Radiohead"
+      ],
+      "category": "90s"
+    },
+    {
+      "id": "fugees-killing-me-softly-with-his-song",
+      "filename": "fugees-killing-me-softly-with-his-song.mp3",
+      "title": "Killing Me Softly With His Song",
+      "artist": "Fugees",
+      "album": "Greatest Hits",
+      "duration": 290,
+      "genre": "R&B",
+      "hint": "R&B track from the album 'Greatest Hits'",
+      "alternatives": [
+        "Killing Me Softly With His Song",
+        "Fugees",
+        "Killing Me Softly With His Song — Fugees"
+      ],
+      "category": "90s"
+    },
+    {
+      "id": "tlc-waterfalls",
+      "filename": "tlc-waterfalls.mp3",
+      "title": "Waterfalls",
+      "artist": "TLC",
+      "album": "Crazysexycool",
+      "duration": 276,
+      "genre": "R&B",
+      "hint": "R&B track from the album 'Crazysexycool'",
+      "alternatives": [
+        "Waterfalls",
+        "TLC",
+        "Waterfalls — TLC"
+      ],
+      "category": "90s"
+    },
+    {
+      "id": "britney-spears-baby-one-more-time",
+      "filename": "britney-spears-baby-one-more-time.mp3",
+      "title": "...Baby One More Time",
+      "artist": "Britney Spears",
+      "album": "...Baby One More Time (Digital Deluxe Version)",
+      "duration": 210,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "...Baby One More Time",
+        "Britney Spears",
+        "...Baby One More Time — Britney Spears"
+      ],
+      "category": "90s"
+    },
+    {
+      "id": "spice-girls-spice-up-your-life",
+      "filename": "spice-girls-spice-up-your-life.mp3",
+      "title": "Spice Up Your Life",
+      "artist": "Spice Girls",
+      "album": "Spiceworld",
+      "duration": 173,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'Spiceworld'",
+      "alternatives": [
+        "Spice Up Your Life",
+        "Spice Girls",
+        "Spice Up Your Life — Spice Girls"
+      ],
+      "category": "90s"
+    },
+    {
+      "id": "spice-girls-wannabe",
+      "filename": "spice-girls-wannabe.mp3",
+      "title": "Wannabe",
+      "artist": "Spice Girls",
+      "album": "Spice",
+      "duration": 172,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'Spice'",
+      "alternatives": [
+        "Wannabe",
+        "Spice Girls",
+        "Wannabe — Spice Girls"
+      ],
+      "category": "90s"
+    },
+    {
+      "id": "los-del-rio-macarena",
+      "filename": "los-del-rio-macarena.mp3",
+      "title": "Macarena",
+      "artist": "Los Del Río",
+      "album": "Hits Of The 90s",
+      "duration": 252,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'Hits Of The 90s'",
+      "alternatives": [
+        "Macarena",
+        "Los Del Río",
+        "Macarena — Los Del Río"
+      ],
+      "category": "90s"
+    },
+    {
+      "id": "whitney-houston-i-will-always-love-you",
+      "filename": "whitney-houston-i-will-always-love-you.mp3",
+      "title": "I Will Always Love You",
+      "artist": "Whitney Houston",
+      "album": "The Bodyguard - Original Soundtrack Album",
+      "duration": 271,
+      "genre": "Films/Games",
+      "hint": "Films/Games track from the album 'The Bodyguard - Original Soundtrack Album'",
+      "alternatives": [
+        "I Will Always Love You",
+        "Whitney Houston",
+        "I Will Always Love You — Whitney Houston"
+      ],
+      "category": "90s"
+    },
+    {
+      "id": "celine-dion-my-heart-will-go-on",
+      "filename": "celine-dion-my-heart-will-go-on.mp3",
+      "title": "My Heart Will Go On",
+      "artist": "Céline Dion",
+      "album": "My Love Essential Collection",
+      "duration": 280,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'My Love Essential Collection'",
+      "alternatives": [
+        "My Heart Will Go On",
+        "Céline Dion",
+        "My Heart Will Go On — Céline Dion"
+      ],
+      "category": "90s"
+    },
+    {
+      "id": "christina-aguilera-genie-in-a-bottle",
+      "filename": "christina-aguilera-genie-in-a-bottle.mp3",
+      "title": "Genie In a Bottle",
+      "artist": "Christina Aguilera",
+      "album": "Christina Aguilera (Expanded Edition)",
+      "duration": 216,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Genie In a Bottle",
+        "Christina Aguilera",
+        "Genie In a Bottle — Christina Aguilera"
+      ],
+      "category": "90s"
+    },
+    {
+      "id": "ricky-martin-livin-la-vida-loca",
+      "filename": "ricky-martin-livin-la-vida-loca.mp3",
+      "title": "Livin' la Vida Loca",
+      "artist": "Ricky Martin",
+      "album": "Ricky Martin",
+      "duration": 243,
+      "genre": "Rock",
+      "hint": "Rock track",
+      "alternatives": [
+        "Livin' la Vida Loca",
+        "Ricky Martin",
+        "Livin' la Vida Loca — Ricky Martin"
+      ],
+      "category": "90s"
+    },
+    {
+      "id": "natalie-imbruglia-torn",
+      "filename": "natalie-imbruglia-torn.mp3",
+      "title": "Torn",
+      "artist": "Natalie Imbruglia",
+      "album": "Left Of The Middle",
+      "duration": 246,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'Left Of The Middle'",
+      "alternatives": [
+        "Torn",
+        "Natalie Imbruglia",
+        "Torn — Natalie Imbruglia"
+      ],
+      "category": "90s"
+    },
+    {
+      "id": "alanis-morissette-ironic",
+      "filename": "alanis-morissette-ironic.mp3",
+      "title": "Ironic",
+      "artist": "Alanis Morissette",
+      "album": "The Collection (Standard Edition)",
+      "duration": 228,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'The Collection'",
+      "alternatives": [
+        "Ironic",
+        "Alanis Morissette",
+        "Ironic — Alanis Morissette"
+      ],
+      "category": "90s"
+    },
+    {
+      "id": "the-cranberries-zombie",
+      "filename": "the-cranberries-zombie.mp3",
+      "title": "Zombie",
+      "artist": "The Cranberries",
+      "album": "Girls And Guitars",
+      "duration": 307,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'Girls And Guitars'",
+      "alternatives": [
+        "Zombie",
+        "The Cranberries",
+        "Zombie — The Cranberries"
+      ],
+      "category": "90s"
+    },
+    {
+      "id": "outkast-hey-ya",
+      "filename": "outkast-hey-ya.mp3",
+      "title": "Hey Ya!",
+      "artist": "OutKast",
+      "album": "Speakerboxxx/The Love Below",
+      "duration": 235,
+      "genre": "Rap/Hip Hop",
+      "hint": "Rap/Hip Hop track from the album 'Speakerboxxx/The Love Below'",
+      "alternatives": [
+        "Hey Ya!",
+        "OutKast",
+        "Hey Ya! — OutKast"
+      ],
+      "category": "00s"
+    },
+    {
+      "id": "beyonc-crazy-in-love",
+      "filename": "beyonc-crazy-in-love.mp3",
+      "title": "Crazy In Love (feat. JAY-Z)",
+      "artist": "Beyoncé",
+      "album": "Dangerously In Love",
+      "duration": 235,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'Dangerously In Love'",
+      "alternatives": [
+        "Crazy In Love (feat. JAY-Z)",
+        "Beyoncé",
+        "Crazy In Love (feat. JAY-Z) — Beyoncé"
+      ],
+      "category": "00s"
+    },
+    {
+      "id": "britney-spears-toxic",
+      "filename": "britney-spears-toxic.mp3",
+      "title": "Toxic",
+      "artist": "Britney Spears",
+      "album": "In The Zone",
+      "duration": 201,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'In The Zone'",
+      "alternatives": [
+        "Toxic",
+        "Britney Spears",
+        "Toxic — Britney Spears"
+      ],
+      "category": "00s"
+    },
+    {
+      "id": "50-cent-in-da-club",
+      "filename": "50-cent-in-da-club.mp3",
+      "title": "In Da Club",
+      "artist": "50 Cent",
+      "album": "Get Rich Or Die Tryin'",
+      "duration": 193,
+      "genre": "Rap/Hip Hop",
+      "hint": "Rap/Hip Hop track from the album 'Get Rich Or Die Tryin''",
+      "alternatives": [
+        "In Da Club",
+        "50 Cent",
+        "In Da Club — 50 Cent"
+      ],
+      "category": "00s"
+    },
+    {
+      "id": "eminem-lose-yourself",
+      "filename": "eminem-lose-yourself.mp3",
+      "title": "Lose Yourself",
+      "artist": "Eminem",
+      "album": "Curtain Call: The Hits",
+      "duration": 326,
+      "genre": "Rap/Hip Hop",
+      "hint": "Rap/Hip Hop track from the album 'Curtain Call: The Hits'",
+      "alternatives": [
+        "Lose Yourself",
+        "Eminem",
+        "Lose Yourself — Eminem"
+      ],
+      "category": "00s"
+    },
+    {
+      "id": "eminem-without-me",
+      "filename": "eminem-without-me.mp3",
+      "title": "Without Me",
+      "artist": "Eminem",
+      "album": "The Eminem Show",
+      "duration": 290,
+      "genre": "Rap/Hip Hop",
+      "hint": "Rap/Hip Hop track",
+      "alternatives": [
+        "Without Me",
+        "Eminem",
+        "Without Me — Eminem"
+      ],
+      "category": "00s"
+    },
+    {
+      "id": "the-killers-mr-brightside",
+      "filename": "the-killers-mr-brightside.mp3",
+      "title": "Mr. Brightside",
+      "artist": "The Killers",
+      "album": "Nu Rock",
+      "duration": 223,
+      "genre": "Rock",
+      "hint": "Rock track from the album 'Nu Rock'",
+      "alternatives": [
+        "Mr. Brightside",
+        "The Killers",
+        "Mr. Brightside — The Killers"
+      ],
+      "category": "00s"
+    },
+    {
+      "id": "the-white-stripes-seven-nation-army",
+      "filename": "the-white-stripes-seven-nation-army.mp3",
+      "title": "Seven Nation Army",
+      "artist": "The White Stripes",
+      "album": "The White Stripes Greatest Hits",
+      "duration": 231,
+      "genre": "Alternative",
+      "hint": "Alternative track",
+      "alternatives": [
+        "Seven Nation Army",
+        "The White Stripes",
+        "Seven Nation Army — The White Stripes"
+      ],
+      "category": "00s"
+    },
+    {
+      "id": "adele-rolling-in-the-deep",
+      "filename": "adele-rolling-in-the-deep.mp3",
+      "title": "Rolling in the Deep",
+      "artist": "Adele",
+      "album": "21",
+      "duration": 228,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Rolling in the Deep",
+        "Adele",
+        "Rolling in the Deep — Adele"
+      ],
+      "category": "00s"
+    },
+    {
+      "id": "coldplay-yellow",
+      "filename": "coldplay-yellow.mp3",
+      "title": "Yellow",
+      "artist": "Coldplay",
+      "album": "Parachutes",
+      "duration": 266,
+      "genre": "Rock",
+      "hint": "Rock track from the album 'Parachutes'",
+      "alternatives": [
+        "Yellow",
+        "Coldplay",
+        "Yellow — Coldplay"
+      ],
+      "category": "00s"
+    },
+    {
+      "id": "coldplay-clocks",
+      "filename": "coldplay-clocks.mp3",
+      "title": "Clocks",
+      "artist": "Coldplay",
+      "album": "A Rush of Blood to the Head",
+      "duration": 307,
+      "genre": "Rock",
+      "hint": "Rock track from the album 'A Rush of Blood to the Head'",
+      "alternatives": [
+        "Clocks",
+        "Coldplay",
+        "Clocks — Coldplay"
+      ],
+      "category": "00s"
+    },
+    {
+      "id": "coldplay-viva-la-vida",
+      "filename": "coldplay-viva-la-vida.mp3",
+      "title": "Viva La Vida",
+      "artist": "Coldplay",
+      "album": "Viva La Vida (Prospekt's March Edition)",
+      "duration": 241,
+      "genre": "Rock",
+      "hint": "Rock track",
+      "alternatives": [
+        "Viva La Vida",
+        "Coldplay",
+        "Viva La Vida — Coldplay"
+      ],
+      "category": "00s"
+    },
+    {
+      "id": "u2-beautiful-day",
+      "filename": "u2-beautiful-day.mp3",
+      "title": "Beautiful Day",
+      "artist": "U2",
+      "album": "All That You Can't Leave Behind",
+      "duration": 246,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'All That You Can't Leave Behind'",
+      "alternatives": [
+        "Beautiful Day",
+        "U2",
+        "Beautiful Day — U2"
+      ],
+      "category": "00s"
+    },
+    {
+      "id": "norah-jones-don-t-know-why",
+      "filename": "norah-jones-don-t-know-why.mp3",
+      "title": "Don't Know Why",
+      "artist": "Norah Jones",
+      "album": "Don't Know Why",
+      "duration": 184,
+      "genre": "Singer & Songwriter",
+      "hint": "Singer & Songwriter track",
+      "alternatives": [
+        "Don't Know Why",
+        "Norah Jones",
+        "Don't Know Why — Norah Jones"
+      ],
+      "category": "00s"
+    },
+    {
+      "id": "train-drops-of-jupiter",
+      "filename": "train-drops-of-jupiter.mp3",
+      "title": "Drops of Jupiter (Tell Me)",
+      "artist": "Train",
+      "album": "Drops Of Jupiter",
+      "duration": 260,
+      "genre": "Rock",
+      "hint": "Rock track from the album 'Drops Of Jupiter'",
+      "alternatives": [
+        "Drops of Jupiter (Tell Me)",
+        "Train",
+        "Drops of Jupiter (Tell Me) — Train"
+      ],
+      "category": "00s"
+    },
+    {
+      "id": "destiny-s-child-survivor",
+      "filename": "destiny-s-child-survivor.mp3",
+      "title": "Survivor",
+      "artist": "Destiny's Child",
+      "album": "Survivor",
+      "duration": 241,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Survivor",
+        "Destiny's Child",
+        "Survivor — Destiny's Child"
+      ],
+      "category": "00s"
+    },
+    {
+      "id": "jay-z-empire-state-of-mind",
+      "filename": "jay-z-empire-state-of-mind.mp3",
+      "title": "Empire State Of Mind",
+      "artist": "JAŸ-Z",
+      "album": "The Blueprint 3",
+      "duration": 277,
+      "genre": "Rap/Hip Hop",
+      "hint": "Rap/Hip Hop track from the album 'The Blueprint 3'",
+      "alternatives": [
+        "Empire State Of Mind",
+        "JAŸ-Z",
+        "Empire State Of Mind — JAŸ-Z"
+      ],
+      "category": "00s"
+    },
+    {
+      "id": "rihanna-umbrella",
+      "filename": "rihanna-umbrella.mp3",
+      "title": "Umbrella",
+      "artist": "Rihanna",
+      "album": "Good Girl Gone Bad: Reloaded",
+      "duration": 275,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'Good Girl Gone Bad: Reloaded'",
+      "alternatives": [
+        "Umbrella",
+        "Rihanna",
+        "Umbrella — Rihanna"
+      ],
+      "category": "00s"
+    },
+    {
+      "id": "pharrell-williams-happy",
+      "filename": "pharrell-williams-happy.mp3",
+      "title": "Happy",
+      "artist": "Pharrell Williams",
+      "album": "G I R L",
+      "duration": 233,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'G I R L'",
+      "alternatives": [
+        "Happy",
+        "Pharrell Williams",
+        "Happy — Pharrell Williams"
+      ],
+      "category": "10s"
+    },
+    {
+      "id": "daft-punk-get-lucky",
+      "filename": "daft-punk-get-lucky.mp3",
+      "title": "Get Lucky",
+      "artist": "Daft Punk",
+      "album": "Get Lucky (Radio Edit - feat. Pharrell Williams and Nile Rodgers)",
+      "duration": 248,
+      "genre": "Electro",
+      "hint": "Electro track",
+      "alternatives": [
+        "Get Lucky",
+        "Daft Punk",
+        "Get Lucky — Daft Punk"
+      ],
+      "category": "10s"
+    },
+    {
+      "id": "lorde-royals",
+      "filename": "lorde-royals.mp3",
+      "title": "Royals",
+      "artist": "Lorde",
+      "album": "Pure Heroine",
+      "duration": 190,
+      "genre": "Alternative",
+      "hint": "Alternative track from the album 'Pure Heroine'",
+      "alternatives": [
+        "Royals",
+        "Lorde",
+        "Royals — Lorde"
+      ],
+      "category": "10s"
+    },
+    {
+      "id": "gotye-somebody-that-i-used-to-know",
+      "filename": "gotye-somebody-that-i-used-to-know.mp3",
+      "title": "Somebody That I Used To Know",
+      "artist": "Gotye",
+      "album": "Making Mirrors",
+      "duration": 241,
+      "genre": "Alternative",
+      "hint": "Alternative track from the album 'Making Mirrors'",
+      "alternatives": [
+        "Somebody That I Used To Know",
+        "Gotye",
+        "Somebody That I Used To Know — Gotye"
+      ],
+      "category": "10s"
+    },
+    {
+      "id": "carly-rae-jepsen-call-me-maybe",
+      "filename": "carly-rae-jepsen-call-me-maybe.mp3",
+      "title": "Call Me Maybe",
+      "artist": "Carly Rae Jepsen",
+      "album": "Call Me Maybe",
+      "duration": 193,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Call Me Maybe",
+        "Carly Rae Jepsen",
+        "Call Me Maybe — Carly Rae Jepsen"
+      ],
+      "category": "10s"
+    },
+    {
+      "id": "taylor-swift-shake-it-off",
+      "filename": "taylor-swift-shake-it-off.mp3",
+      "title": "Shake It Off",
+      "artist": "Taylor Swift",
+      "album": "1989 (Big Machine Radio Release Special)",
+      "duration": 219,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Shake It Off",
+        "Taylor Swift",
+        "Shake It Off — Taylor Swift"
+      ],
+      "category": "10s"
+    },
+    {
+      "id": "taylor-swift-blank-space",
+      "filename": "taylor-swift-blank-space.mp3",
+      "title": "Blank Space",
+      "artist": "Taylor Swift",
+      "album": "1989 (Big Machine Radio Release Special)",
+      "duration": 232,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Blank Space",
+        "Taylor Swift",
+        "Blank Space — Taylor Swift"
+      ],
+      "category": "10s"
+    },
+    {
+      "id": "taylor-swift-bad-blood",
+      "filename": "taylor-swift-bad-blood.mp3",
+      "title": "Bad Blood",
+      "artist": "Taylor Swift",
+      "album": "1989 (Big Machine Radio Release Special)",
+      "duration": 212,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Bad Blood",
+        "Taylor Swift",
+        "Bad Blood — Taylor Swift"
+      ],
+      "category": "10s"
+    },
+    {
+      "id": "adele-hello",
+      "filename": "adele-hello.mp3",
+      "title": "Hello",
+      "artist": "Adele",
+      "album": "25",
+      "duration": 295,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Hello",
+        "Adele",
+        "Hello — Adele"
+      ],
+      "category": "10s"
+    },
+    {
+      "id": "adele-someone-like-you",
+      "filename": "adele-someone-like-you.mp3",
+      "title": "Someone Like You",
+      "artist": "Adele",
+      "album": "21",
+      "duration": 285,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Someone Like You",
+        "Adele",
+        "Someone Like You — Adele"
+      ],
+      "category": "10s"
+    },
+    {
+      "id": "adele-set-fire-to-the-rain",
+      "filename": "adele-set-fire-to-the-rain.mp3",
+      "title": "Set Fire to the Rain",
+      "artist": "Adele",
+      "album": "21",
+      "duration": 242,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Set Fire to the Rain",
+        "Adele",
+        "Set Fire to the Rain — Adele"
+      ],
+      "category": "10s"
+    },
+    {
+      "id": "mark-ronson-uptown-funk",
+      "filename": "mark-ronson-uptown-funk.mp3",
+      "title": "Uptown Funk (feat. Bruno Mars)",
+      "artist": "Mark Ronson",
+      "album": "Uptown Special",
+      "duration": 270,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'Uptown Special'",
+      "alternatives": [
+        "Uptown Funk (feat. Bruno Mars)",
+        "Mark Ronson",
+        "Uptown Funk (feat. Bruno Mars) — Mark Ronson"
+      ],
+      "category": "10s"
+    },
+    {
+      "id": "ed-sheeran-shape-of-you",
+      "filename": "ed-sheeran-shape-of-you.mp3",
+      "title": "Shape of You",
+      "artist": "Ed Sheeran",
+      "album": "÷ (Deluxe)",
+      "duration": 233,
+      "genre": "Pop",
+      "hint": "Pop track from the album '÷'",
+      "alternatives": [
+        "Shape of You",
+        "Ed Sheeran",
+        "Shape of You — Ed Sheeran"
+      ],
+      "category": "10s"
+    },
+    {
+      "id": "ed-sheeran-thinking-out-loud",
+      "filename": "ed-sheeran-thinking-out-loud.mp3",
+      "title": "Thinking out Loud",
+      "artist": "Ed Sheeran",
+      "album": "x (Deluxe Edition)",
+      "duration": 281,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'x'",
+      "alternatives": [
+        "Thinking out Loud",
+        "Ed Sheeran",
+        "Thinking out Loud — Ed Sheeran"
+      ],
+      "category": "10s"
+    },
+    {
+      "id": "ed-sheeran-perfect",
+      "filename": "ed-sheeran-perfect.mp3",
+      "title": "Perfect",
+      "artist": "Ed Sheeran",
+      "album": "÷ (Deluxe)",
+      "duration": 263,
+      "genre": "Pop",
+      "hint": "Pop track from the album '÷'",
+      "alternatives": [
+        "Perfect",
+        "Ed Sheeran",
+        "Perfect — Ed Sheeran"
+      ],
+      "category": "10s"
+    },
+    {
+      "id": "luis-fonsi-despacito",
+      "filename": "luis-fonsi-despacito.mp3",
+      "title": "Despacito",
+      "artist": "Luis Fonsi",
+      "album": "VIDA",
+      "duration": 228,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'VIDA'",
+      "alternatives": [
+        "Despacito",
+        "Luis Fonsi",
+        "Despacito — Luis Fonsi"
+      ],
+      "category": "10s"
+    },
+    {
+      "id": "lil-nas-x-old-town-road",
+      "filename": "lil-nas-x-old-town-road.mp3",
+      "title": "Old Town Road",
+      "artist": "Lil Nas X",
+      "album": "7",
+      "duration": 113,
+      "genre": "Alternative",
+      "hint": "Alternative track",
+      "alternatives": [
+        "Old Town Road",
+        "Lil Nas X",
+        "Old Town Road — Lil Nas X"
+      ],
+      "category": "10s"
+    },
+    {
+      "id": "billie-eilish-bad-guy",
+      "filename": "billie-eilish-bad-guy.mp3",
+      "title": "bad guy",
+      "artist": "Billie Eilish",
+      "album": "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
+      "duration": 194,
+      "genre": "Alternative",
+      "hint": "Alternative track from the album 'WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?'",
+      "alternatives": [
+        "bad guy",
+        "Billie Eilish",
+        "bad guy — Billie Eilish"
+      ],
+      "category": "10s"
+    },
+    {
+      "id": "shawn-mendes-senorita",
+      "filename": "shawn-mendes-senorita.mp3",
+      "title": "Señorita",
+      "artist": "Shawn Mendes",
+      "album": "Señorita",
+      "duration": 191,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Señorita",
+        "Shawn Mendes",
+        "Señorita — Shawn Mendes"
+      ],
+      "category": "10s"
+    },
+    {
+      "id": "camila-cabello-havana",
+      "filename": "camila-cabello-havana.mp3",
+      "title": "Havana (feat. Young Thug)",
+      "artist": "Camila Cabello",
+      "album": "Camila",
+      "duration": 216,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'Camila'",
+      "alternatives": [
+        "Havana (feat. Young Thug)",
+        "Camila Cabello",
+        "Havana (feat. Young Thug) — Camila Cabello"
+      ],
+      "category": "10s"
+    },
+    {
+      "id": "post-malone-sunflower",
+      "filename": "post-malone-sunflower.mp3",
+      "title": "Sunflower",
+      "artist": "Post Malone",
+      "album": "Spider-Man: Into the Spider-Verse (Soundtrack From & Inspired by the Motion Picture)",
+      "duration": 158,
+      "genre": "Films/Games",
+      "hint": "Films/Games track from the album 'Spider-Man: Into the Spider-Verse'",
+      "alternatives": [
+        "Sunflower",
+        "Post Malone",
+        "Sunflower — Post Malone"
+      ],
+      "category": "10s"
+    },
+    {
+      "id": "katy-perry-roar",
+      "filename": "katy-perry-roar.mp3",
+      "title": "Roar",
+      "artist": "Katy Perry",
+      "album": "PRISM (Deluxe)",
+      "duration": 223,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'PRISM'",
+      "alternatives": [
+        "Roar",
+        "Katy Perry",
+        "Roar — Katy Perry"
+      ],
+      "category": "10s"
+    },
+    {
+      "id": "katy-perry-firework",
+      "filename": "katy-perry-firework.mp3",
+      "title": "Firework",
+      "artist": "Katy Perry",
+      "album": "Teenage Dream: The Complete Confection",
+      "duration": 228,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'Teenage Dream: The Complete Confection'",
+      "alternatives": [
+        "Firework",
+        "Katy Perry",
+        "Firework — Katy Perry"
+      ],
+      "category": "10s"
+    },
+    {
+      "id": "onerepublic-counting-stars",
+      "filename": "onerepublic-counting-stars.mp3",
+      "title": "Counting Stars",
+      "artist": "OneRepublic",
+      "album": "Native",
+      "duration": 257,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'Native'",
+      "alternatives": [
+        "Counting Stars",
+        "OneRepublic",
+        "Counting Stars — OneRepublic"
+      ],
+      "category": "10s"
+    },
+    {
+      "id": "sam-smith-stay-with-me",
+      "filename": "sam-smith-stay-with-me.mp3",
+      "title": "Stay With Me",
+      "artist": "Sam Smith",
+      "album": "In The Lonely Hour (Drowning Shadows Edition)",
+      "duration": 172,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'In The Lonely Hour'",
+      "alternatives": [
+        "Stay With Me",
+        "Sam Smith",
+        "Stay With Me — Sam Smith"
+      ],
+      "category": "10s"
+    },
+    {
+      "id": "hozier-take-me-to-church",
+      "filename": "hozier-take-me-to-church.mp3",
+      "title": "Take Me To Church",
+      "artist": "Hozier",
+      "album": "Hozier",
+      "duration": 242,
+      "genre": "Alternative",
+      "hint": "Alternative track",
+      "alternatives": [
+        "Take Me To Church",
+        "Hozier",
+        "Take Me To Church — Hozier"
+      ],
+      "category": "10s"
+    },
+    {
+      "id": "foster-the-people-pumped-up-kicks",
+      "filename": "foster-the-people-pumped-up-kicks.mp3",
+      "title": "Pumped Up Kicks",
+      "artist": "Foster The People",
+      "album": "Torches",
+      "duration": 239,
+      "genre": "Alternative",
+      "hint": "Alternative track from the album 'Torches'",
+      "alternatives": [
+        "Pumped Up Kicks",
+        "Foster The People",
+        "Pumped Up Kicks — Foster The People"
+      ],
+      "category": "10s"
+    },
+    {
+      "id": "fun-some-nights",
+      "filename": "fun-some-nights.mp3",
+      "title": "Some Nights",
+      "artist": "Fun.",
+      "album": "Some Nights",
+      "duration": 277,
+      "genre": "Alternative",
+      "hint": "Alternative track",
+      "alternatives": [
+        "Some Nights",
+        "Fun.",
+        "Some Nights — Fun."
+      ],
+      "category": "10s"
+    },
+    {
+      "id": "harry-styles-watermelon-sugar",
+      "filename": "harry-styles-watermelon-sugar.mp3",
+      "title": "Watermelon Sugar",
+      "artist": "Harry Styles",
+      "album": "Fine Line",
+      "duration": 173,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'Fine Line'",
+      "alternatives": [
+        "Watermelon Sugar",
+        "Harry Styles",
+        "Watermelon Sugar — Harry Styles"
+      ],
+      "category": "20s"
+    },
+    {
+      "id": "harry-styles-as-it-was",
+      "filename": "harry-styles-as-it-was.mp3",
+      "title": "As It Was",
+      "artist": "Harry Styles",
+      "album": "As It Was",
+      "duration": 167,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "As It Was",
+        "Harry Styles",
+        "As It Was — Harry Styles"
+      ],
+      "category": "20s"
+    },
+    {
+      "id": "dua-lipa-levitating",
+      "filename": "dua-lipa-levitating.mp3",
+      "title": "Levitating",
+      "artist": "Dua Lipa",
+      "album": "Future Nostalgia",
+      "duration": 203,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'Future Nostalgia'",
+      "alternatives": [
+        "Levitating",
+        "Dua Lipa",
+        "Levitating — Dua Lipa"
+      ],
+      "category": "20s"
+    },
+    {
+      "id": "dua-lipa-don-t-start-now",
+      "filename": "dua-lipa-don-t-start-now.mp3",
+      "title": "Don't Start Now",
+      "artist": "Dua Lipa",
+      "album": "Don't Start Now",
+      "duration": 183,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Don't Start Now",
+        "Dua Lipa",
+        "Don't Start Now — Dua Lipa"
+      ],
+      "category": "20s"
+    },
+    {
+      "id": "the-weeknd-blinding-lights",
+      "filename": "the-weeknd-blinding-lights.mp3",
+      "title": "Blinding Lights",
+      "artist": "The Weeknd",
+      "album": "After Hours",
+      "duration": 200,
+      "genre": "R&B",
+      "hint": "R&B track from the album 'After Hours'",
+      "alternatives": [
+        "Blinding Lights",
+        "The Weeknd",
+        "Blinding Lights — The Weeknd"
+      ],
+      "category": "20s"
+    },
+    {
+      "id": "the-weeknd-save-your-tears",
+      "filename": "the-weeknd-save-your-tears.mp3",
+      "title": "Save Your Tears",
+      "artist": "The Weeknd",
+      "album": "Save Your Tears (Remix)",
+      "duration": 191,
+      "genre": "R&B",
+      "hint": "R&B track",
+      "alternatives": [
+        "Save Your Tears",
+        "The Weeknd",
+        "Save Your Tears — The Weeknd"
+      ],
+      "category": "20s"
+    },
+    {
+      "id": "taylor-swift-anti-hero",
+      "filename": "taylor-swift-anti-hero.mp3",
+      "title": "Anti-Hero",
+      "artist": "Taylor Swift",
+      "album": "Midnights",
+      "duration": 200,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'Midnights'",
+      "alternatives": [
+        "Anti-Hero",
+        "Taylor Swift",
+        "Anti-Hero — Taylor Swift"
+      ],
+      "category": "20s"
+    },
+    {
+      "id": "taylor-swift-cardigan",
+      "filename": "taylor-swift-cardigan.mp3",
+      "title": "cardigan",
+      "artist": "Taylor Swift",
+      "album": "folklore",
+      "duration": 239,
+      "genre": "Alternative",
+      "hint": "Alternative track from the album 'folklore'",
+      "alternatives": [
+        "cardigan",
+        "Taylor Swift",
+        "cardigan — Taylor Swift"
+      ],
+      "category": "20s"
+    },
+    {
+      "id": "olivia-rodrigo-drivers-license",
+      "filename": "olivia-rodrigo-drivers-license.mp3",
+      "title": "drivers license",
+      "artist": "Olivia Rodrigo",
+      "album": "SOUR",
+      "duration": 242,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'SOUR'",
+      "alternatives": [
+        "drivers license",
+        "Olivia Rodrigo",
+        "drivers license — Olivia Rodrigo"
+      ],
+      "category": "20s"
+    },
+    {
+      "id": "olivia-rodrigo-good-4-u",
+      "filename": "olivia-rodrigo-good-4-u.mp3",
+      "title": "good 4 u",
+      "artist": "Olivia Rodrigo",
+      "album": "SOUR",
+      "duration": 178,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'SOUR'",
+      "alternatives": [
+        "good 4 u",
+        "Olivia Rodrigo",
+        "good 4 u — Olivia Rodrigo"
+      ],
+      "category": "20s"
+    },
+    {
+      "id": "the-kid-laroi-stay",
+      "filename": "the-kid-laroi-stay.mp3",
+      "title": "STAY",
+      "artist": "The Kid LAROI",
+      "album": "STAY",
+      "duration": 140,
+      "genre": "Alternative",
+      "hint": "Alternative track",
+      "alternatives": [
+        "STAY",
+        "The Kid LAROI",
+        "STAY — The Kid LAROI"
+      ],
+      "category": "20s"
+    },
+    {
+      "id": "adele-easy-on-me",
+      "filename": "adele-easy-on-me.mp3",
+      "title": "Easy On Me",
+      "artist": "Adele",
+      "album": "Easy On Me",
+      "duration": 224,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Easy On Me",
+        "Adele",
+        "Easy On Me — Adele"
+      ],
+      "category": "20s"
+    },
+    {
+      "id": "ed-sheeran-bad-habits",
+      "filename": "ed-sheeran-bad-habits.mp3",
+      "title": "Bad Habits",
+      "artist": "Ed Sheeran",
+      "album": "Bad Habits",
+      "duration": 230,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Bad Habits",
+        "Ed Sheeran",
+        "Bad Habits — Ed Sheeran"
+      ],
+      "category": "20s"
+    },
+    {
+      "id": "glass-animals-heat-waves",
+      "filename": "glass-animals-heat-waves.mp3",
+      "title": "Heat Waves",
+      "artist": "Glass Animals",
+      "album": "Dreamland",
+      "duration": 239,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'Dreamland'",
+      "alternatives": [
+        "Heat Waves",
+        "Glass Animals",
+        "Heat Waves — Glass Animals"
+      ],
+      "category": "20s"
+    },
+    {
+      "id": "miley-cyrus-flowers",
+      "filename": "miley-cyrus-flowers.mp3",
+      "title": "Flowers",
+      "artist": "Miley Cyrus",
+      "album": "Flowers",
+      "duration": 200,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Flowers",
+        "Miley Cyrus",
+        "Flowers — Miley Cyrus"
+      ],
+      "category": "20s"
+    },
+    {
+      "id": "sam-smith-unholy",
+      "filename": "sam-smith-unholy.mp3",
+      "title": "Unholy",
+      "artist": "Sam Smith",
+      "album": "Unholy",
+      "duration": 157,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Unholy",
+        "Sam Smith",
+        "Unholy — Sam Smith"
+      ],
+      "category": "20s"
+    },
+    {
+      "id": "lizzo-about-damn-time",
+      "filename": "lizzo-about-damn-time.mp3",
+      "title": "About Damn Time",
+      "artist": "Lizzo",
+      "album": "Special",
+      "duration": 191,
+      "genre": "Pop",
+      "hint": "Pop track from the album 'Special'",
+      "alternatives": [
+        "About Damn Time",
+        "Lizzo",
+        "About Damn Time — Lizzo"
+      ],
+      "category": "20s"
+    },
+    {
+      "id": "lil-nas-x-industry-baby",
+      "filename": "lil-nas-x-industry-baby.mp3",
+      "title": "INDUSTRY BABY",
+      "artist": "Lil Nas X",
+      "album": "INDUSTRY BABY",
+      "duration": 214,
+      "genre": "Rap/Hip Hop",
+      "hint": "Rap/Hip Hop track",
+      "alternatives": [
+        "INDUSTRY BABY",
+        "Lil Nas X",
+        "INDUSTRY BABY — Lil Nas X"
+      ],
+      "category": "20s"
+    },
+    {
+      "id": "sabrina-carpenter-espresso",
+      "filename": "sabrina-carpenter-espresso.mp3",
+      "title": "Espresso",
+      "artist": "Sabrina Carpenter",
+      "album": "Espresso",
+      "duration": 175,
+      "genre": "Pop",
+      "hint": "Pop track",
+      "alternatives": [
+        "Espresso",
+        "Sabrina Carpenter",
+        "Espresso — Sabrina Carpenter"
+      ],
+      "category": "20s"
+    }
+  ]
+}

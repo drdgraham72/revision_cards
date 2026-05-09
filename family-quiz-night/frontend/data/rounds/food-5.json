@@ -1,0 +1,50 @@
+{
+  "id": "food-5",
+  "topic": "food",
+  "title": "Connections: Fork & Glass",
+  "desc": "What links these foods? Spot the pattern, name the connection",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "What connects: Champagne, Parmesan, Feta, and Darjeeling tea?",
+      "a": "They all have Protected Designation of Origin — they can only legally be called that if produced in their specific region"
+    },
+    {
+      "q": "What connects: a Bloody Mary, a Mimosa, and a Bellini?",
+      "a": "They're all brunch cocktails named after something else — a queen, a painter, and a cocktail"
+    },
+    {
+      "q": "Odd one out: Tofu, Tempeh, Seitan, Edamame. Which one and why?",
+      "a": "Seitan — it's made from wheat gluten, not soy. The other three are all soybean products"
+    },
+    {
+      "q": "True, false, or it depends: 'Sushi' means 'raw fish'",
+      "a": "False — sushi refers to the vinegared rice. Raw fish is 'sashimi'. You can have sushi with no fish at all"
+    },
+    {
+      "q": "Put these in order of Scoville heat units, mildest to hottest: Jalapeño, Habanero, Carolina Reaper, Tabasco sauce",
+      "a": "Tabasco (~2,500) → Jalapeño (~5,000) → Habanero (~300,000) → Carolina Reaper (~2.2 million)"
+    },
+    {
+      "q": "What connects: fortune cookies, chicken tikka masala, and Hawaiian pizza?",
+      "a": "None of them come from where you'd expect — fortune cookies are American, tikka masala is British, Hawaiian pizza is Canadian"
+    },
+    {
+      "q": "Name the dish: it originated in Cincinnati, contains chocolate and cinnamon in the sauce, and is served over spaghetti",
+      "a": "Cincinnati chili — a Greek-American invention nothing like Texan chili"
+    },
+    {
+      "q": "What's the connection: a roux, a slurry, and a beurre manié?",
+      "a": "They're all thickening agents for sauces — roux (fat+flour cooked), slurry (starch+cold liquid), beurre manié (raw butter+flour kneaded)"
+    },
+    {
+      "q": "Two of these are the same thing with different names. Which two? Coriander, Cilantro, Parsley, Culantro",
+      "a": "Coriander and cilantro — same plant (coriander is British English, cilantro is American). Culantro is a completely different herb"
+    },
+    {
+      "q": "What connects Vegemite, Marmite, and Bovril — and which is the odd one out?",
+      "a": "All are dark, salty spreads. Bovril is the odd one out — it's made from beef extract, while Vegemite and Marmite are yeast extract"
+    }
+  ]
+}

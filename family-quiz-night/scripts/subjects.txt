@@ -1,0 +1,244 @@
+# Family Quiz Night — picture bank subjects.
+# Format: Wikipedia article title | category
+# Lines starting with # are ignored.
+
+# ── Scientists ─────────────────────────────────────────────────
+Albert Einstein | scientist
+Isaac Newton | scientist
+Marie Curie | scientist
+Charles Darwin | scientist
+Stephen Hawking | scientist
+Nikola Tesla | scientist
+Thomas Edison | scientist
+Galileo Galilei | scientist
+Nicolaus Copernicus | scientist
+Johannes Kepler | scientist
+Louis Pasteur | scientist
+Alexander Fleming | scientist
+Alan Turing | scientist
+Ada Lovelace | scientist
+Rosalind Franklin | scientist
+James Clerk Maxwell | scientist
+Michael Faraday | scientist
+Werner Heisenberg | scientist
+Niels Bohr | scientist
+Erwin Schrödinger | scientist
+Max Planck | scientist
+Richard Feynman | scientist
+Carl Sagan | scientist
+Edwin Hubble | scientist
+Linus Pauling | scientist
+Gregor Mendel | scientist
+Dmitri Mendeleev | scientist
+Sigmund Freud | scientist
+Carl Jung | scientist
+Jane Goodall | scientist
+David Attenborough | scientist
+Tim Berners-Lee | scientist
+Grace Hopper | scientist
+
+# ── Musicians ─────────────────────────────────────────────────
+Wolfgang Amadeus Mozart | musician
+Ludwig van Beethoven | musician
+Johann Sebastian Bach | musician
+Frédéric Chopin | musician
+Pyotr Ilyich Tchaikovsky | musician
+Elvis Presley | musician
+Bob Dylan | musician
+Jimi Hendrix | musician
+Frank Sinatra | musician
+Aretha Franklin | musician
+Stevie Wonder | musician
+Prince (musician) | musician
+Michael Jackson | musician
+Whitney Houston | musician
+David Bowie | musician
+Freddie Mercury | musician
+Mick Jagger | musician
+John Lennon | musician
+Paul McCartney | musician
+Bob Marley | musician
+Bruce Springsteen | musician
+Madonna | musician
+Beyoncé | musician
+Taylor Swift | musician
+Adele | musician
+Ed Sheeran | musician
+Rihanna | musician
+Lady Gaga | musician
+Dolly Parton | musician
+Johnny Cash | musician
+Kurt Cobain | musician
+Tupac Shakur | musician
+Eminem | musician
+Billie Eilish | musician
+
+# ── Actors & Directors ────────────────────────────────────────
+Charlie Chaplin | actor
+Buster Keaton | actor
+Marilyn Monroe | actor
+Audrey Hepburn | actor
+Humphrey Bogart | actor
+James Stewart | actor
+Marlon Brando | actor
+Robert De Niro | actor
+Al Pacino | actor
+Meryl Streep | actor
+Tom Hanks | actor
+Tom Cruise | actor
+Brad Pitt | actor
+George Clooney | actor
+Leonardo DiCaprio | actor
+Will Smith | actor
+Denzel Washington | actor
+Morgan Freeman | actor
+Anthony Hopkins | actor
+Judi Dench | actor
+Helen Mirren | actor
+Cate Blanchett | actor
+Nicole Kidman | actor
+Julia Roberts | actor
+Jennifer Lawrence | actor
+Emma Stone | actor
+Margot Robbie | actor
+Idris Elba | actor
+Daniel Day-Lewis | actor
+Alfred Hitchcock | actor
+Stanley Kubrick | actor
+Steven Spielberg | actor
+Martin Scorsese | actor
+Quentin Tarantino | actor
+Akira Kurosawa | actor
+Christopher Nolan | actor
+
+# ── Historical & political leaders ────────────────────────────
+Abraham Lincoln | leader
+George Washington | leader
+Theodore Roosevelt | leader
+Franklin D. Roosevelt | leader
+John F. Kennedy | leader
+Richard Nixon | leader
+Ronald Reagan | leader
+Barack Obama | leader
+Donald Trump | leader
+Winston Churchill | leader
+Margaret Thatcher | leader
+Tony Blair | leader
+Queen Elizabeth II | leader
+Queen Victoria | leader
+Henry VIII | leader
+Elizabeth I | leader
+Charles de Gaulle | leader
+Angela Merkel | leader
+Vladimir Putin | leader
+Xi Jinping | leader
+Mahatma Gandhi | leader
+Nelson Mandela | leader
+Martin Luther King Jr. | leader
+Malcolm X | leader
+Mikhail Gorbachev | leader
+Joseph Stalin | leader
+Adolf Hitler | leader
+Benito Mussolini | leader
+Mao Zedong | leader
+Fidel Castro | leader
+Che Guevara | leader
+Napoleon | leader
+Julius Caesar | leader
+Cleopatra | leader
+Genghis Khan | leader
+Alexander the Great | leader
+
+# ── Athletes ──────────────────────────────────────────────────
+Pelé | athlete
+Diego Maradona | athlete
+Lionel Messi | athlete
+Cristiano Ronaldo | athlete
+David Beckham | athlete
+Roger Federer | athlete
+Rafael Nadal | athlete
+Novak Djokovic | athlete
+Serena Williams | athlete
+Venus Williams | athlete
+Michael Jordan | athlete
+LeBron James | athlete
+Kobe Bryant | athlete
+Tiger Woods | athlete
+Muhammad Ali | athlete
+Mike Tyson | athlete
+Usain Bolt | athlete
+Michael Phelps | athlete
+Tom Brady | athlete
+Lewis Hamilton | athlete
+Ayrton Senna | athlete
+Michael Schumacher | athlete
+Wayne Gretzky | athlete
+Babe Ruth | athlete
+Jesse Owens | athlete
+
+# ── Landmarks & places ────────────────────────────────────────
+Eiffel Tower | landmark
+Big Ben | landmark
+Statue of Liberty | landmark
+Taj Mahal | landmark
+Great Wall of China | landmark
+Machu Picchu | landmark
+Great Pyramid of Giza | landmark
+Great Sphinx of Giza | landmark
+Colosseum | landmark
+Acropolis of Athens | landmark
+Petra | landmark
+Stonehenge | landmark
+Sydney Opera House | landmark
+Burj Khalifa | landmark
+Empire State Building | landmark
+Golden Gate Bridge | landmark
+Tower Bridge | landmark
+Christ the Redeemer (statue) | landmark
+Mount Rushmore | landmark
+Mount Everest | landmark
+Mount Fuji | landmark
+Niagara Falls | landmark
+Grand Canyon | landmark
+Sagrada Família | landmark
+Notre-Dame de Paris | landmark
+Brandenburg Gate | landmark
+
+# ── Artworks ──────────────────────────────────────────────────
+Mona Lisa | artwork
+The Starry Night | artwork
+The Scream | artwork
+The Persistence of Memory | artwork
+The Last Supper (Leonardo) | artwork
+Sistine Chapel ceiling | artwork
+The Birth of Venus | artwork
+Girl with a Pearl Earring | artwork
+American Gothic | artwork
+Nighthawks | artwork
+Sunflowers (Van Gogh series) | artwork
+The Kiss (Klimt) | artwork
+Guernica (Picasso) | artwork
+The Great Wave off Kanagawa | artwork
+Whistler's Mother | artwork
+
+# ── Animals ───────────────────────────────────────────────────
+Lion | animal
+African elephant | animal
+Giraffe | animal
+Cheetah | animal
+Tiger | animal
+Giant panda | animal
+Koala | animal
+Red kangaroo | animal
+Emperor penguin | animal
+Common octopus | animal
+Bottlenose dolphin | animal
+Blue whale | animal
+Great white shark | animal
+Bald eagle | animal
+Snowy owl | animal
+Bee hummingbird | animal
+Red-eyed tree frog | animal
+Veiled chameleon | animal
+Monarch butterfly | animal
+Goldfish | animal

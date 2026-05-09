@@ -1,0 +1,50 @@
+{
+  "id": "science-5",
+  "topic": "science",
+  "title": "Current Affairs Lab",
+  "desc": "2023-2025 breakthroughs, climate milestones & tech that just landed",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "In 2024, which country became the fourth to successfully land a spacecraft on the Moon?",
+      "a": "Japan (SLIM lander, January 2024) — after the US, Russia/USSR, and China. India's Chandrayaan-3 landed in August 2023, making them third"
+    },
+    {
+      "q": "What is 'nuclear fusion' and why was the December 2022 NIF result a breakthrough?",
+      "a": "Fusing atoms to release energy (how stars work). The National Ignition Facility achieved 'ignition' — the fusion reaction produced more energy than the lasers put in, for the first time ever"
+    },
+    {
+      "q": "GPT-4, Claude, Gemini — what does 'LLM' stand for and what do these models fundamentally do?",
+      "a": "Large Language Model — they predict the next word (token) in a sequence, trained on enormous text datasets. They don't 'think' — they're very sophisticated pattern matchers"
+    },
+    {
+      "q": "The ozone layer is recovering — true or false, and why?",
+      "a": "True — the 1987 Montreal Protocol banned CFCs. The ozone hole is projected to heal fully by roughly 2066 over Antarctica. One of the great success stories of international cooperation"
+    },
+    {
+      "q": "What is a 'heat dome' and why have they been in the news?",
+      "a": "A high-pressure system that traps hot air over a region, preventing cooling. They've intensified due to climate change — the 2021 Pacific Northwest heat dome hit 49.6°C in Canada"
+    },
+    {
+      "q": "James Webb Space Telescope launched in 2021. What can it see that Hubble can't?",
+      "a": "Infrared light — JWST can peer through dust clouds and see the earliest galaxies, formed just a few hundred million years after the Big Bang"
+    },
+    {
+      "q": "What is 'gain-of-function' research and why is it controversial?",
+      "a": "Deliberately making pathogens more transmissible or deadly to study them. Controversial because of the risk of lab leaks — the debate intensified during COVID-19 origin discussions"
+    },
+    {
+      "q": "Ozempic and Wegovy are the same drug. What was it originally designed to treat?",
+      "a": "Type 2 diabetes — the active ingredient semaglutide mimics a gut hormone (GLP-1). The weight loss was a side effect that became the main selling point"
+    },
+    {
+      "q": "What did AlphaFold (by DeepMind) solve in 2020 that scientists had struggled with for 50 years?",
+      "a": "Protein structure prediction — predicting the 3D shape of a protein from its amino acid sequence. It's accelerated drug discovery and biological research enormously"
+    },
+    {
+      "q": "Microplastics have now been found in human blood, breast milk, and where else that shocked researchers in 2024?",
+      "a": "The brain — and also placentas, lungs, and testicles. The health effects are still being studied"
+    }
+  ]
+}

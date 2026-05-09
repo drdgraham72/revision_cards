@@ -1,0 +1,50 @@
+{
+  "id": "history-6",
+  "topic": "history",
+  "title": "Connections: Time Travel",
+  "desc": "What links these historical facts? Spot the thread across centuries",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "What connects: the fall of Constantinople (1453), Columbus reaching America (1492), and the printing press (~1440)?",
+      "a": "They all mark the transition from the Medieval period to the Renaissance / Age of Exploration — the end of one era and the birth of the modern world within a 50-year window"
+    },
+    {
+      "q": "What connects: penicillin, X-rays, and the microwave oven?",
+      "a": "All were discovered by accident — Fleming's mouldy petri dish, Röntgen's fluorescent screen, and Percy Spencer's melted chocolate bar near a magnetron"
+    },
+    {
+      "q": "Odd one out: Roman Empire, Ottoman Empire, British Empire, Mongol Empire. Which and why?",
+      "a": "Mongol Empire — it's the only one that was never a naval power. The others all had significant maritime reach"
+    },
+    {
+      "q": "What connects: Harriet Tubman, Oskar Schindler, and Raoul Wallenberg?",
+      "a": "All risked their lives to save persecuted people — Tubman (enslaved people via the Underground Railroad), Schindler (Jews during the Holocaust), Wallenberg (Jews in Budapest with protective passports)"
+    },
+    {
+      "q": "Put these inventions in chronological order: compass, gunpowder, printing press, telescope",
+      "a": "Compass (~1100) → gunpowder (~1200s in Europe, earlier in China) → printing press (~1440) → telescope (1608)"
+    },
+    {
+      "q": "What connects: Napoleon, Elba, and St Helena?",
+      "a": "Napoleon was exiled to Elba in 1814, escaped, returned to power for 100 days, was defeated at Waterloo, then exiled again to St Helena where he died"
+    },
+    {
+      "q": "Which three countries were on the losing side in BOTH World War I and World War II?",
+      "a": "Germany, Austria (Austria-Hungary in WWI), and — controversially — Turkey/Ottoman Empire in WWI, though Turkey was neutral in most of WWII. The clean answer is Germany and Austria; the third is often debated (Hungary, Bulgaria)"
+    },
+    {
+      "q": "What connects: the Suez Canal, the Panama Canal, and the Corinth Canal?",
+      "a": "All are artificial waterways cut through land to shorten sea routes — and all were engineering megaprojects that took decades, cost enormous human life, and reshaped global trade"
+    },
+    {
+      "q": "True, false, or it depends: 'Vikings wore horned helmets'",
+      "a": "False — no archaeological evidence supports horned helmets. The myth comes from 19th-century Romantic opera and art"
+    },
+    {
+      "q": "What connects: the number 1066, 1776, and 1789?",
+      "a": "Pivotal years of revolution/invasion — Norman Conquest of England (1066), American Declaration of Independence (1776), French Revolution (1789)"
+    }
+  ]
+}

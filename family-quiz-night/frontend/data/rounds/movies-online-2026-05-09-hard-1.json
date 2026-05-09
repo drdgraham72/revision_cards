@@ -1,0 +1,50 @@
+{
+  "id": "movies-online-2026-05-09-hard-1",
+  "topic": "movies",
+  "title": "🌐 Online: Movies Hard #1",
+  "desc": "Trivia from OpenTrivia DB — 10 hard questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "In what year was the first Indian movie submitted for an Oscar?",
+      "a": "1957"
+    },
+    {
+      "q": "What was the last Marx Brothers film to feature Zeppo?",
+      "a": "Duck Soup"
+    },
+    {
+      "q": "Which movie did NOT feature the late actor John Candy?",
+      "a": "Ghostbusters"
+    },
+    {
+      "q": "How old was Laurence Fishburne when Francis Ford Coppola cast him in Apocalypse Now (1979)?",
+      "a": "14"
+    },
+    {
+      "q": "What was the name of the actor who played Leatherface in the 1974 horror film, The Texas Chainsaw Massacre?",
+      "a": "Gunnar Hansen"
+    },
+    {
+      "q": "The film Mad Max: Fury Road features the Dies Irae from which composer's requiem?",
+      "a": "Verdi"
+    },
+    {
+      "q": "What is the species of the \"Predator\" in the 1987 movie \"Predator\"?",
+      "a": "Yautja"
+    },
+    {
+      "q": "In the \"Jurassic Park\" universe, when did \"Jurassic Park: San Diego\" begin construction?",
+      "a": "1985"
+    },
+    {
+      "q": "In the film \"Harry Potter and the Order of The Phoenix\", why was Harry Potter's scream, after Sirius Black died, muted?",
+      "a": "Too Agonizing"
+    },
+    {
+      "q": "Which actress portrayed Dr. Grace Augustine in the James Cameron movie \"Avatar\"?",
+      "a": "Sigourney Weaver"
+    }
+  ]
+}

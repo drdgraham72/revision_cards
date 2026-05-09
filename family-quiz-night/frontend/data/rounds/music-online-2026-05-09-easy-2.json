@@ -1,0 +1,46 @@
+{
+  "id": "music-online-2026-05-09-easy-2",
+  "topic": "music",
+  "title": "🌐 Online: Music Easy #2",
+  "desc": "Trivia from OpenTrivia DB — 9 easy questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "\"The Singing Cowboy\" Gene Autry is credited with the first recording for all but which classic Christmas jingle?",
+      "a": "White Christmas"
+    },
+    {
+      "q": "How many studio albums have the duo Daft Punk released?",
+      "a": "4"
+    },
+    {
+      "q": "A classic 1976 song by Blue Oyster Cult features the advice “Don’t Fear The” what?",
+      "a": "Reaper"
+    },
+    {
+      "q": "Which band released songs suchs as \"Rio\", \"Girls on Film\", and \"The Reflex\"?",
+      "a": "Duran Duran"
+    },
+    {
+      "q": "Which song on Daft Punk's \"Random Access Memories\" features Pharrell Williams?",
+      "a": "Get Lucky"
+    },
+    {
+      "q": "Who had a 1983 hit with the song 'Africa'?",
+      "a": "Toto"
+    },
+    {
+      "q": "Which song is NOT by singer Tom Jones?",
+      "a": "Never Gonna Give You Up"
+    },
+    {
+      "q": "Which 80s band is fronted by singer/guitarist Robert Smith?",
+      "a": "The Cure"
+    },
+    {
+      "q": "Where does the Mac part of the name Fleetwood Mac come from?",
+      "a": "John McVie"
+    }
+  ]
+}

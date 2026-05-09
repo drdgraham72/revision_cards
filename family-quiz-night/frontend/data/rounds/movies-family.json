@@ -1,0 +1,50 @@
+{
+  "id": "movies-family",
+  "topic": "movies",
+  "title": "Plot Holes & Popcorn",
+  "desc": "Behind-the-scenes secrets, odd casting choices & film world trivia",
+  "type": "standard",
+  "isNew": false,
+  "questions": [
+    {
+      "q": "The blood in the elevator scene in 'The Shining' took how many days to set up for a shot lasting just a few seconds?",
+      "a": "About a year of planning — three days to film, and they used up to 3,000 gallons of fake blood"
+    },
+    {
+      "q": "In 'Toy Story', what is the name of the moving company on the truck?",
+      "a": "Eggman Movers (with the tagline 'Moving? Call Eggman')"
+    },
+    {
+      "q": "Which Best Picture winner at the Oscars has the shortest runtime?",
+      "a": "Marty (1955) at 90 minutes"
+    },
+    {
+      "q": "The Wilhelm Scream is a famous stock sound effect — in which 1951 film was it first recorded?",
+      "a": "Distant Drums — though it was named after the character Private Wilhelm in 'The Charge at Feather River' (1953)"
+    },
+    {
+      "q": "Which actor has been killed on screen more than any other in Hollywood history?",
+      "a": "Danny Trejo (by his own estimate, over 80 deaths)"
+    },
+    {
+      "q": "In 'The Matrix', everything inside the Matrix has a faint green tint. What colour tint does the real world have?",
+      "a": "Blue — the colour grading shifts between the two worlds throughout"
+    },
+    {
+      "q": "What was the first fully computer-animated feature film ever released?",
+      "a": "Toy Story (1995)"
+    },
+    {
+      "q": "Alfred Hitchcock made a cameo in nearly all his films. In 'Lifeboat' (1944), which is set entirely on a small boat, how did he appear?",
+      "a": "In a newspaper ad for a weight-loss product — as the 'before and after' photo"
+    },
+    {
+      "q": "The country of Wakanda from 'Black Panther' briefly appeared on a real US government trade partner list. True or false?",
+      "a": "True — the USDA accidentally listed Wakanda as a free trade partner in 2019"
+    },
+    {
+      "q": "Which horror film was marketed with the tagline 'In space, no one can hear you scream'?",
+      "a": "Alien (1979)"
+    }
+  ]
+}

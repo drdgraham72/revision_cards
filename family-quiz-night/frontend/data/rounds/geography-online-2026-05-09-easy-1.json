@@ -1,0 +1,50 @@
+{
+  "id": "geography-online-2026-05-09-easy-1",
+  "topic": "geography",
+  "title": "🌐 Online: Geography Easy #1",
+  "desc": "Trivia from OpenTrivia DB — 10 easy questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "What is Russia's second-largest city?",
+      "a": "Saint Petersburg"
+    },
+    {
+      "q": "What is the capital of Finland?",
+      "a": "Helsinki"
+    },
+    {
+      "q": "What is the name of the ocean that Hawaii is located in?",
+      "a": "Pacific"
+    },
+    {
+      "q": "How many countries does Mexico border?",
+      "a": "3"
+    },
+    {
+      "q": "What is the Capital of the United States?",
+      "a": "Washington, D.C."
+    },
+    {
+      "q": "Which European city is known as the \"City of Light\"?",
+      "a": "Paris"
+    },
+    {
+      "q": "What is the capital of Romania?",
+      "a": "Bucharest"
+    },
+    {
+      "q": "Which city is the capital of the United States of America?",
+      "a": "Washington D.C"
+    },
+    {
+      "q": "In which ocean is the Réunion island?",
+      "a": "Indian Ocean"
+    },
+    {
+      "q": "The Alps are a mountain range on which continent?",
+      "a": "Europe"
+    }
+  ]
+}

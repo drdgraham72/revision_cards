@@ -1,0 +1,50 @@
+{
+  "id": "history-4",
+  "topic": "history",
+  "title": "Footnotes & Margins",
+  "desc": "The people history forgot, inventions credited to the wrong person & accidental empires",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Who actually invented the lightbulb — because it wasn't just Edison?",
+      "a": "At least 20 inventors worked on incandescent lighting before Edison. Humphry Davy, Warren de la Rue, and Joseph Swan all had working versions. Edison perfected the commercially viable one"
+    },
+    {
+      "q": "Hedy Lamarr was a 1940s Hollywood star who also co-invented what foundational technology?",
+      "a": "Frequency-hopping spread spectrum — the basis for modern Wi-Fi, Bluetooth, and GPS"
+    },
+    {
+      "q": "The Phlogiston Theory dominated chemistry for over a century. What was it and why was it wrong?",
+      "a": "It claimed combustible materials contained 'phlogiston' that was released during burning. Lavoisier disproved it by demonstrating that combustion requires oxygen"
+    },
+    {
+      "q": "Which country had a female pharaoh, warrior queens, and a written language before most of Europe?",
+      "a": "The Kingdom of Kush (modern-day Sudan) — with Kandakes (warrior queens) and Meroitic script"
+    },
+    {
+      "q": "The Treaty of Tordesillas in 1494 did what extraordinary thing?",
+      "a": "Split the entire non-Christian world between Spain and Portugal — drawing a line through the Atlantic. That's why Brazil speaks Portuguese"
+    },
+    {
+      "q": "Ada Lovelace is credited as the first computer programmer. What machine was she writing for?",
+      "a": "Charles Babbage's Analytical Engine — a mechanical general-purpose computer that was never fully built"
+    },
+    {
+      "q": "What was 'Greek fire' and why was it so feared?",
+      "a": "A Byzantine incendiary weapon that burned on water and couldn't be extinguished. The exact formula was a state secret and has been lost to history"
+    },
+    {
+      "q": "The 'Year Without a Summer' (1816) was caused by what?",
+      "a": "The eruption of Mount Tambora in Indonesia in 1815 — volcanic ash blocked sunlight globally, causing crop failures, snow in June, and famine"
+    },
+    {
+      "q": "Who were the Harlem Hellfighters and why were they significant?",
+      "a": "The 369th Infantry Regiment — an African-American unit in WWI that spent 191 days in combat (the longest of any American unit) and never lost a trench. France awarded them the Croix de Guerre; America largely ignored them"
+    },
+    {
+      "q": "Tenochtitlan, the Aztec capital, was larger than any European city when the Spanish arrived. What modern city sits on its ruins?",
+      "a": "Mexico City"
+    }
+  ]
+}

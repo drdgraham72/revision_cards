@@ -1,0 +1,50 @@
+{
+  "id": "sport-hard",
+  "topic": "sport",
+  "title": "Extra Time",
+  "desc": "Banned techniques, statistical anomalies & the matches nobody expected",
+  "type": "standard",
+  "isNew": false,
+  "questions": [
+    {
+      "q": "The 'Fosbury Flop' revolutionised the high jump. Before Dick Fosbury, what technique did most athletes use?",
+      "a": "The straddle (or 'Western Roll') — going over face-down. Fosbury went over backwards at the 1968 Olympics and won gold"
+    },
+    {
+      "q": "In cricket, only one player has scored 400 runs in a single Test innings. Who?",
+      "a": "Brian Lara — 400 not out for the West Indies vs England in 2004"
+    },
+    {
+      "q": "The 'Miracle on Ice' refers to which specific match, between which teams, in which year?",
+      "a": "USA vs USSR in ice hockey at the 1980 Winter Olympics in Lake Placid — the amateur US team beat the dominant Soviet professionals"
+    },
+    {
+      "q": "Why was the underarm bowling incident in 1981 between Australia and New Zealand so controversial?",
+      "a": "Australia's captain instructed his bowler to roll the ball along the ground for the last delivery, making it impossible for NZ to hit a six to tie — legal but considered deeply unsportsmanlike"
+    },
+    {
+      "q": "In boxing, the 'phantom punch' that knocked out Sonny Liston was thrown by whom, and why is it controversial?",
+      "a": "Muhammad Ali in 1965 — many ringside observers couldn't see the punch connect, leading to conspiracy theories that the fight was fixed"
+    },
+    {
+      "q": "What is 'Moneyball' and which baseball team pioneered the approach?",
+      "a": "Using statistical analysis (sabermetrics) instead of traditional scouting — pioneered by the Oakland Athletics under GM Billy Beane in the early 2000s"
+    },
+    {
+      "q": "Leicester City won the 2015-16 Premier League at odds of 5000-1. What had they nearly done the season before?",
+      "a": "Been relegated — they were bottom of the table in April 2015 before a miraculous survival run"
+    },
+    {
+      "q": "The 'Hand of God' is famous — but what happened with Maradona's second goal in that same match that's considered even more remarkable?",
+      "a": "He dribbled past five England players and the goalkeeper in a 60-metre run — often called the 'Goal of the Century'"
+    },
+    {
+      "q": "In Formula 1, only one driver has won the World Championship posthumously. Who?",
+      "a": "Jochen Rindt in 1970 — he died at Monza with a points lead that nobody overtook"
+    },
+    {
+      "q": "What is 'rotating the strike' in cricket and why is it tactically important?",
+      "a": "Batters taking singles to swap ends, ensuring the stronger batter faces the weaker bowler and keeping the scoreboard ticking between boundaries"
+    }
+  ]
+}

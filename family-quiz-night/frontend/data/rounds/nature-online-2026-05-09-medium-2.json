@@ -1,0 +1,42 @@
+{
+  "id": "nature-online-2026-05-09-medium-2",
+  "topic": "nature",
+  "title": "🌐 Online: Nature Medium #2",
+  "desc": "Trivia from OpenTrivia DB — 8 medium questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "What is the fastest animal?",
+      "a": "Peregrine Falcon"
+    },
+    {
+      "q": "A carnivorous animal eats flesh, what does a nucivorous animal eat?",
+      "a": "Nuts"
+    },
+    {
+      "q": "What type of animal is a natterjack?",
+      "a": "Toad"
+    },
+    {
+      "q": "What is the collective noun for bears?",
+      "a": "Sloth"
+    },
+    {
+      "q": "What is the name of the family that the domestic cat is a member of?",
+      "a": "Felidae"
+    },
+    {
+      "q": "What color/colour is a polar bear's skin?",
+      "a": "Black"
+    },
+    {
+      "q": "What is the average lifespan of a domestic rabbit?",
+      "a": "8-12 years"
+    },
+    {
+      "q": "The now extinct species \"Thylacine\" was native to where?",
+      "a": "Tasmania, Australia"
+    }
+  ]
+}

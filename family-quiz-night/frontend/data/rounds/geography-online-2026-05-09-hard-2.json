@@ -1,0 +1,38 @@
+{
+  "id": "geography-online-2026-05-09-hard-2",
+  "topic": "geography",
+  "title": "🌐 Online: Geography Hard #2",
+  "desc": "Trivia from OpenTrivia DB — 7 hard questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "What year is on the flag of the US state Wisconsin?",
+      "a": "1848"
+    },
+    {
+      "q": "Where is Timbuktu located?",
+      "a": "Mali, Africa"
+    },
+    {
+      "q": "How many countries share a land border with Russia? (Not including disputed territories)",
+      "a": "14"
+    },
+    {
+      "q": "What was the original name of Ho Chi Minh City?",
+      "a": "Saigon"
+    },
+    {
+      "q": "Bir Tawil, an uninhabited track of land claimed by no country, is located along the border of which two countries?",
+      "a": "Egypt and Sudan"
+    },
+    {
+      "q": "What is Canada's largest island?",
+      "a": "Baffin Island"
+    },
+    {
+      "q": "What is the capital city of Bermuda?",
+      "a": "Hamilton"
+    }
+  ]
+}

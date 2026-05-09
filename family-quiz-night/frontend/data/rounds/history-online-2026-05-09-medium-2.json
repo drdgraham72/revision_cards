@@ -1,0 +1,50 @@
+{
+  "id": "history-online-2026-05-09-medium-2",
+  "topic": "history",
+  "title": "🌐 Online: History Medium #2",
+  "desc": "Trivia from OpenTrivia DB — 10 medium questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Who was the first president born in the independent United States?",
+      "a": "Martin Van Buren"
+    },
+    {
+      "q": "During which American Civil War campaign did Union troops dig a tunnel beneath Confederate troops to detonate explosives underneath them?",
+      "a": "Siege of Petersburg"
+    },
+    {
+      "q": "What happened on June 6, 1944?",
+      "a": "D-Day"
+    },
+    {
+      "q": "Who is attributed credit for recording the epic poem The Odyssey?",
+      "a": "Homer"
+    },
+    {
+      "q": "When did the United States formally declare war on Japan, entering World War II?",
+      "a": "December 8, 1941"
+    },
+    {
+      "q": "Who led France during the \"Reign of Terror\" ?",
+      "a": "Maximilien Robespierre"
+    },
+    {
+      "q": "Who was the first wife of King Henry VIII?",
+      "a": "Catherine of Aragon"
+    },
+    {
+      "q": "In relation to the British Occupation in Ireland, what does the IRA stand for.",
+      "a": "Irish Republican Army"
+    },
+    {
+      "q": "John Moses Browning, the designer of the M1918 BAR (Browning Automatic Rifle) was a part of which religion?",
+      "a": "Mormon"
+    },
+    {
+      "q": "In what year did the First World War end?",
+      "a": "1918"
+    }
+  ]
+}

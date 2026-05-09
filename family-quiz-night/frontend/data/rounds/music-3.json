@@ -1,0 +1,50 @@
+{
+  "id": "music-3",
+  "topic": "music",
+  "title": "Encore! Encore!",
+  "desc": "One-hit wonders, stage disasters & the songs that almost never happened",
+  "type": "standard",
+  "isNew": false,
+  "questions": [
+    {
+      "q": "'Bohemian Rhapsody' was almost cut from the album because the label thought it was too long. How long is it?",
+      "a": "5 minutes 55 seconds — the label wanted a radio-friendly single under 3 minutes"
+    },
+    {
+      "q": "Which band took their name from a negative review of another band's concert?",
+      "a": "Joy Division? No — 'Radiohead' was a Talking Heads song. But the classic answer is that 'Bad Religion' is self-descriptive. The actual one: 'The Who' chose their name partly because it was confusing and annoying to journalists"
+    },
+    {
+      "q": "What instrument does a Theremin use to make sound, and why is it unusual?",
+      "a": "It uses two antennas that detect the position of your hands — you play it without touching it"
+    },
+    {
+      "q": "'Smells Like Teen Spirit' by Nirvana was named after what?",
+      "a": "A deodorant brand — Kurt Cobain's friend Kathleen Hanna sprayed 'Kurt smells like Teen Spirit' on his wall, and he thought it was a revolutionary slogan"
+    },
+    {
+      "q": "Which country has produced the most #1 Billboard Hot 100 hits per capita?",
+      "a": "Sweden — thanks to ABBA, Robyn, Max Martin (who wrote hits for Britney, Backstreet Boys, Taylor Swift, The Weeknd), and Avicii"
+    },
+    {
+      "q": "What is 'autotune' actually doing to a singer's voice, technically?",
+      "a": "Shifting the pitch of each note to the nearest correct semitone in real time — at extreme settings it creates the robotic effect popularised by T-Pain and Cher"
+    },
+    {
+      "q": "Jimi Hendrix, Janis Joplin, Jim Morrison, Kurt Cobain, and Amy Winehouse all share what morbid coincidence?",
+      "a": "They all died at age 27 — the so-called '27 Club'"
+    },
+    {
+      "q": "The longest-running #1 single in UK chart history spent 14 weeks at the top. What was it?",
+      "a": "'Stay' by The Kid LAROI and Justin Bieber? No — it was 'Old Town Road' in the US. In the UK it's 'I Believe' by Frankie Laine (1953) at 18 weeks, or more recently 'Last Christmas' by Wham! finally hit #1 in 2021"
+    },
+    {
+      "q": "Keith Moon of The Who was famous for destroying drum kits. What did he once drive into a swimming pool?",
+      "a": "A Rolls-Royce — though the more commonly verified story is a Lincoln Continental at a Holiday Inn"
+    },
+    {
+      "q": "What is a 'ghost note' in drumming?",
+      "a": "A very softly played note — barely audible but felt rhythmically, adding groove and texture between the main beats"
+    }
+  ]
+}

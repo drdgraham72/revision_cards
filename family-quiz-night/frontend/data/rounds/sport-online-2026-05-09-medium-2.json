@@ -1,0 +1,42 @@
+{
+  "id": "sport-online-2026-05-09-medium-2",
+  "topic": "sport",
+  "title": "🌐 Online: Sport Medium #2",
+  "desc": "Trivia from OpenTrivia DB — 8 medium questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Hockey player Wayne Gretzky was born in what Canadian province?",
+      "a": "Ontario"
+    },
+    {
+      "q": "Who won NFL Super Bowl LI? (51)",
+      "a": "Patriots"
+    },
+    {
+      "q": "Which sport is NOT traditionally played during the Mongolian Naadam festival?",
+      "a": "American Football"
+    },
+    {
+      "q": "What is the oldest team in Major League Baseball?",
+      "a": "Atlanta Braves"
+    },
+    {
+      "q": "What year was hockey legend Wayne Gretzky born?",
+      "a": "1961"
+    },
+    {
+      "q": "The 1988 Formula 1 season had McLaren win all but one race, what race did they not win?",
+      "a": "Italian Grand Prix"
+    },
+    {
+      "q": "Which nation hosted the FIFA World Cup in 2006?",
+      "a": "Germany"
+    },
+    {
+      "q": "What is the oldest team in the NFL?",
+      "a": "Arizona Cardinals"
+    }
+  ]
+}

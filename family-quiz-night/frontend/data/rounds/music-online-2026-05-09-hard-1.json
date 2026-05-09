@@ -1,0 +1,46 @@
+{
+  "id": "music-online-2026-05-09-hard-1",
+  "topic": "music",
+  "title": "🌐 Online: Music Hard #1",
+  "desc": "Trivia from OpenTrivia DB — 9 hard questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Where was Nicki Minaj born?",
+      "a": "Trinidad and Tobago"
+    },
+    {
+      "q": "Panic! At the Disco's sixth album \"Pray For The Wicked\" was released on which date?",
+      "a": "June 22, 2018"
+    },
+    {
+      "q": "Which British band won the first edition of the Brit Awards in 1977?",
+      "a": "The Beatles"
+    },
+    {
+      "q": "What is the name of the song by Beyoncé and Alejandro Fernández released in 2007?",
+      "a": "Amor Gitano"
+    },
+    {
+      "q": "What is the official name of Prince's backing band?",
+      "a": "The Revolution"
+    },
+    {
+      "q": "What year was Huun Huur Tu's album Altai Sayan Tandy-Uula released?",
+      "a": "2004"
+    },
+    {
+      "q": "In the Panic! At the Disco's song \"Nothern Downpour\", which lyric follows 'I know the world's a broken bone'.",
+      "a": "\"So melt your headaches call it home\""
+    },
+    {
+      "q": "Pamina and Papageno are characters in what Mozart opera?",
+      "a": "The Magic Flute"
+    },
+    {
+      "q": "Who wrote the song \"You Know You Like It\"?",
+      "a": "AlunaGeorge"
+    }
+  ]
+}

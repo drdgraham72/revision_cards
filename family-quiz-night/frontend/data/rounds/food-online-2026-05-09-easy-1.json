@@ -1,0 +1,46 @@
+{
+  "id": "food-online-2026-05-09-easy-1",
+  "topic": "food",
+  "title": "🌐 Online: Food Easy #1",
+  "desc": "Trivia from OpenTrivia DB — 9 easy questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "What was the name of the WWF professional wrestling tag team made up of the wrestlers Ax and Smash?",
+      "a": "Demolition"
+    },
+    {
+      "q": "Which country developed the AK-47 assault rifle?",
+      "a": "Soviet Union"
+    },
+    {
+      "q": "In past times, what would a gentleman keep in his fob pocket?",
+      "a": "Watch"
+    },
+    {
+      "q": "Who is the origin of the quote \"What doesn't kill you makes you stronger\"?",
+      "a": "Friedrich Nietzsche"
+    },
+    {
+      "q": "Gouda cheese is from which European country?",
+      "a": "The Netherlands"
+    },
+    {
+      "q": "How many syllables make up a haiku?",
+      "a": "17"
+    },
+    {
+      "q": "What is the closest planet to our solar system's sun?",
+      "a": "Mercury"
+    },
+    {
+      "q": "The word \"dozen\" usually refers to a group of how many objects?",
+      "a": "12"
+    },
+    {
+      "q": "What is the famous Papa John's last name?",
+      "a": "Schnatter"
+    }
+  ]
+}

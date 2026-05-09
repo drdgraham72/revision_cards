@@ -1,0 +1,50 @@
+{
+  "id": "movies-5",
+  "topic": "movies",
+  "title": "2023-2025: Just Released",
+  "desc": "Fresh from the multiplex — the latest films and their secrets",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "'Oppenheimer' and 'Barbie' released on the same day, spawning what internet phenomenon?",
+      "a": "Barbenheimer — people bought double-feature tickets and dressed in themed outfits for both"
+    },
+    {
+      "q": "In 'Poor Things' (2023), what is Bella Baxter's journey fundamentally a metaphor for?",
+      "a": "A woman's intellectual and sexual liberation — she's essentially experiencing an accelerated version of growing up free from patriarchal constraints"
+    },
+    {
+      "q": "'Killers of the Flower Moon' (2023) tells the true story of murders in which Native American nation during the 1920s?",
+      "a": "The Osage Nation — members were systematically murdered for their oil wealth headrights"
+    },
+    {
+      "q": "What connects 'Past Lives' (2023) and 'Lost in Translation' (2003)?",
+      "a": "Both are quiet, intimate films about connection and missed timing between two people in a foreign city — and both deliberately leave the ending ambiguous"
+    },
+    {
+      "q": "'Saltburn' (2023) ends with Barry Keoghan doing what that went viral?",
+      "a": "Dancing naked through the mansion to 'Murder on the Dancefloor' — after revealing the full extent of his manipulation"
+    },
+    {
+      "q": "'The Holdovers' (2023) is set in the 1970s at a boarding school. Which 1980s film is it most frequently compared to?",
+      "a": "Dead Poets Society — though tonally it's closer to Harold and Maude or The Breakfast Club"
+    },
+    {
+      "q": "Denis Villeneuve's 'Dune: Part Two' (2024) introduced which key character played by Austin Butler?",
+      "a": "Feyd-Rautha Harkonnen — the Baron's psychopathic nephew and Paul's ultimate rival"
+    },
+    {
+      "q": "What connects 'The Substance' (2024) and David Cronenberg's 'The Fly' (1986)?",
+      "a": "Both are body horror films that use grotesque physical transformation as a metaphor — aging and beauty standards in 'The Substance', hubris and disease in 'The Fly'"
+    },
+    {
+      "q": "'Anora' won the Palme d'Or at Cannes 2024. What's it about in one sentence?",
+      "a": "A Brooklyn sex worker marries the son of a Russian oligarch, then his family tries to annul the marriage — a modern Cinderella story that goes sideways"
+    },
+    {
+      "q": "Which 2024 animated sequel became the fastest animated film to cross $1 billion worldwide?",
+      "a": "Inside Out 2"
+    }
+  ]
+}

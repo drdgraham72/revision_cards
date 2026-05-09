@@ -1,0 +1,46 @@
+{
+  "id": "sport-online-2026-05-09-easy-2",
+  "topic": "sport",
+  "title": "🌐 Online: Sport Easy #2",
+  "desc": "Trivia from OpenTrivia DB — 9 easy questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "What national team won the first UEFA Nations League?",
+      "a": "Portugal"
+    },
+    {
+      "q": "In what sport is a \"shuttlecock\" used?",
+      "a": "Badminton"
+    },
+    {
+      "q": "Which team won the 2015-16 English Premier League?",
+      "a": "Leicester City"
+    },
+    {
+      "q": "Which year did Jenson Button won his first ever Formula One World Drivers' Championship?",
+      "a": "2009"
+    },
+    {
+      "q": "How many soccer players should be on the field at the same time?",
+      "a": "22"
+    },
+    {
+      "q": "Which wrestler won the 2019 Men’s Royal Rumble?",
+      "a": "Seth Rollins"
+    },
+    {
+      "q": "Who won the UEFA Champions League in 2017?",
+      "a": "Real Madrid C.F."
+    },
+    {
+      "q": "In baseball, how many fouls are an out?",
+      "a": "0"
+    },
+    {
+      "q": "Which city did the former NHL team \"The Nordiques\" originiate from?",
+      "a": "Quebec City"
+    }
+  ]
+}

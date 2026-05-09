@@ -1,0 +1,50 @@
+{
+  "id": "sport-5",
+  "topic": "sport",
+  "title": "Connections: Medal Table",
+  "desc": "Find the sporting thread linking each set",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "What connects: Roger Federer, Rafael Nadal, and Novak Djokovic — beyond being tennis players?",
+      "a": "The 'Big Three' — they dominated men's tennis for nearly two decades, winning 66 of 79 Grand Slam titles between 2003 and 2023. Federer retired in 2022"
+    },
+    {
+      "q": "Odd one out: football, rugby, basketball, baseball. Which and why?",
+      "a": "Baseball — it's the only one where the defending team has the ball"
+    },
+    {
+      "q": "What connects: the black power salute (1968), Colin Kaepernick kneeling (2016), and the England football team kneeling (2020)?",
+      "a": "Athletes using their platform for racial justice protest — all were initially condemned by many, then increasingly supported over time"
+    },
+    {
+      "q": "Put these Olympic sports in order of when they were added: basketball, skateboarding, tennis, snowboarding",
+      "a": "Tennis (ancient, reintroduced 1988) → basketball (1936) → snowboarding (1998) → skateboarding (2020)"
+    },
+    {
+      "q": "What connects: the yellow jersey, the green jacket, and the Claret Jug?",
+      "a": "Iconic prizes in their sport — Tour de France leader's jersey, the Masters golf champion's jacket, and the Open Championship golf trophy"
+    },
+    {
+      "q": "Two of these sports were invented in the same country. Which two? Basketball, rugby, cricket, volleyball",
+      "a": "Basketball and volleyball — both invented in the United States (Massachusetts specifically). Rugby and cricket are English"
+    },
+    {
+      "q": "What connects: Usain Bolt's 9.58, Eliud Kipchoge's 1:59:40, and Bob Beamon's 8.90m?",
+      "a": "All are iconic athletic records — 100m sprint, sub-2-hour marathon (unofficial), and long jump. Beamon's 1968 record stood for 23 years"
+    },
+    {
+      "q": "What's the connection: a shuttlecock travels faster than a tennis ball, a golf ball, and a baseball during play?",
+      "a": "True — badminton smashes have been recorded at over 400 km/h (the fastest racquet sport shot), though the shuttlecock decelerates rapidly due to drag"
+    },
+    {
+      "q": "What connects: the Rumble in the Jungle, the Thrilla in Manila, and the Fight of the Century?",
+      "a": "All are Muhammad Ali boxing matches — vs George Foreman (Zaire, 1974), vs Joe Frazier (Philippines, 1975), and vs Joe Frazier (New York, 1971)"
+    },
+    {
+      "q": "True, false, or it depends: 'Women weren't allowed in the Olympic marathon until 1984'",
+      "a": "True — Kathrine Switzer ran the Boston Marathon unofficially in 1967 (an official tried to physically remove her). The women's Olympic marathon was only added at the 1984 Los Angeles Games"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "geography-4",
+  "topic": "geography",
+  "title": "Terminal Velocity",
+  "desc": "Extreme altitudes, sinking cities & the places where maps give up",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Jakarta is sinking so fast the Indonesian government is building a new capital. How fast is it sinking?",
+      "a": "Up to 25cm per year in parts — largely due to groundwater extraction. The new capital is called Nusantara, on Borneo"
+    },
+    {
+      "q": "What is a 'panhandle' in geography?",
+      "a": "A narrow strip of territory extending from a wider area — like the Oklahoma or Florida panhandles, or the Wakhan Corridor in Afghanistan"
+    },
+    {
+      "q": "The Bermuda Triangle is famous — but which body of water has more documented shipwrecks per square mile?",
+      "a": "The Great Lakes — particularly Lake Superior, which has claimed over 350 ships"
+    },
+    {
+      "q": "What is the Caspian Sea — technically?",
+      "a": "The world's largest enclosed inland body of water. Legally it's classified as neither a lake nor a sea — a 2018 convention gave it 'special legal status'"
+    },
+    {
+      "q": "Doggerland connected Britain to mainland Europe until roughly when?",
+      "a": "About 6,500 BC — rising sea levels after the last ice age submerged it. Fishermen still trawl up mammoth bones and stone tools"
+    },
+    {
+      "q": "What makes the Sargasso Sea unique among all the world's seas?",
+      "a": "It has no coastline — it's defined entirely by ocean currents (the North Atlantic gyre). It's the only sea bounded by water, not land"
+    },
+    {
+      "q": "Svalbard, Norway has a 'doomsday vault'. What's stored in it?",
+      "a": "Seeds — the Svalbard Global Seed Vault holds over 1 million seed samples from nearly every country, as insurance against global crop failure"
+    },
+    {
+      "q": "What is a 'desire path' in urban geography?",
+      "a": "A footpath created by foot traffic where people actually walk, as opposed to where planners put pavements — a physical record of collective human preference"
+    },
+    {
+      "q": "The antipodal point of London (exact opposite side of Earth) is where?",
+      "a": "In the ocean southeast of New Zealand — most of Europe's antipodes are in the Pacific Ocean"
+    },
+    {
+      "q": "What percentage of the Earth's population lives in the Northern Hemisphere?",
+      "a": "About 87-90%"
+    }
+  ]
+}

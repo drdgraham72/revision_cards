@@ -1,0 +1,50 @@
+{
+  "id": "movies-6",
+  "topic": "movies",
+  "title": "🎨 Picture Round: Who Am I?",
+  "desc": "ASCII portraits of famous directors and actors — can you name them?",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Name the director:<pre>        .-\"\"\"\"-.      \n       /        \\     \n      |  O    O  |    \n      |    __    |    \n      |   /  \\   |    \n       \\  \\__/  /     \n    ~~~~`------'~~~~  \n    Big round glasses \n    Beard. Spielberg?  \n    No... think indie \n    Woody Allen vibes </pre>",
+      "a": "Woody Allen — round glasses, neurotic expression, New York icon"
+    },
+    {
+      "q": "Name the actor — clues: bald head, intense stare, appeared in both Marvel and Fast & Furious franchises, also voiced a tree<pre>     .-------.  \n    /  .--.   \\ \n   |  /    \\   |\n   | | BALD |  |\n   |  \\    /   |\n    \\  '--'   / \n     '-------'  \n    |  O   O  | \n    |    >    | \n    |  \\___/  | \n     Built.    </pre>",
+      "a": "Vin Diesel — Groot voice, Dom Toretto, bald and built"
+    },
+    {
+      "q": "Name the director — clues: British, always wears a suit on set, made a film about dreams within dreams, and another about a magic trick<pre>    Suit. Always.  \n    Christopher ___ \n    Gotham trilogy  \n    Time bends.    \n    Practical FX.  </pre>",
+      "a": "Christopher Nolan"
+    },
+    {
+      "q": "Name the actress — clues: Australian, won an Oscar playing a queen, shaved her head for Mad Max, and is also a Cate<pre>    Two-time Oscar  \n    Elf queen.      \n    Ocean's 8.      \n    Tár (2022).     \n    .--- Blanchett  </pre>",
+      "a": "Cate Blanchett"
+    },
+    {
+      "q": "Name the actor — clues: Canadian, started on a teen drama, now runs a tequila brand, and was once 'the sexiest man alive'<pre>    Dawson's Creek? \n    No... rival show\n    Ocean's Eleven  \n    Casamigos       \n    Silver fox      \n    George ___      </pre>",
+      "a": "George Clooney"
+    },
+    {
+      "q": "Name the director — clues: Mexican, loves monsters and gothic horror, won Best Director for a fish-man love story<pre>    Pan's Labyrinth \n    Pacific Rim     \n    The Shape of    \n      Water (2017)  \n    Guillermo ___   \n    ___ del Toro    </pre>",
+      "a": "Guillermo del Toro"
+    },
+    {
+      "q": "Name the actress — clues: started in Disney Channel, then Spring Breakers shocked everyone, she's married to a French president's step-granddaughter... wait no. She was in a Harmony Korine film.<pre>    Frozen (voice)  \n    Disney kid.     \n    Then chaos.     \n    Selena ___      </pre>",
+      "a": "Selena Gomez"
+    },
+    {
+      "q": "Name the actor — clues: started in Australian soaps, played Thor, and his brother also acts<pre>    Hemsworth.      \n    But which one?  \n    Mjolnir.        \n    The big one.    \n    Chris ___       </pre>",
+      "a": "Chris Hemsworth"
+    },
+    {
+      "q": "Name the director — clues: Korean, won Best Picture with a film about class warfare involving a basement and a rock<pre>    Parasite (2019) \n    Memories of     \n      Murder        \n    Snowpiercer     \n    Bong ___        </pre>",
+      "a": "Bong Joon-ho"
+    },
+    {
+      "q": "Name the actress — clues: she can do anything — action, comedy, drama, martial arts. Won an Oscar fighting across multiverses in 2023<pre>    Everything      \n    Everywhere      \n    All at Once     \n    Malaysian-born  \n    Michelle ___    </pre>",
+      "a": "Michelle Yeoh"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "music-5",
+  "topic": "music",
+  "title": "2023-2025: Fresh Drops",
+  "desc": "Recent releases, streaming wars & the artists dominating right now",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Taylor Swift's Eras Tour became the highest-grossing concert tour ever. Roughly how much did it earn?",
+      "a": "Over $2 billion — the first tour to cross that threshold"
+    },
+    {
+      "q": "Beyoncé's 'Renaissance' world tour and her 2024 album marked her first venture into which genre?",
+      "a": "Country — the album 'Cowboy Carter' (2024) debuted at #1 on the Billboard Country chart, making her the first Black woman to do so"
+    },
+    {
+      "q": "What connects Olivia Rodrigo, Billie Eilish, and Sabrina Carpenter in the 2023-2024 streaming landscape?",
+      "a": "All three are former Disney/Nickelodeon-adjacent artists who became dominant streaming forces — and all released albums within months of each other, fuelling a 'pop girlies' rivalry narrative"
+    },
+    {
+      "q": "SZA's 'SOS' album spent how many weeks in the Billboard 200 top 10?",
+      "a": "Over 30 weeks — one of the longest-running R&B albums in chart history"
+    },
+    {
+      "q": "What is 'Spotify Wrapped' and why does it go viral every December?",
+      "a": "An annual personalised summary of your listening habits — it goes viral because people share their results as a form of identity expression (and to judge each other)"
+    },
+    {
+      "q": "Peso Pluma brought which genre of Mexican music to global mainstream attention in 2023?",
+      "a": "Música Mexicana / regional Mexican — specifically corridos tumbados, a modern twist on traditional corridos"
+    },
+    {
+      "q": "What connects: 'Flowers' by Miley Cyrus and 'It's Gonna Be Me' by NSYNC?",
+      "a": "Both went viral for different reasons — 'Flowers' was an empowerment anthem after her divorce from Liam Hemsworth, and samples/references Bruno Mars' 'When I Was Your Man'. NSYNC's became a May 1st meme ('It's gonna be May')"
+    },
+    {
+      "q": "Victoria Monét won Best New Artist at the 2024 Grammys despite having worked in music for over a decade. Why?",
+      "a": "She'd been a songwriter for years (writing for Ariana Grande, Chloe x Halle) but only released her debut album 'Jaguar II' as a solo artist"
+    },
+    {
+      "q": "What is 'deluxe album' strategy and why do modern artists use it?",
+      "a": "Re-releasing an album with bonus tracks to reset streaming numbers and chart positions — it effectively counts as a new release week, gaming the Billboard algorithm"
+    },
+    {
+      "q": "Ice Spice went from a Bronx college student to a global star in under 12 months. What was her breakthrough track?",
+      "a": "'Munch (Feelin' U)' in 2022 — it went viral on TikTok and led to collaborations with Taylor Swift, PinkPantheress, and Nicki Minaj within a year"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "nature-online-2026-05-09-easy-1",
+  "topic": "nature",
+  "title": "🌐 Online: Nature Easy #1",
+  "desc": "Trivia from OpenTrivia DB — 10 easy questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "What is the scientific name for modern day humans?",
+      "a": "Homo Sapiens"
+    },
+    {
+      "q": "Wombats are native to which Country?",
+      "a": "Australia"
+    },
+    {
+      "q": "Which breed of dog is traditionally associated with firefighters?",
+      "a": "Dalmatians"
+    },
+    {
+      "q": "Snakes and lizards are known to flick their tongue, this behavior is to?",
+      "a": "Capture scent particles"
+    },
+    {
+      "q": "Which class of animals are newts members of?",
+      "a": "Amphibian"
+    },
+    {
+      "q": "By definition, where does an abyssopelagic animal live?",
+      "a": "At the bottom of the ocean"
+    },
+    {
+      "q": "What colour is the female blackbird?",
+      "a": "Brown"
+    },
+    {
+      "q": "How many legs do butterflies have?",
+      "a": "6"
+    },
+    {
+      "q": "What is the fastest land animal?",
+      "a": "Cheetah"
+    },
+    {
+      "q": "What is the collective noun for a group of crows?",
+      "a": "Murder"
+    }
+  ]
+}

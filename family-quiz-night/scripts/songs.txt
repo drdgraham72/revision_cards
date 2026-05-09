@@ -1,0 +1,178 @@
+# Family Quiz Night — music bank.
+# Format: Title — Artist | category
+# Lines starting with # are ignored. Em-dash, en-dash, or " - " all OK.
+
+# ── 60s classics ──────────────────────────────────────────────
+Hey Jude — The Beatles | 60s
+Yesterday — The Beatles | 60s
+Let It Be — The Beatles | 60s
+Here Comes the Sun — The Beatles | 60s
+Twist and Shout — The Beatles | 60s
+(I Can't Get No) Satisfaction — The Rolling Stones | 60s
+Paint It Black — The Rolling Stones | 60s
+Like a Rolling Stone — Bob Dylan | 60s
+Blowin' in the Wind — Bob Dylan | 60s
+Good Vibrations — The Beach Boys | 60s
+California Girls — The Beach Boys | 60s
+Respect — Aretha Franklin | 60s
+What a Wonderful World — Louis Armstrong | 60s
+House of the Rising Sun — The Animals | 60s
+Light My Fire — The Doors | 60s
+A Whiter Shade of Pale — Procol Harum | 60s
+California Dreamin' — The Mamas & the Papas | 60s
+My Generation — The Who | 60s
+I Heard It Through the Grapevine — Marvin Gaye | 60s
+My Way — Frank Sinatra | 60s
+
+# ── 70s rock & disco ──────────────────────────────────────────
+Bohemian Rhapsody — Queen | 70s
+Don't Stop Me Now — Queen | 70s
+We Will Rock You — Queen | 70s
+We Are the Champions — Queen | 70s
+Killer Queen — Queen | 70s
+Stairway to Heaven — Led Zeppelin | 70s
+Whole Lotta Love — Led Zeppelin | 70s
+Hotel California — Eagles | 70s
+Take It Easy — Eagles | 70s
+American Pie — Don McLean | 70s
+Tiny Dancer — Elton John | 70s
+Rocket Man — Elton John | 70s
+Crocodile Rock — Elton John | 70s
+Imagine — John Lennon | 70s
+Wish You Were Here — Pink Floyd | 70s
+Money — Pink Floyd | 70s
+Comfortably Numb — Pink Floyd | 70s
+Stayin' Alive — Bee Gees | 70s
+Night Fever — Bee Gees | 70s
+Dancing Queen — ABBA | 70s
+Mamma Mia — ABBA | 70s
+Waterloo — ABBA | 70s
+I Will Survive — Gloria Gaynor | 70s
+YMCA — Village People | 70s
+Le Freak — Chic | 70s
+Born to Run — Bruce Springsteen | 70s
+Dream On — Aerosmith | 70s
+
+# ── 80s pop & rock ────────────────────────────────────────────
+Thriller — Michael Jackson | 80s
+Billie Jean — Michael Jackson | 80s
+Beat It — Michael Jackson | 80s
+Like a Virgin — Madonna | 80s
+Material Girl — Madonna | 80s
+Vogue — Madonna | 80s
+Take On Me — a-ha | 80s
+Africa — Toto | 80s
+Don't Stop Believin' — Journey | 80s
+Sweet Child o' Mine — Guns N' Roses | 80s
+Welcome to the Jungle — Guns N' Roses | 80s
+Livin' on a Prayer — Bon Jovi | 80s
+You Give Love a Bad Name — Bon Jovi | 80s
+Eye of the Tiger — Survivor | 80s
+Sweet Dreams (Are Made of This) — Eurythmics | 80s
+Every Breath You Take — The Police | 80s
+Roxanne — The Police | 80s
+With or Without You — U2 | 80s
+Sunday Bloody Sunday — U2 | 80s
+Wake Me Up Before You Go-Go — Wham! | 80s
+Careless Whisper — George Michael | 80s
+Like a Prayer — Madonna | 80s
+Tainted Love — Soft Cell | 80s
+Walking on Sunshine — Katrina and the Waves | 80s
+Total Eclipse of the Heart — Bonnie Tyler | 80s
+
+# ── 90s grunge / pop / hip-hop ────────────────────────────────
+Smells Like Teen Spirit — Nirvana | 90s
+Come as You Are — Nirvana | 90s
+Wonderwall — Oasis | 90s
+Don't Look Back in Anger — Oasis | 90s
+Common People — Pulp | 90s
+Bitter Sweet Symphony — The Verve | 90s
+Black Hole Sun — Soundgarden | 90s
+Creep — Radiohead | 90s
+Karma Police — Radiohead | 90s
+Killing Me Softly with His Song — Fugees | 90s
+Waterfalls — TLC | 90s
+...Baby One More Time — Britney Spears | 90s
+Spice Up Your Life — Spice Girls | 90s
+Wannabe — Spice Girls | 90s
+Vogue — Madonna | 90s
+Macarena — Los Del Rio | 90s
+Vogue — Madonna | 90s
+I Will Always Love You — Whitney Houston | 90s
+My Heart Will Go On — Celine Dion | 90s
+Genie in a Bottle — Christina Aguilera | 90s
+Livin' la Vida Loca — Ricky Martin | 90s
+Torn — Natalie Imbruglia | 90s
+Ironic — Alanis Morissette | 90s
+Zombie — The Cranberries | 90s
+
+# ── 2000s ─────────────────────────────────────────────────────
+Hey Ya! — OutKast | 00s
+Crazy in Love — Beyoncé | 00s
+Toxic — Britney Spears | 00s
+In Da Club — 50 Cent | 00s
+Lose Yourself — Eminem | 00s
+Without Me — Eminem | 00s
+Mr. Brightside — The Killers | 00s
+Seven Nation Army — The White Stripes | 00s
+Rolling in the Deep — Adele | 00s
+Yellow — Coldplay | 00s
+Clocks — Coldplay | 00s
+Viva la Vida — Coldplay | 00s
+Beautiful Day — U2 | 00s
+Don't Know Why — Norah Jones | 00s
+Drops of Jupiter — Train | 00s
+Survivor — Destiny's Child | 00s
+Empire State of Mind — Jay-Z | 00s
+Umbrella — Rihanna | 00s
+
+# ── 2010s ─────────────────────────────────────────────────────
+Happy — Pharrell Williams | 10s
+Get Lucky — Daft Punk | 10s
+Royals — Lorde | 10s
+Somebody That I Used to Know — Gotye | 10s
+Call Me Maybe — Carly Rae Jepsen | 10s
+Shake It Off — Taylor Swift | 10s
+Blank Space — Taylor Swift | 10s
+Bad Blood — Taylor Swift | 10s
+Hello — Adele | 10s
+Someone Like You — Adele | 10s
+Set Fire to the Rain — Adele | 10s
+Uptown Funk — Mark Ronson | 10s
+Shape of You — Ed Sheeran | 10s
+Thinking Out Loud — Ed Sheeran | 10s
+Perfect — Ed Sheeran | 10s
+Despacito — Luis Fonsi | 10s
+Old Town Road — Lil Nas X | 10s
+Bad Guy — Billie Eilish | 10s
+Senorita — Shawn Mendes | 10s
+Havana — Camila Cabello | 10s
+Sunflower — Post Malone | 10s
+Roar — Katy Perry | 10s
+Firework — Katy Perry | 10s
+Counting Stars — OneRepublic | 10s
+Stay With Me — Sam Smith | 10s
+Take Me to Church — Hozier | 10s
+Pumped Up Kicks — Foster the People | 10s
+Some Nights — fun. | 10s
+
+# ── 2020s ─────────────────────────────────────────────────────
+Watermelon Sugar — Harry Styles | 20s
+As It Was — Harry Styles | 20s
+Levitating — Dua Lipa | 20s
+Don't Start Now — Dua Lipa | 20s
+Blinding Lights — The Weeknd | 20s
+Save Your Tears — The Weeknd | 20s
+Anti-Hero — Taylor Swift | 20s
+Cardigan — Taylor Swift | 20s
+Drivers License — Olivia Rodrigo | 20s
+Good 4 U — Olivia Rodrigo | 20s
+Stay — The Kid LAROI | 20s
+Easy on Me — Adele | 20s
+Bad Habits — Ed Sheeran | 20s
+Heat Waves — Glass Animals | 20s
+Flowers — Miley Cyrus | 20s
+Unholy — Sam Smith | 20s
+About Damn Time — Lizzo | 20s
+Industry Baby — Lil Nas X | 20s
+Espresso — Sabrina Carpenter | 20s

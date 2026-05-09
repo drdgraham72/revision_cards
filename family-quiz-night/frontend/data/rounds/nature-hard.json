@@ -1,0 +1,50 @@
+{
+  "id": "nature-hard",
+  "topic": "nature",
+  "title": "Apex Predator",
+  "desc": "Evolutionary arms races, parasitic nightmares & ecosystems on the edge",
+  "type": "standard",
+  "isNew": false,
+  "questions": [
+    {
+      "q": "The cordyceps fungus takes over an ant's brain and forces it to climb to a specific height before killing it. Why that exact height?",
+      "a": "Optimal temperature and humidity for the fungus to grow a spore-releasing stalk from the ant's head — maximising spore dispersal onto ants below"
+    },
+    {
+      "q": "What is a 'lazarus taxon' in biology?",
+      "a": "A species that disappears from the fossil record for a long period then reappears — named after the biblical figure who rose from the dead (e.g. coelacanths)"
+    },
+    {
+      "q": "The Yellowstone supervolcano's last major eruption was 640,000 years ago. What would happen to the US if it erupted today?",
+      "a": "Roughly a 1,000 km radius of destruction, ash covering most of the continent, global cooling for years — effectively a civilisation-ending event for North America"
+    },
+    {
+      "q": "Why do deep-sea fish often have transparent or red colouring?",
+      "a": "Red light doesn't penetrate deep water — so red fish are effectively invisible. Transparent fish let light pass through, casting no shadow for predators to detect"
+    },
+    {
+      "q": "The 'grandmother hypothesis' in evolutionary biology explains what puzzling human trait?",
+      "a": "Why women live decades past menopause — the theory suggests grandmothers who helped raise grandchildren increased their descendants' survival rates"
+    },
+    {
+      "q": "What is an 'ecological trap' and give one example?",
+      "a": "When environmental changes make a poor habitat seem attractive — e.g. sea turtles mistaking beachfront lights for moonlight and heading inland instead of to sea"
+    },
+    {
+      "q": "Lichen is often described as a symbiotic relationship between two organisms. Why is that now considered an oversimplification?",
+      "a": "Lichen actually involves at least three partners — a fungus, an alga or cyanobacterium, AND a recently discovered yeast that was hiding in plain sight (identified in 2016)"
+    },
+    {
+      "q": "The 'Wood Wide Web' refers to what underground network?",
+      "a": "Mycorrhizal fungal networks connecting tree roots — trees share nutrients, water, and chemical warning signals through these fungal threads"
+    },
+    {
+      "q": "What is 'convergent evolution' and why do sharks and dolphins look similar despite being completely unrelated?",
+      "a": "Unrelated species independently evolving similar traits due to similar environmental pressures — the streamlined body shape is optimal for fast aquatic movement"
+    },
+    {
+      "q": "The axolotl can regenerate limbs, heart tissue, and even parts of its brain. What's the catch that makes it scientifically frustrating?",
+      "a": "It's critically endangered in the wild (only found in Lake Xochimilco, Mexico) — so studying it in its natural habitat is nearly impossible"
+    }
+  ]
+}

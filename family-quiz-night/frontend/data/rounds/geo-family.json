@@ -1,0 +1,50 @@
+{
+  "id": "geo-family",
+  "topic": "geography",
+  "title": "Where on Earth?",
+  "desc": "Borders that make no sense, records nobody asked for & map madness",
+  "type": "standard",
+  "isNew": false,
+  "questions": [
+    {
+      "q": "Which country has the most time zones — and it's not Russia?",
+      "a": "France — 12 time zones (thanks to overseas territories)"
+    },
+    {
+      "q": "The shortest scheduled flight in the world is in Scotland. How long does it take?",
+      "a": "About 57 seconds — Westray to Papa Westray in Orkney"
+    },
+    {
+      "q": "Which African country has more pyramids than Egypt?",
+      "a": "Sudan — over 200, compared to Egypt's roughly 130"
+    },
+    {
+      "q": "Point Nemo is the farthest spot from any land on Earth. What's the closest human presence?",
+      "a": "Astronauts on the ISS — it orbits closer than any landmass"
+    },
+    {
+      "q": "Only one country in the world has a flag that isn't rectangular or square. Which?",
+      "a": "Nepal — it's two stacked triangles"
+    },
+    {
+      "q": "Canada has more lakes than the rest of the world combined — true or false?",
+      "a": "True — over 60% of the world's lakes are in Canada"
+    },
+    {
+      "q": "Two islands 3.8 km apart have a time difference of 21 hours. What are they?",
+      "a": "Big Diomede (Russia) and Little Diomede (USA) — straddling the International Date Line"
+    },
+    {
+      "q": "Which tiny country sits entirely inside the city of Rome?",
+      "a": "Vatican City"
+    },
+    {
+      "q": "Mount Chimborazo in Ecuador is technically closer to space than Everest. Why?",
+      "a": "Earth's equatorial bulge — Chimborazo's peak is farther from Earth's centre"
+    },
+    {
+      "q": "What is the only US state whose name you can type on a single row of a keyboard?",
+      "a": "Alaska — A, L, A, S, K, A all sit on the top row"
+    }
+  ]
+}

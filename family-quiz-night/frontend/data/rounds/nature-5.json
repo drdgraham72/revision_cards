@@ -1,0 +1,50 @@
+{
+  "id": "nature-5",
+  "topic": "nature",
+  "title": "Connections: Ecosystem",
+  "desc": "Find the natural thread linking each set of clues",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "What connects: the dodo, the thylacine, and the passenger pigeon?",
+      "a": "All went extinct due to human activity — the dodo (hunting, 1681), thylacine/Tasmanian tiger (hunting, 1936), passenger pigeon (hunting and habitat loss, 1914). All three have active de-extinction research"
+    },
+    {
+      "q": "Odd one out: dolphin, whale, seal, shark. Which and why?",
+      "a": "Shark — it's the only fish. Dolphins, whales, and seals are all mammals that breathe air, give live birth, and nurse their young"
+    },
+    {
+      "q": "What connects: coral, mushrooms, and lichen?",
+      "a": "None of them are what most people think — coral is an animal (not a plant), mushrooms are fungi (not plants), and lichen is a symbiosis of fungus + alga (not a single organism)"
+    },
+    {
+      "q": "Put these in order of lifespan, shortest to longest: mayfly, tortoise, human, bowhead whale",
+      "a": "Mayfly (24 hours as adults) → human (~80 years) → tortoise (~150-200 years) → bowhead whale (over 200 years, possibly the longest-lived mammal)"
+    },
+    {
+      "q": "What connects: a Venus flytrap, a sundew, and a pitcher plant?",
+      "a": "They're all carnivorous plants — they trap and digest insects to supplement nutrients in poor soil"
+    },
+    {
+      "q": "What connects: the Amazon, the Congo, and the Daintree?",
+      "a": "Three of the world's most significant rainforests — South America, Central Africa, and Australia respectively"
+    },
+    {
+      "q": "True, false, or it depends: 'Daddy longlegs are the most venomous spiders but their fangs are too small to bite humans'",
+      "a": "False on every level — the common 'daddy longlegs' (harvestmen) aren't even spiders, and cellar spiders (also called daddy longlegs) have weak venom that's harmless to humans. The whole thing is a myth"
+    },
+    {
+      "q": "What connects: a caterpillar inside a chrysalis literally dissolves into soup before becoming a butterfly. What's the scientific term?",
+      "a": "Metamorphosis — specifically holometabolism. The caterpillar's body breaks down almost entirely into a cellular soup, then reorganises using 'imaginal discs' as blueprints"
+    },
+    {
+      "q": "Odd one out: eagle, penguin, ostrich, kiwi. Which and why?",
+      "a": "Eagle — it's the only one that can fly. Penguins, ostriches, and kiwis are all flightless birds"
+    },
+    {
+      "q": "What connects: wolves in Yellowstone, beavers in the UK, and lynx in Spain?",
+      "a": "All are rewilding success stories — wolves were reintroduced to Yellowstone (1995), beavers to the UK (2009 onwards), and the Iberian lynx was brought back from the brink of extinction through breeding programmes"
+    }
+  ]
+}

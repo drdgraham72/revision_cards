@@ -1,0 +1,42 @@
+{
+  "id": "geography-online-2026-05-09-medium-1",
+  "topic": "geography",
+  "title": "🌐 Online: Geography Medium #1",
+  "desc": "Trivia from OpenTrivia DB — 8 medium questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Which state of the United States is the smallest?",
+      "a": "Rhode Island"
+    },
+    {
+      "q": "What is the state capital of South Dakota?",
+      "a": "Pierre"
+    },
+    {
+      "q": "What is the capital of Brazil?",
+      "a": "Brasilia"
+    },
+    {
+      "q": "In which country is located the municipality of Arteijo?",
+      "a": "Spain"
+    },
+    {
+      "q": "What are the four corner states of the US?",
+      "a": "Utah, Colorado, Arizona, New Mexico"
+    },
+    {
+      "q": "What is the capital of Senegal?",
+      "a": "Dakar"
+    },
+    {
+      "q": "What is the highest mountain in the world?",
+      "a": "Mt. Everest"
+    },
+    {
+      "q": "What is the only nation that borders both Uruguay and Venezuela?",
+      "a": "Brazil"
+    }
+  ]
+}

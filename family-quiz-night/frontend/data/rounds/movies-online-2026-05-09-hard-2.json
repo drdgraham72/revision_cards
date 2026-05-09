@@ -1,0 +1,50 @@
+{
+  "id": "movies-online-2026-05-09-hard-2",
+  "topic": "movies",
+  "title": "🌐 Online: Movies Hard #2",
+  "desc": "Trivia from OpenTrivia DB — 10 hard questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "In the 1964 film \"Zulu\", what song does the British Army company sing before the final battle?",
+      "a": "Men of Harlech"
+    },
+    {
+      "q": "In the movie \"Scream\" who is Ghost Face?",
+      "a": "Billy Loomis and Stu Macher"
+    },
+    {
+      "q": "In the \"Jurassic Park\" universe, when did \"Jurassic Park: San Diego\" begin construction?",
+      "a": "1985"
+    },
+    {
+      "q": "What three movies, in order from release date, make up the \"Dollars Trilogy\"?",
+      "a": "\"A Fistful of Dollars\", \"For a Few Dollars More\", \"The Good, the Bad, and the Ugly\""
+    },
+    {
+      "q": "In the \"Jurassic Park\" universe, what was the first dinosaur cloned by InGen in 1986?",
+      "a": "Velociraptor"
+    },
+    {
+      "q": "Which actors made up the trio in \"The Good, the Bad, and the Ugly\"?",
+      "a": "Clint Eastwood, Eli Wallach, and Lee Van Cleef"
+    },
+    {
+      "q": "In order to cut costs, what were most of the extras of Mad Max (1979) paid with?",
+      "a": "Beer"
+    },
+    {
+      "q": "Which actress portrayed Dr. Grace Augustine in the James Cameron movie \"Avatar\"?",
+      "a": "Sigourney Weaver"
+    },
+    {
+      "q": "In \"Star Trek Nemesis\", why was Praetor Shinzon created?",
+      "a": "To replace Picard as a Romulan Agent"
+    },
+    {
+      "q": "The film Mad Max: Fury Road features the Dies Irae from which composer's requiem?",
+      "a": "Verdi"
+    }
+  ]
+}

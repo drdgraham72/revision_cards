@@ -1,0 +1,46 @@
+{
+  "id": "music-online-2026-05-09-hard-2",
+  "topic": "music",
+  "title": "🌐 Online: Music Hard #2",
+  "desc": "Trivia from OpenTrivia DB — 9 hard questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "What year was Huun Huur Tu's album Altai Sayan Tandy-Uula released?",
+      "a": "2004"
+    },
+    {
+      "q": "Pamina and Papageno are characters in what Mozart opera?",
+      "a": "The Magic Flute"
+    },
+    {
+      "q": "Björk's \"Unison\" contains a sample of which Oval song?",
+      "a": "Aero Deck"
+    },
+    {
+      "q": "What is the official name of Prince's backing band?",
+      "a": "The Revolution"
+    },
+    {
+      "q": "What is the name of the 2016 mixtape released by Venezuelan electronic producer Arca?",
+      "a": "Entrañas"
+    },
+    {
+      "q": "Chino Moreno is the lead singer of which alternative metal band?",
+      "a": "Deftones"
+    },
+    {
+      "q": "Which company did the animation for Peter Gabriel's Video Sledgehammer (1986)?",
+      "a": "Aardman Animations"
+    },
+    {
+      "q": "What year did Dire Straits's Song \"Money for Nothing\" release?",
+      "a": "1985"
+    },
+    {
+      "q": "What song includes the words \"Numa Numa\" which was subject to a Viral Video in 2004?",
+      "a": "Dragostea Din Tei"
+    }
+  ]
+}

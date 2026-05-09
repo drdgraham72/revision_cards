@@ -1,0 +1,50 @@
+{
+  "id": "movies-4",
+  "topic": "movies",
+  "title": "Method & Madness",
+  "desc": "Actors who went too far, directors who broke the rules & the shots that shouldn't exist",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "For 'Cast Away', Tom Hanks gained then lost how much weight — with a year-long production break in between?",
+      "a": "He gained 50 pounds for the pre-island scenes, then production paused a year while he lost it plus more"
+    },
+    {
+      "q": "The 'Steadicam' was invented for which iconic 1976 film?",
+      "a": "Bound for Glory (Woody Guthrie biopic) — though most people associate it with Rocky or The Shining, both came after"
+    },
+    {
+      "q": "What is a 'oner' or 'one-shot' in filmmaking, and which recent film faked being entirely one shot?",
+      "a": "An unbroken continuous take. '1917' (2019) was designed to appear as two continuous takes with hidden cuts — 'Birdman' (2014) did the same trick earlier"
+    },
+    {
+      "q": "Christian Bale lost 63 pounds for 'The Machinist' then had to gain it all back plus more for 'Batman Begins'. How long between films?",
+      "a": "About 6 months — he went from 55kg to over 100kg"
+    },
+    {
+      "q": "What is the '180-degree rule' in filmmaking?",
+      "a": "An imaginary line between two characters — the camera should stay on one side of it to maintain consistent screen direction. Crossing it disorients the viewer"
+    },
+    {
+      "q": "The most expensive film ever made (adjusted for inflation) isn't a recent blockbuster. What is it?",
+      "a": "Cleopatra (1963) — roughly $340 million adjusted. It nearly bankrupted 20th Century Fox"
+    },
+    {
+      "q": "What is a 'MacGuffin'?",
+      "a": "An object or goal that drives the plot but is ultimately unimportant — the term was popularised by Hitchcock. The briefcase in Pulp Fiction is a classic example"
+    },
+    {
+      "q": "Tilda Swinton reportedly slept in a glass box in a museum as performance art. She also did what unusual thing for her role in 'Suspiria' (2018)?",
+      "a": "Played three roles including an elderly male psychiatrist — wearing extensive prosthetics. It wasn't revealed until after release"
+    },
+    {
+      "q": "Which film holds the record for most extras in a single scene?",
+      "a": "Gandhi (1982) — the funeral scene used around 300,000 extras, some of whom were paid and many volunteered"
+    },
+    {
+      "q": "What does 'mise-en-scène' actually mean and why do film students overuse it?",
+      "a": "French for 'placing on stage' — it covers everything visible in a frame: set design, lighting, costumes, positioning. Students overuse it because it sounds sophisticated and covers basically everything"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "nature-online-2026-05-09-hard-2",
+  "topic": "nature",
+  "title": "🌐 Online: Nature Hard #2",
+  "desc": "Trivia from OpenTrivia DB — 10 hard questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "How many known living species of hyenas are there?",
+      "a": "4"
+    },
+    {
+      "q": "What is the collective noun for vultures?",
+      "a": "Wake"
+    },
+    {
+      "q": "Unlike on most salamanders, this part of a newt is flat?",
+      "a": "Tail"
+    },
+    {
+      "q": "What is the scientific name of the Budgerigar?",
+      "a": "Melopsittacus undulatus"
+    },
+    {
+      "q": "What was the name of the Ethiopian Wolf before they knew it was related to wolves?",
+      "a": "Simien Jackel"
+    },
+    {
+      "q": "What is the name of the copper-rich protein that creates the blue blood in the Antarctic octopus?",
+      "a": "Hemocyanin"
+    },
+    {
+      "q": "What bird is born with claws on its wing digits?",
+      "a": "Hoatzin"
+    },
+    {
+      "q": "Chronic Wasting Disease (CWD) exclusively infects members of which family of animals?",
+      "a": "Cervids"
+    },
+    {
+      "q": "What is the average amount of chinchillas born into a single litter?",
+      "a": "2-3"
+    },
+    {
+      "q": "Which species of Brown Bear is not extinct?",
+      "a": "Syrian Brown Bear"
+    }
+  ]
+}

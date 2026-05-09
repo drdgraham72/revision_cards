@@ -1,0 +1,50 @@
+{
+  "id": "nature-family",
+  "topic": "nature",
+  "title": "Creature Features",
+  "desc": "Animal absurdity, plant cunning & ocean strangeness",
+  "type": "standard",
+  "isNew": false,
+  "questions": [
+    {
+      "q": "A group of flamingos is called a 'flamboyance'. What's a group of pugs called?",
+      "a": "A grumble"
+    },
+    {
+      "q": "Sharks are older than trees — by how much?",
+      "a": "About 100 million years (sharks: ~450M years, trees: ~350M years)"
+    },
+    {
+      "q": "Which animal's heart stops beating when it dives underwater, then restarts when it surfaces?",
+      "a": "Marine iguanas — their heart rate drops to near zero during deep dives"
+    },
+    {
+      "q": "Bamboo holds the record for fastest-growing plant. How fast can some species grow per day?",
+      "a": "Up to 91 cm (about 3 feet) in a single day"
+    },
+    {
+      "q": "What colour is an octopus's blood, and why?",
+      "a": "Blue — it uses copper-based haemocyanin instead of iron-based haemoglobin"
+    },
+    {
+      "q": "Sea otters hold hands while sleeping. What's the actual reason?",
+      "a": "To avoid drifting apart — it's called 'rafting'"
+    },
+    {
+      "q": "The pistol shrimp creates a sound louder than a gunshot. How does it do it?",
+      "a": "By snapping its claw shut so fast it creates a cavitation bubble that produces a shockwave of 218+ decibels"
+    },
+    {
+      "q": "Cows have best friends and get stressed when separated — true or false?",
+      "a": "True — studies show measurably lower cortisol levels when they're with their preferred companion"
+    },
+    {
+      "q": "The largest living organism on Earth isn't a whale — it's a what?",
+      "a": "A honey fungus (Armillaria ostoyae) in Oregon — it covers 2,385 acres underground"
+    },
+    {
+      "q": "Flamingos are born what colour?",
+      "a": "Grey or white — they turn pink from their diet of brine shrimp and algae containing carotenoid pigments"
+    }
+  ]
+}

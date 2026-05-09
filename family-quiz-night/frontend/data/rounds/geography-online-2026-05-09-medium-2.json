@@ -1,0 +1,46 @@
+{
+  "id": "geography-online-2026-05-09-medium-2",
+  "topic": "geography",
+  "title": "🌐 Online: Geography Medium #2",
+  "desc": "Trivia from OpenTrivia DB — 9 medium questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "What is the region conjoining Pakistan, India, and China with unknown leadership called?",
+      "a": "Kashmir"
+    },
+    {
+      "q": "What city has the busiest airport in the world?",
+      "a": "Atlanta, Georgia USA"
+    },
+    {
+      "q": "How many independent countries are there within the continent of South America?",
+      "a": "12"
+    },
+    {
+      "q": "How many countries are larger than Australia?",
+      "a": "5"
+    },
+    {
+      "q": "How many counties in the Republic of Ireland.",
+      "a": "26"
+    },
+    {
+      "q": "What is the capital of British Columbia, Canada?",
+      "a": "Victoria"
+    },
+    {
+      "q": "On which continent is the country of Angola located?",
+      "a": "Africa"
+    },
+    {
+      "q": "Frankenmuth, a US city nicknamed \"Little Bavaria\", is located in what state?",
+      "a": "Michigan"
+    },
+    {
+      "q": "What's the first National Park designated in the United States?",
+      "a": "Yellowstone"
+    }
+  ]
+}

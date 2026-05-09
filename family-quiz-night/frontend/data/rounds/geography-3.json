@@ -1,0 +1,50 @@
+{
+  "id": "geography-3",
+  "topic": "geography",
+  "title": "Off the Grid",
+  "desc": "Micronations, shifting borders & geographical freaks of nature",
+  "type": "standard",
+  "isNew": false,
+  "questions": [
+    {
+      "q": "Sealand is a self-proclaimed micronation built on what, off the coast of England?",
+      "a": "An abandoned WWII sea fort (HM Fort Roughs) in the North Sea"
+    },
+    {
+      "q": "What is the least visited country in the world by tourists?",
+      "a": "Tuvalu — roughly 3,700 visitors per year"
+    },
+    {
+      "q": "Lake Baikal in Russia holds what percentage of the world's surface fresh water?",
+      "a": "About 20% — it's the deepest and oldest lake on Earth"
+    },
+    {
+      "q": "Which capital city was purpose-built in the 1960s to move the government away from the coast?",
+      "a": "Brasília, Brazil — inaugurated in 1960, designed by Oscar Niemeyer and Lúcio Costa"
+    },
+    {
+      "q": "The border between Belgium and the Netherlands passes through houses, cafes, and even a front door. What's the town?",
+      "a": "Baarle — specifically Baarle-Hertog (Belgian) and Baarle-Nassau (Dutch), an insane patchwork of enclaves"
+    },
+    {
+      "q": "What natural phenomenon causes the Sahara Desert to fertilise the Amazon Rainforest?",
+      "a": "Dust storms — phosphorus-rich dust from the Bodélé Depression in Chad is carried across the Atlantic by wind"
+    },
+    {
+      "q": "Which landlocked country has the world's largest navy by number of personnel?",
+      "a": "None sensibly do — but Bolivia, Laos, and several others maintain small naval forces on rivers and lakes. The question is a trap"
+    },
+    {
+      "q": "What is the Ring of Fire?",
+      "a": "A horseshoe-shaped zone around the Pacific Ocean where about 75% of the world's volcanic eruptions and 90% of earthquakes occur"
+    },
+    {
+      "q": "Greenland is the world's largest island. But most of its land mass is covered by what?",
+      "a": "An ice sheet up to 3km thick — if it all melted, global sea levels would rise about 7 metres"
+    },
+    {
+      "q": "What is special about the town of Coober Pedy in Australia?",
+      "a": "Most residents live underground — in converted opal mines — to escape temperatures that regularly exceed 40°C"
+    }
+  ]
+}

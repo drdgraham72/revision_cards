@@ -1,0 +1,50 @@
+{
+  "id": "food-online-2026-05-09-medium-2",
+  "topic": "food",
+  "title": "🌐 Online: Food Medium #2",
+  "desc": "Trivia from OpenTrivia DB — 10 medium questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Computer manufacturer Compaq was acquired for $25 billion dollars in 2002 by which company?",
+      "a": "Hewlett-Packard"
+    },
+    {
+      "q": "This field is sometimes known as “The Dismal Science.”",
+      "a": "Economics"
+    },
+    {
+      "q": "In what year did Halley's Comet, which will not appear again until the year 2061, previously approach Earth?",
+      "a": "1986"
+    },
+    {
+      "q": "Which essential condiment is also known as Japanese horseradish?",
+      "a": "Wasabi"
+    },
+    {
+      "q": "What is the full title of the Prime Minister of the UK?",
+      "a": "First Lord of the Treasury"
+    },
+    {
+      "q": "What did the Spanish autonomous community of Catalonia ban in 2010, that took effect in 2012?",
+      "a": "Bullfighting"
+    },
+    {
+      "q": "Which is the most popular spoken language in the Southern Hemisphere?",
+      "a": "Portuguese"
+    },
+    {
+      "q": "The architect known as Le Corbusier was an important figure in what style of architecture?",
+      "a": "Modernism"
+    },
+    {
+      "q": "Frank Lloyd Wright was the architect behind what famous building?",
+      "a": "The Guggenheim"
+    },
+    {
+      "q": "Death Valley's Badwater Basin is North America's point of lowest elevation at how many feet below sea level?",
+      "a": "282 feet"
+    }
+  ]
+}

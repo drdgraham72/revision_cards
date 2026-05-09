@@ -1,0 +1,50 @@
+{
+  "id": "history-3",
+  "topic": "history",
+  "title": "Redacted",
+  "desc": "Cover-ups, accidents that shaped nations & the strangest true stories",
+  "type": "standard",
+  "isNew": false,
+  "questions": [
+    {
+      "q": "The Great Molasses Flood of 1919 killed 21 people in Boston. How fast did the wave of molasses travel?",
+      "a": "About 56 km/h (35 mph) — a 7.5-metre wall of treacle"
+    },
+    {
+      "q": "Which US president served only 32 days before dying?",
+      "a": "William Henry Harrison — he caught pneumonia after giving the longest inauguration speech in history, in the rain"
+    },
+    {
+      "q": "The Dancing Plague of 1518 saw hundreds of people in Strasbourg do what for days?",
+      "a": "Dance uncontrollably — some reportedly died from exhaustion, strokes, or heart attacks"
+    },
+    {
+      "q": "What everyday object did a Scottish engineer invent after watching a ball roll across a muddy field?",
+      "a": "Trick question setup — but John Boyd Dunlop invented the pneumatic tyre after watching his son struggle to ride a tricycle on cobblestones"
+    },
+    {
+      "q": "The 'Night Witches' were an all-female squadron of bomber pilots in WWII. Which country were they from?",
+      "a": "The Soviet Union — the 588th Night Bomber Regiment, feared by the Germans"
+    },
+    {
+      "q": "What did Cleopatra's native language turn out to be — and it wasn't Egyptian?",
+      "a": "Greek — the Ptolemaic dynasty was Macedonian Greek. She was reportedly the first Ptolemy to learn Egyptian"
+    },
+    {
+      "q": "The Tunguska event of 1908 flattened 80 million trees in Siberia. What caused it?",
+      "a": "An airburst from a meteoroid or comet fragment — it exploded before impact with a force 1,000 times greater than the Hiroshima bomb"
+    },
+    {
+      "q": "How did Rasputin reportedly survive his assassination — at least initially?",
+      "a": "He was poisoned with cyanide-laced cakes and wine, shot multiple times, beaten, and finally drowned in the Neva River"
+    },
+    {
+      "q": "The Stonewall Riots of 1969 are considered the catalyst for which civil rights movement?",
+      "a": "The modern LGBTQ+ rights movement"
+    },
+    {
+      "q": "Which country accidentally invaded another country in 2007 — and apologised?",
+      "a": "Switzerland — soldiers accidentally marched into Liechtenstein during a training exercise at night"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": "nature-online-2026-05-09-medium-1",
+  "topic": "nature",
+  "title": "🌐 Online: Nature Medium #1",
+  "desc": "Trivia from OpenTrivia DB — 9 medium questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "What is the collective noun for bears?",
+      "a": "Sloth"
+    },
+    {
+      "q": "What does \"hippopotamus\" mean and in what langauge?",
+      "a": "River Horse (Greek)"
+    },
+    {
+      "q": "Which dog breed is named after a region in Croatia",
+      "a": "Dalmatian"
+    },
+    {
+      "q": "What are the scales on all snakes and most lizards are made of?",
+      "a": "Keratin"
+    },
+    {
+      "q": "A carnivorous animal eats flesh, what does a nucivorous animal eat?",
+      "a": "Nuts"
+    },
+    {
+      "q": "The dish Fugu, is made from what family of fish?",
+      "a": "Pufferfish"
+    },
+    {
+      "q": "About how much of their body weight in food do sea otters eat every day?",
+      "a": "25%"
+    },
+    {
+      "q": "What is the world's longest venomous snake?",
+      "a": "King Cobra"
+    },
+    {
+      "q": "What is the average lifespan of a domestic rabbit?",
+      "a": "8-12 years"
+    }
+  ]
+}

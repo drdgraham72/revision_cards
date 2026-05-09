@@ -1,0 +1,50 @@
+{
+  "id": "sport-6",
+  "topic": "sport",
+  "title": "Speed Round: Over/Under",
+  "desc": "Quick-fire — is the real number over or under what we say?",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Over or under: A football pitch is 120 metres long",
+      "a": "Over in total (including end zones/goal areas it can be 120m), but the field of play is typically 100-110m. So: roughly correct / under for the playing field itself"
+    },
+    {
+      "q": "Over or under: Wimbledon has been running for 100 years",
+      "a": "Over — first held in 1877, making it nearly 150 years old"
+    },
+    {
+      "q": "Over or under: An NBA basketball hoop is 3 metres high",
+      "a": "Over — it's 3.05 metres (10 feet) exactly"
+    },
+    {
+      "q": "Over or under: A marathon is 40 kilometres",
+      "a": "Over — it's 42.195 km (26.2 miles)"
+    },
+    {
+      "q": "Over or under: A boxing round lasts 5 minutes",
+      "a": "Under — a professional boxing round is 3 minutes (with 1 minute rest between rounds)"
+    },
+    {
+      "q": "Over or under: The Tour de France covers 2,000 km total",
+      "a": "Over — it's typically around 3,400-3,500 km over 21 stages plus rest days"
+    },
+    {
+      "q": "Over or under: An Olympic swimming pool is 25 metres long",
+      "a": "Over — Olympic pools are 50 metres (25m is a 'short course' pool)"
+    },
+    {
+      "q": "Over or under: A cricket Test match can last 7 days",
+      "a": "Under — a Test match is scheduled for a maximum of 5 days (though historically some 'timeless Tests' were longer)"
+    },
+    {
+      "q": "Over or under: A Formula 1 car can go from 0-100 mph in 5 seconds",
+      "a": "Under — modern F1 cars do 0-100 mph in about 2.5 seconds"
+    },
+    {
+      "q": "Over or under: There are 50 players on an American football team roster",
+      "a": "Over — NFL active rosters have 53 players (plus a practice squad)"
+    }
+  ]
+}

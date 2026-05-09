@@ -1,0 +1,50 @@
+{
+  "id": "sport-3",
+  "topic": "sport",
+  "title": "Injury Time",
+  "desc": "Rule loopholes, protest moments & records that will never be broken",
+  "type": "standard",
+  "isNew": false,
+  "questions": [
+    {
+      "q": "In 1994, Barbados needed to score an own goal to advance in a football tournament. Did they actually do it?",
+      "a": "Yes — due to a bizarre 'golden goal counts double' rule, they deliberately scored against themselves to force extra time, then won"
+    },
+    {
+      "q": "Wilt Chamberlain scored 100 points in one NBA game. What's remarkable about the evidence?",
+      "a": "No complete video recording exists — only audio of the final minutes and a few photographs"
+    },
+    {
+      "q": "The 'Miracle of Istanbul' refers to which football match?",
+      "a": "2005 Champions League Final — Liverpool came back from 3-0 down at half-time against AC Milan to win on penalties"
+    },
+    {
+      "q": "In tennis, what is a 'bagel' and a 'breadstick'?",
+      "a": "A bagel is winning a set 6-0, a breadstick is winning 6-1 (the 1 looks like a breadstick)"
+    },
+    {
+      "q": "Which Olympic sport was once judged partly on artistic impression alongside athletic performance — and still is?",
+      "a": "Figure skating, gymnastics, diving, synchronised swimming — all retain artistic/execution scores"
+    },
+    {
+      "q": "Why was the back-pass rule introduced in football in 1992?",
+      "a": "The 1990 World Cup was so boring — teams kept passing back to the keeper to waste time — that FIFA banned goalkeepers from handling deliberate back-passes"
+    },
+    {
+      "q": "In horse racing, who or what is 'Frankel' and why is he significant?",
+      "a": "An unbeaten British racehorse — 14 wins from 14 races (2010-2012), considered by many the greatest flat racehorse ever"
+    },
+    {
+      "q": "Tommie Smith and John Carlos raised their fists on the podium at the 1968 Olympics. What happened to the third man on the podium?",
+      "a": "Peter Norman (silver, Australia) wore an Olympic Project for Human Rights badge in solidarity — he was ostracised by Australian athletics and never selected again"
+    },
+    {
+      "q": "What is the 'Duckworth-Lewis-Stern' method in cricket?",
+      "a": "A mathematical formula for resetting targets in rain-interrupted limited-overs matches — based on remaining resources (wickets and overs)"
+    },
+    {
+      "q": "The longest tennis match in history lasted over 11 hours across three days. Who played?",
+      "a": "John Isner vs Nicolas Mahut at Wimbledon 2010 — final score 70-68 in the fifth set"
+    }
+  ]
+}

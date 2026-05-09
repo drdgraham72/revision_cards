@@ -1,0 +1,906 @@
+{
+  "version": 1,
+  "generated": "2026-05-09",
+  "rounds": [
+    {
+      "id": "food-family",
+      "topic": "food",
+      "title": "Sunday Roast",
+      "desc": "Cooking myths, surprise origins & drinks you thought you knew",
+      "type": "standard",
+      "isNew": false,
+      "count": 10
+    },
+    {
+      "id": "science-family",
+      "topic": "science",
+      "title": "Kitchen Table Physics",
+      "desc": "Counter-intuitive facts your kids will love arguing about",
+      "type": "standard",
+      "isNew": false,
+      "count": 10
+    },
+    {
+      "id": "history-family",
+      "topic": "history",
+      "title": "Wait, That's Real?",
+      "desc": "Historical facts that sound completely made up but aren't",
+      "type": "standard",
+      "isNew": false,
+      "count": 10
+    },
+    {
+      "id": "geo-family",
+      "topic": "geography",
+      "title": "Where on Earth?",
+      "desc": "Borders that make no sense, records nobody asked for & map madness",
+      "type": "standard",
+      "isNew": false,
+      "count": 10
+    },
+    {
+      "id": "movies-family",
+      "topic": "movies",
+      "title": "Plot Holes & Popcorn",
+      "desc": "Behind-the-scenes secrets, odd casting choices & film world trivia",
+      "type": "standard",
+      "isNew": false,
+      "count": 10
+    },
+    {
+      "id": "music-family",
+      "topic": "music",
+      "title": "B-Sides & Deep Grooves",
+      "desc": "Odd origins, stage name secrets & chart weirdness",
+      "type": "standard",
+      "isNew": false,
+      "count": 10
+    },
+    {
+      "id": "sport-family",
+      "topic": "sport",
+      "title": "Halftime Teasers",
+      "desc": "Rules nobody reads, bizarre records & the stories behind the stats",
+      "type": "standard",
+      "isNew": false,
+      "count": 10
+    },
+    {
+      "id": "nature-family",
+      "topic": "nature",
+      "title": "Creature Features",
+      "desc": "Animal absurdity, plant cunning & ocean strangeness",
+      "type": "standard",
+      "isNew": false,
+      "count": 10
+    },
+    {
+      "id": "food-hard",
+      "topic": "food",
+      "title": "The Sommelier's Nightmare",
+      "desc": "Obscure origins, chemistry in the kitchen & drinks that fool experts",
+      "type": "standard",
+      "isNew": false,
+      "count": 10
+    },
+    {
+      "id": "science-hard",
+      "topic": "science",
+      "title": "Pub Astrophysics",
+      "desc": "Quantum weirdness, medical myths debunked & numbers that break your brain",
+      "type": "standard",
+      "isNew": false,
+      "count": 10
+    },
+    {
+      "id": "history-hard",
+      "topic": "history",
+      "title": "The Classified Files",
+      "desc": "Espionage, forgotten empires & the stories they left out of textbooks",
+      "type": "standard",
+      "isNew": false,
+      "count": 10
+    },
+    {
+      "id": "geography-hard",
+      "topic": "geography",
+      "title": "Cartographer's Revenge",
+      "desc": "Phantom islands, geopolitical absurdities & places the GPS forgot",
+      "type": "standard",
+      "isNew": false,
+      "count": 10
+    },
+    {
+      "id": "movies-hard",
+      "topic": "movies",
+      "title": "The Director's Commentary",
+      "desc": "Production disasters, method acting madness & industry deep lore",
+      "type": "standard",
+      "isNew": false,
+      "count": 10
+    },
+    {
+      "id": "music-hard",
+      "topic": "music",
+      "title": "The Analog Vault",
+      "desc": "Lost recordings, contract wars, sampling lawsuits & studio mythology",
+      "type": "standard",
+      "isNew": false,
+      "count": 10
+    },
+    {
+      "id": "sport-hard",
+      "topic": "sport",
+      "title": "Extra Time",
+      "desc": "Banned techniques, statistical anomalies & the matches nobody expected",
+      "type": "standard",
+      "isNew": false,
+      "count": 10
+    },
+    {
+      "id": "nature-hard",
+      "topic": "nature",
+      "title": "Apex Predator",
+      "desc": "Evolutionary arms races, parasitic nightmares & ecosystems on the edge",
+      "type": "standard",
+      "isNew": false,
+      "count": 10
+    },
+    {
+      "id": "food-3",
+      "topic": "food",
+      "title": "Midnight Snack",
+      "desc": "Street food origins, fermentation mysteries & flavour combos that shouldn't work",
+      "type": "standard",
+      "isNew": false,
+      "count": 10
+    },
+    {
+      "id": "science-3",
+      "topic": "science",
+      "title": "Lab Rats",
+      "desc": "Failed experiments that changed everything, medical oddities & space junk",
+      "type": "standard",
+      "isNew": false,
+      "count": 10
+    },
+    {
+      "id": "history-3",
+      "topic": "history",
+      "title": "Redacted",
+      "desc": "Cover-ups, accidents that shaped nations & the strangest true stories",
+      "type": "standard",
+      "isNew": false,
+      "count": 10
+    },
+    {
+      "id": "geography-3",
+      "topic": "geography",
+      "title": "Off the Grid",
+      "desc": "Micronations, shifting borders & geographical freaks of nature",
+      "type": "standard",
+      "isNew": false,
+      "count": 10
+    },
+    {
+      "id": "movies-3",
+      "topic": "movies",
+      "title": "Cutting Room Floor",
+      "desc": "Deleted scenes, box office disasters & the films nobody expected to work",
+      "type": "standard",
+      "isNew": false,
+      "count": 10
+    },
+    {
+      "id": "music-3",
+      "topic": "music",
+      "title": "Encore! Encore!",
+      "desc": "One-hit wonders, stage disasters & the songs that almost never happened",
+      "type": "standard",
+      "isNew": false,
+      "count": 10
+    },
+    {
+      "id": "sport-3",
+      "topic": "sport",
+      "title": "Injury Time",
+      "desc": "Rule loopholes, protest moments & records that will never be broken",
+      "type": "standard",
+      "isNew": false,
+      "count": 10
+    },
+    {
+      "id": "nature-3",
+      "topic": "nature",
+      "title": "Tooth & Claw",
+      "desc": "Predator tactics, survival extremes & the weirdest mating rituals on Earth",
+      "type": "standard",
+      "isNew": false,
+      "count": 10
+    },
+    {
+      "id": "food-4",
+      "topic": "food",
+      "title": "Chef's Kiss",
+      "desc": "Regional feuds, forgotten superfoods & kitchen science gone wrong",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "science-4",
+      "topic": "science",
+      "title": "Thought Experiments",
+      "desc": "Paradoxes, probability traps & the experiments that broke physics",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "history-4",
+      "topic": "history",
+      "title": "Footnotes & Margins",
+      "desc": "The people history forgot, inventions credited to the wrong person & accidental empires",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "geography-4",
+      "topic": "geography",
+      "title": "Terminal Velocity",
+      "desc": "Extreme altitudes, sinking cities & the places where maps give up",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "movies-4",
+      "topic": "movies",
+      "title": "Method & Madness",
+      "desc": "Actors who went too far, directors who broke the rules & the shots that shouldn't exist",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "music-4",
+      "topic": "music",
+      "title": "Liner Notes",
+      "desc": "Buried in the credits, contractual absurdity & the instruments you've never heard of",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "sport-4",
+      "topic": "sport",
+      "title": "Golden Boot",
+      "desc": "Underdogs, disqualifications & the moments that defined eras",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "nature-4",
+      "topic": "nature",
+      "title": "Deep Current",
+      "desc": "Ocean trenches, mass extinctions & the species we're only just discovering",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "food-5",
+      "topic": "food",
+      "title": "Connections: Fork & Glass",
+      "desc": "What links these foods? Spot the pattern, name the connection",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "food-6",
+      "topic": "food",
+      "title": "Speed Round: True or Rubbish?",
+      "desc": "Ten rapid-fire food claims — call true or rubbish on each",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "science-5",
+      "topic": "science",
+      "title": "Current Affairs Lab",
+      "desc": "2023-2025 breakthroughs, climate milestones & tech that just landed",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "science-6",
+      "topic": "science",
+      "title": "Connections: Lab Partners",
+      "desc": "Find the scientific thread linking each set of clues",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "history-5",
+      "topic": "history",
+      "title": "The Trenches",
+      "desc": "World War One — the war that shaped the modern world",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "history-6",
+      "topic": "history",
+      "title": "Connections: Time Travel",
+      "desc": "What links these historical facts? Spot the thread across centuries",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "geography-5",
+      "topic": "geography",
+      "title": "Street View Showdown",
+      "desc": "Clues from landscapes, languages & road signs — name the country",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "geography-6",
+      "topic": "geography",
+      "title": "Connections: Atlas",
+      "desc": "Find the geographical thread linking each set",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "movies-5",
+      "topic": "movies",
+      "title": "2023-2025: Just Released",
+      "desc": "Fresh from the multiplex — the latest films and their secrets",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "movies-6",
+      "topic": "movies",
+      "title": "🎨 Picture Round: Who Am I?",
+      "desc": "ASCII portraits of famous directors and actors — can you name them?",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "music-5",
+      "topic": "music",
+      "title": "2023-2025: Fresh Drops",
+      "desc": "Recent releases, streaming wars & the artists dominating right now",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "music-6",
+      "topic": "music",
+      "title": "Connections: Backstage",
+      "desc": "Find the musical thread linking each set of clues",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "sport-5",
+      "topic": "sport",
+      "title": "Connections: Medal Table",
+      "desc": "Find the sporting thread linking each set",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "sport-6",
+      "topic": "sport",
+      "title": "Speed Round: Over/Under",
+      "desc": "Quick-fire — is the real number over or under what we say?",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "nature-5",
+      "topic": "nature",
+      "title": "Connections: Ecosystem",
+      "desc": "Find the natural thread linking each set of clues",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "nature-6",
+      "topic": "nature",
+      "title": "🎨 Picture Round: What Am I?",
+      "desc": "ASCII art creatures — identify the animal from the sketch",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "emoji-film",
+      "topic": "picture",
+      "title": "🎬 Emoji Cinema",
+      "desc": "Name the film from the emojis alone",
+      "type": "emoji",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "emoji-music",
+      "topic": "picture",
+      "title": "🎵 Emoji Jukebox",
+      "desc": "Name the song or artist from the emojis",
+      "type": "emoji",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "mystery-pictures",
+      "topic": "picture",
+      "title": "🎲 Mystery Pictures",
+      "desc": "Random images from the bank, randomly distorted (blur · ASCII · pixelate · scramble). Tap reveal for the answer.",
+      "type": "picture",
+      "isNew": true,
+      "count": 0
+    },
+    {
+      "id": "movies-online-2026-05-09-medium-1",
+      "topic": "movies",
+      "title": "🌐 Online: Movies Medium #1",
+      "desc": "Trivia from OpenTrivia DB — 8 medium questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 8
+    },
+    {
+      "id": "movies-online-2026-05-09-easy-1",
+      "topic": "movies",
+      "title": "🌐 Online: Movies Easy #1",
+      "desc": "Trivia from OpenTrivia DB — 9 easy questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 9
+    },
+    {
+      "id": "movies-online-2026-05-09-medium-2",
+      "topic": "movies",
+      "title": "🌐 Online: Movies Medium #2",
+      "desc": "Trivia from OpenTrivia DB — 9 medium questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 9
+    },
+    {
+      "id": "movies-online-2026-05-09-hard-2",
+      "topic": "movies",
+      "title": "🌐 Online: Movies Hard #2",
+      "desc": "Trivia from OpenTrivia DB — 10 hard questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "music-online-2026-05-09-easy-2",
+      "topic": "music",
+      "title": "🌐 Online: Music Easy #2",
+      "desc": "Trivia from OpenTrivia DB — 9 easy questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 9
+    },
+    {
+      "id": "music-online-2026-05-09-medium-2",
+      "topic": "music",
+      "title": "🌐 Online: Music Medium #2",
+      "desc": "Trivia from OpenTrivia DB — 7 medium questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 7
+    },
+    {
+      "id": "music-online-2026-05-09-hard-2",
+      "topic": "music",
+      "title": "🌐 Online: Music Hard #2",
+      "desc": "Trivia from OpenTrivia DB — 9 hard questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 9
+    },
+    {
+      "id": "science-online-2026-05-09-easy-2",
+      "topic": "science",
+      "title": "🌐 Online: Science Easy #2",
+      "desc": "Trivia from OpenTrivia DB — 10 easy questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "science-online-2026-05-09-medium-2",
+      "topic": "science",
+      "title": "🌐 Online: Science Medium #2",
+      "desc": "Trivia from OpenTrivia DB — 9 medium questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 9
+    },
+    {
+      "id": "science-online-2026-05-09-hard-2",
+      "topic": "science",
+      "title": "🌐 Online: Science Hard #2",
+      "desc": "Trivia from OpenTrivia DB — 7 hard questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 7
+    },
+    {
+      "id": "history-online-2026-05-09-easy-2",
+      "topic": "history",
+      "title": "🌐 Online: History Easy #2",
+      "desc": "Trivia from OpenTrivia DB — 9 easy questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 9
+    },
+    {
+      "id": "history-online-2026-05-09-medium-2",
+      "topic": "history",
+      "title": "🌐 Online: History Medium #2",
+      "desc": "Trivia from OpenTrivia DB — 10 medium questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "history-online-2026-05-09-hard-2",
+      "topic": "history",
+      "title": "🌐 Online: History Hard #2",
+      "desc": "Trivia from OpenTrivia DB — 10 hard questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "geography-online-2026-05-09-easy-2",
+      "topic": "geography",
+      "title": "🌐 Online: Geography Easy #2",
+      "desc": "Trivia from OpenTrivia DB — 8 easy questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 8
+    },
+    {
+      "id": "geography-online-2026-05-09-medium-2",
+      "topic": "geography",
+      "title": "🌐 Online: Geography Medium #2",
+      "desc": "Trivia from OpenTrivia DB — 9 medium questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 9
+    },
+    {
+      "id": "geography-online-2026-05-09-hard-2",
+      "topic": "geography",
+      "title": "🌐 Online: Geography Hard #2",
+      "desc": "Trivia from OpenTrivia DB — 7 hard questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 7
+    },
+    {
+      "id": "sport-online-2026-05-09-easy-2",
+      "topic": "sport",
+      "title": "🌐 Online: Sport Easy #2",
+      "desc": "Trivia from OpenTrivia DB — 9 easy questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 9
+    },
+    {
+      "id": "sport-online-2026-05-09-medium-2",
+      "topic": "sport",
+      "title": "🌐 Online: Sport Medium #2",
+      "desc": "Trivia from OpenTrivia DB — 8 medium questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 8
+    },
+    {
+      "id": "sport-online-2026-05-09-hard-2",
+      "topic": "sport",
+      "title": "🌐 Online: Sport Hard #2",
+      "desc": "Trivia from OpenTrivia DB — 9 hard questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 9
+    },
+    {
+      "id": "nature-online-2026-05-09-easy-2",
+      "topic": "nature",
+      "title": "🌐 Online: Nature Easy #2",
+      "desc": "Trivia from OpenTrivia DB — 10 easy questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "nature-online-2026-05-09-medium-2",
+      "topic": "nature",
+      "title": "🌐 Online: Nature Medium #2",
+      "desc": "Trivia from OpenTrivia DB — 8 medium questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 8
+    },
+    {
+      "id": "nature-online-2026-05-09-hard-2",
+      "topic": "nature",
+      "title": "🌐 Online: Nature Hard #2",
+      "desc": "Trivia from OpenTrivia DB — 10 hard questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "food-online-2026-05-09-easy-2",
+      "topic": "food",
+      "title": "🌐 Online: Food Easy #2",
+      "desc": "Trivia from OpenTrivia DB — 10 easy questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "food-online-2026-05-09-medium-2",
+      "topic": "food",
+      "title": "🌐 Online: Food Medium #2",
+      "desc": "Trivia from OpenTrivia DB — 10 medium questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "food-online-2026-05-09-hard-2",
+      "topic": "food",
+      "title": "🌐 Online: Food Hard #2",
+      "desc": "Trivia from OpenTrivia DB — 7 hard questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 7
+    },
+    {
+      "id": "movies-online-2026-05-09-easy-2",
+      "topic": "movies",
+      "title": "🌐 Online: Movies Easy #2",
+      "desc": "Trivia from OpenTrivia DB — 9 easy questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 9
+    },
+    {
+      "id": "movies-online-2026-05-09-hard-1",
+      "topic": "movies",
+      "title": "🌐 Online: Movies Hard #1",
+      "desc": "Trivia from OpenTrivia DB — 10 hard questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "music-online-2026-05-09-easy-1",
+      "topic": "music",
+      "title": "🌐 Online: Music Easy #1",
+      "desc": "Trivia from OpenTrivia DB — 9 easy questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 9
+    },
+    {
+      "id": "music-online-2026-05-09-medium-1",
+      "topic": "music",
+      "title": "🌐 Online: Music Medium #1",
+      "desc": "Trivia from OpenTrivia DB — 8 medium questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 8
+    },
+    {
+      "id": "music-online-2026-05-09-hard-1",
+      "topic": "music",
+      "title": "🌐 Online: Music Hard #1",
+      "desc": "Trivia from OpenTrivia DB — 9 hard questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 9
+    },
+    {
+      "id": "science-online-2026-05-09-easy-1",
+      "topic": "science",
+      "title": "🌐 Online: Science Easy #1",
+      "desc": "Trivia from OpenTrivia DB — 9 easy questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 9
+    },
+    {
+      "id": "science-online-2026-05-09-medium-1",
+      "topic": "science",
+      "title": "🌐 Online: Science Medium #1",
+      "desc": "Trivia from OpenTrivia DB — 8 medium questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 8
+    },
+    {
+      "id": "science-online-2026-05-09-hard-1",
+      "topic": "science",
+      "title": "🌐 Online: Science Hard #1",
+      "desc": "Trivia from OpenTrivia DB — 8 hard questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 8
+    },
+    {
+      "id": "history-online-2026-05-09-easy-1",
+      "topic": "history",
+      "title": "🌐 Online: History Easy #1",
+      "desc": "Trivia from OpenTrivia DB — 10 easy questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "history-online-2026-05-09-medium-1",
+      "topic": "history",
+      "title": "🌐 Online: History Medium #1",
+      "desc": "Trivia from OpenTrivia DB — 8 medium questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 8
+    },
+    {
+      "id": "history-online-2026-05-09-hard-1",
+      "topic": "history",
+      "title": "🌐 Online: History Hard #1",
+      "desc": "Trivia from OpenTrivia DB — 9 hard questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 9
+    },
+    {
+      "id": "geography-online-2026-05-09-easy-1",
+      "topic": "geography",
+      "title": "🌐 Online: Geography Easy #1",
+      "desc": "Trivia from OpenTrivia DB — 10 easy questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "geography-online-2026-05-09-medium-1",
+      "topic": "geography",
+      "title": "🌐 Online: Geography Medium #1",
+      "desc": "Trivia from OpenTrivia DB — 8 medium questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 8
+    },
+    {
+      "id": "geography-online-2026-05-09-hard-1",
+      "topic": "geography",
+      "title": "🌐 Online: Geography Hard #1",
+      "desc": "Trivia from OpenTrivia DB — 6 hard questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 6
+    },
+    {
+      "id": "sport-online-2026-05-09-easy-1",
+      "topic": "sport",
+      "title": "🌐 Online: Sport Easy #1",
+      "desc": "Trivia from OpenTrivia DB — 10 easy questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "sport-online-2026-05-09-medium-1",
+      "topic": "sport",
+      "title": "🌐 Online: Sport Medium #1",
+      "desc": "Trivia from OpenTrivia DB — 8 medium questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 8
+    },
+    {
+      "id": "sport-online-2026-05-09-hard-1",
+      "topic": "sport",
+      "title": "🌐 Online: Sport Hard #1",
+      "desc": "Trivia from OpenTrivia DB — 10 hard questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "nature-online-2026-05-09-easy-1",
+      "topic": "nature",
+      "title": "🌐 Online: Nature Easy #1",
+      "desc": "Trivia from OpenTrivia DB — 10 easy questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "nature-online-2026-05-09-medium-1",
+      "topic": "nature",
+      "title": "🌐 Online: Nature Medium #1",
+      "desc": "Trivia from OpenTrivia DB — 9 medium questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 9
+    },
+    {
+      "id": "nature-online-2026-05-09-hard-1",
+      "topic": "nature",
+      "title": "🌐 Online: Nature Hard #1",
+      "desc": "Trivia from OpenTrivia DB — 7 hard questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 7
+    },
+    {
+      "id": "food-online-2026-05-09-easy-1",
+      "topic": "food",
+      "title": "🌐 Online: Food Easy #1",
+      "desc": "Trivia from OpenTrivia DB — 9 easy questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 9
+    },
+    {
+      "id": "food-online-2026-05-09-medium-1",
+      "topic": "food",
+      "title": "🌐 Online: Food Medium #1",
+      "desc": "Trivia from OpenTrivia DB — 8 medium questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 8
+    },
+    {
+      "id": "food-online-2026-05-09-hard-1",
+      "topic": "food",
+      "title": "🌐 Online: Food Hard #1",
+      "desc": "Trivia from OpenTrivia DB — 8 hard questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 8
+    },
+    {
+      "id": "mystery-songs",
+      "topic": "music",
+      "title": "🎵 Mystery Songs",
+      "desc": "30s clips from the music bank — guess the song before the reveal",
+      "type": "music",
+      "isNew": true,
+      "count": 0
+    }
+  ]
+}

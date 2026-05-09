@@ -68,18 +68,51 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
 .fab.sec{background:rgba(255,255,255,0.06);box-shadow:none}
 .fab.sec:hover{background:rgba(255,255,255,0.1)}
 .emoji-q{font-size:1.8rem;letter-spacing:4px;padding:12px 0}
-.blur-wrap{width:100%;max-width:250px;margin:12px auto;border-radius:12px;overflow:hidden;background:var(--bg)}
-.blur-img{width:100%;display:block;border-radius:12px;transition:filter .8s ease}
-.blur-img.blurred{filter:blur(18px)}
-.blur-img.clear{filter:blur(0)}
-.sil-wrap{display:flex;justify-content:center;margin:12px 0}
-.sil-wrap svg{width:100%;max-width:180px}
-.ascii-wrap{background:var(--bg);border-radius:10px;padding:8px;margin:8px 0;overflow:auto}
-.ascii-canvas{display:none}
-.ascii-out{font-family:'Courier New',monospace;font-size:.34rem;line-height:1.05;letter-spacing:.06em;color:var(--accent);white-space:pre;text-align:center;margin:0}
-.hint-text{font-size:.75rem;color:var(--sub);line-height:1.4;font-style:italic;margin-top:6px}
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 .topic-cell,.rcard,.qcard{animation:fadeUp .4s ease both}
+/* ── Carousel mode (picture / emoji rounds) ── */
+.car{position:fixed;inset:0;padding-top:54px;display:flex;flex-direction:column;background:var(--bg);z-index:50}
+.car-body{flex:1;overflow-y:auto;padding:18px 16px;display:flex;align-items:center;justify-content:center}
+.car-card{width:100%;max-width:520px;background:var(--card);border:1px solid var(--bdr);border-radius:var(--radius-lg);padding:20px;display:flex;flex-direction:column;align-items:stretch;gap:14px;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;transition:border-color .25s,background .25s;animation:fadeUp .35s ease both}
+.car-card.show{border-color:rgba(45,212,160,0.18);background:var(--ok-bg)}
+.car-meta{display:flex;align-items:center;justify-content:space-between;width:100%}
+.car-meta .qn{font-family:'JetBrains Mono',monospace;font-size:.7rem;font-weight:700;color:var(--sub)}
+.car-cat{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:4px 11px;border-radius:100px;background:rgba(255,255,255,0.04)}
+.car-media{display:flex;align-items:center;justify-content:center;width:100%;min-height:180px}
+.car-hint{font-size:.92rem;color:var(--sub);line-height:1.5;text-align:center;font-style:italic;padding:0 8px}
+.car-ans{width:100%;max-height:0;overflow:hidden;opacity:0;transition:max-height .35s ease,opacity .3s ease}
+.car-card.show .car-ans{max-height:320px;opacity:1}
+.car-ans-i{border-top:1px solid var(--bdr);padding-top:14px;text-align:center}
+.car-al{font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;color:var(--ok);font-weight:700;margin-bottom:6px}
+.car-at{font-size:1.05rem;font-weight:600;color:var(--ok);line-height:1.45}
+.car .emoji-q{font-size:clamp(2.4rem,12vw,4.8rem);letter-spacing:.18em;padding:8px 0;text-align:center;line-height:1.15}
+.car-nav{display:flex;gap:10px;padding:12px 16px;padding-bottom:calc(12px + env(safe-area-inset-bottom));border-top:1px solid var(--bdr);background:var(--surface)}
+.car-btn{flex:1;height:52px;background:rgba(255,255,255,0.06);border:none;border-radius:var(--radius);color:var(--text);font-size:.82rem;font-weight:600;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .15s}
+.car-btn:hover{background:rgba(255,255,255,0.1)}
+.car-btn:active{transform:scale(.96)}
+.car-btn:disabled{opacity:.3;cursor:not-allowed}
+.car-btn:disabled:active{transform:none}
+.car-btn.primary{background:var(--accent);color:#fff;flex:1.4;box-shadow:0 4px 24px rgba(109,92,255,0.2)}
+.car-btn.primary:hover{background:var(--accent);box-shadow:0 6px 30px rgba(109,92,255,0.35)}
+/* ── Picture round (dynamic bank + random process) ── */
+.pic-host{width:100%;display:flex;justify-content:center;align-items:center;min-height:240px;position:relative}
+.pic-host img.pic-out,.pic-host canvas.pic-canvas,.pic-host img.pic-orig{max-width:100%;width:100%;max-width:380px;border-radius:12px;display:block;background:var(--bg)}
+.pic-host pre.pic-ascii{font-family:'JetBrains Mono','Courier New',monospace;font-weight:700;font-size:clamp(.46rem,1.6vw,.66rem);line-height:1;letter-spacing:0;color:var(--text);white-space:pre;text-align:center;margin:0;background:#000;padding:10px 8px;border-radius:10px;overflow-x:auto;max-width:100%}
+.pic-loading{font-size:.85rem;color:var(--muted);font-style:italic;padding:40px 0}
+.pic-mode{font-size:.55rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);text-align:center;margin-top:6px}
+.pic-hint-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.04);border:1px solid var(--bdr2);color:var(--sub);font-size:.78rem;font-weight:600;font-family:inherit;padding:8px 16px;border-radius:100px;cursor:pointer;transition:all .2s;align-self:center}
+.pic-hint-btn:hover{background:rgba(255,255,255,0.08);color:var(--text);border-color:var(--muted)}
+/* ── Music round (audio bank) ── */
+.music-host{width:100%;display:flex;justify-content:center;align-items:center;min-height:240px;padding:18px 0}
+.music-mystery{display:flex;flex-direction:column;align-items:center;gap:24px;width:100%}
+.music-mystery .music-icon{font-size:5rem;opacity:.45;line-height:1}
+.music-revealed{display:flex;flex-direction:column;align-items:center;gap:6px;width:100%}
+.music-title{font-size:1.45rem;font-weight:700;color:var(--text);text-align:center;line-height:1.25}
+.music-artist{font-size:1.05rem;color:var(--accent);font-weight:600;text-align:center}
+.music-album{font-size:.85rem;color:var(--sub);font-style:italic;text-align:center}
+.music-revealed .music-player{margin-top:14px}
+.music-player{width:100%;max-width:380px;border-radius:8px}
+audio.music-player::-webkit-media-controls-panel{background-color:var(--surface)}
 </style>
 </head>
 <body>
@@ -97,924 +130,219 @@ const TOPICS=[
   {id:"picture",icon:"🖼️",name:"Picture Rounds",color:"#f97316"},
 ];
 
-const ROUNDS=[
-  {
-    id:"food-family",topic:"food",title:"Sunday Roast",
-    desc:"Cooking myths, surprise origins & drinks you thought you knew",
-    questions:[
-      {q:"Most 'wasabi' served outside Japan is actually made from what?",a:"Horseradish dyed green"},
-      {q:"Peanuts grow underground — are they nuts, seeds, or legumes?",a:"Legumes (same family as lentils and chickpeas)"},
-      {q:"What was tomato ketchup originally sold as in the 1830s?",a:"Medicine — marketed as a cure for diarrhoea"},
-      {q:"Which country consumes the most coffee per person?",a:"Finland (roughly 12kg per person per year)"},
-      {q:"A 'baker's dozen' is 13 — but why?",a:"Medieval bakers added an extra to avoid harsh penalties for selling underweight loaves"},
-      {q:"White chocolate doesn't contain which ingredient that all other chocolate does?",a:"Cocoa solids — it's only cocoa butter, sugar, and milk"},
-      {q:"Honey found in Egyptian tombs over 3,000 years old was still edible — true or false?",a:"True — honey essentially never spoils"},
-      {q:"Strawberries, raspberries, and blackberries aren't actually berries. Name a fruit that IS a true berry.",a:"Bananas, grapes, avocados, tomatoes, or watermelons all qualify"},
-      {q:"The spice saffron is worth more by weight than gold — what part of the flower is it?",a:"The stigma (thread-like strands inside a crocus flower)"},
-      {q:"Fanta was invented in which country during WWII, and why?",a:"Nazi Germany — Coca-Cola couldn't import syrup ingredients due to a trade embargo"},
-    ]
-  },
-  {
-    id:"science-family",topic:"science",title:"Kitchen Table Physics",
-    desc:"Counter-intuitive facts your kids will love arguing about",
-    questions:[
-      {q:"If you fold a piece of paper in half 42 times, how far would it reach?",a:"Past the Moon — about 440,000 km (each fold doubles thickness)"},
-      {q:"What percentage of the universe is made of the stuff we can actually see?",a:"About 5% — the rest is dark matter and dark energy"},
-      {q:"Which planet has a day that's longer than its year?",a:"Venus — one rotation takes 243 Earth days, one orbit takes 225"},
-      {q:"Humans share roughly what percentage of DNA with a banana?",a:"About 60%"},
-      {q:"Is glass a solid, a liquid, or something else?",a:"An amorphous solid — the 'glass is a slow liquid' thing is a myth"},
-      {q:"What colour is a mirror, technically speaking?",a:"Slightly green — mirrors reflect green wavelengths most efficiently"},
-      {q:"Sound travels faster through air, water, or steel?",a:"Steel — about 15 times faster than through air"},
-      {q:"What happens to your height in space?",a:"You grow up to 5cm taller — your spine decompresses without gravity"},
-      {q:"Can you see the Great Wall of China from space with the naked eye?",a:"No — it's too narrow. You can see cities, but not the Wall"},
-      {q:"Your brain uses roughly what percentage of your body's energy?",a:"About 20% — despite being only 2% of your body weight"},
-    ]
-  },
-  {
-    id:"history-family",topic:"history",title:"Wait, That's Real?",
-    desc:"Historical facts that sound completely made up but aren't",
-    questions:[
-      {q:"Cleopatra lived closer in time to the Moon landing or the building of the Great Pyramid?",a:"The Moon landing — by about 500 years"},
-      {q:"Oxford University started teaching before which famous empire even existed?",a:"The Aztec Empire (Oxford: ~1096 AD, Aztecs: ~1325 AD)"},
-      {q:"The shortest war in history lasted roughly how long?",a:"38 to 45 minutes — the Anglo-Zanzibar War of 1896"},
-      {q:"Nintendo was founded in which century?",a:"The 19th — 1889, as a playing card company"},
-      {q:"Woolly mammoths were still alive when which famous monument was being built?",a:"The Great Pyramid of Giza (mammoths survived until ~1650 BC on Wrangel Island)"},
-      {q:"The fax machine was invented before or after the telephone?",a:"Before — the fax concept dates to 1843, the telephone to 1876"},
-      {q:"The last execution by guillotine in France happened the same year as which film's release?",a:"Star Wars — both in 1977"},
-      {q:"Samurai and cowboys existed at the same time — true or false?",a:"True — the samurai era ended in 1876, peak cowboy era was 1860s–1890s"},
-      {q:"Albert Einstein was offered the presidency of which country?",a:"Israel in 1952 — he politely declined"},
-      {q:"Switzerland didn't give women the right to vote nationally until which year?",a:"1971"},
-    ]
-  },
-  {
-    id:"geo-family",topic:"geography",title:"Where on Earth?",
-    desc:"Borders that make no sense, records nobody asked for & map madness",
-    questions:[
-      {q:"Which country has the most time zones — and it's not Russia?",a:"France — 12 time zones (thanks to overseas territories)"},
-      {q:"The shortest scheduled flight in the world is in Scotland. How long does it take?",a:"About 57 seconds — Westray to Papa Westray in Orkney"},
-      {q:"Which African country has more pyramids than Egypt?",a:"Sudan — over 200, compared to Egypt's roughly 130"},
-      {q:"Point Nemo is the farthest spot from any land on Earth. What's the closest human presence?",a:"Astronauts on the ISS — it orbits closer than any landmass"},
-      {q:"Only one country in the world has a flag that isn't rectangular or square. Which?",a:"Nepal — it's two stacked triangles"},
-      {q:"Canada has more lakes than the rest of the world combined — true or false?",a:"True — over 60% of the world's lakes are in Canada"},
-      {q:"Two islands 3.8 km apart have a time difference of 21 hours. What are they?",a:"Big Diomede (Russia) and Little Diomede (USA) — straddling the International Date Line"},
-      {q:"Which tiny country sits entirely inside the city of Rome?",a:"Vatican City"},
-      {q:"Mount Chimborazo in Ecuador is technically closer to space than Everest. Why?",a:"Earth's equatorial bulge — Chimborazo's peak is farther from Earth's centre"},
-      {q:"What is the only US state whose name you can type on a single row of a keyboard?",a:"Alaska — A, L, A, S, K, A all sit on the top row"},
-    ]
-  },
-  {
-    id:"movies-family",topic:"movies",title:"Plot Holes & Popcorn",
-    desc:"Behind-the-scenes secrets, odd casting choices & film world trivia",
-    questions:[
-      {q:"The blood in the elevator scene in 'The Shining' took how many days to set up for a shot lasting just a few seconds?",a:"About a year of planning — three days to film, and they used up to 3,000 gallons of fake blood"},
-      {q:"In 'Toy Story', what is the name of the moving company on the truck?",a:"Eggman Movers (with the tagline 'Moving? Call Eggman')"},
-      {q:"Which Best Picture winner at the Oscars has the shortest runtime?",a:"Marty (1955) at 90 minutes"},
-      {q:"The Wilhelm Scream is a famous stock sound effect — in which 1951 film was it first recorded?",a:"Distant Drums — though it was named after the character Private Wilhelm in 'The Charge at Feather River' (1953)"},
-      {q:"Which actor has been killed on screen more than any other in Hollywood history?",a:"Danny Trejo (by his own estimate, over 80 deaths)"},
-      {q:"In 'The Matrix', everything inside the Matrix has a faint green tint. What colour tint does the real world have?",a:"Blue — the colour grading shifts between the two worlds throughout"},
-      {q:"What was the first fully computer-animated feature film ever released?",a:"Toy Story (1995)"},
-      {q:"Alfred Hitchcock made a cameo in nearly all his films. In 'Lifeboat' (1944), which is set entirely on a small boat, how did he appear?",a:"In a newspaper ad for a weight-loss product — as the 'before and after' photo"},
-      {q:"The country of Wakanda from 'Black Panther' briefly appeared on a real US government trade partner list. True or false?",a:"True — the USDA accidentally listed Wakanda as a free trade partner in 2019"},
-      {q:"Which horror film was marketed with the tagline 'In space, no one can hear you scream'?",a:"Alien (1979)"},
-    ]
-  },
-  {
-    id:"music-family",topic:"music",title:"B-Sides & Deep Grooves",
-    desc:"Odd origins, stage name secrets & chart weirdness",
-    questions:[
-      {q:"'Happy Birthday to You' was under copyright until which year — meaning restaurants technically owed royalties for singing it?",a:"2016 — Warner/Chappell collected roughly $2 million a year from it until a court ruling"},
-      {q:"Which instrument did Prince reportedly play on his debut album — and how many of them?",a:"All 27 instruments, as well as all vocals"},
-      {q:"The longest officially released song by a major band lasts over 69 minutes. Who recorded it?",a:"Bull of Heaven — though for mainstream, The Flaming Lips' '7 Skies H3' runs 24 hours"},
-      {q:"Before she was Lady Gaga, Stefani Germanotta briefly appeared as an extra on which TV show?",a:"The Sopranos (Season 3, Episode 9 — in a pool scene)"},
-      {q:"What does the 'AC' and 'DC' in AC/DC actually stand for?",a:"Alternating Current / Direct Current — the Young brothers saw it on a sewing machine label"},
-      {q:"Spotify's most-streamed song of all time (as of 2024) is by The Weeknd. What's it called?",a:"'Blinding Lights' — over 4 billion streams"},
-      {q:"Which Beatles album was the first to have no title or band name on the front cover — just a plain white sleeve?",a:"The White Album (officially 'The Beatles', 1968)"},
-      {q:"Mozart composed his first symphony at what age?",a:"8 years old (Symphony No. 1 in E-flat major)"},
-      {q:"The vinyl crackle you hear at the start of hip-hop tracks sampled from old records — what causes it?",a:"Dust and microscopic scratches in the grooves of the vinyl — it became an aesthetic choice"},
-      {q:"Which country has won the Eurovision Song Contest the most times?",a:"Ireland — 7 wins"},
-    ]
-  },
-  {
-    id:"sport-family",topic:"sport",title:"Halftime Teasers",
-    desc:"Rules nobody reads, bizarre records & the stories behind the stats",
-    questions:[
-      {q:"A regulation golf ball has how many dimples, roughly?",a:"Between 300 and 500 (most commonly 336)"},
-      {q:"In the entire history of the modern Olympics, which country has won the most total medals?",a:"The United States"},
-      {q:"What sport was played on the Moon, and who played it?",a:"Golf — Alan Shepard hit two balls during Apollo 14 in 1971"},
-      {q:"A standard dartboard is divided into how many numbered sections?",a:"20"},
-      {q:"In football, the 'Cruyff Turn' is named after Johan Cruyff — but in which World Cup did he first perform it on the world stage?",a:"1974 World Cup in West Germany (Netherlands vs Sweden)"},
-      {q:"How many feathers are in a regulation badminton shuttlecock?",a:"16 feathers (always from the left wing of a goose)"},
-      {q:"The fastest serve ever recorded in tennis was clocked at roughly what speed?",a:"About 263 km/h (163 mph) — by Sam Groth in 2012"},
-      {q:"In sumo wrestling, what happens if both wrestlers touch the ground at exactly the same time?",a:"The heavier wrestler loses — it's called a 'simultaneous fall' and weight is the tiebreaker"},
-      {q:"Which team sport has the largest pitch by area?",a:"Polo — a full-size polo field is roughly 300 yards long"},
-      {q:"The Olympic rings represent what — the five continents, the five original sports, or something else?",a:"The five continents (Africa, Americas, Asia, Europe, Oceania) — with colours chosen because every nation's flag contains at least one of them"},
-    ]
-  },
-  {
-    id:"nature-family",topic:"nature",title:"Creature Features",
-    desc:"Animal absurdity, plant cunning & ocean strangeness",
-    questions:[
-      {q:"A group of flamingos is called a 'flamboyance'. What's a group of pugs called?",a:"A grumble"},
-      {q:"Sharks are older than trees — by how much?",a:"About 100 million years (sharks: ~450M years, trees: ~350M years)"},
-      {q:"Which animal's heart stops beating when it dives underwater, then restarts when it surfaces?",a:"Marine iguanas — their heart rate drops to near zero during deep dives"},
-      {q:"Bamboo holds the record for fastest-growing plant. How fast can some species grow per day?",a:"Up to 91 cm (about 3 feet) in a single day"},
-      {q:"What colour is an octopus's blood, and why?",a:"Blue — it uses copper-based haemocyanin instead of iron-based haemoglobin"},
-      {q:"Sea otters hold hands while sleeping. What's the actual reason?",a:"To avoid drifting apart — it's called 'rafting'"},
-      {q:"The pistol shrimp creates a sound louder than a gunshot. How does it do it?",a:"By snapping its claw shut so fast it creates a cavitation bubble that produces a shockwave of 218+ decibels"},
-      {q:"Cows have best friends and get stressed when separated — true or false?",a:"True — studies show measurably lower cortisol levels when they're with their preferred companion"},
-      {q:"The largest living organism on Earth isn't a whale — it's a what?",a:"A honey fungus (Armillaria ostoyae) in Oregon — it covers 2,385 acres underground"},
-      {q:"Flamingos are born what colour?",a:"Grey or white — they turn pink from their diet of brine shrimp and algae containing carotenoid pigments"},
-    ]
-  },
-  {
-    id:"food-hard",topic:"food",title:"The Sommelier's Nightmare",
-    desc:"Obscure origins, chemistry in the kitchen & drinks that fool experts",
-    questions:[
-      {q:"Capsaicin makes chillies hot — but where in the pepper is it actually concentrated?",a:"The white pith (placenta), not the seeds as most people think"},
-      {q:"In a famous 1976 wine tasting called 'The Judgment of Paris', what happened that shocked the world?",a:"Californian wines beat French wines in a blind tasting judged by French experts"},
-      {q:"Maillard reaction is responsible for browning when you sear meat — but it's technically not caramelisation. What's the key difference?",a:"Maillard requires amino acids (proteins) reacting with sugars; caramelisation is sugars alone breaking down"},
-      {q:"What common food is technically classified as a 'modified stem' by botanists — not a root?",a:"A potato (it's a tuber, which is a swollen underground stem)"},
-      {q:"MSG was isolated in 1908 by a Japanese chemist from what specific food?",a:"Kombu seaweed (kelp broth) — by Kikunae Ikeda"},
-      {q:"Which spirit must legally be aged in new charred oak barrels?",a:"Bourbon (not Scotch — Scotch typically uses second-hand bourbon barrels)"},
-      {q:"The 'French Paradox' refers to the puzzling observation that the French have low heart disease rates despite what?",a:"A diet high in saturated fats — red wine consumption was proposed as the explanation"},
-      {q:"Vanilla is the second most expensive spice after saffron. What plant family does it belong to?",a:"Orchids — vanilla comes from a species of orchid (Vanilla planifolia)"},
-      {q:"What happens chemically when you 'cook' fish in lime juice to make ceviche?",a:"The citric acid denatures the proteins — same structural change as heat, but without raising the temperature"},
-      {q:"Blue cheese gets its distinctive veins from what being physically introduced during the aging process?",a:"Metal rods or needles are poked through the cheese to create air channels where Penicillium mould can grow"},
-    ]
-  },
-  {
-    id:"science-hard",topic:"science",title:"Pub Astrophysics",
-    desc:"Quantum weirdness, medical myths debunked & numbers that break your brain",
-    questions:[
-      {q:"The observable universe is 13.8 billion years old — but its radius is 46 billion light-years. How is that possible?",a:"Space itself has been expanding faster than light — the light we see left objects that have since moved much farther away"},
-      {q:"What is the Dunning-Kruger effect, and which field of science does it come from?",a:"A cognitive bias where low-ability people overestimate their competence — from social psychology (Kruger & Dunning, 1999)"},
-      {q:"Absolute zero is -273.15°C. Has anything ever reached it?",a:"No — the Third Law of Thermodynamics says it's impossible to reach in a finite number of steps. Scientists have come within billionths of a degree"},
-      {q:"The placebo effect works even when patients know they're taking a placebo. True or false?",a:"True — 'open-label placebos' have shown measurable effects in clinical trials"},
-      {q:"Light slows down when passing through glass or water. What happens to the 'missing' speed?",a:"The light is absorbed and re-emitted by atoms in the medium, creating a delay — it still travels at c between atoms"},
-      {q:"What is the Fermi Paradox, in one sentence?",a:"If the universe is so vast and old, why haven't we found any evidence of other intelligent civilisations?"},
-      {q:"CRISPR gene editing was adapted from a defence mechanism found in what type of organism?",a:"Bacteria — they use CRISPR sequences to recognise and destroy viral DNA"},
-      {q:"A person standing at the equator is moving faster than a fighter jet due to Earth's rotation. Roughly how fast?",a:"About 1,670 km/h (1,037 mph) — faster than the speed of sound"},
-      {q:"The Mpemba effect claims hot water freezes faster than cold water. Has it been definitively proven or disproven?",a:"Neither — it remains contested. Some experiments confirm it, others don't. The mechanisms are still debated"},
-      {q:"What is 'junk DNA' and why is that name now considered misleading?",a:"Non-coding DNA that doesn't directly make proteins — but much of it has regulatory functions, so 'junk' understates its importance"},
-    ]
-  },
-  {
-    id:"history-hard",topic:"history",title:"The Classified Files",
-    desc:"Espionage, forgotten empires & the stories they left out of textbooks",
-    questions:[
-      {q:"Operation Mincemeat was a WWII deception plan involving a dead body carrying fake documents. What was the corpse's fake identity?",a:"Major William Martin of the Royal Marines — the body was actually a Welsh tramp named Glyndwr Michael"},
-      {q:"The Library of Alexandria's destruction is often blamed on a single fire. Why is that misleading?",a:"It declined gradually over centuries through multiple events — funding cuts, civil wars, and several fires, not one catastrophic moment"},
-      {q:"Which empire at its peak controlled the largest contiguous land area in human history?",a:"The Mongol Empire under Genghis Khan and his successors — roughly 24 million km²"},
-      {q:"The Voynich Manuscript, written in an unknown script, has never been deciphered. What century does it date from?",a:"Early 15th century (carbon-dated to between 1404 and 1438)"},
-      {q:"During the Cold War, the CIA spent millions on a programme to use cats as listening devices. What was it called?",a:"Acoustic Kitty — it was abandoned after the first cat was reportedly hit by a taxi"},
-      {q:"The Rosetta Stone was key to decoding Egyptian hieroglyphics. But what three scripts does it actually contain?",a:"Hieroglyphic, Demotic, and Ancient Greek"},
-      {q:"Which 14th-century African emperor is considered the wealthiest person in history, adjusted for inflation?",a:"Mansa Musa of the Mali Empire — his hajj to Mecca in 1324 crashed gold prices across North Africa and the Middle East"},
-      {q:"The 'Defenestration of Prague' triggered the Thirty Years' War. What does 'defenestration' literally mean?",a:"Throwing someone out of a window — Catholic officials were thrown from a Prague Castle window in 1618"},
-      {q:"Project MKUltra was a real CIA programme. What was its purpose?",a:"Mind control experimentation — including dosing unwitting subjects with LSD (ran from the 1950s to 1973)"},
-      {q:"The Doomsday Book, commissioned by William the Conqueror in 1086, was essentially what?",a:"A comprehensive survey and census of England's land, resources, and livestock — the first national audit"},
-    ]
-  },
-  {
-    id:"geography-hard",topic:"geography",title:"Cartographer's Revenge",
-    desc:"Phantom islands, geopolitical absurdities & places the GPS forgot",
-    questions:[
-      {q:"Null Island is at coordinates 0°N 0°E. What's actually there?",a:"A weather buoy in the Gulf of Guinea — the coordinates exist where the equator meets the prime meridian, in open ocean"},
-      {q:"The Danakil Depression in Ethiopia is one of the hottest inhabited places on Earth. What's the average annual temperature?",a:"About 34.4°C (94°F) — with peaks above 50°C"},
-      {q:"What is an 'exclave' and which European country has one completely surrounded by Switzerland?",a:"An exclave is territory separated from the main body. Büsingen am Hochrhein is a German exclave entirely within Switzerland"},
-      {q:"Sandy Island appeared on maps and Google Earth near New Caledonia for over a century. What happened when scientists went to find it in 2012?",a:"It didn't exist — it was a phantom island, likely from a 19th-century cartographic error"},
-      {q:"The Dead Sea is shrinking by roughly how much per year?",a:"About 1 metre (3.3 feet) per year — it's lost roughly a third of its surface area since the 1960s"},
-      {q:"Bir Tawil is a region between Egypt and Sudan that neither country claims. Why?",a:"Both countries claim the adjacent, larger Hala'ib Triangle instead — claiming Bir Tawil would mean giving up Hala'ib"},
-      {q:"Which country has the most UNESCO World Heritage Sites?",a:"Italy (59 as of 2024), followed closely by China"},
-      {q:"The Mariana Trench is the deepest point in the ocean. More people have walked on the Moon than have visited the bottom — true or false?",a:"True — 12 people have walked on the Moon, while only a handful have reached Challenger Deep"},
-      {q:"What is a 'tripoint' and where do three European countries meet at a single bench?",a:"A tripoint is where three borders meet. The Dreiländereck bench sits at the junction of Germany, France, and Switzerland near Basel"},
-      {q:"Lesotho is entirely surrounded by South Africa. But which country is the world's largest 'country within a country' by area?",a:"Trick question — Lesotho is the only country entirely enclosed by a single other country. San Marino and Vatican City are enclosed by Italy, but they're smaller"},
-    ]
-  },
-  {
-    id:"movies-hard",topic:"movies",title:"The Director's Commentary",
-    desc:"Production disasters, method acting madness & industry deep lore",
-    questions:[
-      {q:"Stanley Kubrick was so secretive about 'Eyes Wide Shut' that even the studio didn't see a final cut before what happened?",a:"He died — just six days after showing Warner Bros. his final cut, before it was released"},
-      {q:"In 'Apocalypse Now', Martin Sheen suffered a real medical emergency during filming in the Philippines. What was it?",a:"A heart attack — he was 36 years old and had to crawl half a mile to get help"},
-      {q:"Which film's production was so troubled it was nicknamed 'Kevin's Gate' after its director?",a:"Waterworld (1995) — director Kevin Reynolds clashed with Kevin Costner; it went massively over budget"},
-      {q:"Tarkovsky's 'Stalker' (1979) was filmed near a chemical plant. What happened to several crew members years later?",a:"The director, his wife, and actor Anatoly Solonitsyn all died of cancers linked to the toxic shooting location"},
-      {q:"Daniel Day-Lewis famously never broke character during 'My Left Foot'. What did the crew have to do for him throughout filming?",a:"Carry him around the set and spoon-feed him — he refused to leave his wheelchair or use his hands"},
-      {q:"The infamous 'Cats' (2019) was so rushed that the initial theatrical release had a visible error. What was it?",a:"Judi Dench's human hand (with her wedding ring) was visible — they hadn't finished the CGI fur on it"},
-      {q:"Which Kurosawa film was so influential that George Lucas directly adapted its plot for the original Star Wars?",a:"The Hidden Fortress (1958) — the story told through two bickering peasants became C-3PO and R2-D2's perspective"},
-      {q:"The production of 'Jaws' was plagued by a malfunctioning mechanical shark. What did Spielberg name it?",a:"'Bruce' — after his lawyer, Bruce Ramer"},
-      {q:"Werner Herzog ate his own shoe on stage after losing a bet with another filmmaker. Who was the filmmaker and what was the bet?",a:"Errol Morris — Herzog bet Morris would never finish his documentary 'Gates of Heaven'. Morris finished it."},
-      {q:"In 'Come and See' (1985), the young lead actor's hair reportedly turned grey during production. The director used live ammunition in some scenes — true or false?",a:"True on both counts — real bullets were fired over the actors' heads, and Aleksei Kravchenko's hair greyed from stress"},
-    ]
-  },
-  {
-    id:"music-hard",topic:"music",title:"The Analog Vault",
-    desc:"Lost recordings, contract wars, sampling lawsuits & studio mythology",
-    questions:[
-      {q:"The 'loudness war' in music mastering peaked in 2008 with which Metallica album that fans petitioned to have remastered?",a:"Death Magnetic — the Guitar Hero version actually sounded better because it hadn't been brick-wall compressed"},
-      {q:"Brian Wilson spent years and millions recording an album that was shelved as 'too ahead of its time'. What was it called and when did it finally get released?",a:"SMiLE — recorded 1966-67, officially released in 2011 (44 years later)"},
-      {q:"The 'Amen break' is a 6-second drum loop from a 1969 B-side that became the backbone of jungle, drum & bass, and hip-hop. Who played it?",a:"Gregory Coleman of The Winstons, on the track 'Amen, Brother' — he died homeless and never received royalties"},
-      {q:"Which rapper's debut album was recorded entirely on a prison-issued JPay tablet while serving time?",a:"This is a trick — while several rappers have recorded in prison, no major debut was made entirely on a JPay tablet. The question tests if you'll guess confidently"},
-      {q:"Robert Johnson allegedly sold his soul to the devil at a crossroads in exchange for guitar mastery. Where is this crossroads supposedly located?",a:"The intersection of Highways 61 and 49 in Clarksdale, Mississippi (though historians debate the exact spot)"},
-      {q:"Phil Spector's 'Wall of Sound' technique involved doing what unusual thing with the recording process?",a:"Having multiple musicians play the same parts simultaneously in a small echo chamber — layering identical performances for density"},
-      {q:"What is 'brickwalling' in audio mastering, and why do audiophiles hate it?",a:"Compressing the dynamic range so everything is equally loud — it removes the quiet-to-loud contrast that gives music emotional impact"},
-      {q:"Radiohead's 'Kid A' (2000) baffled fans by abandoning guitar rock. Which electronic artist was the primary influence Thom Yorke cited?",a:"Aphex Twin (Richard D. James) — Yorke also cited Warp Records and Autechre"},
-      {q:"Which legendary Motown songwriter and producer was blind from birth and signed to the label at age 11?",a:"Stevie Wonder (Stevland Hardaway Judkins) — he signed in 1961"},
-      {q:"The original master tapes for thousands of classic recordings were destroyed in a 2008 fire at Universal Studios. Name one artist whose masters were confirmed lost.",a:"Nirvana, Tupac, Elton John, Snoop Dogg, R.E.M., Sonic Youth, Beck, Nine Inch Nails — among many others"},
-    ]
-  },
-  {
-    id:"sport-hard",topic:"sport",title:"Extra Time",
-    desc:"Banned techniques, statistical anomalies & the matches nobody expected",
-    questions:[
-      {q:"The 'Fosbury Flop' revolutionised the high jump. Before Dick Fosbury, what technique did most athletes use?",a:"The straddle (or 'Western Roll') — going over face-down. Fosbury went over backwards at the 1968 Olympics and won gold"},
-      {q:"In cricket, only one player has scored 400 runs in a single Test innings. Who?",a:"Brian Lara — 400 not out for the West Indies vs England in 2004"},
-      {q:"The 'Miracle on Ice' refers to which specific match, between which teams, in which year?",a:"USA vs USSR in ice hockey at the 1980 Winter Olympics in Lake Placid — the amateur US team beat the dominant Soviet professionals"},
-      {q:"Why was the underarm bowling incident in 1981 between Australia and New Zealand so controversial?",a:"Australia's captain instructed his bowler to roll the ball along the ground for the last delivery, making it impossible for NZ to hit a six to tie — legal but considered deeply unsportsmanlike"},
-      {q:"In boxing, the 'phantom punch' that knocked out Sonny Liston was thrown by whom, and why is it controversial?",a:"Muhammad Ali in 1965 — many ringside observers couldn't see the punch connect, leading to conspiracy theories that the fight was fixed"},
-      {q:"What is 'Moneyball' and which baseball team pioneered the approach?",a:"Using statistical analysis (sabermetrics) instead of traditional scouting — pioneered by the Oakland Athletics under GM Billy Beane in the early 2000s"},
-      {q:"Leicester City won the 2015-16 Premier League at odds of 5000-1. What had they nearly done the season before?",a:"Been relegated — they were bottom of the table in April 2015 before a miraculous survival run"},
-      {q:"The 'Hand of God' is famous — but what happened with Maradona's second goal in that same match that's considered even more remarkable?",a:"He dribbled past five England players and the goalkeeper in a 60-metre run — often called the 'Goal of the Century'"},
-      {q:"In Formula 1, only one driver has won the World Championship posthumously. Who?",a:"Jochen Rindt in 1970 — he died at Monza with a points lead that nobody overtook"},
-      {q:"What is 'rotating the strike' in cricket and why is it tactically important?",a:"Batters taking singles to swap ends, ensuring the stronger batter faces the weaker bowler and keeping the scoreboard ticking between boundaries"},
-    ]
-  },
-  {
-    id:"nature-hard",topic:"nature",title:"Apex Predator",
-    desc:"Evolutionary arms races, parasitic nightmares & ecosystems on the edge",
-    questions:[
-      {q:"The cordyceps fungus takes over an ant's brain and forces it to climb to a specific height before killing it. Why that exact height?",a:"Optimal temperature and humidity for the fungus to grow a spore-releasing stalk from the ant's head — maximising spore dispersal onto ants below"},
-      {q:"What is a 'lazarus taxon' in biology?",a:"A species that disappears from the fossil record for a long period then reappears — named after the biblical figure who rose from the dead (e.g. coelacanths)"},
-      {q:"The Yellowstone supervolcano's last major eruption was 640,000 years ago. What would happen to the US if it erupted today?",a:"Roughly a 1,000 km radius of destruction, ash covering most of the continent, global cooling for years — effectively a civilisation-ending event for North America"},
-      {q:"Why do deep-sea fish often have transparent or red colouring?",a:"Red light doesn't penetrate deep water — so red fish are effectively invisible. Transparent fish let light pass through, casting no shadow for predators to detect"},
-      {q:"The 'grandmother hypothesis' in evolutionary biology explains what puzzling human trait?",a:"Why women live decades past menopause — the theory suggests grandmothers who helped raise grandchildren increased their descendants' survival rates"},
-      {q:"What is an 'ecological trap' and give one example?",a:"When environmental changes make a poor habitat seem attractive — e.g. sea turtles mistaking beachfront lights for moonlight and heading inland instead of to sea"},
-      {q:"Lichen is often described as a symbiotic relationship between two organisms. Why is that now considered an oversimplification?",a:"Lichen actually involves at least three partners — a fungus, an alga or cyanobacterium, AND a recently discovered yeast that was hiding in plain sight (identified in 2016)"},
-      {q:"The 'Wood Wide Web' refers to what underground network?",a:"Mycorrhizal fungal networks connecting tree roots — trees share nutrients, water, and chemical warning signals through these fungal threads"},
-      {q:"What is 'convergent evolution' and why do sharks and dolphins look similar despite being completely unrelated?",a:"Unrelated species independently evolving similar traits due to similar environmental pressures — the streamlined body shape is optimal for fast aquatic movement"},
-      {q:"The axolotl can regenerate limbs, heart tissue, and even parts of its brain. What's the catch that makes it scientifically frustrating?",a:"It's critically endangered in the wild (only found in Lake Xochimilco, Mexico) — so studying it in its natural habitat is nearly impossible"},
-    ]
-  },
-  {
-    id:"food-3",topic:"food",title:"Midnight Snack",
-    desc:"Street food origins, fermentation mysteries & flavour combos that shouldn't work",
-    questions:[
-      {q:"Fish and chips was brought to England by immigrants from which two countries?",a:"Jewish refugees from Portugal and Spain — fried fish was a Sephardic Jewish tradition"},
-      {q:"What common kitchen ingredient is chemically almost identical to TNT?",a:"Trinitrotoluene and sugar both contain carbon, hydrogen, and oxygen — but the real answer is that baking soda and vinegar's violent reaction is often confused with this. The actual answer: nothing common is close to TNT. Trick question!"},
-      {q:"Korma, tikka masala, and balti were all invented in which country?",a:"Britain — they're British-Indian dishes, not traditional Indian cuisine"},
-      {q:"What fruit smells so terrible it's banned on public transport in Singapore?",a:"Durian"},
-      {q:"Ranch dressing was invented on an actual ranch. Where?",a:"Sweetwater Ranch in Santa Barbara, California — by Steve Henson in the 1950s"},
-      {q:"Processed cheese was invented in Switzerland — true or false?",a:"True — Walter Gerber created it in 1911 to prevent cheese from spoiling during export"},
-      {q:"What popular drink was accidentally invented by a pharmacist trying to cure headaches?",a:"Coca-Cola — by John Pemberton in 1886"},
-      {q:"Why does pineapple make your mouth tingle and sting?",a:"It contains bromelain, an enzyme that literally digests the proteins in your mouth — the pineapple is eating you back"},
-      {q:"Which country eats the most cheese per capita?",a:"Denmark (though France and Iceland are close behind)"},
-      {q:"Worcestershire sauce takes how long to ferment before bottling?",a:"18 months"},
-    ]
-  },
-  {
-    id:"science-3",topic:"science",title:"Lab Rats",
-    desc:"Failed experiments that changed everything, medical oddities & space junk",
-    questions:[
-      {q:"Penicillin was discovered because Alexander Fleming did what?",a:"Left a petri dish uncovered before going on holiday — mould grew and killed the bacteria around it"},
-      {q:"How many satellites are currently orbiting Earth — roughly?",a:"Over 10,000 active satellites (and millions of pieces of debris)"},
-      {q:"What is the 'overview effect' experienced by astronauts?",a:"A cognitive shift in awareness — seeing Earth from space triggers a profound sense of the planet's fragility and unity"},
-      {q:"Why do hospital doors open outward?",a:"So they can be pushed open by someone in a hurry or carrying a patient — and to aid evacuation during emergencies"},
-      {q:"What common material expands when it freezes, unlike almost every other substance?",a:"Water — ice is less dense than liquid water, which is why it floats"},
-      {q:"The Voyager 1 probe is the farthest human-made object from Earth. What's on its golden record?",a:"Sounds and images of Earth — music, greetings in 55 languages, nature sounds, and diagrams showing our location"},
-      {q:"Why can't you burp in space?",a:"Without gravity, gas and liquid in your stomach don't separate — you'd get a wet burp (essentially vomit)"},
-      {q:"What does the 'half-life' of a radioactive element actually measure?",a:"The time for half of the atoms in a sample to decay — not when it becomes safe"},
-      {q:"Microwaves heat food by exciting which type of molecule?",a:"Water molecules — they vibrate at the microwave frequency, generating heat through friction"},
-      {q:"What is 'proprioception' — the sense most people forget they have?",a:"Your body's sense of its own position in space — it's how you can touch your nose with your eyes closed"},
-    ]
-  },
-  {
-    id:"history-3",topic:"history",title:"Redacted",
-    desc:"Cover-ups, accidents that shaped nations & the strangest true stories",
-    questions:[
-      {q:"The Great Molasses Flood of 1919 killed 21 people in Boston. How fast did the wave of molasses travel?",a:"About 56 km/h (35 mph) — a 7.5-metre wall of treacle"},
-      {q:"Which US president served only 32 days before dying?",a:"William Henry Harrison — he caught pneumonia after giving the longest inauguration speech in history, in the rain"},
-      {q:"The Dancing Plague of 1518 saw hundreds of people in Strasbourg do what for days?",a:"Dance uncontrollably — some reportedly died from exhaustion, strokes, or heart attacks"},
-      {q:"What everyday object did a Scottish engineer invent after watching a ball roll across a muddy field?",a:"Trick question setup — but John Boyd Dunlop invented the pneumatic tyre after watching his son struggle to ride a tricycle on cobblestones"},
-      {q:"The 'Night Witches' were an all-female squadron of bomber pilots in WWII. Which country were they from?",a:"The Soviet Union — the 588th Night Bomber Regiment, feared by the Germans"},
-      {q:"What did Cleopatra's native language turn out to be — and it wasn't Egyptian?",a:"Greek — the Ptolemaic dynasty was Macedonian Greek. She was reportedly the first Ptolemy to learn Egyptian"},
-      {q:"The Tunguska event of 1908 flattened 80 million trees in Siberia. What caused it?",a:"An airburst from a meteoroid or comet fragment — it exploded before impact with a force 1,000 times greater than the Hiroshima bomb"},
-      {q:"How did Rasputin reportedly survive his assassination — at least initially?",a:"He was poisoned with cyanide-laced cakes and wine, shot multiple times, beaten, and finally drowned in the Neva River"},
-      {q:"The Stonewall Riots of 1969 are considered the catalyst for which civil rights movement?",a:"The modern LGBTQ+ rights movement"},
-      {q:"Which country accidentally invaded another country in 2007 — and apologised?",a:"Switzerland — soldiers accidentally marched into Liechtenstein during a training exercise at night"},
-    ]
-  },
-  {
-    id:"geography-3",topic:"geography",title:"Off the Grid",
-    desc:"Micronations, shifting borders & geographical freaks of nature",
-    questions:[
-      {q:"Sealand is a self-proclaimed micronation built on what, off the coast of England?",a:"An abandoned WWII sea fort (HM Fort Roughs) in the North Sea"},
-      {q:"What is the least visited country in the world by tourists?",a:"Tuvalu — roughly 3,700 visitors per year"},
-      {q:"Lake Baikal in Russia holds what percentage of the world's surface fresh water?",a:"About 20% — it's the deepest and oldest lake on Earth"},
-      {q:"Which capital city was purpose-built in the 1960s to move the government away from the coast?",a:"Brasília, Brazil — inaugurated in 1960, designed by Oscar Niemeyer and Lúcio Costa"},
-      {q:"The border between Belgium and the Netherlands passes through houses, cafes, and even a front door. What's the town?",a:"Baarle — specifically Baarle-Hertog (Belgian) and Baarle-Nassau (Dutch), an insane patchwork of enclaves"},
-      {q:"What natural phenomenon causes the Sahara Desert to fertilise the Amazon Rainforest?",a:"Dust storms — phosphorus-rich dust from the Bodélé Depression in Chad is carried across the Atlantic by wind"},
-      {q:"Which landlocked country has the world's largest navy by number of personnel?",a:"None sensibly do — but Bolivia, Laos, and several others maintain small naval forces on rivers and lakes. The question is a trap"},
-      {q:"What is the Ring of Fire?",a:"A horseshoe-shaped zone around the Pacific Ocean where about 75% of the world's volcanic eruptions and 90% of earthquakes occur"},
-      {q:"Greenland is the world's largest island. But most of its land mass is covered by what?",a:"An ice sheet up to 3km thick — if it all melted, global sea levels would rise about 7 metres"},
-      {q:"What is special about the town of Coober Pedy in Australia?",a:"Most residents live underground — in converted opal mines — to escape temperatures that regularly exceed 40°C"},
-    ]
-  },
-  {
-    id:"movies-3",topic:"movies",title:"Cutting Room Floor",
-    desc:"Deleted scenes, box office disasters & the films nobody expected to work",
-    questions:[
-      {q:"'Blade Runner' (1982) flopped at the box office. How many different official cuts of the film now exist?",a:"Seven — including the Original, International, Director's Cut, and Final Cut"},
-      {q:"Which animated Disney film took 38 years to make, starting and stopping production multiple times?",a:"The Black Cauldron? No — 'Tangled' (Rapunzel) holds the record at about 14 years. But the intended answer is likely 'Fantasia 2000' or 'The Thief and the Cobbler' (not Disney but often cited). Trick territory — 'Tangled' is the safe answer for Disney proper"},
-      {q:"What was the first film to earn $1 billion at the worldwide box office?",a:"Titanic (1997)"},
-      {q:"'The Room' (2003) is considered one of the worst films ever made. How much did Tommy Wiseau spend making it?",a:"$6 million — he inexplicably bought cameras instead of renting them, and shot on both film and digital simultaneously"},
-      {q:"Which Pixar film started as a sequel but was so good they promoted it to an original story?",a:"Coco was always original — but 'Inside Out' and 'Up' both went through radical story overhauls. The actual answer most people cite: 'Toy Story 2' was planned as direct-to-video before they realised it was too good"},
-      {q:"Harrison Ford's famous 'I know' line in 'The Empire Strikes Back' was improvised. What was the scripted line?",a:"'I love you too' — Ford thought it was out of character for Han Solo"},
-      {q:"Which horror film had audiences fainting in theatres and was banned in several countries on release?",a:"The Exorcist (1973)"},
-      {q:"What is the 'Kuleshov Effect' in filmmaking?",a:"A viewer's interpretation of a face changes depending on what shot is placed next to it — the same expression reads as hunger, grief, or desire based on context"},
-      {q:"'Mad Max' (1979) held the Guinness record for most profitable film based on budget-to-earnings ratio for years. What was its budget?",a:"About $400,000 AUD — it earned over $100 million worldwide"},
-      {q:"Which film was Quentin Tarantino working in a video store when he wrote it?",a:"True Romance (1993) — and also Natural Born Killers, though Oliver Stone heavily rewrote that one"},
-    ]
-  },
-  {
-    id:"music-3",topic:"music",title:"Encore! Encore!",
-    desc:"One-hit wonders, stage disasters & the songs that almost never happened",
-    questions:[
-      {q:"'Bohemian Rhapsody' was almost cut from the album because the label thought it was too long. How long is it?",a:"5 minutes 55 seconds — the label wanted a radio-friendly single under 3 minutes"},
-      {q:"Which band took their name from a negative review of another band's concert?",a:"Joy Division? No — 'Radiohead' was a Talking Heads song. But the classic answer is that 'Bad Religion' is self-descriptive. The actual one: 'The Who' chose their name partly because it was confusing and annoying to journalists"},
-      {q:"What instrument does a Theremin use to make sound, and why is it unusual?",a:"It uses two antennas that detect the position of your hands — you play it without touching it"},
-      {q:"'Smells Like Teen Spirit' by Nirvana was named after what?",a:"A deodorant brand — Kurt Cobain's friend Kathleen Hanna sprayed 'Kurt smells like Teen Spirit' on his wall, and he thought it was a revolutionary slogan"},
-      {q:"Which country has produced the most #1 Billboard Hot 100 hits per capita?",a:"Sweden — thanks to ABBA, Robyn, Max Martin (who wrote hits for Britney, Backstreet Boys, Taylor Swift, The Weeknd), and Avicii"},
-      {q:"What is 'autotune' actually doing to a singer's voice, technically?",a:"Shifting the pitch of each note to the nearest correct semitone in real time — at extreme settings it creates the robotic effect popularised by T-Pain and Cher"},
-      {q:"Jimi Hendrix, Janis Joplin, Jim Morrison, Kurt Cobain, and Amy Winehouse all share what morbid coincidence?",a:"They all died at age 27 — the so-called '27 Club'"},
-      {q:"The longest-running #1 single in UK chart history spent 14 weeks at the top. What was it?",a:"'Stay' by The Kid LAROI and Justin Bieber? No — it was 'Old Town Road' in the US. In the UK it's 'I Believe' by Frankie Laine (1953) at 18 weeks, or more recently 'Last Christmas' by Wham! finally hit #1 in 2021"},
-      {q:"Keith Moon of The Who was famous for destroying drum kits. What did he once drive into a swimming pool?",a:"A Rolls-Royce — though the more commonly verified story is a Lincoln Continental at a Holiday Inn"},
-      {q:"What is a 'ghost note' in drumming?",a:"A very softly played note — barely audible but felt rhythmically, adding groove and texture between the main beats"},
-    ]
-  },
-  {
-    id:"sport-3",topic:"sport",title:"Injury Time",
-    desc:"Rule loopholes, protest moments & records that will never be broken",
-    questions:[
-      {q:"In 1994, Barbados needed to score an own goal to advance in a football tournament. Did they actually do it?",a:"Yes — due to a bizarre 'golden goal counts double' rule, they deliberately scored against themselves to force extra time, then won"},
-      {q:"Wilt Chamberlain scored 100 points in one NBA game. What's remarkable about the evidence?",a:"No complete video recording exists — only audio of the final minutes and a few photographs"},
-      {q:"The 'Miracle of Istanbul' refers to which football match?",a:"2005 Champions League Final — Liverpool came back from 3-0 down at half-time against AC Milan to win on penalties"},
-      {q:"In tennis, what is a 'bagel' and a 'breadstick'?",a:"A bagel is winning a set 6-0, a breadstick is winning 6-1 (the 1 looks like a breadstick)"},
-      {q:"Which Olympic sport was once judged partly on artistic impression alongside athletic performance — and still is?",a:"Figure skating, gymnastics, diving, synchronised swimming — all retain artistic/execution scores"},
-      {q:"Why was the back-pass rule introduced in football in 1992?",a:"The 1990 World Cup was so boring — teams kept passing back to the keeper to waste time — that FIFA banned goalkeepers from handling deliberate back-passes"},
-      {q:"In horse racing, who or what is 'Frankel' and why is he significant?",a:"An unbeaten British racehorse — 14 wins from 14 races (2010-2012), considered by many the greatest flat racehorse ever"},
-      {q:"Tommie Smith and John Carlos raised their fists on the podium at the 1968 Olympics. What happened to the third man on the podium?",a:"Peter Norman (silver, Australia) wore an Olympic Project for Human Rights badge in solidarity — he was ostracised by Australian athletics and never selected again"},
-      {q:"What is the 'Duckworth-Lewis-Stern' method in cricket?",a:"A mathematical formula for resetting targets in rain-interrupted limited-overs matches — based on remaining resources (wickets and overs)"},
-      {q:"The longest tennis match in history lasted over 11 hours across three days. Who played?",a:"John Isner vs Nicolas Mahut at Wimbledon 2010 — final score 70-68 in the fifth set"},
-    ]
-  },
-  {
-    id:"nature-3",topic:"nature",title:"Tooth & Claw",
-    desc:"Predator tactics, survival extremes & the weirdest mating rituals on Earth",
-    questions:[
-      {q:"The anglerfish has one of the most disturbing mating strategies in nature. What does the male do?",a:"He bites the female, fuses into her body, and slowly dissolves until he's nothing but a pair of gonads she can use when needed"},
-      {q:"What is a 'zombie deer' and should we be worried?",a:"Deer infected with Chronic Wasting Disease (CWD) — a prion disease causing drooling, stumbling, and aggression. It hasn't jumped to humans yet, but scientists are watching it closely"},
-      {q:"Why do some species of gecko lick their own eyeballs?",a:"They don't have eyelids — the tongue is their windscreen wiper, keeping the eye moist and clean"},
-      {q:"The bombardier beetle defends itself by doing what?",a:"Firing a boiling chemical spray from its abdomen at 100°C — mixed internally from two separate chambers right before ejection"},
-      {q:"What is the 'bloop' — the mysterious underwater sound detected by NOAA in 1997?",a:"Originally thought to be a massive unknown sea creature, it was later attributed to an icequake (ice cracking off an Antarctic glacier)"},
-      {q:"Honey badgers are famously fearless. What's their actual defence mechanism that makes them so hard to kill?",a:"Extremely loose, thick skin — a predator that grabs them can't get a proper grip, and the badger can twist around inside its own skin to bite back"},
-      {q:"Why do whales beach themselves?",a:"Still debated — theories include sonar interference from military exercises, magnetic navigation errors, illness, social bonds (following a sick leader), and parasitic brain infections"},
-      {q:"The duck-billed platypus is venomous. Where is the venom delivered from?",a:"Spurs on the hind legs of males — the venom is excruciatingly painful to humans but not lethal"},
-      {q:"What is 'biomimicry' and name one real-world invention inspired by nature?",a:"Designing technology by copying nature — Velcro (from burrs), bullet trains (from kingfisher beaks), wind turbines (from humpback whale fins)"},
-      {q:"Trees in a forest cooperate through underground fungal networks — but they also wage chemical warfare against rivals. How?",a:"Some species release allelopathic chemicals from roots or falling leaves that inhibit competing plants' growth — black walnut trees are a classic example"},
-    ]
-  },
-  {
-    id:"food-4",topic:"food",title:"Chef's Kiss",isNew:true,
-    desc:"Regional feuds, forgotten superfoods & kitchen science gone wrong",
-    questions:[
-      {q:"Carbonara traditionally uses guanciale — what cut of meat is that?",a:"Cured pork cheek (not bacon, not pancetta — Italians will fight you on this)"},
-      {q:"What makes sourdough bread rise if there's no commercial yeast?",a:"Wild yeast and lactobacillus bacteria captured in the starter — they ferment naturally from the flour and environment"},
-      {q:"The world's most expensive pizza costs over $12,000. What's on it?",a:"Varies by claim — but typically: buffalo mozzarella, lobster, caviar, and gold leaf. Some versions include three types of rare caviar"},
-      {q:"In Japan, there's a high-end watermelon that regularly sells for how much?",a:"Up to $6,000 for a Densuke watermelon from Hokkaido — they only produce about 10,000 per year"},
-      {q:"What gives Earl Grey tea its distinctive flavour?",a:"Bergamot oil — from a citrus fruit grown mostly in Calabria, Italy"},
-      {q:"Brown eggs and white eggs taste different — true or false?",a:"False — the colour depends on the breed of chicken, not the taste or nutrition"},
-      {q:"What ancient preservation technique involves burying food in ash and lye?",a:"Lutefisk — Nordic dried whitefish rehydrated in lye solution until gelatinous. Also: century eggs use a similar alkaline process"},
-      {q:"Why does asparagus make some people's urine smell strange — and why can't everyone detect it?",a:"Asparagusic acid breaks down into sulphur compounds. About 40% of people lack the gene to smell them — the smell is there, they just can't perceive it"},
-      {q:"Margherita pizza represents the Italian flag — red tomato, white mozzarella, green basil. But the story that it was invented for Queen Margherita is probably what?",a:"A myth — flatbreads with those toppings predated the supposed 1889 royal visit. The letter 'proving' it was likely forged"},
-      {q:"What is the 'five-second rule' actually backed by in terms of science?",a:"Almost nothing — bacteria transfer is nearly instantaneous on contact. Moisture and surface type matter more than time"},
-    ]
-  },
-  {
-    id:"science-4",topic:"science",title:"Thought Experiments",isNew:true,
-    desc:"Paradoxes, probability traps & the experiments that broke physics",
-    questions:[
-      {q:"Schrödinger's cat is both alive and dead — but what was Schrödinger actually trying to prove with the thought experiment?",a:"That the Copenhagen interpretation of quantum mechanics was absurd — it was a criticism, not a celebration of the idea"},
-      {q:"The 'Monty Hall problem': you pick door 1, the host opens door 3 (a goat). Should you switch to door 2?",a:"Yes — switching gives you a 2/3 chance of winning. Staying is only 1/3. Even professional mathematicians argued about this"},
-      {q:"What is an 'island of stability' in nuclear physics?",a:"A predicted group of superheavy elements that might be stable enough to exist for more than fractions of a second — we haven't confirmed any yet"},
-      {q:"The twin paradox: if one twin travels near light speed and returns, what happens?",a:"The travelling twin ages less — this isn't a paradox, it's confirmed by special relativity. GPS satellites experience this daily and must correct for it"},
-      {q:"What is 'quantum entanglement' in plain English?",a:"Two particles become linked so that measuring one instantly determines the state of the other, regardless of distance — Einstein called it 'spooky action at a distance'"},
-      {q:"The Bechdel test is used for films — but which scientific field has an equivalent test for research papers?",a:"There isn't a direct equivalent — this is a trick question. The Bechdel test is purely a film/media metric"},
-      {q:"What is a 'quasar' and why can we see them from billions of light-years away?",a:"An extremely luminous core of a distant galaxy powered by a supermassive black hole consuming matter — they can outshine their entire host galaxy"},
-      {q:"Why is a year on Mercury only 88 Earth days, but a single day on Mercury lasts 59 Earth days?",a:"Mercury rotates very slowly on its axis but orbits the Sun quickly — so a Mercurian day is about 2/3 of its year"},
-      {q:"The 'ship of Theseus' asks: if you replace every plank of a ship, is it the same ship? Which modern technology faces this exact philosophical problem?",a:"Your own body — nearly every cell is replaced over 7-10 years. Also: software that's been entirely rewritten over time"},
-      {q:"What is 'dark matter' and what's the best evidence for it?",a:"Invisible matter that doesn't interact with light but exerts gravitational pull — galaxies rotate too fast to be held together by visible matter alone"},
-    ]
-  },
-  {
-    id:"history-4",topic:"history",title:"Footnotes & Margins",isNew:true,
-    desc:"The people history forgot, inventions credited to the wrong person & accidental empires",
-    questions:[
-      {q:"Who actually invented the lightbulb — because it wasn't just Edison?",a:"At least 20 inventors worked on incandescent lighting before Edison. Humphry Davy, Warren de la Rue, and Joseph Swan all had working versions. Edison perfected the commercially viable one"},
-      {q:"Hedy Lamarr was a 1940s Hollywood star who also co-invented what foundational technology?",a:"Frequency-hopping spread spectrum — the basis for modern Wi-Fi, Bluetooth, and GPS"},
-      {q:"The Phlogiston Theory dominated chemistry for over a century. What was it and why was it wrong?",a:"It claimed combustible materials contained 'phlogiston' that was released during burning. Lavoisier disproved it by demonstrating that combustion requires oxygen"},
-      {q:"Which country had a female pharaoh, warrior queens, and a written language before most of Europe?",a:"The Kingdom of Kush (modern-day Sudan) — with Kandakes (warrior queens) and Meroitic script"},
-      {q:"The Treaty of Tordesillas in 1494 did what extraordinary thing?",a:"Split the entire non-Christian world between Spain and Portugal — drawing a line through the Atlantic. That's why Brazil speaks Portuguese"},
-      {q:"Ada Lovelace is credited as the first computer programmer. What machine was she writing for?",a:"Charles Babbage's Analytical Engine — a mechanical general-purpose computer that was never fully built"},
-      {q:"What was 'Greek fire' and why was it so feared?",a:"A Byzantine incendiary weapon that burned on water and couldn't be extinguished. The exact formula was a state secret and has been lost to history"},
-      {q:"The 'Year Without a Summer' (1816) was caused by what?",a:"The eruption of Mount Tambora in Indonesia in 1815 — volcanic ash blocked sunlight globally, causing crop failures, snow in June, and famine"},
-      {q:"Who were the Harlem Hellfighters and why were they significant?",a:"The 369th Infantry Regiment — an African-American unit in WWI that spent 191 days in combat (the longest of any American unit) and never lost a trench. France awarded them the Croix de Guerre; America largely ignored them"},
-      {q:"Tenochtitlan, the Aztec capital, was larger than any European city when the Spanish arrived. What modern city sits on its ruins?",a:"Mexico City"},
-    ]
-  },
-  {
-    id:"geography-4",topic:"geography",title:"Terminal Velocity",isNew:true,
-    desc:"Extreme altitudes, sinking cities & the places where maps give up",
-    questions:[
-      {q:"Jakarta is sinking so fast the Indonesian government is building a new capital. How fast is it sinking?",a:"Up to 25cm per year in parts — largely due to groundwater extraction. The new capital is called Nusantara, on Borneo"},
-      {q:"What is a 'panhandle' in geography?",a:"A narrow strip of territory extending from a wider area — like the Oklahoma or Florida panhandles, or the Wakhan Corridor in Afghanistan"},
-      {q:"The Bermuda Triangle is famous — but which body of water has more documented shipwrecks per square mile?",a:"The Great Lakes — particularly Lake Superior, which has claimed over 350 ships"},
-      {q:"What is the Caspian Sea — technically?",a:"The world's largest enclosed inland body of water. Legally it's classified as neither a lake nor a sea — a 2018 convention gave it 'special legal status'"},
-      {q:"Doggerland connected Britain to mainland Europe until roughly when?",a:"About 6,500 BC — rising sea levels after the last ice age submerged it. Fishermen still trawl up mammoth bones and stone tools"},
-      {q:"What makes the Sargasso Sea unique among all the world's seas?",a:"It has no coastline — it's defined entirely by ocean currents (the North Atlantic gyre). It's the only sea bounded by water, not land"},
-      {q:"Svalbard, Norway has a 'doomsday vault'. What's stored in it?",a:"Seeds — the Svalbard Global Seed Vault holds over 1 million seed samples from nearly every country, as insurance against global crop failure"},
-      {q:"What is a 'desire path' in urban geography?",a:"A footpath created by foot traffic where people actually walk, as opposed to where planners put pavements — a physical record of collective human preference"},
-      {q:"The antipodal point of London (exact opposite side of Earth) is where?",a:"In the ocean southeast of New Zealand — most of Europe's antipodes are in the Pacific Ocean"},
-      {q:"What percentage of the Earth's population lives in the Northern Hemisphere?",a:"About 87-90%"},
-    ]
-  },
-  {
-    id:"movies-4",topic:"movies",title:"Method & Madness",isNew:true,
-    desc:"Actors who went too far, directors who broke the rules & the shots that shouldn't exist",
-    questions:[
-      {q:"For 'Cast Away', Tom Hanks gained then lost how much weight — with a year-long production break in between?",a:"He gained 50 pounds for the pre-island scenes, then production paused a year while he lost it plus more"},
-      {q:"The 'Steadicam' was invented for which iconic 1976 film?",a:"Bound for Glory (Woody Guthrie biopic) — though most people associate it with Rocky or The Shining, both came after"},
-      {q:"What is a 'oner' or 'one-shot' in filmmaking, and which recent film faked being entirely one shot?",a:"An unbroken continuous take. '1917' (2019) was designed to appear as two continuous takes with hidden cuts — 'Birdman' (2014) did the same trick earlier"},
-      {q:"Christian Bale lost 63 pounds for 'The Machinist' then had to gain it all back plus more for 'Batman Begins'. How long between films?",a:"About 6 months — he went from 55kg to over 100kg"},
-      {q:"What is the '180-degree rule' in filmmaking?",a:"An imaginary line between two characters — the camera should stay on one side of it to maintain consistent screen direction. Crossing it disorients the viewer"},
-      {q:"The most expensive film ever made (adjusted for inflation) isn't a recent blockbuster. What is it?",a:"Cleopatra (1963) — roughly $340 million adjusted. It nearly bankrupted 20th Century Fox"},
-      {q:"What is a 'MacGuffin'?",a:"An object or goal that drives the plot but is ultimately unimportant — the term was popularised by Hitchcock. The briefcase in Pulp Fiction is a classic example"},
-      {q:"Tilda Swinton reportedly slept in a glass box in a museum as performance art. She also did what unusual thing for her role in 'Suspiria' (2018)?",a:"Played three roles including an elderly male psychiatrist — wearing extensive prosthetics. It wasn't revealed until after release"},
-      {q:"Which film holds the record for most extras in a single scene?",a:"Gandhi (1982) — the funeral scene used around 300,000 extras, some of whom were paid and many volunteered"},
-      {q:"What does 'mise-en-scène' actually mean and why do film students overuse it?",a:"French for 'placing on stage' — it covers everything visible in a frame: set design, lighting, costumes, positioning. Students overuse it because it sounds sophisticated and covers basically everything"},
-    ]
-  },
-  {
-    id:"music-4",topic:"music",title:"Liner Notes",isNew:true,
-    desc:"Buried in the credits, contractual absurdity & the instruments you've never heard of",
-    questions:[
-      {q:"Max Martin has written more #1 Billboard hits than any songwriter since The Beatles. Name three artists he's written for.",a:"Britney Spears, Backstreet Boys, NSYNC, Katy Perry, Taylor Swift, The Weeknd, Ariana Grande — among many others"},
-      {q:"What is a 'sample clearance' and which hip-hop lawsuit in the 1990s changed the rules forever?",a:"Legal permission to reuse another artist's recording. Grand Upright Music vs Warner Bros (1991) — Biz Markie used a Gilbert O'Sullivan sample without clearance and lost, making uncleared sampling legally dangerous"},
-      {q:"The didgeridoo is one of the oldest instruments still played. How old is it estimated to be?",a:"At least 1,500 years, possibly up to 40,000 years — indigenous Australian rock art depicts it"},
-      {q:"What is 'sidechain compression' and why does it make dance music pump?",a:"The kick drum signal triggers compression on the bass/synths, briefly ducking their volume on each beat — creating the signature 'breathing' effect in EDM"},
-      {q:"Prince changed his name to a symbol in the 1990s. Why?",a:"A contract dispute with Warner Bros — he couldn't release music under 'Prince' due to his deal, so he became an unpronounceable symbol (Love Symbol) to work around it"},
-      {q:"What are 'overtones' and why does a violin sound different from a flute playing the same note?",a:"Every instrument produces the fundamental frequency plus additional harmonic frequencies at different intensities — this unique blend is called 'timbre' and it's why each instrument has a distinct voice"},
-      {q:"Which album has spent the most total weeks on the Billboard 200 chart?",a:"'The Dark Side of the Moon' by Pink Floyd — over 950 weeks (roughly 18 years on the chart, non-consecutively)"},
-      {q:"What is a 'tritone' and why was it called 'the devil's interval' in medieval times?",a:"An interval of three whole tones (e.g. C to F#) — it sounds dissonant and unsettling. The Catholic Church reportedly discouraged its use, calling it 'diabolus in musica'"},
-      {q:"Joni Mitchell's 'Both Sides Now' was recorded by her three times across how many years?",a:"About 33 years — the last version (2000) is dramatically different, reflecting decades of life experience in a slower, orchestral arrangement"},
-      {q:"What physical format outsold vinyl for the first time in 1988?",a:"The CD — compact discs overtook vinyl records in sales, beginning vinyl's decline until its recent revival"},
-    ]
-  },
-  {
-    id:"sport-4",topic:"sport",title:"Golden Boot",isNew:true,
-    desc:"Underdogs, disqualifications & the moments that defined eras",
-    questions:[
-      {q:"Greg LeMond won the 1989 Tour de France by the smallest margin ever. How small?",a:"8 seconds — after three weeks and over 3,000 km of racing"},
-      {q:"In which sport can you legally score a 'safety' — and what is it?",a:"American football — when the defence tackles the ball carrier in their own end zone, scoring 2 points for the defensive team"},
-      {q:"Ben Johnson won the 100m at the 1988 Olympics in a world record time, then what happened?",a:"Stripped of the gold medal after testing positive for steroids — Carl Lewis was promoted to first"},
-      {q:"Why is the marathon exactly 42.195 km (26 miles 385 yards)?",a:"The distance was standardised at the 1908 London Olympics to start at Windsor Castle and finish in front of the Royal Box — the extra 385 yards was for the royals' convenience"},
-      {q:"What is a 'hat-trick' in cricket specifically — not football?",a:"A bowler taking a wicket on three consecutive deliveries. The name comes from the tradition of awarding the bowler a hat"},
-      {q:"Eddie 'The Eagle' Edwards became a national hero at the 1988 Winter Olympics. What was his actual result?",a:"Dead last in both ski jumping events — by an enormous margin. But he was Britain's first Olympic ski jumper since 1929"},
-      {q:"In baseball, what is a 'perfect game' and how many have there been in MLB history?",a:"A pitcher faces the minimum 27 batters and retires them all — no hits, walks, errors, or hit batters. Only 24 in over 150 years of MLB"},
-      {q:"What is the 'offside trap' in football and why is it risky?",a:"Defenders deliberately step forward in unison to catch attackers offside — risky because if one defender is late, the attacker is through on goal with acres of space"},
-      {q:"Nadia Comăneci scored the first perfect 10 in Olympic gymnastics in 1976. The scoreboard couldn't display it — what did it show?",a:"1.00 — the Omega scoreboard only went to 9.99 and couldn't handle a 10.0"},
-      {q:"Why is the Ryder Cup so emotionally intense compared to other golf tournaments?",a:"It's the only major team event in a traditionally individual sport — professionals who normally compete alone suddenly have to play for their continent with national pride at stake"},
-    ]
-  },
-  {
-    id:"nature-4",topic:"nature",title:"Deep Current",isNew:true,
-    desc:"Ocean trenches, mass extinctions & the species we're only just discovering",
-    questions:[
-      {q:"Scientists estimate we've only identified what percentage of all species on Earth?",a:"About 10-15% — roughly 8.7 million species are estimated to exist, and we've catalogued around 1.2 million"},
-      {q:"What is a 'mass extinction event' and how many have there been?",a:"A period where at least 75% of species die off globally. There have been five major ones — some scientists argue we're in the sixth right now"},
-      {q:"The giant squid wasn't filmed alive in its natural habitat until which year?",a:"2012 — despite centuries of sailor stories, the first footage was captured by a Japanese-led team in the Pacific"},
-      {q:"What is 'bioluminescence' used for by deep-sea creatures?",a:"Hunting (luring prey), defence (blinding predators or triggering a 'burglar alarm'), camouflage (counter-illumination to hide their silhouette from below), and communication"},
-      {q:"Why do trees in a forest often grow to roughly the same height?",a:"Competition for light — growing taller than your neighbours costs energy. An equilibrium forms where going higher yields diminishing returns ('the crown shyness' effect also keeps canopies from touching)"},
-      {q:"The Permian-Triassic extinction killed 96% of marine species. What's its nickname?",a:"The Great Dying — roughly 252 million years ago, likely triggered by volcanic eruptions in Siberia"},
-      {q:"What is CRISPR's natural role in bacteria — before scientists co-opted it for gene editing?",a:"An immune system — bacteria store snippets of virus DNA so they can recognise and destroy that virus if it attacks again"},
-      {q:"Coral reefs cover less than 1% of the ocean floor but support what percentage of marine species?",a:"About 25% — they're the most biodiverse marine ecosystems on Earth"},
-      {q:"What is an 'extremophile' and where's the most extreme place we've found life on Earth?",a:"An organism thriving in extreme conditions. Candidates: 4km deep in gold mines (Desulforudis), superheated hydrothermal vents (121°C), or the Atacama Desert's hyperarid core"},
-      {q:"Why do migratory birds fly in a V formation?",a:"Aerodynamic drafting — each bird flies in the upwash from the wingtip vortex of the bird ahead, reducing energy expenditure by up to 70%. They rotate the lead position to share the effort"},
-    ]
-  },
-  {
-    id:"food-5",topic:"food",title:"Connections: Fork & Glass",isNew:true,
-    desc:"What links these foods? Spot the pattern, name the connection",
-    questions:[
-      {q:"What connects: Champagne, Parmesan, Feta, and Darjeeling tea?",a:"They all have Protected Designation of Origin — they can only legally be called that if produced in their specific region"},
-      {q:"What connects: a Bloody Mary, a Mimosa, and a Bellini?",a:"They're all brunch cocktails named after something else — a queen, a painter, and a cocktail"},
-      {q:"Odd one out: Tofu, Tempeh, Seitan, Edamame. Which one and why?",a:"Seitan — it's made from wheat gluten, not soy. The other three are all soybean products"},
-      {q:"True, false, or it depends: 'Sushi' means 'raw fish'",a:"False — sushi refers to the vinegared rice. Raw fish is 'sashimi'. You can have sushi with no fish at all"},
-      {q:"Put these in order of Scoville heat units, mildest to hottest: Jalapeño, Habanero, Carolina Reaper, Tabasco sauce",a:"Tabasco (~2,500) → Jalapeño (~5,000) → Habanero (~300,000) → Carolina Reaper (~2.2 million)"},
-      {q:"What connects: fortune cookies, chicken tikka masala, and Hawaiian pizza?",a:"None of them come from where you'd expect — fortune cookies are American, tikka masala is British, Hawaiian pizza is Canadian"},
-      {q:"Name the dish: it originated in Cincinnati, contains chocolate and cinnamon in the sauce, and is served over spaghetti",a:"Cincinnati chili — a Greek-American invention nothing like Texan chili"},
-      {q:"What's the connection: a roux, a slurry, and a beurre manié?",a:"They're all thickening agents for sauces — roux (fat+flour cooked), slurry (starch+cold liquid), beurre manié (raw butter+flour kneaded)"},
-      {q:"Two of these are the same thing with different names. Which two? Coriander, Cilantro, Parsley, Culantro",a:"Coriander and cilantro — same plant (coriander is British English, cilantro is American). Culantro is a completely different herb"},
-      {q:"What connects Vegemite, Marmite, and Bovril — and which is the odd one out?",a:"All are dark, salty spreads. Bovril is the odd one out — it's made from beef extract, while Vegemite and Marmite are yeast extract"},
-    ]
-  },
-  {
-    id:"food-6",topic:"food",title:"Speed Round: True or Rubbish?",isNew:true,
-    desc:"Ten rapid-fire food claims — call true or rubbish on each",
-    questions:[
-      {q:"True or rubbish: Carrots improve your night vision",a:"Rubbish — WWII British propaganda to hide the invention of radar. Vitamin A helps general eye health, but won't give you night vision"},
-      {q:"True or rubbish: Twinkies last forever",a:"Rubbish — they last about 45 days. The myth comes from their lack of dairy, but they do go stale"},
-      {q:"True or rubbish: Goldfish crackers contain real cheese",a:"True — cheddar cheese is listed as an ingredient in the original flavour"},
-      {q:"True or rubbish: Coffee is a fruit",a:"True — coffee beans are the seeds of a cherry-like fruit called a coffee cherry"},
-      {q:"True or rubbish: Lobster used to be prison food",a:"True — in colonial America, lobster was so abundant it was considered poverty food and fed to servants and prisoners"},
-      {q:"True or rubbish: Nutmeg can be hallucinogenic in large doses",a:"True — myristicin in nutmeg can cause hallucinations, but the amount needed also causes severe nausea, so nobody enjoys the experience"},
-      {q:"True or rubbish: A coconut is a nut",a:"Rubbish — it's a drupe (a fruit with a fleshy outer layer and a hard shell containing a seed). Same category as peaches and plums"},
-      {q:"True or rubbish: The hole in a pasta spoon measures one serving of spaghetti",a:"True — most pasta spoon holes are designed to hold roughly one portion of dry spaghetti"},
-      {q:"True or rubbish: Chocolate was once used as currency",a:"True — the Aztecs used cacao beans as money. You could buy a turkey for about 100 beans"},
-      {q:"True or rubbish: Bananas are radioactive enough to set off airport security",a:"Rubbish — they contain potassium-40 but the amount is far too tiny to trigger any detector"},
-    ]
-  },
-  {
-    id:"science-5",topic:"science",title:"Current Affairs Lab",isNew:true,
-    desc:"2023-2025 breakthroughs, climate milestones & tech that just landed",
-    questions:[
-      {q:"In 2024, which country became the fourth to successfully land a spacecraft on the Moon?",a:"Japan (SLIM lander, January 2024) — after the US, Russia/USSR, and China. India's Chandrayaan-3 landed in August 2023, making them third"},
-      {q:"What is 'nuclear fusion' and why was the December 2022 NIF result a breakthrough?",a:"Fusing atoms to release energy (how stars work). The National Ignition Facility achieved 'ignition' — the fusion reaction produced more energy than the lasers put in, for the first time ever"},
-      {q:"GPT-4, Claude, Gemini — what does 'LLM' stand for and what do these models fundamentally do?",a:"Large Language Model — they predict the next word (token) in a sequence, trained on enormous text datasets. They don't 'think' — they're very sophisticated pattern matchers"},
-      {q:"The ozone layer is recovering — true or false, and why?",a:"True — the 1987 Montreal Protocol banned CFCs. The ozone hole is projected to heal fully by roughly 2066 over Antarctica. One of the great success stories of international cooperation"},
-      {q:"What is a 'heat dome' and why have they been in the news?",a:"A high-pressure system that traps hot air over a region, preventing cooling. They've intensified due to climate change — the 2021 Pacific Northwest heat dome hit 49.6°C in Canada"},
-      {q:"James Webb Space Telescope launched in 2021. What can it see that Hubble can't?",a:"Infrared light — JWST can peer through dust clouds and see the earliest galaxies, formed just a few hundred million years after the Big Bang"},
-      {q:"What is 'gain-of-function' research and why is it controversial?",a:"Deliberately making pathogens more transmissible or deadly to study them. Controversial because of the risk of lab leaks — the debate intensified during COVID-19 origin discussions"},
-      {q:"Ozempic and Wegovy are the same drug. What was it originally designed to treat?",a:"Type 2 diabetes — the active ingredient semaglutide mimics a gut hormone (GLP-1). The weight loss was a side effect that became the main selling point"},
-      {q:"What did AlphaFold (by DeepMind) solve in 2020 that scientists had struggled with for 50 years?",a:"Protein structure prediction — predicting the 3D shape of a protein from its amino acid sequence. It's accelerated drug discovery and biological research enormously"},
-      {q:"Microplastics have now been found in human blood, breast milk, and where else that shocked researchers in 2024?",a:"The brain — and also placentas, lungs, and testicles. The health effects are still being studied"},
-    ]
-  },
-  {
-    id:"science-6",topic:"science",title:"Connections: Lab Partners",isNew:true,
-    desc:"Find the scientific thread linking each set of clues",
-    questions:[
-      {q:"What connects: GPS satellites, airplane altimeters, and your ageing process?",a:"Einstein's relativity — GPS corrects for time dilation, altimeters use atmospheric pressure (affected by gravity), and you age faster on a mountaintop than at sea level (by nanoseconds)"},
-      {q:"What connects: a frog in boiling water, the 10% brain myth, and lemmings jumping off cliffs?",a:"They're all scientific myths — frogs do jump out, we use all our brain, and lemmings don't mass-suicide (that was faked for a Disney documentary)"},
-      {q:"Odd one out: Helium, Neon, Argon, Nitrogen. Which and why?",a:"Nitrogen — the other three are noble gases (Group 18, very unreactive). Nitrogen is in Group 15 and bonds readily"},
-      {q:"What connects: Dolly the Sheep, Henrietta Lacks, and Rosalind Franklin?",a:"Groundbreaking contributions to genetics — Dolly (first cloned mammal), Lacks (her cells revolutionised medical research), Franklin (her X-ray crystallography was key to discovering DNA's structure)"},
-      {q:"Put these in order from smallest to largest: atom, molecule, cell, virus",a:"Atom → molecule → virus → cell (viruses are smaller than cells but larger than most molecules)"},
-      {q:"What connects: the Haber process, Agent Orange, and leaded petrol?",a:"Scientific innovations that caused massive environmental or human harm — nitrogen fixation enabled explosives, Agent Orange defoliated Vietnam, and leaded petrol poisoned generations"},
-      {q:"Name that element: it's in your bones, your phone screen, in matches, and is essential for DNA",a:"Phosphorus"},
-      {q:"What connects: a black hole, the bottom of the ocean, and the centre of the Earth?",a:"We've never directly observed any of them — we infer their properties indirectly through measurements, imaging, and theory"},
-      {q:"True, false, or it depends: 'We evolved from monkeys'",a:"It depends on what you mean — we share a common ancestor with modern apes (not monkeys), but we didn't descend from any species alive today"},
-      {q:"What connects: butterfly wings, soap bubbles, and oil slicks?",a:"Structural colour / thin-film interference — the colours come from light wave interference, not pigment"},
-    ]
-  },
-  {
-    id:"history-5",topic:"history",title:"The Trenches",isNew:true,
-    desc:"World War One — the war that shaped the modern world",
-    questions:[
-      {q:"What event triggered WWI and in which city did it happen?",a:"The assassination of Archduke Franz Ferdinand in Sarajevo, 28 June 1914"},
-      {q:"The Christmas Truce of 1914 — what actually happened, and did they really play football?",a:"German and British soldiers emerged from trenches, exchanged gifts, sang carols, and yes — informal football matches were played in no man's land. Commanders were furious and ensured it never happened at scale again"},
-      {q:"What was 'shell shock' and what do we call it today?",a:"Psychological trauma from sustained combat — now known as PTSD (Post-Traumatic Stress Disorder). In WWI many sufferers were accused of cowardice"},
-      {q:"Tanks were first used in which WWI battle, and why were they called 'tanks'?",a:"The Battle of the Somme (1916). They were called 'tanks' as a cover story — workers were told they were building mobile water tanks for Mesopotamia"},
-      {q:"How many soldiers died on the first day of the Battle of the Somme alone?",a:"About 19,240 British soldiers killed — the bloodiest day in British military history. Total casualties (killed, wounded, missing) were around 57,000"},
-      {q:"The Red Baron was the war's most famous fighter pilot. What was his real name and how many confirmed kills did he have?",a:"Manfred von Richthofen — 80 confirmed aerial victories before being shot down in April 1918"},
-      {q:"What was the Gallipoli Campaign and why is it so important to Australia and New Zealand?",a:"A failed Allied attempt to capture Constantinople via the Dardanelles (1915-16). The devastating losses at ANZAC Cove became foundational to Australian and New Zealand national identity — ANZAC Day is still commemorated on 25 April"},
-      {q:"Mustard gas was first used in WWI. Why was it called 'mustard' gas?",a:"Its smell — described as resembling mustard, garlic, or horseradish. Chemically it's dichlorodiethyl sulfide, a blistering agent that caused horrific burns"},
-      {q:"The war ended at the 11th hour of the 11th day of the 11th month — but soldiers were still being ordered to attack that morning. Why?",a:"Some commanders wanted to capture final objectives before the ceasefire. Roughly 2,700 soldiers were killed on the last day, including some in the final minutes"},
-      {q:"What did the Treaty of Versailles demand from Germany that many historians believe contributed to WWII?",a:"Crippling war reparations (132 billion gold marks), loss of territory, military restrictions, and the 'war guilt clause' — the humiliation and economic devastation fuelled the rise of extremism"},
-    ]
-  },
-  {
-    id:"history-6",topic:"history",title:"Connections: Time Travel",isNew:true,
-    desc:"What links these historical facts? Spot the thread across centuries",
-    questions:[
-      {q:"What connects: the fall of Constantinople (1453), Columbus reaching America (1492), and the printing press (~1440)?",a:"They all mark the transition from the Medieval period to the Renaissance / Age of Exploration — the end of one era and the birth of the modern world within a 50-year window"},
-      {q:"What connects: penicillin, X-rays, and the microwave oven?",a:"All were discovered by accident — Fleming's mouldy petri dish, Röntgen's fluorescent screen, and Percy Spencer's melted chocolate bar near a magnetron"},
-      {q:"Odd one out: Roman Empire, Ottoman Empire, British Empire, Mongol Empire. Which and why?",a:"Mongol Empire — it's the only one that was never a naval power. The others all had significant maritime reach"},
-      {q:"What connects: Harriet Tubman, Oskar Schindler, and Raoul Wallenberg?",a:"All risked their lives to save persecuted people — Tubman (enslaved people via the Underground Railroad), Schindler (Jews during the Holocaust), Wallenberg (Jews in Budapest with protective passports)"},
-      {q:"Put these inventions in chronological order: compass, gunpowder, printing press, telescope",a:"Compass (~1100) → gunpowder (~1200s in Europe, earlier in China) → printing press (~1440) → telescope (1608)"},
-      {q:"What connects: Napoleon, Elba, and St Helena?",a:"Napoleon was exiled to Elba in 1814, escaped, returned to power for 100 days, was defeated at Waterloo, then exiled again to St Helena where he died"},
-      {q:"Which three countries were on the losing side in BOTH World War I and World War II?",a:"Germany, Austria (Austria-Hungary in WWI), and — controversially — Turkey/Ottoman Empire in WWI, though Turkey was neutral in most of WWII. The clean answer is Germany and Austria; the third is often debated (Hungary, Bulgaria)"},
-      {q:"What connects: the Suez Canal, the Panama Canal, and the Corinth Canal?",a:"All are artificial waterways cut through land to shorten sea routes — and all were engineering megaprojects that took decades, cost enormous human life, and reshaped global trade"},
-      {q:"True, false, or it depends: 'Vikings wore horned helmets'",a:"False — no archaeological evidence supports horned helmets. The myth comes from 19th-century Romantic opera and art"},
-      {q:"What connects: the number 1066, 1776, and 1789?",a:"Pivotal years of revolution/invasion — Norman Conquest of England (1066), American Declaration of Independence (1776), French Revolution (1789)"},
-    ]
-  },
-  {
-    id:"geography-5",topic:"geography",title:"Street View Showdown",isNew:true,
-    desc:"Clues from landscapes, languages & road signs — name the country",
-    questions:[
-      {q:"The road signs are in both Arabic and French, the landscape is arid with date palms, and the currency is the dinar. Where are you?",a:"Tunisia, Algeria, or Morocco — but the dinar specifically narrows it to Tunisia or Algeria"},
-      {q:"You see Cyrillic text, mountains in every direction, and the world's deepest lake is nearby. Where?",a:"Siberia, Russia — near Lake Baikal"},
-      {q:"The cars drive on the left, the street food is roti canai, and the skyscrapers include the Petronas Towers. Where?",a:"Kuala Lumpur, Malaysia"},
-      {q:"You're in a European capital. The trams are yellow, the river has a famous chain bridge, and the city is actually two cities joined together. Where?",a:"Budapest, Hungary (Buda + Pest, joined in 1873, the Chain Bridge crosses the Danube)"},
-      {q:"The language on signs looks like Thai but isn't. The country is landlocked, Communist, and shares a border with Vietnam and China. Where?",a:"Laos — the Lao script is closely related to Thai but distinct"},
-      {q:"You see penguins, British-style red phone boxes, and minefields left over from a 1982 war. Where?",a:"The Falkland Islands (Islas Malvinas)"},
-      {q:"The road is dead straight through flat desert. Signs are in Spanish. You pass a roadside shrine to a folk saint not recognised by the Catholic Church. Where?",a:"Argentina — likely Patagonia or the northwest. The folk saint is probably Gauchito Gil or Difunta Correa"},
-      {q:"Volcanic black sand beaches, geysers, no trees, and the language has barely changed since medieval times. Where?",a:"Iceland"},
-      {q:"The buildings have Dutch colonial architecture, the food is rijsttafel, and the traffic is chaotic motorcycles. Where?",a:"Indonesia — likely Jakarta or Yogyakarta"},
-      {q:"Snow-capped peaks, prayer flags, yak butter tea, and the world's highest capital city (disputed). Where?",a:"La Paz, Bolivia — or if you count Lhasa, Tibet. La Paz at 3,640m is the highest administrative capital"},
-    ]
-  },
-  {
-    id:"geography-6",topic:"geography",title:"Connections: Atlas",isNew:true,
-    desc:"Find the geographical thread linking each set",
-    questions:[
-      {q:"What connects: Iceland, Madagascar, Cuba, and Sri Lanka?",a:"They're all island nations that are also the largest island in their respective regions — and none of them touch a continental mainland"},
-      {q:"Odd one out: Amazon, Nile, Yangtze, Danube. Which and why?",a:"Danube — it's the only one that flows through more than 4 countries (10 countries). Also the shortest. But the intended answer: it's the only one entirely in Europe"},
-      {q:"What connects: Chile, Norway, New Zealand, and Japan?",a:"They're all long, narrow countries running roughly north-south, with mountainous spines and significant coastlines"},
-      {q:"Put these deserts in order of size, smallest to largest: Gobi, Sahara, Arabian, Kalahari",a:"Kalahari (900k km²) → Arabian (2.3M km²) → Gobi (1.3M km²)... actually: Kalahari → Gobi → Arabian → Sahara (9.2M km²)"},
-      {q:"What connects: The Strait of Gibraltar, the Bosphorus, and the Strait of Malacca?",a:"They're all narrow waterways connecting two larger bodies of water AND separating two landmasses — and all are strategically vital chokepoints for global shipping"},
-      {q:"What connects: Timbuktu, El Dorado, and Shangri-La?",a:"All are 'legendary' places — Timbuktu is real (in Mali) but became a byword for remoteness; El Dorado and Shangri-La are fictional but inspired real expeditions"},
-      {q:"True, false, or it depends: 'Africa is a country'",a:"False — Africa is a continent with 54 recognised countries. This is worth saying because surveys show a troubling number of people genuinely believe it's one country"},
-      {q:"What connects: Mount Kilimanjaro, Mount Elbrus, and Denali?",a:"They're each the highest peak on their respective continent — Africa, Europe, and North America"},
-      {q:"Two of these capitals are on the 'wrong' side of their country (e.g. not centrally located). Which? Washington DC, Canberra, Brasília, Ottawa",a:"Washington DC and Ottawa — both are on the eastern edge. Canberra and Brasília were specifically built to be more central"},
-      {q:"What connects: Panama hats, Turkish baths, and Chinese checkers?",a:"None of them come from the place in their name — Panama hats are from Ecuador, Turkish baths originated in Rome, and Chinese checkers were invented in Germany"},
-    ]
-  },
-  {
-    id:"movies-5",topic:"movies",title:"2023-2025: Just Released",isNew:true,
-    desc:"Fresh from the multiplex — the latest films and their secrets",
-    questions:[
-      {q:"'Oppenheimer' and 'Barbie' released on the same day, spawning what internet phenomenon?",a:"Barbenheimer — people bought double-feature tickets and dressed in themed outfits for both"},
-      {q:"In 'Poor Things' (2023), what is Bella Baxter's journey fundamentally a metaphor for?",a:"A woman's intellectual and sexual liberation — she's essentially experiencing an accelerated version of growing up free from patriarchal constraints"},
-      {q:"'Killers of the Flower Moon' (2023) tells the true story of murders in which Native American nation during the 1920s?",a:"The Osage Nation — members were systematically murdered for their oil wealth headrights"},
-      {q:"What connects 'Past Lives' (2023) and 'Lost in Translation' (2003)?",a:"Both are quiet, intimate films about connection and missed timing between two people in a foreign city — and both deliberately leave the ending ambiguous"},
-      {q:"'Saltburn' (2023) ends with Barry Keoghan doing what that went viral?",a:"Dancing naked through the mansion to 'Murder on the Dancefloor' — after revealing the full extent of his manipulation"},
-      {q:"'The Holdovers' (2023) is set in the 1970s at a boarding school. Which 1980s film is it most frequently compared to?",a:"Dead Poets Society — though tonally it's closer to Harold and Maude or The Breakfast Club"},
-      {q:"Denis Villeneuve's 'Dune: Part Two' (2024) introduced which key character played by Austin Butler?",a:"Feyd-Rautha Harkonnen — the Baron's psychopathic nephew and Paul's ultimate rival"},
-      {q:"What connects 'The Substance' (2024) and David Cronenberg's 'The Fly' (1986)?",a:"Both are body horror films that use grotesque physical transformation as a metaphor — aging and beauty standards in 'The Substance', hubris and disease in 'The Fly'"},
-      {q:"'Anora' won the Palme d'Or at Cannes 2024. What's it about in one sentence?",a:"A Brooklyn sex worker marries the son of a Russian oligarch, then his family tries to annul the marriage — a modern Cinderella story that goes sideways"},
-      {q:"Which 2024 animated sequel became the fastest animated film to cross $1 billion worldwide?",a:"Inside Out 2"},
-    ]
-  },
-  {
-    id:"movies-6",topic:"movies",title:"🎨 Picture Round: Who Am I?",isNew:true,
-    desc:"ASCII portraits of famous directors and actors — can you name them?",
-    questions:[
-      {q:"Name the director:<pre>        .-\"\"\"\"-.      \n       /        \\     \n      |  O    O  |    \n      |    __    |    \n      |   /  \\   |    \n       \\  \\__/  /     \n    ~~~~`------'~~~~  \n    Big round glasses \n    Beard. Spielberg?  \n    No... think indie \n    Woody Allen vibes </pre>",a:"Woody Allen — round glasses, neurotic expression, New York icon"},
-      {q:"Name the actor — clues: bald head, intense stare, appeared in both Marvel and Fast & Furious franchises, also voiced a tree<pre>     .-------.  \n    /  .--.   \\ \n   |  /    \\   |\n   | | BALD |  |\n   |  \\    /   |\n    \\  '--'   / \n     '-------'  \n    |  O   O  | \n    |    >    | \n    |  \\___/  | \n     Built.    </pre>",a:"Vin Diesel — Groot voice, Dom Toretto, bald and built"},
-      {q:"Name the director — clues: British, always wears a suit on set, made a film about dreams within dreams, and another about a magic trick<pre>    Suit. Always.  \n    Christopher ___ \n    Gotham trilogy  \n    Time bends.    \n    Practical FX.  </pre>",a:"Christopher Nolan"},
-      {q:"Name the actress — clues: Australian, won an Oscar playing a queen, shaved her head for Mad Max, and is also a Cate<pre>    Two-time Oscar  \n    Elf queen.      \n    Ocean's 8.      \n    Tár (2022).     \n    .--- Blanchett  </pre>",a:"Cate Blanchett"},
-      {q:"Name the actor — clues: Canadian, started on a teen drama, now runs a tequila brand, and was once 'the sexiest man alive'<pre>    Dawson's Creek? \n    No... rival show\n    Ocean's Eleven  \n    Casamigos       \n    Silver fox      \n    George ___      </pre>",a:"George Clooney"},
-      {q:"Name the director — clues: Mexican, loves monsters and gothic horror, won Best Director for a fish-man love story<pre>    Pan's Labyrinth \n    Pacific Rim     \n    The Shape of    \n      Water (2017)  \n    Guillermo ___   \n    ___ del Toro    </pre>",a:"Guillermo del Toro"},
-      {q:"Name the actress — clues: started in Disney Channel, then Spring Breakers shocked everyone, she's married to a French president's step-granddaughter... wait no. She was in a Harmony Korine film.<pre>    Frozen (voice)  \n    Disney kid.     \n    Then chaos.     \n    Selena ___      </pre>",a:"Selena Gomez"},
-      {q:"Name the actor — clues: started in Australian soaps, played Thor, and his brother also acts<pre>    Hemsworth.      \n    But which one?  \n    Mjolnir.        \n    The big one.    \n    Chris ___       </pre>",a:"Chris Hemsworth"},
-      {q:"Name the director — clues: Korean, won Best Picture with a film about class warfare involving a basement and a rock<pre>    Parasite (2019) \n    Memories of     \n      Murder        \n    Snowpiercer     \n    Bong ___        </pre>",a:"Bong Joon-ho"},
-      {q:"Name the actress — clues: she can do anything — action, comedy, drama, martial arts. Won an Oscar fighting across multiverses in 2023<pre>    Everything      \n    Everywhere      \n    All at Once     \n    Malaysian-born  \n    Michelle ___    </pre>",a:"Michelle Yeoh"},
-    ]
-  },
-  {
-    id:"music-5",topic:"music",title:"2023-2025: Fresh Drops",isNew:true,
-    desc:"Recent releases, streaming wars & the artists dominating right now",
-    questions:[
-      {q:"Taylor Swift's Eras Tour became the highest-grossing concert tour ever. Roughly how much did it earn?",a:"Over $2 billion — the first tour to cross that threshold"},
-      {q:"Beyoncé's 'Renaissance' world tour and her 2024 album marked her first venture into which genre?",a:"Country — the album 'Cowboy Carter' (2024) debuted at #1 on the Billboard Country chart, making her the first Black woman to do so"},
-      {q:"What connects Olivia Rodrigo, Billie Eilish, and Sabrina Carpenter in the 2023-2024 streaming landscape?",a:"All three are former Disney/Nickelodeon-adjacent artists who became dominant streaming forces — and all released albums within months of each other, fuelling a 'pop girlies' rivalry narrative"},
-      {q:"SZA's 'SOS' album spent how many weeks in the Billboard 200 top 10?",a:"Over 30 weeks — one of the longest-running R&B albums in chart history"},
-      {q:"What is 'Spotify Wrapped' and why does it go viral every December?",a:"An annual personalised summary of your listening habits — it goes viral because people share their results as a form of identity expression (and to judge each other)"},
-      {q:"Peso Pluma brought which genre of Mexican music to global mainstream attention in 2023?",a:"Música Mexicana / regional Mexican — specifically corridos tumbados, a modern twist on traditional corridos"},
-      {q:"What connects: 'Flowers' by Miley Cyrus and 'It's Gonna Be Me' by NSYNC?",a:"Both went viral for different reasons — 'Flowers' was an empowerment anthem after her divorce from Liam Hemsworth, and samples/references Bruno Mars' 'When I Was Your Man'. NSYNC's became a May 1st meme ('It's gonna be May')"},
-      {q:"Victoria Monét won Best New Artist at the 2024 Grammys despite having worked in music for over a decade. Why?",a:"She'd been a songwriter for years (writing for Ariana Grande, Chloe x Halle) but only released her debut album 'Jaguar II' as a solo artist"},
-      {q:"What is 'deluxe album' strategy and why do modern artists use it?",a:"Re-releasing an album with bonus tracks to reset streaming numbers and chart positions — it effectively counts as a new release week, gaming the Billboard algorithm"},
-      {q:"Ice Spice went from a Bronx college student to a global star in under 12 months. What was her breakthrough track?",a:"'Munch (Feelin' U)' in 2022 — it went viral on TikTok and led to collaborations with Taylor Swift, PinkPantheress, and Nicki Minaj within a year"},
-    ]
-  },
-  {
-    id:"music-6",topic:"music",title:"Connections: Backstage",isNew:true,
-    desc:"Find the musical thread linking each set of clues",
-    questions:[
-      {q:"What connects: David Bowie, Lady Gaga, and Madonna?",a:"All are known for radical reinvention — constantly changing their visual identity, musical style, and persona across eras"},
-      {q:"Odd one out: drums, guitar, bass, DJ decks. Which and why in a traditional rock context?",a:"DJ decks — the other three form a standard rock rhythm section. But in hip-hop and electronic music, decks are foundational, so this is genre-dependent"},
-      {q:"What connects: 'Bohemian Rhapsody', 'Stairway to Heaven', and 'Hotel California'?",a:"All are 1970s rock epics over 5 minutes that radio stations were told were too long — all became among the most played songs in history regardless"},
-      {q:"What connects the number 27, a crossroads in Mississippi, and the words 'I hope I die before I get old'?",a:"Rock and roll mythology — the 27 Club (musicians who died at 27), Robert Johnson's deal with the devil, and The Who's lyric from 'My Generation'"},
-      {q:"Put these in order of first release: vinyl record, cassette tape, compact disc, MP3",a:"Vinyl (~1948 for LP) → cassette (1963) → CD (1982) → MP3 (1993 format, Napster 1999)"},
-      {q:"What connects: Auto-Tune, drum machines, and sampling?",a:"All were initially controversial 'cheating' in music that became defining creative tools — each one fundamentally changed what music could sound like"},
-      {q:"Two of these won Album of the Year at the Grammys. Which two? Adele '21', Beyoncé 'Lemonade', Kendrick 'DAMN.', Taylor 'Fearless'",a:"Adele '21' (2012) and Taylor Swift 'Fearless' (2010). Beyoncé and Kendrick were famously snubbed, sparking major Grammy credibility debates"},
-      {q:"What connects: Woodstock (1969), Live Aid (1985), and Coachella (2018)?",a:"Landmark festival moments — Hendrix's anthem at Woodstock, Queen's legendary Live Aid set, and Beyoncé's 'Beychella' performance that redefined what a headliner show could be"},
-      {q:"What connects: Phil Collins, Peter Gabriel, and Mike Rutherford?",a:"All were members of Genesis — Collins took over as lead singer when Gabriel left, Rutherford formed Mike + The Mechanics"},
-      {q:"Name the connection: a piano has 88, a guitar has 6, and a violin has 4",a:"Keys / strings — the standard number on each instrument. A piano technically has strings too (about 230), making the question slightly tricky"},
-    ]
-  },
-  {
-    id:"sport-5",topic:"sport",title:"Connections: Medal Table",isNew:true,
-    desc:"Find the sporting thread linking each set",
-    questions:[
-      {q:"What connects: Roger Federer, Rafael Nadal, and Novak Djokovic — beyond being tennis players?",a:"The 'Big Three' — they dominated men's tennis for nearly two decades, winning 66 of 79 Grand Slam titles between 2003 and 2023. Federer retired in 2022"},
-      {q:"Odd one out: football, rugby, basketball, baseball. Which and why?",a:"Baseball — it's the only one where the defending team has the ball"},
-      {q:"What connects: the black power salute (1968), Colin Kaepernick kneeling (2016), and the England football team kneeling (2020)?",a:"Athletes using their platform for racial justice protest — all were initially condemned by many, then increasingly supported over time"},
-      {q:"Put these Olympic sports in order of when they were added: basketball, skateboarding, tennis, snowboarding",a:"Tennis (ancient, reintroduced 1988) → basketball (1936) → snowboarding (1998) → skateboarding (2020)"},
-      {q:"What connects: the yellow jersey, the green jacket, and the Claret Jug?",a:"Iconic prizes in their sport — Tour de France leader's jersey, the Masters golf champion's jacket, and the Open Championship golf trophy"},
-      {q:"Two of these sports were invented in the same country. Which two? Basketball, rugby, cricket, volleyball",a:"Basketball and volleyball — both invented in the United States (Massachusetts specifically). Rugby and cricket are English"},
-      {q:"What connects: Usain Bolt's 9.58, Eliud Kipchoge's 1:59:40, and Bob Beamon's 8.90m?",a:"All are iconic athletic records — 100m sprint, sub-2-hour marathon (unofficial), and long jump. Beamon's 1968 record stood for 23 years"},
-      {q:"What's the connection: a shuttlecock travels faster than a tennis ball, a golf ball, and a baseball during play?",a:"True — badminton smashes have been recorded at over 400 km/h (the fastest racquet sport shot), though the shuttlecock decelerates rapidly due to drag"},
-      {q:"What connects: the Rumble in the Jungle, the Thrilla in Manila, and the Fight of the Century?",a:"All are Muhammad Ali boxing matches — vs George Foreman (Zaire, 1974), vs Joe Frazier (Philippines, 1975), and vs Joe Frazier (New York, 1971)"},
-      {q:"True, false, or it depends: 'Women weren't allowed in the Olympic marathon until 1984'",a:"True — Kathrine Switzer ran the Boston Marathon unofficially in 1967 (an official tried to physically remove her). The women's Olympic marathon was only added at the 1984 Los Angeles Games"},
-    ]
-  },
-  {
-    id:"sport-6",topic:"sport",title:"Speed Round: Over/Under",isNew:true,
-    desc:"Quick-fire — is the real number over or under what we say?",
-    questions:[
-      {q:"Over or under: A football pitch is 120 metres long",a:"Over in total (including end zones/goal areas it can be 120m), but the field of play is typically 100-110m. So: roughly correct / under for the playing field itself"},
-      {q:"Over or under: Wimbledon has been running for 100 years",a:"Over — first held in 1877, making it nearly 150 years old"},
-      {q:"Over or under: An NBA basketball hoop is 3 metres high",a:"Over — it's 3.05 metres (10 feet) exactly"},
-      {q:"Over or under: A marathon is 40 kilometres",a:"Over — it's 42.195 km (26.2 miles)"},
-      {q:"Over or under: A boxing round lasts 5 minutes",a:"Under — a professional boxing round is 3 minutes (with 1 minute rest between rounds)"},
-      {q:"Over or under: The Tour de France covers 2,000 km total",a:"Over — it's typically around 3,400-3,500 km over 21 stages plus rest days"},
-      {q:"Over or under: An Olympic swimming pool is 25 metres long",a:"Over — Olympic pools are 50 metres (25m is a 'short course' pool)"},
-      {q:"Over or under: A cricket Test match can last 7 days",a:"Under — a Test match is scheduled for a maximum of 5 days (though historically some 'timeless Tests' were longer)"},
-      {q:"Over or under: A Formula 1 car can go from 0-100 mph in 5 seconds",a:"Under — modern F1 cars do 0-100 mph in about 2.5 seconds"},
-      {q:"Over or under: There are 50 players on an American football team roster",a:"Over — NFL active rosters have 53 players (plus a practice squad)"},
-    ]
-  },
-  {
-    id:"nature-5",topic:"nature",title:"Connections: Ecosystem",isNew:true,
-    desc:"Find the natural thread linking each set of clues",
-    questions:[
-      {q:"What connects: the dodo, the thylacine, and the passenger pigeon?",a:"All went extinct due to human activity — the dodo (hunting, 1681), thylacine/Tasmanian tiger (hunting, 1936), passenger pigeon (hunting and habitat loss, 1914). All three have active de-extinction research"},
-      {q:"Odd one out: dolphin, whale, seal, shark. Which and why?",a:"Shark — it's the only fish. Dolphins, whales, and seals are all mammals that breathe air, give live birth, and nurse their young"},
-      {q:"What connects: coral, mushrooms, and lichen?",a:"None of them are what most people think — coral is an animal (not a plant), mushrooms are fungi (not plants), and lichen is a symbiosis of fungus + alga (not a single organism)"},
-      {q:"Put these in order of lifespan, shortest to longest: mayfly, tortoise, human, bowhead whale",a:"Mayfly (24 hours as adults) → human (~80 years) → tortoise (~150-200 years) → bowhead whale (over 200 years, possibly the longest-lived mammal)"},
-      {q:"What connects: a Venus flytrap, a sundew, and a pitcher plant?",a:"They're all carnivorous plants — they trap and digest insects to supplement nutrients in poor soil"},
-      {q:"What connects: the Amazon, the Congo, and the Daintree?",a:"Three of the world's most significant rainforests — South America, Central Africa, and Australia respectively"},
-      {q:"True, false, or it depends: 'Daddy longlegs are the most venomous spiders but their fangs are too small to bite humans'",a:"False on every level — the common 'daddy longlegs' (harvestmen) aren't even spiders, and cellar spiders (also called daddy longlegs) have weak venom that's harmless to humans. The whole thing is a myth"},
-      {q:"What connects: a caterpillar inside a chrysalis literally dissolves into soup before becoming a butterfly. What's the scientific term?",a:"Metamorphosis — specifically holometabolism. The caterpillar's body breaks down almost entirely into a cellular soup, then reorganises using 'imaginal discs' as blueprints"},
-      {q:"Odd one out: eagle, penguin, ostrich, kiwi. Which and why?",a:"Eagle — it's the only one that can fly. Penguins, ostriches, and kiwis are all flightless birds"},
-      {q:"What connects: wolves in Yellowstone, beavers in the UK, and lynx in Spain?",a:"All are rewilding success stories — wolves were reintroduced to Yellowstone (1995), beavers to the UK (2009 onwards), and the Iberian lynx was brought back from the brink of extinction through breeding programmes"},
-    ]
-  },
-  {
-    id:"nature-6",topic:"nature",title:"🎨 Picture Round: What Am I?",isNew:true,
-    desc:"ASCII art creatures — identify the animal from the sketch",
-    questions:[
-      {q:"Name the animal:<pre>         .--.\n        /    \\\n   ____/  ..  \\____\n  /    | (  ) |    \\\n |     \\  --  /     |\n  \\     '----'     /\n   \\   8 ARMS    /\n    \\  ~~~~~~~~ /\n     \\________/\n   Three hearts.\n   Blue blood.  </pre>",a:"Octopus"},
-      {q:"Name the animal:<pre>        /\\_/\\\n       ( o.o )\n        > ^ <\n       /|   |\\\n      (_|   |_)\n     Purrs.\n     Rules the\n     internet.\n     Liquid in\n     a box.</pre>",a:"Cat (domestic cat)"},
-      {q:"Name the animal:<pre>     .-\"\"\"\"-.  \n    /  ____  \\ \n   |  / oo \\  |\n   | |  \\/  | |\n    \\  \\__/  / \n     '-....-'  \n      |    |   \n     POUCH     \n   Hops. Joey. \n   Only in Oz. </pre>",a:"Kangaroo"},
-      {q:"Name the animal:<pre>   \\       /   \n    \\     /    \n     \\   /     \n      \\ /      \n     [===]     \n      | |      \n     / | \\     \n    /  |  \\    \n   /   |   \\   \n  Webs. 8 legs.\n  Not an insect.</pre>",a:"Spider"},
-      {q:"Name the animal:<pre>      ___\n     /   \\___\n    |  ^  ^  |\n    |   __   |\n     \\_/  \\_/\n      |SHELL|\n      |____|\n     /      \\\n   Slow. Very.\n   Carries home.\n   Can live 200yrs.</pre>",a:"Tortoise (or turtle)"},
-      {q:"Name the animal:<pre>        .^\n       / |\n      /  |\n     /   |\n    /    |\n   |  .  |\n   | / \\ |\n   |/   \\|\n   NECK\n   NECK\n   NECK\n   NECK\n   |body|\n  /|    |\\\n / |    | \\\n/  |    |  \\\n   Tallest.</pre>",a:"Giraffe"},
-      {q:"Name the creature — not an animal but alive:<pre>    .---.\n   / ... \\\n  | ..... |\n  | ..... |\n   \\ ... /\n    '---'\n     |||\n   STALK\n     |||\n   -----\n  MYCELIUM\n  ~~~~~~~~\n  Not a plant.\n  Decomposes.\n  Network.</pre>",a:"Mushroom (fungus)"},
-      {q:"Name the animal:<pre>  ~~~~~~~~~~~~~~~~~\n  ~~~~ .__. ~~~~~~\n  ~~~ / .. \\ ~~~~~\n  ~~ | \\__/ | ~~~~\n  ~~~ \\    / ~~~~~\n  ~~~~|    |~~~~~~\n  ~~~~ \\  / ~~~~~~\n  BLOWHOLE  ~~~~~~\n  ~~~~~~~~~~~~~~~~~\n  Biggest ever.\n  Louder than a\n  jet engine.</pre>",a:"Blue whale"},
-      {q:"Name the animal:<pre>    /\\_____/\\\n   /  o   o  \\\n  |  \\  Y  /  |\n  |   \\___/   |\n   \\  STRIPES /\n    \\_______/\n   /|       |\\\n  / |       | \\\n    Big cat.\n    Endangered.\n    Solitary.</pre>",a:"Tiger"},
-      {q:"Name the animal:<pre>   ( )  ( )\n    \\\\  //\n     \\\\//\n    [====]\n    | .. |\n    | \\/ |\n    |    |\n    '----'\n   BLACK &\n   WHITE.\n   Bamboo.\n   China.\n   Lazy.</pre>",a:"Giant panda"},
-    ]
-  },
+// Round data — lazy-loaded from frontend/data/.
+//   rounds-index.json holds metadata for all rounds (id/topic/title/desc/type/count).
+//   rounds/{id}.json holds the full round (incl. questions) — fetched on goQuiz.
+let roundsIndex=null;       // array of round metadata
+const roundsCache={};       // id → full round data once fetched
+let bootstrapError=null;    // populated if rounds-index fails to load
 
-  // ── PICTURE ROUNDS ──
-  {
-    id:"emoji-film",topic:"picture",title:"🎬 Emoji Cinema",isNew:true,type:"emoji",
-    desc:"Name the film from the emojis alone",
-    questions:[
-      {q:"🦈 🏖️ 🩸 🚤",a:"Jaws"},
-      {q:"🧙‍♂️ 💍 🌋 🧝",a:"The Lord of the Rings"},
-      {q:"🦁 👑 🌍 🐗 🐦",a:"The Lion King"},
-      {q:"👻 📞 🔪 😱",a:"Scream"},
-      {q:"🚢 ❄️ 💑 🎻",a:"Titanic"},
-      {q:"🤖 👍 🔥 🏍️",a:"Terminator 2: Judgment Day"},
-      {q:"🐀 👨‍🍳 🇫🇷 ⭐",a:"Ratatouille"},
-      {q:"💊 🔴 🔵 🕶️ 🥋",a:"The Matrix"},
-      {q:"🏠 ⬆️ 🎈🎈🎈 👴 👦",a:"Up"},
-      {q:"🧊 ❄️ 👸 ⛄ 🎶",a:"Frozen"},
-    ]
-  },
-  {
-    id:"emoji-music",topic:"picture",title:"🎵 Emoji Jukebox",isNew:true,type:"emoji",
-    desc:"Name the song or artist from the emojis",
-    questions:[
-      {q:"🎤 👸 💅 — Born this way",a:"Lady Gaga"},
-      {q:"☔ 🟣 🎸 🕺",a:"Purple Rain — Prince"},
-      {q:"🔔 🎄 ❤️ — All I want for…",a:"All I Want for Christmas Is You — Mariah Carey"},
-      {q:"👨‍🚀 ⭐ 🌌 — ground control to…",a:"Space Oddity — David Bowie"},
-      {q:"🍓 🏠 4️⃣ ever",a:"Strawberry Fields Forever — The Beatles"},
-      {q:"💃 💃 💃 — put a ring on it",a:"Single Ladies — Beyoncé"},
-      {q:"🏨 🦅 🌴 — you can check out any time",a:"Hotel California — Eagles"},
-      {q:"🌈 🌧️ — somewhere over the…",a:"Over the Rainbow — Judy Garland"},
-      {q:"🧊 🧊 👶 — under pressure collaborator",a:"Ice Ice Baby — Vanilla Ice"},
-      {q:"🎹 🐊 🎶 — see you later…",a:"Crocodile Rock — Elton John"},
-    ]
-  },
-  {
-    id:"silhouette-1",topic:"picture",title:"👤 Shadow Play",isNew:true,type:"silhouette",
-    desc:"Identify the famous person from their silhouette and clues",
-    questions:[
-      {q:"SIL:hitchcock",hint:"British director. Master of suspense. Cameo in every film. Round profile.",a:"Alfred Hitchcock"},
-      {q:"SIL:einstein",hint:"German-born physicist. Wild white hair going in every direction. Tongue out.",a:"Albert Einstein"},
-      {q:"SIL:chaplin",hint:"Silent film legend. Bowler hat. Small moustache. The Tramp.",a:"Charlie Chaplin"},
-      {q:"SIL:elvis",hint:"The King. Pompadour hair. Jumpsuit era. Graceland.",a:"Elvis Presley"},
-      {q:"SIL:queen",hint:"British monarch. Longest reign. Handbag. Corgis. Two birthdays.",a:"Queen Elizabeth II"},
-      {q:"SIL:sherlock",hint:"Fictional detective. Deerstalker hat. Pipe. 221B Baker Street.",a:"Sherlock Holmes"},
-      {q:"SIL:lincoln",hint:"16th US President. Top hat. Very tall. Beard without moustache.",a:"Abraham Lincoln"},
-      {q:"SIL:marilyn",hint:"Hollywood icon. White dress over a subway grate. Blonde bombshell.",a:"Marilyn Monroe"},
-      {q:"SIL:mozart",hint:"Child prodigy composer. Powdered wig. 18th century. Austrian.",a:"Wolfgang Amadeus Mozart"},
-      {q:"SIL:bonds",hint:"007. Tuxedo. Martini. Multiple actors. British secret agent.",a:"James Bond"},
-    ]
-  },
-  {
-    id:"blur-1",topic:"picture",title:"🔍 Blur Round",isNew:true,type:"blur",
-    desc:"A heavily blurred photo — guess who, then tap to deblur and reveal",
-    questions:[
-      {q:"BLUR:https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Albert_Einstein_Head.jpg/220px-Albert_Einstein_Head.jpg",hint:"Physicist. Patent office clerk turned genius. Wild hair.",a:"Albert Einstein"},
-      {q:"BLUR:https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Abraham_Lincoln_November_1863.jpg/220px-Abraham_Lincoln_November_1863.jpg",hint:"US President. Civil War. Emancipation Proclamation.",a:"Abraham Lincoln"},
-      {q:"BLUR:https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Leonardo_da_Vinci_-_presumed_self-portrait_-_WGA12798.jpg/220px-Leonardo_da_Vinci_-_presumed_self-portrait_-_WGA12798.jpg",hint:"Renaissance man. Mona Lisa. Vitruvian Man. Inventor.",a:"Leonardo da Vinci"},
-      {q:"BLUR:https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Napoleon_Bonaparte.jpg/220px-Napoleon_Bonaparte.jpg",hint:"French emperor. Short? Actually average height. Hand in jacket.",a:"Napoleon Bonaparte"},
-      {q:"BLUR:https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Frida_Kahlo%2C_by_Guillermo_Kahlo.jpg/220px-Frida_Kahlo%2C_by_Guillermo_Kahlo.jpg",hint:"Mexican artist. Self-portraits. Unibrow. Flowers in hair.",a:"Frida Kahlo"},
-    ]
-  },
-  {
-    id:"ascii-1",topic:"picture",title:"🖥️ ASCII Portraits",isNew:true,type:"ascii",
-    desc:"Photos converted to text art using density mapping — who are they?",
-    questions:[
-      {q:"ASCII:https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Albert_Einstein_Head.jpg/220px-Albert_Einstein_Head.jpg",hint:"E = mc². Wild hair. Patent office clerk turned Nobel laureate.",a:"Albert Einstein"},
-      {q:"ASCII:https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Abraham_Lincoln_November_1863.jpg/220px-Abraham_Lincoln_November_1863.jpg",hint:"16th President. Gettysburg Address. Stovepipe hat.",a:"Abraham Lincoln"},
-      {q:"ASCII:https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/N.Tesla.JPG/220px-N.Tesla.JPG",hint:"Serbian-American inventor. AC electricity. Rival of Edison. Pigeons.",a:"Nikola Tesla"},
-      {q:"ASCII:https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Beethoven.jpg/220px-Beethoven.jpg",hint:"German composer. Went deaf. Moonlight Sonata. Angry hair.",a:"Ludwig van Beethoven"},
-      {q:"ASCII:https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Frida_Kahlo%2C_by_Guillermo_Kahlo.jpg/220px-Frida_Kahlo%2C_by_Guillermo_Kahlo.jpg",hint:"Mexican painter. Self-portraits. Flowers. Vivid colours.",a:"Frida Kahlo"},
-    ]
-  },
-];
-
-let view="topics",activeTopic=null,activeRound=null,revealed=new Set();
-
-// ═══════════════════════════════════════════════════════════
-// ASCII ART ENGINE — density gradient character mapping
-// ═══════════════════════════════════════════════════════════
-const ASCII_CHARS=" .,:;+*?%S#@";
-const asciiCache={};
-
-function imageToAscii(url,id,width=64){
-  if(asciiCache[id])return;
-  const img=new Image();
-  img.crossOrigin="anonymous";
-  img.onload=()=>{
-    const c=document.createElement("canvas");
-    const ar=img.height/img.width;
-    const h=Math.floor(width*ar*0.5);
-    c.width=width;c.height=h;
-    const ctx=c.getContext("2d");
-    ctx.drawImage(img,0,0,width,h);
-    const d=ctx.getImageData(0,0,width,h).data;
-    let txt="";
-    for(let y=0;y<h;y++){
-      for(let x=0;x<width;x++){
-        const i=(y*width+x)*4;
-        const b=(0.299*d[i]+0.587*d[i+1]+0.114*d[i+2])/255;
-        txt+=ASCII_CHARS[Math.floor((1-b)*(ASCII_CHARS.length-1))];
-      }
-      txt+="\n";
-    }
-    asciiCache[id]=txt;
-    const el=document.getElementById("ascii-"+id);
-    if(el)el.textContent=txt;
-  };
-  img.onerror=()=>{
-    const el=document.getElementById("ascii-"+id);
-    if(el)el.textContent="[Image could not be loaded]";
-  };
-  img.src=url;
+async function loadRoundsIndex(){
+  if(roundsIndex)return roundsIndex;
+  const r=await fetch("data/rounds-index.json",{cache:"no-cache"});
+  if(!r.ok)throw new Error("rounds-index fetch failed: "+r.status);
+  const doc=await r.json();
+  roundsIndex=doc.rounds||[];
+  return roundsIndex;
 }
 
-// ═══════════════════════════════════════════════════════════
-// SILHOUETTE SVGs
-// ═══════════════════════════════════════════════════════════
-const SILHOUETTES={
-  hitchcock:`<svg viewBox="0 0 200 200" width="160"><defs><linearGradient id="sg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7c6aff"/><stop offset="100%" stop-color="#e879f9"/></linearGradient></defs><path fill="url(#sg1)" d="M100,20C70,20,55,40,55,60c0,8,3,15,7,20-12,5-20,15-22,28-2,10,0,17,5,22v5c-10,5-15,15-15,25v20h140v-20c0-10-5-18-12-23,4-5,7-12,6-22-2-15-14-27-24-33,5-6,8-14,8-22C148,40,132,20,100,20Z"/></svg>`,
-  einstein:`<svg viewBox="0 0 200 200" width="160"><defs><linearGradient id="sg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#22d3ee"/></linearGradient></defs><path fill="url(#sg2)" d="M100,15C85,10,65,8,55,18c-13,12-7,27-3,34-12-4-22,0-24,10s9,18,19,16c-7,7-7,17-3,22-7,5-10,15-7,25-7,3-10,10-7,17v3c-6,5-8,13-6,20v15h156v-15c2-7,0-15-6-20v-3c3-7,0-14-7-17,3-10,0-20-7-25,4-5,4-15-3-22,10,2,19-6,17-16s-12-14-24-10c4-7,10-22-3-34C135,8,115,10,100,15Z"/></svg>`,
-  chaplin:`<svg viewBox="0 0 200 200" width="160"><defs><linearGradient id="sg3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#fb923c"/></linearGradient></defs><path fill="url(#sg3)" d="M70,25h60c10,0,18,8,18,18v12c0,3-2,5-5,5H57c-3,0-5-2-5-5V43C52,33,60,25,70,25ZM65,60v15c0,20,15,33,35,33s35-13,35-33V60ZM82,78c3,0,5,2,5,5s-2,5-5,5-5-2-5-5,2-5,5-5Zm36,0c3,0,5,2,5,5s-2,5-5,5-5-2-5-5,2-5,5-5ZM92,93h16v2H92Zm-2,3h20s-2,6-10,6-10-6-10-6ZM60,108c-15,7-25,22-25,40v32h130V148c0-18-10-33-25-40Z"/></svg>`,
-  elvis:`<svg viewBox="0 0 200 200" width="160"><defs><linearGradient id="sg4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#fb923c"/></linearGradient></defs><path fill="url(#sg4)" d="M85,12c-8,2-25,8-28,28-2,12,5,20,10,24-5,5-8,12-8,20v5c0,25,18,40,40,40s40-15,40-40V84c0-8-3-15-8-20,5-4,12-12,10-24-3-20-20-26-28-28L100,8ZM75,70c4,0,7,3,7,7s-3,7-7,7-7-3-7-7,3-7,7-7Zm50,0c4,0,7,3,7,7s-3,7-7,7-7-3-7-7,3-7,7-7ZM88,100c0,0,8,12,24,0l-4,8c-5,5-12,4-16,0ZM55,130c-12,8-20,22-20,38v32h130V168c0-16-8-30-20-38Z"/></svg>`,
-  queen:`<svg viewBox="0 0 200 200" width="160"><defs><linearGradient id="sg5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#a78bfa"/><stop offset="100%" stop-color="#6d5cff"/></linearGradient></defs><path fill="url(#sg5)" d="M60,35l10-20,15,12,15-15,15,15,15-12,10,20c5,3,8,10,8,18H52c0-8,3-15,8-18ZM58,55c0,0-3,15,2,25,3,6,8,10,15,13-8,5-13,12-15,20v5c0,22,18,38,40,38s40-16,40-38v-5c-2-8-7-15-15-20,7-3,12-7,15-13,5-10,2-25,2-25ZM80,78c4,0,7,3,7,7s-3,7-7,7-7-3-7-7,3-7,7-7Zm40,0c4,0,7,3,7,7s-3,7-7,7-7-3-7-7,3-7,7-7ZM90,105c0,0,6,10,20,0l-3,6c-4,4-10,4-14,0ZM40,160c-5,5-8,12-8,20v20h136V180c0-8-3-15-8-20l-20-10H60Z"/></svg>`,
-  sherlock:`<svg viewBox="0 0 200 200" width="160"><defs><linearGradient id="sg6" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#34d399"/><stop offset="100%" stop-color="#22d3ee"/></linearGradient></defs><path fill="url(#sg6)" d="M65,20c-5,0-10,3-12,8l-8,20c-2,5,0,10,4,13l5,4c-3,5-5,12-5,20v10c0,22,20,40,50,40s50-18,50-40V85c0-8-2-15-5-20l5-4c4-3,6-8,4-13l-8-20c-2-5-7-8-12-8H65Zm-15,35c0,0,15,5,50,5s50-5,50-5ZM80,80c4,0,7,3,7,7s-3,7-7,7-7-3-7-7,3-7,7-7Zm40,0c4,0,7,3,7,7s-3,7-7,7-7-3-7-7,3-7,7-7ZM85,110h30l-5,10H90ZM45,138c-10,8-15,20-15,32v30h140V170c0-12-5-24-15-32l-15-3c-5,5-15,10-40,10s-35-5-40-10Z"/></svg>`,
-  lincoln:`<svg viewBox="0 0 200 200" width="160"><defs><linearGradient id="sg7" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#f97316"/></linearGradient></defs><path fill="url(#sg7)" d="M75,5h50v40c5,0,10,2,12,5h3V5h-80v45h3c2-3,7-5,12-5ZM70,50c-8,5-15,15-15,30v15c0,18,15,35,45,35s45-17,45-35V80c0-15-7-25-15-30ZM80,75c4,0,6,3,6,6s-2,6-6,6-6-3-6-6,2-6,6-6Zm40,0c4,0,6,3,6,6s-2,6-6,6-6-3-6-6,2-6,6-6ZM75,105v5c0,3,5,10,25,10s25-7,25-10v-5c-5,5-15,8-25,8s-20-3-25-8ZM50,135c-12,8-20,22-20,38v27h140V173c0-16-8-30-20-38Z"/></svg>`,
-  marilyn:`<svg viewBox="0 0 200 200" width="160"><defs><linearGradient id="sg8" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#e879f9"/></linearGradient></defs><path fill="url(#sg8)" d="M100,10c-25,0-40,10-42,30-1,10,3,18,8,22-10-2-20,5-18,15,1,8,8,12,15,11-5,8-3,18,3,22-5,3-8,10-6,18,2,6,7,10,12,12v5c0,20,12,35,28,35s28-15,28-35v-5c5-2,10-6,12-12,2-8-1-15-6-18,6-4,8-14,3-22,7,1,14-3,15-11,2-10-8-17-18-15,5-4,9-12,8-22C140,20,125,10,100,10ZM82,68c4,0,6,3,6,6s-2,6-6,6-6-3-6-6,2-6,6-6Zm36,0c4,0,6,3,6,6s-2,6-6,6-6-3-6-6,2-6,6-6ZM92,95c0,0,5,8,16,0l-2,5c-4,4-8,3-12,0ZM50,165c-8,5-15,15-15,25v10h130V190c0-10-7-20-15-25l-20-8c-5,5-12,8-30,8s-25-3-30-8Z"/></svg>`,
-  mozart:`<svg viewBox="0 0 200 200" width="160"><defs><linearGradient id="sg9" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#a78bfa"/><stop offset="100%" stop-color="#f472b6"/></linearGradient></defs><path fill="url(#sg9)" d="M55,35c-5,3-10,10-10,20,0,8,5,14,10,16-5,0-15,5-15,15s8,15,15,15c-3,5-3,12,0,17-8,3-13,10-13,18v2c0,20,22,35,58,35s58-15,58-35v-2c0-8-5-15-13-18,3-5,3-12,0-17,7,0,15-5,15-15s-10-15-15-15c5-2,10-8,10-16,0-10-5-17-10-20l-12-5c-5-5-15-10-30-10H85c-8,0-15,2-20,5ZM82,75c4,0,6,3,6,6s-2,6-6,6-6-3-6-6,2-6,6-6Zm36,0c4,0,6,3,6,6s-2,6-6,6-6-3-6-6,2-6,6-6ZM88,100c0,0,8,10,24,0l-4,6c-4,4-12,4-16,0Z"/></svg>`,
-  bonds:`<svg viewBox="0 0 200 200" width="160"><defs><linearGradient id="sg10" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#94a3b8"/><stop offset="100%" stop-color="#475569"/></linearGradient></defs><path fill="url(#sg10)" d="M70,25c-5,5-10,15-10,25v10c0,25,18,45,40,45s40-20,40-45V50c0-10-5-20-10-25ZM82,55c4,0,6,3,6,6s-2,6-6,6-6-3-6-6,2-6,6-6Zm36,0c4,0,6,3,6,6s-2,6-6,6-6-3-6-6,2-6,6-6ZM90,82c0,0,6,8,20,0l-3,5c-4,4-10,4-14,0ZM95,100v8l5,12,5-12v-8ZM40,120l-10,60h40l5-40h50l5,40h40l-10-60c-5-5-12-10-20-12l-18-3-7,15-15-5-15,5-7-15-18,3c-8,2-15,7-20,12Z"/></svg>`,
-};
+async function loadRound(id){
+  if(roundsCache[id])return roundsCache[id];
+  const r=await fetch("data/rounds/"+id+".json",{cache:"no-cache"});
+  if(!r.ok)throw new Error("round "+id+" fetch failed: "+r.status);
+  const data=await r.json();
+  roundsCache[id]=data;
+  return data;
+}
+
+async function bootstrap(){
+  try{ await loadRoundsIndex(); }
+  catch(e){ console.error(e); bootstrapError=e.message||String(e); }
+  render();
+}
+
+
+let view="topics",activeTopic=null,activeRound=null,revealed=new Set(),currentIdx=0;
+// Picture-bank state — used by type:"picture" rounds (dynamic, random sampling)
+let pictureBank=null;          // loaded JSON {version, items:[...]}
+let pictureRound=null;         // {items:[...], modes:[...]} sampled for current round
+let hintShown=new Set();       // per-question hint visibility
+const picCache={};             // key: itemId+":"+mode → final processed HTML
+const PIC_MODES=["blur","pixelate","ascii","mosaic"];
+
+async function loadPictureBank(){
+  if(pictureBank)return pictureBank;
+  const r=await fetch("data/picture-bank.json",{cache:"force-cache"});
+  if(!r.ok)throw new Error("picture-bank.json fetch failed: "+r.status);
+  pictureBank=await r.json();
+  return pictureBank;
+}
+
+async function buildPictureRound(N=10){
+  const bank=await loadPictureBank();
+  const pool=bank.items.slice();
+  for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]]}
+  const items=pool.slice(0,Math.min(N,pool.length));
+  const modes=items.map(()=>PIC_MODES[Math.floor(Math.random()*PIC_MODES.length)]);
+  pictureRound={items,modes};
+}
+
+// Music-bank state — used by type:"music" rounds.
+let musicBank=null;
+let musicRound=null;
+
+async function loadMusicBank(){
+  if(musicBank)return musicBank;
+  const r=await fetch("data/music-bank.json",{cache:"force-cache"});
+  if(!r.ok)throw new Error("music-bank.json fetch failed: "+r.status);
+  musicBank=await r.json();
+  return musicBank;
+}
+
+async function buildMusicRound(N=10){
+  const bank=await loadMusicBank();
+  const pool=bank.items.slice();
+  for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]]}
+  musicRound={items:pool.slice(0,Math.min(N,pool.length))};
+}
+
+function processToCanvas(img,mode,canvas){
+  const W=320;
+  const H=Math.max(1,Math.round(W*img.naturalHeight/img.naturalWidth));
+  canvas.width=W;canvas.height=H;
+  const ctx=canvas.getContext("2d");
+  if(mode==="blur"){
+    ctx.filter="blur("+Math.round(W*0.035)+"px)";
+    ctx.drawImage(img,0,0,W,H);
+    ctx.filter="none";
+  } else if(mode==="pixelate"){
+    const sw=18,sh=Math.max(1,Math.round(sw*H/W));
+    const tmp=document.createElement("canvas");
+    tmp.width=sw;tmp.height=sh;
+    tmp.getContext("2d").drawImage(img,0,0,sw,sh);
+    ctx.imageSmoothingEnabled=false;
+    ctx.drawImage(tmp,0,0,W,H);
+  } else if(mode==="mosaic"){
+    const cols=6,rows=8,tw=W/cols,th=H/rows;
+    const sw=img.naturalWidth/cols,sh=img.naturalHeight/rows;
+    const order=Array.from({length:cols*rows},(_,i)=>i);
+    for(let i=order.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[order[i],order[j]]=[order[j],order[i]]}
+    order.forEach((srcIdx,dstIdx)=>{
+      const dr=Math.floor(dstIdx/cols),dc=dstIdx%cols;
+      const sr=Math.floor(srcIdx/cols),sc=srcIdx%cols;
+      ctx.drawImage(img,sc*sw,sr*sh,sw,sh,dc*tw,dr*th,tw,th);
+    });
+  }
+}
+
+// Density ramp ordered light → dense. On a dark UI, dense chars look brightest.
+const ASCII_RAMP="  .,-':;~!=+ilJYUMW#%@$";
+
+function asciiArt(img,width=84){
+  const ar=img.naturalHeight/img.naturalWidth;
+  const h=Math.max(1,Math.floor(width*ar*0.5));
+  const c=document.createElement("canvas");
+  c.width=width;c.height=h;
+  const ctx=c.getContext("2d");
+  ctx.drawImage(img,0,0,width,h);
+  const d=ctx.getImageData(0,0,width,h).data;
+  const N=ASCII_RAMP.length-1;
+  let txt="";
+  for(let y=0;y<h;y++){
+    for(let x=0;x<width;x++){
+      const i=(y*width+x)*4;
+      // sRGB → linear-ish luminance, plus mild contrast stretch
+      const lum=(0.2126*d[i]+0.7152*d[i+1]+0.0722*d[i+2])/255;
+      const b=Math.min(1,Math.max(0,Math.pow(lum,0.85)));
+      txt+=ASCII_RAMP[Math.round(b*N)];
+    }
+    txt+="\n";
+  }
+  return txt;
+}
+
+function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+
+function buildProcessed(item,mode){
+  const key=item.id+":"+mode;
+  if(picCache[key])return;
+  const img=new Image();
+  img.onload=()=>{
+    let html;
+    if(mode==="ascii"){
+      html='<pre class="pic-ascii">'+escapeHtml(asciiArt(img,80))+'</pre>';
+    } else {
+      const cv=document.createElement("canvas");
+      processToCanvas(img,mode,cv);
+      html='<img class="pic-out" src="'+cv.toDataURL("image/jpeg",0.85)+'" alt="processed">';
+    }
+    picCache[key]=html;
+    if(view==="quiz"&&pictureRound){
+      const cur=pictureRound.items[currentIdx];
+      const curMode=pictureRound.modes[currentIdx];
+      if(cur&&cur.id===item.id&&curMode===mode)render();
+    }
+  };
+  img.onerror=()=>{picCache[key]='<div class="pic-loading">Image failed to load</div>'};
+  img.src="images/picture-bank/"+item.filename;
+}
+
+function toggleHint(i){hintShown.has(i)?hintShown.delete(i):hintShown.add(i);render()}
 
 function goTopics(){view="topics";activeTopic=null;activeRound=null;revealed=new Set();render();window.scrollTo({top:0,behavior:"smooth"})}
 function goRounds(tid){activeTopic=TOPICS.find(t=>t.id===tid);view="rounds";activeRound=null;revealed=new Set();render();window.scrollTo({top:0,behavior:"smooth"})}
-function goQuiz(rid){activeRound=ROUNDS.find(r=>r.id===rid);view="quiz";revealed=new Set();render();window.scrollTo({top:0,behavior:"smooth"})}
+async function goQuiz(rid){
+  view="quiz";revealed=new Set();hintShown=new Set();currentIdx=0;
+  activeRound=null;
+  pictureRound=null;
+  musicRound=null;
+  render(); // loading state
+  try{
+    activeRound=await loadRound(rid);
+  }catch(e){
+    console.error(e);
+    activeRound={id:rid,title:"(failed to load)",desc:e.message||String(e),questions:[]};
+    render();
+    return;
+  }
+  if(activeRound.type==="picture"){
+    pictureRound=null;
+    render();
+    buildPictureRound().then(render).catch(e=>{console.error(e);render()});
+  } else if(activeRound.type==="music"){
+    musicRound=null;
+    render();
+    buildMusicRound().then(render).catch(e=>{console.error(e);render()});
+  } else {
+    render();
+  }
+  window.scrollTo({top:0,behavior:"smooth"});
+}
 function toggleCard(i){revealed.has(i)?revealed.delete(i):revealed.add(i);render()}
-function shuffleQuiz(){if(!activeRound)return;revealed=new Set();const q=activeRound.questions;for(let i=q.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[q[i],q[j]]=[q[j],q[i]]}render();window.scrollTo({top:0,behavior:"smooth"})}
-function resetQuiz(){revealed=new Set();render()}
+function shuffleQuiz(){if(!activeRound||!activeRound.questions)return;revealed=new Set();hintShown=new Set();currentIdx=0;const q=activeRound.questions;for(let i=q.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[q[i],q[j]]=[q[j],q[i]]}render();window.scrollTo({top:0,behavior:"smooth"})}
+function resetQuiz(){revealed=new Set();hintShown=new Set();currentIdx=0;render()}
+function currentTotal(){
+  if(!activeRound)return 0;
+  if(activeRound.type==="picture")return pictureRound?pictureRound.items.length:0;
+  if(activeRound.type==="music")return musicRound?musicRound.items.length:0;
+  return activeRound.questions?activeRound.questions.length:0;
+}
+function nextQ(){const t=currentTotal();if(activeRound&&currentIdx<t-1){currentIdx++;render()}}
+function prevQ(){if(activeRound&&currentIdx>0){currentIdx--;render()}}
 
 function renderTopics(){
+  const idx=roundsIndex||[];
   return`<div class="hdr"><div class="hdr-title"><em>▸</em> Family Quiz Night</div></div>
   <div class="launcher"><div class="launcher-label">Pick a topic</div>
   <div class="topic-grid">${TOPICS.map((t,i)=>{
-    const total=ROUNDS.filter(r=>r.topic===t.id).length;
+    const total=idx.filter(r=>r.topic===t.id).length;
     return`<div class="topic-cell" style="--tc:${t.color};animation-delay:${i*.06}s" onclick="goRounds('${t.id}')">
       <div class="topic-icon">${t.icon}</div><div class="topic-name">${t.name}</div>
       <div class="topic-count">${total} round${total!==1?'s':''}</div></div>`}).join("")}</div></div>`;
 }
 
 function renderRounds(){
-  const rounds=ROUNDS.filter(r=>r.topic===activeTopic.id);
+  const rounds=(roundsIndex||[]).filter(r=>r.topic===activeTopic.id);
   return`<div class="hdr"><button class="btn-back" onclick="goTopics()">← Topics</button>
     <div class="hdr-title"><em>${activeTopic.icon}</em> ${activeTopic.name}</div></div>
   <div class="picker"><div class="round-grid">${rounds.map((r,i)=>
@@ -1022,73 +350,20 @@ function renderRounds(){
       <div class="rcard-stripe" style="background:${activeTopic.color}"></div>
       <div class="rcard-title">${r.title}</div>
       <div style="font-size:.72rem;color:var(--sub);line-height:1.35;margin-bottom:8px">${r.desc}</div>
-      <div class="rcard-meta"><span class="rcard-count">${r.questions.length}Q</span>${r.isNew?'<span class="rcard-new">New</span>':''}</div>
+      <div class="rcard-meta"><span class="rcard-count">${r.count?r.count+'Q':'∞'}</span>${r.isNew?'<span class="rcard-new">New</span>':''}</div>
     </div>`).join("")}</div></div>`;
 }
 
 function renderQuiz(){
-  const qs=activeRound.questions;
   const type=activeRound.type||"standard";
-
+  if(type==="picture")return renderPictureCarousel();
+  if(type==="music")return renderMusicCarousel();
+  if(type!=="standard")return renderCarousel(type);
+  const qs=activeRound.questions;
   return`<div class="hdr"><button class="btn-back" onclick="goRounds('${activeTopic.id}')">← Rounds</button>
     <div class="hdr-title" style="font-size:.78rem">${activeRound.title}</div>
     <div class="hdr-right"><div class="badge-sm">Revealed <strong>${revealed.size}</strong>/${qs.length}</div></div></div>
   <div class="grid">${qs.map((item,i)=>{const r=revealed.has(i);
-
-    // ── EMOJI ROUND ──
-    if(type==="emoji"){
-      return`<div class="qcard${r?' show':''}" style="animation-delay:${i*.03}s" onclick="toggleCard(${i})">
-        <div class="qi"><div class="qt"><span class="qn">Q${i+1}</span>
-          <span class="qcat" style="color:${activeTopic.color}">Emoji</span>
-          ${r?"":'<span class="qhint">tap to reveal</span>'}</div>
-        <div class="emoji-q">${item.q}</div></div>
-        <div class="qans"><div class="qansi"><div class="qal">Answer</div><div class="qat">${item.a}</div></div></div>
-      </div>`;
-    }
-
-    // ── SILHOUETTE ROUND ──
-    if(type==="silhouette"){
-      const silKey=item.q.replace("SIL:","");
-      const silSvg=SILHOUETTES[silKey]||"";
-      return`<div class="qcard${r?' show':''}" style="animation-delay:${i*.03}s" onclick="toggleCard(${i})">
-        <div class="qi"><div class="qt"><span class="qn">Q${i+1}</span>
-          <span class="qcat" style="color:${activeTopic.color}">Silhouette</span>
-          ${r?"":'<span class="qhint">tap to reveal</span>'}</div>
-        <div class="sil-wrap">${silSvg}</div>
-        <div class="hint-text">${item.hint||""}</div></div>
-        <div class="qans"><div class="qansi"><div class="qal">Answer</div><div class="qat">${item.a}</div></div></div>
-      </div>`;
-    }
-
-    // ── BLUR ROUND ──
-    if(type==="blur"){
-      const imgUrl=item.q.replace("BLUR:","");
-      return`<div class="qcard${r?' show':''}" style="animation-delay:${i*.03}s" onclick="toggleCard(${i})">
-        <div class="qi"><div class="qt"><span class="qn">Q${i+1}</span>
-          <span class="qcat" style="color:${activeTopic.color}">Blurred</span>
-          ${r?"":'<span class="qhint">tap to deblur</span>'}</div>
-        <div class="blur-wrap"><img class="blur-img ${r?'clear':'blurred'}" src="${imgUrl}" crossorigin="anonymous" alt="Mystery person"></div>
-        <div class="hint-text">${item.hint||""}</div></div>
-        <div class="qans"><div class="qansi"><div class="qal">Answer</div><div class="qat">${item.a}</div></div></div>
-      </div>`;
-    }
-
-    // ── ASCII ART ROUND ──
-    if(type==="ascii"){
-      const imgUrl=item.q.replace("ASCII:","");
-      const ascId="a"+i;
-      setTimeout(()=>imageToAscii(imgUrl,ascId,64),i*100);
-      return`<div class="qcard${r?' show':''}" style="animation-delay:${i*.03}s" onclick="toggleCard(${i})">
-        <div class="qi"><div class="qt"><span class="qn">Q${i+1}</span>
-          <span class="qcat" style="color:${activeTopic.color}">ASCII Art</span>
-          ${r?"":'<span class="qhint">tap to reveal</span>'}</div>
-        <div class="ascii-wrap"><pre class="ascii-out" id="ascii-${ascId}">${asciiCache[ascId]||"Rendering..."}</pre></div>
-        <div class="hint-text">${item.hint||""}</div></div>
-        <div class="qans"><div class="qansi"><div class="qal">Answer</div><div class="qat">${item.a}</div></div></div>
-      </div>`;
-    }
-
-    // ── STANDARD ROUND ──
     return`<div class="qcard${r?' show':''}" style="animation-delay:${i*.03}s" onclick="toggleCard(${i})">
       <div class="qi"><div class="qt"><span class="qn">Q${i+1}</span>
         <span class="qcat" style="color:${activeTopic.color}">${activeTopic.name}</span>
@@ -1100,11 +375,168 @@ function renderQuiz(){
   <div class="fabs"><button class="fab sec" onclick="resetQuiz()">↩ Reset</button><button class="fab" onclick="shuffleQuiz()">↻ Shuffle</button></div>`;
 }
 
-function render(){
-  document.getElementById("app").innerHTML=
-    view==="topics"?renderTopics():view==="rounds"?renderRounds():renderQuiz();
+function renderCarousel(type){
+  // Currently only used by emoji rounds — picture rounds go via renderPictureCarousel.
+  const qs=activeRound.questions;
+  const total=qs.length;
+  const item=qs[currentIdx];
+  const r=revealed.has(currentIdx);
+  const media=`<div class="emoji-q">${item.q}</div>`;
+  const label="Emoji";
+  return`<div class="hdr"><button class="btn-back" onclick="goRounds('${activeTopic.id}')">← Rounds</button>
+    <div class="hdr-title" style="font-size:.78rem">${activeRound.title}</div>
+    <div class="hdr-right"><div class="badge-sm">Revealed <strong>${revealed.size}</strong>/${total}</div></div></div>
+  <div class="car">
+    <div class="car-body">
+      <div class="car-card${r?' show':''}" onclick="toggleCard(${currentIdx})">
+        <div class="car-meta">
+          <span class="qn">Q${currentIdx+1} / ${total}</span>
+          <span class="car-cat" style="color:${activeTopic.color}">${label}</span>
+        </div>
+        <div class="car-media">${media}</div>
+        ${item.hint?`<div class="car-hint">${item.hint}</div>`:""}
+        <div class="car-ans"><div class="car-ans-i"><div class="car-al">Answer</div><div class="car-at">${item.a}</div></div></div>
+      </div>
+    </div>
+    <div class="car-nav">
+      <button class="car-btn" onclick="prevQ()" ${currentIdx===0?'disabled':''}>← Prev</button>
+      <button class="car-btn primary" onclick="toggleCard(${currentIdx})">${r?"Hide":"Reveal"}</button>
+      <button class="car-btn" onclick="nextQ()" ${currentIdx===total-1?'disabled':''}>Next →</button>
+    </div>
+  </div>`;
 }
+
+function renderPictureCarousel(){
+  if(!pictureRound){
+    return`<div class="hdr"><button class="btn-back" onclick="goRounds('${activeTopic.id}')">← Rounds</button>
+      <div class="hdr-title" style="font-size:.78rem">${activeRound.title}</div></div>
+    <div class="car"><div class="car-body"><div class="pic-loading">Loading picture bank…</div></div></div>`;
+  }
+  const total=pictureRound.items.length;
+  if(!total){
+    return`<div class="hdr"><button class="btn-back" onclick="goRounds('${activeTopic.id}')">← Rounds</button>
+      <div class="hdr-title" style="font-size:.78rem">${activeRound.title}</div></div>
+    <div class="car"><div class="car-body"><div class="pic-loading">Picture bank is empty.</div></div></div>`;
+  }
+  const item=pictureRound.items[currentIdx];
+  const mode=pictureRound.modes[currentIdx];
+  const r=revealed.has(currentIdx);
+  const hOn=hintShown.has(currentIdx);
+  const modeLabel={blur:"Blurred",pixelate:"Pixelated",ascii:"ASCII",mosaic:"Scrambled"}[mode]||mode;
+
+  let mediaHtml;
+  if(r){
+    mediaHtml=`<img class="pic-orig" src="images/picture-bank/${item.filename}" alt="${escapeHtml(item.answer)}">`;
+  } else {
+    const key=item.id+":"+mode;
+    if(picCache[key]){
+      mediaHtml=picCache[key];
+    } else {
+      buildProcessed(item,mode);
+      mediaHtml='<div class="pic-loading">Processing…</div>';
+    }
+  }
+
+  const hintBlock = r ? '' :
+    (hOn
+      ? `<div class="car-hint">${escapeHtml(item.hint||"No hint available")}</div>`
+      : (item.hint?`<button class="pic-hint-btn" onclick="toggleHint(${currentIdx})">💡 Show Hint</button>`:''));
+
+  return`<div class="hdr"><button class="btn-back" onclick="goRounds('${activeTopic.id}')">← Rounds</button>
+    <div class="hdr-title" style="font-size:.78rem">${activeRound.title}</div>
+    <div class="hdr-right"><div class="badge-sm">Revealed <strong>${revealed.size}</strong>/${total}</div></div></div>
+  <div class="car">
+    <div class="car-body">
+      <div class="car-card${r?' show':''}">
+        <div class="car-meta">
+          <span class="qn">Q${currentIdx+1} / ${total}</span>
+          <span class="car-cat" style="color:${activeTopic.color}">${modeLabel}</span>
+        </div>
+        <div class="pic-host">${mediaHtml}</div>
+        ${hintBlock}
+        <div class="car-ans"><div class="car-ans-i"><div class="car-al">Answer</div><div class="car-at">${escapeHtml(item.answer)}</div></div></div>
+      </div>
+    </div>
+    <div class="car-nav">
+      <button class="car-btn" onclick="prevQ()" ${currentIdx===0?'disabled':''}>← Prev</button>
+      <button class="car-btn primary" onclick="toggleCard(${currentIdx})">${r?"Hide":"Reveal"}</button>
+      <button class="car-btn" onclick="nextQ()" ${currentIdx===total-1?'disabled':''}>Next →</button>
+    </div>
+  </div>`;
+}
+
+function renderMusicCarousel(){
+  if(!musicRound){
+    return`<div class="hdr"><button class="btn-back" onclick="goRounds('${activeTopic.id}')">← Rounds</button>
+      <div class="hdr-title" style="font-size:.78rem">${activeRound.title}</div></div>
+    <div class="car"><div class="car-body"><div class="pic-loading">Loading music bank…</div></div></div>`;
+  }
+  const total=musicRound.items.length;
+  if(!total){
+    return`<div class="hdr"><button class="btn-back" onclick="goRounds('${activeTopic.id}')">← Rounds</button>
+      <div class="hdr-title" style="font-size:.78rem">${activeRound.title}</div></div>
+    <div class="car"><div class="car-body"><div class="pic-loading">Music bank is empty.</div></div></div>`;
+  }
+  const item=musicRound.items[currentIdx];
+  const r=revealed.has(currentIdx);
+  const hOn=hintShown.has(currentIdx);
+  const audioSrc=`audio/music-bank/${item.filename}`;
+
+  const mediaHtml = r
+    ? `<div class="music-revealed">
+         <div class="music-title">${escapeHtml(item.title)}</div>
+         <div class="music-artist">${escapeHtml(item.artist)}</div>
+         ${item.album?`<div class="music-album">${escapeHtml(item.album)}</div>`:''}
+         <audio class="music-player" src="${audioSrc}" controls preload="auto"></audio>
+       </div>`
+    : `<div class="music-mystery">
+         <div class="music-icon">🎵</div>
+         <audio class="music-player" src="${audioSrc}" controls preload="auto"></audio>
+       </div>`;
+
+  const hintBlock = r ? '' :
+    (hOn
+      ? `<div class="car-hint">${escapeHtml(item.hint||"No hint available")}</div>`
+      : (item.hint?`<button class="pic-hint-btn" onclick="toggleHint(${currentIdx})">💡 Show Hint</button>`:''));
+
+  return`<div class="hdr"><button class="btn-back" onclick="goRounds('${activeTopic.id}')">← Rounds</button>
+    <div class="hdr-title" style="font-size:.78rem">${activeRound.title}</div>
+    <div class="hdr-right"><div class="badge-sm">Revealed <strong>${revealed.size}</strong>/${total}</div></div></div>
+  <div class="car">
+    <div class="car-body">
+      <div class="car-card${r?' show':''}">
+        <div class="car-meta">
+          <span class="qn">Q${currentIdx+1} / ${total}</span>
+          <span class="car-cat" style="color:${activeTopic.color}">Music</span>
+        </div>
+        <div class="music-host">${mediaHtml}</div>
+        ${hintBlock}
+      </div>
+    </div>
+    <div class="car-nav">
+      <button class="car-btn" onclick="prevQ()" ${currentIdx===0?'disabled':''}>← Prev</button>
+      <button class="car-btn primary" onclick="toggleCard(${currentIdx})">${r?"Hide":"Reveal"}</button>
+      <button class="car-btn" onclick="nextQ()" ${currentIdx===total-1?'disabled':''}>Next →</button>
+    </div>
+  </div>`;
+}
+
+function loadingHtml(msg){return `<div style="padding:60px 20px;text-align:center;color:var(--sub);font-size:.9rem">${msg}</div>`}
+function errorHtml(msg){return `<div style="padding:60px 20px;text-align:center;color:#ef4444;font-size:.9rem">⚠ ${msg}</div>`}
+
+function render(){
+  let html;
+  if(bootstrapError) html=errorHtml("Failed to load quiz data: "+bootstrapError);
+  else if(!roundsIndex) html=loadingHtml("Loading quiz data…");
+  else if(view==="topics") html=renderTopics();
+  else if(view==="rounds") html=renderRounds();
+  else if(view==="quiz" && !activeRound) html=loadingHtml("Loading round…");
+  else html=renderQuiz();
+  document.getElementById("app").innerHTML=html;
+}
+
 render();
+bootstrap();
 </script>
 </body>
 </html>

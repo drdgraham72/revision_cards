@@ -1,0 +1,50 @@
+{
+  "id": "music-family",
+  "topic": "music",
+  "title": "B-Sides & Deep Grooves",
+  "desc": "Odd origins, stage name secrets & chart weirdness",
+  "type": "standard",
+  "isNew": false,
+  "questions": [
+    {
+      "q": "'Happy Birthday to You' was under copyright until which year — meaning restaurants technically owed royalties for singing it?",
+      "a": "2016 — Warner/Chappell collected roughly $2 million a year from it until a court ruling"
+    },
+    {
+      "q": "Which instrument did Prince reportedly play on his debut album — and how many of them?",
+      "a": "All 27 instruments, as well as all vocals"
+    },
+    {
+      "q": "The longest officially released song by a major band lasts over 69 minutes. Who recorded it?",
+      "a": "Bull of Heaven — though for mainstream, The Flaming Lips' '7 Skies H3' runs 24 hours"
+    },
+    {
+      "q": "Before she was Lady Gaga, Stefani Germanotta briefly appeared as an extra on which TV show?",
+      "a": "The Sopranos (Season 3, Episode 9 — in a pool scene)"
+    },
+    {
+      "q": "What does the 'AC' and 'DC' in AC/DC actually stand for?",
+      "a": "Alternating Current / Direct Current — the Young brothers saw it on a sewing machine label"
+    },
+    {
+      "q": "Spotify's most-streamed song of all time (as of 2024) is by The Weeknd. What's it called?",
+      "a": "'Blinding Lights' — over 4 billion streams"
+    },
+    {
+      "q": "Which Beatles album was the first to have no title or band name on the front cover — just a plain white sleeve?",
+      "a": "The White Album (officially 'The Beatles', 1968)"
+    },
+    {
+      "q": "Mozart composed his first symphony at what age?",
+      "a": "8 years old (Symphony No. 1 in E-flat major)"
+    },
+    {
+      "q": "The vinyl crackle you hear at the start of hip-hop tracks sampled from old records — what causes it?",
+      "a": "Dust and microscopic scratches in the grooves of the vinyl — it became an aesthetic choice"
+    },
+    {
+      "q": "Which country has won the Eurovision Song Contest the most times?",
+      "a": "Ireland — 7 wins"
+    }
+  ]
+}

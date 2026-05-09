@@ -1,0 +1,50 @@
+{
+  "id": "food-4",
+  "topic": "food",
+  "title": "Chef's Kiss",
+  "desc": "Regional feuds, forgotten superfoods & kitchen science gone wrong",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Carbonara traditionally uses guanciale — what cut of meat is that?",
+      "a": "Cured pork cheek (not bacon, not pancetta — Italians will fight you on this)"
+    },
+    {
+      "q": "What makes sourdough bread rise if there's no commercial yeast?",
+      "a": "Wild yeast and lactobacillus bacteria captured in the starter — they ferment naturally from the flour and environment"
+    },
+    {
+      "q": "The world's most expensive pizza costs over $12,000. What's on it?",
+      "a": "Varies by claim — but typically: buffalo mozzarella, lobster, caviar, and gold leaf. Some versions include three types of rare caviar"
+    },
+    {
+      "q": "In Japan, there's a high-end watermelon that regularly sells for how much?",
+      "a": "Up to $6,000 for a Densuke watermelon from Hokkaido — they only produce about 10,000 per year"
+    },
+    {
+      "q": "What gives Earl Grey tea its distinctive flavour?",
+      "a": "Bergamot oil — from a citrus fruit grown mostly in Calabria, Italy"
+    },
+    {
+      "q": "Brown eggs and white eggs taste different — true or false?",
+      "a": "False — the colour depends on the breed of chicken, not the taste or nutrition"
+    },
+    {
+      "q": "What ancient preservation technique involves burying food in ash and lye?",
+      "a": "Lutefisk — Nordic dried whitefish rehydrated in lye solution until gelatinous. Also: century eggs use a similar alkaline process"
+    },
+    {
+      "q": "Why does asparagus make some people's urine smell strange — and why can't everyone detect it?",
+      "a": "Asparagusic acid breaks down into sulphur compounds. About 40% of people lack the gene to smell them — the smell is there, they just can't perceive it"
+    },
+    {
+      "q": "Margherita pizza represents the Italian flag — red tomato, white mozzarella, green basil. But the story that it was invented for Queen Margherita is probably what?",
+      "a": "A myth — flatbreads with those toppings predated the supposed 1889 royal visit. The letter 'proving' it was likely forged"
+    },
+    {
+      "q": "What is the 'five-second rule' actually backed by in terms of science?",
+      "a": "Almost nothing — bacteria transfer is nearly instantaneous on contact. Moisture and surface type matter more than time"
+    }
+  ]
+}

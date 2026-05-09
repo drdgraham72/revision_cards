@@ -1,0 +1,42 @@
+{
+  "id": "movies-online-2026-05-09-medium-1",
+  "topic": "movies",
+  "title": "🌐 Online: Movies Medium #1",
+  "desc": "Trivia from OpenTrivia DB — 8 medium questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Who is revealed to be the villain at the end of the first live action Scooby Doo movie?",
+      "a": "Scrappy Doo"
+    },
+    {
+      "q": "How much money did the 2019 Marvel movie \"Avengers: Endgame\" gross for it's record-breaking worldwide opening weekend?",
+      "a": "1.2 billion USD"
+    },
+    {
+      "q": "In the 2014 film \"Birdman\", what is the primary instrument in the score?",
+      "a": "Drums"
+    },
+    {
+      "q": "Who played Batman in the 1997 film \"Batman and Robin\"?",
+      "a": "George Clooney"
+    },
+    {
+      "q": "Which town is the setting for the Disney movie The Love Bug (1968)?",
+      "a": "San Francisco"
+    },
+    {
+      "q": "Which musical artist had a prominent role in the 2017 film \"Kingsman: The Golden Circle\"?",
+      "a": "Elton John"
+    },
+    {
+      "q": "What mutated animals act as monsters in the movie 'Night of the Lepus'?",
+      "a": "Rabbits"
+    },
+    {
+      "q": "In which 1973 film does Yul Brynner play a robotic cowboy who malfunctions and goes on a killing spree?",
+      "a": "Westworld"
+    }
+  ]
+}

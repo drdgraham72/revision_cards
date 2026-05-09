@@ -1,0 +1,50 @@
+{
+  "id": "science-hard",
+  "topic": "science",
+  "title": "Pub Astrophysics",
+  "desc": "Quantum weirdness, medical myths debunked & numbers that break your brain",
+  "type": "standard",
+  "isNew": false,
+  "questions": [
+    {
+      "q": "The observable universe is 13.8 billion years old — but its radius is 46 billion light-years. How is that possible?",
+      "a": "Space itself has been expanding faster than light — the light we see left objects that have since moved much farther away"
+    },
+    {
+      "q": "What is the Dunning-Kruger effect, and which field of science does it come from?",
+      "a": "A cognitive bias where low-ability people overestimate their competence — from social psychology (Kruger & Dunning, 1999)"
+    },
+    {
+      "q": "Absolute zero is -273.15°C. Has anything ever reached it?",
+      "a": "No — the Third Law of Thermodynamics says it's impossible to reach in a finite number of steps. Scientists have come within billionths of a degree"
+    },
+    {
+      "q": "The placebo effect works even when patients know they're taking a placebo. True or false?",
+      "a": "True — 'open-label placebos' have shown measurable effects in clinical trials"
+    },
+    {
+      "q": "Light slows down when passing through glass or water. What happens to the 'missing' speed?",
+      "a": "The light is absorbed and re-emitted by atoms in the medium, creating a delay — it still travels at c between atoms"
+    },
+    {
+      "q": "What is the Fermi Paradox, in one sentence?",
+      "a": "If the universe is so vast and old, why haven't we found any evidence of other intelligent civilisations?"
+    },
+    {
+      "q": "CRISPR gene editing was adapted from a defence mechanism found in what type of organism?",
+      "a": "Bacteria — they use CRISPR sequences to recognise and destroy viral DNA"
+    },
+    {
+      "q": "A person standing at the equator is moving faster than a fighter jet due to Earth's rotation. Roughly how fast?",
+      "a": "About 1,670 km/h (1,037 mph) — faster than the speed of sound"
+    },
+    {
+      "q": "The Mpemba effect claims hot water freezes faster than cold water. Has it been definitively proven or disproven?",
+      "a": "Neither — it remains contested. Some experiments confirm it, others don't. The mechanisms are still debated"
+    },
+    {
+      "q": "What is 'junk DNA' and why is that name now considered misleading?",
+      "a": "Non-coding DNA that doesn't directly make proteins — but much of it has regulatory functions, so 'junk' understates its importance"
+    }
+  ]
+}

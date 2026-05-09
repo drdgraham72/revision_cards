@@ -1,0 +1,50 @@
+{
+  "id": "history-family",
+  "topic": "history",
+  "title": "Wait, That's Real?",
+  "desc": "Historical facts that sound completely made up but aren't",
+  "type": "standard",
+  "isNew": false,
+  "questions": [
+    {
+      "q": "Cleopatra lived closer in time to the Moon landing or the building of the Great Pyramid?",
+      "a": "The Moon landing — by about 500 years"
+    },
+    {
+      "q": "Oxford University started teaching before which famous empire even existed?",
+      "a": "The Aztec Empire (Oxford: ~1096 AD, Aztecs: ~1325 AD)"
+    },
+    {
+      "q": "The shortest war in history lasted roughly how long?",
+      "a": "38 to 45 minutes — the Anglo-Zanzibar War of 1896"
+    },
+    {
+      "q": "Nintendo was founded in which century?",
+      "a": "The 19th — 1889, as a playing card company"
+    },
+    {
+      "q": "Woolly mammoths were still alive when which famous monument was being built?",
+      "a": "The Great Pyramid of Giza (mammoths survived until ~1650 BC on Wrangel Island)"
+    },
+    {
+      "q": "The fax machine was invented before or after the telephone?",
+      "a": "Before — the fax concept dates to 1843, the telephone to 1876"
+    },
+    {
+      "q": "The last execution by guillotine in France happened the same year as which film's release?",
+      "a": "Star Wars — both in 1977"
+    },
+    {
+      "q": "Samurai and cowboys existed at the same time — true or false?",
+      "a": "True — the samurai era ended in 1876, peak cowboy era was 1860s–1890s"
+    },
+    {
+      "q": "Albert Einstein was offered the presidency of which country?",
+      "a": "Israel in 1952 — he politely declined"
+    },
+    {
+      "q": "Switzerland didn't give women the right to vote nationally until which year?",
+      "a": "1971"
+    }
+  ]
+}
