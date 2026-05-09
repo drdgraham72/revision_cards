@@ -1,0 +1,50 @@
+{
+  "id": "tv-online-2026-05-09-hard-1",
+  "topic": "tv",
+  "title": "🌐 TV Hard #1",
+  "desc": "Trivia from OpenTrivia DB — 10 hard questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "In the TV Show \"Donkey Kong Country\", which episode did the song \"Eddie, Let Me Go Back To My Home\" play in?",
+      "a": "It's a Wonderful Life"
+    },
+    {
+      "q": "What was the callsign of Commander William Adama in Battlestar Galactica (2004)?",
+      "a": "Husker"
+    },
+    {
+      "q": "In \"Star Trek\", what sauce is commonly used by Klingons on bregit lung?",
+      "a": "Grapok sauce"
+    },
+    {
+      "q": "What is the Klingon's afterlife called?",
+      "a": "Sto-vo-kor"
+    },
+    {
+      "q": "In \"Star Trek\", what is the Klingon delicacy of \"gagh\" made from?",
+      "a": "Serpent worms"
+    },
+    {
+      "q": "In season one of the US Kitchen Nightmares, Gordan Ramsay tried to save 10 different restaurants. How many ended up closing afterwards?",
+      "a": "9"
+    },
+    {
+      "q": "Which former Coronation Street actress was once a hostess on the British Game Show \"Double Your Money\"?",
+      "a": "Amanda Barrie"
+    },
+    {
+      "q": "In the show 'Doctor Who', what is the name of the time-capsule model stolen by 'the Doctor'?",
+      "a": "TT Type 40, Mark 3 (TARDIS)"
+    },
+    {
+      "q": "In \"Donkey Kong Country\", why does Donkey Kong want to know the secret of the crystal coconut?",
+      "a": "He's the big kahuna."
+    },
+    {
+      "q": "What's Dr. Doofenshmirtz first name?",
+      "a": "Heinz"
+    }
+  ]
+}

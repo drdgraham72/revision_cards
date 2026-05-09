@@ -1,0 +1,50 @@
+{
+  "id": "tv-online-2026-05-09-easy-2",
+  "topic": "tv",
+  "title": "🌐 TV Easy #2",
+  "desc": "Trivia from OpenTrivia DB — 10 easy questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "Which company has exclusive rights to air episodes of the \"The Grand Tour\"?",
+      "a": "Amazon"
+    },
+    {
+      "q": "What TV show featured older women named Blanche, Rose, Dorothy and Sophia?",
+      "a": "The Golden Girls"
+    },
+    {
+      "q": "The HBO series \"Game of Thrones\" is based on which series of books?",
+      "a": "A Song of Ice and Fire"
+    },
+    {
+      "q": "What Nickelodeon game show featured a house on the set that the contestants would ransack to find hidden objects?",
+      "a": "Finders Keepers"
+    },
+    {
+      "q": "In Star Trek: The Next Generation, what is the name of Data's cat?",
+      "a": "Spot"
+    },
+    {
+      "q": "In the TV show 'M*A*S*H', what was the nickname of Corporal Walter O'Reilly?",
+      "a": "Radar"
+    },
+    {
+      "q": "On the NBC show Community, whose catch-phrase was \"Pop! Pop!\"?",
+      "a": "Magnitude"
+    },
+    {
+      "q": "In the show \"Futurama\" what is Fry's full name?",
+      "a": "Philip J. Fry"
+    },
+    {
+      "q": "What is the name of Chris's brother in \"Everybody Hates Chris\"?",
+      "a": "Drew"
+    },
+    {
+      "q": "In season one of the Netflix political drama \"House of Cards\", what government position does Frank Underwood hold?",
+      "a": "House Majority Whip"
+    }
+  ]
+}

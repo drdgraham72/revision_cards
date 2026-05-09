@@ -1,0 +1,46 @@
+{
+  "id": "tv-online-2026-05-09-medium-1",
+  "topic": "tv",
+  "title": "🌐 TV Medium #1",
+  "desc": "Trivia from OpenTrivia DB — 9 medium questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "What is the setting of the show \"Parks and Recreation\"?",
+      "a": "Pawnee, Indiana"
+    },
+    {
+      "q": "What was Nickelodeon's original name?",
+      "a": "Pinwheel"
+    },
+    {
+      "q": "Which track by \"Massive Attack\" is used for the theme of \"House\"?",
+      "a": "Teardrop"
+    },
+    {
+      "q": "The 1985 Toyota Corolla \"AE86\" was the hero car for what anime?",
+      "a": "Initial D"
+    },
+    {
+      "q": "On the NBC show Community what was Star Burns' real name?",
+      "a": "Alex"
+    },
+    {
+      "q": "What is the name of the mad scientist who owns Planet Express in Futurama?",
+      "a": "Hubert J. Farnsworth"
+    },
+    {
+      "q": "At which university do \"The Big Bang Theory\" characters Mr. Wolowitz and Drs. Cooper, Hofstadter and Koothrappali work?",
+      "a": "Caltech"
+    },
+    {
+      "q": "How long was Ken Jennings' win streak on Jeopardy?",
+      "a": "74"
+    },
+    {
+      "q": "Who plays the character of Dennis Reynolds on It's Always Sunny in Philadelphia?",
+      "a": "Glenn Howerton"
+    }
+  ]
+}

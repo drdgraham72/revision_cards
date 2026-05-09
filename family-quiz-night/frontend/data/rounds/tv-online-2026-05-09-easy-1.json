@@ -1,0 +1,42 @@
+{
+  "id": "tv-online-2026-05-09-easy-1",
+  "topic": "tv",
+  "title": "🌐 TV Easy #1",
+  "desc": "Trivia from OpenTrivia DB — 8 easy questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "What is the name of the main character in \"The Flash\" TV series?",
+      "a": "Barry Allen"
+    },
+    {
+      "q": "When Donkey Kong died in the \"Donkey Kong Country\" episode \"It's a Wonderful Life\", who was his guardian angel?",
+      "a": "Eddie the Mean Old Yeti"
+    },
+    {
+      "q": "In Star Trek: The Next Generation, what is the name of Data's cat?",
+      "a": "Spot"
+    },
+    {
+      "q": "In the TV show \"Mad Men\", what was Donald Draper's birthname?",
+      "a": "Richard \"Dick\" Whitman"
+    },
+    {
+      "q": "In Game of Thrones, what is Littlefinger's real name?",
+      "a": "Petyr Baelish"
+    },
+    {
+      "q": "What is the real name of the famous spanish humorist, El Risitas?",
+      "a": "Juan Joya Borga"
+    },
+    {
+      "q": "In the show Stranger Things, what is Eleven's favorite breakfast food?",
+      "a": "Eggo Waffles"
+    },
+    {
+      "q": "In the television show Breaking Bad, what is the street name of Walter and Jesse's notorious product?",
+      "a": "Blue Sky"
+    }
+  ]
+}

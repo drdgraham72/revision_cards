@@ -1,0 +1,42 @@
+{
+  "id": "tv-online-2026-05-09-medium-2",
+  "topic": "tv",
+  "title": "🌐 TV Medium #2",
+  "desc": "Trivia from OpenTrivia DB — 8 medium questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "In which year did the British television series \"The Bill\" end?",
+      "a": "2010"
+    },
+    {
+      "q": "In Battlestar Galactica (2004), what is the name of the President of the Twelve Colonies?",
+      "a": "Laura Roslin"
+    },
+    {
+      "q": "Which character does voice actress Tara Strong NOT voice?",
+      "a": "Bubbles (2016)"
+    },
+    {
+      "q": "Who was the first Big Brother US winner to win with a perfect game?",
+      "a": "Dan Gheesling"
+    },
+    {
+      "q": "Who was Firestorm's rival during the original run of UK Robot Wars?",
+      "a": "Panic Attack"
+    },
+    {
+      "q": "In \"Star Trek\", what is the Ferengi's First Rule of Acquisition?",
+      "a": "Once you have their money, you never give it back."
+    },
+    {
+      "q": "In the Netflix show, Stranger Things, what song would Will sing to himself as he was missing?",
+      "a": "Should I Stay or Should I Go?"
+    },
+    {
+      "q": "Who sang the theme song for the TV show 'Rawhide'?",
+      "a": "Frankie Laine"
+    }
+  ]
+}

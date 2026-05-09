@@ -464,7 +464,7 @@
     {
       "id": "movies-online-2026-05-09-medium-1",
       "topic": "movies",
-      "title": "🌐 Online: Movies Medium #1",
+      "title": "🌐 Movies Medium #1",
       "desc": "Trivia from OpenTrivia DB — 8 medium questions",
       "type": "standard",
       "isNew": true,
@@ -473,7 +473,7 @@
     {
       "id": "movies-online-2026-05-09-easy-1",
       "topic": "movies",
-      "title": "🌐 Online: Movies Easy #1",
+      "title": "🌐 Movies Easy #1",
       "desc": "Trivia from OpenTrivia DB — 9 easy questions",
       "type": "standard",
       "isNew": true,
@@ -482,7 +482,7 @@
     {
       "id": "movies-online-2026-05-09-medium-2",
       "topic": "movies",
-      "title": "🌐 Online: Movies Medium #2",
+      "title": "🌐 Movies Medium #2",
       "desc": "Trivia from OpenTrivia DB — 9 medium questions",
       "type": "standard",
       "isNew": true,
@@ -491,7 +491,7 @@
     {
       "id": "movies-online-2026-05-09-hard-2",
       "topic": "movies",
-      "title": "🌐 Online: Movies Hard #2",
+      "title": "🌐 Movies Hard #2",
       "desc": "Trivia from OpenTrivia DB — 10 hard questions",
       "type": "standard",
       "isNew": true,
@@ -500,7 +500,7 @@
     {
       "id": "music-online-2026-05-09-easy-2",
       "topic": "music",
-      "title": "🌐 Online: Music Easy #2",
+      "title": "🌐 Music Easy #2",
       "desc": "Trivia from OpenTrivia DB — 9 easy questions",
       "type": "standard",
       "isNew": true,
@@ -509,7 +509,7 @@
     {
       "id": "music-online-2026-05-09-medium-2",
       "topic": "music",
-      "title": "🌐 Online: Music Medium #2",
+      "title": "🌐 Music Medium #2",
       "desc": "Trivia from OpenTrivia DB — 7 medium questions",
       "type": "standard",
       "isNew": true,
@@ -518,7 +518,7 @@
     {
       "id": "music-online-2026-05-09-hard-2",
       "topic": "music",
-      "title": "🌐 Online: Music Hard #2",
+      "title": "🌐 Music Hard #2",
       "desc": "Trivia from OpenTrivia DB — 9 hard questions",
       "type": "standard",
       "isNew": true,
@@ -527,7 +527,7 @@
     {
       "id": "science-online-2026-05-09-easy-2",
       "topic": "science",
-      "title": "🌐 Online: Science Easy #2",
+      "title": "🌐 Science Easy #2",
       "desc": "Trivia from OpenTrivia DB — 10 easy questions",
       "type": "standard",
       "isNew": true,
@@ -536,7 +536,7 @@
     {
       "id": "science-online-2026-05-09-medium-2",
       "topic": "science",
-      "title": "🌐 Online: Science Medium #2",
+      "title": "🌐 Science Medium #2",
       "desc": "Trivia from OpenTrivia DB — 9 medium questions",
       "type": "standard",
       "isNew": true,
@@ -545,7 +545,7 @@
     {
       "id": "science-online-2026-05-09-hard-2",
       "topic": "science",
-      "title": "🌐 Online: Science Hard #2",
+      "title": "🌐 Science Hard #2",
       "desc": "Trivia from OpenTrivia DB — 7 hard questions",
       "type": "standard",
       "isNew": true,
@@ -554,7 +554,7 @@
     {
       "id": "history-online-2026-05-09-easy-2",
       "topic": "history",
-      "title": "🌐 Online: History Easy #2",
+      "title": "🌐 History Easy #2",
       "desc": "Trivia from OpenTrivia DB — 9 easy questions",
       "type": "standard",
       "isNew": true,
@@ -563,7 +563,7 @@
     {
       "id": "history-online-2026-05-09-medium-2",
       "topic": "history",
-      "title": "🌐 Online: History Medium #2",
+      "title": "🌐 History Medium #2",
       "desc": "Trivia from OpenTrivia DB — 10 medium questions",
       "type": "standard",
       "isNew": true,
@@ -572,7 +572,7 @@
     {
       "id": "history-online-2026-05-09-hard-2",
       "topic": "history",
-      "title": "🌐 Online: History Hard #2",
+      "title": "🌐 History Hard #2",
       "desc": "Trivia from OpenTrivia DB — 10 hard questions",
       "type": "standard",
       "isNew": true,
@@ -581,7 +581,7 @@
     {
       "id": "geography-online-2026-05-09-easy-2",
       "topic": "geography",
-      "title": "🌐 Online: Geography Easy #2",
+      "title": "🌐 Geography Easy #2",
       "desc": "Trivia from OpenTrivia DB — 8 easy questions",
       "type": "standard",
       "isNew": true,
@@ -590,7 +590,7 @@
     {
       "id": "geography-online-2026-05-09-medium-2",
       "topic": "geography",
-      "title": "🌐 Online: Geography Medium #2",
+      "title": "🌐 Geography Medium #2",
       "desc": "Trivia from OpenTrivia DB — 9 medium questions",
       "type": "standard",
       "isNew": true,
@@ -599,7 +599,7 @@
     {
       "id": "geography-online-2026-05-09-hard-2",
       "topic": "geography",
-      "title": "🌐 Online: Geography Hard #2",
+      "title": "🌐 Geography Hard #2",
       "desc": "Trivia from OpenTrivia DB — 7 hard questions",
       "type": "standard",
       "isNew": true,
@@ -608,7 +608,7 @@
     {
       "id": "sport-online-2026-05-09-easy-2",
       "topic": "sport",
-      "title": "🌐 Online: Sport Easy #2",
+      "title": "🌐 Sport Easy #2",
       "desc": "Trivia from OpenTrivia DB — 9 easy questions",
       "type": "standard",
       "isNew": true,
@@ -617,7 +617,7 @@
     {
       "id": "sport-online-2026-05-09-medium-2",
       "topic": "sport",
-      "title": "🌐 Online: Sport Medium #2",
+      "title": "🌐 Sport Medium #2",
       "desc": "Trivia from OpenTrivia DB — 8 medium questions",
       "type": "standard",
       "isNew": true,
@@ -626,7 +626,7 @@
     {
       "id": "sport-online-2026-05-09-hard-2",
       "topic": "sport",
-      "title": "🌐 Online: Sport Hard #2",
+      "title": "🌐 Sport Hard #2",
       "desc": "Trivia from OpenTrivia DB — 9 hard questions",
       "type": "standard",
       "isNew": true,
@@ -635,7 +635,7 @@
     {
       "id": "nature-online-2026-05-09-easy-2",
       "topic": "nature",
-      "title": "🌐 Online: Nature Easy #2",
+      "title": "🌐 Nature Easy #2",
       "desc": "Trivia from OpenTrivia DB — 10 easy questions",
       "type": "standard",
       "isNew": true,
@@ -644,7 +644,7 @@
     {
       "id": "nature-online-2026-05-09-medium-2",
       "topic": "nature",
-      "title": "🌐 Online: Nature Medium #2",
+      "title": "🌐 Nature Medium #2",
       "desc": "Trivia from OpenTrivia DB — 8 medium questions",
       "type": "standard",
       "isNew": true,
@@ -653,7 +653,7 @@
     {
       "id": "nature-online-2026-05-09-hard-2",
       "topic": "nature",
-      "title": "🌐 Online: Nature Hard #2",
+      "title": "🌐 Nature Hard #2",
       "desc": "Trivia from OpenTrivia DB — 10 hard questions",
       "type": "standard",
       "isNew": true,
@@ -662,7 +662,7 @@
     {
       "id": "food-online-2026-05-09-easy-2",
       "topic": "food",
-      "title": "🌐 Online: Food Easy #2",
+      "title": "🌐 Food Easy #2",
       "desc": "Trivia from OpenTrivia DB — 10 easy questions",
       "type": "standard",
       "isNew": true,
@@ -671,7 +671,7 @@
     {
       "id": "food-online-2026-05-09-medium-2",
       "topic": "food",
-      "title": "🌐 Online: Food Medium #2",
+      "title": "🌐 Food Medium #2",
       "desc": "Trivia from OpenTrivia DB — 10 medium questions",
       "type": "standard",
       "isNew": true,
@@ -680,7 +680,7 @@
     {
       "id": "food-online-2026-05-09-hard-2",
       "topic": "food",
-      "title": "🌐 Online: Food Hard #2",
+      "title": "🌐 Food Hard #2",
       "desc": "Trivia from OpenTrivia DB — 7 hard questions",
       "type": "standard",
       "isNew": true,
@@ -689,7 +689,7 @@
     {
       "id": "movies-online-2026-05-09-easy-2",
       "topic": "movies",
-      "title": "🌐 Online: Movies Easy #2",
+      "title": "🌐 Movies Easy #2",
       "desc": "Trivia from OpenTrivia DB — 9 easy questions",
       "type": "standard",
       "isNew": true,
@@ -698,7 +698,7 @@
     {
       "id": "movies-online-2026-05-09-hard-1",
       "topic": "movies",
-      "title": "🌐 Online: Movies Hard #1",
+      "title": "🌐 Movies Hard #1",
       "desc": "Trivia from OpenTrivia DB — 10 hard questions",
       "type": "standard",
       "isNew": true,
@@ -707,7 +707,7 @@
     {
       "id": "music-online-2026-05-09-easy-1",
       "topic": "music",
-      "title": "🌐 Online: Music Easy #1",
+      "title": "🌐 Music Easy #1",
       "desc": "Trivia from OpenTrivia DB — 9 easy questions",
       "type": "standard",
       "isNew": true,
@@ -716,7 +716,7 @@
     {
       "id": "music-online-2026-05-09-medium-1",
       "topic": "music",
-      "title": "🌐 Online: Music Medium #1",
+      "title": "🌐 Music Medium #1",
       "desc": "Trivia from OpenTrivia DB — 8 medium questions",
       "type": "standard",
       "isNew": true,
@@ -725,7 +725,7 @@
     {
       "id": "music-online-2026-05-09-hard-1",
       "topic": "music",
-      "title": "🌐 Online: Music Hard #1",
+      "title": "🌐 Music Hard #1",
       "desc": "Trivia from OpenTrivia DB — 9 hard questions",
       "type": "standard",
       "isNew": true,
@@ -734,7 +734,7 @@
     {
       "id": "science-online-2026-05-09-easy-1",
       "topic": "science",
-      "title": "🌐 Online: Science Easy #1",
+      "title": "🌐 Science Easy #1",
       "desc": "Trivia from OpenTrivia DB — 9 easy questions",
       "type": "standard",
       "isNew": true,
@@ -743,7 +743,7 @@
     {
       "id": "science-online-2026-05-09-medium-1",
       "topic": "science",
-      "title": "🌐 Online: Science Medium #1",
+      "title": "🌐 Science Medium #1",
       "desc": "Trivia from OpenTrivia DB — 8 medium questions",
       "type": "standard",
       "isNew": true,
@@ -752,7 +752,7 @@
     {
       "id": "science-online-2026-05-09-hard-1",
       "topic": "science",
-      "title": "🌐 Online: Science Hard #1",
+      "title": "🌐 Science Hard #1",
       "desc": "Trivia from OpenTrivia DB — 8 hard questions",
       "type": "standard",
       "isNew": true,
@@ -761,7 +761,7 @@
     {
       "id": "history-online-2026-05-09-easy-1",
       "topic": "history",
-      "title": "🌐 Online: History Easy #1",
+      "title": "🌐 History Easy #1",
       "desc": "Trivia from OpenTrivia DB — 10 easy questions",
       "type": "standard",
       "isNew": true,
@@ -770,7 +770,7 @@
     {
       "id": "history-online-2026-05-09-medium-1",
       "topic": "history",
-      "title": "🌐 Online: History Medium #1",
+      "title": "🌐 History Medium #1",
       "desc": "Trivia from OpenTrivia DB — 8 medium questions",
       "type": "standard",
       "isNew": true,
@@ -779,7 +779,7 @@
     {
       "id": "history-online-2026-05-09-hard-1",
       "topic": "history",
-      "title": "🌐 Online: History Hard #1",
+      "title": "🌐 History Hard #1",
       "desc": "Trivia from OpenTrivia DB — 9 hard questions",
       "type": "standard",
       "isNew": true,
@@ -788,7 +788,7 @@
     {
       "id": "geography-online-2026-05-09-easy-1",
       "topic": "geography",
-      "title": "🌐 Online: Geography Easy #1",
+      "title": "🌐 Geography Easy #1",
       "desc": "Trivia from OpenTrivia DB — 10 easy questions",
       "type": "standard",
       "isNew": true,
@@ -797,7 +797,7 @@
     {
       "id": "geography-online-2026-05-09-medium-1",
       "topic": "geography",
-      "title": "🌐 Online: Geography Medium #1",
+      "title": "🌐 Geography Medium #1",
       "desc": "Trivia from OpenTrivia DB — 8 medium questions",
       "type": "standard",
       "isNew": true,
@@ -806,7 +806,7 @@
     {
       "id": "geography-online-2026-05-09-hard-1",
       "topic": "geography",
-      "title": "🌐 Online: Geography Hard #1",
+      "title": "🌐 Geography Hard #1",
       "desc": "Trivia from OpenTrivia DB — 6 hard questions",
       "type": "standard",
       "isNew": true,
@@ -815,7 +815,7 @@
     {
       "id": "sport-online-2026-05-09-easy-1",
       "topic": "sport",
-      "title": "🌐 Online: Sport Easy #1",
+      "title": "🌐 Sport Easy #1",
       "desc": "Trivia from OpenTrivia DB — 10 easy questions",
       "type": "standard",
       "isNew": true,
@@ -824,7 +824,7 @@
     {
       "id": "sport-online-2026-05-09-medium-1",
       "topic": "sport",
-      "title": "🌐 Online: Sport Medium #1",
+      "title": "🌐 Sport Medium #1",
       "desc": "Trivia from OpenTrivia DB — 8 medium questions",
       "type": "standard",
       "isNew": true,
@@ -833,7 +833,7 @@
     {
       "id": "sport-online-2026-05-09-hard-1",
       "topic": "sport",
-      "title": "🌐 Online: Sport Hard #1",
+      "title": "🌐 Sport Hard #1",
       "desc": "Trivia from OpenTrivia DB — 10 hard questions",
       "type": "standard",
       "isNew": true,
@@ -842,7 +842,7 @@
     {
       "id": "nature-online-2026-05-09-easy-1",
       "topic": "nature",
-      "title": "🌐 Online: Nature Easy #1",
+      "title": "🌐 Nature Easy #1",
       "desc": "Trivia from OpenTrivia DB — 10 easy questions",
       "type": "standard",
       "isNew": true,
@@ -851,7 +851,7 @@
     {
       "id": "nature-online-2026-05-09-medium-1",
       "topic": "nature",
-      "title": "🌐 Online: Nature Medium #1",
+      "title": "🌐 Nature Medium #1",
       "desc": "Trivia from OpenTrivia DB — 9 medium questions",
       "type": "standard",
       "isNew": true,
@@ -860,7 +860,7 @@
     {
       "id": "nature-online-2026-05-09-hard-1",
       "topic": "nature",
-      "title": "🌐 Online: Nature Hard #1",
+      "title": "🌐 Nature Hard #1",
       "desc": "Trivia from OpenTrivia DB — 7 hard questions",
       "type": "standard",
       "isNew": true,
@@ -869,7 +869,7 @@
     {
       "id": "food-online-2026-05-09-easy-1",
       "topic": "food",
-      "title": "🌐 Online: Food Easy #1",
+      "title": "🌐 Food Easy #1",
       "desc": "Trivia from OpenTrivia DB — 9 easy questions",
       "type": "standard",
       "isNew": true,
@@ -878,7 +878,7 @@
     {
       "id": "food-online-2026-05-09-medium-1",
       "topic": "food",
-      "title": "🌐 Online: Food Medium #1",
+      "title": "🌐 Food Medium #1",
       "desc": "Trivia from OpenTrivia DB — 8 medium questions",
       "type": "standard",
       "isNew": true,
@@ -887,7 +887,7 @@
     {
       "id": "food-online-2026-05-09-hard-1",
       "topic": "food",
-      "title": "🌐 Online: Food Hard #1",
+      "title": "🌐 Food Hard #1",
       "desc": "Trivia from OpenTrivia DB — 8 hard questions",
       "type": "standard",
       "isNew": true,
@@ -901,6 +901,60 @@
       "type": "music",
       "isNew": true,
       "count": 0
+    },
+    {
+      "id": "tv-online-2026-05-09-easy-1",
+      "topic": "tv",
+      "title": "🌐 TV Easy #1",
+      "desc": "Trivia from OpenTrivia DB — 8 easy questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 8
+    },
+    {
+      "id": "tv-online-2026-05-09-easy-2",
+      "topic": "tv",
+      "title": "🌐 TV Easy #2",
+      "desc": "Trivia from OpenTrivia DB — 10 easy questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "tv-online-2026-05-09-medium-1",
+      "topic": "tv",
+      "title": "🌐 TV Medium #1",
+      "desc": "Trivia from OpenTrivia DB — 9 medium questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 9
+    },
+    {
+      "id": "tv-online-2026-05-09-medium-2",
+      "topic": "tv",
+      "title": "🌐 TV Medium #2",
+      "desc": "Trivia from OpenTrivia DB — 8 medium questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 8
+    },
+    {
+      "id": "tv-online-2026-05-09-hard-1",
+      "topic": "tv",
+      "title": "🌐 TV Hard #1",
+      "desc": "Trivia from OpenTrivia DB — 10 hard questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 10
+    },
+    {
+      "id": "tv-online-2026-05-09-hard-2",
+      "topic": "tv",
+      "title": "🌐 TV Hard #2",
+      "desc": "Trivia from OpenTrivia DB — 9 hard questions",
+      "type": "standard",
+      "isNew": true,
+      "count": 9
     }
   ]
 }

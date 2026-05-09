@@ -1,0 +1,46 @@
+{
+  "id": "tv-online-2026-05-09-hard-2",
+  "topic": "tv",
+  "title": "🌐 TV Hard #2",
+  "desc": "Trivia from OpenTrivia DB — 9 hard questions",
+  "type": "standard",
+  "isNew": true,
+  "questions": [
+    {
+      "q": "In \"Star Trek\", what sauce is commonly used by Klingons on bregit lung?",
+      "a": "Grapok sauce"
+    },
+    {
+      "q": "In the show 'Doctor Who', what is the name of the time-capsule model stolen by 'the Doctor'?",
+      "a": "TT Type 40, Mark 3 (TARDIS)"
+    },
+    {
+      "q": "Who was the winner of \"Big Brother\" Season 10?",
+      "a": "Dan Gheesling"
+    },
+    {
+      "q": "Which race enjoys a glass of warm baghol in \"Star Trek\"?",
+      "a": "Klingon"
+    },
+    {
+      "q": "Which country does the YouTuber \"SinowBeats\" originate from?",
+      "a": "Scotland"
+    },
+    {
+      "q": "In Star Trek, what is the name of Spock's father?",
+      "a": "Sarek"
+    },
+    {
+      "q": "In the TV Show \"Donkey Kong Country\", which episode did the song \"Eddie, Let Me Go Back To My Home\" play in?",
+      "a": "It's a Wonderful Life"
+    },
+    {
+      "q": "What is the name of the pirate that sings the intro to \"Spongebob Squarepants\"?",
+      "a": "Painty"
+    },
+    {
+      "q": "The theme for the popular science fiction series \"Doctor Who\" was composed by who?",
+      "a": "Ron Grainer"
+    }
+  ]
+}

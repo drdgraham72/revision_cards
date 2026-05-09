@@ -40,6 +40,7 @@ INDEX_PATH = ROOT / "frontend" / "data" / "rounds-index.json"
 TOPIC_CATS: dict[str, int] = {
     "movies":    11,   # Entertainment: Film
     "music":     12,   # Entertainment: Music
+    "tv":        14,   # Entertainment: Television
     "science":   17,   # Science & Nature
     "history":   23,   # History
     "geography": 22,   # Geography
@@ -47,6 +48,13 @@ TOPIC_CATS: dict[str, int] = {
     "nature":    27,   # Animals
     "food":       9,   # General Knowledge (no direct food category; closest fit)
 }
+
+# Display labels — overrides for topics where .title() looks wrong (e.g. "Tv" → "TV").
+TOPIC_LABELS: dict[str, str] = {"tv": "TV"}
+
+
+def topic_label(topic: str) -> str:
+    return TOPIC_LABELS.get(topic, topic.title())
 
 DIFFICULTIES = ["easy", "medium", "hard"]
 
@@ -117,7 +125,7 @@ def make_round(topic: str, category_id: int, difficulty: str, n: int, today: str
     return {
         "id": rid,
         "topic": topic,
-        "title": f"🌐 Online: {topic.title()} {difficulty.title()} #{n}",
+        "title": f"🌐 {topic_label(topic)} {difficulty.title()} #{n}",
         "desc": f"Trivia from OpenTrivia DB — {len(qs)} {difficulty} questions",
         "type": "standard",
         "isNew": True,
