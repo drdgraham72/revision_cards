@@ -110,6 +110,19 @@ def usable(question_text: str) -> bool:
     return not any(p.search(question_text) for p in BAD_PATTERNS)
 
 
+def teaser(question: str, max_chars: int = 56) -> str:
+    """Truncate a question at a word boundary for use in round descriptions."""
+    q = question.strip()
+    if len(q) <= max_chars:
+        return q
+    return q[:max_chars].rsplit(" ", 1)[0].rstrip(",.;:") + "…"
+
+
+def make_desc(topic: str, difficulty: str, questions: list[dict]) -> str:
+    sample = teaser(questions[0]["q"]) if questions else ""
+    return f"{difficulty.title()} {topic_label(topic)}. Sample: “{sample}”"
+
+
 def make_round(topic: str, category_id: int, difficulty: str, n: int, today: str) -> dict | None:
     raw = fetch_questions(category_id, difficulty, count=10)
     qs: list[dict] = []
@@ -126,7 +139,7 @@ def make_round(topic: str, category_id: int, difficulty: str, n: int, today: str
         "id": rid,
         "topic": topic,
         "title": f"🌐 {topic_label(topic)} {difficulty.title()} #{n}",
-        "desc": f"Trivia from OpenTrivia DB — {len(qs)} {difficulty} questions",
+        "desc": make_desc(topic, difficulty, qs),
         "type": "standard",
         "isNew": True,
         "questions": qs,

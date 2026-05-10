@@ -1,0 +1,9 @@
+{
+  "id": "mystery-emojis",
+  "topic": "picture",
+  "title": "🎲 Mystery Emojis",
+  "desc": "Decode the emojis — a fresh 10 from the bank every time",
+  "type": "emoji-bank",
+  "isNew": true,
+  "questions": []
+}

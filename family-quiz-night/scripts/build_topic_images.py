@@ -36,7 +36,7 @@ SUBJECTS: dict[str, str] = {
     "sport":     "Association football",
     "nature":    "Forest",
     "tv":        "Television set",
-    "starwars":  "Star Wars",
+    "starwars":  "501st Legion",
     "mcu":       "Marvel Cinematic Universe",
     "picture":   "Photography",
 }

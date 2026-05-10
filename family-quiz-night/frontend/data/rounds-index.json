@@ -465,7 +465,7 @@
       "id": "movies-online-2026-05-09-medium-1",
       "topic": "movies",
       "title": "🌐 Movies Medium #1",
-      "desc": "Trivia from OpenTrivia DB — 8 medium questions",
+      "desc": "Medium Movies. Sample: “Who is revealed to be the villain at the end of the…”",
       "type": "standard",
       "isNew": true,
       "count": 8
@@ -474,7 +474,7 @@
       "id": "movies-online-2026-05-09-easy-1",
       "topic": "movies",
       "title": "🌐 Movies Easy #1",
-      "desc": "Trivia from OpenTrivia DB — 9 easy questions",
+      "desc": "Easy Movies. Sample: “In the 1992 film \"Army of Darkness\", what name does Ash…”",
       "type": "standard",
       "isNew": true,
       "count": 9
@@ -483,7 +483,7 @@
       "id": "movies-online-2026-05-09-medium-2",
       "topic": "movies",
       "title": "🌐 Movies Medium #2",
-      "desc": "Trivia from OpenTrivia DB — 9 medium questions",
+      "desc": "Medium Movies. Sample: “What character in the Winnie the Pooh films was added…”",
       "type": "standard",
       "isNew": true,
       "count": 9
@@ -492,7 +492,7 @@
       "id": "movies-online-2026-05-09-hard-2",
       "topic": "movies",
       "title": "🌐 Movies Hard #2",
-      "desc": "Trivia from OpenTrivia DB — 10 hard questions",
+      "desc": "Hard Movies. Sample: “In the 1964 film \"Zulu\", what song does the British…”",
       "type": "standard",
       "isNew": true,
       "count": 10
@@ -501,7 +501,7 @@
       "id": "music-online-2026-05-09-easy-2",
       "topic": "music",
       "title": "🌐 Music Easy #2",
-      "desc": "Trivia from OpenTrivia DB — 9 easy questions",
+      "desc": "Easy Music. Sample: “\"The Singing Cowboy\" Gene Autry is credited with the…”",
       "type": "standard",
       "isNew": true,
       "count": 9
@@ -510,7 +510,7 @@
       "id": "music-online-2026-05-09-medium-2",
       "topic": "music",
       "title": "🌐 Music Medium #2",
-      "desc": "Trivia from OpenTrivia DB — 7 medium questions",
+      "desc": "Medium Music. Sample: “Which French duo had UK hits in 1998 with the songs…”",
       "type": "standard",
       "isNew": true,
       "count": 7
@@ -519,7 +519,7 @@
       "id": "music-online-2026-05-09-hard-2",
       "topic": "music",
       "title": "🌐 Music Hard #2",
-      "desc": "Trivia from OpenTrivia DB — 9 hard questions",
+      "desc": "Hard Music. Sample: “What year was Huun Huur Tu's album Altai Sayan…”",
       "type": "standard",
       "isNew": true,
       "count": 9
@@ -528,7 +528,7 @@
       "id": "science-online-2026-05-09-easy-2",
       "topic": "science",
       "title": "🌐 Science Easy #2",
-      "desc": "Trivia from OpenTrivia DB — 10 easy questions",
+      "desc": "Easy Science. Sample: “What lies at the center of our galaxy?”",
       "type": "standard",
       "isNew": true,
       "count": 10
@@ -537,7 +537,7 @@
       "id": "science-online-2026-05-09-medium-2",
       "topic": "science",
       "title": "🌐 Science Medium #2",
-      "desc": "Trivia from OpenTrivia DB — 9 medium questions",
+      "desc": "Medium Science. Sample: “Which psychological term refers to the stress of…”",
       "type": "standard",
       "isNew": true,
       "count": 9
@@ -546,7 +546,7 @@
       "id": "science-online-2026-05-09-hard-2",
       "topic": "science",
       "title": "🌐 Science Hard #2",
-      "desc": "Trivia from OpenTrivia DB — 7 hard questions",
+      "desc": "Hard Science. Sample: “What is the standard SI unit for luminous intensity?”",
       "type": "standard",
       "isNew": true,
       "count": 7
@@ -555,7 +555,7 @@
       "id": "history-online-2026-05-09-easy-2",
       "topic": "history",
       "title": "🌐 History Easy #2",
-      "desc": "Trivia from OpenTrivia DB — 9 easy questions",
+      "desc": "Easy History. Sample: “In what year was the M1911 pistol designed?”",
       "type": "standard",
       "isNew": true,
       "count": 9
@@ -564,7 +564,7 @@
       "id": "history-online-2026-05-09-medium-2",
       "topic": "history",
       "title": "🌐 History Medium #2",
-      "desc": "Trivia from OpenTrivia DB — 10 medium questions",
+      "desc": "Medium History. Sample: “Who was the first president born in the independent…”",
       "type": "standard",
       "isNew": true,
       "count": 10
@@ -573,7 +573,7 @@
       "id": "history-online-2026-05-09-hard-2",
       "topic": "history",
       "title": "🌐 History Hard #2",
-      "desc": "Trivia from OpenTrivia DB — 10 hard questions",
+      "desc": "Hard History. Sample: “The ontological argument for the proof of God's…”",
       "type": "standard",
       "isNew": true,
       "count": 10
@@ -582,7 +582,7 @@
       "id": "geography-online-2026-05-09-easy-2",
       "topic": "geography",
       "title": "🌐 Geography Easy #2",
-      "desc": "Trivia from OpenTrivia DB — 8 easy questions",
+      "desc": "Easy Geography. Sample: “What is the largest country, by area, that has only one…”",
       "type": "standard",
       "isNew": true,
       "count": 8
@@ -591,7 +591,7 @@
       "id": "geography-online-2026-05-09-medium-2",
       "topic": "geography",
       "title": "🌐 Geography Medium #2",
-      "desc": "Trivia from OpenTrivia DB — 9 medium questions",
+      "desc": "Medium Geography. Sample: “What is the region conjoining Pakistan, India, and…”",
       "type": "standard",
       "isNew": true,
       "count": 9
@@ -600,7 +600,7 @@
       "id": "geography-online-2026-05-09-hard-2",
       "topic": "geography",
       "title": "🌐 Geography Hard #2",
-      "desc": "Trivia from OpenTrivia DB — 7 hard questions",
+      "desc": "Hard Geography. Sample: “What year is on the flag of the US state Wisconsin?”",
       "type": "standard",
       "isNew": true,
       "count": 7
@@ -609,7 +609,7 @@
       "id": "sport-online-2026-05-09-easy-2",
       "topic": "sport",
       "title": "🌐 Sport Easy #2",
-      "desc": "Trivia from OpenTrivia DB — 9 easy questions",
+      "desc": "Easy Sport. Sample: “What national team won the first UEFA Nations League?”",
       "type": "standard",
       "isNew": true,
       "count": 9
@@ -618,7 +618,7 @@
       "id": "sport-online-2026-05-09-medium-2",
       "topic": "sport",
       "title": "🌐 Sport Medium #2",
-      "desc": "Trivia from OpenTrivia DB — 8 medium questions",
+      "desc": "Medium Sport. Sample: “Hockey player Wayne Gretzky was born in what Canadian…”",
       "type": "standard",
       "isNew": true,
       "count": 8
@@ -627,7 +627,7 @@
       "id": "sport-online-2026-05-09-hard-2",
       "topic": "sport",
       "title": "🌐 Sport Hard #2",
-      "desc": "Trivia from OpenTrivia DB — 9 hard questions",
+      "desc": "Hard Sport. Sample: “Who scored the injury time winning goal in the 1999…”",
       "type": "standard",
       "isNew": true,
       "count": 9
@@ -636,7 +636,7 @@
       "id": "nature-online-2026-05-09-easy-2",
       "topic": "nature",
       "title": "🌐 Nature Easy #2",
-      "desc": "Trivia from OpenTrivia DB — 10 easy questions",
+      "desc": "Easy Nature. Sample: “Which is the national animal of India?”",
       "type": "standard",
       "isNew": true,
       "count": 10
@@ -645,7 +645,7 @@
       "id": "nature-online-2026-05-09-medium-2",
       "topic": "nature",
       "title": "🌐 Nature Medium #2",
-      "desc": "Trivia from OpenTrivia DB — 8 medium questions",
+      "desc": "Medium Nature. Sample: “What is the fastest animal?”",
       "type": "standard",
       "isNew": true,
       "count": 8
@@ -654,7 +654,7 @@
       "id": "nature-online-2026-05-09-hard-2",
       "topic": "nature",
       "title": "🌐 Nature Hard #2",
-      "desc": "Trivia from OpenTrivia DB — 10 hard questions",
+      "desc": "Hard Nature. Sample: “How many known living species of hyenas are there?”",
       "type": "standard",
       "isNew": true,
       "count": 10
@@ -663,7 +663,7 @@
       "id": "food-online-2026-05-09-easy-2",
       "topic": "food",
       "title": "🌐 Food Easy #2",
-      "desc": "Trivia from OpenTrivia DB — 10 easy questions",
+      "desc": "Easy Food. Sample: “The Flag of the European Union has how many stars on it?”",
       "type": "standard",
       "isNew": true,
       "count": 10
@@ -672,7 +672,7 @@
       "id": "food-online-2026-05-09-medium-2",
       "topic": "food",
       "title": "🌐 Food Medium #2",
-      "desc": "Trivia from OpenTrivia DB — 10 medium questions",
+      "desc": "Medium Food. Sample: “Computer manufacturer Compaq was acquired for $25…”",
       "type": "standard",
       "isNew": true,
       "count": 10
@@ -681,7 +681,7 @@
       "id": "food-online-2026-05-09-hard-2",
       "topic": "food",
       "title": "🌐 Food Hard #2",
-      "desc": "Trivia from OpenTrivia DB — 7 hard questions",
+      "desc": "Hard Food. Sample: “According to Fair Works Australia, how long do you have…”",
       "type": "standard",
       "isNew": true,
       "count": 7
@@ -690,7 +690,7 @@
       "id": "movies-online-2026-05-09-easy-2",
       "topic": "movies",
       "title": "🌐 Movies Easy #2",
-      "desc": "Trivia from OpenTrivia DB — 9 easy questions",
+      "desc": "Easy Movies. Sample: “Which James Bond film had the theme song written and…”",
       "type": "standard",
       "isNew": true,
       "count": 9
@@ -699,7 +699,7 @@
       "id": "movies-online-2026-05-09-hard-1",
       "topic": "movies",
       "title": "🌐 Movies Hard #1",
-      "desc": "Trivia from OpenTrivia DB — 10 hard questions",
+      "desc": "Hard Movies. Sample: “In what year was the first Indian movie submitted for…”",
       "type": "standard",
       "isNew": true,
       "count": 10
@@ -708,7 +708,7 @@
       "id": "music-online-2026-05-09-easy-1",
       "topic": "music",
       "title": "🌐 Music Easy #1",
-      "desc": "Trivia from OpenTrivia DB — 9 easy questions",
+      "desc": "Easy Music. Sample: “Who is the frontman of the band 30 Seconds to Mars?”",
       "type": "standard",
       "isNew": true,
       "count": 9
@@ -717,7 +717,7 @@
       "id": "music-online-2026-05-09-medium-1",
       "topic": "music",
       "title": "🌐 Music Medium #1",
-      "desc": "Trivia from OpenTrivia DB — 8 medium questions",
+      "desc": "Medium Music. Sample: “Which musical instrument is nicknamed 'the clown of the…”",
       "type": "standard",
       "isNew": true,
       "count": 8
@@ -726,7 +726,7 @@
       "id": "music-online-2026-05-09-hard-1",
       "topic": "music",
       "title": "🌐 Music Hard #1",
-      "desc": "Trivia from OpenTrivia DB — 9 hard questions",
+      "desc": "Hard Music. Sample: “Where was Nicki Minaj born?”",
       "type": "standard",
       "isNew": true,
       "count": 9
@@ -735,7 +735,7 @@
       "id": "science-online-2026-05-09-easy-1",
       "topic": "science",
       "title": "🌐 Science Easy #1",
-      "desc": "Trivia from OpenTrivia DB — 9 easy questions",
+      "desc": "Easy Science. Sample: “How many moons does Pluto have?”",
       "type": "standard",
       "isNew": true,
       "count": 9
@@ -744,7 +744,7 @@
       "id": "science-online-2026-05-09-medium-1",
       "topic": "science",
       "title": "🌐 Science Medium #1",
-      "desc": "Trivia from OpenTrivia DB — 8 medium questions",
+      "desc": "Medium Science. Sample: “Gannymede is the largest moon of which planet?”",
       "type": "standard",
       "isNew": true,
       "count": 8
@@ -753,7 +753,7 @@
       "id": "science-online-2026-05-09-hard-1",
       "topic": "science",
       "title": "🌐 Science Hard #1",
-      "desc": "Trivia from OpenTrivia DB — 8 hard questions",
+      "desc": "Hard Science. Sample: “What is the scientific name of the red fox?”",
       "type": "standard",
       "isNew": true,
       "count": 8
@@ -762,7 +762,7 @@
       "id": "history-online-2026-05-09-easy-1",
       "topic": "history",
       "title": "🌐 History Easy #1",
-      "desc": "Trivia from OpenTrivia DB — 10 easy questions",
+      "desc": "Easy History. Sample: “What year did World War II end?”",
       "type": "standard",
       "isNew": true,
       "count": 10
@@ -771,7 +771,7 @@
       "id": "history-online-2026-05-09-medium-1",
       "topic": "history",
       "title": "🌐 History Medium #1",
-      "desc": "Trivia from OpenTrivia DB — 8 medium questions",
+      "desc": "Medium History. Sample: “In what year was the video game company Electronic Arts…”",
       "type": "standard",
       "isNew": true,
       "count": 8
@@ -780,7 +780,7 @@
       "id": "history-online-2026-05-09-hard-1",
       "topic": "history",
       "title": "🌐 History Hard #1",
-      "desc": "Trivia from OpenTrivia DB — 9 hard questions",
+      "desc": "Hard History. Sample: “The assassination of which royal led to the start of…”",
       "type": "standard",
       "isNew": true,
       "count": 9
@@ -789,7 +789,7 @@
       "id": "geography-online-2026-05-09-easy-1",
       "topic": "geography",
       "title": "🌐 Geography Easy #1",
-      "desc": "Trivia from OpenTrivia DB — 10 easy questions",
+      "desc": "Easy Geography. Sample: “What is Russia's second-largest city?”",
       "type": "standard",
       "isNew": true,
       "count": 10
@@ -798,7 +798,7 @@
       "id": "geography-online-2026-05-09-medium-1",
       "topic": "geography",
       "title": "🌐 Geography Medium #1",
-      "desc": "Trivia from OpenTrivia DB — 8 medium questions",
+      "desc": "Medium Geography. Sample: “Which state of the United States is the smallest?”",
       "type": "standard",
       "isNew": true,
       "count": 8
@@ -807,7 +807,7 @@
       "id": "geography-online-2026-05-09-hard-1",
       "topic": "geography",
       "title": "🌐 Geography Hard #1",
-      "desc": "Trivia from OpenTrivia DB — 6 hard questions",
+      "desc": "Hard Geography. Sample: “What is the second-largest city in Lithuania?”",
       "type": "standard",
       "isNew": true,
       "count": 6
@@ -816,7 +816,7 @@
       "id": "sport-online-2026-05-09-easy-1",
       "topic": "sport",
       "title": "🌐 Sport Easy #1",
-      "desc": "Trivia from OpenTrivia DB — 10 easy questions",
+      "desc": "Easy Sport. Sample: “When was the FC Schalke 04 founded?”",
       "type": "standard",
       "isNew": true,
       "count": 10
@@ -825,7 +825,7 @@
       "id": "sport-online-2026-05-09-medium-1",
       "topic": "sport",
       "title": "🌐 Sport Medium #1",
-      "desc": "Trivia from OpenTrivia DB — 8 medium questions",
+      "desc": "Medium Sport. Sample: “Which darts player has won the most World Championship…”",
       "type": "standard",
       "isNew": true,
       "count": 8
@@ -834,7 +834,7 @@
       "id": "sport-online-2026-05-09-hard-1",
       "topic": "sport",
       "title": "🌐 Sport Hard #1",
-      "desc": "Trivia from OpenTrivia DB — 10 hard questions",
+      "desc": "Hard Sport. Sample: “Who won the 1998 Daytona 500?”",
       "type": "standard",
       "isNew": true,
       "count": 10
@@ -843,7 +843,7 @@
       "id": "nature-online-2026-05-09-easy-1",
       "topic": "nature",
       "title": "🌐 Nature Easy #1",
-      "desc": "Trivia from OpenTrivia DB — 10 easy questions",
+      "desc": "Easy Nature. Sample: “What is the scientific name for modern day humans?”",
       "type": "standard",
       "isNew": true,
       "count": 10
@@ -852,7 +852,7 @@
       "id": "nature-online-2026-05-09-medium-1",
       "topic": "nature",
       "title": "🌐 Nature Medium #1",
-      "desc": "Trivia from OpenTrivia DB — 9 medium questions",
+      "desc": "Medium Nature. Sample: “What is the collective noun for bears?”",
       "type": "standard",
       "isNew": true,
       "count": 9
@@ -861,7 +861,7 @@
       "id": "nature-online-2026-05-09-hard-1",
       "topic": "nature",
       "title": "🌐 Nature Hard #1",
-      "desc": "Trivia from OpenTrivia DB — 7 hard questions",
+      "desc": "Hard Nature. Sample: “What is the Gray Wolf's scientific name?”",
       "type": "standard",
       "isNew": true,
       "count": 7
@@ -870,7 +870,7 @@
       "id": "food-online-2026-05-09-easy-1",
       "topic": "food",
       "title": "🌐 Food Easy #1",
-      "desc": "Trivia from OpenTrivia DB — 9 easy questions",
+      "desc": "Easy Food. Sample: “What was the name of the WWF professional wrestling tag…”",
       "type": "standard",
       "isNew": true,
       "count": 9
@@ -879,7 +879,7 @@
       "id": "food-online-2026-05-09-medium-1",
       "topic": "food",
       "title": "🌐 Food Medium #1",
-      "desc": "Trivia from OpenTrivia DB — 8 medium questions",
+      "desc": "Medium Food. Sample: “Bob and Mike Bryan were well known brothers in which…”",
       "type": "standard",
       "isNew": true,
       "count": 8
@@ -888,7 +888,7 @@
       "id": "food-online-2026-05-09-hard-1",
       "topic": "food",
       "title": "🌐 Food Hard #1",
-      "desc": "Trivia from OpenTrivia DB — 8 hard questions",
+      "desc": "Hard Food. Sample: “Originally another word for poppy, coquelicot is a…”",
       "type": "standard",
       "isNew": true,
       "count": 8
@@ -906,7 +906,7 @@
       "id": "tv-online-2026-05-09-easy-1",
       "topic": "tv",
       "title": "🌐 TV Easy #1",
-      "desc": "Trivia from OpenTrivia DB — 8 easy questions",
+      "desc": "Easy TV. Sample: “What is the name of the main character in \"The Flash\"…”",
       "type": "standard",
       "isNew": true,
       "count": 8
@@ -915,7 +915,7 @@
       "id": "tv-online-2026-05-09-easy-2",
       "topic": "tv",
       "title": "🌐 TV Easy #2",
-      "desc": "Trivia from OpenTrivia DB — 10 easy questions",
+      "desc": "Easy TV. Sample: “Which company has exclusive rights to air episodes of…”",
       "type": "standard",
       "isNew": true,
       "count": 10
@@ -924,7 +924,7 @@
       "id": "tv-online-2026-05-09-medium-1",
       "topic": "tv",
       "title": "🌐 TV Medium #1",
-      "desc": "Trivia from OpenTrivia DB — 9 medium questions",
+      "desc": "Medium TV. Sample: “What is the setting of the show \"Parks and Recreation\"?”",
       "type": "standard",
       "isNew": true,
       "count": 9
@@ -933,7 +933,7 @@
       "id": "tv-online-2026-05-09-medium-2",
       "topic": "tv",
       "title": "🌐 TV Medium #2",
-      "desc": "Trivia from OpenTrivia DB — 8 medium questions",
+      "desc": "Medium TV. Sample: “In which year did the British television series \"The…”",
       "type": "standard",
       "isNew": true,
       "count": 8
@@ -942,7 +942,7 @@
       "id": "tv-online-2026-05-09-hard-1",
       "topic": "tv",
       "title": "🌐 TV Hard #1",
-      "desc": "Trivia from OpenTrivia DB — 10 hard questions",
+      "desc": "Hard TV. Sample: “In the TV Show \"Donkey Kong Country\", which episode did…”",
       "type": "standard",
       "isNew": true,
       "count": 10
@@ -951,7 +951,7 @@
       "id": "tv-online-2026-05-09-hard-2",
       "topic": "tv",
       "title": "🌐 TV Hard #2",
-      "desc": "Trivia from OpenTrivia DB — 9 hard questions",
+      "desc": "Hard TV. Sample: “In \"Star Trek\", what sauce is commonly used by Klingons…”",
       "type": "standard",
       "isNew": true,
       "count": 9
@@ -1063,6 +1063,15 @@
       "type": "standard",
       "isNew": true,
       "count": 10
+    },
+    {
+      "id": "mystery-emojis",
+      "topic": "picture",
+      "title": "🎲 Mystery Emojis",
+      "desc": "Decode the emojis — a fresh 10 from the bank every time",
+      "type": "emoji-bank",
+      "isNew": true,
+      "count": 0
     }
   ]
 }

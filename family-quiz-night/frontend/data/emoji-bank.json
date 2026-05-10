@@ -1,0 +1,1130 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "jaws",
+      "emojis": "🦈🏖️🩸",
+      "answer": "Jaws",
+      "alternatives": [
+        "Jaws"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "the-lord-of-the-rings",
+      "emojis": "💍🌋🧙🧝",
+      "answer": "The Lord of the Rings",
+      "alternatives": [
+        "The Lord of the Rings",
+        "Lord of the Rings"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "the-lion-king",
+      "emojis": "🦁👑🌍🐗",
+      "answer": "The Lion King",
+      "alternatives": [
+        "The Lion King",
+        "Lion King"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "scream",
+      "emojis": "👻📞🔪😱",
+      "answer": "Scream",
+      "alternatives": [
+        "Scream"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "titanic",
+      "emojis": "🚢❄️💑🎻",
+      "answer": "Titanic",
+      "alternatives": [
+        "Titanic"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "terminator-2-judgment-day",
+      "emojis": "🤖👍🔥🏍️",
+      "answer": "Terminator 2: Judgment Day",
+      "alternatives": [
+        "Terminator 2: Judgment Day"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "ratatouille",
+      "emojis": "🐀👨‍🍳🇫🇷⭐",
+      "answer": "Ratatouille",
+      "alternatives": [
+        "Ratatouille"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "the-matrix",
+      "emojis": "💊🔴🔵🕶️",
+      "answer": "The Matrix",
+      "alternatives": [
+        "The Matrix",
+        "Matrix"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "up",
+      "emojis": "🏠⬆️🎈🎈🎈👴👦",
+      "answer": "Up",
+      "alternatives": [
+        "Up"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "frozen",
+      "emojis": "❄️👸⛄🎶",
+      "answer": "Frozen",
+      "alternatives": [
+        "Frozen"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "it",
+      "emojis": "🤡🎈🤡🌧️",
+      "answer": "It",
+      "alternatives": [
+        "It"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "snakes-on-a-plane",
+      "emojis": "🐍🐍✈️",
+      "answer": "Snakes on a Plane",
+      "alternatives": [
+        "Snakes on a Plane"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "wall-e",
+      "emojis": "🤖💕🌎🌱",
+      "answer": "WALL-E",
+      "alternatives": [
+        "WALL-E"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "finding-nemo",
+      "emojis": "🐠🤿🐡",
+      "answer": "Finding Nemo",
+      "alternatives": [
+        "Finding Nemo"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "jurassic-park",
+      "emojis": "🦖🦕🏝️🚙",
+      "answer": "Jurassic Park",
+      "alternatives": [
+        "Jurassic Park"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "mad-max-fury-road",
+      "emojis": "🚗🛣️🪖🔫",
+      "answer": "Mad Max: Fury Road",
+      "alternatives": [
+        "Mad Max: Fury Road"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "harry-potter",
+      "emojis": "⚡🦉🧙‍♂️🪄",
+      "answer": "Harry Potter",
+      "alternatives": [
+        "Harry Potter"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "e-t-the-extra-terrestrial",
+      "emojis": "👽🚲🌙🍬",
+      "answer": "E.T. the Extra-Terrestrial",
+      "alternatives": [
+        "E.T. the Extra-Terrestrial"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "charlie-and-the-chocolate-factory",
+      "emojis": "🍫🏭🎫👦",
+      "answer": "Charlie and the Chocolate Factory",
+      "alternatives": [
+        "Charlie and the Chocolate Factory"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "star-wars",
+      "emojis": "🪐⚔️👨‍🚀✨",
+      "answer": "Star Wars",
+      "alternatives": [
+        "Star Wars"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "the-dark-knight",
+      "emojis": "🦇🃏🃏🃏",
+      "answer": "The Dark Knight",
+      "alternatives": [
+        "The Dark Knight",
+        "Dark Knight"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "spider-man",
+      "emojis": "🕷️🕸️🦸🏙️",
+      "answer": "Spider-Man",
+      "alternatives": [
+        "Spider-Man"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "captain-america",
+      "emojis": "🛡️🇺🇸💪",
+      "answer": "Captain America",
+      "alternatives": [
+        "Captain America"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "thor",
+      "emojis": "🔨⚡🌩️🦸",
+      "answer": "Thor",
+      "alternatives": [
+        "Thor"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "iron-man",
+      "emojis": "🤖🧠🍷🧔",
+      "answer": "Iron Man",
+      "alternatives": [
+        "Iron Man"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "the-incredible-hulk",
+      "emojis": "💚💪😡",
+      "answer": "The Incredible Hulk",
+      "alternatives": [
+        "The Incredible Hulk",
+        "Incredible Hulk"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "the-incredibles",
+      "emojis": "🦸‍♂️🦸‍♀️👶",
+      "answer": "The Incredibles",
+      "alternatives": [
+        "The Incredibles",
+        "Incredibles"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "forrest-gump",
+      "emojis": "🏃‍♂️🍫🍤📦",
+      "answer": "Forrest Gump",
+      "alternatives": [
+        "Forrest Gump"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "ghostbusters",
+      "emojis": "👻🚫👻🚫",
+      "answer": "Ghostbusters",
+      "alternatives": [
+        "Ghostbusters"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "back-to-the-future",
+      "emojis": "🚗⏰⚡1️⃣9️⃣8️⃣5️⃣",
+      "answer": "Back to the Future",
+      "alternatives": [
+        "Back to the Future"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "king-kong",
+      "emojis": "🦍🏙️✈️",
+      "answer": "King Kong",
+      "alternatives": [
+        "King Kong"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "zootopia",
+      "emojis": "🦊🐰🚓🌃",
+      "answer": "Zootopia",
+      "alternatives": [
+        "Zootopia"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "puss-in-boots",
+      "emojis": "🐱👢🦊",
+      "answer": "Puss in Boots",
+      "alternatives": [
+        "Puss in Boots"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "cars",
+      "emojis": "🚗🚗🚗🛣️",
+      "answer": "Cars",
+      "alternatives": [
+        "Cars"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "teenage-mutant-ninja-turtles",
+      "emojis": "🐢🐢🐢🐢🍕🥷",
+      "answer": "Teenage Mutant Ninja Turtles",
+      "alternatives": [
+        "Teenage Mutant Ninja Turtles"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "singin-in-the-rain",
+      "emojis": "🌧️☂️💃🎵",
+      "answer": "Singin' in the Rain",
+      "alternatives": [
+        "Singin' in the Rain"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "the-wizard-of-oz",
+      "emojis": "🌪️👠🦁🪵🤖",
+      "answer": "The Wizard of Oz",
+      "alternatives": [
+        "The Wizard of Oz",
+        "Wizard of Oz"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "twilight",
+      "emojis": "🌹🐺🩸",
+      "answer": "Twilight",
+      "alternatives": [
+        "Twilight"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "the-avengers",
+      "emojis": "🤖🚀🤝🏆",
+      "answer": "The Avengers",
+      "alternatives": [
+        "The Avengers",
+        "Avengers"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "the-notebook",
+      "emojis": "🧠💔🎂",
+      "answer": "The Notebook",
+      "alternatives": [
+        "The Notebook",
+        "Notebook"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "fantastic-mr-fox",
+      "emojis": "🍿🦊🐔📚",
+      "answer": "Fantastic Mr. Fox",
+      "alternatives": [
+        "Fantastic Mr. Fox"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "alice-in-wonderland",
+      "emojis": "🐰🎩⏰🍄",
+      "answer": "Alice in Wonderland",
+      "alternatives": [
+        "Alice in Wonderland"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "lilo-stitch",
+      "emojis": "🛸🐶👽🤙",
+      "answer": "Lilo & Stitch",
+      "alternatives": [
+        "Lilo & Stitch"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "lady-and-the-tramp",
+      "emojis": "🍝🐶🐶💋",
+      "answer": "Lady and the Tramp",
+      "alternatives": [
+        "Lady and the Tramp"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "the-sound-of-music",
+      "emojis": "⛪🕊️👨‍👩‍👧",
+      "answer": "The Sound of Music",
+      "alternatives": [
+        "The Sound of Music",
+        "Sound of Music"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "big-hero-6",
+      "emojis": "🤖👶🦅🩺",
+      "answer": "Big Hero 6",
+      "alternatives": [
+        "Big Hero 6"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "bambi",
+      "emojis": "🦌👦🪵🌳",
+      "answer": "Bambi",
+      "alternatives": [
+        "Bambi"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "snow-white-and-the-seven-dwarfs",
+      "emojis": "🍎😴👸👶👶👶",
+      "answer": "Snow White and the Seven Dwarfs",
+      "alternatives": [
+        "Snow White and the Seven Dwarfs"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "cinderella",
+      "emojis": "👠🎃👸🪄",
+      "answer": "Cinderella",
+      "alternatives": [
+        "Cinderella"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "101-dalmatians",
+      "emojis": "🐕🐕🐕💯💯",
+      "answer": "101 Dalmatians",
+      "alternatives": [
+        "101 Dalmatians"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "pinocchio",
+      "emojis": "🪵👃👦",
+      "answer": "Pinocchio",
+      "alternatives": [
+        "Pinocchio"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "wreck-it-ralph",
+      "emojis": "🎮👾🎯🍒",
+      "answer": "Wreck-It Ralph",
+      "alternatives": [
+        "Wreck-It Ralph"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "the-jungle-book",
+      "emojis": "🐯🐗🐒🌳",
+      "answer": "The Jungle Book",
+      "alternatives": [
+        "The Jungle Book",
+        "Jungle Book"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "the-sixth-sense",
+      "emojis": "🎬👻⛪🪦",
+      "answer": "The Sixth Sense",
+      "alternatives": [
+        "The Sixth Sense",
+        "Sixth Sense"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "joker",
+      "emojis": "🦇🌃🤡🃏",
+      "answer": "Joker",
+      "alternatives": [
+        "Joker"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "signs",
+      "emojis": "👽🛸🌽👨‍🌾",
+      "answer": "Signs",
+      "alternatives": [
+        "Signs"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "twister",
+      "emojis": "🌪️🐮🚜",
+      "answer": "Twister",
+      "alternatives": [
+        "Twister"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "sully",
+      "emojis": "👨‍✈️🛬🍑",
+      "answer": "Sully",
+      "alternatives": [
+        "Sully"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "any-cop-comedy-hot-fuzz",
+      "emojis": "🍩👮🚓",
+      "answer": "(any cop comedy) Hot Fuzz",
+      "alternatives": [
+        "(any cop comedy) Hot Fuzz"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "bee-movie",
+      "emojis": "🐝🎬🎤",
+      "answer": "Bee Movie",
+      "alternatives": [
+        "Bee Movie"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "indiana-jones",
+      "emojis": "🎩🐍🚂🤠",
+      "answer": "Indiana Jones",
+      "alternatives": [
+        "Indiana Jones"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "field-of-dreams",
+      "emojis": "👨‍🌾🌽👻🌽",
+      "answer": "Field of Dreams",
+      "alternatives": [
+        "Field of Dreams"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "american-beauty",
+      "emojis": "👨🌹🛏️💀",
+      "answer": "American Beauty",
+      "alternatives": [
+        "American Beauty"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "captain-phillips",
+      "emojis": "🚢🌊👨‍👨‍👦",
+      "answer": "Captain Phillips",
+      "alternatives": [
+        "Captain Phillips"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "la-la-land",
+      "emojis": "🎷🎺🎼🎤",
+      "answer": "La La Land",
+      "alternatives": [
+        "La La Land"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "the-conjuring",
+      "emojis": "🛏️👻🪞👶",
+      "answer": "The Conjuring",
+      "alternatives": [
+        "The Conjuring",
+        "Conjuring"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "disneyland",
+      "emojis": "🐭🏰🎢🎆",
+      "answer": "Disneyland",
+      "alternatives": [
+        "Disneyland"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "top-gun",
+      "emojis": "🦅🚀🇺🇸",
+      "answer": "Top Gun",
+      "alternatives": [
+        "Top Gun"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "les-mis-rables",
+      "emojis": "🇫🇷👨🍞",
+      "answer": "Les Misérables",
+      "alternatives": [
+        "Les Misérables"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "the-revenant",
+      "emojis": "👨🏔️🐺🐎",
+      "answer": "The Revenant",
+      "alternatives": [
+        "The Revenant",
+        "Revenant"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "the-wolf-of-wall-street",
+      "emojis": "👨‍💼🎩💵🏙️",
+      "answer": "The Wolf of Wall Street",
+      "alternatives": [
+        "The Wolf of Wall Street",
+        "Wolf of Wall Street"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "cleopatra",
+      "emojis": "🐍🦅🏛️🪦",
+      "answer": "Cleopatra",
+      "alternatives": [
+        "Cleopatra"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "armageddon",
+      "emojis": "🌍🌍💥👨‍🚀",
+      "answer": "Armageddon",
+      "alternatives": [
+        "Armageddon"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "interstellar",
+      "emojis": "🚀🌌👨‍🚀🪐",
+      "answer": "Interstellar",
+      "alternatives": [
+        "Interstellar"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "children-of-the-corn",
+      "emojis": "👨🌽🌽🌽🌽🌽",
+      "answer": "Children of the Corn",
+      "alternatives": [
+        "Children of the Corn"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "the-shining",
+      "emojis": "👻🏨🛗🩸",
+      "answer": "The Shining",
+      "alternatives": [
+        "The Shining",
+        "Shining"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "pitch-perfect",
+      "emojis": "🎤🎤🎤👨‍🎓",
+      "answer": "Pitch Perfect",
+      "alternatives": [
+        "Pitch Perfect"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "the-old-man-and-the-sea",
+      "emojis": "👴⛵🐟",
+      "answer": "The Old Man and the Sea",
+      "alternatives": [
+        "The Old Man and the Sea",
+        "Old Man and the Sea"
+      ],
+      "category": "film"
+    },
+    {
+      "id": "purple-rain",
+      "emojis": "☔🟣🎸",
+      "answer": "Purple Rain",
+      "alternatives": [
+        "Purple Rain"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "all-i-want-for-christmas-is-you",
+      "emojis": "🔔🎄❤️",
+      "answer": "All I Want for Christmas Is You",
+      "alternatives": [
+        "All I Want for Christmas Is You"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "space-oddity",
+      "emojis": "👨‍🚀⭐🌌",
+      "answer": "Space Oddity",
+      "alternatives": [
+        "Space Oddity"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "strawberry-fields-forever",
+      "emojis": "🍓🏠♾️",
+      "answer": "Strawberry Fields Forever",
+      "alternatives": [
+        "Strawberry Fields Forever"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "single-ladies",
+      "emojis": "💃💃💃💍",
+      "answer": "Single Ladies",
+      "alternatives": [
+        "Single Ladies"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "hotel-california",
+      "emojis": "🏨🦅🌴🚪",
+      "answer": "Hotel California",
+      "alternatives": [
+        "Hotel California"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "over-the-rainbow",
+      "emojis": "🌈🌧️",
+      "answer": "Over the Rainbow",
+      "alternatives": [
+        "Over the Rainbow"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "ice-ice-baby",
+      "emojis": "🧊🧊👶",
+      "answer": "Ice Ice Baby",
+      "alternatives": [
+        "Ice Ice Baby"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "crocodile-rock",
+      "emojis": "🎹🐊🎶",
+      "answer": "Crocodile Rock",
+      "alternatives": [
+        "Crocodile Rock"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "yellow-submarine",
+      "emojis": "💛🚤",
+      "answer": "Yellow Submarine",
+      "alternatives": [
+        "Yellow Submarine"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "november-rain",
+      "emojis": "🌧️😢🌹",
+      "answer": "November Rain",
+      "alternatives": [
+        "November Rain"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "new-york-new-york",
+      "emojis": "🌃🏙️🎵",
+      "answer": "New York, New York",
+      "alternatives": [
+        "New York, New York"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "beautiful-day",
+      "emojis": "🇮🇪☘️🎸",
+      "answer": "Beautiful Day",
+      "alternatives": [
+        "Beautiful Day"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "firework",
+      "emojis": "🔥🌌💥",
+      "answer": "Firework",
+      "alternatives": [
+        "Firework"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "country-roads",
+      "emojis": "🛣️🌳🌳🚗🎵",
+      "answer": "Country Roads",
+      "alternatives": [
+        "Country Roads"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "margaritaville",
+      "emojis": "🏖️🌊🍹🌴",
+      "answer": "Margaritaville",
+      "alternatives": [
+        "Margaritaville"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "heartbreak-hotel",
+      "emojis": "💔🏨",
+      "answer": "Heartbreak Hotel",
+      "alternatives": [
+        "Heartbreak Hotel"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "rocket-man",
+      "emojis": "🚀👨‍🚀🌙",
+      "answer": "Rocket Man",
+      "alternatives": [
+        "Rocket Man"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "walking-on-the-moon",
+      "emojis": "🌜🚶‍♂️🚓",
+      "answer": "Walking on the Moon",
+      "alternatives": [
+        "Walking on the Moon"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "umbrella",
+      "emojis": "☔🛡️",
+      "answer": "Umbrella",
+      "alternatives": [
+        "Umbrella"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "born-in-the-u-s-a",
+      "emojis": "🇺🇸🦅🌟",
+      "answer": "Born in the U.S.A.",
+      "alternatives": [
+        "Born in the U.S.A."
+      ],
+      "category": "song"
+    },
+    {
+      "id": "eye-of-the-tiger",
+      "emojis": "🐅👁️",
+      "answer": "Eye of the Tiger",
+      "alternatives": [
+        "Eye of the Tiger"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "99-red-balloons",
+      "emojis": "🎈🎈🎈🟥9️⃣9️⃣",
+      "answer": "99 Red Balloons",
+      "alternatives": [
+        "99 Red Balloons"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "bicycle-race",
+      "emojis": "🚲🚲🏁",
+      "answer": "Bicycle Race",
+      "alternatives": [
+        "Bicycle Race"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "starman",
+      "emojis": "🌌🌟👨‍🚀",
+      "answer": "Starman",
+      "alternatives": [
+        "Starman"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "girls-just-want-to-have-fun",
+      "emojis": "👯‍♀️🌃",
+      "answer": "Girls Just Want to Have Fun",
+      "alternatives": [
+        "Girls Just Want to Have Fun"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "we-are-the-world",
+      "emojis": "🌍🌍🇺🇸🤝",
+      "answer": "We Are the World",
+      "alternatives": [
+        "We Are the World"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "hungry-like-the-wolf",
+      "emojis": "🐺👨‍👦",
+      "answer": "Hungry Like the Wolf",
+      "alternatives": [
+        "Hungry Like the Wolf"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "wine-lips-red-red-wine",
+      "emojis": "🍷🌹🕺",
+      "answer": "Wine Lips? — Red Red Wine",
+      "alternatives": [
+        "Wine Lips? — Red Red Wine"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "red-red-wine",
+      "emojis": "🌹🌹🌹🍷",
+      "answer": "Red Red Wine",
+      "alternatives": [
+        "Red Red Wine"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "born-to-run",
+      "emojis": "🇺🇸🛤️🚗🛣️",
+      "answer": "Born to Run",
+      "alternatives": [
+        "Born to Run"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "time-after-time",
+      "emojis": "⏳⏳⏳",
+      "answer": "Time After Time",
+      "alternatives": [
+        "Time After Time"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "have-you-ever-seen-the-rain",
+      "emojis": "🎶🌧️🌧️🎶",
+      "answer": "Have You Ever Seen the Rain",
+      "alternatives": [
+        "Have You Ever Seen the Rain"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "any-rose-theme",
+      "emojis": "🌅🌹🐝",
+      "answer": "(any rose theme)",
+      "alternatives": [
+        "(any rose theme)"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "rock-lobster-the-b-52-s",
+      "emojis": "🪨🎸🎸",
+      "answer": "Rock Lobster — The B-52's",
+      "alternatives": [
+        "Rock Lobster — The B-52's"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "hakuna-matata",
+      "emojis": "🦁👑💍",
+      "answer": "Hakuna Matata",
+      "alternatives": [
+        "Hakuna Matata"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "cherry-cherry",
+      "emojis": "🍒🌸🍒",
+      "answer": "Cherry Cherry",
+      "alternatives": [
+        "Cherry Cherry"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "ghostbusters-theme",
+      "emojis": "👻🕺",
+      "answer": "Ghostbusters (theme)",
+      "alternatives": [
+        "Ghostbusters (theme)",
+        "Ghostbusters"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "uptown-funk",
+      "emojis": "🌃🏙️💃",
+      "answer": "Uptown Funk",
+      "alternatives": [
+        "Uptown Funk"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "lemonade-beyonc",
+      "emojis": "☀️🍋🌧️",
+      "answer": "Lemonade — Beyoncé",
+      "alternatives": [
+        "Lemonade — Beyoncé"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "three-little-birds-bob-marley",
+      "emojis": "🏝️🌊🍃",
+      "answer": "Three Little Birds — Bob Marley",
+      "alternatives": [
+        "Three Little Birds — Bob Marley"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "time-of-my-life",
+      "emojis": "⏰⏰💃",
+      "answer": "Time of My Life",
+      "alternatives": [
+        "Time of My Life"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "every-rose-has-its-thorn",
+      "emojis": "🌹💀💔",
+      "answer": "Every Rose Has Its Thorn",
+      "alternatives": [
+        "Every Rose Has Its Thorn"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "walking-in-the-rain",
+      "emojis": "🌧️🚶‍♀️🌧️",
+      "answer": "Walking in the Rain",
+      "alternatives": [
+        "Walking in the Rain"
+      ],
+      "category": "song"
+    },
+    {
+      "id": "kiss-from-a-rose",
+      "emojis": "👀💋👀",
+      "answer": "Kiss from a Rose",
+      "alternatives": [
+        "Kiss from a Rose"
+      ],
+      "category": "song"
+    }
+  ]
+}

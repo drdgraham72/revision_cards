@@ -24,6 +24,7 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
 .hdr{position:sticky;top:0;z-index:200;background:rgba(12,13,20,0.92);backdrop-filter:blur(24px);border-bottom:1px solid var(--bdr);padding:14px 18px;display:flex;align-items:center;gap:12px;min-height:var(--hdr-h)}
 .hdr-title{font-family:'JetBrains Mono',monospace;font-size:.95rem;font-weight:700;flex:1;letter-spacing:-0.01em;line-height:1.2}
 .hdr-title em{font-style:normal;color:var(--accent)}
+.hdr-thumb{width:26px;height:26px;border-radius:6px;object-fit:cover;vertical-align:middle;margin-right:8px;display:inline-block;border:1px solid var(--bdr)}
 .hdr-right{display:flex;align-items:center;gap:8px}
 .btn-back,.btn-icon{background:none;border:1px solid var(--bdr2);color:var(--sub);font-size:.82rem;font-weight:600;padding:8px 14px;border-radius:100px;cursor:pointer;font-family:inherit;transition:all .2s;white-space:nowrap}
 .btn-back:hover,.btn-icon:hover{color:var(--text);border-color:var(--muted)}
@@ -222,6 +223,25 @@ async function buildMusicRound(N=10){
   musicRound={items:pool.slice(0,Math.min(N,pool.length))};
 }
 
+// Emoji-bank state — used by type:"emoji-bank" rounds.
+let emojiBank=null;
+let emojiRound=null;
+
+async function loadEmojiBank(){
+  if(emojiBank)return emojiBank;
+  const r=await fetch("data/emoji-bank.json",{cache:"force-cache"});
+  if(!r.ok)throw new Error("emoji-bank.json fetch failed: "+r.status);
+  emojiBank=await r.json();
+  return emojiBank;
+}
+
+async function buildEmojiRound(N=10){
+  const bank=await loadEmojiBank();
+  const pool=bank.items.slice();
+  for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]]}
+  emojiRound={items:pool.slice(0,Math.min(N,pool.length))};
+}
+
 function processToCanvas(img,mode,canvas){
   const W=320;
   const H=Math.max(1,Math.round(W*img.naturalHeight/img.naturalWidth));
@@ -312,6 +332,7 @@ async function goQuiz(rid){
   activeRound=null;
   pictureRound=null;
   musicRound=null;
+  emojiRound=null;
   render(); // loading state
   try{
     activeRound=await loadRound(rid);
@@ -329,6 +350,10 @@ async function goQuiz(rid){
     musicRound=null;
     render();
     buildMusicRound().then(render).catch(e=>{console.error(e);render()});
+  } else if(activeRound.type==="emoji-bank"){
+    emojiRound=null;
+    render();
+    buildEmojiRound().then(render).catch(e=>{console.error(e);render()});
   } else {
     render();
   }
@@ -344,6 +369,9 @@ function shuffleCurrent(){
   } else if(activeRound.type==="music"){
     musicRound=null;render();
     buildMusicRound().then(render).catch(e=>{console.error(e);render()});
+  } else if(activeRound.type==="emoji-bank"){
+    emojiRound=null;render();
+    buildEmojiRound().then(render).catch(e=>{console.error(e);render()});
   } else if(activeRound.questions){
     const q=activeRound.questions;
     for(let i=q.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[q[i],q[j]]=[q[j],q[i]]}
@@ -354,6 +382,7 @@ function currentTotal(){
   if(!activeRound)return 0;
   if(activeRound.type==="picture")return pictureRound?pictureRound.items.length:0;
   if(activeRound.type==="music")return musicRound?musicRound.items.length:0;
+  if(activeRound.type==="emoji-bank")return emojiRound?emojiRound.items.length:0;
   return activeRound.questions?activeRound.questions.length:0;
 }
 function nextQ(){const t=currentTotal();if(activeRound&&currentIdx<t-1){lastNav="next";currentIdx++;render()}}
@@ -377,7 +406,7 @@ function renderTopics(){
 function renderRounds(){
   const rounds=(roundsIndex||[]).filter(r=>r.topic===activeTopic.id);
   return`<div class="hdr"><button class="btn-back" onclick="goTopics()">← Topics</button>
-    <div class="hdr-title"><em>${activeTopic.icon}</em> ${activeTopic.name}</div></div>
+    <div class="hdr-title"><img class="hdr-thumb" src="${activeTopic.image}" alt=""> ${activeTopic.name}</div></div>
   <div class="picker"><div class="round-grid">${rounds.map((r,i)=>
     `<div class="rcard" style="animation-delay:${i*.06}s" onclick="goQuiz('${r.id}')">
       <div class="rcard-stripe" style="background:${activeTopic.color}"></div>
@@ -412,6 +441,7 @@ function renderQuiz(){
   const type=activeRound.type||"standard";
   if(type==="picture")return renderPictureCarousel();
   if(type==="music")return renderMusicCarousel();
+  if(type==="emoji-bank")return renderEmojiCarousel();
   return renderCarousel(type);   // standard + emoji
 }
 
@@ -548,6 +578,40 @@ function renderMusicCarousel(){
         ${r?'':`<div class="car-prompt">Name this track</div>`}
         <div class="music-host">${mediaHtml}</div>
         ${hintBlock}
+      </div>
+    </div>
+    <div class="car-nav">
+      <button class="car-btn" onclick="prevQ()" ${currentIdx===0?'disabled':''}>← Prev</button>
+      <button class="car-btn primary" onclick="toggleCard(${currentIdx})">${r?"Hide":"Reveal"}</button>
+      <button class="car-btn" onclick="nextQ()" ${currentIdx===total-1?'disabled':''}>Next →</button>
+    </div>
+  </div>`;
+}
+
+function renderEmojiCarousel(){
+  if(!emojiRound){
+    return`${carouselHeader(0)}<div class="car"><div class="car-body"><div class="pic-loading">Loading emoji bank…</div></div></div>`;
+  }
+  const total=emojiRound.items.length;
+  if(!total){
+    return`${carouselHeader(0)}<div class="car"><div class="car-body"><div class="pic-loading">Emoji bank is empty.</div></div></div>`;
+  }
+  const item=emojiRound.items[currentIdx];
+  const r=revealed.has(currentIdx);
+  const promptByCat={film:"Name the film",song:"Name the song",tv:"Name the show",book:"Name the book",idiom:"What's the phrase?"};
+  const prompt=promptByCat[item.category]||"Decode the emojis";
+
+  return`${carouselHeader(total)}
+  <div class="car">
+    <div class="car-body">
+      <div class="car-card${r?' show':''}" data-anim="${lastNav}" onclick="toggleCard(${currentIdx})">
+        <div class="car-meta">
+          <span class="qn">Q${currentIdx+1} / ${total}</span>
+          <span class="car-cat" style="color:${activeTopic.color}">Emoji</span>
+        </div>
+        ${r?'':`<div class="car-prompt">${prompt}</div>`}
+        <div class="emoji-q">${item.emojis}</div>
+        <div class="car-ans"><div class="car-ans-i"><div class="car-al">Answer</div><div class="car-at">${escapeHtml(item.answer)}</div></div></div>
       </div>
     </div>
     <div class="car-nav">
