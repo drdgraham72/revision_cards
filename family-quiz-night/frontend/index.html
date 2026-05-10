@@ -86,6 +86,15 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
 /* Emoji-round media */
 .car .emoji-q{font-size:clamp(3.2rem,14vw,5.8rem);letter-spacing:.2em;padding:14px 0;text-align:center;line-height:1.15}
 
+/* Dingbat puzzle */
+.dg-puzzle{font-family:'JetBrains Mono','Courier New',monospace;font-weight:700;font-size:clamp(1.5rem,5.5vw,2.4rem);letter-spacing:.08em;line-height:1.45;text-align:center;padding:24px 6px;color:var(--text);user-select:none}
+.dg-puzzle .dg-rev{display:inline-block;transform:scaleX(-1)}
+.dg-puzzle .dg-line{border-top:2px solid currentColor;border-bottom:2px solid currentColor;padding:6px 14px;display:inline-block}
+.dg-puzzle .dg-tiny{font-size:.55em;vertical-align:middle}
+.dg-puzzle .dg-big{font-size:1.5em}
+.dg-puzzle .dg-stack{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle}
+.dg-puzzle div+div{margin-top:.15em}
+
 /* Nav bar */
 .car-nav{display:flex;gap:10px;padding:14px 16px calc(14px + var(--safe-bottom));border-top:1px solid var(--bdr);background:var(--surface)}
 .car-btn{flex:1;height:56px;background:rgba(255,255,255,0.06);border:none;border-radius:var(--radius);color:var(--text);font-size:.95rem;font-weight:600;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .15s}
@@ -144,6 +153,7 @@ const TOPICS=[
   {id:"tv",image:"images/topics/tv.jpg",name:"TV",color:"#14b8a6"},
   {id:"starwars",image:"images/topics/starwars.jpg",name:"Star Wars",color:"#facc15"},
   {id:"mcu",image:"images/topics/mcu.jpg",name:"MCU",color:"#ef4444"},
+  {id:"dingbats",image:"images/topics/dingbats.jpg",name:"Dingbats",color:"#c084fc"},
   {id:"picture",image:"images/topics/picture.jpg",name:"Picture Rounds",color:"#f97316"},
 ];
 
@@ -242,6 +252,25 @@ async function buildEmojiRound(N=10){
   emojiRound={items:pool.slice(0,Math.min(N,pool.length))};
 }
 
+// Dingbat-bank state — used by type:"dingbat-bank" rounds.
+let dingbatBank=null;
+let dingbatRound=null;
+
+async function loadDingbatBank(){
+  if(dingbatBank)return dingbatBank;
+  const r=await fetch("data/dingbat-bank.json",{cache:"force-cache"});
+  if(!r.ok)throw new Error("dingbat-bank.json fetch failed: "+r.status);
+  dingbatBank=await r.json();
+  return dingbatBank;
+}
+
+async function buildDingbatRound(N=10){
+  const bank=await loadDingbatBank();
+  const pool=bank.items.slice();
+  for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]]}
+  dingbatRound={items:pool.slice(0,Math.min(N,pool.length))};
+}
+
 function processToCanvas(img,mode,canvas){
   const W=320;
   const H=Math.max(1,Math.round(W*img.naturalHeight/img.naturalWidth));
@@ -333,6 +362,7 @@ async function goQuiz(rid){
   pictureRound=null;
   musicRound=null;
   emojiRound=null;
+  dingbatRound=null;
   render(); // loading state
   try{
     activeRound=await loadRound(rid);
@@ -354,6 +384,10 @@ async function goQuiz(rid){
     emojiRound=null;
     render();
     buildEmojiRound().then(render).catch(e=>{console.error(e);render()});
+  } else if(activeRound.type==="dingbat-bank"){
+    dingbatRound=null;
+    render();
+    buildDingbatRound().then(render).catch(e=>{console.error(e);render()});
   } else {
     render();
   }
@@ -372,6 +406,9 @@ function shuffleCurrent(){
   } else if(activeRound.type==="emoji-bank"){
     emojiRound=null;render();
     buildEmojiRound().then(render).catch(e=>{console.error(e);render()});
+  } else if(activeRound.type==="dingbat-bank"){
+    dingbatRound=null;render();
+    buildDingbatRound().then(render).catch(e=>{console.error(e);render()});
   } else if(activeRound.questions){
     const q=activeRound.questions;
     for(let i=q.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[q[i],q[j]]=[q[j],q[i]]}
@@ -383,6 +420,7 @@ function currentTotal(){
   if(activeRound.type==="picture")return pictureRound?pictureRound.items.length:0;
   if(activeRound.type==="music")return musicRound?musicRound.items.length:0;
   if(activeRound.type==="emoji-bank")return emojiRound?emojiRound.items.length:0;
+  if(activeRound.type==="dingbat-bank")return dingbatRound?dingbatRound.items.length:0;
   return activeRound.questions?activeRound.questions.length:0;
 }
 function nextQ(){const t=currentTotal();if(activeRound&&currentIdx<t-1){lastNav="next";currentIdx++;render()}}
@@ -442,6 +480,7 @@ function renderQuiz(){
   if(type==="picture")return renderPictureCarousel();
   if(type==="music")return renderMusicCarousel();
   if(type==="emoji-bank")return renderEmojiCarousel();
+  if(type==="dingbat-bank")return renderDingbatCarousel();
   return renderCarousel(type);   // standard + emoji
 }
 
@@ -612,6 +651,38 @@ function renderEmojiCarousel(){
         ${r?'':`<div class="car-prompt">${prompt}</div>`}
         <div class="emoji-q">${item.emojis}</div>
         <div class="car-ans"><div class="car-ans-i"><div class="car-al">Answer</div><div class="car-at">${escapeHtml(item.answer)}</div></div></div>
+      </div>
+    </div>
+    <div class="car-nav">
+      <button class="car-btn" onclick="prevQ()" ${currentIdx===0?'disabled':''}>← Prev</button>
+      <button class="car-btn primary" onclick="toggleCard(${currentIdx})">${r?"Hide":"Reveal"}</button>
+      <button class="car-btn" onclick="nextQ()" ${currentIdx===total-1?'disabled':''}>Next →</button>
+    </div>
+  </div>`;
+}
+
+function renderDingbatCarousel(){
+  if(!dingbatRound){
+    return`${carouselHeader(0)}<div class="car"><div class="car-body"><div class="pic-loading">Loading dingbat bank…</div></div></div>`;
+  }
+  const total=dingbatRound.items.length;
+  if(!total){
+    return`${carouselHeader(0)}<div class="car"><div class="car-body"><div class="pic-loading">Dingbat bank is empty.</div></div></div>`;
+  }
+  const item=dingbatRound.items[currentIdx];
+  const r=revealed.has(currentIdx);
+
+  return`${carouselHeader(total)}
+  <div class="car">
+    <div class="car-body">
+      <div class="car-card${r?' show':''}" data-anim="${lastNav}" onclick="toggleCard(${currentIdx})">
+        <div class="car-meta">
+          <span class="qn">Q${currentIdx+1} / ${total}</span>
+          <span class="car-cat" style="color:${activeTopic.color}">Dingbat</span>
+        </div>
+        ${r?'':`<div class="car-prompt">What's the phrase?</div>`}
+        <div class="dg-puzzle">${item.puzzle}</div>
+        <div class="car-ans"><div class="car-ans-i"><div class="car-al">Answer</div><div class="car-at">${item.answer}</div></div></div>
       </div>
     </div>
     <div class="car-nav">

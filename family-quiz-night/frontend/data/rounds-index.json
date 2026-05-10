@@ -1072,6 +1072,15 @@
       "type": "emoji-bank",
       "isNew": true,
       "count": 0
+    },
+    {
+      "id": "mystery-dingbats",
+      "topic": "dingbats",
+      "title": "🎲 Mystery Dingbats",
+      "desc": "Decode the wordplay — a fresh 10 from the bank every time",
+      "type": "dingbat-bank",
+      "isNew": true,
+      "count": 0
     }
   ]
 }

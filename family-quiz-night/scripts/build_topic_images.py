@@ -39,6 +39,7 @@ SUBJECTS: dict[str, str] = {
     "starwars":  "501st Legion",
     "mcu":       "Marvel Cinematic Universe",
     "picture":   "Photography",
+    "dingbats":  "Rebus",
 }
 
 
