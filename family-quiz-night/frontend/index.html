@@ -86,14 +86,36 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
 /* Emoji-round media */
 .car .emoji-q{font-size:clamp(3.2rem,14vw,5.8rem);letter-spacing:.2em;padding:14px 0;text-align:center;line-height:1.15}
 
-/* Dingbat puzzle */
+/* Dingbat puzzle — visual word-puzzle styling */
 .dg-puzzle{font-family:'JetBrains Mono','Courier New',monospace;font-weight:700;font-size:clamp(1.5rem,5.5vw,2.4rem);letter-spacing:.08em;line-height:1.45;text-align:center;padding:24px 6px;color:var(--text);user-select:none}
-.dg-puzzle .dg-rev{display:inline-block;transform:scaleX(-1)}
-.dg-puzzle .dg-line{border-top:2px solid currentColor;border-bottom:2px solid currentColor;padding:6px 14px;display:inline-block}
-.dg-puzzle .dg-tiny{font-size:.55em;vertical-align:middle}
-.dg-puzzle .dg-big{font-size:1.5em}
-.dg-puzzle .dg-stack{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle}
 .dg-puzzle div+div{margin-top:.15em}
+.dg-rev{display:inline-block;transform:scaleX(-1)}
+.dg-vert{display:inline-block;transform:rotate(90deg);transform-origin:center;letter-spacing:.18em;margin:0.6em 0}
+.dg-line{border-top:2px solid currentColor;border-bottom:2px solid currentColor;padding:6px 14px;display:inline-block}
+.dg-strike{text-decoration:line-through;text-decoration-thickness:3px}
+.dg-tiny{font-size:.5em;vertical-align:middle}
+.dg-small{font-size:.7em;vertical-align:middle}
+.dg-big{font-size:1.45em}
+.dg-huge{font-size:2.1em;font-weight:900}
+.dg-stack{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;gap:.05em}
+.dg-flame{color:#ff6b1a;text-shadow:0 0 8px #ff8c1a,0 0 16px #ff4500;font-weight:900}
+.dg-blood{color:#dc2626;text-shadow:0 2px 4px rgba(220,38,38,0.5)}
+.dg-broken{display:inline-block;position:relative}
+.dg-broken::after{content:'';position:absolute;left:-6%;right:-6%;top:50%;height:0;border-top:3px solid currentColor;transform:rotate(-8deg)}
+.dg-box{border:3px solid currentColor;border-radius:6px;padding:6px 14px;display:inline-block}
+.dg-pool{border:3px solid currentColor;border-radius:50px;padding:8px 22px;display:inline-block}
+.dg-circle-frame{border:3px solid currentColor;border-radius:50%;padding:14px 18px;display:inline-block;line-height:1}
+.dg-gap{display:inline-block;width:1.6em}
+.dg-red{color:#ef4444}.dg-blue{color:#60a5fa}.dg-yellow{color:#facc15}.dg-green{color:#34d399}.dg-gold{color:#f59e0b}.dg-white{color:#fff}
+.dg-overlap{position:relative;display:inline-block}
+.dg-overlap-inside{position:absolute;left:50%;top:55%;transform:translate(-50%,-50%);font-size:.5em}
+.dg-radial{position:relative;width:8em;height:8em;display:inline-block;font-size:.9em}
+.dg-radial>span{position:absolute;line-height:1}
+.dg-radial>span:nth-child(1){top:0;left:50%;transform:translateX(-50%)}
+.dg-radial>span:nth-child(2){right:0;top:50%;transform:translateY(-50%)}
+.dg-radial>span:nth-child(3){bottom:0;left:50%;transform:translateX(-50%)}
+.dg-radial>span:nth-child(4){left:0;top:50%;transform:translateY(-50%)}
+.dg-radial>span:nth-child(5){left:50%;top:50%;transform:translate(-50%,-50%);font-size:1.4em}
 
 /* Nav bar */
 .car-nav{display:flex;gap:10px;padding:14px 16px calc(14px + var(--safe-bottom));border-top:1px solid var(--bdr);background:var(--surface)}

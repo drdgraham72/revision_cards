@@ -1,15 +1,105 @@
 {
-  "version": 1,
+  "version": 2,
   "items": [
     {
-      "id": "a-thorn-between-two-roses",
-      "puzzle": "ROSE&nbsp;THORN&nbsp;ROSE",
-      "answer": "A thorn between two roses"
+      "id": "haunted-house",
+      "puzzle": "<span class=\"dg-overlap\">🏠<span class=\"dg-overlap-inside\">👻</span></span>",
+      "answer": "Haunted house"
     },
     {
-      "id": "tricycle",
-      "puzzle": "CYCLE CYCLE CYCLE",
-      "answer": "Tricycle"
+      "id": "apple-pie",
+      "puzzle": "🍎<span class=\"dg-big\">π</span>",
+      "answer": "Apple pie"
+    },
+    {
+      "id": "double-trouble",
+      "puzzle": "<div>TROUBLE</div><div>TROUBLE</div>",
+      "answer": "Double trouble"
+    },
+    {
+      "id": "hot-shot",
+      "puzzle": "<span class=\"dg-flame\">SHOT</span>",
+      "answer": "Hot shot"
+    },
+    {
+      "id": "broken-record",
+      "puzzle": "<span class=\"dg-broken\">RECORD</span>",
+      "answer": "Broken record"
+    },
+    {
+      "id": "jack-in-the-box",
+      "puzzle": "<span class=\"dg-box\">JACK</span>",
+      "answer": "Jack in the box"
+    },
+    {
+      "id": "big-man",
+      "puzzle": "<span class=\"dg-huge\">MAN</span>",
+      "answer": "Big man"
+    },
+    {
+      "id": "first-aid",
+      "puzzle": "<div>→ AID</div><div><span class=\"dg-gap\"></span>AID</div><div><span class=\"dg-gap\"></span>AID</div><div><span class=\"dg-gap\"></span>AID</div>",
+      "answer": "First aid"
+    },
+    {
+      "id": "missing-link",
+      "puzzle": "LI<span class=\"dg-gap\"></span>NK",
+      "answer": "Missing link"
+    },
+    {
+      "id": "somewhere-over-the-rainbow",
+      "puzzle": "<div>SOMEWHERE</div><div>🌈</div>",
+      "answer": "Somewhere over the rainbow"
+    },
+    {
+      "id": "doctor-dolittle",
+      "puzzle": "Dr. <span class=\"dg-tiny\">do</span>",
+      "answer": "Doctor Dolittle"
+    },
+    {
+      "id": "lemonade",
+      "puzzle": "<div>LEM</div><div>ADE</div>",
+      "answer": "Lemonade"
+    },
+    {
+      "id": "car-pool",
+      "puzzle": "<span class=\"dg-pool\">🚗 🚗 🚗 🚗 🚗</span>",
+      "answer": "Car pool"
+    },
+    {
+      "id": "raining-cats-and-dogs",
+      "puzzle": "<div>🐈🐕🐈🐕🐈🐕</div><div>☂️</div>",
+      "answer": "Raining cats and dogs"
+    },
+    {
+      "id": "a-drop-in-the-ocean",
+      "puzzle": "<span class=\"dg-radial\"><span>O</span><span>E</span><span>C</span><span>N</span><span>💧</span></span>",
+      "answer": "A drop in the ocean"
+    },
+    {
+      "id": "bad-blood",
+      "puzzle": "<span class=\"dg-blood\">BAD</span>",
+      "answer": "Bad blood"
+    },
+    {
+      "id": "walking-through-fire",
+      "puzzle": "🔥<span style=\"font-size:1.4em\">🚶</span>🔥",
+      "answer": "Walking through fire"
+    },
+    {
+      "id": "high-five",
+      "puzzle": "<div><span class=\"dg-tiny\">five</span></div><div><span class=\"dg-huge\">FIVE</span></div>",
+      "answer": "High five"
+    },
+    {
+      "id": "fingers-crossed",
+      "puzzle": "<span class=\"dg-vert\">FINGERS</span>",
+      "answer": "Fingers crossed"
+    },
+    {
+      "id": "hot-line",
+      "puzzle": "<span class=\"dg-circle-frame\"><span class=\"dg-flame\">PHONE</span></span>",
+      "answer": "Hot line"
     },
     {
       "id": "i-understand",
@@ -17,24 +107,119 @@
       "answer": "I understand"
     },
     {
-      "id": "reading-between-the-lines",
-      "puzzle": "<span class=\"dg-line\">READING</span>",
-      "answer": "Reading between the lines"
-    },
-    {
       "id": "backward-glance",
       "puzzle": "<span class=\"dg-rev\">GLANCE</span>",
       "answer": "Backward glance"
     },
     {
-      "id": "man-overboard",
-      "puzzle": "MAN&nbsp;BOARD",
-      "answer": "Man overboard"
+      "id": "mind-over-matter",
+      "puzzle": "<div>MIND</div><div>━━━━━</div><div>MATTER</div>",
+      "answer": "Mind over matter"
     },
     {
-      "id": "long-underwear",
-      "puzzle": "WEAR LONG",
-      "answer": "Long underwear"
+      "id": "reading-between-the-lines",
+      "puzzle": "<span class=\"dg-line\">READING</span>",
+      "answer": "Reading between the lines"
+    },
+    {
+      "id": "all-over-the-world",
+      "puzzle": "<div>WORLD</div><div>━━━━━</div><div>ALL</div>",
+      "answer": "All over the world"
+    },
+    {
+      "id": "head-over-heels",
+      "puzzle": "<div>HEAD</div><div>━━━━━</div><div>HEELS</div>",
+      "answer": "Head over heels"
+    },
+    {
+      "id": "water-under-the-bridge",
+      "puzzle": "<div>WATER</div><div>━━━━━</div><div>BRIDGE</div>",
+      "answer": "Water under the bridge"
+    },
+    {
+      "id": "skating-on-thin-ice",
+      "puzzle": "<div>ICE</div><div>━━━━━</div><div>THIN</div>",
+      "answer": "Skating on thin ice"
+    },
+    {
+      "id": "self-control",
+      "puzzle": "<div>CONTROL</div><div>━━━━━</div><div>SELF</div>",
+      "answer": "Self-control"
+    },
+    {
+      "id": "blood-is-thicker-than-water",
+      "puzzle": "<div>BLOOD</div><div>━━━━━</div><div>WATER</div>",
+      "answer": "Blood is thicker than water"
+    },
+    {
+      "id": "six-feet-under",
+      "puzzle": "<div>━━━━━━━</div><div>👣 👣 👣 👣 👣 👣</div>",
+      "answer": "Six feet under"
+    },
+    {
+      "id": "the-writing-on-the-wall",
+      "puzzle": "<div>WALL</div><div>WRITING</div>",
+      "answer": "The writing on the wall"
+    },
+    {
+      "id": "life-after-death",
+      "puzzle": "<div>LIFE</div><div>━━━━━</div><div>DEATH</div>",
+      "answer": "Life after death"
+    },
+    {
+      "id": "in-a-nutshell",
+      "puzzle": "<div>NUT</div><div>SHELL</div>",
+      "answer": "In a nutshell"
+    },
+    {
+      "id": "tongue-in-cheek",
+      "puzzle": "TONGUE <span class=\"dg-small\">CHEEK</span>",
+      "answer": "Tongue in cheek"
+    },
+    {
+      "id": "walking-on-sunshine",
+      "puzzle": "<div>🚶</div><div>━━━━━</div><div>☀️</div>",
+      "answer": "Walking on sunshine"
+    },
+    {
+      "id": "walking-on-eggshells",
+      "puzzle": "<div>🥚🥚🥚🥚</div><div>🚶</div>",
+      "answer": "Walking on eggshells"
+    },
+    {
+      "id": "good-afternoon",
+      "puzzle": "<div>NOON</div><div>GOOD</div>",
+      "answer": "Good afternoon"
+    },
+    {
+      "id": "tricycle",
+      "puzzle": "CYCLE CYCLE CYCLE",
+      "answer": "Tricycle"
+    },
+    {
+      "id": "time-after-time-after-time",
+      "puzzle": "TIME TIME TIME",
+      "answer": "Time after time after time"
+    },
+    {
+      "id": "step-by-step",
+      "puzzle": "STEP STEP STEP STEP",
+      "answer": "Step by step"
+    },
+    {
+      "id": "safety-in-numbers",
+      "puzzle": "SAFE SAFE SAFE SAFE SAFE SAFE SAFE",
+      "answer": "Safety in numbers"
+    },
+    {
+      "id": "ten-in-a-row",
+      "puzzle": "1 1 1 1 1 1 1 1 1 1",
+      "answer": "Ten in a row"
+    },
+    {
+      "id": "bad-to-good",
+      "puzzle": "<span class=\"dg-strike\">good</span> good",
+      "answer": "Bad to good"
     },
     {
       "id": "justice",
@@ -47,34 +232,9 @@
       "answer": "Noel"
     },
     {
-      "id": "mind-over-matter",
-      "puzzle": "<div>MIND</div><div>━━━━</div><div>MATTER</div>",
-      "answer": "Mind over matter"
-    },
-    {
-      "id": "time-after-time-after-time",
-      "puzzle": "TIME TIME TIME",
-      "answer": "Time after time after time"
-    },
-    {
-      "id": "he-39-s-beside-himself",
-      "puzzle": "<div>HE&#39;S</div><div>HIMSELF</div>",
-      "answer": "He&#39;s beside himself"
-    },
-    {
-      "id": "banana-split",
-      "puzzle": "BAN&nbsp;ANA",
-      "answer": "Banana split"
-    },
-    {
-      "id": "good-afternoon",
-      "puzzle": "<div>NOON</div><div>GOOD</div>",
-      "answer": "Good afternoon"
-    },
-    {
-      "id": "all-over-the-world",
-      "puzzle": "<div>WORLD</div><div>━━━━</div><div>ALL</div>",
-      "answer": "All over the world"
+      "id": "promise",
+      "puzzle": "PRO MISE",
+      "answer": "Promise"
     },
     {
       "id": "afternoon",
@@ -82,254 +242,239 @@
       "answer": "Afternoon"
     },
     {
-      "id": "six-feet-underground",
-      "puzzle": "<div>GROUND</div><div>FEET FEET FEET FEET FEET FEET</div>",
-      "answer": "Six feet underground"
-    },
-    {
-      "id": "promise",
-      "puzzle": "PRO MISE",
-      "answer": "Promise"
-    },
-    {
-      "id": "past-tense",
-      "puzzle": "PAS<span class=\"dg-tiny\">3</span>",
-      "answer": "Past tense"
-    },
-    {
-      "id": "the-writing-on-the-wall",
-      "puzzle": "<div>WALL</div><div>WRITING</div>",
-      "answer": "The writing on the wall"
-    },
-    {
-      "id": "horsing-around",
-      "puzzle": "<span class=\"dg-rev\">HORSE</span>",
-      "answer": "Horsing around"
-    },
-    {
-      "id": "something-in-italics-something-different",
-      "puzzle": "<span style=\"font-style:italic\">SOMETHING</span>",
-      "answer": "Something in italics / Something different"
-    },
-    {
-      "id": "hole-in-the-wall",
-      "puzzle": "<div>HOLE</div><div>┃ WALL ┃</div>",
-      "answer": "Hole in the wall"
-    },
-    {
-      "id": "tongue-in-cheek",
-      "puzzle": "TONGUE <span class=\"dg-tiny\">CHEEK</span>",
-      "answer": "Tongue in cheek"
-    },
-    {
-      "id": "on-thin-ice",
-      "puzzle": "<div>ICE</div><div>━━━━</div><div>THIN</div>",
-      "answer": "On thin ice"
-    },
-    {
-      "id": "head-over-heels",
-      "puzzle": "HEAD HEELS",
-      "answer": "Head over heels"
-    },
-    {
-      "id": "in-a-nutshell",
-      "puzzle": "<div>NUT</div><div>SHELL</div>",
-      "answer": "In a nutshell"
-    },
-    {
-      "id": "cat-39-s-out-of-the-bag",
-      "puzzle": "CAT BAG",
-      "answer": "Cat&#39;s out of the bag"
-    },
-    {
-      "id": "dead-earnest-earnestly",
-      "puzzle": "EARNEST",
-      "answer": "Dead earnest / earnestly"
-    },
-    {
-      "id": "foot-in-mouth",
-      "puzzle": "FOOT <span class=\"dg-tiny\">MOUTH</span>",
-      "answer": "Foot in mouth"
-    },
-    {
-      "id": "don-39-t-cry-over-spilt-milk",
-      "puzzle": "CRY CRY MILK",
-      "answer": "Don&#39;t cry over spilt milk"
-    },
-    {
-      "id": "water-under-the-bridge",
-      "puzzle": "<div>WATER</div><div>BRIDGE</div>",
-      "answer": "Water under the bridge"
-    },
-    {
-      "id": "two-faced",
-      "puzzle": "FACE FACE",
-      "answer": "Two-faced"
-    },
-    {
-      "id": "private-eye-three-eyes",
-      "puzzle": "EYE EYE EYE",
-      "answer": "Private eye? — three eyes"
-    },
-    {
-      "id": "easy-as-abc-no-l-noel",
-      "puzzle": "ABCDEFGHIJKMNOPQRSTUVWXYZ",
-      "answer": "Easy as ABC, no L (Noel)"
-    },
-    {
-      "id": "neon-lights",
-      "puzzle": "KNEE LIGHTS",
-      "answer": "Neon lights"
-    },
-    {
-      "id": "paradise-pair-of-dice",
-      "puzzle": "DICE DICE",
-      "answer": "Paradise (pair of dice)"
-    },
-    {
-      "id": "life-after-death",
-      "puzzle": "<div>DEATH</div><div>━━━━</div><div>LIFE</div>",
-      "answer": "Life after death"
-    },
-    {
-      "id": "land-of-milk-and-honey",
-      "puzzle": "<div>MILK</div><div>━━━━</div><div>HONEY</div>",
-      "answer": "Land of milk and honey"
-    },
-    {
-      "id": "big-deal",
-      "puzzle": "DEAL!&nbsp;DEAL!",
-      "answer": "Big deal"
-    },
-    {
-      "id": "safe-and-sound-double-safe-safety-in-numbers",
-      "puzzle": "<div>SAFE</div><div>SAFE</div>",
-      "answer": "Safe and sound? — double safe / safety in numbers"
-    },
-    {
-      "id": "cover-to-cover",
-      "puzzle": "<div>COVER</div><div>COVER</div>",
-      "answer": "Cover to cover"
-    },
-    {
-      "id": "safety-in-numbers",
-      "puzzle": "<div>SAFE&nbsp;SAFE&nbsp;SAFE&nbsp;SAFE&nbsp;SAFE&nbsp;SAFE&nbsp;SAFE</div>",
-      "answer": "Safety in numbers"
-    },
-    {
       "id": "breakfast",
       "puzzle": "BREAK FAST",
       "answer": "Breakfast"
     },
     {
-      "id": "stop-who-goes-there",
-      "puzzle": "WHO STOP",
-      "answer": "Stop, who goes there?"
+      "id": "long-underwear",
+      "puzzle": "WEAR LONG",
+      "answer": "Long underwear"
     },
     {
-      "id": "quartet-4-lets-actually-four-lets",
-      "puzzle": "LET LET LET LET",
-      "answer": "Quartet (4 lets) — actually four lets"
+      "id": "man-overboard",
+      "puzzle": "MAN BOARD",
+      "answer": "Man overboard"
     },
     {
-      "id": "two-jobs-double-job",
-      "puzzle": "<div>JOB</div><div>JOB</div>",
-      "answer": "Two jobs / Double job"
+      "id": "banana-split",
+      "puzzle": "BAN ANA",
+      "answer": "Banana split"
     },
     {
-      "id": "five-times-me-full-of-yourself",
-      "puzzle": "ME ME ME ME ME",
-      "answer": "Five times me — full of yourself"
+      "id": "something-different",
+      "puzzle": "<span style=\"font-style:italic\">SOMETHING</span>",
+      "answer": "Something different"
     },
     {
-      "id": "big-ego",
-      "puzzle": "<span class=\"dg-big\">EGO</span>",
-      "answer": "Big ego"
+      "id": "eye-to-eye",
+      "puzzle": "👁️ ↔ 👁️",
+      "answer": "Eye to eye"
     },
     {
-      "id": "little-little-barely-audible",
-      "puzzle": "<span class=\"dg-tiny\">LITTLE</span>",
-      "answer": "Little little / barely audible"
+      "id": "open-eyes",
+      "puzzle": "👀!",
+      "answer": "Open eyes"
     },
     {
-      "id": "mirror-image-looking-cool",
-      "puzzle": "LOOK KOOL",
-      "answer": "Mirror image / Looking cool"
+      "id": "cat-nap",
+      "puzzle": "🐈 💤",
+      "answer": "Cat nap"
     },
     {
-      "id": "wide-open-spaces",
-      "puzzle": "WIDE OPEN",
-      "answer": "Wide open spaces"
+      "id": "when-pigs-fly",
+      "puzzle": "🐷 ↗",
+      "answer": "When pigs fly"
     },
     {
-      "id": "reverse-psychology",
-      "puzzle": "<span class=\"dg-rev\">REVERSE</span>",
-      "answer": "Reverse psychology"
+      "id": "don-t-put-all-your-eggs-in-one-basket",
+      "puzzle": "<div>🥚🥚</div><div>🍳</div>",
+      "answer": "Don't put all your eggs in one basket"
     },
     {
-      "id": "sailing-on-the-high-seas",
-      "puzzle": "<div>SAILING</div><div>━━━━</div><div>━━━━</div>",
-      "answer": "Sailing on the high seas"
+      "id": "fish-out-of-water",
+      "puzzle": "🐟 🌵",
+      "answer": "Fish out of water"
     },
     {
-      "id": "formula",
-      "puzzle": "<div>4MULA</div>",
-      "answer": "Formula"
+      "id": "cool-as-a-cucumber",
+      "puzzle": "🥒 ❄️",
+      "answer": "Cool as a cucumber"
     },
     {
-      "id": "hole-in-one",
-      "puzzle": "OHOLENE",
-      "answer": "Hole in one"
+      "id": "sweet-tooth",
+      "puzzle": "🦷 🍬",
+      "answer": "Sweet tooth"
     },
     {
-      "id": "jack-in-the-box",
-      "puzzle": "BJAOCKX",
-      "answer": "Jack in the box"
+      "id": "bee-in-your-bonnet",
+      "puzzle": "🎩 🐝",
+      "answer": "Bee in your bonnet"
     },
     {
-      "id": "backward-dance-dance-reversed",
-      "puzzle": "<div>ECNAD</div>",
-      "answer": "Backward dance / dance reversed"
+      "id": "salt-of-the-earth",
+      "puzzle": "🧂 🌍",
+      "answer": "Salt of the earth"
     },
     {
-      "id": "a-walk-in-the-park",
-      "puzzle": "<div>WALK</div><div>━━━━</div><div>PARK</div>",
-      "answer": "A walk in the park"
+      "id": "golden-opportunity",
+      "puzzle": "<span class=\"dg-gold\">💛 OPPORTUNITY</span>",
+      "answer": "Golden opportunity"
     },
     {
-      "id": "big-difference-right-different-from-right",
-      "puzzle": "<span class=\"dg-big\">RIGHT</span>&nbsp;<span class=\"dg-tiny\">right</span>",
-      "answer": "Big difference / right different from right"
+      "id": "heart-of-gold",
+      "puzzle": "<span class=\"dg-gold\">❤️</span>",
+      "answer": "Heart of gold"
     },
     {
-      "id": "jumping-in-the-dark",
-      "puzzle": "<div>DARK</div><div>━━━━</div><div>JUMP</div>",
-      "answer": "Jumping in the dark"
+      "id": "run-for-your-money",
+      "puzzle": "🏃‍♂️ 💸",
+      "answer": "Run for your money"
     },
     {
-      "id": "opened-up",
-      "puzzle": "<div>OPENED</div><div>━━━━</div><div>━━━━</div>",
-      "answer": "Opened up"
+      "id": "coffee-break",
+      "puzzle": "☕ ☕ ☕",
+      "answer": "Coffee break"
     },
     {
-      "id": "safety-net-lines-around-safety",
-      "puzzle": "<span class=\"dg-line\">SAFETY</span>",
-      "answer": "Safety net (lines around safety)"
+      "id": "top-dog",
+      "puzzle": "<div>1️⃣</div><div>🐕</div>",
+      "answer": "Top dog"
     },
     {
-      "id": "don-39-t-assume-makes-an-ass-out-of-u-and-me",
-      "puzzle": "<div>ASS U ME</div>",
-      "answer": "Don&#39;t assume — makes an ass out of u and me"
+      "id": "pie-in-the-sky",
+      "puzzle": "<div>☁️</div><div>🥧</div>",
+      "answer": "Pie in the sky"
     },
     {
-      "id": "burnt-toast",
-      "puzzle": "TOAST",
-      "answer": "Burnt toast"
+      "id": "castle-in-the-sky",
+      "puzzle": "<div>☁️☁️☁️</div><div>🏰</div>",
+      "answer": "Castle in the sky"
     },
     {
-      "id": "six-licks-lickety-split",
-      "puzzle": "LICK LICK LICK LICK LICK LICK",
-      "answer": "Six licks / lickety-split"
+      "id": "climbing-the-ladder",
+      "puzzle": "🪜 → ☀️",
+      "answer": "Climbing the ladder"
+    },
+    {
+      "id": "closed-door-policy",
+      "puzzle": "🚪 ❌ 🚪",
+      "answer": "Closed-door policy"
+    },
+    {
+      "id": "hat-trick",
+      "puzzle": "🎩 ✨ 🎩 ✨ 🎩",
+      "answer": "Hat trick"
+    },
+    {
+      "id": "three-coins",
+      "puzzle": "🪙 🪙 🪙",
+      "answer": "Three coins"
+    },
+    {
+      "id": "two-birds-one-stone",
+      "puzzle": "🐦 + 🐦 + 🪨",
+      "answer": "Two birds, one stone"
+    },
+    {
+      "id": "don-t-count-your-chickens",
+      "puzzle": "<div>🐔 🐔 🐔</div><div>1️⃣ 2️⃣ ❓</div>",
+      "answer": "Don't count your chickens"
+    },
+    {
+      "id": "bed-and-breakfast",
+      "puzzle": "🍳 🛏️",
+      "answer": "Bed and breakfast"
+    },
+    {
+      "id": "burning-the-midnight-oil",
+      "puzzle": "🌙 + 🛢️ + 🔥",
+      "answer": "Burning the midnight oil"
+    },
+    {
+      "id": "red-herring",
+      "puzzle": "<span class=\"dg-red\">🐟</span>",
+      "answer": "Red herring"
+    },
+    {
+      "id": "sitting-duck",
+      "puzzle": "🪑 🦆",
+      "answer": "Sitting duck"
+    },
+    {
+      "id": "monkey-business",
+      "puzzle": "🐵 💼",
+      "answer": "Monkey business"
+    },
+    {
+      "id": "april-showers-bring-may-flowers",
+      "puzzle": "<div>🌧️</div><div>🌹🌹🌹</div>",
+      "answer": "April showers bring May flowers"
+    },
+    {
+      "id": "on-target",
+      "puzzle": "🎯 🎯 🎯",
+      "answer": "On target"
+    },
+    {
+      "id": "small-print",
+      "puzzle": "<span class=\"dg-tiny\">small</span>",
+      "answer": "Small print"
+    },
+    {
+      "id": "big-print",
+      "puzzle": "<span class=\"dg-huge\">PRINT</span>",
+      "answer": "Big print"
+    },
+    {
+      "id": "feeling-blue",
+      "puzzle": "<span class=\"dg-blue\">FUNK</span>",
+      "answer": "Feeling blue"
+    },
+    {
+      "id": "yellow-submarine",
+      "puzzle": "<span class=\"dg-yellow\">SUBMARINE</span>",
+      "answer": "Yellow submarine"
+    },
+    {
+      "id": "fire-and-ice",
+      "puzzle": "<span class=\"dg-flame\">ICE</span>",
+      "answer": "Fire and ice"
+    },
+    {
+      "id": "up-not-down-up-over-down",
+      "puzzle": "<span class=\"dg-strike\">DOWN</span>UP",
+      "answer": "Up not down / Up over down"
+    },
+    {
+      "id": "going-up",
+      "puzzle": "GO ↑ ↑ ↑",
+      "answer": "Going up"
+    },
+    {
+      "id": "going-down",
+      "puzzle": "GO ↓ ↓ ↓",
+      "answer": "Going down"
+    },
+    {
+      "id": "ups-and-downs",
+      "puzzle": "<div>UP UP UP</div><div>━━━━</div><div>DOWN DOWN DOWN</div>",
+      "answer": "Ups and downs"
+    },
+    {
+      "id": "looking-back-forward-back",
+      "puzzle": "FOR ←",
+      "answer": "Looking back / Forward back"
+    },
+    {
+      "id": "one-and-the-same",
+      "puzzle": "1️⃣🟰1️⃣",
+      "answer": "One and the same"
+    },
+    {
+      "id": "i-love-you",
+      "puzzle": "I ❤️ U",
+      "answer": "I love you"
     },
     {
       "id": "end-of-the-road",
@@ -337,59 +482,44 @@
       "answer": "End of the road"
     },
     {
-      "id": "sideways",
-      "puzzle": "<div>S/I/D/E/W/A/Y/S</div>",
-      "answer": "Sideways"
+      "id": "free-fall",
+      "puzzle": "<div class=\"dg-stack\"><span>F</span><span>A</span><span>L</span><span>L</span></div>",
+      "answer": "Free fall"
     },
     {
-      "id": "just-one-word-a-word-in-your-ear",
-      "puzzle": "WORD",
-      "answer": "Just one word / a word in your ear"
+      "id": "easy-as-abc",
+      "puzzle": "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z",
+      "answer": "Easy as ABC"
     },
     {
-      "id": "words-words-words-too-many-words",
-      "puzzle": "WORDS WORDS WORDS",
-      "answer": "Words, words, words / Too many words"
+      "id": "no-l-noel",
+      "puzzle": "A B C D E F G H I J K M N O P Q R S T U V W X Y Z",
+      "answer": "No L (Noel)"
     },
     {
-      "id": "honey-on-top-honey-above-all",
-      "puzzle": "<div>HONEY</div><div>━━━━</div><div>━━━━</div>",
-      "answer": "Honey on top / honey above all"
+      "id": "i-beg-your-pardon",
+      "puzzle": "PARDON",
+      "answer": "I beg your pardon"
     },
     {
-      "id": "marry-in-haste",
-      "puzzle": "<div>MARRY</div><div>━━━━</div><div>HASTE</div>",
-      "answer": "Marry in haste"
+      "id": "under-arrest",
+      "puzzle": "<span class=\"dg-strike\">arrest</span> YOU",
+      "answer": "Under arrest"
     },
     {
-      "id": "step-by-step-by-step",
-      "puzzle": "<div>STEP</div><div>STEP</div><div>STEP</div>",
-      "answer": "Step by step by step"
+      "id": "nine-lives",
+      "puzzle": "LIFE LIFE LIFE LIFE LIFE LIFE LIFE LIFE LIFE",
+      "answer": "Nine lives"
     },
     {
-      "id": "ice-cubed-3",
-      "puzzle": "<div>ICE</div><div>3</div>",
-      "answer": "Ice cubed (3)"
+      "id": "out-of-the-frying-pan-into-the-fire",
+      "puzzle": "<div><span class=\"dg-flame\">🔥</span></div><div>FRYING&nbsp;PAN</div>",
+      "answer": "Out of the frying pan into the fire"
     },
     {
-      "id": "blood-is-thicker-than-water",
-      "puzzle": "<div>BLOOD</div><div>━━━━</div><div>WATER</div>",
-      "answer": "Blood is thicker than water"
-    },
-    {
-      "id": "her-business-mind-your-own-business",
-      "puzzle": "HER&#39;S BUSINESS",
-      "answer": "Her business / Mind your own business"
-    },
-    {
-      "id": "small-man-big-board-man-overboard",
-      "puzzle": "<span class=\"dg-tiny\">man</span>BOARD",
-      "answer": "Small man, big board / Man overboard"
-    },
-    {
-      "id": "self-control",
-      "puzzle": "<div>CONTROL</div><div>━━━━</div><div>SELF</div>",
-      "answer": "Self-control"
+      "id": "one-door-closes-another-opens",
+      "puzzle": "🚪 🚪",
+      "answer": "One door closes, another opens"
     },
     {
       "id": "war-games",
@@ -397,134 +527,69 @@
       "answer": "War games"
     },
     {
-      "id": "triple-caution-caution-to-the-wind",
-      "puzzle": "CAUTION&nbsp;CAUTION&nbsp;CAUTION",
-      "answer": "Triple caution / Caution to the wind"
-    },
-    {
-      "id": "three-storey-building",
-      "puzzle": "<div>FLOOR&nbsp;FLOOR&nbsp;FLOOR</div>",
-      "answer": "Three-storey building"
-    },
-    {
-      "id": "shipwreck-on-the-sand-ship-aground",
-      "puzzle": "<div>SHIP</div><div>━━━━</div><div>SAND</div>",
-      "answer": "Shipwreck on the sand / Ship aground"
-    },
-    {
-      "id": "on-the-same-point-point-counter-point",
-      "puzzle": "<div>POINT</div><div>POINT</div>",
-      "answer": "On the same point / Point counter-point"
-    },
-    {
-      "id": "blowing-in-the-wind",
-      "puzzle": "<div>BLOWING</div><div>WIND</div>",
-      "answer": "Blowing in the wind"
-    },
-    {
-      "id": "rain-over-rain-it-39-s-raining-cats-and-dogs",
-      "puzzle": "<div>RAIN</div><div>━━━━</div><div>RAIN</div>",
-      "answer": "Rain over rain / It&#39;s raining cats and dogs"
-    },
-    {
-      "id": "just-between-you-and-me",
-      "puzzle": "<span class=\"dg-line\">YOU</span>&nbsp;ME",
-      "answer": "Just between you and me"
-    },
-    {
-      "id": "big-town-down-town",
-      "puzzle": "<div>TOWN&nbsp;town</div>",
-      "answer": "Big town / Down town"
-    },
-    {
-      "id": "two-men-a-plan",
-      "puzzle": "MAN MAN PLAN",
-      "answer": "Two men, a plan"
-    },
-    {
-      "id": "rung-by-rung-a-few-rungs-up",
-      "puzzle": "<div>RUNG RUNG RUNG</div>",
-      "answer": "Rung by rung / a few rungs up"
-    },
-    {
-      "id": "the-seven-falls-multiple-falls",
-      "puzzle": "<div>FALL FALL FALL FALL FALL FALL FALL</div>",
-      "answer": "The seven falls / multiple falls"
-    },
-    {
-      "id": "big-car-little-car-carpool",
-      "puzzle": "CAR&nbsp;car",
-      "answer": "Big car, little car / Carpool"
-    },
-    {
-      "id": "heaven-and-earth",
-      "puzzle": "<div>EARTH</div><div>━━━━</div><div>HEAVEN</div>",
-      "answer": "Heaven and earth"
-    },
-    {
       "id": "his-bark-is-worse-than-his-bite",
       "puzzle": "<div>BARK</div><div>━━━━</div><div>BITE</div>",
       "answer": "His bark is worse than his bite"
     },
     {
-      "id": "reverse-park",
-      "puzzle": "<span class=\"dg-rev\">PARK</span>",
-      "answer": "Reverse park"
+      "id": "star-crossed",
+      "puzzle": "<div>🌟</div><div>━━━━</div><div>🌟</div>",
+      "answer": "Star crossed"
     },
     {
-      "id": "a-force-to-be-reckoned-with",
-      "puzzle": "<div>FORCE</div><div>━━━━</div><div>RECKON</div>",
-      "answer": "A force to be reckoned with"
+      "id": "music-to-my-ears",
+      "puzzle": "🎵 + 🎵 = 🎶",
+      "answer": "Music to my ears"
     },
     {
-      "id": "all-ears-i-39-m-all-ears",
-      "puzzle": "<div>ALL</div><div>━━━━</div><div>EARS</div>",
-      "answer": "All ears / I&#39;m all ears"
+      "id": "backwards-way",
+      "puzzle": "<span class=\"dg-rev\">YAW</span>",
+      "answer": "Backwards way"
     },
     {
-      "id": "an-eye-for-an-eye",
-      "puzzle": "<div>EYE</div><div>━━━━</div><div>EYE</div>",
-      "answer": "An eye for an eye"
+      "id": "a-small-part-of-a-big-problem",
+      "puzzle": "<span class=\"dg-tiny\">a</span> BIG <span class=\"dg-tiny\">a</span>",
+      "answer": "A small part of a big problem"
     },
     {
-      "id": "troubled-waters",
-      "puzzle": "<div>TROUBLE</div><div>━━━━</div><div>WATER</div>",
-      "answer": "Troubled waters"
+      "id": "heartbreak-in-time",
+      "puzzle": "💔 ⏰",
+      "answer": "Heartbreak in time"
     },
     {
-      "id": "star-crossed-star-above-star",
-      "puzzle": "<div>STAR</div><div>━━━━</div><div>STAR</div>",
-      "answer": "Star-crossed / Star above star"
+      "id": "safety-net",
+      "puzzle": "<span class=\"dg-line\">SAFETY</span>",
+      "answer": "Safety net"
     },
     {
-      "id": "cry-out-loud",
-      "puzzle": "<div>CRY OUT</div>",
-      "answer": "Cry out loud"
+      "id": "sunrise",
+      "puzzle": "<div>SUN</div><div>━━━━</div><div>RISE</div>",
+      "answer": "Sunrise"
     },
     {
-      "id": "the-pot-calling-the-kettle",
-      "puzzle": "<div>POT KETTLE</div>",
-      "answer": "The pot calling the kettle"
+      "id": "moonlight",
+      "puzzle": "🌙 LIGHT",
+      "answer": "Moonlight"
     },
     {
-      "id": "all-nighter-all-through-the-night",
-      "puzzle": "<div>ALL</div><div>━━━━</div><div>NIGHT</div>",
-      "answer": "All-nighter / All through the night"
+      "id": "cream-no-ice-i-scream-for-ice-cream",
+      "puzzle": "<span class=\"dg-strike\">ICE</span> CREAM",
+      "answer": "Cream — no ice / I scream for ice cream"
     },
     {
-      "id": "no-smoke-without-fire",
-      "puzzle": "<div>FIRE</div><div>━━━━</div><div>SMOKE</div>",
-      "answer": "No smoke without fire"
+      "id": "double-ring-two-rings",
+      "puzzle": "💍 💍",
+      "answer": "Double ring / Two rings"
     },
     {
-      "id": "sleeping-on-top-sleep-in",
-      "puzzle": "<div>SLEEP</div><div>━━━━</div><div>━━━━</div>",
-      "answer": "Sleeping on top / Sleep in"
+      "id": "generation-gap",
+      "puzzle": "<span style=\"letter-spacing:1em\">GAP</span>",
+      "answer": "Generation gap"
     },
     {
-      "id": "eggbeater-beat-the-eggs",
-      "puzzle": "BEAT&nbsp;EGG&nbsp;EGG",
-      "answer": "Eggbeater / Beat the eggs"
+      "id": "from-big-to-small",
+      "puzzle": "<span class=\"dg-strike\">BIG</span><span class=\"dg-tiny\">small</span>",
+      "answer": "From big to small"
     }
   ]
 }
